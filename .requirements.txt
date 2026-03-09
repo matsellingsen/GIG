@@ -1,0 +1,14 @@
+# Core numeric/runtime
+numpy
+
+# HF model download + tokenizer/model loading
+huggingface_hub
+transformers
+
+# OpenVINO conversion + quantization toolchain
+openvino
+optimum-intel
+nncf
+
+# ONNX Runtime (OpenVINO execution provider build)
+onnxruntime-openvino
