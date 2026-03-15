@@ -1,0 +1,1 @@
+"""Agent that ensures OWL 2 syntax."""
