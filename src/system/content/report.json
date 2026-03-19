@@ -1,0 +1,21 @@
+{
+  "run_at": "2026-03-19T14:27:09.050996+00:00",
+  "content_root": "C:\\Users\\matse\\sens-website-hugo\\content",
+  "pages_total": 39,
+  "chunks_total": 61,
+  "languages": {
+    "en": 39
+  },
+  "page_types": {
+    "marketing": 6,
+    "publication": 4,
+    "general": 1,
+    "support": 28
+  },
+  "chunk_max_tokens": 700,
+  "quality": {
+    "pages_with_shortcode_residue": 0,
+    "pages_with_html_residue": 0,
+    "pages_with_boilerplate_removed": 18
+  }
+}

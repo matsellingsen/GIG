@@ -1,0 +1,133 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "owl2-output-schema-v1",
+  "title": "OWL 2 Functional Syntax Output Envelope (v1)",
+  "description": "Strict output contract for grammar-constrained decoding. TBox axioms belong in ontology; ABox axioms belong in instances.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "base_iri",
+    "prefixes",
+    "ontology",
+    "instances"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "owl2fs-v1"
+    },
+    "base_iri": {
+      "$ref": "#/$defs/iriString"
+    },
+    "prefixes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/prefixDecl"
+      },
+      "uniqueItems": true
+    },
+    "ontology": {
+      "type": "array",
+      "description": "TBox axioms only.",
+      "items": {
+        "$ref": "#/$defs/tboxAxiom"
+      }
+    },
+    "instances": {
+      "type": "array",
+      "description": "ABox axioms only.",
+      "items": {
+        "$ref": "#/$defs/aboxAxiom"
+      }
+    }
+  },
+  "$defs": {
+    "iriString": {
+      "type": "string",
+      "pattern": "^(https?://[^\\s<>\"{}|^`]+|urn:[^\\s<>\"{}|^`]+)$"
+    },
+    "prefixedName": {
+      "type": "string",
+      "description": "QName-like token such as ex:Person",
+      "pattern": "^[A-Za-z_][A-Za-z0-9_-]*:[A-Za-z_][A-Za-z0-9_.-]*$"
+    },
+    "iriRefOrQName": {
+      "type": "string",
+      "description": "Either <full-iri> or prefix:LocalName",
+      "pattern": "^(<[^<>\\s]+>|[A-Za-z_][A-Za-z0-9_-]*:[A-Za-z_][A-Za-z0-9_.-]*)$"
+    },
+    "prefixDecl": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "prefix",
+        "iri"
+      ],
+      "properties": {
+        "prefix": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9_-]*$"
+        },
+        "iri": {
+          "$ref": "#/$defs/iriString"
+        }
+      }
+    },
+    "classExpr": {
+      "type": "string",
+      "description": "Restricted v1 class expression: named class or ObjectIntersectionOf(named ...).",
+      "pattern": "^([A-Za-z_][A-Za-z0-9_-]*:[A-Za-z_][A-Za-z0-9_.-]*|<[^<>\\s]+>|ObjectIntersectionOf\\((([A-Za-z_][A-Za-z0-9_-]*:[A-Za-z_][A-Za-z0-9_.-]*|<[^<>\\s]+>)(\\s+|\\)))+)$"
+    },
+    "literal": {
+      "type": "string",
+      "description": "Literal in v1: quoted string optionally followed by ^^xsd:string|xsd:integer|xsd:boolean.",
+      "pattern": "^\"([^\"\\\\]|\\\\.)*\"(\\^\\^(xsd:string|xsd:integer|xsd:boolean))?$"
+    },
+    "tboxAxiom": {
+      "type": "string",
+      "description": "Restricted TBox forms allowed in v1.",
+      "oneOf": [
+        {
+          "pattern": "^Declaration\\(Class\\((<[^<>\\s]+>|[A-Za-z_][A-Za-z0-9_-]*:[A-Za-z_][A-Za-z0-9_.-]*)\\)\\)$"
+        },
+        {
+          "pattern": "^Declaration\\(ObjectProperty\\((<[^<>\\s]+>|[A-Za-z_][A-Za-z0-9_-]*:[A-Za-z_][A-Za-z0-9_.-]*)\\)\\)$"
+        },
+        {
+          "pattern": "^Declaration\\(DataProperty\\((<[^<>\\s]+>|[A-Za-z_][A-Za-z0-9_-]*:[A-Za-z_][A-Za-z0-9_.-]*)\\)\\)$"
+        },
+        {
+          "pattern": "^SubClassOf\\((.+)\\s+(.+)\\)$"
+        },
+        {
+          "pattern": "^EquivalentClasses\\((.+)\\s+(.+)\\)$"
+        },
+        {
+          "pattern": "^Domain\\((<[^<>\\s]+>|[A-Za-z_][A-Za-z0-9_-]*:[A-Za-z_][A-Za-z0-9_.-]*)\\s+(.+)\\)$"
+        },
+        {
+          "pattern": "^Range\\((<[^<>\\s]+>|[A-Za-z_][A-Za-z0-9_-]*:[A-Za-z_][A-Za-z0-9_.-]*)\\s+(.+)\\)$"
+        }
+      ]
+    },
+    "aboxAxiom": {
+      "type": "string",
+      "description": "Restricted ABox forms allowed in v1.",
+      "oneOf": [
+        {
+          "pattern": "^Declaration\\(NamedIndividual\\((<[^<>\\s]+>|[A-Za-z_][A-Za-z0-9_-]*:[A-Za-z_][A-Za-z0-9_.-]*)\\)\\)$"
+        },
+        {
+          "pattern": "^ClassAssertion\\((.+)\\s+(<[^<>\\s]+>|[A-Za-z_][A-Za-z0-9_-]*:[A-Za-z_][A-Za-z0-9_.-]*)\\)$"
+        },
+        {
+          "pattern": "^ObjectPropertyAssertion\\((<[^<>\\s]+>|[A-Za-z_][A-Za-z0-9_-]*:[A-Za-z_][A-Za-z0-9_.-]*)\\s+(<[^<>\\s]+>|[A-Za-z_][A-Za-z0-9_-]*:[A-Za-z_][A-Za-z0-9_.-]*)\\s+(<[^<>\\s]+>|[A-Za-z_][A-Za-z0-9_-]*:[A-Za-z_][A-Za-z0-9_.-]*)\\)$"
+        },
+        {
+          "pattern": "^DataPropertyAssertion\\((<[^<>\\s]+>|[A-Za-z_][A-Za-z0-9_-]*:[A-Za-z_][A-Za-z0-9_.-]*)\\s+(<[^<>\\s]+>|[A-Za-z_][A-Za-z0-9_-]*:[A-Za-z_][A-Za-z0-9_.-]*)\\s+\"([^\"\\\\]|\\\\.)*\"(\\^\\^(xsd:string|xsd:integer|xsd:boolean))?\\)$"
+        }
+      ]
+    }
+  }
+}

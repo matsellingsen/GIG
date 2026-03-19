@@ -1,0 +1,177 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "owl2-output-schema-v2",
+  "title": "OWL 2 Structured Output Envelope (v2)",
+  "description": "Structured OWL extraction contract designed for hard constrained decoding. Axioms are typed JSON objects, not free-form strings.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "base_iri",
+    "prefixes",
+    "ontology",
+    "instances"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "owl2fs-v2"
+    },
+    "base_iri": {
+      "$ref": "#/$defs/iriString"
+    },
+    "prefixes": {
+      "type": "array",
+      "description": "Reserved in v2. Must be an empty array.",
+      "maxItems": 0
+    },
+    "ontology": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/ontologyAxiom"
+      }
+    },
+    "instances": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/instanceAxiom"
+      }
+    }
+  },
+  "$defs": {
+    "iriString": {
+      "type": "string",
+      "pattern": "^(https?://[^\\s<>\"{}|^`]+|urn:[^\\s<>\"{}|^`]+)$"
+    },
+    "localName": {
+      "type": "string",
+      "description": "Local identifier rendered under base_iri by the OWL renderer.",
+      "pattern": "^[A-Za-z][A-Za-z0-9_]*$"
+    },
+    "datatypeId": {
+      "type": "string",
+      "enum": [
+        "xsd:string",
+        "xsd:integer",
+        "xsd:boolean"
+      ]
+    },
+    "declareClass": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "id"],
+      "properties": {
+        "type": { "const": "DeclareClass" },
+        "id": { "$ref": "#/$defs/localName" }
+      }
+    },
+    "declareObjectProperty": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "id"],
+      "properties": {
+        "type": { "const": "DeclareObjectProperty" },
+        "id": { "$ref": "#/$defs/localName" }
+      }
+    },
+    "declareDataProperty": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "id"],
+      "properties": {
+        "type": { "const": "DeclareDataProperty" },
+        "id": { "$ref": "#/$defs/localName" }
+      }
+    },
+    "subClassOf": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "subclass", "superclass"],
+      "properties": {
+        "type": { "const": "SubClassOf" },
+        "subclass": { "$ref": "#/$defs/localName" },
+        "superclass": { "$ref": "#/$defs/localName" }
+      }
+    },
+    "objectPropertyDomain": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "property", "class"],
+      "properties": {
+        "type": { "const": "ObjectPropertyDomain" },
+        "property": { "$ref": "#/$defs/localName" },
+        "class": { "$ref": "#/$defs/localName" }
+      }
+    },
+    "objectPropertyRange": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "property", "class"],
+      "properties": {
+        "type": { "const": "ObjectPropertyRange" },
+        "property": { "$ref": "#/$defs/localName" },
+        "class": { "$ref": "#/$defs/localName" }
+      }
+    },
+    "declareIndividual": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "id"],
+      "properties": {
+        "type": { "const": "DeclareIndividual" },
+        "id": { "$ref": "#/$defs/localName" }
+      }
+    },
+    "classAssertion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "individual", "class"],
+      "properties": {
+        "type": { "const": "ClassAssertion" },
+        "individual": { "$ref": "#/$defs/localName" },
+        "class": { "$ref": "#/$defs/localName" }
+      }
+    },
+    "objectPropertyAssertion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "subject", "property", "object"],
+      "properties": {
+        "type": { "const": "ObjectPropertyAssertion" },
+        "subject": { "$ref": "#/$defs/localName" },
+        "property": { "$ref": "#/$defs/localName" },
+        "object": { "$ref": "#/$defs/localName" }
+      }
+    },
+    "dataPropertyAssertion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "subject", "property", "value", "datatype"],
+      "properties": {
+        "type": { "const": "DataPropertyAssertion" },
+        "subject": { "$ref": "#/$defs/localName" },
+        "property": { "$ref": "#/$defs/localName" },
+        "value": { "type": "string" },
+        "datatype": { "$ref": "#/$defs/datatypeId" }
+      }
+    },
+    "ontologyAxiom": {
+      "oneOf": [
+        { "$ref": "#/$defs/declareClass" },
+        { "$ref": "#/$defs/declareObjectProperty" },
+        { "$ref": "#/$defs/declareDataProperty" },
+        { "$ref": "#/$defs/subClassOf" },
+        { "$ref": "#/$defs/objectPropertyDomain" },
+        { "$ref": "#/$defs/objectPropertyRange" }
+      ]
+    },
+    "instanceAxiom": {
+      "oneOf": [
+        { "$ref": "#/$defs/declareIndividual" },
+        { "$ref": "#/$defs/classAssertion" },
+        { "$ref": "#/$defs/objectPropertyAssertion" },
+        { "$ref": "#/$defs/dataPropertyAssertion" }
+      ]
+    }
+  }
+}

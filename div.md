@@ -1,0 +1,18 @@
+#### line to deactivate hardlink for uv
+export UV_LINK_MODE=copy
+
+
+#### Tool-enabled function-calling format (PHI-4-mini-instruct)
+This format is used when the user wants the model to provide function calls based on the given tools. The user should provide the available tools in the system prompt, wrapped by <|tool|> and <|/tool|> tokens. The tools should be specified in JSON format, using a JSON dump structure. Example:
+
+<|system|>You are a helpful assistant with some tools.<|tool|>[{"name": "get_weather_updates", "description": "Fetches weather updates for a given city using the RapidAPI Weather API.", "parameters": {"city": {"description": "The name of the city for which to retrieve weather information.", "type": "str", "default": "London"}}}]<|/tool|><|end|><|user|>What is the weather like in Paris today?<|end|><|assistant|>
+
+
+{
+  "schema_version": "owl2fs-v1",
+  "base_iri": "http://example.com/sens-motion",
+  "prefixes": [],
+  "ontology": [
+    "owl:Thing a owl:Class; rdfs:label 'Sens Motion'; rdfs:comment 'An integrated system for collecting physical activity data from groups of people.'; owl:equivalentClass [ a owl:Restriction; owl:onProperty [ a owl:Restriction; owl:propertyChainPattern [ a owl:ComplementOf ; owl:onProperty [ a owl:Restriction; owl:propertyChainPattern [ a owl:ComplementOf ; owl:onProperty [ a owl:Restriction; owl:propertyChainPattern [ a owl:ComplementOf ; owl:onProperty [ a owl:Restriction; owl:propertyChainPattern [ a owl:ComplementOf ; owl:onProperty [ a owl:Restriction; owl:propertyChainPattern [ a owl:ComplementOf ; owl:onProperty [ a owl:Restriction; owl:propertyChainPattern [ a owl:ComplementOf ; owl:onProperty [ a owl:Restriction; owl:propertyChainPattern [ a owl:ComplementOf ; owl:onProperty [ a owl:Restriction; owl:propertyChainPattern [ a owl:ComplementOf ; owl:onProperty [ a owl:Restriction; owl:propertyChainPattern [ a owl:ComplementOf ; owl:onProperty [
+
+{"schema_version": "owl2fs-v2", "base_iri": "http://example.com/SENSMotion", "prefixes": [], "ontology": [], "instances": [{"type": "DeclareClass,DeclareObjectProperty,DeclareDataProperty,SubClassOf,ObjectPropertyDomain,ObjectPropertyRange,ClassAssertion,ObjectPropertyAssertion,DataPropertyAssertion,DeclareIndividual,DeclareObjectProperty,DeclareDataProperty,SubClassOf,ObjectPropertyDomain,ObjectPropertyRange,ClassAssertion,ObjectPropertyAssertion,DataPropertyAssertion,DeclareIndividual,DeclareObjectProperty,DeclareDataProperty,SubClassOf,ObjectPropertyDomain,ObjectPropertyRange,ClassAssertion,ObjectPropertyAssertion,DataPropertyAssertion,DeclareIndividual,DeclareObjectProperty,DeclareDataProperty,SubClassOf,ObjectPropertyDomain,ObjectPropertyRange,ClassAssertion,ObjectPropertyAssertion,DataPropertyAssertion,DeclareIndividual,DeclareObjectProperty,DeclareDataProperty,SubClassOf,ObjectPropertyDomain,ObjectPropertyRange,ClassAssertion,ObjectPropertyAssertion,DataPropertyAssertion,DeclareIndividual,DeclareObjectProperty,DeclareDataProperty,SubClassOf,ObjectPropertyDomain,ObjectPropertyRange,ClassAssertion,ObjectPropertyAssertion,DataPropertyAssertion,DeclareIndividual,DeclareObjectProperty,DeclareDataProperty,SubClassOf,ObjectPropertyDomain,ObjectPropertyRange,ClassAssertion,ObjectPropertyAssertion,DataPropertyAssertion,DeclareIndividual,DeclareObjectProperty,DeclareDataProperty,SubClassOf,ObjectPropertyDomain,ObjectPropertyRange,ClassAssertion,ObjectPropertyAssertion,DataPropertyAssertion,DeclareIndividual,DeclareObjectProperty,DeclareDataProperty,

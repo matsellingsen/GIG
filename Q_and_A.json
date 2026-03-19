@@ -1,0 +1,162 @@
+[
+  {
+    "id": 1,
+    "question": "What is the SENS motion system designed for?",
+    "answer": "It is an integrated system for collecting physical activity data from groups of people, consisting of a wireless sensor and cloud infrastructure, especially used in healthcare and research.",
+    "page_id": "_index.en",
+    "type": "what",
+    "difficulty": "simple"
+  },
+  {
+    "id": 2,
+    "question": "What specific physical activity metrics does the SENS motion system measure?",
+    "answer": "It measures Rest time, Standing time, Walking time, Running/High Intensity Movement time, Cycling time, Steps, Intensity, and Sleep time and quality.",
+    "page_id": "_index.en",
+    "type": "what",
+    "difficulty": "hard"
+  },
+  {
+    "id": 3,
+    "question": "What does the SENS motion Pilot Package for healthcare wards include?",
+    "answer": "It includes use of SENS motion for 3 months with up to 120 patients for a price of 19.995 DKK, including support.",
+    "page_id": "healthcare/_index.en",
+    "type": "what",
+    "difficulty": "simple"
+  },
+  {
+    "id": 4,
+    "question": "How is the SENS motion delivered to the patient in a hospital setting?",
+    "answer": "A discrete sensor patch is placed on the patient's thigh at admission, which records activity. A bedside tablet allows the patient to follow goals and progress.",
+    "page_id": "healthcare/_index.en",
+    "type": "how",
+    "difficulty": "simple"
+  },
+  {
+    "id": 5,
+    "question": "What is the objective of the VIA 11 study using SENS motion?",
+    "answer": "The study examines 11-year-old children to gain insight into how upbringing and hereditary conditions affect mental health, monitoring activity and sleep patterns to find early warning indicators.",
+    "page_id": "research/_index.en",
+    "type": "what",
+    "difficulty": "hard"
+  },
+  {
+    "id": 6,
+    "question": "How can you monitor a specific sensor's status on the front page of the app?",
+    "answer": "By assigning it as a 'favorite sensor' within the app settings (Accessing the list of nearby sensors via the ADVANCED button and selecting it).",
+    "page_id": "support/app-smartphone/add-favorite-sensor/index.en",
+    "type": "how",
+    "difficulty": "simple"
+  },
+  {
+    "id": 7,
+    "question": "How does the data transfer process from sensor to server work?",
+    "answer": "Data is transferred automatically via the SENS motion app via Bluetooth when the app is open and running on a device within 10-15 meters of the sensor.",
+    "page_id": "support/app-smartphone/transferring-data-from-sensor/index.en",
+    "type": "how",
+    "difficulty": "hard"
+  },
+  {
+    "id": 8,
+    "question": "How should the sensor be oriented when applied to the thigh?",
+    "answer": "The sensor should be placed on the outer side of the thigh with the round part of the sensor facing DOWN towards the knee.",
+    "page_id": "support/sensor-patch/assembly-and-position-of-sensor-and-patch/index.en",
+    "type": "how",
+    "difficulty": "simple"
+  },
+  {
+    "id": 9,
+    "question": "How frequently is it recommended to change the SENS motion patch?",
+    "answer": "It is recommended to replace the patch within 14 days, or immediately if redness/irritation occurs or if it falls off.",
+    "page_id": "support/sensor-patch/change-of-patch/index.en",
+    "type": "how",
+    "difficulty": "simple"
+  },
+  {
+    "id": 10,
+    "question": "How are the accelerometer axes defined relative to the user when the sensor is on the thigh?",
+    "answer": "The Z-axis points inwards (medial). The Y-axis represents forward motion. The X-axis represents vertical motion (along the leg).",
+    "page_id": "support/sensor-patch/description-of-accelerometer/index.en",
+    "type": "how",
+    "difficulty": "hard"
+  },
+  {
+    "id": 11,
+    "question": "What characterizes the difference between the 'Low activity' and 'High activity' patches?",
+    "answer": "The Low activity patch (Type B) has a transparent edge, is waterproof/breathable, and good for seniors. The High activity patch (Type C) has a white non-woven border, is more breathable, and better for children or high activity.",
+    "page_id": "support/sensor-patch/two-types-of-patches-for-sens-motion/index.en",
+    "type": "what",
+    "difficulty": "hard"
+  },
+  {
+    "id": 12,
+    "question": "What do the green, black, and orange indicators mean when selecting a sensor in the web app?",
+    "answer": "Green dot (grey person) means 'ready to use'. Black dot (grey person) means 'sensor turned off'. Green dot (orange person) means 'sensor already in use'.",
+    "page_id": "support/web-application/add-a-participant/index.en",
+    "type": "what",
+    "difficulty": "hard"
+  },
+  {
+    "id": 13,
+    "question": "What is the estimated battery life of a SENS motion sensor?",
+    "answer": "About 120-130 days when activated, and up to 2 years in off mode.",
+    "page_id": "support/web-application/battery-life/index.en",
+    "type": "what",
+    "difficulty": "simple"
+  },
+  {
+    "id": 14,
+    "question": "What file formats can you export activity data in from the web application?",
+    "answer": "You can export data as summarised CSV files, visual PDF reports, or raw accelerometer data in Binary (BIN/HEX) format.",
+    "page_id": "support/web-application/data-export/index.en",
+    "type": "what",
+    "difficulty": "simple"
+  },
+  {
+    "id": 15,
+    "question": "What are the nine activity categories used by the SENS motion algorithm?",
+    "answer": "No data, Lying/Sitting Rest, Lying/Sitting Movement, Standing, Sporadic Walking, Walking, Moderate Intensity, High Intensity, and Cycling.",
+    "page_id": "support/web-application/description-of-activity-categories/index.en",
+    "type": "what",
+    "difficulty": "hard"
+  },
+  {
+    "id": 16,
+    "question": "How are the 'Steps', 'Steps2', and 'Steps3' categories differentiated in the exported data?",
+    "answer": "'Steps' are frequency-based from continuous walking/training. 'Steps2' are from sporadic walking (estimated as 2 steps per 5s interval). 'Steps3' are from low-intensity walking detected via frequency analysis.",
+    "page_id": "support/web-application/description-of-activity-categories/index.en",
+    "type": "how",
+    "difficulty": "hard"
+  },
+  {
+    "id": 17,
+    "question": "Where is the data collected by SENS motion stored?",
+    "answer": "Data is stored locally at the Amazon Web Services (AWS) data center in Frankfurt, Germany.",
+    "page_id": "privacy-policy/_index.en",
+    "type": "what",
+    "difficulty": "simple"
+  },
+  {
+    "id": 18,
+    "question": "How is raw accelerometer data formatted in the binary export?",
+    "answer": "It is formatted as: 6 bytes for Unix timestamp, followed by 2 bytes each for X, Y, and Z axes (signed 16-bit integers), representing a range of -4G to +4G with 10-bit resolution.",
+    "page_id": "support/web-application/data-export/index.en",
+    "type": "how",
+    "difficulty": "hard"
+  },
+  {
+    "id": 19,
+    "question": "How did the implementation of SENS motion affect patients at Bispebjerg Hospital?",
+    "answer": "In a study, it increased the time out of bed for elderly hospitalized patients by 51 minutes per day.",
+    "page_id": "healthcare/_index.en",
+    "type": "how",
+    "difficulty": "hard"
+  },
+  {
+    "id": 20,
+    "question": "How do you prepare the skin before attaching the sensor patch?",
+    "answer": "You must clean the skin where the patch should be placed using a cleaning wipe.",
+    "page_id": "support/sensor-patch/assembly-and-position-of-sensor-and-patch/index.en",
+    "type": "how",
+    "difficulty": "simple"
+  }
+]
