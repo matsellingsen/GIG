@@ -1,6 +1,7 @@
 from backends import load_backend
 from agent_loop.agents.simple_agent import SimpleAgent
-from agent_loop.orchestrator import Orchestrator
+from agent_loop.orchestrator import Orchestrator_v1
+from agent_loop.orchestrator_v2 import Orchestrator_v2
 from tools.load_prompt import load_prompt
 from tools.load_chunks import load_chunks
 from tools.save_result import save_result
@@ -9,7 +10,7 @@ import argparse
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--backend", default="phi-openvino") #switch to "phi-openvino" to use IGPU / NPU with OpenVINO instead of ONNX Runtime on CPU.
+    parser.add_argument("--backend", default="phi-npu-openvino") # decides which backend to use here.
     args = parser.parse_args()
 
     backend = load_backend(name=args.backend)
@@ -18,22 +19,26 @@ def main():
     agent = SimpleAgent(backend=backend)
     print("Initialized SimpleAgent.")
 
-    orchestrator = Orchestrator(agent, model_type=args.backend)
-    print("Initialized Orchestrator.")
+    orchestrator = Orchestrator_v2(agent, model_type=args.backend)
+    # get last two characters of orchestrator class name to determine version for metadata
+    
+    orchestrator_type = orchestrator.__class__.__name__[-2:]
+    print(f"Initialized Orchestrator_{orchestrator_type}.")
 
     #system_prompt = load_prompt("C:\\Users\\matse\\gig\\src\\system\\prompts\\system\\simple_ontology_construct.txt") 
     #system_prompt = load_prompt("C:\\Users\\matse\\gig\\src\\system\\prompts\\system\\hard-constrained-ontology_construct_v2.txt")
     #source_text = load_source(file_path="C:\\Users\\matse\\sens-website-hugo\\content\\about\\_index.en.md") # change to actual file-path later.
     chunks = load_chunks("C:\\Users\\matse\\gig\\src\\system\\content\\chunks.jsonl")
+    run_chunks = 10
     print("Loaded system prompt and chunked text.")
 
-    pipeline_result, prompts = orchestrator.run_pipeline(chunks=chunks)
+    pipeline_result, prompts = orchestrator.run_pipeline(chunks=chunks, run_chunks=run_chunks) #run_chunks limits how many chunks we process for testing. Remove this limit for full run.
     print("Pipeline execution completed.")
-    print("Final structured ontology result:")
-    print(pipeline_result)
+    #print("Final structured ontology result:")
+    #print(pipeline_result)
 
     # save the result with metadata
-    save_result(pipeline_result, model_name=args.backend, pipeline_info={"num_chunks": len(chunks), "source": "chunks.jsonl", "prompts": prompts})
+    save_result(pipeline_result, model_name=args.backend, pipeline_info={"num_chunks": len(chunks), "chunks_processed": run_chunks, "orchestrator_type": orchestrator_type, "source": "chunks.jsonl", "prompts": prompts})
 
 
     #result, full_prompt = orchestrator.run_loop(system_prompt=system_prompt, source_text=chunks[1]["chunk_text_clean"])

@@ -1,6 +1,6 @@
 def structure_prompt(model_type: str, system_prompt: str, user_input: str) -> str:
     """Compose the final prompt for the agent based on the model type."""
-    if model_type == "phi-onnx" or model_type == "phi-openvino":
+    if model_type == "phi-onnx" or model_type == "phi-openvino" or model_type == "phi-npu-openvino":
         # For PHI-4-Mini, we use a simple format with special tokens
         prompt = prompt = f"<|system|>{system_prompt}<|end|><|user|>{user_input}<|end|><|assistant|>"
 

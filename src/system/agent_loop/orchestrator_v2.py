@@ -4,7 +4,7 @@ from tools.load_prompt import load_prompt
 import json
 import re
 
-class Orchestrator_v1:
+class Orchestrator_v2:
     """
     Orchestrator for the 3-step ontology extraction pipeline:
     1. Class Extractor (TBox)
@@ -37,21 +37,39 @@ class Orchestrator_v1:
     def run_pipeline(self, chunks, run_chunks=3) -> tuple:
         """
         Runs the full 3-agent pipeline over a list of TEXT chunks.
+        IMPLEMENTATION: STATELESS (Isolated Chunks)
+        Each chunk is processed independently. Classes/Axioms found in previous chunks 
+        are NOT fed into the next chunk to prevent Model Collapse/Hallucination.
+        Results are aggregated at the end.
         """
-        print(f"Starting pipeline with {len(chunks)} chunks...")
+        print(f"Starting pipeline with {len(chunks)} chunks (Mode: Stateless/Isolated)...")
 
         for i, chunk in enumerate(chunks):
             print(f"\n--- Processing Chunk {i+1}/{len(chunks)} ---")
 
             chunk_text = chunk["chunk_text_clean"]  # Use the cleaned text for processing
-            # 1. Class Extraction
-            self._run_class_extractor(chunk_text)
             
-            # 2. Axiom Extraction (Schema Building)
-            self._run_axiom_extractor(chunk_text)
+            # 1. Class Extraction (Local)
+            # Returns a list of dicts: [{"class": "Name", "desc": "..."}]
+            local_classes = self._run_class_extractor(chunk_text)
             
-            # 3. Instance Population
-            self._run_instance_populator(chunk_text)
+            # Update Global KB with new findings (for final output), but DON'T feed back to prompt yet
+            if local_classes:
+               for item in local_classes:
+                   if list(item.keys()) == ["class", "desc"]: # Basic validation
+                       cls_name = item["class"]
+                       self.kb["classes"][cls_name] = item["desc"]
+                
+            # 2. Axiom Extraction (Local)
+            # Uses ONLY the classes found in THIS chunk + Seed Classes (to ground it)
+            local_axioms = self._run_axiom_extractor(chunk_text, local_classes)
+            
+            if local_axioms:
+                self.kb["axioms"].extend(local_axioms)
+
+            # 3. Instance Population (Local)
+            # Uses ONLY the classes and axioms found in THIS chunk
+            self._run_instance_populator(chunk_text, local_classes, local_axioms)
 
             if i == run_chunks - 1:
                 break  # For testing, we run only the first chunk through the pipeline. Remove this line for full run.
@@ -91,138 +109,112 @@ class Orchestrator_v1:
                 continue
         return None
 
-    def _run_class_extractor(self, text: str):
+    def _run_class_extractor(self, text: str) -> list:
         """
         Agent 1: Extracts potential classes from the text.
-        Updates self.kb['classes'].
+        RETURNS local_classes list found in this chunk.
+        Does NOT look at global history to prevent drift.
         """
-        # Format existing classes as "Name: Description" for the prompt
-        existing_classes_str = "\n".join([f"- {k}: {v}" for k, v in self.kb["classes"].items()])
+        # OPTION: We can pass Seed Classes if we want consistency, or nothing.
+        # Let's pass Seed Classes so it doesn't reinvent "Person" every time, but NOT the full history.
+        seed_classes_str = "Seed Classes (for reference only):\n- Person\n- Organization\n- Location\n- Event\n- PhysicalObject"
         
         system_prompt = load_prompt("C:\\Users\\matse\\gig\\src\\system\\prompts\\system\\agents\\class-extractor.txt")
         
         user_msg = (
             f"Source Text:\n{text}\n\n"
-            f"Existing Classes:\n{existing_classes_str}\n\n"
-            "Goal: Extract NEW classes found in this text. Return a JSON list of objects: [{\"class\": \"Name\", \"desc\": \"Description\"}]."
+            f"{seed_classes_str}\n\n"
+            "Goal: Extract classes found in this text. If a concept matches a Seed Class, use that name. Return a JSON list: [{\"class\": \"Name\", \"desc\": \"Description\"}]."
         )
 
         full_prompt = structure_prompt(self.model_type, system_prompt, user_msg)
         self.prompts.append(full_prompt) #store the prompt for debugging and analysis.
-        print("Running Class Extractor with prompt:")
-        print(full_prompt)
-        print("-------------")
+        print("Running Class Extractor (Stateless)...")
+        # print(full_prompt) 
         response = self.agent.run(full_prompt)
 
-        print("Raw response from Class Extractor:")
-        print(response)
-        print("-------------")
+        # print("Raw response from Class Extractor:")
+        # print(response)
         
         # Robust parsing using last valid list
         new_class_list = self._extract_last_json(response)
         
         if new_class_list:
-            count = 0
-            for item in new_class_list:
-                # Validate item structure
-                if isinstance(item, dict) and "class" in item and "desc" in item:
-                    cls_name = item["class"]
-                    cls_desc = item["desc"]
-                    
-                    # Only add if not already present
-                    if cls_name not in self.kb["classes"]:
-                        self.kb["classes"][cls_name] = cls_desc
-                        count += 1
-                        
-            print(f"[Agent 1] Found {count} new classes.")
+            print(f"[Agent 1] Found {len(new_class_list)} classes in this chunk.")
+            return new_class_list
         else:
             print("[Agent 1] No valid JSON list found in response.")
+            return []
 
 
-    def _run_axiom_extractor(self, text: str):
+    def _run_axiom_extractor(self, text: str, local_classes: list) -> list:
         """
-        Agent 2: Extracts schema axioms (SubClassOf, properties).
-        Uses the FULL TEXT and the Known Classes.
-        Updates self.kb['axioms'].
+        Agent 2: Extracts schema axioms.
+        Uses ONLY the local_classes found in this chunk.
         """
-        # Pass just the names to keep context smaller, or names+descriptions if needed.
-        # Ideally, descriptions help reasoning about relationships.
-        known_classes_str = "\n".join([f"- {k}: {v}" for k, v in self.kb["classes"].items()])
+        if not local_classes:
+            print("[Agent 2] No local classes to process.")
+            return []
+
+        # Convert list of dicts to string for prompt
+        # We assume local_classes is [{"class": "Name", "desc": "Desc"}, ...]
+        classes_str = "\n".join([f"- {item.get('class', 'Unknown')}: {item.get('desc', '')}" for item in local_classes])
         
-        if not self.kb["classes"]:
-            return  
-
         system_prompt = load_prompt("C:\\Users\\matse\\gig\\src\\system\\prompts\\system\\agents\\axiom-extractor.txt")
 
         user_msg = (
             f"Source Text:\n{text}\n\n"
-            f"Known Classes:\n{known_classes_str}\n\n"
-            "Goal: Extract 1) Subclass hierarchies, 2) Object properties (relationships), and 3) Data properties (attributes) for the Known Classes."
+            f"Relevant Classes:\n{classes_str}\n\n"
+            "Goal: Extract Subclass hierarchies and Object/Data properties for the Relevant Classes."
         )
 
         full_prompt = structure_prompt(self.model_type, system_prompt, user_msg)
-        self.prompts.append(full_prompt) #store the prompt for debugging and analysis.
-        print("Running Axiom Extractor with prompt:")
-        print(full_prompt)
-        print("-------------")
+        self.prompts.append(full_prompt)
+        print("Running Axiom Extractor (Stateless)...")
         response = self.agent.run(full_prompt)
         
-        print("Raw response from Axiom Extractor:")
-        print(response)
-        print("-------------")
-
         # Robust parsing using last valid list
         new_data = self._extract_last_json(response)
         
         if new_data:
-            # Simple dedup based on string representation
-            start_len = len(self.kb["axioms"])
-            current_strs = {json.dumps(x, sort_keys=True) for x in self.kb["axioms"]}
-            for item in new_data:
-                s = json.dumps(item, sort_keys=True)
-                if s not in current_strs:
-                    self.kb["axioms"].append(item)
-                    current_strs.add(s)
-            print(f"[Agent 2] Added {len(self.kb['axioms']) - start_len} new axioms.")
+            print(f"[Agent 2] Found {len(new_data)} axioms in this chunk.")
+            return new_data
         else:
             print("[Agent 2] No valid JSON list found in response.")
+            return []
 
-    def _run_instance_populator(self, text: str):
+    def _run_instance_populator(self, text: str, local_classes: list, local_axioms: list):
         """
-        Agent 3: Populates instances (ABox).
-        Uses the FULL TEXT, Known Classes, and Known Axioms.
-        Updates self.kb['instances'].
+        Agent 3: Populates instances.
+        Uses ONLY the local schema (classes + axioms).
+        Updates self.kb['instances'] (Aggregation is safe).
         """
-        # Pass the rich Dict (Name -> Desc) or just names if context is tight.
-        # Descs help distinguish instance types.
-        known_classes_str = "\n".join([f"- {k}: {v}" for k, v in self.kb["classes"].items()])
+        if not local_classes:
+            return 
+
+        # Context summary
+        classes_str = "\n".join([f"- {item.get('class')}" for item in local_classes])
+        axioms_str = json.dumps(local_axioms, indent=2) if local_axioms else "[]"
         
-        # Context summary for the prompt
-        # We construct a human-readable schema block
         schema_context = (
-            f"## Classes\n{known_classes_str}\n\n"
-            f"## Axioms\n{json.dumps(self.kb['axioms'], indent=2)}"
+            f"## Classes\n{classes_str}\n\n"
+            f"## Axioms\n{axioms_str}"
         )
 
         system_prompt = load_prompt("C:\\Users\\matse\\gig\\src\\system\\prompts\\system\\agents\\instance-populator.txt")
 
         user_msg = (
             f"Source Text:\n{text}\n\n"
-            f"Ontology Schema:\n{schema_context}\n\n"
-            "Goal: Extract named individuals and assign them to the Schema Classes. Create object/data property assertions using ONLY the provided Schema properties."
+            f"Local Ontology Schema:\n{schema_context}\n\n"
+            "Goal: Extract named individuals and assign them to the Schema Classes."
         )
 
         full_prompt = structure_prompt(self.model_type, system_prompt, user_msg)
-        self.prompts.append(full_prompt) #store the prompt for debugging and analysis.
-        print("Running Instance Populator with prompt:")
-        print(full_prompt)
-        print("-------------")
+        self.prompts.append(full_prompt)
+        print("Running Instance Populator (Stateless)...")
 
         response = self.agent.run(full_prompt)
 
-        print("Raw response from Instance Populator:")
-        print(response)
-        print("-------------")
         # Robust parsing using last valid list
         new_instances = self._extract_last_json(response)
         

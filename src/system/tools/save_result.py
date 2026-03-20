@@ -21,12 +21,20 @@ def save_result(result, model_name: str, pipeline_info: dict = None) -> None:
 
     # Clean up the result if needed (e.g. if it contains raw strings instead of objects)
     # The Orchestrator guarantees a structure, but we ensure it's JSON serializable here.
-    
+    # get number of classes, axioms and instances for metadata
+    num_classes = len(result.get("ontology", {}).get("classes", []))
+    num_axioms = len(result.get("ontology", {}).get("axioms", []))
+    num_instances = len(result.get("instances", []))
+
     data_to_save = {
         "metadata": {
             "model_name": model_name,
             "timestamp": datetime.now().isoformat(),
-            "pipeline_info": pipeline_info or {}
+            "pipeline_info": pipeline_info or {},
+            "num_classes": num_classes,
+            "num_axioms": num_axioms,
+            "num_instances": num_instances
+
         },
         "ontology_tbox": result.get("ontology", {}),
         "ontology_abox": result.get("instances", [])

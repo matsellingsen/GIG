@@ -34,15 +34,6 @@ class PhiOpenVINOBackend(Backend):
 
         # See which device the model is actually on (for debugging)
         # Check where the inference request is actually running
-       
-
-        # Force static shape compilation if targeting NPU reliability
-        if device.upper() == "NPU":
-            #self.model.reshape(1, 128) # For Phi-4 Mini, we can try a longer sequence if memory allows. Adjust as needed.
-            pass
-
-        # Compile the model explicitly
-        #self.model.compile()
         try:
             # We must access the request from the underlying OVModel.
             if self.model.request:
