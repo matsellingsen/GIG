@@ -1,0 +1,1297 @@
+{
+    "metadata": {
+        "model_name": "phi-npu-openvino",
+        "timestamp": "2026-03-23T18:28:41.264497",
+        "pipeline_info": {
+            "num_chunks": 61,
+            "chunks_processed": 10,
+            "orchestrator_type": "v3",
+            "source": "chunks.jsonl",
+            "extraction_status": {
+                "chunk_index": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9
+                ],
+                "class_failed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    true
+                ],
+                "axiom_failed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "instance_failed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    true,
+                    false,
+                    true,
+                    false,
+                    true,
+                    false
+                ]
+            },
+            "prompts": {
+                "class_extraction": [
+                    "<|system|>### Role\nYou are a Class Extraction Agent.\n\n### Goal\nAnalyze the provided text to identify **new** domain classes that are not present in the \"Existing Classes\" list.\n\n### Guidelines\n1. **Reuse First**: Check if a concept is already covered by an existing class. If 'Vehicle' exists, do not create 'Car' if 'Vehicle' suffices for the abstraction level, or if 'Car' is merely a synonym.\n2. **Naming Convention**: Use **UpperCamelCase** foundation (e.g., `ClinicalTrial`, `MedicalDevice`).\n3. **Descriptions**: Provide a concise, clinical definition for each new class.\n4. **Exclusions**: Do not extract generic terms (e.g., \"Process\", \"Thing\") unless they have specific domain relevance. Do not extract proper nouns (Instances) as Classes.\n\n### key_constraint\nThe output is strictly enforced by a JSON schema. Focus on the *accuracy* and *novelty* of the class definitions.<|end|><|user|>\n                    ### Context\n                    - Person: An individual human being (e.g., patient, researcher, employee).\n- Organization: A social group acting as a single entity (e.g., company, hospital, university).\n- PhysicalObject: A tangible object (e.g., sensor, device, equipment).\n- Software: A computer program or application (e.g., app, cloud platform).\n- Event: An occurrence or activity (e.g., trial, measurement, study).\n- Location: A place or position (e.g., clinic, home, body part).\n\n                    ### Text\n                    title: Discrete Wearable Activity Sensor for Healthcare and Research\ntext: Better Treatment. Better Research\n\n## What is SENS motion®\ntitle: What is SENS motion®\n\n### System Measures\nsubtitle: System Measures\nlist: Rest time.Standing time.Walking time.Running & High Intensity Movement time.Cycling time.Steps.Intensity.Sleep time and quality\n**SENS motion®** is an integrated system for collecting physical activity data from groups of people. It consists of a wireless activity sensor that automatically transfers data to a secure cloud. It is especially well suited for use in the healthcare sector and for large research projects\n\n## SENS motion® – For Healthcare\ntitle: SENS motion® – For Healthcare\n\n### SENS motion® – For Healthcare consists of\nsubtitle: SENS motion® – For Healthcare consists of\nlist: The SENS motion activity sensor for use on patients.A patient app, with gamification feedback for motivating the patient to become more active.(Optional) Monitor display providing overview of patients.Access to reports of individual patients activity\n**SENS motion® – For Healthcare** enables the use of SENS motion® activity sensor in healthcare environments, such as hospitals or care centres. The collected activity data can be presented to the patient itself for motivational purpose, assist healthcare professionals in treatment and help prioritize their valuable time efficiently\n\n[Read More →](/en/healthcare/)\n\n## SENS motion® – For Research\ntitle: SENS motion® – For Research\n\n### SENS motion® – For Research consists of\nsubtitle: SENS motion® – For Research consists of\nlist: The SENS motion® activity sensor.Smartphone app for automatically transferring data to the secure cloud.Web-application for managing sensors, viewing or exporting data\n**SENS motion® – For Research** enables the use of SENS motion activity sensor for collecting activity data or raw accelerometer data in research projects\n\n[Read More →](/en/research/)\n\nSENS motion® – Connect\nOEM Platform for medical sensors\nDo you want to build a wireless, scalable, battery-powered medical sensor or have a business opportunity where measurement of physical data is needed?\n\n[Image: demos10 (source: /img/demos10.png)](https://www.demos10.dk/)\n[Image: icompression (source: /img/icompression.png)](https://icompression.dk/)\n[Image: ventriject (source: /img/ventriject-2.png)](https://ventriject.com/)\n\nContact us for options on OEM Cooperation\n\n                    ### Instruction\n                    Extract new classes from the text.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are a Class Extraction Agent.\n\n### Goal\nAnalyze the provided text to identify **new** domain classes that are not present in the \"Existing Classes\" list.\n\n### Guidelines\n1. **Reuse First**: Check if a concept is already covered by an existing class. If 'Vehicle' exists, do not create 'Car' if 'Vehicle' suffices for the abstraction level, or if 'Car' is merely a synonym.\n2. **Naming Convention**: Use **UpperCamelCase** foundation (e.g., `ClinicalTrial`, `MedicalDevice`).\n3. **Descriptions**: Provide a concise, clinical definition for each new class.\n4. **Exclusions**: Do not extract generic terms (e.g., \"Process\", \"Thing\") unless they have specific domain relevance. Do not extract proper nouns (Instances) as Classes.\n\n### key_constraint\nThe output is strictly enforced by a JSON schema. Focus on the *accuracy* and *novelty* of the class definitions.<|end|><|user|>\n                    ### Context\n                    - Person: An individual human being (e.g., patient, researcher, employee).\n- Organization: A social group acting as a single entity (e.g., company, hospital, university).\n- PhysicalObject: A tangible object (e.g., sensor, device, equipment).\n- Software: A computer program or application (e.g., app, cloud platform).\n- Event: An occurrence or activity (e.g., trial, measurement, study).\n- Location: A place or position (e.g., clinic, home, body part).\n\n                    ### Text\n                    title: Company Profile\ntext: SENS Innovation ApS\n\n## Background\ntitle: Background\nvision_quote: Our vision is to revolutionize the way physical activity can be used as an integrated and measurable part of the treatment and prevention of numerous diseases – on an equal footing with other medicine\nvision_author_name: Kasper L. Lykkegaard\nvision_author_title: Co-founder and CEO\nSENS Innovation ApS was founded in 2014 by Kasper L. Lykkegaard and Morten Kjærgaard. The company develops medical sensor products, based on advanced sensor technology, for monitoring of physical activity with patients\n\nThe SENS products and platforms are easy to use, flexible, scalable and present accurate monitoring of the body's position and the nature of the activity, for both the individual or even larger groups. Therefore, SENS's products and technology are a valuable tool in research trials and studies in correlation to physical activity and diseases\n\n## Meet Our Team\ntitle: Meet Our Team\nTeam member: Kasper L. Lykkegaard; role: CEO & Founder; email: kasper@sens.dk; linkedin: https://www.linkedin.com/in/kasper-lundberg-lykkegaard-7795246/\nTeam member: Morten Kjærgaard; role: CTO & Founder; email: morten@sens.dk; linkedin: https://www.linkedin.com/in/morten-kj%C3%A6rgaard-9a08242/\nTeam member: Ida Marie Pierrel-Boas; role: Senior Project Manager; email: ida@sens.dk; linkedin: https://www.linkedin.com/in/idaboas/\nTeam member: Christian Lindharth; role: Senior Account Executive; email: christian@sens.dk; linkedin: https://www.linkedin.com/in/clindharth/\nTeam member: Miriam Cabrita; role: Partnerships Manager; email: miriam@sens.dk\nTeam member: Karen Shakespeare; role: UK & Ireland Account Executive; email: karen@sens.dk\nTeam member: Amin Rezaei; role: Software Developer\nTeam member: August Blicher Friis; role: Software Developer\nTeam member: Renata Oliveira; role: UX Specialist\nTeam member: Huong Nguyen; role: Frontend Developer\nTeam member: Mathias Elmegaard Nielsen; role: Student Assistant\nTeam member: Mats Ellingsen; role: Student Assistant\nTeam member: Lea Møller Storm; role: Student Assistant\n\n                    ### Instruction\n                    Extract new classes from the text.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are a Class Extraction Agent.\n\n### Goal\nAnalyze the provided text to identify **new** domain classes that are not present in the \"Existing Classes\" list.\n\n### Guidelines\n1. **Reuse First**: Check if a concept is already covered by an existing class. If 'Vehicle' exists, do not create 'Car' if 'Vehicle' suffices for the abstraction level, or if 'Car' is merely a synonym.\n2. **Naming Convention**: Use **UpperCamelCase** foundation (e.g., `ClinicalTrial`, `MedicalDevice`).\n3. **Descriptions**: Provide a concise, clinical definition for each new class.\n4. **Exclusions**: Do not extract generic terms (e.g., \"Process\", \"Thing\") unless they have specific domain relevance. Do not extract proper nouns (Instances) as Classes.\n\n### key_constraint\nThe output is strictly enforced by a JSON schema. Focus on the *accuracy* and *novelty* of the class definitions.<|end|><|user|>\n                    ### Context\n                    - Person: An individual human being (e.g., patient, researcher, employee).\n- Organization: A social group acting as a single entity (e.g., company, hospital, university).\n- PhysicalObject: A tangible object (e.g., sensor, device, equipment).\n- Software: A computer program or application (e.g., app, cloud platform).\n- Event: An occurrence or activity (e.g., trial, measurement, study).\n- Location: A place or position (e.g., clinic, home, body part).\n\n                    ### Text\n                    ## Send us a message\n\n                    ### Instruction\n                    Extract new classes from the text.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are a Class Extraction Agent.\n\n### Goal\nAnalyze the provided text to identify **new** domain classes that are not present in the \"Existing Classes\" list.\n\n### Guidelines\n1. **Reuse First**: Check if a concept is already covered by an existing class. If 'Vehicle' exists, do not create 'Car' if 'Vehicle' suffices for the abstraction level, or if 'Car' is merely a synonym.\n2. **Naming Convention**: Use **UpperCamelCase** foundation (e.g., `ClinicalTrial`, `MedicalDevice`).\n3. **Descriptions**: Provide a concise, clinical definition for each new class.\n4. **Exclusions**: Do not extract generic terms (e.g., \"Process\", \"Thing\") unless they have specific domain relevance. Do not extract proper nouns (Instances) as Classes.\n\n### key_constraint\nThe output is strictly enforced by a JSON schema. Focus on the *accuracy* and *novelty* of the class definitions.<|end|><|user|>\n                    ### Context\n                    - Person: An individual human being (e.g., patient, researcher, employee).\n- Organization: A social group acting as a single entity (e.g., company, hospital, university).\n- PhysicalObject: A tangible object (e.g., sensor, device, equipment).\n- Software: A computer program or application (e.g., app, cloud platform).\n- Event: An occurrence or activity (e.g., trial, measurement, study).\n- Location: A place or position (e.g., clinic, home, body part).\n\n                    ### Text\n                    title: Thank you for your message\n\nWe have received your message and will get back to you as soon as possible\n[Back to home page](/)\n\n                    ### Instruction\n                    Extract new classes from the text.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are a Class Extraction Agent.\n\n### Goal\nAnalyze the provided text to identify **new** domain classes that are not present in the \"Existing Classes\" list.\n\n### Guidelines\n1. **Reuse First**: Check if a concept is already covered by an existing class. If 'Vehicle' exists, do not create 'Car' if 'Vehicle' suffices for the abstraction level, or if 'Car' is merely a synonym.\n2. **Naming Convention**: Use **UpperCamelCase** foundation (e.g., `ClinicalTrial`, `MedicalDevice`).\n3. **Descriptions**: Provide a concise, clinical definition for each new class.\n4. **Exclusions**: Do not extract generic terms (e.g., \"Process\", \"Thing\") unless they have specific domain relevance. Do not extract proper nouns (Instances) as Classes.\n\n### key_constraint\nThe output is strictly enforced by a JSON schema. Focus on the *accuracy* and *novelty* of the class definitions.<|end|><|user|>\n                    ### Context\n                    - Person: An individual human being (e.g., patient, researcher, employee).\n- Organization: A social group acting as a single entity (e.g., company, hospital, university).\n- PhysicalObject: A tangible object (e.g., sensor, device, equipment).\n- Software: A computer program or application (e.g., app, cloud platform).\n- Event: An occurrence or activity (e.g., trial, measurement, study).\n- Location: A place or position (e.g., clinic, home, body part).\n\n                    ### Text\n                    title: Promote increased mobilisation among inpatients\ntext: Certified medical device (CE-marked)\n\n## Introduction\ntitle: Introduction\n\n### SENS motion® increases physical activity for admitted patients\nsubtitle: SENS motion® increases physical activity for admitted patients\nlist: Motivates the patient by visualizing goals and expectations on a tablet next to the bed.Provides a data-based overview of the patients' physical activity for the healthcare professional.Improved dialog about physical activity between the healthcare professional, the patient and relatives.Increased compliance of data-driven management\n\n## Pilot Package\ntitle: Pilot Package\n\n### Try SENS motion® for 3 months – It is easy, and support is free of charge\nsubtitle: Try SENS motion® for 3 months – It is easy, and support is free of charge\nbutton_text: Read more about the pilot package\n**Try SENS motion® for 3 months** and experience the positive effect on patients. It is easy and quick. Complete package for only 19.995 DKK\n\nPilot package is an introductory offer that gives the possibility to use SENS motion in a clinical ward for 3 months with up to 120 patients\n\n## Motivational App\ntitle: Motivational App\n\n### Motivational visual feedback from the app increases the patient's self-activation\nsubtitle: Motivational visual feedback from the app increases the patient's self-activation\nlist: Motivates the patient to be more active by using elements of gamification and nudging.The patient walks a visual tour through Copenhagen visiting various attractions.The patient can continuously track her/his own progress, goals, and expectations.The patient and healthcare professional can access more information using a detailed history view to facilitate dialog and follow up\n\n                    ### Instruction\n                    Extract new classes from the text.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are a Class Extraction Agent.\n\n### Goal\nAnalyze the provided text to identify **new** domain classes that are not present in the \"Existing Classes\" list.\n\n### Guidelines\n1. **Reuse First**: Check if a concept is already covered by an existing class. If 'Vehicle' exists, do not create 'Car' if 'Vehicle' suffices for the abstraction level, or if 'Car' is merely a synonym.\n2. **Naming Convention**: Use **UpperCamelCase** foundation (e.g., `ClinicalTrial`, `MedicalDevice`).\n3. **Descriptions**: Provide a concise, clinical definition for each new class.\n4. **Exclusions**: Do not extract generic terms (e.g., \"Process\", \"Thing\") unless they have specific domain relevance. Do not extract proper nouns (Instances) as Classes.\n\n### key_constraint\nThe output is strictly enforced by a JSON schema. Focus on the *accuracy* and *novelty* of the class definitions.<|end|><|user|>\n                    ### Context\n                    - Person: An individual human being (e.g., patient, researcher, employee).\n- Organization: A social group acting as a single entity (e.g., company, hospital, university).\n- PhysicalObject: A tangible object (e.g., sensor, device, equipment).\n- Software: A computer program or application (e.g., app, cloud platform).\n- Event: An occurrence or activity (e.g., trial, measurement, study).\n- Location: A place or position (e.g., clinic, home, body part).\n\n                    ### Text\n                    ## How to use SENS motion® – For Healthcare\ntitle: How to use SENS motion® – For Healthcare\n/img/healthcare/1_attach_sensor.jpg|Attach Sensor to the patient|A discrete sensor patch is placed on the thigh of the patient at admission\n/img/healthcare/2_sensor_measures.jpg|Sensor Measures physical activity|The sensor records physical activity and daily rhythm throughout the stay\n/img/healthcare/3_follow_PA_tablet.jpg|Follow Physical Activity Progress on the bedside tablet|A bedside tablet lets the patient follow goals and progress in real time\nsubtitle: A tool for the patient and healthcare professionals\n/img/healthcare/4_conversation.jpg|Support Dialogue|Highlights the importance of activity and tracks motivation and compliance\n/img/healthcare/5_data_overview.jpg|Data Overview|Provides live and historical activity dashboards for clinical decisions\n\n                    ### Instruction\n                    Extract new classes from the text.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are a Class Extraction Agent.\n\n### Goal\nAnalyze the provided text to identify **new** domain classes that are not present in the \"Existing Classes\" list.\n\n### Guidelines\n1. **Reuse First**: Check if a concept is already covered by an existing class. If 'Vehicle' exists, do not create 'Car' if 'Vehicle' suffices for the abstraction level, or if 'Car' is merely a synonym.\n2. **Naming Convention**: Use **UpperCamelCase** foundation (e.g., `ClinicalTrial`, `MedicalDevice`).\n3. **Descriptions**: Provide a concise, clinical definition for each new class.\n4. **Exclusions**: Do not extract generic terms (e.g., \"Process\", \"Thing\") unless they have specific domain relevance. Do not extract proper nouns (Instances) as Classes.\n\n### key_constraint\nThe output is strictly enforced by a JSON schema. Focus on the *accuracy* and *novelty* of the class definitions.<|end|><|user|>\n                    ### Context\n                    - Person: An individual human being (e.g., patient, researcher, employee).\n- Organization: A social group acting as a single entity (e.g., company, hospital, university).\n- PhysicalObject: A tangible object (e.g., sensor, device, equipment).\n- Software: A computer program or application (e.g., app, cloud platform).\n- Event: An occurrence or activity (e.g., trial, measurement, study).\n- Location: A place or position (e.g., clinic, home, body part).\n\n                    ### Text\n                    ## Case Highlight\ntitle: Case Highlight\n\n### Bispebjerg Hospital: Increased out-of-bed time of hospitalized patients\nsubtitle: Bispebjerg Hospital: Increased out-of-bed time of hospitalized patients\n[View video](https://www.linkedin.com/posts/et-al._2-min-og-25-sek-of-fame-hell-yeah-altid-activity-6599636858651586560-oOmm/)\n\nBispebjerg Hospital have in a recent study increased time out of bed for elderly hospitalised patients by 51 minutes per day using SENS motion developed by the Danish start-up SENS Innovation\n\nMany patients are inactive 18–20 hours a day in the hospital bed, and body functions decline rapidly during hospitalisation. Therefore, rehabilitation while hospitalised is crucial to avoid loss of independency, decline of quality of life and re-hospitalisation\n\nReferences\n\n[Business Insights: A patch and an app are getting patients out of bed](https://www.businessinsights.dk/healthtech/a-patch-and-an-app-are-getting-patients-out-of-bed/)\n[European Journal of Internal Medicine: Dall CH, Andersen H, Povlsen TM, Henriksen M. Evaluation of a technology assisted physical activity intervention among hospitalised patients: A randomised study. Eur J Intern Med. 2019](https://pubmed.ncbi.nlm.nih.gov/31494019/)\n\nProject supported by the Association of Danish Physiotherapists, RegionH VihTek, Bispebjerg Hospital – Department of Physical and Occupational Therapy and SENS Innovation ApS\n\n## Clinical Evidence\ntitle: Clinical Evidence\n\n### SENS motion® increases physical activity for admitted patients\nsubtitle: SENS motion® increases physical activity for admitted patients\nlist: Each year more than 600.000 elderly patients above the age of 65 are hospitalised (2)|Elderly hospitalised acute patients spend on average 70–90% of their time in bed and spend only 3–5% of their time either standing or walking (1)\nResearch has shown that even shorter periods of inactivity cause a reduction in physical fitness and muscle mass (3). Compared to younger patients, elderly patients have reduced ability to recover after periods of physical inactivity (4). This also affects the patient's ability to perform daily living (ADL) activities as well as degrading their perceived quality of life (5)\n\nPhysical inactivity is a strong factor prolonging the disease and rehabilitation period (7), increasing the risk of sequelae leading to hospital (re)admission (6). With an increase of just 100 steps taken per day the risk of readmission is reduced with approximately 10% for elderly hospitalised patients (8)\n\n**References**\n1. Nina Beyer et al. \"In acutely admitted geriatric patients offering increased physical activity during hospitalization decreases length of stay and can improve mobility\" (Nov. 2017)\n2. Statistics Denmark, February 2019\n3. J Appl Physiol 108: 1034–1040, 2010\n4. J Am Geriatr Soc. 2003;51:451–458\n5. Pedersen, Klarlund B, 2015\n6. J Am Geriatr Soc. 2004;52:1263–1270\n7. Lancet 2009;373:1874–1882, J Nutr Health Aging. 2016;20:738–751\n8. Arch Phys Med Rehabil. September 2016 (Steve R. Fisher et al.)\n\n                    ### Instruction\n                    Extract new classes from the text.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are a Class Extraction Agent.\n\n### Goal\nAnalyze the provided text to identify **new** domain classes that are not present in the \"Existing Classes\" list.\n\n### Guidelines\n1. **Reuse First**: Check if a concept is already covered by an existing class. If 'Vehicle' exists, do not create 'Car' if 'Vehicle' suffices for the abstraction level, or if 'Car' is merely a synonym.\n2. **Naming Convention**: Use **UpperCamelCase** foundation (e.g., `ClinicalTrial`, `MedicalDevice`).\n3. **Descriptions**: Provide a concise, clinical definition for each new class.\n4. **Exclusions**: Do not extract generic terms (e.g., \"Process\", \"Thing\") unless they have specific domain relevance. Do not extract proper nouns (Instances) as Classes.\n\n### key_constraint\nThe output is strictly enforced by a JSON schema. Focus on the *accuracy* and *novelty* of the class definitions.<|end|><|user|>\n                    ### Context\n                    - Person: An individual human being (e.g., patient, researcher, employee).\n- Organization: A social group acting as a single entity (e.g., company, hospital, university).\n- PhysicalObject: A tangible object (e.g., sensor, device, equipment).\n- Software: A computer program or application (e.g., app, cloud platform).\n- Event: An occurrence or activity (e.g., trial, measurement, study).\n- Location: A place or position (e.g., clinic, home, body part).\n\n                    ### Text\n                    ## Pilot package\ntitle: Pilot package\nbutton_text: Contact us to hear more\nPilot package offer: **19.995 DKK** for use in 3 months in a clinical ward\n\nCall +45 2623 8234 or fill out the [contact form](/en/contact/), then we will contact you as soon as possible\n\n                    ### Instruction\n                    Extract new classes from the text.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are a Class Extraction Agent.\n\n### Goal\nAnalyze the provided text to identify **new** domain classes that are not present in the \"Existing Classes\" list.\n\n### Guidelines\n1. **Reuse First**: Check if a concept is already covered by an existing class. If 'Vehicle' exists, do not create 'Car' if 'Vehicle' suffices for the abstraction level, or if 'Car' is merely a synonym.\n2. **Naming Convention**: Use **UpperCamelCase** foundation (e.g., `ClinicalTrial`, `MedicalDevice`).\n3. **Descriptions**: Provide a concise, clinical definition for each new class.\n4. **Exclusions**: Do not extract generic terms (e.g., \"Process\", \"Thing\") unless they have specific domain relevance. Do not extract proper nouns (Instances) as Classes.\n\n### key_constraint\nThe output is strictly enforced by a JSON schema. Focus on the *accuracy* and *novelty* of the class definitions.<|end|><|user|>\n                    ### Context\n                    - Person: An individual human being (e.g., patient, researcher, employee).\n- Organization: A social group acting as a single entity (e.g., company, hospital, university).\n- PhysicalObject: A tangible object (e.g., sensor, device, equipment).\n- Software: A computer program or application (e.g., app, cloud platform).\n- Event: An occurrence or activity (e.g., trial, measurement, study).\n- Location: A place or position (e.g., clinic, home, body part).\n\n                    ### Text\n                    ## About the Study\n\nThis peer-reviewed article investigates the criterion validity of linear accelerations measured with low-sampling-frequency accelerometers (SENS motion®) during overground walking in elderly patients with knee osteoarthritis. The study demonstrates the system's accuracy in clinical settings\n\n## Authors\n\nGhaffari, A.; Rahbek, O.; Lauritsen, R.E.K.; Kappel, A.; Kold, S.; Rasmussen, J\n\n## Publication\n\n**Sensors** 2022, 22, 5289\n\n## Key Findings\n\nValidation of SENS motion® in measuring gait patterns in elderly patients\nAccurate measurement of linear accelerations during overground walking\nApplicable in clinical practice for assessing mobility and gait function\n\n[Read the full article →](https://doi.org/10.3390/s22145289)\n\n                    ### Instruction\n                    Extract new classes from the text.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are a Class Extraction Agent.\n\n### Goal\nAnalyze the provided text to identify **new** domain classes that are not present in the \"Existing Classes\" list.\n\n### Guidelines\n1. **Reuse First**: Check if a concept is already covered by an existing class. If 'Vehicle' exists, do not create 'Car' if 'Vehicle' suffices for the abstraction level, or if 'Car' is merely a synonym.\n2. **Naming Convention**: Use **UpperCamelCase** foundation (e.g., `ClinicalTrial`, `MedicalDevice`).\n3. **Descriptions**: Provide a concise, clinical definition for each new class.\n4. **Exclusions**: Do not extract generic terms (e.g., \"Process\", \"Thing\") unless they have specific domain relevance. Do not extract proper nouns (Instances) as Classes.\n\n### key_constraint\nThe output is strictly enforced by a JSON schema. Focus on the *accuracy* and *novelty* of the class definitions.<|end|><|user|>\n                    ### Context\n                    - Person: An individual human being (e.g., patient, researcher, employee).\n- Organization: A social group acting as a single entity (e.g., company, hospital, university).\n- PhysicalObject: A tangible object (e.g., sensor, device, equipment).\n- Software: A computer program or application (e.g., app, cloud platform).\n- Event: An occurrence or activity (e.g., trial, measurement, study).\n- Location: A place or position (e.g., clinic, home, body part).\n\n                    ### Text\n                    ## About the Study\n\nThis peer-reviewed article compares the performance of two activity monitors, including SENS motion®, in detecting walking speeds among hospitalized patients. The study evaluates the system's accuracy in both slow and fast walking conditions\n\n## Authors\n\nBritt Stævnsbo Pedersen, Morten Tange Kristensen, Christian Ohrhammer Josefsen, Kasper Lundberg Lykkegaard, Line Rokkedal Jønsson, Mette Merete Pedersen\n\n## Publication\n\n**Rehabilitation Research and Practice**, vol. 2022, Article ID 9230081\n\n## Key Findings\n\nComparison of activity monitors in hospital settings\nAccurate detection of walking speeds in hospitalized patients\nApplicable for monitoring patient activity levels during hospitalization\n\n[Read the full article →](https://doi.org/10.1155/2022/9230081)\n\n                    ### Instruction\n                    Extract new classes from the text.<|end|><|assistant|>"
+                ],
+                "axiom_extraction": [
+                    "<|system|>### Role\nYou are an Ontology Axiom Extractor.\n\n### Goal\nDefine the relationships (ObjectProperties) and attributes (DataProperties) for the Known Classes provided in the context.\n\n### Guidelines\n1. **Identify** relationships and attributes in the text.\n2. **Strict Vocabulary**: You may ONLY use the classes listed in the \"Provided Classes\" context.\n2. **Naming Convention**: \n   - Property names must be **lowerCamelCase** (e.g., `hasStatus`, `worksFor`).\n3. **SubClassOf**: Identify \"is-a\" hierarchies.\n4. **ObjectProperties**: Identify relationships between two classes.\n   - Domain: The subject class.\n   - Range: The object class.\n5. **DataProperties**: Identify attributes of a class (e.g., `hasAge`, `hasId`).\n\n### Example \n[\n  {\"type\": \"SubClassOf\", \"subclass\": \"Manager\", \"superclass\": \"Employee\"},\n  {\"type\": \"ObjectPropertyDomain\", \"property\": \"manages\", \"class\": \"Manager\"},\n  {\"type\": \"ObjectPropertyRange\", \"property\": \"manages\", \"class\": \"Project\"},\n  {\"type\": \"DataPropertyDomain\", \"property\": \"hasDeadline\", \"class\": \"Project\"},\n  {\"type\": \"DataPropertyRange\", \"property\": \"hasDeadline\", \"datatype\": \"xsd:date\"}\n]\n\n### key_constraint\nThe output format is constrained to a specific JSON schema. Produce a concise list of UNIQUE axioms. Stop after finding the key relationships. \nDo NOT extract instances (ABox). \nDo NOT output duplicate axioms.\nFocus only on the Schema (TBox).<|end|><|user|>\n                    ### Classes\n                    - Person: An individual human being (e.g., patient, researcher, employee).\n- Organization: A social group acting as a single entity (e.g., company, hospital, university).\n- PhysicalObject: A tangible object (e.g., sensor, device, equipment).\n- Software: A computer program or application (e.g., app, cloud platform).\n- Event: An occurrence or activity (e.g., trial, measurement, study).\n- Location: A place or position (e.g., clinic, home, body part).\n- WearableActivitySensor: A portable device designed to monitor and record physical activity levels, typically worn by individuals, and capable of wireless data transmission to a cloud-based platform for analysis.\n- ActivityDataSensor: A sensor technology used to capture and measure human physical activity, often integrated into wearable devices or standalone units, and used for health monitoring and research purposes.\n- HealthcareActivityMonitor: A system or device that tracks and records the physical activity of individuals, particularly within healthcare settings, to support patient care and health research.\n- PhysicalActivitySensor: A sensor that specifically measures physical activity, which can be part of a larger system or a standalone device, and is used to collect data for health and fitness tracking.\n- ActivitySensor: A general term for sensors that measure and record physical activity, which can be used in various applications including fitness tracking, healthcare monitoring, and research data collection.\n- ActivityDataCollection: The process of gathering physical activity data from individuals, often through the use of sensors and wearable devices, and aggregating this data for analysis and interpretation.\n- ActivityDataAnalysis: The examination and interpretation of physical activity data collected from sensors or wearable devices, often used to draw conclusions in healthcare and research contexts.\n- ActivityDataPlatform: A cloud-based platform or service that receives, stores, and processes physical activity data collected from various sensors and devices, providing insights and analytics.\n- ActivityDataManagement: The organization, storage, and maintenance of physical activity data collected from sensors and wearable devices, ensuring data integrity and accessibility for healthcare and research purposes.\n- ActivityDataExport: The capability to transfer or export physical activity data collected from sensors and wearable devices to external systems or individuals, often for further analysis or reporting.\n\n                    ### Text\n                    title: Discrete Wearable Activity Sensor for Healthcare and Research\ntext: Better Treatment. Better Research\n\n## What is SENS motion®\ntitle: What is SENS motion®\n\n### System Measures\nsubtitle: System Measures\nlist: Rest time.Standing time.Walking time.Running & High Intensity Movement time.Cycling time.Steps.Intensity.Sleep time and quality\n**SENS motion®** is an integrated system for collecting physical activity data from groups of people. It consists of a wireless activity sensor that automatically transfers data to a secure cloud. It is especially well suited for use in the healthcare sector and for large research projects\n\n## SENS motion® – For Healthcare\ntitle: SENS motion® – For Healthcare\n\n### SENS motion® – For Healthcare consists of\nsubtitle: SENS motion® – For Healthcare consists of\nlist: The SENS motion activity sensor for use on patients.A patient app, with gamification feedback for motivating the patient to become more active.(Optional) Monitor display providing overview of patients.Access to reports of individual patients activity\n**SENS motion® – For Healthcare** enables the use of SENS motion® activity sensor in healthcare environments, such as hospitals or care centres. The collected activity data can be presented to the patient itself for motivational purpose, assist healthcare professionals in treatment and help prioritize their valuable time efficiently\n\n[Read More →](/en/healthcare/)\n\n## SENS motion® – For Research\ntitle: SENS motion® – For Research\n\n### SENS motion® – For Research consists of\nsubtitle: SENS motion® – For Research consists of\nlist: The SENS motion® activity sensor.Smartphone app for automatically transferring data to the secure cloud.Web-application for managing sensors, viewing or exporting data\n**SENS motion® – For Research** enables the use of SENS motion activity sensor for collecting activity data or raw accelerometer data in research projects\n\n[Read More →](/en/research/)\n\nSENS motion® – Connect\nOEM Platform for medical sensors\nDo you want to build a wireless, scalable, battery-powered medical sensor or have a business opportunity where measurement of physical data is needed?\n\n[Image: demos10 (source: /img/demos10.png)](https://www.demos10.dk/)\n[Image: icompression (source: /img/icompression.png)](https://icompression.dk/)\n[Image: ventriject (source: /img/ventriject-2.png)](https://ventriject.com/)\n\nContact us for options on OEM Cooperation\n\n                    ### Instruction\n                    Identify logical relationships (axioms) and properties from the text for the classes above.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are an Ontology Axiom Extractor.\n\n### Goal\nDefine the relationships (ObjectProperties) and attributes (DataProperties) for the Known Classes provided in the context.\n\n### Guidelines\n1. **Identify** relationships and attributes in the text.\n2. **Strict Vocabulary**: You may ONLY use the classes listed in the \"Provided Classes\" context.\n2. **Naming Convention**: \n   - Property names must be **lowerCamelCase** (e.g., `hasStatus`, `worksFor`).\n3. **SubClassOf**: Identify \"is-a\" hierarchies.\n4. **ObjectProperties**: Identify relationships between two classes.\n   - Domain: The subject class.\n   - Range: The object class.\n5. **DataProperties**: Identify attributes of a class (e.g., `hasAge`, `hasId`).\n\n### Example \n[\n  {\"type\": \"SubClassOf\", \"subclass\": \"Manager\", \"superclass\": \"Employee\"},\n  {\"type\": \"ObjectPropertyDomain\", \"property\": \"manages\", \"class\": \"Manager\"},\n  {\"type\": \"ObjectPropertyRange\", \"property\": \"manages\", \"class\": \"Project\"},\n  {\"type\": \"DataPropertyDomain\", \"property\": \"hasDeadline\", \"class\": \"Project\"},\n  {\"type\": \"DataPropertyRange\", \"property\": \"hasDeadline\", \"datatype\": \"xsd:date\"}\n]\n\n### key_constraint\nThe output format is constrained to a specific JSON schema. Produce a concise list of UNIQUE axioms. Stop after finding the key relationships. \nDo NOT extract instances (ABox). \nDo NOT output duplicate axioms.\nFocus only on the Schema (TBox).<|end|><|user|>\n                    ### Classes\n                    - Person: An individual human being (e.g., patient, researcher, employee).\n- Organization: A social group acting as a single entity (e.g., company, hospital, university).\n- PhysicalObject: A tangible object (e.g., sensor, device, equipment).\n- Software: A computer program or application (e.g., app, cloud platform).\n- Event: An occurrence or activity (e.g., trial, measurement, study).\n- Location: A place or position (e.g., clinic, home, body part).\n- TeamMember: An individual associated with a company, typically with a specific role and responsibilities, and often with contact information and social media profiles.\n- MedicalSensorProduct: A medical device that utilizes advanced sensor technology to monitor physical activity and provide data for health-related research and disease prevention.\n- PhysicalActivityMonitoring: The process or system of tracking and recording physical movements and exertion, often using specialized equipment or software, for health and fitness purposes.\n- HealthResearchTool: An instrument or method used in scientific studies to collect data on health-related variables, such as physical activity, for the purpose of understanding health outcomes and disease prevention.\n- SensorPlatform: A technological foundation that supports the operation of medical sensors, providing a scalable and flexible infrastructure for data collection and analysis.\n- HealthDataPlatform: A cloud-based system or application that aggregates, processes, and analyzes health-related data collected from various sources, such as medical sensors or user inputs.\n- HealthDataAnalysis: The process of examining and interpreting health-related data to draw conclusions about health trends, disease patterns, or the effectiveness of health interventions.\n- HealthDataCollection: The act of gathering health-related information from individuals or groups, often through surveys, sensors, or other data collection methods, for research or monitoring purposes.\n- HealthData: Raw or processed information related to an individual's health status, medical history, physical activity, or other health-related metrics.\n\n                    ### Text\n                    title: Company Profile\ntext: SENS Innovation ApS\n\n## Background\ntitle: Background\nvision_quote: Our vision is to revolutionize the way physical activity can be used as an integrated and measurable part of the treatment and prevention of numerous diseases – on an equal footing with other medicine\nvision_author_name: Kasper L. Lykkegaard\nvision_author_title: Co-founder and CEO\nSENS Innovation ApS was founded in 2014 by Kasper L. Lykkegaard and Morten Kjærgaard. The company develops medical sensor products, based on advanced sensor technology, for monitoring of physical activity with patients\n\nThe SENS products and platforms are easy to use, flexible, scalable and present accurate monitoring of the body's position and the nature of the activity, for both the individual or even larger groups. Therefore, SENS's products and technology are a valuable tool in research trials and studies in correlation to physical activity and diseases\n\n## Meet Our Team\ntitle: Meet Our Team\nTeam member: Kasper L. Lykkegaard; role: CEO & Founder; email: kasper@sens.dk; linkedin: https://www.linkedin.com/in/kasper-lundberg-lykkegaard-7795246/\nTeam member: Morten Kjærgaard; role: CTO & Founder; email: morten@sens.dk; linkedin: https://www.linkedin.com/in/morten-kj%C3%A6rgaard-9a08242/\nTeam member: Ida Marie Pierrel-Boas; role: Senior Project Manager; email: ida@sens.dk; linkedin: https://www.linkedin.com/in/idaboas/\nTeam member: Christian Lindharth; role: Senior Account Executive; email: christian@sens.dk; linkedin: https://www.linkedin.com/in/clindharth/\nTeam member: Miriam Cabrita; role: Partnerships Manager; email: miriam@sens.dk\nTeam member: Karen Shakespeare; role: UK & Ireland Account Executive; email: karen@sens.dk\nTeam member: Amin Rezaei; role: Software Developer\nTeam member: August Blicher Friis; role: Software Developer\nTeam member: Renata Oliveira; role: UX Specialist\nTeam member: Huong Nguyen; role: Frontend Developer\nTeam member: Mathias Elmegaard Nielsen; role: Student Assistant\nTeam member: Mats Ellingsen; role: Student Assistant\nTeam member: Lea Møller Storm; role: Student Assistant\n\n                    ### Instruction\n                    Identify logical relationships (axioms) and properties from the text for the classes above.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are an Ontology Axiom Extractor.\n\n### Goal\nDefine the relationships (ObjectProperties) and attributes (DataProperties) for the Known Classes provided in the context.\n\n### Guidelines\n1. **Identify** relationships and attributes in the text.\n2. **Strict Vocabulary**: You may ONLY use the classes listed in the \"Provided Classes\" context.\n2. **Naming Convention**: \n   - Property names must be **lowerCamelCase** (e.g., `hasStatus`, `worksFor`).\n3. **SubClassOf**: Identify \"is-a\" hierarchies.\n4. **ObjectProperties**: Identify relationships between two classes.\n   - Domain: The subject class.\n   - Range: The object class.\n5. **DataProperties**: Identify attributes of a class (e.g., `hasAge`, `hasId`).\n\n### Example \n[\n  {\"type\": \"SubClassOf\", \"subclass\": \"Manager\", \"superclass\": \"Employee\"},\n  {\"type\": \"ObjectPropertyDomain\", \"property\": \"manages\", \"class\": \"Manager\"},\n  {\"type\": \"ObjectPropertyRange\", \"property\": \"manages\", \"class\": \"Project\"},\n  {\"type\": \"DataPropertyDomain\", \"property\": \"hasDeadline\", \"class\": \"Project\"},\n  {\"type\": \"DataPropertyRange\", \"property\": \"hasDeadline\", \"datatype\": \"xsd:date\"}\n]\n\n### key_constraint\nThe output format is constrained to a specific JSON schema. Produce a concise list of UNIQUE axioms. Stop after finding the key relationships. \nDo NOT extract instances (ABox). \nDo NOT output duplicate axioms.\nFocus only on the Schema (TBox).<|end|><|user|>\n                    ### Classes\n                    - Person: An individual human being (e.g., patient, researcher, employee).\n- Organization: A social group acting as a single entity (e.g., company, hospital, university).\n- PhysicalObject: A tangible object (e.g., sensor, device, equipment).\n- Software: A computer program or application (e.g., app, cloud platform).\n- Event: An occurrence or activity (e.g., trial, measurement, study).\n- Location: A place or position (e.g., clinic, home, body part).\n- CommunicationPlatform: A digital medium or service that facilitates the exchange of information, ideas, or messages between individuals or groups.\n\n                    ### Text\n                    ## Send us a message\n\n                    ### Instruction\n                    Identify logical relationships (axioms) and properties from the text for the classes above.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are an Ontology Axiom Extractor.\n\n### Goal\nDefine the relationships (ObjectProperties) and attributes (DataProperties) for the Known Classes provided in the context.\n\n### Guidelines\n1. **Identify** relationships and attributes in the text.\n2. **Strict Vocabulary**: You may ONLY use the classes listed in the \"Provided Classes\" context.\n2. **Naming Convention**: \n   - Property names must be **lowerCamelCase** (e.g., `hasStatus`, `worksFor`).\n3. **SubClassOf**: Identify \"is-a\" hierarchies.\n4. **ObjectProperties**: Identify relationships between two classes.\n   - Domain: The subject class.\n   - Range: The object class.\n5. **DataProperties**: Identify attributes of a class (e.g., `hasAge`, `hasId`).\n\n### Example \n[\n  {\"type\": \"SubClassOf\", \"subclass\": \"Manager\", \"superclass\": \"Employee\"},\n  {\"type\": \"ObjectPropertyDomain\", \"property\": \"manages\", \"class\": \"Manager\"},\n  {\"type\": \"ObjectPropertyRange\", \"property\": \"manages\", \"class\": \"Project\"},\n  {\"type\": \"DataPropertyDomain\", \"property\": \"hasDeadline\", \"class\": \"Project\"},\n  {\"type\": \"DataPropertyRange\", \"property\": \"hasDeadline\", \"datatype\": \"xsd:date\"}\n]\n\n### key_constraint\nThe output format is constrained to a specific JSON schema. Produce a concise list of UNIQUE axioms. Stop after finding the key relationships. \nDo NOT extract instances (ABox). \nDo NOT output duplicate axioms.\nFocus only on the Schema (TBox).<|end|><|user|>\n                    ### Classes\n                    - Person: An individual human being (e.g., patient, researcher, employee).\n- Organization: A social group acting as a single entity (e.g., company, hospital, university).\n- PhysicalObject: A tangible object (e.g., sensor, device, equipment).\n- Software: A computer program or application (e.g., app, cloud platform).\n- Event: An occurrence or activity (e.g., trial, measurement, study).\n- Location: A place or position (e.g., clinic, home, body part).\n- FeedbackMessage: A communication instance where a person expresses gratitude and indicates that their message has been received and will be addressed promptly.\n\n                    ### Text\n                    title: Thank you for your message\n\nWe have received your message and will get back to you as soon as possible\n[Back to home page](/)\n\n                    ### Instruction\n                    Identify logical relationships (axioms) and properties from the text for the classes above.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are an Ontology Axiom Extractor.\n\n### Goal\nDefine the relationships (ObjectProperties) and attributes (DataProperties) for the Known Classes provided in the context.\n\n### Guidelines\n1. **Identify** relationships and attributes in the text.\n2. **Strict Vocabulary**: You may ONLY use the classes listed in the \"Provided Classes\" context.\n2. **Naming Convention**: \n   - Property names must be **lowerCamelCase** (e.g., `hasStatus`, `worksFor`).\n3. **SubClassOf**: Identify \"is-a\" hierarchies.\n4. **ObjectProperties**: Identify relationships between two classes.\n   - Domain: The subject class.\n   - Range: The object class.\n5. **DataProperties**: Identify attributes of a class (e.g., `hasAge`, `hasId`).\n\n### Example \n[\n  {\"type\": \"SubClassOf\", \"subclass\": \"Manager\", \"superclass\": \"Employee\"},\n  {\"type\": \"ObjectPropertyDomain\", \"property\": \"manages\", \"class\": \"Manager\"},\n  {\"type\": \"ObjectPropertyRange\", \"property\": \"manages\", \"class\": \"Project\"},\n  {\"type\": \"DataPropertyDomain\", \"property\": \"hasDeadline\", \"class\": \"Project\"},\n  {\"type\": \"DataPropertyRange\", \"property\": \"hasDeadline\", \"datatype\": \"xsd:date\"}\n]\n\n### key_constraint\nThe output format is constrained to a specific JSON schema. Produce a concise list of UNIQUE axioms. Stop after finding the key relationships. \nDo NOT extract instances (ABox). \nDo NOT output duplicate axioms.\nFocus only on the Schema (TBox).<|end|><|user|>\n                    ### Classes\n                    - Person: An individual human being (e.g., patient, researcher, employee).\n- Organization: A social group acting as a single entity (e.g., company, hospital, university).\n- PhysicalObject: A tangible object (e.g., sensor, device, equipment).\n- Software: A computer program or application (e.g., app, cloud platform).\n- Event: An occurrence or activity (e.g., trial, measurement, study).\n- Location: A place or position (e.g., clinic, home, body part).\n- ClinicalTrial: A research study conducted to evaluate the efficacy and safety of a medical device or software application in a controlled environment, often involving human subjects and aimed at generating data for regulatory approval.\n- HealthcareProfessional: An individual with the authority and responsibility to provide medical care, such as doctors, nurses, and therapists, who may use medical devices or software applications in their practice.\n- GamificationElement: A feature or tool used in software applications to incorporate game-like elements and mechanics to engage and motivate users, often used to increase physical activity or adherence to health-related programs.\n- HealthDataManagement: The process of collecting, storing, and analyzing health-related data, which may involve software applications that help in tracking patient progress, goals, and expectations.\n- PatientProgressTour: A feature within a software application that allows patients to visualize their own progress in a journey or tour format, often used to motivate and engage patients in physical activity or health-related activities.\n- HealthProfessionalPatientInteraction: The dynamic between a healthcare professional and a patient, which may be facilitated or enhanced by the use of medical devices or software applications to improve communication, follow-up, and overall patient care.\n\n                    ### Text\n                    title: Promote increased mobilisation among inpatients\ntext: Certified medical device (CE-marked)\n\n## Introduction\ntitle: Introduction\n\n### SENS motion® increases physical activity for admitted patients\nsubtitle: SENS motion® increases physical activity for admitted patients\nlist: Motivates the patient by visualizing goals and expectations on a tablet next to the bed.Provides a data-based overview of the patients' physical activity for the healthcare professional.Improved dialog about physical activity between the healthcare professional, the patient and relatives.Increased compliance of data-driven management\n\n## Pilot Package\ntitle: Pilot Package\n\n### Try SENS motion® for 3 months – It is easy, and support is free of charge\nsubtitle: Try SENS motion® for 3 months – It is easy, and support is free of charge\nbutton_text: Read more about the pilot package\n**Try SENS motion® for 3 months** and experience the positive effect on patients. It is easy and quick. Complete package for only 19.995 DKK\n\nPilot package is an introductory offer that gives the possibility to use SENS motion in a clinical ward for 3 months with up to 120 patients\n\n## Motivational App\ntitle: Motivational App\n\n### Motivational visual feedback from the app increases the patient's self-activation\nsubtitle: Motivational visual feedback from the app increases the patient's self-activation\nlist: Motivates the patient to be more active by using elements of gamification and nudging.The patient walks a visual tour through Copenhagen visiting various attractions.The patient can continuously track her/his own progress, goals, and expectations.The patient and healthcare professional can access more information using a detailed history view to facilitate dialog and follow up\n\n                    ### Instruction\n                    Identify logical relationships (axioms) and properties from the text for the classes above.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are an Ontology Axiom Extractor.\n\n### Goal\nDefine the relationships (ObjectProperties) and attributes (DataProperties) for the Known Classes provided in the context.\n\n### Guidelines\n1. **Identify** relationships and attributes in the text.\n2. **Strict Vocabulary**: You may ONLY use the classes listed in the \"Provided Classes\" context.\n2. **Naming Convention**: \n   - Property names must be **lowerCamelCase** (e.g., `hasStatus`, `worksFor`).\n3. **SubClassOf**: Identify \"is-a\" hierarchies.\n4. **ObjectProperties**: Identify relationships between two classes.\n   - Domain: The subject class.\n   - Range: The object class.\n5. **DataProperties**: Identify attributes of a class (e.g., `hasAge`, `hasId`).\n\n### Example \n[\n  {\"type\": \"SubClassOf\", \"subclass\": \"Manager\", \"superclass\": \"Employee\"},\n  {\"type\": \"ObjectPropertyDomain\", \"property\": \"manages\", \"class\": \"Manager\"},\n  {\"type\": \"ObjectPropertyRange\", \"property\": \"manages\", \"class\": \"Project\"},\n  {\"type\": \"DataPropertyDomain\", \"property\": \"hasDeadline\", \"class\": \"Project\"},\n  {\"type\": \"DataPropertyRange\", \"property\": \"hasDeadline\", \"datatype\": \"xsd:date\"}\n]\n\n### key_constraint\nThe output format is constrained to a specific JSON schema. Produce a concise list of UNIQUE axioms. Stop after finding the key relationships. \nDo NOT extract instances (ABox). \nDo NOT output duplicate axioms.\nFocus only on the Schema (TBox).<|end|><|user|>\n                    ### Classes\n                    - Person: An individual human being (e.g., patient, researcher, employee).\n- Organization: A social group acting as a single entity (e.g., company, hospital, university).\n- PhysicalObject: A tangible object (e.g., sensor, device, equipment).\n- Software: A computer program or application (e.g., app, cloud platform).\n- Event: An occurrence or activity (e.g., trial, measurement, study).\n- Location: A place or position (e.g., clinic, home, body part).\n- SensorAttachmentProcedure: A method or protocol for attaching a sensor to a patient for monitoring purposes.\n- ActivityMonitoring: The process of tracking and recording a patient's physical activity and daily movement patterns.\n- RealTimeProgressTracking: A feature that allows patients to monitor their physical activity goals and progress in real-time using a tablet or similar device.\n- MotivationalSupport: A system or feature designed to encourage and maintain patient motivation and compliance with physical activity goals.\n- ActivityDashboard: A live and historical data visualization tool used by healthcare professionals to make informed clinical decisions based on patient activity.\n\n                    ### Text\n                    ## How to use SENS motion® – For Healthcare\ntitle: How to use SENS motion® – For Healthcare\n/img/healthcare/1_attach_sensor.jpg|Attach Sensor to the patient|A discrete sensor patch is placed on the thigh of the patient at admission\n/img/healthcare/2_sensor_measures.jpg|Sensor Measures physical activity|The sensor records physical activity and daily rhythm throughout the stay\n/img/healthcare/3_follow_PA_tablet.jpg|Follow Physical Activity Progress on the bedside tablet|A bedside tablet lets the patient follow goals and progress in real time\nsubtitle: A tool for the patient and healthcare professionals\n/img/healthcare/4_conversation.jpg|Support Dialogue|Highlights the importance of activity and tracks motivation and compliance\n/img/healthcare/5_data_overview.jpg|Data Overview|Provides live and historical activity dashboards for clinical decisions\n\n                    ### Instruction\n                    Identify logical relationships (axioms) and properties from the text for the classes above.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are an Ontology Axiom Extractor.\n\n### Goal\nDefine the relationships (ObjectProperties) and attributes (DataProperties) for the Known Classes provided in the context.\n\n### Guidelines\n1. **Identify** relationships and attributes in the text.\n2. **Strict Vocabulary**: You may ONLY use the classes listed in the \"Provided Classes\" context.\n2. **Naming Convention**: \n   - Property names must be **lowerCamelCase** (e.g., `hasStatus`, `worksFor`).\n3. **SubClassOf**: Identify \"is-a\" hierarchies.\n4. **ObjectProperties**: Identify relationships between two classes.\n   - Domain: The subject class.\n   - Range: The object class.\n5. **DataProperties**: Identify attributes of a class (e.g., `hasAge`, `hasId`).\n\n### Example \n[\n  {\"type\": \"SubClassOf\", \"subclass\": \"Manager\", \"superclass\": \"Employee\"},\n  {\"type\": \"ObjectPropertyDomain\", \"property\": \"manages\", \"class\": \"Manager\"},\n  {\"type\": \"ObjectPropertyRange\", \"property\": \"manages\", \"class\": \"Project\"},\n  {\"type\": \"DataPropertyDomain\", \"property\": \"hasDeadline\", \"class\": \"Project\"},\n  {\"type\": \"DataPropertyRange\", \"property\": \"hasDeadline\", \"datatype\": \"xsd:date\"}\n]\n\n### key_constraint\nThe output format is constrained to a specific JSON schema. Produce a concise list of UNIQUE axioms. Stop after finding the key relationships. \nDo NOT extract instances (ABox). \nDo NOT output duplicate axioms.\nFocus only on the Schema (TBox).<|end|><|user|>\n                    ### Classes\n                    - Person: An individual human being (e.g., patient, researcher, employee).\n- Organization: A social group acting as a single entity (e.g., company, hospital, university).\n- PhysicalObject: A tangible object (e.g., sensor, device, equipment).\n- Software: A computer program or application (e.g., app, cloud platform).\n- Event: An occurrence or activity (e.g., trial, measurement, study).\n- Location: A place or position (e.g., clinic, home, body part).\n- ClinicalStudy: A systematic investigation conducted to evaluate the efficacy, safety, and optimal use of a medical intervention, such as a drug, a medical device, a treatment, or a service, to prevent, diagnose, or treat a disease, to improve a clinical function, or to understand a disease better.\n\n                    ### Text\n                    ## Case Highlight\ntitle: Case Highlight\n\n### Bispebjerg Hospital: Increased out-of-bed time of hospitalized patients\nsubtitle: Bispebjerg Hospital: Increased out-of-bed time of hospitalized patients\n[View video](https://www.linkedin.com/posts/et-al._2-min-og-25-sek-of-fame-hell-yeah-altid-activity-6599636858651586560-oOmm/)\n\nBispebjerg Hospital have in a recent study increased time out of bed for elderly hospitalised patients by 51 minutes per day using SENS motion developed by the Danish start-up SENS Innovation\n\nMany patients are inactive 18–20 hours a day in the hospital bed, and body functions decline rapidly during hospitalisation. Therefore, rehabilitation while hospitalised is crucial to avoid loss of independency, decline of quality of life and re-hospitalisation\n\nReferences\n\n[Business Insights: A patch and an app are getting patients out of bed](https://www.businessinsights.dk/healthtech/a-patch-and-an-app-are-getting-patients-out-of-bed/)\n[European Journal of Internal Medicine: Dall CH, Andersen H, Povlsen TM, Henriksen M. Evaluation of a technology assisted physical activity intervention among hospitalised patients: A randomised study. Eur J Intern Med. 2019](https://pubmed.ncbi.nlm.nih.gov/31494019/)\n\nProject supported by the Association of Danish Physiotherapists, RegionH VihTek, Bispebjerg Hospital – Department of Physical and Occupational Therapy and SENS Innovation ApS\n\n## Clinical Evidence\ntitle: Clinical Evidence\n\n### SENS motion® increases physical activity for admitted patients\nsubtitle: SENS motion® increases physical activity for admitted patients\nlist: Each year more than 600.000 elderly patients above the age of 65 are hospitalised (2)|Elderly hospitalised acute patients spend on average 70–90% of their time in bed and spend only 3–5% of their time either standing or walking (1)\nResearch has shown that even shorter periods of inactivity cause a reduction in physical fitness and muscle mass (3). Compared to younger patients, elderly patients have reduced ability to recover after periods of physical inactivity (4). This also affects the patient's ability to perform daily living (ADL) activities as well as degrading their perceived quality of life (5)\n\nPhysical inactivity is a strong factor prolonging the disease and rehabilitation period (7), increasing the risk of sequelae leading to hospital (re)admission (6). With an increase of just 100 steps taken per day the risk of readmission is reduced with approximately 10% for elderly hospitalised patients (8)\n\n**References**\n1. Nina Beyer et al. \"In acutely admitted geriatric patients offering increased physical activity during hospitalization decreases length of stay and can improve mobility\" (Nov. 2017)\n2. Statistics Denmark, February 2019\n3. J Appl Physiol 108: 1034–1040, 2010\n4. J Am Geriatr Soc. 2003;51:451–458\n5. Pedersen, Klarlund B, 2015\n6. J Am Geriatr Soc. 2004;52:1263–1270\n7. Lancet 2009;373:1874–1882, J Nutr Health Aging. 2016;20:738–751\n8. Arch Phys Med Rehabil. September 2016 (Steve R. Fisher et al.)\n\n                    ### Instruction\n                    Identify logical relationships (axioms) and properties from the text for the classes above.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are an Ontology Axiom Extractor.\n\n### Goal\nDefine the relationships (ObjectProperties) and attributes (DataProperties) for the Known Classes provided in the context.\n\n### Guidelines\n1. **Identify** relationships and attributes in the text.\n2. **Strict Vocabulary**: You may ONLY use the classes listed in the \"Provided Classes\" context.\n2. **Naming Convention**: \n   - Property names must be **lowerCamelCase** (e.g., `hasStatus`, `worksFor`).\n3. **SubClassOf**: Identify \"is-a\" hierarchies.\n4. **ObjectProperties**: Identify relationships between two classes.\n   - Domain: The subject class.\n   - Range: The object class.\n5. **DataProperties**: Identify attributes of a class (e.g., `hasAge`, `hasId`).\n\n### Example \n[\n  {\"type\": \"SubClassOf\", \"subclass\": \"Manager\", \"superclass\": \"Employee\"},\n  {\"type\": \"ObjectPropertyDomain\", \"property\": \"manages\", \"class\": \"Manager\"},\n  {\"type\": \"ObjectPropertyRange\", \"property\": \"manages\", \"class\": \"Project\"},\n  {\"type\": \"DataPropertyDomain\", \"property\": \"hasDeadline\", \"class\": \"Project\"},\n  {\"type\": \"DataPropertyRange\", \"property\": \"hasDeadline\", \"datatype\": \"xsd:date\"}\n]\n\n### key_constraint\nThe output format is constrained to a specific JSON schema. Produce a concise list of UNIQUE axioms. Stop after finding the key relationships. \nDo NOT extract instances (ABox). \nDo NOT output duplicate axioms.\nFocus only on the Schema (TBox).<|end|><|user|>\n                    ### Classes\n                    - Person: An individual human being (e.g., patient, researcher, employee).\n- Organization: A social group acting as a single entity (e.g., company, hospital, university).\n- PhysicalObject: A tangible object (e.g., sensor, device, equipment).\n- Software: A computer program or application (e.g., app, cloud platform).\n- Event: An occurrence or activity (e.g., trial, measurement, study).\n- Location: A place or position (e.g., clinic, home, body part).\n- PilotPackage: A promotional offer for a subscription service, typically provided by a company, that grants access to a product or service for a limited time and under specific conditions.\n\n                    ### Text\n                    ## Pilot package\ntitle: Pilot package\nbutton_text: Contact us to hear more\nPilot package offer: **19.995 DKK** for use in 3 months in a clinical ward\n\nCall +45 2623 8234 or fill out the [contact form](/en/contact/), then we will contact you as soon as possible\n\n                    ### Instruction\n                    Identify logical relationships (axioms) and properties from the text for the classes above.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are an Ontology Axiom Extractor.\n\n### Goal\nDefine the relationships (ObjectProperties) and attributes (DataProperties) for the Known Classes provided in the context.\n\n### Guidelines\n1. **Identify** relationships and attributes in the text.\n2. **Strict Vocabulary**: You may ONLY use the classes listed in the \"Provided Classes\" context.\n2. **Naming Convention**: \n   - Property names must be **lowerCamelCase** (e.g., `hasStatus`, `worksFor`).\n3. **SubClassOf**: Identify \"is-a\" hierarchies.\n4. **ObjectProperties**: Identify relationships between two classes.\n   - Domain: The subject class.\n   - Range: The object class.\n5. **DataProperties**: Identify attributes of a class (e.g., `hasAge`, `hasId`).\n\n### Example \n[\n  {\"type\": \"SubClassOf\", \"subclass\": \"Manager\", \"superclass\": \"Employee\"},\n  {\"type\": \"ObjectPropertyDomain\", \"property\": \"manages\", \"class\": \"Manager\"},\n  {\"type\": \"ObjectPropertyRange\", \"property\": \"manages\", \"class\": \"Project\"},\n  {\"type\": \"DataPropertyDomain\", \"property\": \"hasDeadline\", \"class\": \"Project\"},\n  {\"type\": \"DataPropertyRange\", \"property\": \"hasDeadline\", \"datatype\": \"xsd:date\"}\n]\n\n### key_constraint\nThe output format is constrained to a specific JSON schema. Produce a concise list of UNIQUE axioms. Stop after finding the key relationships. \nDo NOT extract instances (ABox). \nDo NOT output duplicate axioms.\nFocus only on the Schema (TBox).<|end|><|user|>\n                    ### Classes\n                    - Person: An individual human being (e.g., patient, researcher, employee).\n- Organization: A social group acting as a single entity (e.g., company, hospital, university).\n- PhysicalObject: A tangible object (e.g., sensor, device, equipment).\n- Software: A computer program or application (e.g., app, cloud platform).\n- Event: An occurrence or activity (e.g., trial, measurement, study).\n- Location: A place or position (e.g., clinic, home, body part).\n- ClinicalStudy: A systematic investigation in the medical field, often involving experiments or observations, to evaluate the effectiveness, safety, or outcomes of a particular medical intervention, such as a drug, treatment, or device.\n- MedicalDevice: An apparatus or instrument used in healthcare, often for diagnostic or therapeutic purposes, that is specifically designed to interact with the human body.\n- ClinicalOutcome: The result of a clinical study, which may include data on the effectiveness, safety, and impact of a medical intervention on a patient or population.\n- HealthcareProfessional: An individual who is trained and licensed to provide or supervise the provision of health care services, such as doctors, nurses, and therapists.\n- MedicalCondition: A particular disease or disorder that affects a person, often characterized by specific symptoms and requiring medical attention.\n- MedicalIntervention: A specific action taken to prevent, treat, or prevent the spread of a disease, often involving medical procedures, medications, or lifestyle changes.\n- MedicalData: Information collected from medical research or practice, often used for analysis, diagnosis, or treatment purposes.\n- MedicalResearch: The systematic investigation into and study of materials and sources related to health and disease, with the aim of developing knowledge and understanding in the field of medicine.\n\n                    ### Text\n                    ## About the Study\n\nThis peer-reviewed article investigates the criterion validity of linear accelerations measured with low-sampling-frequency accelerometers (SENS motion®) during overground walking in elderly patients with knee osteoarthritis. The study demonstrates the system's accuracy in clinical settings\n\n## Authors\n\nGhaffari, A.; Rahbek, O.; Lauritsen, R.E.K.; Kappel, A.; Kold, S.; Rasmussen, J\n\n## Publication\n\n**Sensors** 2022, 22, 5289\n\n## Key Findings\n\nValidation of SENS motion® in measuring gait patterns in elderly patients\nAccurate measurement of linear accelerations during overground walking\nApplicable in clinical practice for assessing mobility and gait function\n\n[Read the full article →](https://doi.org/10.3390/s22145289)\n\n                    ### Instruction\n                    Identify logical relationships (axioms) and properties from the text for the classes above.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are an Ontology Axiom Extractor.\n\n### Goal\nDefine the relationships (ObjectProperties) and attributes (DataProperties) for the Known Classes provided in the context.\n\n### Guidelines\n1. **Identify** relationships and attributes in the text.\n2. **Strict Vocabulary**: You may ONLY use the classes listed in the \"Provided Classes\" context.\n2. **Naming Convention**: \n   - Property names must be **lowerCamelCase** (e.g., `hasStatus`, `worksFor`).\n3. **SubClassOf**: Identify \"is-a\" hierarchies.\n4. **ObjectProperties**: Identify relationships between two classes.\n   - Domain: The subject class.\n   - Range: The object class.\n5. **DataProperties**: Identify attributes of a class (e.g., `hasAge`, `hasId`).\n\n### Example \n[\n  {\"type\": \"SubClassOf\", \"subclass\": \"Manager\", \"superclass\": \"Employee\"},\n  {\"type\": \"ObjectPropertyDomain\", \"property\": \"manages\", \"class\": \"Manager\"},\n  {\"type\": \"ObjectPropertyRange\", \"property\": \"manages\", \"class\": \"Project\"},\n  {\"type\": \"DataPropertyDomain\", \"property\": \"hasDeadline\", \"class\": \"Project\"},\n  {\"type\": \"DataPropertyRange\", \"property\": \"hasDeadline\", \"datatype\": \"xsd:date\"}\n]\n\n### key_constraint\nThe output format is constrained to a specific JSON schema. Produce a concise list of UNIQUE axioms. Stop after finding the key relationships. \nDo NOT extract instances (ABox). \nDo NOT output duplicate axioms.\nFocus only on the Schema (TBox).<|end|><|user|>\n                    ### Classes\n                    - Person: An individual human being (e.g., patient, researcher, employee).\n- Organization: A social group acting as a single entity (e.g., company, hospital, university).\n- PhysicalObject: A tangible object (e.g., sensor, device, equipment).\n- Software: A computer program or application (e.g., app, cloud platform).\n- Event: An occurrence or activity (e.g., trial, measurement, study).\n- Location: A place or position (e.g., clinic, home, body part).\n\n                    ### Text\n                    ## About the Study\n\nThis peer-reviewed article compares the performance of two activity monitors, including SENS motion®, in detecting walking speeds among hospitalized patients. The study evaluates the system's accuracy in both slow and fast walking conditions\n\n## Authors\n\nBritt Stævnsbo Pedersen, Morten Tange Kristensen, Christian Ohrhammer Josefsen, Kasper Lundberg Lykkegaard, Line Rokkedal Jønsson, Mette Merete Pedersen\n\n## Publication\n\n**Rehabilitation Research and Practice**, vol. 2022, Article ID 9230081\n\n## Key Findings\n\nComparison of activity monitors in hospital settings\nAccurate detection of walking speeds in hospitalized patients\nApplicable for monitoring patient activity levels during hospitalization\n\n[Read the full article →](https://doi.org/10.1155/2022/9230081)\n\n                    ### Instruction\n                    Identify logical relationships (axioms) and properties from the text for the classes above.<|end|><|assistant|>"
+                ],
+                "instance_population": [
+                    "<|system|>### Role\nYou are an Instance Extraction Agent.\n\n### Goal\nInstantiate the **provided Ontology Schema** using the **Source text**.\n\n### Guidelines\n1. **Identify Instances:** Find specific entities, objects, or concepts mentioned in the text (e.g., \"John Doe\", \"Model-X Sensor\", \"Inspection Report 2024\").\n2. **Strict Schema Compliance**: You can ONLY use Classes and Properties defined in the provided Schema context.\n3. **Entity Identification**: Identify unique individuals (e.g., \"Dr. Smith\", \"Study 123\").\n    - Assign a clear, unique `id`.\n    - Map to the single most specific `class`.\n4. **Property Extraction**:\n    - **Object Properties**: Link two individuals (e.g., `Dr. Smith` *leads* `Study 123`).\n    - **Data Properties**: Assign literal values (e.g., `Study 123` *startDate* \"2023-01-01\").\n\n### Example\n[\n  {\"type\": \"DeclareIndividual\", \"id\": \"Alice\"},\n  {\"type\": \"ClassAssertion\", \"individual\": \"Alice\", \"class\": \"Person\"},\n  {\"type\": \"ObjectPropertyAssertion\", \"subject\": \"Alice\", \"property\": \"worksFor\", \"object\": \"Acme Corp\"},\n  {\"type\": \"DataPropertyAssertion\", \"subject\": \"Product X\", \"property\": \"hasStatus\", \"value\": \"Active\", \"datatype\": \"xsd:string\"}\n]\n\n### key_constraint\nThe output is strictly enforced by a JSON schema. \n1. Focus on the semantic correctness of your extracted instances. \n2. Stop after assigning the single best class.\n3. **NO DUPLICATES**: Do not output the same Individual ID twice. Once an entity is defined, do not list it again.\nDo NOT invent new classes or properties not present in the provided schema.\nDo NOT use the generic examples (Alice, Acme Corp) in your output.\nUse strictly the ID/Class names provided in the context.<|end|><|user|>\n                    ### Schema\n                    Valid Classes: ActivityDataAnalysis, Location, ActivityDataSensor, ActivityDataPlatform, ActivityDataExport, Software, ActivitySensor, PhysicalObject, Organization, ActivityDataManagement, HealthcareActivityMonitor, Person, ActivityDataCollection, PhysicalActivitySensor, Event, WearableActivitySensor\nValid Properties: exports, manages, collects, measures, tracks, analyzes, hosts\n\n                    ### Source Text\n                    title: Discrete Wearable Activity Sensor for Healthcare and Research\ntext: Better Treatment. Better Research\n\n## What is SENS motion®\ntitle: What is SENS motion®\n\n### System Measures\nsubtitle: System Measures\nlist: Rest time.Standing time.Walking time.Running & High Intensity Movement time.Cycling time.Steps.Intensity.Sleep time and quality\n**SENS motion®** is an integrated system for collecting physical activity data from groups of people. It consists of a wireless activity sensor that automatically transfers data to a secure cloud. It is especially well suited for use in the healthcare sector and for large research projects\n\n## SENS motion® – For Healthcare\ntitle: SENS motion® – For Healthcare\n\n### SENS motion® – For Healthcare consists of\nsubtitle: SENS motion® – For Healthcare consists of\nlist: The SENS motion activity sensor for use on patients.A patient app, with gamification feedback for motivating the patient to become more active.(Optional) Monitor display providing overview of patients.Access to reports of individual patients activity\n**SENS motion® – For Healthcare** enables the use of SENS motion® activity sensor in healthcare environments, such as hospitals or care centres. The collected activity data can be presented to the patient itself for motivational purpose, assist healthcare professionals in treatment and help prioritize their valuable time efficiently\n\n[Read More →](/en/healthcare/)\n\n## SENS motion® – For Research\ntitle: SENS motion® – For Research\n\n### SENS motion® – For Research consists of\nsubtitle: SENS motion® – For Research consists of\nlist: The SENS motion® activity sensor.Smartphone app for automatically transferring data to the secure cloud.Web-application for managing sensors, viewing or exporting data\n**SENS motion® – For Research** enables the use of SENS motion activity sensor for collecting activity data or raw accelerometer data in research projects\n\n[Read More →](/en/research/)\n\nSENS motion® – Connect\nOEM Platform for medical sensors\nDo you want to build a wireless, scalable, battery-powered medical sensor or have a business opportunity where measurement of physical data is needed?\n\n[Image: demos10 (source: /img/demos10.png)](https://www.demos10.dk/)\n[Image: icompression (source: /img/icompression.png)](https://icompression.dk/)\n[Image: ventriject (source: /img/ventriject-2.png)](https://ventriject.com/)\n\nContact us for options on OEM Cooperation\n|\n                    ### Instruction\n                    Extract specific instances and facts from the Source Text that fit the schema.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are an Instance Extraction Agent.\n\n### Goal\nInstantiate the **provided Ontology Schema** using the **Source text**.\n\n### Guidelines\n1. **Identify Instances:** Find specific entities, objects, or concepts mentioned in the text (e.g., \"John Doe\", \"Model-X Sensor\", \"Inspection Report 2024\").\n2. **Strict Schema Compliance**: You can ONLY use Classes and Properties defined in the provided Schema context.\n3. **Entity Identification**: Identify unique individuals (e.g., \"Dr. Smith\", \"Study 123\").\n    - Assign a clear, unique `id`.\n    - Map to the single most specific `class`.\n4. **Property Extraction**:\n    - **Object Properties**: Link two individuals (e.g., `Dr. Smith` *leads* `Study 123`).\n    - **Data Properties**: Assign literal values (e.g., `Study 123` *startDate* \"2023-01-01\").\n\n### Example\n[\n  {\"type\": \"DeclareIndividual\", \"id\": \"Alice\"},\n  {\"type\": \"ClassAssertion\", \"individual\": \"Alice\", \"class\": \"Person\"},\n  {\"type\": \"ObjectPropertyAssertion\", \"subject\": \"Alice\", \"property\": \"worksFor\", \"object\": \"Acme Corp\"},\n  {\"type\": \"DataPropertyAssertion\", \"subject\": \"Product X\", \"property\": \"hasStatus\", \"value\": \"Active\", \"datatype\": \"xsd:string\"}\n]\n\n### key_constraint\nThe output is strictly enforced by a JSON schema. \n1. Focus on the semantic correctness of your extracted instances. \n2. Stop after assigning the single best class.\n3. **NO DUPLICATES**: Do not output the same Individual ID twice. Once an entity is defined, do not list it again.\nDo NOT invent new classes or properties not present in the provided schema.\nDo NOT use the generic examples (Alice, Acme Corp) in your output.\nUse strictly the ID/Class names provided in the context.<|end|><|user|>\n                    ### Schema\n                    Valid Classes: Location, HealthResearchTool, SensorPlatform, Software, PhysicalActivityMonitoring, PhysicalObject, Organization, HealthDataCollection, Person, TeamMember, HealthDataPlatform, HealthDataAnalysis, HealthData, MedicalSensorProduct, Event\nValid Properties: hasEmail, hasLinkedInProfile, worksFor, hasRole\n\n                    ### Source Text\n                    title: Company Profile\ntext: SENS Innovation ApS\n\n## Background\ntitle: Background\nvision_quote: Our vision is to revolutionize the way physical activity can be used as an integrated and measurable part of the treatment and prevention of numerous diseases – on an equal footing with other medicine\nvision_author_name: Kasper L. Lykkegaard\nvision_author_title: Co-founder and CEO\nSENS Innovation ApS was founded in 2014 by Kasper L. Lykkegaard and Morten Kjærgaard. The company develops medical sensor products, based on advanced sensor technology, for monitoring of physical activity with patients\n\nThe SENS products and platforms are easy to use, flexible, scalable and present accurate monitoring of the body's position and the nature of the activity, for both the individual or even larger groups. Therefore, SENS's products and technology are a valuable tool in research trials and studies in correlation to physical activity and diseases\n\n## Meet Our Team\ntitle: Meet Our Team\nTeam member: Kasper L. Lykkegaard; role: CEO & Founder; email: kasper@sens.dk; linkedin: https://www.linkedin.com/in/kasper-lundberg-lykkegaard-7795246/\nTeam member: Morten Kjærgaard; role: CTO & Founder; email: morten@sens.dk; linkedin: https://www.linkedin.com/in/morten-kj%C3%A6rgaard-9a08242/\nTeam member: Ida Marie Pierrel-Boas; role: Senior Project Manager; email: ida@sens.dk; linkedin: https://www.linkedin.com/in/idaboas/\nTeam member: Christian Lindharth; role: Senior Account Executive; email: christian@sens.dk; linkedin: https://www.linkedin.com/in/clindharth/\nTeam member: Miriam Cabrita; role: Partnerships Manager; email: miriam@sens.dk\nTeam member: Karen Shakespeare; role: UK & Ireland Account Executive; email: karen@sens.dk\nTeam member: Amin Rezaei; role: Software Developer\nTeam member: August Blicher Friis; role: Software Developer\nTeam member: Renata Oliveira; role: UX Specialist\nTeam member: Huong Nguyen; role: Frontend Developer\nTeam member: Mathias Elmegaard Nielsen; role: Student Assistant\nTeam member: Mats Ellingsen; role: Student Assistant\nTeam member: Lea Møller Storm; role: Student Assistant\n|\n                    ### Instruction\n                    Extract specific instances and facts from the Source Text that fit the schema.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are an Instance Extraction Agent.\n\n### Goal\nInstantiate the **provided Ontology Schema** using the **Source text**.\n\n### Guidelines\n1. **Identify Instances:** Find specific entities, objects, or concepts mentioned in the text (e.g., \"John Doe\", \"Model-X Sensor\", \"Inspection Report 2024\").\n2. **Strict Schema Compliance**: You can ONLY use Classes and Properties defined in the provided Schema context.\n3. **Entity Identification**: Identify unique individuals (e.g., \"Dr. Smith\", \"Study 123\").\n    - Assign a clear, unique `id`.\n    - Map to the single most specific `class`.\n4. **Property Extraction**:\n    - **Object Properties**: Link two individuals (e.g., `Dr. Smith` *leads* `Study 123`).\n    - **Data Properties**: Assign literal values (e.g., `Study 123` *startDate* \"2023-01-01\").\n\n### Example\n[\n  {\"type\": \"DeclareIndividual\", \"id\": \"Alice\"},\n  {\"type\": \"ClassAssertion\", \"individual\": \"Alice\", \"class\": \"Person\"},\n  {\"type\": \"ObjectPropertyAssertion\", \"subject\": \"Alice\", \"property\": \"worksFor\", \"object\": \"Acme Corp\"},\n  {\"type\": \"DataPropertyAssertion\", \"subject\": \"Product X\", \"property\": \"hasStatus\", \"value\": \"Active\", \"datatype\": \"xsd:string\"}\n]\n\n### key_constraint\nThe output is strictly enforced by a JSON schema. \n1. Focus on the semantic correctness of your extracted instances. \n2. Stop after assigning the single best class.\n3. **NO DUPLICATES**: Do not output the same Individual ID twice. Once an entity is defined, do not list it again.\nDo NOT invent new classes or properties not present in the provided schema.\nDo NOT use the generic examples (Alice, Acme Corp) in your output.\nUse strictly the ID/Class names provided in the context.<|end|><|user|>\n                    ### Schema\n                    Valid Classes: Location, Software, PhysicalObject, Organization, CommunicationPlatform, Person, Event\nValid Properties: hasCommunicationPlatform\n\n                    ### Source Text\n                    ## Send us a message\n|\n                    ### Instruction\n                    Extract specific instances and facts from the Source Text that fit the schema.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are an Instance Extraction Agent.\n\n### Goal\nInstantiate the **provided Ontology Schema** using the **Source text**.\n\n### Guidelines\n1. **Identify Instances:** Find specific entities, objects, or concepts mentioned in the text (e.g., \"John Doe\", \"Model-X Sensor\", \"Inspection Report 2024\").\n2. **Strict Schema Compliance**: You can ONLY use Classes and Properties defined in the provided Schema context.\n3. **Entity Identification**: Identify unique individuals (e.g., \"Dr. Smith\", \"Study 123\").\n    - Assign a clear, unique `id`.\n    - Map to the single most specific `class`.\n4. **Property Extraction**:\n    - **Object Properties**: Link two individuals (e.g., `Dr. Smith` *leads* `Study 123`).\n    - **Data Properties**: Assign literal values (e.g., `Study 123` *startDate* \"2023-01-01\").\n\n### Example\n[\n  {\"type\": \"DeclareIndividual\", \"id\": \"Alice\"},\n  {\"type\": \"ClassAssertion\", \"individual\": \"Alice\", \"class\": \"Person\"},\n  {\"type\": \"ObjectPropertyAssertion\", \"subject\": \"Alice\", \"property\": \"worksFor\", \"object\": \"Acme Corp\"},\n  {\"type\": \"DataPropertyAssertion\", \"subject\": \"Product X\", \"property\": \"hasStatus\", \"value\": \"Active\", \"datatype\": \"xsd:string\"}\n]\n\n### key_constraint\nThe output is strictly enforced by a JSON schema. \n1. Focus on the semantic correctness of your extracted instances. \n2. Stop after assigning the single best class.\n3. **NO DUPLICATES**: Do not output the same Individual ID twice. Once an entity is defined, do not list it again.\nDo NOT invent new classes or properties not present in the provided schema.\nDo NOT use the generic examples (Alice, Acme Corp) in your output.\nUse strictly the ID/Class names provided in the context.<|end|><|user|>\n                    ### Schema\n                    Valid Classes: Location, Software, PhysicalObject, Organization, FeedbackMessage, Person, Event\nValid Properties: hasContent, hasMessage, hasStatus, hasSentiment, hasResponseTime\n\n                    ### Source Text\n                    title: Thank you for your message\n\nWe have received your message and will get back to you as soon as possible\n[Back to home page](/)\n|\n                    ### Instruction\n                    Extract specific instances and facts from the Source Text that fit the schema.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are an Instance Extraction Agent.\n\n### Goal\nInstantiate the **provided Ontology Schema** using the **Source text**.\n\n### Guidelines\n1. **Identify Instances:** Find specific entities, objects, or concepts mentioned in the text (e.g., \"John Doe\", \"Model-X Sensor\", \"Inspection Report 2024\").\n2. **Strict Schema Compliance**: You can ONLY use Classes and Properties defined in the provided Schema context.\n3. **Entity Identification**: Identify unique individuals (e.g., \"Dr. Smith\", \"Study 123\").\n    - Assign a clear, unique `id`.\n    - Map to the single most specific `class`.\n4. **Property Extraction**:\n    - **Object Properties**: Link two individuals (e.g., `Dr. Smith` *leads* `Study 123`).\n    - **Data Properties**: Assign literal values (e.g., `Study 123` *startDate* \"2023-01-01\").\n\n### Example\n[\n  {\"type\": \"DeclareIndividual\", \"id\": \"Alice\"},\n  {\"type\": \"ClassAssertion\", \"individual\": \"Alice\", \"class\": \"Person\"},\n  {\"type\": \"ObjectPropertyAssertion\", \"subject\": \"Alice\", \"property\": \"worksFor\", \"object\": \"Acme Corp\"},\n  {\"type\": \"DataPropertyAssertion\", \"subject\": \"Product X\", \"property\": \"hasStatus\", \"value\": \"Active\", \"datatype\": \"xsd:string\"}\n]\n\n### key_constraint\nThe output is strictly enforced by a JSON schema. \n1. Focus on the semantic correctness of your extracted instances. \n2. Stop after assigning the single best class.\n3. **NO DUPLICATES**: Do not output the same Individual ID twice. Once an entity is defined, do not list it again.\nDo NOT invent new classes or properties not present in the provided schema.\nDo NOT use the generic examples (Alice, Acme Corp) in your output.\nUse strictly the ID/Class names provided in the context.<|end|><|user|>\n                    ### Schema\n                    Valid Classes: Location, Software, PhysicalObject, Organization, HealthcareProfessional, Person, HealthProfessionalPatientInteraction, ClinicalTrial, PatientProgressTour, HealthDataManagement, GamificationElement, Event\nValid Properties: hasButtonText, hasHistoryView, hasProgressTracking, hasTitle, hasVisualFeedback, hasVisualTour, hasList, hasSubtitle\n\n                    ### Source Text\n                    title: Promote increased mobilisation among inpatients\ntext: Certified medical device (CE-marked)\n\n## Introduction\ntitle: Introduction\n\n### SENS motion® increases physical activity for admitted patients\nsubtitle: SENS motion® increases physical activity for admitted patients\nlist: Motivates the patient by visualizing goals and expectations on a tablet next to the bed.Provides a data-based overview of the patients' physical activity for the healthcare professional.Improved dialog about physical activity between the healthcare professional, the patient and relatives.Increased compliance of data-driven management\n\n## Pilot Package\ntitle: Pilot Package\n\n### Try SENS motion® for 3 months – It is easy, and support is free of charge\nsubtitle: Try SENS motion® for 3 months – It is easy, and support is free of charge\nbutton_text: Read more about the pilot package\n**Try SENS motion® for 3 months** and experience the positive effect on patients. It is easy and quick. Complete package for only 19.995 DKK\n\nPilot package is an introductory offer that gives the possibility to use SENS motion in a clinical ward for 3 months with up to 120 patients\n\n## Motivational App\ntitle: Motivational App\n\n### Motivational visual feedback from the app increases the patient's self-activation\nsubtitle: Motivational visual feedback from the app increases the patient's self-activation\nlist: Motivates the patient to be more active by using elements of gamification and nudging.The patient walks a visual tour through Copenhagen visiting various attractions.The patient can continuously track her/his own progress, goals, and expectations.The patient and healthcare professional can access more information using a detailed history view to facilitate dialog and follow up\n|\n                    ### Instruction\n                    Extract specific instances and facts from the Source Text that fit the schema.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are an Instance Extraction Agent.\n\n### Goal\nInstantiate the **provided Ontology Schema** using the **Source text**.\n\n### Guidelines\n1. **Identify Instances:** Find specific entities, objects, or concepts mentioned in the text (e.g., \"John Doe\", \"Model-X Sensor\", \"Inspection Report 2024\").\n2. **Strict Schema Compliance**: You can ONLY use Classes and Properties defined in the provided Schema context.\n3. **Entity Identification**: Identify unique individuals (e.g., \"Dr. Smith\", \"Study 123\").\n    - Assign a clear, unique `id`.\n    - Map to the single most specific `class`.\n4. **Property Extraction**:\n    - **Object Properties**: Link two individuals (e.g., `Dr. Smith` *leads* `Study 123`).\n    - **Data Properties**: Assign literal values (e.g., `Study 123` *startDate* \"2023-01-01\").\n\n### Example\n[\n  {\"type\": \"DeclareIndividual\", \"id\": \"Alice\"},\n  {\"type\": \"ClassAssertion\", \"individual\": \"Alice\", \"class\": \"Person\"},\n  {\"type\": \"ObjectPropertyAssertion\", \"subject\": \"Alice\", \"property\": \"worksFor\", \"object\": \"Acme Corp\"},\n  {\"type\": \"DataPropertyAssertion\", \"subject\": \"Product X\", \"property\": \"hasStatus\", \"value\": \"Active\", \"datatype\": \"xsd:string\"}\n]\n\n### key_constraint\nThe output is strictly enforced by a JSON schema. \n1. Focus on the semantic correctness of your extracted instances. \n2. Stop after assigning the single best class.\n3. **NO DUPLICATES**: Do not output the same Individual ID twice. Once an entity is defined, do not list it again.\nDo NOT invent new classes or properties not present in the provided schema.\nDo NOT use the generic examples (Alice, Acme Corp) in your output.\nUse strictly the ID/Class names provided in the context.<|end|><|user|>\n                    ### Schema\n                    Valid Classes: Location, RealTimeProgressTracking, Software, PhysicalObject, Organization, SensorAttachmentProcedure, Person, ActivityMonitoring, ActivityDashboard, MotivationalSupport, Event\nValid Properties: includes, isHighlightedIn, provides, isDisplayedOn, isUsedFor\n\n                    ### Source Text\n                    ## How to use SENS motion® – For Healthcare\ntitle: How to use SENS motion® – For Healthcare\n/img/healthcare/1_attach_sensor.jpg|Attach Sensor to the patient|A discrete sensor patch is placed on the thigh of the patient at admission\n/img/healthcare/2_sensor_measures.jpg|Sensor Measures physical activity|The sensor records physical activity and daily rhythm throughout the stay\n/img/healthcare/3_follow_PA_tablet.jpg|Follow Physical Activity Progress on the bedside tablet|A bedside tablet lets the patient follow goals and progress in real time\nsubtitle: A tool for the patient and healthcare professionals\n/img/healthcare/4_conversation.jpg|Support Dialogue|Highlights the importance of activity and tracks motivation and compliance\n/img/healthcare/5_data_overview.jpg|Data Overview|Provides live and historical activity dashboards for clinical decisions\n|\n                    ### Instruction\n                    Extract specific instances and facts from the Source Text that fit the schema.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are an Instance Extraction Agent.\n\n### Goal\nInstantiate the **provided Ontology Schema** using the **Source text**.\n\n### Guidelines\n1. **Identify Instances:** Find specific entities, objects, or concepts mentioned in the text (e.g., \"John Doe\", \"Model-X Sensor\", \"Inspection Report 2024\").\n2. **Strict Schema Compliance**: You can ONLY use Classes and Properties defined in the provided Schema context.\n3. **Entity Identification**: Identify unique individuals (e.g., \"Dr. Smith\", \"Study 123\").\n    - Assign a clear, unique `id`.\n    - Map to the single most specific `class`.\n4. **Property Extraction**:\n    - **Object Properties**: Link two individuals (e.g., `Dr. Smith` *leads* `Study 123`).\n    - **Data Properties**: Assign literal values (e.g., `Study 123` *startDate* \"2023-01-01\").\n\n### Example\n[\n  {\"type\": \"DeclareIndividual\", \"id\": \"Alice\"},\n  {\"type\": \"ClassAssertion\", \"individual\": \"Alice\", \"class\": \"Person\"},\n  {\"type\": \"ObjectPropertyAssertion\", \"subject\": \"Alice\", \"property\": \"worksFor\", \"object\": \"Acme Corp\"},\n  {\"type\": \"DataPropertyAssertion\", \"subject\": \"Product X\", \"property\": \"hasStatus\", \"value\": \"Active\", \"datatype\": \"xsd:string\"}\n]\n\n### key_constraint\nThe output is strictly enforced by a JSON schema. \n1. Focus on the semantic correctness of your extracted instances. \n2. Stop after assigning the single best class.\n3. **NO DUPLICATES**: Do not output the same Individual ID twice. Once an entity is defined, do not list it again.\nDo NOT invent new classes or properties not present in the provided schema.\nDo NOT use the generic examples (Alice, Acme Corp) in your output.\nUse strictly the ID/Class names provided in the context.<|end|><|user|>\n                    ### Schema\n                    Valid Classes: ClinicalStudy, Location, Software, PhysicalObject, Organization, Person, Event\nValid Properties: hasReferences, hasPublishedIn, hasTitle, hasProjectSupportedBy, hasList, hasStatistics, hasSubtitle\n\n                    ### Source Text\n                    ## Case Highlight\ntitle: Case Highlight\n\n### Bispebjerg Hospital: Increased out-of-bed time of hospitalized patients\nsubtitle: Bispebjerg Hospital: Increased out-of-bed time of hospitalized patients\n[View video](https://www.linkedin.com/posts/et-al._2-min-og-25-sek-of-fame-hell-yeah-altid-activity-6599636858651586560-oOmm/)\n\nBispebjerg Hospital have in a recent study increased time out of bed for elderly hospitalised patients by 51 minutes per day using SENS motion developed by the Danish start-up SENS Innovation\n\nMany patients are inactive 18–20 hours a day in the hospital bed, and body functions decline rapidly during hospitalisation. Therefore, rehabilitation while hospitalised is crucial to avoid loss of independency, decline of quality of life and re-hospitalisation\n\nReferences\n\n[Business Insights: A patch and an app are getting patients out of bed](https://www.businessinsights.dk/healthtech/a-patch-and-an-app-are-getting-patients-out-of-bed/)\n[European Journal of Internal Medicine: Dall CH, Andersen H, Povlsen TM, Henriksen M. Evaluation of a technology assisted physical activity intervention among hospitalised patients: A randomised study. Eur J Intern Med. 2019](https://pubmed.ncbi.nlm.nih.gov/31494019/)\n\nProject supported by the Association of Danish Physiotherapists, RegionH VihTek, Bispebjerg Hospital – Department of Physical and Occupational Therapy and SENS Innovation ApS\n\n## Clinical Evidence\ntitle: Clinical Evidence\n\n### SENS motion® increases physical activity for admitted patients\nsubtitle: SENS motion® increases physical activity for admitted patients\nlist: Each year more than 600.000 elderly patients above the age of 65 are hospitalised (2)|Elderly hospitalised acute patients spend on average 70–90% of their time in bed and spend only 3–5% of their time either standing or walking (1)\nResearch has shown that even shorter periods of inactivity cause a reduction in physical fitness and muscle mass (3). Compared to younger patients, elderly patients have reduced ability to recover after periods of physical inactivity (4). This also affects the patient's ability to perform daily living (ADL) activities as well as degrading their perceived quality of life (5)\n\nPhysical inactivity is a strong factor prolonging the disease and rehabilitation period (7), increasing the risk of sequelae leading to hospital (re)admission (6). With an increase of just 100 steps taken per day the risk of readmission is reduced with approximately 10% for elderly hospitalised patients (8)\n\n**References**\n1. Nina Beyer et al. \"In acutely admitted geriatric patients offering increased physical activity during hospitalization decreases length of stay and can improve mobility\" (Nov. 2017)\n2. Statistics Denmark, February 2019\n3. J Appl Physiol 108: 1034–1040, 2010\n4. J Am Geriatr Soc. 2003;51:451–458\n5. Pedersen, Klarlund B, 2015\n6. J Am Geriatr Soc. 2004;52:1263–1270\n7. Lancet 2009;373:1874–1882, J Nutr Health Aging. 2016;20:738–751\n8. Arch Phys Med Rehabil. September 2016 (Steve R. Fisher et al.)\n|\n                    ### Instruction\n                    Extract specific instances and facts from the Source Text that fit the schema.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are an Instance Extraction Agent.\n\n### Goal\nInstantiate the **provided Ontology Schema** using the **Source text**.\n\n### Guidelines\n1. **Identify Instances:** Find specific entities, objects, or concepts mentioned in the text (e.g., \"John Doe\", \"Model-X Sensor\", \"Inspection Report 2024\").\n2. **Strict Schema Compliance**: You can ONLY use Classes and Properties defined in the provided Schema context.\n3. **Entity Identification**: Identify unique individuals (e.g., \"Dr. Smith\", \"Study 123\").\n    - Assign a clear, unique `id`.\n    - Map to the single most specific `class`.\n4. **Property Extraction**:\n    - **Object Properties**: Link two individuals (e.g., `Dr. Smith` *leads* `Study 123`).\n    - **Data Properties**: Assign literal values (e.g., `Study 123` *startDate* \"2023-01-01\").\n\n### Example\n[\n  {\"type\": \"DeclareIndividual\", \"id\": \"Alice\"},\n  {\"type\": \"ClassAssertion\", \"individual\": \"Alice\", \"class\": \"Person\"},\n  {\"type\": \"ObjectPropertyAssertion\", \"subject\": \"Alice\", \"property\": \"worksFor\", \"object\": \"Acme Corp\"},\n  {\"type\": \"DataPropertyAssertion\", \"subject\": \"Product X\", \"property\": \"hasStatus\", \"value\": \"Active\", \"datatype\": \"xsd:string\"}\n]\n\n### key_constraint\nThe output is strictly enforced by a JSON schema. \n1. Focus on the semantic correctness of your extracted instances. \n2. Stop after assigning the single best class.\n3. **NO DUPLICATES**: Do not output the same Individual ID twice. Once an entity is defined, do not list it again.\nDo NOT invent new classes or properties not present in the provided schema.\nDo NOT use the generic examples (Alice, Acme Corp) in your output.\nUse strictly the ID/Class names provided in the context.<|end|><|user|>\n                    ### Schema\n                    Valid Classes: Location, Software, PhysicalObject, Organization, Person, PilotPackage, Event\nValid Properties: hasOffer, hasDuration, hasPrice, hasLocation\n\n                    ### Source Text\n                    ## Pilot package\ntitle: Pilot package\nbutton_text: Contact us to hear more\nPilot package offer: **19.995 DKK** for use in 3 months in a clinical ward\n\nCall +45 2623 8234 or fill out the [contact form](/en/contact/), then we will contact you as soon as possible\n|\n                    ### Instruction\n                    Extract specific instances and facts from the Source Text that fit the schema.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are an Instance Extraction Agent.\n\n### Goal\nInstantiate the **provided Ontology Schema** using the **Source text**.\n\n### Guidelines\n1. **Identify Instances:** Find specific entities, objects, or concepts mentioned in the text (e.g., \"John Doe\", \"Model-X Sensor\", \"Inspection Report 2024\").\n2. **Strict Schema Compliance**: You can ONLY use Classes and Properties defined in the provided Schema context.\n3. **Entity Identification**: Identify unique individuals (e.g., \"Dr. Smith\", \"Study 123\").\n    - Assign a clear, unique `id`.\n    - Map to the single most specific `class`.\n4. **Property Extraction**:\n    - **Object Properties**: Link two individuals (e.g., `Dr. Smith` *leads* `Study 123`).\n    - **Data Properties**: Assign literal values (e.g., `Study 123` *startDate* \"2023-01-01\").\n\n### Example\n[\n  {\"type\": \"DeclareIndividual\", \"id\": \"Alice\"},\n  {\"type\": \"ClassAssertion\", \"individual\": \"Alice\", \"class\": \"Person\"},\n  {\"type\": \"ObjectPropertyAssertion\", \"subject\": \"Alice\", \"property\": \"worksFor\", \"object\": \"Acme Corp\"},\n  {\"type\": \"DataPropertyAssertion\", \"subject\": \"Product X\", \"property\": \"hasStatus\", \"value\": \"Active\", \"datatype\": \"xsd:string\"}\n]\n\n### key_constraint\nThe output is strictly enforced by a JSON schema. \n1. Focus on the semantic correctness of your extracted instances. \n2. Stop after assigning the single best class.\n3. **NO DUPLICATES**: Do not output the same Individual ID twice. Once an entity is defined, do not list it again.\nDo NOT invent new classes or properties not present in the provided schema.\nDo NOT use the generic examples (Alice, Acme Corp) in your output.\nUse strictly the ID/Class names provided in the context.<|end|><|user|>\n                    ### Schema\n                    Valid Classes: ClinicalStudy, Location, MedicalData, Software, PhysicalObject, Organization, MedicalDevice, HealthcareProfessional, Person, ClinicalOutcome, MedicalIntervention, MedicalResearch, MedicalCondition, Event\nValid Properties: hasPublication, hasAuthor, hasPublishedIn, hasKeyFindings\n\n                    ### Source Text\n                    ## About the Study\n\nThis peer-reviewed article investigates the criterion validity of linear accelerations measured with low-sampling-frequency accelerometers (SENS motion®) during overground walking in elderly patients with knee osteoarthritis. The study demonstrates the system's accuracy in clinical settings\n\n## Authors\n\nGhaffari, A.; Rahbek, O.; Lauritsen, R.E.K.; Kappel, A.; Kold, S.; Rasmussen, J\n\n## Publication\n\n**Sensors** 2022, 22, 5289\n\n## Key Findings\n\nValidation of SENS motion® in measuring gait patterns in elderly patients\nAccurate measurement of linear accelerations during overground walking\nApplicable in clinical practice for assessing mobility and gait function\n\n[Read the full article →](https://doi.org/10.3390/s22145289)\n|\n                    ### Instruction\n                    Extract specific instances and facts from the Source Text that fit the schema.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are an Instance Extraction Agent.\n\n### Goal\nInstantiate the **provided Ontology Schema** using the **Source text**.\n\n### Guidelines\n1. **Identify Instances:** Find specific entities, objects, or concepts mentioned in the text (e.g., \"John Doe\", \"Model-X Sensor\", \"Inspection Report 2024\").\n2. **Strict Schema Compliance**: You can ONLY use Classes and Properties defined in the provided Schema context.\n3. **Entity Identification**: Identify unique individuals (e.g., \"Dr. Smith\", \"Study 123\").\n    - Assign a clear, unique `id`.\n    - Map to the single most specific `class`.\n4. **Property Extraction**:\n    - **Object Properties**: Link two individuals (e.g., `Dr. Smith` *leads* `Study 123`).\n    - **Data Properties**: Assign literal values (e.g., `Study 123` *startDate* \"2023-01-01\").\n\n### Example\n[\n  {\"type\": \"DeclareIndividual\", \"id\": \"Alice\"},\n  {\"type\": \"ClassAssertion\", \"individual\": \"Alice\", \"class\": \"Person\"},\n  {\"type\": \"ObjectPropertyAssertion\", \"subject\": \"Alice\", \"property\": \"worksFor\", \"object\": \"Acme Corp\"},\n  {\"type\": \"DataPropertyAssertion\", \"subject\": \"Product X\", \"property\": \"hasStatus\", \"value\": \"Active\", \"datatype\": \"xsd:string\"}\n]\n\n### key_constraint\nThe output is strictly enforced by a JSON schema. \n1. Focus on the semantic correctness of your extracted instances. \n2. Stop after assigning the single best class.\n3. **NO DUPLICATES**: Do not output the same Individual ID twice. Once an entity is defined, do not list it again.\nDo NOT invent new classes or properties not present in the provided schema.\nDo NOT use the generic examples (Alice, Acme Corp) in your output.\nUse strictly the ID/Class names provided in the context.<|end|><|user|>\n                    ### Schema\n                    Valid Classes: Location, Software, PhysicalObject, Organization, Person, Event\nValid Properties: hasVolume, hasDOI, publishedIn, authored, hasAuthor, hasPublication\n\n                    ### Source Text\n                    ## About the Study\n\nThis peer-reviewed article compares the performance of two activity monitors, including SENS motion®, in detecting walking speeds among hospitalized patients. The study evaluates the system's accuracy in both slow and fast walking conditions\n\n## Authors\n\nBritt Stævnsbo Pedersen, Morten Tange Kristensen, Christian Ohrhammer Josefsen, Kasper Lundberg Lykkegaard, Line Rokkedal Jønsson, Mette Merete Pedersen\n\n## Publication\n\n**Rehabilitation Research and Practice**, vol. 2022, Article ID 9230081\n\n## Key Findings\n\nComparison of activity monitors in hospital settings\nAccurate detection of walking speeds in hospitalized patients\nApplicable for monitoring patient activity levels during hospitalization\n\n[Read the full article →](https://doi.org/10.1155/2022/9230081)\n|\n                    ### Instruction\n                    Extract specific instances and facts from the Source Text that fit the schema.<|end|><|assistant|>"
+                ]
+            }
+        },
+        "num_classes": 46,
+        "num_axioms": 113,
+        "num_instances": 83
+    },
+    "ontology_tbox": {
+        "classes": [
+            {
+                "id": "Person",
+                "description": "An individual human being (e.g., patient, researcher, employee)."
+            },
+            {
+                "id": "Organization",
+                "description": "A social group acting as a single entity (e.g., company, hospital, university)."
+            },
+            {
+                "id": "PhysicalObject",
+                "description": "A tangible object (e.g., sensor, device, equipment)."
+            },
+            {
+                "id": "Software",
+                "description": "A computer program or application (e.g., app, cloud platform)."
+            },
+            {
+                "id": "Event",
+                "description": "An occurrence or activity (e.g., trial, measurement, study)."
+            },
+            {
+                "id": "Location",
+                "description": "A place or position (e.g., clinic, home, body part)."
+            },
+            {
+                "id": "WearableActivitySensor",
+                "description": "A portable device designed to monitor and record physical activity levels, typically worn by individuals, and capable of wireless data transmission to a cloud-based platform for analysis."
+            },
+            {
+                "id": "ActivityDataSensor",
+                "description": "A sensor technology used to capture and measure human physical activity, often integrated into wearable devices or standalone units, and used for health monitoring and research purposes."
+            },
+            {
+                "id": "HealthcareActivityMonitor",
+                "description": "A system or device that tracks and records the physical activity of individuals, particularly within healthcare settings, to support patient care and health research."
+            },
+            {
+                "id": "PhysicalActivitySensor",
+                "description": "A sensor that specifically measures physical activity, which can be part of a larger system or a standalone device, and is used to collect data for health and fitness tracking."
+            },
+            {
+                "id": "ActivitySensor",
+                "description": "A general term for sensors that measure and record physical activity, which can be used in various applications including fitness tracking, healthcare monitoring, and research data collection."
+            },
+            {
+                "id": "ActivityDataCollection",
+                "description": "The process of gathering physical activity data from individuals, often through the use of sensors and wearable devices, and aggregating this data for analysis and interpretation."
+            },
+            {
+                "id": "ActivityDataAnalysis",
+                "description": "The examination and interpretation of physical activity data collected from sensors or wearable devices, often used to draw conclusions in healthcare and research contexts."
+            },
+            {
+                "id": "ActivityDataPlatform",
+                "description": "A cloud-based platform or service that receives, stores, and processes physical activity data collected from various sensors and devices, providing insights and analytics."
+            },
+            {
+                "id": "ActivityDataManagement",
+                "description": "The organization, storage, and maintenance of physical activity data collected from sensors and wearable devices, ensuring data integrity and accessibility for healthcare and research purposes."
+            },
+            {
+                "id": "ActivityDataExport",
+                "description": "The capability to transfer or export physical activity data collected from sensors and wearable devices to external systems or individuals, often for further analysis or reporting."
+            },
+            {
+                "id": "TeamMember",
+                "description": "An individual associated with a company, typically with a specific role and responsibilities, and often with contact information and social media profiles."
+            },
+            {
+                "id": "MedicalSensorProduct",
+                "description": "A medical device that utilizes advanced sensor technology to monitor physical activity and provide data for health-related research and disease prevention."
+            },
+            {
+                "id": "PhysicalActivityMonitoring",
+                "description": "The process or system of tracking and recording physical movements and exertion, often using specialized equipment or software, for health and fitness purposes."
+            },
+            {
+                "id": "HealthResearchTool",
+                "description": "An instrument or method used in scientific studies to collect data on health-related variables, such as physical activity, for the purpose of understanding health outcomes and disease prevention."
+            },
+            {
+                "id": "SensorPlatform",
+                "description": "A technological foundation that supports the operation of medical sensors, providing a scalable and flexible infrastructure for data collection and analysis."
+            },
+            {
+                "id": "HealthDataPlatform",
+                "description": "A cloud-based system or application that aggregates, processes, and analyzes health-related data collected from various sources, such as medical sensors or user inputs."
+            },
+            {
+                "id": "HealthDataAnalysis",
+                "description": "The process of examining and interpreting health-related data to draw conclusions about health trends, disease patterns, or the effectiveness of health interventions."
+            },
+            {
+                "id": "HealthDataCollection",
+                "description": "The act of gathering health-related information from individuals or groups, often through surveys, sensors, or other data collection methods, for research or monitoring purposes."
+            },
+            {
+                "id": "HealthData",
+                "description": "Raw or processed information related to an individual's health status, medical history, physical activity, or other health-related metrics."
+            },
+            {
+                "id": "CommunicationPlatform",
+                "description": "A digital medium or service that facilitates the exchange of information, ideas, or messages between individuals or groups."
+            },
+            {
+                "id": "FeedbackMessage",
+                "description": "A communication instance where a person expresses gratitude and indicates that their message has been received and will be addressed promptly."
+            },
+            {
+                "id": "ClinicalTrial",
+                "description": "A research study conducted to evaluate the efficacy and safety of a medical device or software application in a controlled environment, often involving human subjects and aimed at generating data for regulatory approval."
+            },
+            {
+                "id": "HealthcareProfessional",
+                "description": "An individual with the authority and responsibility to provide medical care, such as doctors, nurses, and therapists, who may use medical devices or software applications in their practice."
+            },
+            {
+                "id": "GamificationElement",
+                "description": "A feature or tool used in software applications to incorporate game-like elements and mechanics to engage and motivate users, often used to increase physical activity or adherence to health-related programs."
+            },
+            {
+                "id": "HealthDataManagement",
+                "description": "The process of collecting, storing, and analyzing health-related data, which may involve software applications that help in tracking patient progress, goals, and expectations."
+            },
+            {
+                "id": "PatientProgressTour",
+                "description": "A feature within a software application that allows patients to visualize their own progress in a journey or tour format, often used to motivate and engage patients in physical activity or health-related activities."
+            },
+            {
+                "id": "HealthProfessionalPatientInteraction",
+                "description": "The dynamic between a healthcare professional and a patient, which may be facilitated or enhanced by the use of medical devices or software applications to improve communication, follow-up, and overall patient care."
+            },
+            {
+                "id": "SensorAttachmentProcedure",
+                "description": "A method or protocol for attaching a sensor to a patient for monitoring purposes."
+            },
+            {
+                "id": "ActivityMonitoring",
+                "description": "The process of tracking and recording a patient's physical activity and daily movement patterns."
+            },
+            {
+                "id": "RealTimeProgressTracking",
+                "description": "A feature that allows patients to monitor their physical activity goals and progress in real-time using a tablet or similar device."
+            },
+            {
+                "id": "MotivationalSupport",
+                "description": "A system or feature designed to encourage and maintain patient motivation and compliance with physical activity goals."
+            },
+            {
+                "id": "ActivityDashboard",
+                "description": "A live and historical data visualization tool used by healthcare professionals to make informed clinical decisions based on patient activity."
+            },
+            {
+                "id": "ClinicalStudy",
+                "description": "A systematic investigation conducted to evaluate the efficacy, safety, and optimal use of a medical intervention, such as a drug, a medical device, a treatment, or a service, to prevent, diagnose, or treat a disease, to improve a clinical function, or to understand a disease better."
+            },
+            {
+                "id": "PilotPackage",
+                "description": "A promotional offer for a subscription service, typically provided by a company, that grants access to a product or service for a limited time and under specific conditions."
+            },
+            {
+                "id": "MedicalDevice",
+                "description": "An instrument or apparatus used in healthcare, often for diagnostic or therapeutic purposes, that is specifically designed to interact with the human body."
+            },
+            {
+                "id": "ClinicalOutcome",
+                "description": "The result of a clinical study, which may include data on the effectiveness, safety, and impact of a medical intervention on a patient or population."
+            },
+            {
+                "id": "MedicalCondition",
+                "description": "A particular disease or disorder that affects a person, often characterized by specific symptoms and requiring medical attention."
+            },
+            {
+                "id": "MedicalIntervention",
+                "description": "A specific action taken to prevent, treat, or prevent the spread of a disease, often involving medical procedures, medications, or lifestyle changes."
+            },
+            {
+                "id": "MedicalData",
+                "description": "Information collected from medical research or practice, often used for analysis, diagnosis, or treatment purposes."
+            },
+            {
+                "id": "MedicalResearch",
+                "description": "The systematic investigation into and study of materials and sources related to health and disease, with the aim of developing knowledge and understanding in the field of medicine."
+            }
+        ],
+        "axioms": [
+            {
+                "type": "SubClassOf",
+                "subclass": "WearableActivitySensor",
+                "superclass": "PhysicalObject"
+            },
+            {
+                "type": "SubClassOf",
+                "subclass": "ActivityDataSensor",
+                "superclass": "PhysicalObject"
+            },
+            {
+                "type": "SubClassOf",
+                "subclass": "HealthcareActivityMonitor",
+                "superclass": "PhysicalObject"
+            },
+            {
+                "type": "SubClassOf",
+                "subclass": "PhysicalActivitySensor",
+                "superclass": "PhysicalObject"
+            },
+            {
+                "type": "SubClassOf",
+                "subclass": "ActivitySensor",
+                "superclass": "PhysicalObject"
+            },
+            {
+                "type": "SubClassOf",
+                "subclass": "ActivityDataCollection",
+                "superclass": "PhysicalObject"
+            },
+            {
+                "type": "SubClassOf",
+                "subclass": "ActivityDataAnalysis",
+                "superclass": "PhysicalObject"
+            },
+            {
+                "type": "SubClassOf",
+                "subclass": "ActivityDataPlatform",
+                "superclass": "PhysicalObject"
+            },
+            {
+                "type": "SubClassOf",
+                "subclass": "ActivityDataManagement",
+                "superclass": "PhysicalObject"
+            },
+            {
+                "type": "SubClassOf",
+                "subclass": "ActivityDataExport",
+                "superclass": "PhysicalObject"
+            },
+            {
+                "type": "ObjectPropertyDomain",
+                "property": "measures",
+                "class": "WearableActivitySensor"
+            },
+            {
+                "type": "ObjectPropertyDomain",
+                "property": "measures",
+                "class": "ActivityDataSensor"
+            },
+            {
+                "type": "ObjectPropertyDomain",
+                "property": "tracks",
+                "class": "HealthcareActivityMonitor"
+            },
+            {
+                "type": "ObjectPropertyDomain",
+                "property": "measures",
+                "class": "PhysicalActivitySensor"
+            },
+            {
+                "type": "ObjectPropertyDomain",
+                "property": "measures",
+                "class": "ActivitySensor"
+            },
+            {
+                "type": "ObjectPropertyDomain",
+                "property": "collects",
+                "class": "ActivityDataCollection"
+            },
+            {
+                "type": "ObjectPropertyDomain",
+                "property": "analyzes",
+                "class": "ActivityDataAnalysis"
+            },
+            {
+                "type": "ObjectPropertyDomain",
+                "property": "hosts",
+                "class": "ActivityDataPlatform"
+            },
+            {
+                "type": "ObjectPropertyDomain",
+                "property": "manages",
+                "class": "ActivityDataManagement"
+            },
+            {
+                "type": "ObjectPropertyDomain",
+                "property": "exports",
+                "class": "ActivityDataExport"
+            },
+            {
+                "type": "SubClassOf",
+                "subclass": "TeamMember",
+                "superclass": "Person"
+            },
+            {
+                "type": "ObjectPropertyDomain",
+                "property": "worksFor",
+                "class": "TeamMember"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "worksFor",
+                "class": "Organization"
+            },
+            {
+                "type": "ObjectPropertyDomain",
+                "property": "hasRole",
+                "class": "TeamMember"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "hasRole",
+                "class": "Organization"
+            },
+            {
+                "type": "ObjectPropertyDomain",
+                "property": "hasEmail",
+                "class": "TeamMember"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "hasEmail",
+                "class": "Organization"
+            },
+            {
+                "type": "ObjectPropertyDomain",
+                "property": "hasLinkedInProfile",
+                "class": "TeamMember"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "hasLinkedInProfile",
+                "class": "Organization"
+            },
+            {
+                "type": "ObjectPropertyDomain",
+                "property": "hasRole",
+                "class": "TeamMember"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "hasRole",
+                "class": "Organization"
+            },
+            {
+                "type": "ObjectPropertyDomain",
+                "property": "hasCommunicationPlatform",
+                "class": "Person"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "hasCommunicationPlatform",
+                "class": "CommunicationPlatform"
+            },
+            {
+                "type": "ObjectPropertyDomain",
+                "property": "hasMessage",
+                "class": "FeedbackMessage"
+            },
+            {
+                "type": "DataPropertyDomain",
+                "property": "hasContent",
+                "class": "FeedbackMessage"
+            },
+            {
+                "type": "DataPropertyDomain",
+                "property": "hasSentiment",
+                "class": "FeedbackMessage"
+            },
+            {
+                "type": "DataPropertyDomain",
+                "property": "hasStatus",
+                "class": "FeedbackMessage"
+            },
+            {
+                "type": "DataPropertyDomain",
+                "property": "hasResponseTime",
+                "class": "FeedbackMessage"
+            },
+            {
+                "type": "SubClassOf",
+                "subclass": "Software",
+                "superclass": "Software"
+            },
+            {
+                "type": "SubClassOf",
+                "subclass": "Software",
+                "superclass": "Software"
+            },
+            {
+                "type": "SubClassOf",
+                "subclass": "Software",
+                "superclass": "Software"
+            },
+            {
+                "type": "ObjectPropertyDomain",
+                "property": "hasTitle",
+                "class": "Software"
+            },
+            {
+                "type": "ObjectPropertyDomain",
+                "property": "hasSubtitle",
+                "class": "Software"
+            },
+            {
+                "type": "ObjectPropertyDomain",
+                "property": "hasButtonText",
+                "class": "Software"
+            },
+            {
+                "type": "ObjectPropertyDomain",
+                "property": "hasList",
+                "class": "Software"
+            },
+            {
+                "type": "ObjectPropertyDomain",
+                "property": "hasVisualFeedback",
+                "class": "Software"
+            },
+            {
+                "type": "ObjectPropertyDomain",
+                "property": "hasVisualTour",
+                "class": "Software"
+            },
+            {
+                "type": "ObjectPropertyDomain",
+                "property": "hasProgressTracking",
+                "class": "Software"
+            },
+            {
+                "type": "ObjectPropertyDomain",
+                "property": "hasHistoryView",
+                "class": "Software"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "hasTitle",
+                "class": "Software"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "hasSubtitle",
+                "class": "Software"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "hasButtonText",
+                "class": "Software"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "hasList",
+                "class": "Software"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "hasVisualFeedback",
+                "class": "Software"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "hasVisualTour",
+                "class": "Software"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "hasProgressTracking",
+                "class": "Software"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "hasHistoryView",
+                "class": "Software"
+            },
+            {
+                "type": "ObjectPropertyDomain",
+                "property": "isUsedFor",
+                "class": "SensorAttachmentProcedure"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "isUsedFor",
+                "class": "SensorAttachmentProcedure"
+            },
+            {
+                "type": "ObjectPropertyDomain",
+                "property": "provides",
+                "class": "ActivityMonitoring"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "provides",
+                "class": "RealTimeProgressTracking"
+            },
+            {
+                "type": "ObjectPropertyDomain",
+                "property": "includes",
+                "class": "MotivationalSupport"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "includes",
+                "class": "ActivityDashboard"
+            },
+            {
+                "type": "ObjectPropertyDomain",
+                "property": "isDisplayedOn",
+                "class": "ActivityDashboard"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "isDisplayedOn",
+                "class": "ActivityDashboard"
+            },
+            {
+                "type": "ObjectPropertyDomain",
+                "property": "isHighlightedIn",
+                "class": "MotivationalSupport"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "isHighlightedIn",
+                "class": "MotivationalSupport"
+            },
+            {
+                "type": "SubClassOf",
+                "subclass": "ClinicalStudy",
+                "superclass": "Event"
+            },
+            {
+                "type": "ObjectPropertyDomain",
+                "property": "hasTitle",
+                "class": "ClinicalStudy"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "hasSubtitle",
+                "class": "ClinicalStudy"
+            },
+            {
+                "type": "ObjectPropertyDomain",
+                "property": "hasList",
+                "class": "ClinicalStudy"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "hasList",
+                "class": "ClinicalStudy"
+            },
+            {
+                "type": "ObjectPropertyDomain",
+                "property": "hasStatistics",
+                "class": "ClinicalStudy"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "hasStatistics",
+                "class": "ClinicalStudy"
+            },
+            {
+                "type": "ObjectPropertyDomain",
+                "property": "hasReferences",
+                "class": "ClinicalStudy"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "hasReferences",
+                "class": "ClinicalStudy"
+            },
+            {
+                "type": "ObjectPropertyDomain",
+                "property": "hasProjectSupportedBy",
+                "class": "ClinicalStudy"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "hasProjectSupportedBy",
+                "class": "ClinicalStudy"
+            },
+            {
+                "type": "ObjectPropertyDomain",
+                "property": "hasPublishedIn",
+                "class": "ClinicalStudy"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "hasPublishedIn",
+                "class": "ClinicalStudy"
+            },
+            {
+                "type": "ObjectPropertyDomain",
+                "property": "hasOffer",
+                "class": "PilotPackage"
+            },
+            {
+                "type": "DataPropertyDomain",
+                "property": "hasPrice",
+                "class": "PilotPackage"
+            },
+            {
+                "type": "DataPropertyDomain",
+                "property": "hasDuration",
+                "class": "PilotPackage"
+            },
+            {
+                "type": "DataPropertyDomain",
+                "property": "hasLocation",
+                "class": "PilotPackage"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "hasOffer",
+                "class": "PilotPackage"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "hasOffer",
+                "class": "Organization"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "hasOffer",
+                "class": "PhysicalObject"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "hasOffer",
+                "class": "Software"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "hasOffer",
+                "class": "Event"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "hasOffer",
+                "class": "Location"
+            },
+            {
+                "type": "SubClassOf",
+                "subclass": "ClinicalStudy",
+                "superclass": "MedicalResearch"
+            },
+            {
+                "type": "ObjectPropertyDomain",
+                "property": "hasAuthor",
+                "class": "ClinicalStudy"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "hasAuthor",
+                "class": "Person"
+            },
+            {
+                "type": "ObjectPropertyDomain",
+                "property": "hasPublication",
+                "class": "ClinicalStudy"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "hasPublication",
+                "class": "Event"
+            },
+            {
+                "type": "ObjectPropertyDomain",
+                "property": "hasKeyFindings",
+                "class": "ClinicalStudy"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "hasKeyFindings",
+                "class": "Event"
+            },
+            {
+                "type": "ObjectPropertyDomain",
+                "property": "hasPublishedIn",
+                "class": "ClinicalStudy"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "hasPublishedIn",
+                "class": "Event"
+            },
+            {
+                "type": "ObjectPropertyDomain",
+                "property": "hasKeyFindings",
+                "class": "ClinicalStudy"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "hasKeyFindings",
+                "class": "Event"
+            },
+            {
+                "type": "SubClassOf",
+                "subclass": "Person",
+                "superclass": "Organization"
+            },
+            {
+                "type": "ObjectPropertyDomain",
+                "property": "authored",
+                "class": "Person"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "authored",
+                "class": "Event"
+            },
+            {
+                "type": "DataPropertyDomain",
+                "property": "hasPublication",
+                "class": "Event"
+            },
+            {
+                "type": "ObjectPropertyDomain",
+                "property": "publishedIn",
+                "class": "Event"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "publishedIn",
+                "class": "Event"
+            },
+            {
+                "type": "DataPropertyDomain",
+                "property": "hasVolume",
+                "class": "Event"
+            },
+            {
+                "type": "DataPropertyRange",
+                "property": "hasVolume",
+                "datatype": "xsd:string"
+            },
+            {
+                "type": "ObjectPropertyDomain",
+                "property": "hasAuthor",
+                "class": "Event"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "hasAuthor",
+                "class": "Person"
+            },
+            {
+                "type": "DataPropertyDomain",
+                "property": "hasDOI",
+                "class": "Event"
+            },
+            {
+                "type": "DataPropertyRange",
+                "property": "hasDOI",
+                "datatype": "xsd:string"
+            }
+        ]
+    },
+    "ontology_abox": [
+        {
+            "type": "ClassAssertion",
+            "individual": "SENS motion®",
+            "class": "ActivityDataSensor"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "SENS motion®",
+            "class": "ActivityDataManagement"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "SENS motion®",
+            "class": "ActivityDataCollection"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "SENS motion®",
+            "class": "ActivityDataExport"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "SENS motion®",
+            "class": "ActivityDataAnalysis"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "SENS motion®",
+            "class": "Organization"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "SENS motion®",
+            "class": "PhysicalActivitySensor"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "SENS motion®",
+            "class": "WearableActivitySensor"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "SENS motion®",
+            "class": "PhysicalObject"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "SENS motion®",
+            "class": "Location"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "SENS motion®",
+            "class": "ActivityDataPlatform"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "SENS Innovation ApS",
+            "class": "Organization"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Kasper L. Lykkegaard",
+            "class": "Person"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Morten Kjærgaard",
+            "class": "Person"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Ida Marie Pierrel-Boas",
+            "class": "Person"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Christian Lindharth",
+            "class": "Person"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Miriam Cabrita",
+            "class": "Person"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Karen Shakespeare",
+            "class": "Person"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Amin Rezaei",
+            "class": "Person"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "August Blicher Friis",
+            "class": "Person"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Renata Oliveira",
+            "class": "Person"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Huong Nguyen",
+            "class": "Person"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Mathias Elmegaard Nielsen",
+            "class": "Person"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Mats Ellingsen",
+            "class": "Person"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Lea Møller Storm",
+            "class": "Person"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "SENS Innovation ApS",
+            "class": "TeamMember"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Kasper L. Lykkegaard",
+            "class": "TeamMember"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Morten Kjærgaard",
+            "class": "TeamMember"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Ida Marie Pierrel-Boas",
+            "class": "TeamMember"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Christian Lindharth",
+            "class": "TeamMember"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Miriam Cabrita",
+            "class": "TeamMember"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Karen Shakespeare",
+            "class": "TeamMember"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Amin Rezaei",
+            "class": "TeamMember"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "August Blicher Friis",
+            "class": "TeamMember"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Renata Oliveira",
+            "class": "TeamMember"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Huong Nguyen",
+            "class": "TeamMember"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Mathias Elmegaard Nielsen",
+            "class": "TeamMember"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Mats Ellingsen",
+            "class": "TeamMember"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Lea Møller Storm",
+            "class": "TeamMember"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "SENS Innovation ApS",
+            "class": "Organization"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Kasper L. Lykkegaard",
+            "class": "TeamMember"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Morten Kjærgaard",
+            "class": "TeamMember"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Ida Marie Pierrel-Boas",
+            "class": "TeamMember"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Christian Lindharth",
+            "class": "TeamMember"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Miriam Cabrita",
+            "class": "TeamMember"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Karen Shakespeare",
+            "class": "TeamMember"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Amin Rezaei",
+            "class": "TeamMember"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "August Blicher Friis",
+            "class": "TeamMember"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Renata Oliveira",
+            "class": "TeamMember"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Huong Nguyen",
+            "class": "TeamMember"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Mathias Elmegaard Nielsen",
+            "class": "TeamMember"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Mats Ellingsen",
+            "class": "TeamMember"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Lea Møller Storm",
+            "class": "TeamMember"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "CommunicationPlatform",
+            "class": "CommunicationPlatform"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "FeedbackMessage",
+            "class": "FeedbackMessage"
+        },
+        {
+            "type": "DataPropertyAssertion",
+            "subject": "FeedbackMessage",
+            "property": "hasStatus",
+            "value": "Received",
+            "datatype": "xsd:string"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "SENS motion",
+            "class": "Software"
+        },
+        {
+            "type": "ObjectPropertyAssertion",
+            "subject": "SENS motion",
+            "property": "includes",
+            "object": "ActivityMonitoring"
+        },
+        {
+            "type": "ObjectPropertyAssertion",
+            "subject": "SENS motion",
+            "property": "includes",
+            "object": "ActivityDashboard"
+        },
+        {
+            "type": "ObjectPropertyAssertion",
+            "subject": "SENS motion",
+            "property": "includes",
+            "object": "MotivationalSupport"
+        },
+        {
+            "type": "ObjectPropertyAssertion",
+            "subject": "SENS motion",
+            "property": "includes",
+            "object": "Event"
+        },
+        {
+            "type": "ObjectPropertyAssertion",
+            "subject": "Sensor",
+            "property": "isDisplayedOn",
+            "object": "bedside tablet"
+        },
+        {
+            "type": "ObjectPropertyAssertion",
+            "subject": "Sensor",
+            "property": "isUsedFor",
+            "object": "Follow Physical Activity Progress"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Pilot package",
+            "class": "PilotPackage"
+        },
+        {
+            "type": "DataPropertyAssertion",
+            "subject": "Pilot package",
+            "property": "hasOffer",
+            "value": "19.995 DKK",
+            "datatype": "xsd:string"
+        },
+        {
+            "type": "DataPropertyAssertion",
+            "subject": "Pilot package",
+            "property": "hasDuration",
+            "value": "3 months",
+            "datatype": "xsd:string"
+        },
+        {
+            "type": "DataPropertyAssertion",
+            "subject": "Pilot package",
+            "property": "hasLocation",
+            "value": "clinical ward",
+            "datatype": "xsd:string"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Britt Stævnsbo Pedersen",
+            "class": "Person"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Morten Tange Kristensen",
+            "class": "Person"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Christian Ohrhammer Josefsen",
+            "class": "Person"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Kasper Lundberg Lykkegaard",
+            "class": "Person"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Line Rokkedal Jønsson",
+            "class": "Person"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Mette Merete Pedersen",
+            "class": "Person"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Rehabilitation Research and Practice",
+            "class": "Organization"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Article ID 9230081",
+            "class": "Event"
+        },
+        {
+            "type": "ObjectPropertyAssertion",
+            "subject": "Britt Stævnsbo Pedersen",
+            "property": "authored",
+            "object": "Article ID 9230081"
+        },
+        {
+            "type": "ObjectPropertyAssertion",
+            "subject": "Morten Tange Kristensen",
+            "property": "authored",
+            "object": "Article ID 9230081"
+        },
+        {
+            "type": "ObjectPropertyAssertion",
+            "subject": "Christian Ohrhammer Josefsen",
+            "property": "authored",
+            "object": "Article ID 9230081"
+        },
+        {
+            "type": "ObjectPropertyAssertion",
+            "subject": "Kasper Lundberg Lykkegaard",
+            "property": "authored",
+            "object": "Article ID 9230081"
+        },
+        {
+            "type": "ObjectPropertyAssertion",
+            "subject": "Line Rokkedal Jønsson",
+            "property": "authored",
+            "object": "Article ID 9230081"
+        },
+        {
+            "type": "ObjectPropertyAssertion",
+            "subject": "Mette Merete Pedersen",
+            "property": "authored",
+            "object": "Article ID 9230081"
+        },
+        {
+            "type": "ObjectPropertyAssertion",
+            "subject": "Rehabilitation Research and Practice",
+            "property": "publishedIn",
+            "object": "Article ID 9230081"
+        },
+        {
+            "type": "ObjectPropertyAssertion",
+            "subject": "Article ID 9230081",
+            "property": "publishedIn",
+            "object": "Rehabilitation Research and Practice"
+        }
+    ]
+}

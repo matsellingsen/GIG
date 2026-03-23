@@ -1,6 +1,8 @@
 """backend for openvino NPU using openvino_genai"""
-from openvino_genai import LLMPipeline, SchedulerConfig, GenerationConfig
+from openvino_genai import LLMPipeline, SchedulerConfig, GenerationConfig, StructuredOutputConfig
 from .backend import Backend
+import json
+
 
 class PhiOpenVINONPUBackend(Backend):
     def __init__(self, model_path="../../models/phi-4-mini-instruct-int4-sym", device="NPU", max_cache_size=2048):
@@ -27,7 +29,7 @@ class PhiOpenVINONPUBackend(Backend):
         )
         print("Model loaded.")
     
-    def generate(self, prompt: str, max_new_tokens: int = 1024) -> str:
+    def generate(self, prompt: str, max_new_tokens: int = 1024, json_schema: dict = None) -> str:
 
         # 3. Generation Config (Per-request)
         gen_config = GenerationConfig()
@@ -38,8 +40,24 @@ class PhiOpenVINONPUBackend(Backend):
 
         # EFFICIENCY / QUALITY trade-off:
         gen_config.repetition_penalty = 1.2 # gives a small boost to output diversity without needing sampling, which can be less efficient on NPU. Adjust as needed.
+
+        # Prepare execution arguments
+        generate_kwargs = {"config": gen_config}
+
         #gen_config.eos_token_id = self.pipe.get_tokenizer.eos_token_id # ensure we have a proper stop token to prevent runaway generation, especially important on NPU where you want to control latency.
         
+         # 2. Apply Schema if provided
+        if json_schema:
+            structured_config = StructuredOutputConfig()
+            # Depending on your specific OV version, syntax might vary slightly:
+            # Option A: Stringified JSON Schema
+            structured_config.json_schema = json.dumps(json_schema) 
+            
+            # CRITICAL FIX: Pass as a separate argument, NOT attached to gen_config
+            # This ensures the C++ binding receives the configuration.
+            generate_kwargs["structured_output_config"] = structured_config
+        
+      
         # Generate text
-        response = self.pipe.generate(prompt, config=gen_config)
+        response = self.pipe.generate(prompt, **generate_kwargs)
         return response

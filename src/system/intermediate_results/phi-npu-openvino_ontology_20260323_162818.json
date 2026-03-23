@@ -1,0 +1,46 @@
+{
+    "metadata": {
+        "model_name": "phi-npu-openvino",
+        "timestamp": "2026-03-23T16:28:18.825693",
+        "pipeline_info": {
+            "num_chunks": 61,
+            "chunks_processed": 1,
+            "orchestrator_type": "v3",
+            "source": "chunks.jsonl",
+            "prompts": []
+        },
+        "num_classes": 6,
+        "num_axioms": 0,
+        "num_instances": 0
+    },
+    "ontology_tbox": {
+        "classes": [
+            {
+                "id": "Person",
+                "description": "An individual human being (e.g., patient, researcher, employee)."
+            },
+            {
+                "id": "Organization",
+                "description": "A social group acting as a single entity (e.g., company, hospital, university)."
+            },
+            {
+                "id": "PhysicalObject",
+                "description": "A tangible object (e.g., sensor, device, equipment)."
+            },
+            {
+                "id": "Software",
+                "description": "A computer program or application (e.g., app, cloud platform)."
+            },
+            {
+                "id": "Event",
+                "description": "An occurrence or activity (e.g., trial, measurement, study)."
+            },
+            {
+                "id": "Location",
+                "description": "A place or position (e.g., clinic, home, body part)."
+            }
+        ],
+        "axioms": []
+    },
+    "ontology_abox": []
+}

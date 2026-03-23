@@ -1,0 +1,225 @@
+{
+    "metadata": {
+        "model_name": "phi-npu-openvino",
+        "timestamp": "2026-03-23T16:39:39.853784",
+        "pipeline_info": {
+            "num_chunks": 61,
+            "chunks_processed": 1,
+            "orchestrator_type": "v3",
+            "source": "chunks.jsonl",
+            "prompts": []
+        },
+        "num_classes": 14,
+        "num_axioms": 19,
+        "num_instances": 10
+    },
+    "ontology_tbox": {
+        "classes": [
+            {
+                "id": "Person",
+                "description": "An individual human being (e.g., patient, researcher, employee)."
+            },
+            {
+                "id": "Organization",
+                "description": "A social group acting as a single entity (e.g., company, hospital, university)."
+            },
+            {
+                "id": "PhysicalObject",
+                "description": "A tangible object (e.g., sensor, device, equipment)."
+            },
+            {
+                "id": "Software",
+                "description": "A computer program or application (e.g., app, cloud platform)."
+            },
+            {
+                "id": "Event",
+                "description": "An occurrence or activity (e.g., trial, measurement, study)."
+            },
+            {
+                "id": "Location",
+                "description": "A place or position (e.g., clinic, home, body part)."
+            },
+            {
+                "id": "WearableActivitySensor",
+                "description": "A portable device designed to measure and record physical activity levels, typically worn by individuals, and capable of wireless data transmission to a cloud-based platform for analysis."
+            },
+            {
+                "id": "HealthcareSensor",
+                "description": "A medical-grade sensor used in healthcare environments to monitor patient health and activity, often integrated with healthcare applications and data management systems."
+            },
+            {
+                "id": "ActivityDataManagementSystem",
+                "description": "A software platform that manages the collection, storage, and analysis of physical activity data from various sensors, providing insights and reports for healthcare and research purposes."
+            },
+            {
+                "id": "SensorDataCloudPlatform",
+                "description": "A cloud-based service that securely stores and processes data transmitted from physical activity sensors, offering scalable solutions for healthcare providers and researchers."
+            },
+            {
+                "id": "SensorDataExportTool",
+                "description": "A tool or application that allows for the extraction and export of sensor data, typically used by researchers or healthcare professionals to analyze and report on collected data."
+            },
+            {
+                "id": "SensorDataAnalysisTool",
+                "description": "A specialized tool or application designed to analyze raw sensor data, providing insights into physical activity patterns, trends, and health-related metrics."
+            },
+            {
+                "id": "SensorDataVisualizationTool",
+                "description": "A tool that visualizes sensor data, making it easier to interpret and understand physical activity levels and patterns, often used in healthcare and research settings."
+            },
+            {
+                "id": "SensorDataReportGenerator",
+                "description": "A system or application that compiles and generates reports based on sensor data, tailored for healthcare professionals to monitor patient progress and for researchers to document study findings."
+            }
+        ],
+        "axioms": [
+            {
+                "type": "SubClassOf",
+                "subclass": "WearableActivitySensor",
+                "superclass": "PhysicalObject"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "HasActivityData",
+                "class": "WearableActivitySensor"
+            },
+            {
+                "type": "DataPropertyRange",
+                "property": "HasWirelessDataTransmission",
+                "datatype": "xsd:boolean"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "HasActivityData",
+                "class": "ActivityDataManagementSystem"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "HasActivityData",
+                "class": "SensorDataCloudPlatform"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "HasActivityData",
+                "class": "SensorDataExportTool"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "HasActivityData",
+                "class": "SensorDataAnalysisTool"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "HasActivityData",
+                "class": "SensorDataVisualizationTool"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "HasActivityData",
+                "class": "SensorDataReportGenerator"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "HasActivityData",
+                "class": "SensorDataCloudPlatform"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "HasActivityData",
+                "class": "SensorDataExportTool"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "HasActivityData",
+                "class": "SensorDataAnalysisTool"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "HasActivityData",
+                "class": "SensorDataVisualizationTool"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "HasActivityData",
+                "class": "SensorDataReportGenerator"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "HasActivityData",
+                "class": "SensorDataCloudPlatform"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "HasActivityData",
+                "class": "SensorDataExportTool"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "HasActivityData",
+                "class": "SensorDataAnalysisTool"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "HasActivityData",
+                "class": "SensorDataVisualizationTool"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "HasActivityData",
+                "class": "SensorDataReportGenerator"
+            }
+        ]
+    },
+    "ontology_abox": [
+        {
+            "type": "ClassAssertion",
+            "individual": "SENS motion®",
+            "class": "SensorDataCloudPlatform"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "SENS motion®",
+            "class": "SensorDataVisualizationTool"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "SENS motion®",
+            "class": "SensorDataReportGenerator"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "SENS motion®",
+            "class": "ActivityDataManagementSystem"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "SENS motion®",
+            "class": "WearableActivitySensor"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "SENS motion®",
+            "class": "SensorDataCloudPlatform"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "SENS motion®",
+            "class": "SensorDataVisualizationTool"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "SENS motion®",
+            "class": "SensorDataReportGenerator"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "SENS motion®",
+            "class": "ActivityDataManagementSystem"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "SENS motion®",
+            "class": "WearableActivitySensor"
+        }
+    ]
+}

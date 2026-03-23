@@ -119,7 +119,7 @@ class Orchestrator_v2:
         # Let's pass Seed Classes so it doesn't reinvent "Person" every time, but NOT the full history.
         seed_classes_str = "Seed Classes (for reference only):\n- Person\n- Organization\n- Location\n- Event\n- PhysicalObject"
         
-        system_prompt = load_prompt("C:\\Users\\matse\\gig\\src\\system\\prompts\\system\\agents\\class-extractor.txt")
+        system_prompt = load_prompt("C:\\Users\\matse\\gig\\src\\system\\prompts\\system\\agents_v2\\class-extractor.txt")
         
         user_msg = (
             f"Source Text:\n{text}\n\n"
@@ -160,7 +160,7 @@ class Orchestrator_v2:
         # We assume local_classes is [{"class": "Name", "desc": "Desc"}, ...]
         classes_str = "\n".join([f"- {item.get('class', 'Unknown')}: {item.get('desc', '')}" for item in local_classes])
         
-        system_prompt = load_prompt("C:\\Users\\matse\\gig\\src\\system\\prompts\\system\\agents\\axiom-extractor.txt")
+        system_prompt = load_prompt("C:\\Users\\matse\\gig\\src\\system\\prompts\\system\\agents_v2\\axiom-extractor.txt")
 
         user_msg = (
             f"Source Text:\n{text}\n\n"
@@ -201,7 +201,7 @@ class Orchestrator_v2:
             f"## Axioms\n{axioms_str}"
         )
 
-        system_prompt = load_prompt("C:\\Users\\matse\\gig\\src\\system\\prompts\\system\\agents\\instance-populator.txt")
+        system_prompt = load_prompt("C:\\Users\\matse\\gig\\src\\system\\prompts\\system\\agents_v2\\instance-populator.txt")
 
         user_msg = (
             f"Source Text:\n{text}\n\n"
