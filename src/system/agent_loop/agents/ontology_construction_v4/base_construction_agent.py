@@ -14,14 +14,29 @@ class BaseConstructionAgent(Agent):
         self.system_prompt = system_prompt
         # Some agents have static schemas (ClassExtractor), others dynamic (AxiomExtractor)
         self.json_schema = json_schema 
-        self.seed_classes = {
-            "Person": "An individual human being (e.g., patient, researcher, employee).",
-            "Organization": "A social group acting as a single entity (e.g., company, hospital, university).",
-            "PhysicalObject": "A tangible object (e.g., sensor, device, equipment).", 
-            "Software": "A computer program or application (e.g., app, cloud platform).",
-            "Event": "An occurrence or activity (e.g., trial, measurement, study).",
-            "Location": "A place or position (e.g., clinic, home, body part)."
-        }
+        self.seed_classes = """
+        [
+            {
+                "class": "Person",
+                "description": "An individual human being."
+            },
+            {
+                "class": "Organization",
+                "description": "An organized group of people with a particular purpose."
+            },
+            {
+                "class": "Software",
+                "description": "The program and other operating information used by a computer."
+            },
+            {
+                "class": "Event",
+                "description": "A thing that happens or takes place."
+            },
+            {
+                "class": "Location",
+                "description": "A particular place or position."
+            }
+        ]"""
 
     def generate_with_schema(self, user_msg: str, schema: dict = None) -> list:
         """
@@ -106,7 +121,7 @@ class BaseConstructionAgent(Agent):
                         pass
 
         if parsed_data is None:
-            print(f"[JSON Repair] Failed completely. Raw text start: {text[:50]}...")
+            print(f"[JSON Repair] Failed completely. Raw text: {text}")
             return [] if text.startswith('[') else {}
 
         # 4. Deduplication

@@ -1,7 +1,6 @@
-from .agents.ontology_construction_v3.class_extraction_agent import ClassExtractionAgent
-from .agents.ontology_construction_v3.axiom_extraction_agent import AxiomExtractionAgent
-#from .agents.ontology_construction_v3.instance_extraction_agent import InstanceExtractionAgent
-from .agents.ontology_construction_v3.instance_extraction_agent2 import InstanceExtractionAgent2
+from .agents.ontology_construction_v4.class_extraction_agent import ClassExtractionAgent
+from .agents.ontology_construction_v4.axiom_extraction_agent import AxiomExtractionAgent
+from .agents.ontology_construction_v4.instance_extraction_agent import InstanceExtractionAgent
 import logging
 
 # Configure logging
@@ -14,7 +13,7 @@ class Orchestrator_v3:
     Delegates task execution to specialized agents:
     1. local_classes = ClassExtractionAgent.run(chunk)
     2. local_axioms  = AxiomExtractionAgent.run(chunk, local_classes)
-    3. local_inst    = InstanceExtractionAgent2.run(chunk, local_classes, local_axioms)
+    3. local_inst    = InstanceExtractionAgent.run(chunk, local_classes, local_axioms)
     """
 
     def __init__(self, backend):
@@ -23,7 +22,7 @@ class Orchestrator_v3:
         # Initialize agents
         self.class_agent = ClassExtractionAgent(backend=backend)
         self.axiom_agent = AxiomExtractionAgent(backend=backend)
-        self.instance_agent = InstanceExtractionAgent2(backend=backend)
+        self.instance_agent = InstanceExtractionAgent(backend=backend)
 
         # Global Knowledge Base ("The Accumulator")
         # We fetch the seed classes from the agent to initialize our KB

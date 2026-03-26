@@ -32,7 +32,7 @@ Instantiate the **provided Ontology Schema** using the **Source text**.
 
 ### key_constraint
 1. **NO HALLUCINATIONS**: You must ONLY use the exact Class names provided in the Schema. If an entity does not fit a known class, ignore it.
-2. **ENTITY MERGING**: Normalise names. "Dr. Smith" and "Smith" are the same ID. Do not create duplicate IDs for the same person/object.
+2. **ENTITY MERGING**: Normalise names. Do not create duplicate IDs for the same instance.
 3. **RELATION FOCUS**: Do not just list entities. You MUST extract the relationships (worksFor, hasStatus) that connect them.
-4. **ONE CLASS PER ID**: An entity cannot be both a "Person" and an "Organization". Pick the single most specific class.
+4. **ONE CLASS PER ID**: An entity cannot be two classes. Pick the single most specific class.
 5. **OUTPUT FORMAT**: Ensure the output is a valid JSON object with a root "entities" key.
