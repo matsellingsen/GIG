@@ -27,16 +27,23 @@
 - Continue tasks from week 12
     -- USE CONSTRAINED GENERATION WHICH OPENVINO_GENAI SUPPORTS (DONE)
     -- Also seperate different agent-types into each their py-file. (DONE)
-- No failed extractions now because of patching, and exact duplicates are removed
+- Almost no failed extractions now because of patching, and exact duplicates are removed
     --However, figure out how duplicate individual assertions can be removed.
         --So that e.g. Sens Motion is not asserted as all classes possible. 
             --> Use hierarchical instance extraction
-    -- Handle cross-chunk inconsistencies
+    -- Handle cross-chunk overlap & inconsistencies
     -- Seperate data & object properties in Axiom extractor and use in instance extractor.
--- Revise prompts to add concise definitions of concept, class, axiom, etc.. (V4)
+- Revise prompts to add concise definitions of concept, class, axiom, etc.. (V4)
     --> Makes it easier to verify and makes the construction more grounded in MY understanding
     -- Class extractor V4 (DONE)
     -- Axiom Extractor V4
     -- Instance Extractor V4
+- (V5) Instead of ^, use BFO as foundational ontology with classes and axioms.
+    -- 1. Migrate functions that extract BFO classes and axioms (DONE)
+    -- 2. Rewrite Agent 1 to use them instead of the simple seed classes
+    -- 3. Split Axiom extractor agent into two:
+        -- 1. (Hierarchically) Connect extracted classes to BFO classes as well as pairs of extracted classes
+        -- 2. (Linearly) connect classes by properties (object or data property)
+    -- 4. Instance population agent acts as normal, but the Json constrainer might need to be updated(?)
 - clean up code: Remove unused stuff, document, etc.
 

@@ -1,15 +1,15 @@
-from .agents.ontology_construction_v4.class_extraction_agent import ClassExtractionAgent
-from .agents.ontology_construction_v4.axiom_extraction_agent import AxiomExtractionAgent
-from .agents.ontology_construction_v4.instance_extraction_agent import InstanceExtractionAgent
+from .agents.ontology_construction_v5.class_extraction_agent import ClassExtractionAgent
+from .agents.ontology_construction_v5.axiom_extraction_agent import AxiomExtractionAgent
+from .agents.ontology_construction_v5.instance_extraction_agent import InstanceExtractionAgent
 import logging
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-class Orchestrator_v3:
+class Orchestrator_v5:
     """
-    Orchestrator for the 3-step ontology extraction pipeline (V3).
+    Orchestrator for the 3-step ontology extraction pipeline (V5).
     Delegates task execution to specialized agents:
     1. local_classes = ClassExtractionAgent.run(chunk)
     2. local_axioms  = AxiomExtractionAgent.run(chunk, local_classes)
@@ -47,7 +47,7 @@ class Orchestrator_v3:
     def run_pipeline(self, chunks: list, run_chunks: int = None) -> tuple:
         
         limit = run_chunks if run_chunks else len(chunks)
-        print(f"Starting V3 Pipeline with {limit} chunks...")
+        print(f"Starting V5 Pipeline with {limit} chunks...")
 
         for i, chunk in enumerate(chunks):
             if i >= limit:

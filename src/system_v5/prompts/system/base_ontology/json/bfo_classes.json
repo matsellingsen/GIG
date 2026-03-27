@@ -1,0 +1,252 @@
+[
+    {
+        "class": "entity",
+        "parents": [],
+        "description": "(Elucidation) An entity is anything that exists or has existed or will exist"
+    },
+    {
+        "class": "continuant",
+        "parents": [
+            "entity"
+        ],
+        "description": "(Elucidation) A continuant is an entity that persists, endures, or continues to exist through time while maintaining its identity"
+    },
+    {
+        "class": "occurrent",
+        "parents": [
+            "entity"
+        ],
+        "description": "(Elucidation) An occurrent is an entity that unfolds itself in time or it is the start or end of such an entity or it is a temporal or spatiotemporal region"
+    },
+    {
+        "class": "independent continuant",
+        "parents": [
+            "continuant"
+        ],
+        "description": "b is an independent continuant =Def b is a continuant & there is no c such that b specifically depends on c or b generically depends on c"
+    },
+    {
+        "class": "spatial region",
+        "parents": [
+            "immaterial entity"
+        ],
+        "description": "(Elucidation) A spatial region is a continuant entity that is a continuant part of the spatial projection of a portion of spacetime at a given time"
+    },
+    {
+        "class": "temporal region",
+        "parents": [
+            "occurrent"
+        ],
+        "description": "(Elucidation) A temporal region is an occurrent over which processes can unfold"
+    },
+    {
+        "class": "two-dimensional spatial region",
+        "parents": [
+            "spatial region"
+        ],
+        "description": "(Elucidation) A two-dimensional spatial region is a spatial region that is a whole consisting of a surface together with zero or more surfaces which may have spatial regions of lower dimension as parts"
+    },
+    {
+        "class": "spatiotemporal region",
+        "parents": [
+            "occurrent"
+        ],
+        "description": "(Elucidation) A spatiotemporal region is an occurrent that is an occurrent part of spacetime"
+    },
+    {
+        "class": "process",
+        "parents": [
+            "occurrent"
+        ],
+        "description": "(Elucidation) p is a process means p is an occurrent that has some temporal proper part and for some time t, p has some material entity as participant"
+    },
+    {
+        "class": "disposition",
+        "parents": [
+            "realizable entity"
+        ],
+        "description": "(Elucidation) A disposition b is a realizable entity such that if b ceases to exist then its bearer is physically changed & b's realization occurs when and because this bearer is in some special physical circumstances & this realization occurs in virtue of the bearer's physical make-up"
+    },
+    {
+        "class": "realizable entity",
+        "parents": [
+            "specifically dependent continuant"
+        ],
+        "description": "(Elucidation) A realizable entity is a specifically dependent continuant that inheres in some independent continuant which is not a spatial region & which is of a type some instances of which are realized in processes of a correlated type"
+    },
+    {
+        "class": "zero-dimensional spatial region",
+        "parents": [
+            "spatial region"
+        ],
+        "description": "(Elucidation) A zero-dimensional spatial region is one or a collection of more than one spatially disjoint points in space"
+    },
+    {
+        "class": "quality",
+        "parents": [
+            "specifically dependent continuant"
+        ],
+        "description": "(Elucidation) A quality is a specifically dependent continuant that, in contrast to roles and dispositions, does not require any further process in order to be realized"
+    },
+    {
+        "class": "specifically dependent continuant",
+        "parents": [
+            "continuant"
+        ],
+        "description": "b is a specifically dependent continuant =Def b is a continuant & there is some independent continuant c which is not a spatial region & which is such that b specifically depends on c"
+    },
+    {
+        "class": "role",
+        "parents": [
+            "realizable entity"
+        ],
+        "description": "(Elucidation) A role b is a realizable entity such that b exists because there is some single bearer that is in some special physical, social, or institutional set of circumstances in which this bearer does not have to be & b is not such that, if it ceases to exist, then the physical make-up of the bearer is thereby changed"
+    },
+    {
+        "class": "fiat object part",
+        "parents": [
+            "material entity"
+        ],
+        "description": "(Elucidation) A fiat object part b is a material entity & such that if b exists then it is continuant part of some object c & demarcated from the remainder of c by one or more fiat surfaces"
+    },
+    {
+        "class": "one-dimensional spatial region",
+        "parents": [
+            "spatial region"
+        ],
+        "description": "(Elucidation) A one-dimensional spatial region is a whole consisting of a line together with zero or more lines which may have points as parts"
+    },
+    {
+        "class": "object aggregate",
+        "parents": [
+            "material entity"
+        ],
+        "description": "(Elucidation) An object aggregate is a material entity consisting exactly of a plurality (\u22651) of objects as member parts which together form a unit"
+    },
+    {
+        "class": "three-dimensional spatial region",
+        "parents": [
+            "spatial region"
+        ],
+        "description": "(Elucidation) A three-dimensional spatial region is a whole consisting of a spatial volume together with zero or more spatial volumes which may have spatial regions of lower dimension as parts"
+    },
+    {
+        "class": "site",
+        "parents": [
+            "immaterial entity"
+        ],
+        "description": "(Elucidation) A site is a three-dimensional immaterial entity whose boundaries either (partially or wholly) coincide with the boundaries of one or more material entities or have locations determined in relation to some material entity"
+    },
+    {
+        "class": "object",
+        "parents": [
+            "material entity"
+        ],
+        "description": "(Elucidation) An object is a material entity which manifests causal unity & is of a type instances of which are maximal relative to the sort of causal unity manifested"
+    },
+    {
+        "class": "generically dependent continuant",
+        "parents": [
+            "continuant"
+        ],
+        "description": "(Elucidation) A generically dependent continuant is an entity that exists in virtue of the fact that there is at least one of what may be multiple copies which is the content or the pattern that multiple copies would share"
+    },
+    {
+        "class": "function",
+        "parents": [
+            "disposition"
+        ],
+        "description": "(Elucidation) A function is a disposition that exists in virtue of its bearer's physical make-up & this physical make-up is something the bearer possesses because it came into being either through evolution (in the case of natural biological entities) or through intentional design (in the case of artefacts) in order to realize processes of a certain sort"
+    },
+    {
+        "class": "process boundary",
+        "parents": [
+            "occurrent"
+        ],
+        "description": "p is a process boundary =Def p is a temporal part of a process & p has no proper temporal parts"
+    },
+    {
+        "class": "one-dimensional temporal region",
+        "parents": [
+            "temporal region"
+        ],
+        "description": "(Elucidation) A one-dimensional temporal region is a temporal region that is a whole that has a temporal interval and zero or more temporal intervals and temporal instants as parts"
+    },
+    {
+        "class": "material entity",
+        "parents": [
+            "independent continuant"
+        ],
+        "description": "(Elucidation) A material entity is an independent continuant that at all times at which it exists has some portion of matter as continuant part"
+    },
+    {
+        "class": "continuant fiat boundary",
+        "parents": [
+            "immaterial entity"
+        ],
+        "description": "(Elucidation) A continuant fiat boundary b is an immaterial entity that is of zero, one or two dimensions & such that there is no time t when b has a spatial region as continuant part & whose location is determined in relation to some material entity"
+    },
+    {
+        "class": "immaterial entity",
+        "parents": [
+            "independent continuant"
+        ],
+        "description": "b is an immaterial entity =Def b is an independent continuant which is such that there is no time t when it has a material entity as continuant part"
+    },
+    {
+        "class": "fiat line",
+        "parents": [
+            "continuant fiat boundary"
+        ],
+        "description": "(Elucidation) A fiat line is a one-dimensional continuant fiat boundary that is continuous"
+    },
+    {
+        "class": "relational quality",
+        "parents": [
+            "quality"
+        ],
+        "description": "b is a relational quality =Def b is a quality & there exists c and d such that c and d are not identical & b specifically depends on c & b specifically depends on d"
+    },
+    {
+        "class": "fiat surface",
+        "parents": [
+            "continuant fiat boundary"
+        ],
+        "description": "(Elucidation) A fiat surface is a two-dimensional continuant fiat boundary that is self-connected"
+    },
+    {
+        "class": "fiat point",
+        "parents": [
+            "continuant fiat boundary"
+        ],
+        "description": "(Elucidation) A fiat point is a zero-dimensional continuant fiat boundary that consists of a single point"
+    },
+    {
+        "class": "zero-dimensional temporal region",
+        "parents": [
+            "temporal region"
+        ],
+        "description": "(Elucidation) A zero-dimensional temporal region is a temporal region that is a whole consisting of one or more separated temporal instants as parts"
+    },
+    {
+        "class": "history",
+        "parents": [
+            "process"
+        ],
+        "description": "(Elucidation) A history is a process that is the sum of the totality of processes taking place in the spatiotemporal region occupied by the material part of a material entity"
+    },
+    {
+        "class": "temporal interval",
+        "parents": [
+            "one-dimensional temporal region"
+        ],
+        "description": "(Elucidation) A temporal interval is a one-dimensional temporal region that is continuous, thus without gaps or breaks"
+    },
+    {
+        "class": "temporal instant",
+        "parents": [
+            "zero-dimensional temporal region"
+        ],
+        "description": "(Elucidation) A temporal instant is a zero-dimensional temporal region that has no proper temporal part"
+    }
+]

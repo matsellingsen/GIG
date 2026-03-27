@@ -4,7 +4,7 @@ from tools.load_prompt import load_prompt
 class InstanceExtractionAgent(BaseConstructionAgent):
     def __init__(self, backend):
         # Ensure path is correct relative to workspace
-        system_prompt = load_prompt("C:\\Users\\matse\\gig\\src\\system\\prompts\\system\\agents_v3\\instance-extraction2.txt")
+        system_prompt = load_prompt("C:\\Users\\matse\\gig\\src\\system\\prompts\\system\\agents_v5\\instance-extraction2.txt")
         super().__init__(backend=backend, system_prompt=system_prompt)
 
     def run(self, chunk_text: str, local_classes: list, local_axioms: list) -> list:

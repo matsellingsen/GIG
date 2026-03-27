@@ -8,11 +8,14 @@ This format is used when the user wants the model to provide function calls base
 <|system|>You are a helpful assistant with some tools.<|tool|>[{"name": "get_weather_updates", "description": "Fetches weather updates for a given city using the RapidAPI Weather API.", "parameters": {"city": {"description": "The name of the city for which to retrieve weather information.", "type": "str", "default": "London"}}}]<|/tool|><|end|><|user|>What is the weather like in Paris today?<|end|><|assistant|>
 
 
-{
-  "schema_version": "owl2fs-v1",
-  "base_iri": "http://example.com/sens-motion",
-  "prefixes": [],
-  "ontology": [
-    "owl:Thing a owl:Class; rdfs:label 'Sens Motion'; rdfs:comment 'An integrated system for collecting physical activity data from groups of people.'; owl:equivalentClass [ a owl:Restriction; owl:onProperty [ a owl:Restriction; owl:propertyChainPattern [ a owl:ComplementOf ; owl:onProperty [ a owl:Restriction; owl:propertyChainPattern [ a owl:ComplementOf ; owl:onProperty [ a owl:Restriction; owl:propertyChainPattern [ a owl:ComplementOf ; owl:onProperty [ a owl:Restriction; owl:propertyChainPattern [ a owl:ComplementOf ; owl:onProperty [ a owl:Restriction; owl:propertyChainPattern [ a owl:ComplementOf ; owl:onProperty [ a owl:Restriction; owl:propertyChainPattern [ a owl:ComplementOf ; owl:onProperty [ a owl:Restriction; owl:propertyChainPattern [ a owl:ComplementOf ; owl:onProperty [ a owl:Restriction; owl:propertyChainPattern [ a owl:ComplementOf ; owl:onProperty [ a owl:Restriction; owl:propertyChainPattern [ a owl:ComplementOf ; owl:onProperty [
+#### Which .venvs work with what:
 
-{"schema_version": "owl2fs-v2", "base_iri": "http://example.com/SENSMotion", "prefixes": [], "ontology": [], "instances": [{"type": "DeclareClass,DeclareObjectProperty,DeclareDataProperty,SubClassOf,ObjectPropertyDomain,ObjectPropertyRange,ClassAssertion,ObjectPropertyAssertion,DataPropertyAssertion,DeclareIndividual,DeclareObjectProperty,DeclareDataProperty,SubClassOf,ObjectPropertyDomain,ObjectPropertyRange,ClassAssertion,ObjectPropertyAssertion,DataPropertyAssertion,DeclareIndividual,DeclareObjectProperty,DeclareDataProperty,SubClassOf,ObjectPropertyDomain,ObjectPropertyRange,ClassAssertion,ObjectPropertyAssertion,DataPropertyAssertion,DeclareIndividual,DeclareObjectProperty,DeclareDataProperty,SubClassOf,ObjectPropertyDomain,ObjectPropertyRange,ClassAssertion,ObjectPropertyAssertion,DataPropertyAssertion,DeclareIndividual,DeclareObjectProperty,DeclareDataProperty,SubClassOf,ObjectPropertyDomain,ObjectPropertyRange,ClassAssertion,ObjectPropertyAssertion,DataPropertyAssertion,DeclareIndividual,DeclareObjectProperty,DeclareDataProperty,SubClassOf,ObjectPropertyDomain,ObjectPropertyRange,ClassAssertion,ObjectPropertyAssertion,DataPropertyAssertion,DeclareIndividual,DeclareObjectProperty,DeclareDataProperty,SubClassOf,ObjectPropertyDomain,ObjectPropertyRange,ClassAssertion,ObjectPropertyAssertion,DataPropertyAssertion,DeclareIndividual,DeclareObjectProperty,DeclareDataProperty,SubClassOf,ObjectPropertyDomain,ObjectPropertyRange,ClassAssertion,ObjectPropertyAssertion,DataPropertyAssertion,DeclareIndividual,DeclareObjectProperty,DeclareDataProperty,
+.venv: optimum.intel
+
+.venv5: works with both openvino_genai and optimum.intel
+
+
+#### findings:
+1. do-it-all agent struggles because of two points: 1. too complex task, 2. incrementally increasing found classes and axioms and showing it to suceeding chunks causes the model to loose memory, and effectively degrades instruction following for later chunks. 
+  --> Use stateless generation per chunk instead.
+2. Flat instance extraction representation causes multiple clasassertions for the same individual. -> switch to hierarchical structuring instead.
