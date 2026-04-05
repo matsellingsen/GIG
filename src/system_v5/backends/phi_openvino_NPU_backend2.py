@@ -5,29 +5,32 @@ import json
 
 
 class PhiOpenVINONPUBackend(Backend):
-    def __init__(self, model_path="../../models/phi-4-mini-instruct-int4-sym", device="NPU", max_cache_size=5120):
+        def __init__(self, model_path="../../models/phi-4-mini-instruct-int4-sym", device="NPU", max_cache_size=5120):
         
-        # 1. Pipeline Config
-        scheduler_config = SchedulerConfig()         # pre-allocate for max context length to avoid fragmentation and speed up NPU execution.
-        scheduler_config.dynamic_split_fuse = True   # Enable dynamic splitting and fusing of operations for better performance on NPU/GPU.
-        scheduler_config.cache_size = max_cache_size # Set to your max logical context length to reserve NPU memory
-        
-        # 2. Compilation Config
-        cache_dir = model_path + "/ov_cache"
-        config = { "CACHE_DIR": str(cache_dir),        # enables compiling to disk (essential for NPU startup speed) 
-                   "PERFORMANCE_HINT": "LATENCY", # Optimize for single-user speed
-                   "NUM_STREAMS": "1",  # Force serial execution (often better for NPU latency)
-                   "MAX_PROMPT_LEN": 4096,       
-                 }
+            # 1. Pipeline Config: Pre-allocate memory aggressively for NPU
+            scheduler_config = SchedulerConfig()         
+            scheduler_config.dynamic_split_fuse = True   
+            scheduler_config.cache_size = max_cache_size 
+            
+            # 2. Compilation Config: Maximize memory mapping and streams
+            cache_dir = model_path + "/ov_cache"
+            config = { 
+                    "CACHE_DIR": str(cache_dir),        
+                    "PERFORMANCE_HINT": "LATENCY", 
+                    "ENABLE_MMAP": "YES",                # Map weights directly to RAM
+                    "DYNAMIC_QUANTIZATION_GROUP_SIZE": "32", # Trade memory for math precision
+                    "NUM_STREAMS": "2",                  # Allow parallel token processing
+                    "MAX_PROMPT_LEN": 4096,       
+                    }
 
-        print(f"Loading GenAI model from {model_path} to {device}...")
-        self.pipe = LLMPipeline(
-            model_path, 
-            device=device, 
-            #scheduler_config=scheduler_config,
-            **config
-        )
-        print("Model loaded.")
+            print(f"Loading GenAI model from {model_path} to {device}...")
+            self.pipe = LLMPipeline(
+                model_path, 
+                device=device, 
+                scheduler_config=scheduler_config,          # CRITICAL: Uncommented this!
+                **config
+            )
+            print("Model loaded.")
     
     def generate(self, prompt: str, max_new_tokens: int = 1024, json_schema: dict = None) -> str:
 

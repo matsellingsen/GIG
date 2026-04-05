@@ -1,5 +1,5 @@
 from backends import load_backend
-from system_v5.agent_loop.orchestrator import Orchestrator
+from agent_loop.orchestrator import Orchestrator
 from tools.load_chunks import load_chunks
 from tools.save_result import save_result
 import argparse
@@ -14,8 +14,8 @@ def main():
 
     orchestrator = Orchestrator(backend=backend)
     # load chunked text data
-    chunks = load_chunks("C:\\Users\\matse\\gig\\src\\system\\content\\chunks.jsonl")
-    run_chunks = 10
+    chunks = load_chunks("C:\\Users\\matse\\gig\\src\\system_v5\\content\\chunks.jsonl")
+    run_chunks = 1
     print("Loaded system prompt and chunked text.")
 
     pipeline_result, extraction_status, prompts = orchestrator.run_pipeline(chunks=chunks, run_chunks=run_chunks) #run_chunks limits how many chunks we process for testing. Remove this limit for full run.
@@ -24,7 +24,7 @@ def main():
     #print(pipeline_result)
 
     # save the result with metadata
-    save_result(pipeline_result, model_name=args.backend, pipeline_info={"num_chunks": len(chunks), "chunks_processed": run_chunks, "orchestrator_type": args.orchestrator_version, "source": "chunks.jsonl", "extraction_status": extraction_status, "prompts": prompts})
+    save_result(pipeline_result, model_name=args.backend, pipeline_info={"num_chunks": len(chunks), "chunks_processed": run_chunks, "orchestrator_type": "V5", "source": "chunks.jsonl", "extraction_status": extraction_status, "prompts": prompts})
 
 
 

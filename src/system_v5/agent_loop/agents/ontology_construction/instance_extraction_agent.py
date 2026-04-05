@@ -7,26 +7,17 @@ class InstanceExtractionAgent(BaseConstructionAgent):
         system_prompt = load_prompt("C:\\Users\\matse\\gig\\src\\system_v5\\prompts\\system\\agents\\instance-extraction.txt")
         super().__init__(backend=backend, system_prompt=system_prompt)
 
-    def run(self, chunk_text: str, local_classes: list, local_axioms: list) -> list:
-        # 1. Merge Classes
-        valid_class_names = list(self.seed_classes.keys()) + [c["class"] for c in local_classes]
-        valid_class_names = sorted(list(set(valid_class_names))) # Sort for deterministic schema
+    def run(self, chunk_text: str, local_classes: list, local_axioms: list) -> tuple:
+        # 1. Prepare Enums
+        local_class_names = [c["class"] for c in local_classes]
+        valid_class_names = local_class_names if local_class_names else None # If no local classes, we cannot extract instances, so we set to None to trigger safety check later.
         
         if not valid_class_names:
-            return []
+            return [], "Skipped: No valid classes for instantiation."
 
-        # 2. Split Properties into Object/Data (Heuristic attempt)
-        # In a perfect world, local_axioms tells us the type.
-        # If not, we allow all properties in both slots, but having the split is cleaner if possible.
-        object_props = set()
-        data_props = set()
-        
-        # We assume local_axioms might have a "type" field like "ObjectPropertyAssertion" implies existence? 
-        # Actually usually axiom extractor just outputs {"superclass":...} or {"domain":...}.
-        # For now, we collect ALL properties found in any slot.
+        # 2. Extract Properties (from linear axioms)
         all_props = set()
         for ax in local_axioms:
-            # Check widely for property strings
             if "property" in ax:
                 all_props.add(ax["property"])
             
@@ -60,10 +51,8 @@ class InstanceExtractionAgent(BaseConstructionAgent):
                                 "items": {
                                     "type": "object",
                                     "properties": {
-                                        # You can restrict datatype properties here if you used a separate list
                                         "property": {"enum": property_list}, 
                                         "value": {"type": "string"},
-                                        # Simplified datatypes to avoid confusion
                                         "datatype": {"enum": ["xsd:string", "xsd:int"]}
                                     },
                                     "required": ["property", "value"],
@@ -80,18 +69,20 @@ class InstanceExtractionAgent(BaseConstructionAgent):
             "additionalProperties": False
         }
 
-        # 4. Prompt Context
-        schema_summary = f"Valid Classes: {', '.join(valid_class_names)}\nValid Properties: {', '.join(property_list)}"
-        
+        # 4. Prompt Context (Separated for SLM clarity)
         user_msg = f"""
-### Schema Context
-{schema_summary}
+
+### Valid Classes
+{', '.join(local_class_names) if local_class_names else 'None'}
+
+### Valid Properties
+{', '.join(property_list)}
 
 ### Source Text
 {chunk_text}
 
-### Instruction
-Extract unique entities. For each entity, assign ONE class and list its relationships."""
+### Goal
+Extract specific instances from the Source Text and map them exclusively to the provided Valid Classes and Valid Properties."""
         
         # 5. Execute
         data, full_prompt = self.generate_with_schema(user_msg, instance_schema)
@@ -102,15 +93,12 @@ Extract unique entities. For each entity, assign ONE class and list its relation
             
         # Handle case where model outputs list directly despite schema asking for dict
         if isinstance(data, list):
-            # Wrap it so flatten logic works
             data = {"entities": data}
 
         return self._flatten_to_axioms(data), full_prompt
     
     def _flatten_to_axioms(self, hierarchical_data: dict) -> list:
-        """
-        Converts the hierarchical JSON (Entities -> Relations) back to flat OWL axioms (Triples).
-        """
+        # ... (keep your existing flatten logic exactly the same) 
         axioms = []
         if not hierarchical_data or "entities" not in hierarchical_data:
             return []

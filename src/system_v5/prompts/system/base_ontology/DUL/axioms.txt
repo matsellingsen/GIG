@@ -1,0 +1,68 @@
+[
+    {
+        "type": "subClassOf",
+        "domains": ["Entity"],
+        "ranges": ["Entity"],
+        "description": "A hierarchical connection indicating that one class is a sub-type or child of another class."
+    },
+    {
+        "type": "hasPart",
+        "domains": ["Entity"],
+        "ranges": ["Entity"],
+        "description": "Relates an entity to its components or parts. (e.g., A car hasPart an engine)."
+    },
+    {
+        "type": "isPartOf",
+        "domains": ["Entity"],
+        "ranges": ["Entity"],
+        "description": "The inverse of hasPart. Relates a component to the whole. (e.g., An engine isPart of a car)."
+    },
+    {
+        "type": "participatesIn",
+        "domains": ["Object"],
+        "ranges": ["Event"],
+        "description": "Relates an object (like a person or sensor) to an event or process it is involved in. (e.g., A patient participatesIn a clinical trial)."
+    },
+    {
+        "type": "hasParticipant",
+        "domains": ["Event"],
+        "ranges": ["Object"],
+        "description": "The inverse of participatesIn. Relates an event to the objects involved in it."
+    },
+    {
+        "type": "hasQuality",
+        "domains": ["Entity"],
+        "ranges": ["Quality"],
+        "description": "Relates an entity to an attribute, characteristic, or value it possesses. (e.g., A sensor hasQuality accuracy)."
+    },
+    {
+        "type": "realizes",
+        "domains": ["InformationRealization", "PhysicalObject"],
+        "ranges": ["InformationObject"],
+        "description": "Relates a physical manifestation to the abstract information it represents. (e.g., A printed book realizes a text; A hard drive realizes activity data)."
+    },
+    {
+        "type": "classifies",
+        "domains": ["Concept", "Role"],
+        "ranges": ["Entity"],
+        "description": "Relates a concept, category, or role to the actual entity it describes. (e.g., The role 'Doctor' classifies a specific Person)."
+    },
+    {
+        "type": "hasLocation",
+        "domains": ["Entity"],
+        "ranges": ["SpaceRegion"],
+        "description": "Relates an object or event to the spatial region where it is located or occurs."
+    },
+    {
+        "type": "hasTime",
+        "domains": ["Event"],
+        "ranges": ["TimeInterval"],
+        "description": "Relates an event or process to the specific time period during which it occurs."
+    },
+    {
+        "type": "isAbout",
+        "domains": ["InformationObject"],
+        "ranges": ["Entity"],
+        "description": "Relates an information object (like data, text, or a picture) to the entity it represents or describes. (e.g., ActivityData isAbout a Patient's movement)."
+    }
+]

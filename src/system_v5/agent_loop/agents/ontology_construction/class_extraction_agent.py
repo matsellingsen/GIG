@@ -26,19 +26,19 @@ class ClassExtractionAgent(BaseConstructionAgent):
                          system_prompt=system_prompt, 
                          json_schema=class_extraction_schema)
     
-    def run(self, chunk_text: str) -> list:
+    def run(self, chunk_text: str) -> tuple:
         """
         Runs the class extraction on a single chunk of text.
         """
         user_msg = f"""
-                    ### Existing Classes
+                    ### Base Ontology Classes
                     {self.seed_classes}
 
                     ### Source Text
                     {chunk_text}
 
                     ### Goal
-                    Analyze the provided Source Text to identify **new** classes that are not present in the list of Existing Classes."""
+                    Analyze the provided Source Text to identify **new** classes that are not present in the list of Base Ontology Classes."""
         
         # Uses the schema defined in __init__
         return self.generate_with_schema(user_msg)

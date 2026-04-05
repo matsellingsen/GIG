@@ -1,0 +1,58 @@
+[
+    {
+        "class": "Entity",
+        "description": "Anything: real, possible, or imaginary, which some modeller wants to talk about for some purpose."
+    },
+    {
+        "class": "Object",
+        "description": "Any physical, social, or mental object, or a substance. Objects are endurants: they can change some of their parts or qualities while keeping their identity."
+    },
+    {
+        "class": "PhysicalObject",
+        "description": "Any Object that has a proper space region. Examples include people, equipment, sensors, and buildings."
+    },
+    {
+        "class": "SocialObject",
+        "description": "Any Object that exists only within some social context, such as organizations, laws, plans, or projects."
+    },
+    {
+        "class": "InformationObject",
+        "description": "A piece of information, such as a text, a word, a picture, or data, independently from how it is concretely realized."
+    },
+    {
+        "class": "InformationRealization",
+        "description": "A physical object or event that realizes an information object. For example, a physical printed document or a digital file on a hard drive."
+    },
+    {
+        "class": "Event",
+        "description": "Any physical, social, or mental process, event, or state. Events unfold in time and have objects as participants."
+    },
+    {
+        "class": "Action",
+        "description": "An Event with at least one agent that participates in it, and that executes a task."
+    },
+    {
+        "class": "Quality",
+        "description": "Any aspect of an Entity (but not a part of it), which cannot exist without that Entity. For example, the color of a physical object or the duration of an event."
+    },
+    {
+        "class": "Concept",
+        "description": "A Concept is a SocialObject that classifies or defines something. For example, the idea of a 'Sensor' or 'Therapy'."
+    },
+    {
+        "class": "Role",
+        "description": "A Concept that classifies an Object. For example, 'Doctor' is a Role played by a person, and 'Monitor' is a Role played by a device."
+    },
+    {
+        "class": "Collection",
+        "description": "Any collection of objects, events, or other entities, such as a group of people or a dataset."
+    },
+    {
+        "class": "TimeInterval",
+        "description": "A specific period or duration of time."
+    },
+    {
+        "class": "SpaceRegion",
+        "description": "A specific location or region in space."
+    }
+]

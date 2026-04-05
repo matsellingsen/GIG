@@ -2,6 +2,7 @@
 import json
 from ..agent import Agent
 from tools.structure_prompt import structure_prompt
+from tools.base_ontology.load_base_ontology import load_classes, load_axioms
 
 class BaseConstructionAgent(Agent):
     """
@@ -14,29 +15,8 @@ class BaseConstructionAgent(Agent):
         self.system_prompt = system_prompt
         # Some agents have static schemas (ClassExtractor), others dynamic (AxiomExtractor)
         self.json_schema = json_schema 
-        self.seed_classes = """
-        [
-            {
-                "class": "Person",
-                "description": "An individual human being."
-            },
-            {
-                "class": "Organization",
-                "description": "An organized group of people with a particular purpose."
-            },
-            {
-                "class": "Software",
-                "description": "The program and other operating information used by a computer."
-            },
-            {
-                "class": "Event",
-                "description": "A thing that happens or takes place."
-            },
-            {
-                "class": "Location",
-                "description": "A particular place or position."
-            }
-        ]"""
+        self.seed_classes = load_classes()
+        self.seed_axioms = load_axioms()
 
     def generate_with_schema(self, user_msg: str, schema: dict = None) -> list:
         """

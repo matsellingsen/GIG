@@ -12,7 +12,7 @@ def save_result(result, model_name: str, pipeline_info: dict = None) -> None:
     import json
     from datetime import datetime
 
-    output_dir = "C:\\Users\\matse\\gig\\src\\system\\intermediate_results"
+    output_dir = "C:\\Users\\matse\\gig\\src\\system_v5\\intermediate_results"
     os.makedirs(output_dir, exist_ok=True)
     
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
