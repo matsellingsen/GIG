@@ -1,0 +1,1615 @@
+{
+    "metadata": {
+        "model_name": "phi-npu-openvino",
+        "timestamp": "2026-04-06T19:11:10.533112",
+        "pipeline_info": {
+            "num_chunks": 61,
+            "chunks_processed": 5,
+            "orchestrator_type": "V5",
+            "source": "chunks.jsonl",
+            "extraction_status": {
+                "chunk_index": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "class_failed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "hierarchy_failed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "relation_failed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ],
+                "instance_failed": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ]
+            },
+            "prompts": {
+                "class_extraction": [
+                    "<|system|>### Role\nYou are a Class Extraction Agent.\n\n### Goal\nAnalyze the provided text to identify **new** classes that are not present in the list of Base Ontology Classes.\n\n### Terminology\n**Class**: A group, collection, category or set of entities sharing characteristics or attributes.\n\n### Guidelines\n**Base Classes**: Treat the provided Base Ontology Classes as an established foundation to expand upon. \n**Targeted Extraction**: Extract only distinct, meaningful conceptual categories. Do not extract hyper-specific variations, composite nouns, UI elements, URLs, or markdown artifacts.\n**Uniqueness**: Create a new class only once.\n**Naming Convention**: Use UpperCamelCase foundation conventions.\n**Descriptions**: Provide a concise, objective definition for each new class.\n\n### Examples\n[\n  {\n    \"class\": \"Organization\",\n    \"description\": \"An organized body of people with a particular purpose, such as a business, society, or association.\"\n  },\n  {\n    \"class\": \"SoftwareApplication\",\n    \"description\": \"A program or group of programs designed to perform specific tasks for users or other applications.\"\n  }\n]\n<|end|><|user|>\n                    ### Base Ontology Classes\n                    {'Entity': 'Anything: real, possible, or imaginary, which some modeller wants to talk about for some purpose.', 'Object': 'Any physical, social, or mental object, or a substance. Objects are endurants: they can change some of their parts or qualities while keeping their identity.', 'PhysicalObject': 'Any Object that has a proper space region. Examples include people, equipment, sensors, and buildings.', 'SocialObject': 'Any Object that exists only within some social context, such as organizations, laws, plans, or projects.', 'InformationObject': 'A piece of information, such as a text, a word, a picture, or data, independently from how it is concretely realized.', 'InformationRealization': 'A physical object or event that realizes an information object. For example, a physical printed document or a digital file on a hard drive.', 'Event': 'Any physical, social, or mental process, event, or state. Events unfold in time and have objects as participants.', 'Action': 'An Event with at least one agent that participates in it, and that executes a task.', 'Quality': 'Any aspect of an Entity (but not a part of it), which cannot exist without that Entity. For example, the color of a physical object or the duration of an event.', 'Concept': \"A Concept is a SocialObject that classifies or defines something. For example, the idea of a 'Sensor' or 'Therapy'.\", 'Role': \"A Concept that classifies an Object. For example, 'Doctor' is a Role played by a person, and 'Monitor' is a Role played by a device.\", 'Collection': 'Any collection of objects, events, or other entities, such as a group of people or a dataset.', 'TimeInterval': 'A specific period or duration of time.', 'SpaceRegion': 'A specific location or region in space.'}\n\n                    ### Source Text\n                    title: Discrete Wearable Activity Sensor for Healthcare and Research\ntext: Better Treatment. Better Research\n\n## What is SENS motion®\ntitle: What is SENS motion®\n\n### System Measures\nsubtitle: System Measures\nlist: Rest time.Standing time.Walking time.Running & High Intensity Movement time.Cycling time.Steps.Intensity.Sleep time and quality\n**SENS motion®** is an integrated system for collecting physical activity data from groups of people. It consists of a wireless activity sensor that automatically transfers data to a secure cloud. It is especially well suited for use in the healthcare sector and for large research projects\n\n## SENS motion® – For Healthcare\ntitle: SENS motion® – For Healthcare\n\n### SENS motion® – For Healthcare consists of\nsubtitle: SENS motion® – For Healthcare consists of\nlist: The SENS motion activity sensor for use on patients.A patient app, with gamification feedback for motivating the patient to become more active.(Optional) Monitor display providing overview of patients.Access to reports of individual patients activity\n**SENS motion® – For Healthcare** enables the use of SENS motion® activity sensor in healthcare environments, such as hospitals or care centres. The collected activity data can be presented to the patient itself for motivational purpose, assist healthcare professionals in treatment and help prioritize their valuable time efficiently\n\n[Read More →](/en/healthcare/)\n\n## SENS motion® – For Research\ntitle: SENS motion® – For Research\n\n### SENS motion® – For Research consists of\nsubtitle: SENS motion® – For Research consists of\nlist: The SENS motion® activity sensor.Smartphone app for automatically transferring data to the secure cloud.Web-application for managing sensors, viewing or exporting data\n**SENS motion® – For Research** enables the use of SENS motion activity sensor for collecting activity data or raw accelerometer data in research projects\n\n[Read More →](/en/research/)\n\nSENS motion® – Connect\nOEM Platform for medical sensors\nDo you want to build a wireless, scalable, battery-powered medical sensor or have a business opportunity where measurement of physical data is needed?\n\n[Image: demos10 (source: /img/demos10.png)](https://www.demos10.dk/)\n[Image: icompression (source: /img/icompression.png)](https://icompression.dk/)\n[Image: ventriject (source: /img/ventriject-2.png)](https://ventriject.com/)\n\nContact us for options on OEM Cooperation\n\n                    ### Goal\n                    Analyze the provided Source Text to identify **new** classes that are not present in the list of Base Ontology Classes.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are a Class Extraction Agent.\n\n### Goal\nAnalyze the provided text to identify **new** classes that are not present in the list of Base Ontology Classes.\n\n### Terminology\n**Class**: A group, collection, category or set of entities sharing characteristics or attributes.\n\n### Guidelines\n**Base Classes**: Treat the provided Base Ontology Classes as an established foundation to expand upon. \n**Targeted Extraction**: Extract only distinct, meaningful conceptual categories. Do not extract hyper-specific variations, composite nouns, UI elements, URLs, or markdown artifacts.\n**Uniqueness**: Create a new class only once.\n**Naming Convention**: Use UpperCamelCase foundation conventions.\n**Descriptions**: Provide a concise, objective definition for each new class.\n\n### Examples\n[\n  {\n    \"class\": \"Organization\",\n    \"description\": \"An organized body of people with a particular purpose, such as a business, society, or association.\"\n  },\n  {\n    \"class\": \"SoftwareApplication\",\n    \"description\": \"A program or group of programs designed to perform specific tasks for users or other applications.\"\n  }\n]\n<|end|><|user|>\n                    ### Base Ontology Classes\n                    {'Entity': 'Anything: real, possible, or imaginary, which some modeller wants to talk about for some purpose.', 'Object': 'Any physical, social, or mental object, or a substance. Objects are endurants: they can change some of their parts or qualities while keeping their identity.', 'PhysicalObject': 'Any Object that has a proper space region. Examples include people, equipment, sensors, and buildings.', 'SocialObject': 'Any Object that exists only within some social context, such as organizations, laws, plans, or projects.', 'InformationObject': 'A piece of information, such as a text, a word, a picture, or data, independently from how it is concretely realized.', 'InformationRealization': 'A physical object or event that realizes an information object. For example, a physical printed document or a digital file on a hard drive.', 'Event': 'Any physical, social, or mental process, event, or state. Events unfold in time and have objects as participants.', 'Action': 'An Event with at least one agent that participates in it, and that executes a task.', 'Quality': 'Any aspect of an Entity (but not a part of it), which cannot exist without that Entity. For example, the color of a physical object or the duration of an event.', 'Concept': \"A Concept is a SocialObject that classifies or defines something. For example, the idea of a 'Sensor' or 'Therapy'.\", 'Role': \"A Concept that classifies an Object. For example, 'Doctor' is a Role played by a person, and 'Monitor' is a Role played by a device.\", 'Collection': 'Any collection of objects, events, or other entities, such as a group of people or a dataset.', 'TimeInterval': 'A specific period or duration of time.', 'SpaceRegion': 'A specific location or region in space.'}\n\n                    ### Source Text\n                    title: Company Profile\ntext: SENS Innovation ApS\n\n## Background\ntitle: Background\nvision_quote: Our vision is to revolutionize the way physical activity can be used as an integrated and measurable part of the treatment and prevention of numerous diseases – on an equal footing with other medicine\nvision_author_name: Kasper L. Lykkegaard\nvision_author_title: Co-founder and CEO\nSENS Innovation ApS was founded in 2014 by Kasper L. Lykkegaard and Morten Kjærgaard. The company develops medical sensor products, based on advanced sensor technology, for monitoring of physical activity with patients\n\nThe SENS products and platforms are easy to use, flexible, scalable and present accurate monitoring of the body's position and the nature of the activity, for both the individual or even larger groups. Therefore, SENS's products and technology are a valuable tool in research trials and studies in correlation to physical activity and diseases\n\n## Meet Our Team\ntitle: Meet Our Team\nTeam member: Kasper L. Lykkegaard; role: CEO & Founder; email: kasper@sens.dk; linkedin: https://www.linkedin.com/in/kasper-lundberg-lykkegaard-7795246/\nTeam member: Morten Kjærgaard; role: CTO & Founder; email: morten@sens.dk; linkedin: https://www.linkedin.com/in/morten-kj%C3%A6rgaard-9a08242/\nTeam member: Ida Marie Pierrel-Boas; role: Senior Project Manager; email: ida@sens.dk; linkedin: https://www.linkedin.com/in/idaboas/\nTeam member: Christian Lindharth; role: Senior Account Executive; email: christian@sens.dk; linkedin: https://www.linkedin.com/in/clindharth/\nTeam member: Miriam Cabrita; role: Partnerships Manager; email: miriam@sens.dk\nTeam member: Karen Shakespeare; role: UK & Ireland Account Executive; email: karen@sens.dk\nTeam member: Amin Rezaei; role: Software Developer\nTeam member: August Blicher Friis; role: Software Developer\nTeam member: Renata Oliveira; role: UX Specialist\nTeam member: Huong Nguyen; role: Frontend Developer\nTeam member: Mathias Elmegaard Nielsen; role: Student Assistant\nTeam member: Mats Ellingsen; role: Student Assistant\nTeam member: Lea Møller Storm; role: Student Assistant\n\n                    ### Goal\n                    Analyze the provided Source Text to identify **new** classes that are not present in the list of Base Ontology Classes.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are a Class Extraction Agent.\n\n### Goal\nAnalyze the provided text to identify **new** classes that are not present in the list of Base Ontology Classes.\n\n### Terminology\n**Class**: A group, collection, category or set of entities sharing characteristics or attributes.\n\n### Guidelines\n**Base Classes**: Treat the provided Base Ontology Classes as an established foundation to expand upon. \n**Targeted Extraction**: Extract only distinct, meaningful conceptual categories. Do not extract hyper-specific variations, composite nouns, UI elements, URLs, or markdown artifacts.\n**Uniqueness**: Create a new class only once.\n**Naming Convention**: Use UpperCamelCase foundation conventions.\n**Descriptions**: Provide a concise, objective definition for each new class.\n\n### Examples\n[\n  {\n    \"class\": \"Organization\",\n    \"description\": \"An organized body of people with a particular purpose, such as a business, society, or association.\"\n  },\n  {\n    \"class\": \"SoftwareApplication\",\n    \"description\": \"A program or group of programs designed to perform specific tasks for users or other applications.\"\n  }\n]\n<|end|><|user|>\n                    ### Base Ontology Classes\n                    {'Entity': 'Anything: real, possible, or imaginary, which some modeller wants to talk about for some purpose.', 'Object': 'Any physical, social, or mental object, or a substance. Objects are endurants: they can change some of their parts or qualities while keeping their identity.', 'PhysicalObject': 'Any Object that has a proper space region. Examples include people, equipment, sensors, and buildings.', 'SocialObject': 'Any Object that exists only within some social context, such as organizations, laws, plans, or projects.', 'InformationObject': 'A piece of information, such as a text, a word, a picture, or data, independently from how it is concretely realized.', 'InformationRealization': 'A physical object or event that realizes an information object. For example, a physical printed document or a digital file on a hard drive.', 'Event': 'Any physical, social, or mental process, event, or state. Events unfold in time and have objects as participants.', 'Action': 'An Event with at least one agent that participates in it, and that executes a task.', 'Quality': 'Any aspect of an Entity (but not a part of it), which cannot exist without that Entity. For example, the color of a physical object or the duration of an event.', 'Concept': \"A Concept is a SocialObject that classifies or defines something. For example, the idea of a 'Sensor' or 'Therapy'.\", 'Role': \"A Concept that classifies an Object. For example, 'Doctor' is a Role played by a person, and 'Monitor' is a Role played by a device.\", 'Collection': 'Any collection of objects, events, or other entities, such as a group of people or a dataset.', 'TimeInterval': 'A specific period or duration of time.', 'SpaceRegion': 'A specific location or region in space.'}\n\n                    ### Source Text\n                    ## Send us a message\n\n                    ### Goal\n                    Analyze the provided Source Text to identify **new** classes that are not present in the list of Base Ontology Classes.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are a Class Extraction Agent.\n\n### Goal\nAnalyze the provided text to identify **new** classes that are not present in the list of Base Ontology Classes.\n\n### Terminology\n**Class**: A group, collection, category or set of entities sharing characteristics or attributes.\n\n### Guidelines\n**Base Classes**: Treat the provided Base Ontology Classes as an established foundation to expand upon. \n**Targeted Extraction**: Extract only distinct, meaningful conceptual categories. Do not extract hyper-specific variations, composite nouns, UI elements, URLs, or markdown artifacts.\n**Uniqueness**: Create a new class only once.\n**Naming Convention**: Use UpperCamelCase foundation conventions.\n**Descriptions**: Provide a concise, objective definition for each new class.\n\n### Examples\n[\n  {\n    \"class\": \"Organization\",\n    \"description\": \"An organized body of people with a particular purpose, such as a business, society, or association.\"\n  },\n  {\n    \"class\": \"SoftwareApplication\",\n    \"description\": \"A program or group of programs designed to perform specific tasks for users or other applications.\"\n  }\n]\n<|end|><|user|>\n                    ### Base Ontology Classes\n                    {'Entity': 'Anything: real, possible, or imaginary, which some modeller wants to talk about for some purpose.', 'Object': 'Any physical, social, or mental object, or a substance. Objects are endurants: they can change some of their parts or qualities while keeping their identity.', 'PhysicalObject': 'Any Object that has a proper space region. Examples include people, equipment, sensors, and buildings.', 'SocialObject': 'Any Object that exists only within some social context, such as organizations, laws, plans, or projects.', 'InformationObject': 'A piece of information, such as a text, a word, a picture, or data, independently from how it is concretely realized.', 'InformationRealization': 'A physical object or event that realizes an information object. For example, a physical printed document or a digital file on a hard drive.', 'Event': 'Any physical, social, or mental process, event, or state. Events unfold in time and have objects as participants.', 'Action': 'An Event with at least one agent that participates in it, and that executes a task.', 'Quality': 'Any aspect of an Entity (but not a part of it), which cannot exist without that Entity. For example, the color of a physical object or the duration of an event.', 'Concept': \"A Concept is a SocialObject that classifies or defines something. For example, the idea of a 'Sensor' or 'Therapy'.\", 'Role': \"A Concept that classifies an Object. For example, 'Doctor' is a Role played by a person, and 'Monitor' is a Role played by a device.\", 'Collection': 'Any collection of objects, events, or other entities, such as a group of people or a dataset.', 'TimeInterval': 'A specific period or duration of time.', 'SpaceRegion': 'A specific location or region in space.'}\n\n                    ### Source Text\n                    title: Thank you for your message\n\nWe have received your message and will get back to you as soon as possible\n[Back to home page](/)\n\n                    ### Goal\n                    Analyze the provided Source Text to identify **new** classes that are not present in the list of Base Ontology Classes.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are a Class Extraction Agent.\n\n### Goal\nAnalyze the provided text to identify **new** classes that are not present in the list of Base Ontology Classes.\n\n### Terminology\n**Class**: A group, collection, category or set of entities sharing characteristics or attributes.\n\n### Guidelines\n**Base Classes**: Treat the provided Base Ontology Classes as an established foundation to expand upon. \n**Targeted Extraction**: Extract only distinct, meaningful conceptual categories. Do not extract hyper-specific variations, composite nouns, UI elements, URLs, or markdown artifacts.\n**Uniqueness**: Create a new class only once.\n**Naming Convention**: Use UpperCamelCase foundation conventions.\n**Descriptions**: Provide a concise, objective definition for each new class.\n\n### Examples\n[\n  {\n    \"class\": \"Organization\",\n    \"description\": \"An organized body of people with a particular purpose, such as a business, society, or association.\"\n  },\n  {\n    \"class\": \"SoftwareApplication\",\n    \"description\": \"A program or group of programs designed to perform specific tasks for users or other applications.\"\n  }\n]\n<|end|><|user|>\n                    ### Base Ontology Classes\n                    {'Entity': 'Anything: real, possible, or imaginary, which some modeller wants to talk about for some purpose.', 'Object': 'Any physical, social, or mental object, or a substance. Objects are endurants: they can change some of their parts or qualities while keeping their identity.', 'PhysicalObject': 'Any Object that has a proper space region. Examples include people, equipment, sensors, and buildings.', 'SocialObject': 'Any Object that exists only within some social context, such as organizations, laws, plans, or projects.', 'InformationObject': 'A piece of information, such as a text, a word, a picture, or data, independently from how it is concretely realized.', 'InformationRealization': 'A physical object or event that realizes an information object. For example, a physical printed document or a digital file on a hard drive.', 'Event': 'Any physical, social, or mental process, event, or state. Events unfold in time and have objects as participants.', 'Action': 'An Event with at least one agent that participates in it, and that executes a task.', 'Quality': 'Any aspect of an Entity (but not a part of it), which cannot exist without that Entity. For example, the color of a physical object or the duration of an event.', 'Concept': \"A Concept is a SocialObject that classifies or defines something. For example, the idea of a 'Sensor' or 'Therapy'.\", 'Role': \"A Concept that classifies an Object. For example, 'Doctor' is a Role played by a person, and 'Monitor' is a Role played by a device.\", 'Collection': 'Any collection of objects, events, or other entities, such as a group of people or a dataset.', 'TimeInterval': 'A specific period or duration of time.', 'SpaceRegion': 'A specific location or region in space.'}\n\n                    ### Source Text\n                    title: Promote increased mobilisation among inpatients\ntext: Certified medical device (CE-marked)\n\n## Introduction\ntitle: Introduction\n\n### SENS motion® increases physical activity for admitted patients\nsubtitle: SENS motion® increases physical activity for admitted patients\nlist: Motivates the patient by visualizing goals and expectations on a tablet next to the bed.Provides a data-based overview of the patients' physical activity for the healthcare professional.Improved dialog about physical activity between the healthcare professional, the patient and relatives.Increased compliance of data-driven management\n\n## Pilot Package\ntitle: Pilot Package\n\n### Try SENS motion® for 3 months – It is easy, and support is free of charge\nsubtitle: Try SENS motion® for 3 months – It is easy, and support is free of charge\nbutton_text: Read more about the pilot package\n**Try SENS motion® for 3 months** and experience the positive effect on patients. It is easy and quick. Complete package for only 19.995 DKK\n\nPilot package is an introductory offer that gives the possibility to use SENS motion in a clinical ward for 3 months with up to 120 patients\n\n## Motivational App\ntitle: Motivational App\n\n### Motivational visual feedback from the app increases the patient's self-activation\nsubtitle: Motivational visual feedback from the app increases the patient's self-activation\nlist: Motivates the patient to be more active by using elements of gamification and nudging.The patient walks a visual tour through Copenhagen visiting various attractions.The patient can continuously track her/his own progress, goals, and expectations.The patient and healthcare professional can access more information using a detailed history view to facilitate dialog and follow up\n\n                    ### Goal\n                    Analyze the provided Source Text to identify **new** classes that are not present in the list of Base Ontology Classes.<|end|><|assistant|>"
+                ],
+                "hierarchy_extraction": [
+                    "<|system|>### Role\nYou are a Base Grounding Hierarchy Extractor.\n\n### Goal\nMap every extracted Local Class to its most appropriate Base Ontology Class.\n\n### Terminology\n**Class**: A category or set of entities sharing characteristics.\n**Subclass**: A specialized class representing an \"is-a\" relationship to a broader class.\n**Base Ontology Class**: An established, foundational class provided to act as the structural root.\n**Local Class**: A newly extracted domain specific class.\n\n### Guidelines\n1. **SubClassOf Only**: Identify \"is-a\" hierarchies.\n2. **Direct Rooting**: Connect Local Classes DIRECTLY to a Base Ontology Class. Do not map Local Classes to each other.\n3. **Completeness**: EVERY Local Class must have a mapping to a Base Ontology Class.\n4. **Direction**: The 'subclass' MUST be a Local Class, and the 'superclass' MUST be a Base Ontology Class.\n\n### Example \n[\n  {\"type\": \"SubClassOf\", \"subclass\": \"Smartphone\", \"superclass\": \"PhysicalObject\"},\n  {\"type\": \"SubClassOf\", \"subclass\": \"Manager\", \"superclass\": \"Role\"} \n]<|end|><|user|>\n                    ### Base Ontology Classes\n                    - Entity: Anything: real, possible, or imaginary, which some modeller wants to talk about for some purpose.\n- Object: Any physical, social, or mental object, or a substance. Objects are endurants: they can change some of their parts or qualities while keeping their identity.\n- PhysicalObject: Any Object that has a proper space region. Examples include people, equipment, sensors, and buildings.\n- SocialObject: Any Object that exists only within some social context, such as organizations, laws, plans, or projects.\n- InformationObject: A piece of information, such as a text, a word, a picture, or data, independently from how it is concretely realized.\n- InformationRealization: A physical object or event that realizes an information object. For example, a physical printed document or a digital file on a hard drive.\n- Event: Any physical, social, or mental process, event, or state. Events unfold in time and have objects as participants.\n- Action: An Event with at least one agent that participates in it, and that executes a task.\n- Quality: Any aspect of an Entity (but not a part of it), which cannot exist without that Entity. For example, the color of a physical object or the duration of an event.\n- Concept: A Concept is a SocialObject that classifies or defines something. For example, the idea of a 'Sensor' or 'Therapy'.\n- Role: A Concept that classifies an Object. For example, 'Doctor' is a Role played by a person, and 'Monitor' is a Role played by a device.\n- Collection: Any collection of objects, events, or other entities, such as a group of people or a dataset.\n- TimeInterval: A specific period or duration of time.\n- SpaceRegion: A specific location or region in space.\n\n                    ### Local Classes  \n                    - HealthcareSensor: A device or system designed to monitor and record physical activity or vital signs for healthcare purposes.\n- ResearchProject: A coordinated effort to investigate and understand phenomena, typically involving the collection and analysis of data.\n- SensorApplication: A software application that utilizes a physical sensor to collect and manage data related to physical activity or other measurable phenomena.\n- GamificationApp: A mobile application that incorporates game-like elements to motivate and engage users, often used in healthcare to encourage physical activity.\n- SensorManagementWebApp: A web application designed to manage, view, and export data collected from various sensors.\n- OEMPlatform: A platform that allows for the development and integration of wireless, battery-powered medical sensors into various systems or devices.\n\n                    ### Goal\n                    Identify hierarchical superclass-subclass relationships connecting the Local Classes to the established Base Ontology Classes.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are a Local Subclassing Hierarchy Extractor.\n\n### Goal\nIdentify if any of the Local Classes are specific variations or sub-types of the other Local Classes.\n\n### Terminology\n**Class**: A category or set of entities sharing characteristics.\n**Subclass**: A specialized class representing an \"is-a\" relationship to a broader class.\n**Local Class**: A newly extracted domain specific class.\n\n### Guidelines\n1. **SubClassOf Only**: Identify \"is-a\" lateral hierarchies between Local Classes.\n2. **Local Scope**: Limit mapping entirely to relationships BETWEEN the provided Local Classes. \n3. **No Base Connections**: Do NOT map to high-level Base Ontology Classes, as these have already been established.\n4. **Hierarchy Logic**: Ensure that the 'subclass' represents a strictly more specific version of the 'superclass'.\n\n### Example \n[\n  {\"type\": \"SubClassOf\", \"subclass\": \"SmartWatch\", \"superclass\": \"WearableDevice\"},\n  {\"type\": \"SubClassOf\", \"subclass\": \"RegisteredNurse\", \"superclass\": \"HealthcareProfessional\"} \n]<|end|><|user|>\n                    ### Local Classes  \n                    - HealthcareSensor: A device or system designed to monitor and record physical activity or vital signs for healthcare purposes.\n- ResearchProject: A coordinated effort to investigate and understand phenomena, typically involving the collection and analysis of data.\n- SensorApplication: A software application that utilizes a physical sensor to collect and manage data related to physical activity or other measurable phenomena.\n- GamificationApp: A mobile application that incorporates game-like elements to motivate and engage users, often used in healthcare to encourage physical activity.\n- SensorManagementWebApp: A web application designed to manage, view, and export data collected from various sensors.\n- OEMPlatform: A platform that allows for the development and integration of wireless, battery-powered medical sensors into various systems or devices.\n\n                    ### Goal\n                    Identify hierarchical superclass-subclass relationships strictly BETWEEN the Local Classes.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are a Base Grounding Hierarchy Extractor.\n\n### Goal\nMap every extracted Local Class to its most appropriate Base Ontology Class.\n\n### Terminology\n**Class**: A category or set of entities sharing characteristics.\n**Subclass**: A specialized class representing an \"is-a\" relationship to a broader class.\n**Base Ontology Class**: An established, foundational class provided to act as the structural root.\n**Local Class**: A newly extracted domain specific class.\n\n### Guidelines\n1. **SubClassOf Only**: Identify \"is-a\" hierarchies.\n2. **Direct Rooting**: Connect Local Classes DIRECTLY to a Base Ontology Class. Do not map Local Classes to each other.\n3. **Completeness**: EVERY Local Class must have a mapping to a Base Ontology Class.\n4. **Direction**: The 'subclass' MUST be a Local Class, and the 'superclass' MUST be a Base Ontology Class.\n\n### Example \n[\n  {\"type\": \"SubClassOf\", \"subclass\": \"Smartphone\", \"superclass\": \"PhysicalObject\"},\n  {\"type\": \"SubClassOf\", \"subclass\": \"Manager\", \"superclass\": \"Role\"} \n]<|end|><|user|>\n                    ### Base Ontology Classes\n                    - Entity: Anything: real, possible, or imaginary, which some modeller wants to talk about for some purpose.\n- Object: Any physical, social, or mental object, or a substance. Objects are endurants: they can change some of their parts or qualities while keeping their identity.\n- PhysicalObject: Any Object that has a proper space region. Examples include people, equipment, sensors, and buildings.\n- SocialObject: Any Object that exists only within some social context, such as organizations, laws, plans, or projects.\n- InformationObject: A piece of information, such as a text, a word, a picture, or data, independently from how it is concretely realized.\n- InformationRealization: A physical object or event that realizes an information object. For example, a physical printed document or a digital file on a hard drive.\n- Event: Any physical, social, or mental process, event, or state. Events unfold in time and have objects as participants.\n- Action: An Event with at least one agent that participates in it, and that executes a task.\n- Quality: Any aspect of an Entity (but not a part of it), which cannot exist without that Entity. For example, the color of a physical object or the duration of an event.\n- Concept: A Concept is a SocialObject that classifies or defines something. For example, the idea of a 'Sensor' or 'Therapy'.\n- Role: A Concept that classifies an Object. For example, 'Doctor' is a Role played by a person, and 'Monitor' is a Role played by a device.\n- Collection: Any collection of objects, events, or other entities, such as a group of people or a dataset.\n- TimeInterval: A specific period or duration of time.\n- SpaceRegion: A specific location or region in space.\n\n                    ### Local Classes  \n                    - TeamMember: An individual who is part of a team, typically associated with a group of people with a common purpose or interest, such as a company or organization.\n\n                    ### Goal\n                    Identify hierarchical superclass-subclass relationships connecting the Local Classes to the established Base Ontology Classes.<|end|><|assistant|>",
+                    "Skipped: Not enough local classes to form lateral hierarchy.",
+                    "<|system|>### Role\nYou are a Base Grounding Hierarchy Extractor.\n\n### Goal\nMap every extracted Local Class to its most appropriate Base Ontology Class.\n\n### Terminology\n**Class**: A category or set of entities sharing characteristics.\n**Subclass**: A specialized class representing an \"is-a\" relationship to a broader class.\n**Base Ontology Class**: An established, foundational class provided to act as the structural root.\n**Local Class**: A newly extracted domain specific class.\n\n### Guidelines\n1. **SubClassOf Only**: Identify \"is-a\" hierarchies.\n2. **Direct Rooting**: Connect Local Classes DIRECTLY to a Base Ontology Class. Do not map Local Classes to each other.\n3. **Completeness**: EVERY Local Class must have a mapping to a Base Ontology Class.\n4. **Direction**: The 'subclass' MUST be a Local Class, and the 'superclass' MUST be a Base Ontology Class.\n\n### Example \n[\n  {\"type\": \"SubClassOf\", \"subclass\": \"Smartphone\", \"superclass\": \"PhysicalObject\"},\n  {\"type\": \"SubClassOf\", \"subclass\": \"Manager\", \"superclass\": \"Role\"} \n]<|end|><|user|>\n                    ### Base Ontology Classes\n                    - Entity: Anything: real, possible, or imaginary, which some modeller wants to talk about for some purpose.\n- Object: Any physical, social, or mental object, or a substance. Objects are endurants: they can change some of their parts or qualities while keeping their identity.\n- PhysicalObject: Any Object that has a proper space region. Examples include people, equipment, sensors, and buildings.\n- SocialObject: Any Object that exists only within some social context, such as organizations, laws, plans, or projects.\n- InformationObject: A piece of information, such as a text, a word, a picture, or data, independently from how it is concretely realized.\n- InformationRealization: A physical object or event that realizes an information object. For example, a physical printed document or a digital file on a hard drive.\n- Event: Any physical, social, or mental process, event, or state. Events unfold in time and have objects as participants.\n- Action: An Event with at least one agent that participates in it, and that executes a task.\n- Quality: Any aspect of an Entity (but not a part of it), which cannot exist without that Entity. For example, the color of a physical object or the duration of an event.\n- Concept: A Concept is a SocialObject that classifies or defines something. For example, the idea of a 'Sensor' or 'Therapy'.\n- Role: A Concept that classifies an Object. For example, 'Doctor' is a Role played by a person, and 'Monitor' is a Role played by a device.\n- Collection: Any collection of objects, events, or other entities, such as a group of people or a dataset.\n- TimeInterval: A specific period or duration of time.\n- SpaceRegion: A specific location or region in space.\n\n                    ### Local Classes  \n                    - CommunicationChannel: A medium or system used for the exchange of messages, information, or data between entities.\n\n                    ### Goal\n                    Identify hierarchical superclass-subclass relationships connecting the Local Classes to the established Base Ontology Classes.<|end|><|assistant|>",
+                    "Skipped: Not enough local classes to form lateral hierarchy.",
+                    "<|system|>### Role\nYou are a Base Grounding Hierarchy Extractor.\n\n### Goal\nMap every extracted Local Class to its most appropriate Base Ontology Class.\n\n### Terminology\n**Class**: A category or set of entities sharing characteristics.\n**Subclass**: A specialized class representing an \"is-a\" relationship to a broader class.\n**Base Ontology Class**: An established, foundational class provided to act as the structural root.\n**Local Class**: A newly extracted domain specific class.\n\n### Guidelines\n1. **SubClassOf Only**: Identify \"is-a\" hierarchies.\n2. **Direct Rooting**: Connect Local Classes DIRECTLY to a Base Ontology Class. Do not map Local Classes to each other.\n3. **Completeness**: EVERY Local Class must have a mapping to a Base Ontology Class.\n4. **Direction**: The 'subclass' MUST be a Local Class, and the 'superclass' MUST be a Base Ontology Class.\n\n### Example \n[\n  {\"type\": \"SubClassOf\", \"subclass\": \"Smartphone\", \"superclass\": \"PhysicalObject\"},\n  {\"type\": \"SubClassOf\", \"subclass\": \"Manager\", \"superclass\": \"Role\"} \n]<|end|><|user|>\n                    ### Base Ontology Classes\n                    - Entity: Anything: real, possible, or imaginary, which some modeller wants to talk about for some purpose.\n- Object: Any physical, social, or mental object, or a substance. Objects are endurants: they can change some of their parts or qualities while keeping their identity.\n- PhysicalObject: Any Object that has a proper space region. Examples include people, equipment, sensors, and buildings.\n- SocialObject: Any Object that exists only within some social context, such as organizations, laws, plans, or projects.\n- InformationObject: A piece of information, such as a text, a word, a picture, or data, independently from how it is concretely realized.\n- InformationRealization: A physical object or event that realizes an information object. For example, a physical printed document or a digital file on a hard drive.\n- Event: Any physical, social, or mental process, event, or state. Events unfold in time and have objects as participants.\n- Action: An Event with at least one agent that participates in it, and that executes a task.\n- Quality: Any aspect of an Entity (but not a part of it), which cannot exist without that Entity. For example, the color of a physical object or the duration of an event.\n- Concept: A Concept is a SocialObject that classifies or defines something. For example, the idea of a 'Sensor' or 'Therapy'.\n- Role: A Concept that classifies an Object. For example, 'Doctor' is a Role played by a person, and 'Monitor' is a Role played by a device.\n- Collection: Any collection of objects, events, or other entities, such as a group of people or a dataset.\n- TimeInterval: A specific period or duration of time.\n- SpaceRegion: A specific location or region in space.\n\n                    ### Local Classes  \n                    - Feedback: A response or reaction to a message or communication, typically indicating that the message has been received and will be addressed.\n\n                    ### Goal\n                    Identify hierarchical superclass-subclass relationships connecting the Local Classes to the established Base Ontology Classes.<|end|><|assistant|>",
+                    "Skipped: Not enough local classes to form lateral hierarchy.",
+                    "<|system|>### Role\nYou are a Base Grounding Hierarchy Extractor.\n\n### Goal\nMap every extracted Local Class to its most appropriate Base Ontology Class.\n\n### Terminology\n**Class**: A category or set of entities sharing characteristics.\n**Subclass**: A specialized class representing an \"is-a\" relationship to a broader class.\n**Base Ontology Class**: An established, foundational class provided to act as the structural root.\n**Local Class**: A newly extracted domain specific class.\n\n### Guidelines\n1. **SubClassOf Only**: Identify \"is-a\" hierarchies.\n2. **Direct Rooting**: Connect Local Classes DIRECTLY to a Base Ontology Class. Do not map Local Classes to each other.\n3. **Completeness**: EVERY Local Class must have a mapping to a Base Ontology Class.\n4. **Direction**: The 'subclass' MUST be a Local Class, and the 'superclass' MUST be a Base Ontology Class.\n\n### Example \n[\n  {\"type\": \"SubClassOf\", \"subclass\": \"Smartphone\", \"superclass\": \"PhysicalObject\"},\n  {\"type\": \"SubClassOf\", \"subclass\": \"Manager\", \"superclass\": \"Role\"} \n]<|end|><|user|>\n                    ### Base Ontology Classes\n                    - Entity: Anything: real, possible, or imaginary, which some modeller wants to talk about for some purpose.\n- Object: Any physical, social, or mental object, or a substance. Objects are endurants: they can change some of their parts or qualities while keeping their identity.\n- PhysicalObject: Any Object that has a proper space region. Examples include people, equipment, sensors, and buildings.\n- SocialObject: Any Object that exists only within some social context, such as organizations, laws, plans, or projects.\n- InformationObject: A piece of information, such as a text, a word, a picture, or data, independently from how it is concretely realized.\n- InformationRealization: A physical object or event that realizes an information object. For example, a physical printed document or a digital file on a hard drive.\n- Event: Any physical, social, or mental process, event, or state. Events unfold in time and have objects as participants.\n- Action: An Event with at least one agent that participates in it, and that executes a task.\n- Quality: Any aspect of an Entity (but not a part of it), which cannot exist without that Entity. For example, the color of a physical object or the duration of an event.\n- Concept: A Concept is a SocialObject that classifies or defines something. For example, the idea of a 'Sensor' or 'Therapy'.\n- Role: A Concept that classifies an Object. For example, 'Doctor' is a Role played by a person, and 'Monitor' is a Role played by a device.\n- Collection: Any collection of objects, events, or other entities, such as a group of people or a dataset.\n- TimeInterval: A specific period or duration of time.\n- SpaceRegion: A specific location or region in space.\n\n                    ### Local Classes  \n                    - PilotPackage: A limited-time promotional offer that allows the use of a product or service in a specific setting, with a set number of uses or a limited time frame.\n\n                    ### Goal\n                    Identify hierarchical superclass-subclass relationships connecting the Local Classes to the established Base Ontology Classes.<|end|><|assistant|>",
+                    "Skipped: Not enough local classes to form lateral hierarchy."
+                ],
+                "relation_extraction": [
+                    "<|system|>### Role\nYou are an Ontology Object Property Extractor.\n\n### Goal\nDefine the lateral relationships (ObjectProperties) between the provided Local Classes based on the Source Text.\n\n### Terminology\n**Class**: A group, collection, category or set of entities sharing characteristics or attributes.\n**ObjectProperty**: A relationship that links two classes together.\n**Domain**: The subject or \"owner\" class of the property.\n**Range**: The object or \"target\" class of the property.\n**Local Class**: A newly extracted domain specific class.\n\n### Guidelines\n1. **NO Hierarchies**: DO NOT extract \"is-a\", SubClassOf, Equivalent, or Disjoint relationships. Focus ONLY on lateral links.\n2. **Strict Vocabulary**: You may ONLY use the exact names of the classes listed in the provided 'Local Classes' block for Domains and Ranges.\n3. **Class Interaction**: You must ONLY link the provided Local Classes to each other.\n4. **Single Triple**: Output completed relation triples linking one Local Class to another.\n\n### Example\n[\n  {\"domain\": \"System\", \"property\": \"hasComponent\", \"range\": \"Module\"},\n  {\"domain\": \"Entity\", \"property\": \"participatesIn\", \"range\": \"Event\"}\n]<|end|><|user|>\n                    ### Local Classes  \n                    - HealthcareSensor: A device or system designed to monitor and record physical activity or vital signs for healthcare purposes.\n- ResearchProject: A coordinated effort to investigate and understand phenomena, typically involving the collection and analysis of data.\n- SensorApplication: A software application that utilizes a physical sensor to collect and manage data related to physical activity or other measurable phenomena.\n- GamificationApp: A mobile application that incorporates game-like elements to motivate and engage users, often used in healthcare to encourage physical activity.\n- SensorManagementWebApp: A web application designed to manage, view, and export data collected from various sensors.\n- OEMPlatform: A platform that allows for the development and integration of wireless, battery-powered medical sensors into various systems or devices.\n\n                    ### Valid Properties\n                    - hasPart: Relates an entity to its components or parts. (e.g., A car hasPart an engine).\n- isPartOf: The inverse of hasPart. Relates a component to the whole. (e.g., An engine isPart of a car).\n- participatesIn: Relates an object to an event or process it is involved in. (e.g., A person participatesIn a meeting).\n- hasParticipant: The inverse of participatesIn. Relates an event to the objects involved in it. (e.g., A meeting hasParticipant a person).\n- hasQuality: Relates an entity to an attribute, characteristic, or value it possesses. (e.g., A car hasQuality color).\n- realizes: Relates a physical manifestation to the abstract information it represents. (e.g., A printed book realizes a text; A physical statue realizes a 3D design).\n- classifies: Relates a concept, category, or role to the actual entity it describes. (e.g., The role 'Teacher' classifies a specific Person).\n- hasLocation: Relates an object or event to the spatial region where it is located or occurs. (e.g., A meeting hasLocation 'Conference Room A').\n- hasTime: Relates an event or process to the specific time period during which it occurs. (e.g., A concert hasTime 'Saturday Night').\n- isAbout: Relates an information object (like data, text, or a picture) to the entity it represents or describes. (e.g., A photograph isAbout a landscape).\n- hasComponent: Relates a complex system or platform to its individual components. (e.g., A computer hasComponent a motherboard).\n- isComponentOf: The inverse of hasComponent. Relates a component to the system it belongs to. (e.g., A motherboard isComponentOf a computer).\n- precedes: A sequence relation indicating that one event, process, or time happens before another. (e.g., 'Writing' precedes 'Publishing').\n- follows: The inverse of precedes. Indicates one event or process comes after another. (e.g., 'Publishing' follows 'Writing').\n- hasRole: Relates an object to the function or role it performs. (e.g., A person hasRole 'Manager').\n- hasDataValue: A data property that assigns a specific numeric or literal value to an entity or its quality. (e.g., A WeightQuality hasDataValue '75.5').\n- hasMember: Relates a collection, dataset, or group to the individual items it contains. (e.g., A Library hasMember 'Book').\n- isMemberOf: The inverse of hasMember. Relates an item to the collection it belongs to. (e.g., A 'Book' isMemberOf a Library).\n- expresses: Relates a piece of information or data to the abstract concept it means or represents. (e.g., A spoken word expresses a concept).\n- hasPrecondition: Direct precedence indicating a requirement. Relates an action to another action or event that must happen first. (e.g., 'Buying a Ticket' is a precondition for 'Boarding a Train').\n- hasPostcondition: Direct succession indicating a result. Relates an action to the outcome or event that necessarily follows it. (e.g., 'Getting Wet' is a postcondition of 'Swimming').\n- executesTask: Relates an action or physical event to the specific conceptual task or goal it is designed to accomplish. (e.g., A reading event executesTask 'Learning').\n- actsThrough: Relates an entity to the medium or tool it uses to interact or perform an action. (e.g., A writer actsThrough a 'Pen').\n- satisfies: Relates an entity or action to a rule, plan, or requirement that it successfully fulfills. (e.g., A building process satisfies a 'Blueprint').\n\n                    ### Source Text\n                    title: Discrete Wearable Activity Sensor for Healthcare and Research\ntext: Better Treatment. Better Research\n\n## What is SENS motion®\ntitle: What is SENS motion®\n\n### System Measures\nsubtitle: System Measures\nlist: Rest time.Standing time.Walking time.Running & High Intensity Movement time.Cycling time.Steps.Intensity.Sleep time and quality\n**SENS motion®** is an integrated system for collecting physical activity data from groups of people. It consists of a wireless activity sensor that automatically transfers data to a secure cloud. It is especially well suited for use in the healthcare sector and for large research projects\n\n## SENS motion® – For Healthcare\ntitle: SENS motion® – For Healthcare\n\n### SENS motion® – For Healthcare consists of\nsubtitle: SENS motion® – For Healthcare consists of\nlist: The SENS motion activity sensor for use on patients.A patient app, with gamification feedback for motivating the patient to become more active.(Optional) Monitor display providing overview of patients.Access to reports of individual patients activity\n**SENS motion® – For Healthcare** enables the use of SENS motion® activity sensor in healthcare environments, such as hospitals or care centres. The collected activity data can be presented to the patient itself for motivational purpose, assist healthcare professionals in treatment and help prioritize their valuable time efficiently\n\n[Read More →](/en/healthcare/)\n\n## SENS motion® – For Research\ntitle: SENS motion® – For Research\n\n### SENS motion® – For Research consists of\nsubtitle: SENS motion® – For Research consists of\nlist: The SENS motion® activity sensor.Smartphone app for automatically transferring data to the secure cloud.Web-application for managing sensors, viewing or exporting data\n**SENS motion® – For Research** enables the use of SENS motion activity sensor for collecting activity data or raw accelerometer data in research projects\n\n[Read More →](/en/research/)\n\nSENS motion® – Connect\nOEM Platform for medical sensors\nDo you want to build a wireless, scalable, battery-powered medical sensor or have a business opportunity where measurement of physical data is needed?\n\n[Image: demos10 (source: /img/demos10.png)](https://www.demos10.dk/)\n[Image: icompression (source: /img/icompression.png)](https://icompression.dk/)\n[Image: ventriject (source: /img/ventriject-2.png)](https://ventriject.com/)\n\nContact us for options on OEM Cooperation\n\n                    ### Goal\n                    Define the lateral relationships (ObjectProperties) between the provided Local Classes based on the Source Text.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are an Ontology Data Property Extractor.\n\n### Goal\nDefine the attributes or data values (DataProperties) for the provided Local Classes based on the Source Text.\n\n### Terminology\n**DataProperty**: An attribute that links a class to a specific data type or value.\n**Domain**: The subject or \"owner\" class of the property.\n**Datatype**: The XSD data type (e.g., xsd:string, xsd:integer).\n**Local Class**: A newly extracted domain specific class.\n\n### Guidelines\n1. **NO Object Properties or Hierarchies**: Build ONLY data attributes (like names, IDs, dates, quantities) for classes.\n2. **Domain Strictness**: You may ONLY use the exact names of the classes listed in the provided 'Local Classes' block for the Domain.\n3. **Datatypes**: Use valid XSD datatypes for the Range (\"xsd:string\", \"xsd:integer\", \"xsd:decimal\", \"xsd:boolean\", \"xsd:date\").\n4. **Naming Convention**: Property names must be lowerCamelCase descriptive attribute names.\n\n### Example\n[\n  {\"domain\": \"System\", \"property\": \"hasVersion\", \"datatype\": \"xsd:string\"},\n  {\"domain\": \"Event\", \"property\": \"startDate\", \"datatype\": \"xsd:date\"},\n  {\"domain\": \"Entity\", \"property\": \"isActive\", \"datatype\": \"xsd:boolean\"}\n]<|end|><|user|>\n                    ### Local Classes  \n                    - HealthcareSensor: A device or system designed to monitor and record physical activity or vital signs for healthcare purposes.\n- ResearchProject: A coordinated effort to investigate and understand phenomena, typically involving the collection and analysis of data.\n- SensorApplication: A software application that utilizes a physical sensor to collect and manage data related to physical activity or other measurable phenomena.\n- GamificationApp: A mobile application that incorporates game-like elements to motivate and engage users, often used in healthcare to encourage physical activity.\n- SensorManagementWebApp: A web application designed to manage, view, and export data collected from various sensors.\n- OEMPlatform: A platform that allows for the development and integration of wireless, battery-powered medical sensors into various systems or devices.\n\n                    ### Source Text\n                    title: Discrete Wearable Activity Sensor for Healthcare and Research\ntext: Better Treatment. Better Research\n\n## What is SENS motion®\ntitle: What is SENS motion®\n\n### System Measures\nsubtitle: System Measures\nlist: Rest time.Standing time.Walking time.Running & High Intensity Movement time.Cycling time.Steps.Intensity.Sleep time and quality\n**SENS motion®** is an integrated system for collecting physical activity data from groups of people. It consists of a wireless activity sensor that automatically transfers data to a secure cloud. It is especially well suited for use in the healthcare sector and for large research projects\n\n## SENS motion® – For Healthcare\ntitle: SENS motion® – For Healthcare\n\n### SENS motion® – For Healthcare consists of\nsubtitle: SENS motion® – For Healthcare consists of\nlist: The SENS motion activity sensor for use on patients.A patient app, with gamification feedback for motivating the patient to become more active.(Optional) Monitor display providing overview of patients.Access to reports of individual patients activity\n**SENS motion® – For Healthcare** enables the use of SENS motion® activity sensor in healthcare environments, such as hospitals or care centres. The collected activity data can be presented to the patient itself for motivational purpose, assist healthcare professionals in treatment and help prioritize their valuable time efficiently\n\n[Read More →](/en/healthcare/)\n\n## SENS motion® – For Research\ntitle: SENS motion® – For Research\n\n### SENS motion® – For Research consists of\nsubtitle: SENS motion® – For Research consists of\nlist: The SENS motion® activity sensor.Smartphone app for automatically transferring data to the secure cloud.Web-application for managing sensors, viewing or exporting data\n**SENS motion® – For Research** enables the use of SENS motion activity sensor for collecting activity data or raw accelerometer data in research projects\n\n[Read More →](/en/research/)\n\nSENS motion® – Connect\nOEM Platform for medical sensors\nDo you want to build a wireless, scalable, battery-powered medical sensor or have a business opportunity where measurement of physical data is needed?\n\n[Image: demos10 (source: /img/demos10.png)](https://www.demos10.dk/)\n[Image: icompression (source: /img/icompression.png)](https://icompression.dk/)\n[Image: ventriject (source: /img/ventriject-2.png)](https://ventriject.com/)\n\nContact us for options on OEM Cooperation\n\n                    ### Goal\n                    Define the attributes or data values (DataProperties) for the provided Local Classes based on the Source Text.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are an Ontology Object Property Extractor.\n\n### Goal\nDefine the lateral relationships (ObjectProperties) between the provided Local Classes based on the Source Text.\n\n### Terminology\n**Class**: A group, collection, category or set of entities sharing characteristics or attributes.\n**ObjectProperty**: A relationship that links two classes together.\n**Domain**: The subject or \"owner\" class of the property.\n**Range**: The object or \"target\" class of the property.\n**Local Class**: A newly extracted domain specific class.\n\n### Guidelines\n1. **NO Hierarchies**: DO NOT extract \"is-a\", SubClassOf, Equivalent, or Disjoint relationships. Focus ONLY on lateral links.\n2. **Strict Vocabulary**: You may ONLY use the exact names of the classes listed in the provided 'Local Classes' block for Domains and Ranges.\n3. **Class Interaction**: You must ONLY link the provided Local Classes to each other.\n4. **Single Triple**: Output completed relation triples linking one Local Class to another.\n\n### Example\n[\n  {\"domain\": \"System\", \"property\": \"hasComponent\", \"range\": \"Module\"},\n  {\"domain\": \"Entity\", \"property\": \"participatesIn\", \"range\": \"Event\"}\n]<|end|><|user|>\n                    ### Local Classes  \n                    - TeamMember: An individual who is part of a team, typically associated with a group of people with a common purpose or interest, such as a company or organization.\n\n                    ### Valid Properties\n                    - hasPart: Relates an entity to its components or parts. (e.g., A car hasPart an engine).\n- isPartOf: The inverse of hasPart. Relates a component to the whole. (e.g., An engine isPart of a car).\n- participatesIn: Relates an object to an event or process it is involved in. (e.g., A person participatesIn a meeting).\n- hasParticipant: The inverse of participatesIn. Relates an event to the objects involved in it. (e.g., A meeting hasParticipant a person).\n- hasQuality: Relates an entity to an attribute, characteristic, or value it possesses. (e.g., A car hasQuality color).\n- realizes: Relates a physical manifestation to the abstract information it represents. (e.g., A printed book realizes a text; A physical statue realizes a 3D design).\n- classifies: Relates a concept, category, or role to the actual entity it describes. (e.g., The role 'Teacher' classifies a specific Person).\n- hasLocation: Relates an object or event to the spatial region where it is located or occurs. (e.g., A meeting hasLocation 'Conference Room A').\n- hasTime: Relates an event or process to the specific time period during which it occurs. (e.g., A concert hasTime 'Saturday Night').\n- isAbout: Relates an information object (like data, text, or a picture) to the entity it represents or describes. (e.g., A photograph isAbout a landscape).\n- hasComponent: Relates a complex system or platform to its individual components. (e.g., A computer hasComponent a motherboard).\n- isComponentOf: The inverse of hasComponent. Relates a component to the system it belongs to. (e.g., A motherboard isComponentOf a computer).\n- precedes: A sequence relation indicating that one event, process, or time happens before another. (e.g., 'Writing' precedes 'Publishing').\n- follows: The inverse of precedes. Indicates one event or process comes after another. (e.g., 'Publishing' follows 'Writing').\n- hasRole: Relates an object to the function or role it performs. (e.g., A person hasRole 'Manager').\n- hasDataValue: A data property that assigns a specific numeric or literal value to an entity or its quality. (e.g., A WeightQuality hasDataValue '75.5').\n- hasMember: Relates a collection, dataset, or group to the individual items it contains. (e.g., A Library hasMember 'Book').\n- isMemberOf: The inverse of hasMember. Relates an item to the collection it belongs to. (e.g., A 'Book' isMemberOf a Library).\n- expresses: Relates a piece of information or data to the abstract concept it means or represents. (e.g., A spoken word expresses a concept).\n- hasPrecondition: Direct precedence indicating a requirement. Relates an action to another action or event that must happen first. (e.g., 'Buying a Ticket' is a precondition for 'Boarding a Train').\n- hasPostcondition: Direct succession indicating a result. Relates an action to the outcome or event that necessarily follows it. (e.g., 'Getting Wet' is a postcondition of 'Swimming').\n- executesTask: Relates an action or physical event to the specific conceptual task or goal it is designed to accomplish. (e.g., A reading event executesTask 'Learning').\n- actsThrough: Relates an entity to the medium or tool it uses to interact or perform an action. (e.g., A writer actsThrough a 'Pen').\n- satisfies: Relates an entity or action to a rule, plan, or requirement that it successfully fulfills. (e.g., A building process satisfies a 'Blueprint').\n\n                    ### Source Text\n                    title: Company Profile\ntext: SENS Innovation ApS\n\n## Background\ntitle: Background\nvision_quote: Our vision is to revolutionize the way physical activity can be used as an integrated and measurable part of the treatment and prevention of numerous diseases – on an equal footing with other medicine\nvision_author_name: Kasper L. Lykkegaard\nvision_author_title: Co-founder and CEO\nSENS Innovation ApS was founded in 2014 by Kasper L. Lykkegaard and Morten Kjærgaard. The company develops medical sensor products, based on advanced sensor technology, for monitoring of physical activity with patients\n\nThe SENS products and platforms are easy to use, flexible, scalable and present accurate monitoring of the body's position and the nature of the activity, for both the individual or even larger groups. Therefore, SENS's products and technology are a valuable tool in research trials and studies in correlation to physical activity and diseases\n\n## Meet Our Team\ntitle: Meet Our Team\nTeam member: Kasper L. Lykkegaard; role: CEO & Founder; email: kasper@sens.dk; linkedin: https://www.linkedin.com/in/kasper-lundberg-lykkegaard-7795246/\nTeam member: Morten Kjærgaard; role: CTO & Founder; email: morten@sens.dk; linkedin: https://www.linkedin.com/in/morten-kj%C3%A6rgaard-9a08242/\nTeam member: Ida Marie Pierrel-Boas; role: Senior Project Manager; email: ida@sens.dk; linkedin: https://www.linkedin.com/in/idaboas/\nTeam member: Christian Lindharth; role: Senior Account Executive; email: christian@sens.dk; linkedin: https://www.linkedin.com/in/clindharth/\nTeam member: Miriam Cabrita; role: Partnerships Manager; email: miriam@sens.dk\nTeam member: Karen Shakespeare; role: UK & Ireland Account Executive; email: karen@sens.dk\nTeam member: Amin Rezaei; role: Software Developer\nTeam member: August Blicher Friis; role: Software Developer\nTeam member: Renata Oliveira; role: UX Specialist\nTeam member: Huong Nguyen; role: Frontend Developer\nTeam member: Mathias Elmegaard Nielsen; role: Student Assistant\nTeam member: Mats Ellingsen; role: Student Assistant\nTeam member: Lea Møller Storm; role: Student Assistant\n\n                    ### Goal\n                    Define the lateral relationships (ObjectProperties) between the provided Local Classes based on the Source Text.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are an Ontology Data Property Extractor.\n\n### Goal\nDefine the attributes or data values (DataProperties) for the provided Local Classes based on the Source Text.\n\n### Terminology\n**DataProperty**: An attribute that links a class to a specific data type or value.\n**Domain**: The subject or \"owner\" class of the property.\n**Datatype**: The XSD data type (e.g., xsd:string, xsd:integer).\n**Local Class**: A newly extracted domain specific class.\n\n### Guidelines\n1. **NO Object Properties or Hierarchies**: Build ONLY data attributes (like names, IDs, dates, quantities) for classes.\n2. **Domain Strictness**: You may ONLY use the exact names of the classes listed in the provided 'Local Classes' block for the Domain.\n3. **Datatypes**: Use valid XSD datatypes for the Range (\"xsd:string\", \"xsd:integer\", \"xsd:decimal\", \"xsd:boolean\", \"xsd:date\").\n4. **Naming Convention**: Property names must be lowerCamelCase descriptive attribute names.\n\n### Example\n[\n  {\"domain\": \"System\", \"property\": \"hasVersion\", \"datatype\": \"xsd:string\"},\n  {\"domain\": \"Event\", \"property\": \"startDate\", \"datatype\": \"xsd:date\"},\n  {\"domain\": \"Entity\", \"property\": \"isActive\", \"datatype\": \"xsd:boolean\"}\n]<|end|><|user|>\n                    ### Local Classes  \n                    - TeamMember: An individual who is part of a team, typically associated with a group of people with a common purpose or interest, such as a company or organization.\n\n                    ### Source Text\n                    title: Company Profile\ntext: SENS Innovation ApS\n\n## Background\ntitle: Background\nvision_quote: Our vision is to revolutionize the way physical activity can be used as an integrated and measurable part of the treatment and prevention of numerous diseases – on an equal footing with other medicine\nvision_author_name: Kasper L. Lykkegaard\nvision_author_title: Co-founder and CEO\nSENS Innovation ApS was founded in 2014 by Kasper L. Lykkegaard and Morten Kjærgaard. The company develops medical sensor products, based on advanced sensor technology, for monitoring of physical activity with patients\n\nThe SENS products and platforms are easy to use, flexible, scalable and present accurate monitoring of the body's position and the nature of the activity, for both the individual or even larger groups. Therefore, SENS's products and technology are a valuable tool in research trials and studies in correlation to physical activity and diseases\n\n## Meet Our Team\ntitle: Meet Our Team\nTeam member: Kasper L. Lykkegaard; role: CEO & Founder; email: kasper@sens.dk; linkedin: https://www.linkedin.com/in/kasper-lundberg-lykkegaard-7795246/\nTeam member: Morten Kjærgaard; role: CTO & Founder; email: morten@sens.dk; linkedin: https://www.linkedin.com/in/morten-kj%C3%A6rgaard-9a08242/\nTeam member: Ida Marie Pierrel-Boas; role: Senior Project Manager; email: ida@sens.dk; linkedin: https://www.linkedin.com/in/idaboas/\nTeam member: Christian Lindharth; role: Senior Account Executive; email: christian@sens.dk; linkedin: https://www.linkedin.com/in/clindharth/\nTeam member: Miriam Cabrita; role: Partnerships Manager; email: miriam@sens.dk\nTeam member: Karen Shakespeare; role: UK & Ireland Account Executive; email: karen@sens.dk\nTeam member: Amin Rezaei; role: Software Developer\nTeam member: August Blicher Friis; role: Software Developer\nTeam member: Renata Oliveira; role: UX Specialist\nTeam member: Huong Nguyen; role: Frontend Developer\nTeam member: Mathias Elmegaard Nielsen; role: Student Assistant\nTeam member: Mats Ellingsen; role: Student Assistant\nTeam member: Lea Møller Storm; role: Student Assistant\n\n                    ### Goal\n                    Define the attributes or data values (DataProperties) for the provided Local Classes based on the Source Text.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are an Ontology Object Property Extractor.\n\n### Goal\nDefine the lateral relationships (ObjectProperties) between the provided Local Classes based on the Source Text.\n\n### Terminology\n**Class**: A group, collection, category or set of entities sharing characteristics or attributes.\n**ObjectProperty**: A relationship that links two classes together.\n**Domain**: The subject or \"owner\" class of the property.\n**Range**: The object or \"target\" class of the property.\n**Local Class**: A newly extracted domain specific class.\n\n### Guidelines\n1. **NO Hierarchies**: DO NOT extract \"is-a\", SubClassOf, Equivalent, or Disjoint relationships. Focus ONLY on lateral links.\n2. **Strict Vocabulary**: You may ONLY use the exact names of the classes listed in the provided 'Local Classes' block for Domains and Ranges.\n3. **Class Interaction**: You must ONLY link the provided Local Classes to each other.\n4. **Single Triple**: Output completed relation triples linking one Local Class to another.\n\n### Example\n[\n  {\"domain\": \"System\", \"property\": \"hasComponent\", \"range\": \"Module\"},\n  {\"domain\": \"Entity\", \"property\": \"participatesIn\", \"range\": \"Event\"}\n]<|end|><|user|>\n                    ### Local Classes  \n                    - CommunicationChannel: A medium or system used for the exchange of messages, information, or data between entities.\n\n                    ### Valid Properties\n                    - hasPart: Relates an entity to its components or parts. (e.g., A car hasPart an engine).\n- isPartOf: The inverse of hasPart. Relates a component to the whole. (e.g., An engine isPart of a car).\n- participatesIn: Relates an object to an event or process it is involved in. (e.g., A person participatesIn a meeting).\n- hasParticipant: The inverse of participatesIn. Relates an event to the objects involved in it. (e.g., A meeting hasParticipant a person).\n- hasQuality: Relates an entity to an attribute, characteristic, or value it possesses. (e.g., A car hasQuality color).\n- realizes: Relates a physical manifestation to the abstract information it represents. (e.g., A printed book realizes a text; A physical statue realizes a 3D design).\n- classifies: Relates a concept, category, or role to the actual entity it describes. (e.g., The role 'Teacher' classifies a specific Person).\n- hasLocation: Relates an object or event to the spatial region where it is located or occurs. (e.g., A meeting hasLocation 'Conference Room A').\n- hasTime: Relates an event or process to the specific time period during which it occurs. (e.g., A concert hasTime 'Saturday Night').\n- isAbout: Relates an information object (like data, text, or a picture) to the entity it represents or describes. (e.g., A photograph isAbout a landscape).\n- hasComponent: Relates a complex system or platform to its individual components. (e.g., A computer hasComponent a motherboard).\n- isComponentOf: The inverse of hasComponent. Relates a component to the system it belongs to. (e.g., A motherboard isComponentOf a computer).\n- precedes: A sequence relation indicating that one event, process, or time happens before another. (e.g., 'Writing' precedes 'Publishing').\n- follows: The inverse of precedes. Indicates one event or process comes after another. (e.g., 'Publishing' follows 'Writing').\n- hasRole: Relates an object to the function or role it performs. (e.g., A person hasRole 'Manager').\n- hasDataValue: A data property that assigns a specific numeric or literal value to an entity or its quality. (e.g., A WeightQuality hasDataValue '75.5').\n- hasMember: Relates a collection, dataset, or group to the individual items it contains. (e.g., A Library hasMember 'Book').\n- isMemberOf: The inverse of hasMember. Relates an item to the collection it belongs to. (e.g., A 'Book' isMemberOf a Library).\n- expresses: Relates a piece of information or data to the abstract concept it means or represents. (e.g., A spoken word expresses a concept).\n- hasPrecondition: Direct precedence indicating a requirement. Relates an action to another action or event that must happen first. (e.g., 'Buying a Ticket' is a precondition for 'Boarding a Train').\n- hasPostcondition: Direct succession indicating a result. Relates an action to the outcome or event that necessarily follows it. (e.g., 'Getting Wet' is a postcondition of 'Swimming').\n- executesTask: Relates an action or physical event to the specific conceptual task or goal it is designed to accomplish. (e.g., A reading event executesTask 'Learning').\n- actsThrough: Relates an entity to the medium or tool it uses to interact or perform an action. (e.g., A writer actsThrough a 'Pen').\n- satisfies: Relates an entity or action to a rule, plan, or requirement that it successfully fulfills. (e.g., A building process satisfies a 'Blueprint').\n\n                    ### Source Text\n                    ## Send us a message\n\n                    ### Goal\n                    Define the lateral relationships (ObjectProperties) between the provided Local Classes based on the Source Text.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are an Ontology Data Property Extractor.\n\n### Goal\nDefine the attributes or data values (DataProperties) for the provided Local Classes based on the Source Text.\n\n### Terminology\n**DataProperty**: An attribute that links a class to a specific data type or value.\n**Domain**: The subject or \"owner\" class of the property.\n**Datatype**: The XSD data type (e.g., xsd:string, xsd:integer).\n**Local Class**: A newly extracted domain specific class.\n\n### Guidelines\n1. **NO Object Properties or Hierarchies**: Build ONLY data attributes (like names, IDs, dates, quantities) for classes.\n2. **Domain Strictness**: You may ONLY use the exact names of the classes listed in the provided 'Local Classes' block for the Domain.\n3. **Datatypes**: Use valid XSD datatypes for the Range (\"xsd:string\", \"xsd:integer\", \"xsd:decimal\", \"xsd:boolean\", \"xsd:date\").\n4. **Naming Convention**: Property names must be lowerCamelCase descriptive attribute names.\n\n### Example\n[\n  {\"domain\": \"System\", \"property\": \"hasVersion\", \"datatype\": \"xsd:string\"},\n  {\"domain\": \"Event\", \"property\": \"startDate\", \"datatype\": \"xsd:date\"},\n  {\"domain\": \"Entity\", \"property\": \"isActive\", \"datatype\": \"xsd:boolean\"}\n]<|end|><|user|>\n                    ### Local Classes  \n                    - CommunicationChannel: A medium or system used for the exchange of messages, information, or data between entities.\n\n                    ### Source Text\n                    ## Send us a message\n\n                    ### Goal\n                    Define the attributes or data values (DataProperties) for the provided Local Classes based on the Source Text.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are an Ontology Object Property Extractor.\n\n### Goal\nDefine the lateral relationships (ObjectProperties) between the provided Local Classes based on the Source Text.\n\n### Terminology\n**Class**: A group, collection, category or set of entities sharing characteristics or attributes.\n**ObjectProperty**: A relationship that links two classes together.\n**Domain**: The subject or \"owner\" class of the property.\n**Range**: The object or \"target\" class of the property.\n**Local Class**: A newly extracted domain specific class.\n\n### Guidelines\n1. **NO Hierarchies**: DO NOT extract \"is-a\", SubClassOf, Equivalent, or Disjoint relationships. Focus ONLY on lateral links.\n2. **Strict Vocabulary**: You may ONLY use the exact names of the classes listed in the provided 'Local Classes' block for Domains and Ranges.\n3. **Class Interaction**: You must ONLY link the provided Local Classes to each other.\n4. **Single Triple**: Output completed relation triples linking one Local Class to another.\n\n### Example\n[\n  {\"domain\": \"System\", \"property\": \"hasComponent\", \"range\": \"Module\"},\n  {\"domain\": \"Entity\", \"property\": \"participatesIn\", \"range\": \"Event\"}\n]<|end|><|user|>\n                    ### Local Classes  \n                    - Feedback: A response or reaction to a message or communication, typically indicating that the message has been received and will be addressed.\n\n                    ### Valid Properties\n                    - hasPart: Relates an entity to its components or parts. (e.g., A car hasPart an engine).\n- isPartOf: The inverse of hasPart. Relates a component to the whole. (e.g., An engine isPart of a car).\n- participatesIn: Relates an object to an event or process it is involved in. (e.g., A person participatesIn a meeting).\n- hasParticipant: The inverse of participatesIn. Relates an event to the objects involved in it. (e.g., A meeting hasParticipant a person).\n- hasQuality: Relates an entity to an attribute, characteristic, or value it possesses. (e.g., A car hasQuality color).\n- realizes: Relates a physical manifestation to the abstract information it represents. (e.g., A printed book realizes a text; A physical statue realizes a 3D design).\n- classifies: Relates a concept, category, or role to the actual entity it describes. (e.g., The role 'Teacher' classifies a specific Person).\n- hasLocation: Relates an object or event to the spatial region where it is located or occurs. (e.g., A meeting hasLocation 'Conference Room A').\n- hasTime: Relates an event or process to the specific time period during which it occurs. (e.g., A concert hasTime 'Saturday Night').\n- isAbout: Relates an information object (like data, text, or a picture) to the entity it represents or describes. (e.g., A photograph isAbout a landscape).\n- hasComponent: Relates a complex system or platform to its individual components. (e.g., A computer hasComponent a motherboard).\n- isComponentOf: The inverse of hasComponent. Relates a component to the system it belongs to. (e.g., A motherboard isComponentOf a computer).\n- precedes: A sequence relation indicating that one event, process, or time happens before another. (e.g., 'Writing' precedes 'Publishing').\n- follows: The inverse of precedes. Indicates one event or process comes after another. (e.g., 'Publishing' follows 'Writing').\n- hasRole: Relates an object to the function or role it performs. (e.g., A person hasRole 'Manager').\n- hasDataValue: A data property that assigns a specific numeric or literal value to an entity or its quality. (e.g., A WeightQuality hasDataValue '75.5').\n- hasMember: Relates a collection, dataset, or group to the individual items it contains. (e.g., A Library hasMember 'Book').\n- isMemberOf: The inverse of hasMember. Relates an item to the collection it belongs to. (e.g., A 'Book' isMemberOf a Library).\n- expresses: Relates a piece of information or data to the abstract concept it means or represents. (e.g., A spoken word expresses a concept).\n- hasPrecondition: Direct precedence indicating a requirement. Relates an action to another action or event that must happen first. (e.g., 'Buying a Ticket' is a precondition for 'Boarding a Train').\n- hasPostcondition: Direct succession indicating a result. Relates an action to the outcome or event that necessarily follows it. (e.g., 'Getting Wet' is a postcondition of 'Swimming').\n- executesTask: Relates an action or physical event to the specific conceptual task or goal it is designed to accomplish. (e.g., A reading event executesTask 'Learning').\n- actsThrough: Relates an entity to the medium or tool it uses to interact or perform an action. (e.g., A writer actsThrough a 'Pen').\n- satisfies: Relates an entity or action to a rule, plan, or requirement that it successfully fulfills. (e.g., A building process satisfies a 'Blueprint').\n\n                    ### Source Text\n                    title: Thank you for your message\n\nWe have received your message and will get back to you as soon as possible\n[Back to home page](/)\n\n                    ### Goal\n                    Define the lateral relationships (ObjectProperties) between the provided Local Classes based on the Source Text.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are an Ontology Data Property Extractor.\n\n### Goal\nDefine the attributes or data values (DataProperties) for the provided Local Classes based on the Source Text.\n\n### Terminology\n**DataProperty**: An attribute that links a class to a specific data type or value.\n**Domain**: The subject or \"owner\" class of the property.\n**Datatype**: The XSD data type (e.g., xsd:string, xsd:integer).\n**Local Class**: A newly extracted domain specific class.\n\n### Guidelines\n1. **NO Object Properties or Hierarchies**: Build ONLY data attributes (like names, IDs, dates, quantities) for classes.\n2. **Domain Strictness**: You may ONLY use the exact names of the classes listed in the provided 'Local Classes' block for the Domain.\n3. **Datatypes**: Use valid XSD datatypes for the Range (\"xsd:string\", \"xsd:integer\", \"xsd:decimal\", \"xsd:boolean\", \"xsd:date\").\n4. **Naming Convention**: Property names must be lowerCamelCase descriptive attribute names.\n\n### Example\n[\n  {\"domain\": \"System\", \"property\": \"hasVersion\", \"datatype\": \"xsd:string\"},\n  {\"domain\": \"Event\", \"property\": \"startDate\", \"datatype\": \"xsd:date\"},\n  {\"domain\": \"Entity\", \"property\": \"isActive\", \"datatype\": \"xsd:boolean\"}\n]<|end|><|user|>\n                    ### Local Classes  \n                    - Feedback: A response or reaction to a message or communication, typically indicating that the message has been received and will be addressed.\n\n                    ### Source Text\n                    title: Thank you for your message\n\nWe have received your message and will get back to you as soon as possible\n[Back to home page](/)\n\n                    ### Goal\n                    Define the attributes or data values (DataProperties) for the provided Local Classes based on the Source Text.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are an Ontology Object Property Extractor.\n\n### Goal\nDefine the lateral relationships (ObjectProperties) between the provided Local Classes based on the Source Text.\n\n### Terminology\n**Class**: A group, collection, category or set of entities sharing characteristics or attributes.\n**ObjectProperty**: A relationship that links two classes together.\n**Domain**: The subject or \"owner\" class of the property.\n**Range**: The object or \"target\" class of the property.\n**Local Class**: A newly extracted domain specific class.\n\n### Guidelines\n1. **NO Hierarchies**: DO NOT extract \"is-a\", SubClassOf, Equivalent, or Disjoint relationships. Focus ONLY on lateral links.\n2. **Strict Vocabulary**: You may ONLY use the exact names of the classes listed in the provided 'Local Classes' block for Domains and Ranges.\n3. **Class Interaction**: You must ONLY link the provided Local Classes to each other.\n4. **Single Triple**: Output completed relation triples linking one Local Class to another.\n\n### Example\n[\n  {\"domain\": \"System\", \"property\": \"hasComponent\", \"range\": \"Module\"},\n  {\"domain\": \"Entity\", \"property\": \"participatesIn\", \"range\": \"Event\"}\n]<|end|><|user|>\n                    ### Local Classes  \n                    - PilotPackage: A limited-time promotional offer that allows the use of a product or service in a specific setting, with a set number of uses or a limited time frame.\n\n                    ### Valid Properties\n                    - hasPart: Relates an entity to its components or parts. (e.g., A car hasPart an engine).\n- isPartOf: The inverse of hasPart. Relates a component to the whole. (e.g., An engine isPart of a car).\n- participatesIn: Relates an object to an event or process it is involved in. (e.g., A person participatesIn a meeting).\n- hasParticipant: The inverse of participatesIn. Relates an event to the objects involved in it. (e.g., A meeting hasParticipant a person).\n- hasQuality: Relates an entity to an attribute, characteristic, or value it possesses. (e.g., A car hasQuality color).\n- realizes: Relates a physical manifestation to the abstract information it represents. (e.g., A printed book realizes a text; A physical statue realizes a 3D design).\n- classifies: Relates a concept, category, or role to the actual entity it describes. (e.g., The role 'Teacher' classifies a specific Person).\n- hasLocation: Relates an object or event to the spatial region where it is located or occurs. (e.g., A meeting hasLocation 'Conference Room A').\n- hasTime: Relates an event or process to the specific time period during which it occurs. (e.g., A concert hasTime 'Saturday Night').\n- isAbout: Relates an information object (like data, text, or a picture) to the entity it represents or describes. (e.g., A photograph isAbout a landscape).\n- hasComponent: Relates a complex system or platform to its individual components. (e.g., A computer hasComponent a motherboard).\n- isComponentOf: The inverse of hasComponent. Relates a component to the system it belongs to. (e.g., A motherboard isComponentOf a computer).\n- precedes: A sequence relation indicating that one event, process, or time happens before another. (e.g., 'Writing' precedes 'Publishing').\n- follows: The inverse of precedes. Indicates one event or process comes after another. (e.g., 'Publishing' follows 'Writing').\n- hasRole: Relates an object to the function or role it performs. (e.g., A person hasRole 'Manager').\n- hasDataValue: A data property that assigns a specific numeric or literal value to an entity or its quality. (e.g., A WeightQuality hasDataValue '75.5').\n- hasMember: Relates a collection, dataset, or group to the individual items it contains. (e.g., A Library hasMember 'Book').\n- isMemberOf: The inverse of hasMember. Relates an item to the collection it belongs to. (e.g., A 'Book' isMemberOf a Library).\n- expresses: Relates a piece of information or data to the abstract concept it means or represents. (e.g., A spoken word expresses a concept).\n- hasPrecondition: Direct precedence indicating a requirement. Relates an action to another action or event that must happen first. (e.g., 'Buying a Ticket' is a precondition for 'Boarding a Train').\n- hasPostcondition: Direct succession indicating a result. Relates an action to the outcome or event that necessarily follows it. (e.g., 'Getting Wet' is a postcondition of 'Swimming').\n- executesTask: Relates an action or physical event to the specific conceptual task or goal it is designed to accomplish. (e.g., A reading event executesTask 'Learning').\n- actsThrough: Relates an entity to the medium or tool it uses to interact or perform an action. (e.g., A writer actsThrough a 'Pen').\n- satisfies: Relates an entity or action to a rule, plan, or requirement that it successfully fulfills. (e.g., A building process satisfies a 'Blueprint').\n\n                    ### Source Text\n                    title: Promote increased mobilisation among inpatients\ntext: Certified medical device (CE-marked)\n\n## Introduction\ntitle: Introduction\n\n### SENS motion® increases physical activity for admitted patients\nsubtitle: SENS motion® increases physical activity for admitted patients\nlist: Motivates the patient by visualizing goals and expectations on a tablet next to the bed.Provides a data-based overview of the patients' physical activity for the healthcare professional.Improved dialog about physical activity between the healthcare professional, the patient and relatives.Increased compliance of data-driven management\n\n## Pilot Package\ntitle: Pilot Package\n\n### Try SENS motion® for 3 months – It is easy, and support is free of charge\nsubtitle: Try SENS motion® for 3 months – It is easy, and support is free of charge\nbutton_text: Read more about the pilot package\n**Try SENS motion® for 3 months** and experience the positive effect on patients. It is easy and quick. Complete package for only 19.995 DKK\n\nPilot package is an introductory offer that gives the possibility to use SENS motion in a clinical ward for 3 months with up to 120 patients\n\n## Motivational App\ntitle: Motivational App\n\n### Motivational visual feedback from the app increases the patient's self-activation\nsubtitle: Motivational visual feedback from the app increases the patient's self-activation\nlist: Motivates the patient to be more active by using elements of gamification and nudging.The patient walks a visual tour through Copenhagen visiting various attractions.The patient can continuously track her/his own progress, goals, and expectations.The patient and healthcare professional can access more information using a detailed history view to facilitate dialog and follow up\n\n                    ### Goal\n                    Define the lateral relationships (ObjectProperties) between the provided Local Classes based on the Source Text.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are an Ontology Data Property Extractor.\n\n### Goal\nDefine the attributes or data values (DataProperties) for the provided Local Classes based on the Source Text.\n\n### Terminology\n**DataProperty**: An attribute that links a class to a specific data type or value.\n**Domain**: The subject or \"owner\" class of the property.\n**Datatype**: The XSD data type (e.g., xsd:string, xsd:integer).\n**Local Class**: A newly extracted domain specific class.\n\n### Guidelines\n1. **NO Object Properties or Hierarchies**: Build ONLY data attributes (like names, IDs, dates, quantities) for classes.\n2. **Domain Strictness**: You may ONLY use the exact names of the classes listed in the provided 'Local Classes' block for the Domain.\n3. **Datatypes**: Use valid XSD datatypes for the Range (\"xsd:string\", \"xsd:integer\", \"xsd:decimal\", \"xsd:boolean\", \"xsd:date\").\n4. **Naming Convention**: Property names must be lowerCamelCase descriptive attribute names.\n\n### Example\n[\n  {\"domain\": \"System\", \"property\": \"hasVersion\", \"datatype\": \"xsd:string\"},\n  {\"domain\": \"Event\", \"property\": \"startDate\", \"datatype\": \"xsd:date\"},\n  {\"domain\": \"Entity\", \"property\": \"isActive\", \"datatype\": \"xsd:boolean\"}\n]<|end|><|user|>\n                    ### Local Classes  \n                    - PilotPackage: A limited-time promotional offer that allows the use of a product or service in a specific setting, with a set number of uses or a limited time frame.\n\n                    ### Source Text\n                    title: Promote increased mobilisation among inpatients\ntext: Certified medical device (CE-marked)\n\n## Introduction\ntitle: Introduction\n\n### SENS motion® increases physical activity for admitted patients\nsubtitle: SENS motion® increases physical activity for admitted patients\nlist: Motivates the patient by visualizing goals and expectations on a tablet next to the bed.Provides a data-based overview of the patients' physical activity for the healthcare professional.Improved dialog about physical activity between the healthcare professional, the patient and relatives.Increased compliance of data-driven management\n\n## Pilot Package\ntitle: Pilot Package\n\n### Try SENS motion® for 3 months – It is easy, and support is free of charge\nsubtitle: Try SENS motion® for 3 months – It is easy, and support is free of charge\nbutton_text: Read more about the pilot package\n**Try SENS motion® for 3 months** and experience the positive effect on patients. It is easy and quick. Complete package for only 19.995 DKK\n\nPilot package is an introductory offer that gives the possibility to use SENS motion in a clinical ward for 3 months with up to 120 patients\n\n## Motivational App\ntitle: Motivational App\n\n### Motivational visual feedback from the app increases the patient's self-activation\nsubtitle: Motivational visual feedback from the app increases the patient's self-activation\nlist: Motivates the patient to be more active by using elements of gamification and nudging.The patient walks a visual tour through Copenhagen visiting various attractions.The patient can continuously track her/his own progress, goals, and expectations.The patient and healthcare professional can access more information using a detailed history view to facilitate dialog and follow up\n\n                    ### Goal\n                    Define the attributes or data values (DataProperties) for the provided Local Classes based on the Source Text.<|end|><|assistant|>"
+                ],
+                "instance_population": [
+                    "<|system|>### Role\nYou are an Ontology Instance Declaration Agent.\n\n### Goal\nIdentify real-world named entities, specific objects, or instances in the Source Text and assign them to the appropriate Local Class.\n\n### Terminology\n**Individual / Instance**: A specific, concrete real-world entity (e.g., \"John Doe\", \"SENS motionÂ®\", \"Project Omega\").\n**Class**: The category or type that the Individual belongs to.\n\n### Guidelines\n1. **Extract Specifics Only**: DO NOT extract abstract concepts or adjectives as instances. Extract only concrete nouns, specific people, specific systems, or named things.\n2. **Strict Classes**: You may ONLY assign the Individual to one of the provided 'Local Classes'.\n\n### Example\n[\n  {\"id\": \"Instance A\", \"class\": \"System\"},\n  {\"id\": \"Individual X\", \"class\": \"Role\"}\n]<|end|><|user|>\n                    ### Local Classes\n                    - HealthcareSensor: A device or system designed to monitor and record physical activity or vital signs for healthcare purposes.\n- ResearchProject: A coordinated effort to investigate and understand phenomena, typically involving the collection and analysis of data.\n- SensorApplication: A software application that utilizes a physical sensor to collect and manage data related to physical activity or other measurable phenomena.\n- GamificationApp: A mobile application that incorporates game-like elements to motivate and engage users, often used in healthcare to encourage physical activity.\n- SensorManagementWebApp: A web application designed to manage, view, and export data collected from various sensors.\n- OEMPlatform: A platform that allows for the development and integration of wireless, battery-powered medical sensors into various systems or devices.\n\n                    ### Source Text\n                    title: Discrete Wearable Activity Sensor for Healthcare and Research\ntext: Better Treatment. Better Research\n\n## What is SENS motion®\ntitle: What is SENS motion®\n\n### System Measures\nsubtitle: System Measures\nlist: Rest time.Standing time.Walking time.Running & High Intensity Movement time.Cycling time.Steps.Intensity.Sleep time and quality\n**SENS motion®** is an integrated system for collecting physical activity data from groups of people. It consists of a wireless activity sensor that automatically transfers data to a secure cloud. It is especially well suited for use in the healthcare sector and for large research projects\n\n## SENS motion® – For Healthcare\ntitle: SENS motion® – For Healthcare\n\n### SENS motion® – For Healthcare consists of\nsubtitle: SENS motion® – For Healthcare consists of\nlist: The SENS motion activity sensor for use on patients.A patient app, with gamification feedback for motivating the patient to become more active.(Optional) Monitor display providing overview of patients.Access to reports of individual patients activity\n**SENS motion® – For Healthcare** enables the use of SENS motion® activity sensor in healthcare environments, such as hospitals or care centres. The collected activity data can be presented to the patient itself for motivational purpose, assist healthcare professionals in treatment and help prioritize their valuable time efficiently\n\n[Read More →](/en/healthcare/)\n\n## SENS motion® – For Research\ntitle: SENS motion® – For Research\n\n### SENS motion® – For Research consists of\nsubtitle: SENS motion® – For Research consists of\nlist: The SENS motion® activity sensor.Smartphone app for automatically transferring data to the secure cloud.Web-application for managing sensors, viewing or exporting data\n**SENS motion® – For Research** enables the use of SENS motion activity sensor for collecting activity data or raw accelerometer data in research projects\n\n[Read More →](/en/research/)\n\nSENS motion® – Connect\nOEM Platform for medical sensors\nDo you want to build a wireless, scalable, battery-powered medical sensor or have a business opportunity where measurement of physical data is needed?\n\n[Image: demos10 (source: /img/demos10.png)](https://www.demos10.dk/)\n[Image: icompression (source: /img/icompression.png)](https://icompression.dk/)\n[Image: ventriject (source: /img/ventriject-2.png)](https://ventriject.com/)\n\nContact us for options on OEM Cooperation\n\n                    ### Goal\n                    Identify real-world named entities, specific objects, or instances in the Source Text and assign them to the appropriate Local Class.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are an Ontology Instance Object Property Agent.\n\n### Goal\nIdentify relationships between the provided Individuals based on the provided Object Property Axioms and Source Text.\n\n### Guidelines\n1. **Strict Subjects/Objects**: You MUST ONLY use the exact 'id's of the provided 'Declared Individuals' for both \"subject\" and \"object\". Do not invent new individuals.\n2. **Strict Properties**: You MUST ONLY use the exact properties defined in the 'Valid Object Axioms'. \n\n### Example\n[\n  {\"subject\": \"Instance A\", \"property\": \"hasPart\", \"object\": \"Instance B\"},\n  {\"subject\": \"Individual X\", \"property\": \"participatesIn\", \"object\": \"Event Y\"}\n]<|end|><|user|>\n                    ### Declared Individuals\n                    - SENS motion® (Class: HealthcareSensor)\n- SENS motion® – For Healthcare (Class: SensorApplication)\n- SENS motion® – For Research (Class: SensorApplication)\n- SENS motion® – Connect (Class: OEMPlatform)\n\n                    ### Valid Object Axioms\n                    - SensorApplication -> hasPart -> SensorManagementWebApp\n- SensorManagementWebApp -> hasPart -> SensorApplication\n- SensorManagementWebApp -> hasPart -> GamificationApp\n- GamificationApp -> hasPart -> SensorManagementWebApp\n- SensorManagementWebApp -> hasPart -> ResearchProject\n- ResearchProject -> hasPart -> SensorManagementWebApp\n- SensorManagementWebApp -> hasPart -> OEMPlatform\n- OEMPlatform -> hasPart -> SensorManagementWebApp\n- GamificationApp -> hasPart -> ResearchProject\n- ResearchProject -> hasPart -> GamificationApp\n- OEMPlatform -> hasPart -> SensorApplication\n- GamificationApp -> hasPart -> SensorApplication\n\n                    ### Source Text\n                    title: Discrete Wearable Activity Sensor for Healthcare and Research\ntext: Better Treatment. Better Research\n\n## What is SENS motion®\ntitle: What is SENS motion®\n\n### System Measures\nsubtitle: System Measures\nlist: Rest time.Standing time.Walking time.Running & High Intensity Movement time.Cycling time.Steps.Intensity.Sleep time and quality\n**SENS motion®** is an integrated system for collecting physical activity data from groups of people. It consists of a wireless activity sensor that automatically transfers data to a secure cloud. It is especially well suited for use in the healthcare sector and for large research projects\n\n## SENS motion® – For Healthcare\ntitle: SENS motion® – For Healthcare\n\n### SENS motion® – For Healthcare consists of\nsubtitle: SENS motion® – For Healthcare consists of\nlist: The SENS motion activity sensor for use on patients.A patient app, with gamification feedback for motivating the patient to become more active.(Optional) Monitor display providing overview of patients.Access to reports of individual patients activity\n**SENS motion® – For Healthcare** enables the use of SENS motion® activity sensor in healthcare environments, such as hospitals or care centres. The collected activity data can be presented to the patient itself for motivational purpose, assist healthcare professionals in treatment and help prioritize their valuable time efficiently\n\n[Read More →](/en/healthcare/)\n\n## SENS motion® – For Research\ntitle: SENS motion® – For Research\n\n### SENS motion® – For Research consists of\nsubtitle: SENS motion® – For Research consists of\nlist: The SENS motion® activity sensor.Smartphone app for automatically transferring data to the secure cloud.Web-application for managing sensors, viewing or exporting data\n**SENS motion® – For Research** enables the use of SENS motion activity sensor for collecting activity data or raw accelerometer data in research projects\n\n[Read More →](/en/research/)\n\nSENS motion® – Connect\nOEM Platform for medical sensors\nDo you want to build a wireless, scalable, battery-powered medical sensor or have a business opportunity where measurement of physical data is needed?\n\n[Image: demos10 (source: /img/demos10.png)](https://www.demos10.dk/)\n[Image: icompression (source: /img/icompression.png)](https://icompression.dk/)\n[Image: ventriject (source: /img/ventriject-2.png)](https://ventriject.com/)\n\nContact us for options on OEM Cooperation\n\n                    ### Goal\n                    Identify relationships between the provided Individuals based on the Original Text and Valid Object Axioms.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are an Ontology Instance Data Property Agent.\n\n### Goal\nExtract specific data values and attributes for the given Individuals based on the provided Data Property Axioms and Source Text.\n\n### Guidelines\n1. **Strict Subjects**: You MUST ONLY use the exact 'id's of the provided 'Declared Individuals' for \"subject\".\n2. **Strict Properties**: You MUST ONLY use the exact properties defined in the 'Valid Data Axioms'.\n3. **Datatypes**: Assign the appropriate XSD datatype (e.g., xsd:string, xsd:boolean, xsd:integer).\n\n### Example\n[\n  {\"subject\": \"Instance A\", \"property\": \"isActive\", \"value\": \"true\", \"datatype\": \"xsd:boolean\"},\n  {\"subject\": \"Individual X\", \"property\": \"identifier\", \"value\": \"ID-12345\", \"datatype\": \"xsd:string\"}\n]<|end|><|user|>\n                    ### Declared Individuals\n                    - SENS motion® (Class: HealthcareSensor)\n- SENS motion® – For Healthcare (Class: SensorApplication)\n- SENS motion® – For Research (Class: SensorApplication)\n- SENS motion® – Connect (Class: OEMPlatform)\n\n                    ### Valid Data Axioms\n                    - HealthcareSensor -> isWireless -> xsd:boolean\n- HealthcareSensor -> isScalable -> xsd:boolean\n- HealthcareSensor -> isBatteryPowered -> xsd:boolean\n- HealthcareSensor -> hasBusinessOpportunity -> xsd:boolean\n- SensorApplication -> hasActivitySensor -> xsd:string\n- SensorApplication -> hasSmartphoneApp -> xsd:string\n- SensorApplication -> hasWebApplication -> xsd:string\n- SensorManagementWebApp -> hasSensorDataManagement -> xsd:string\n- SensorManagementWebApp -> hasDataView -> xsd:string\n- SensorManagementWebApp -> hasDataExport -> xsd:string\n- OEMPlatform -> hasMedicalSensorDevelopment -> xsd:string\n- OEMPlatform -> hasBusinessOpportunity -> xsd:string\n\n                    ### Source Text\n                    title: Discrete Wearable Activity Sensor for Healthcare and Research\ntext: Better Treatment. Better Research\n\n## What is SENS motion®\ntitle: What is SENS motion®\n\n### System Measures\nsubtitle: System Measures\nlist: Rest time.Standing time.Walking time.Running & High Intensity Movement time.Cycling time.Steps.Intensity.Sleep time and quality\n**SENS motion®** is an integrated system for collecting physical activity data from groups of people. It consists of a wireless activity sensor that automatically transfers data to a secure cloud. It is especially well suited for use in the healthcare sector and for large research projects\n\n## SENS motion® – For Healthcare\ntitle: SENS motion® – For Healthcare\n\n### SENS motion® – For Healthcare consists of\nsubtitle: SENS motion® – For Healthcare consists of\nlist: The SENS motion activity sensor for use on patients.A patient app, with gamification feedback for motivating the patient to become more active.(Optional) Monitor display providing overview of patients.Access to reports of individual patients activity\n**SENS motion® – For Healthcare** enables the use of SENS motion® activity sensor in healthcare environments, such as hospitals or care centres. The collected activity data can be presented to the patient itself for motivational purpose, assist healthcare professionals in treatment and help prioritize their valuable time efficiently\n\n[Read More →](/en/healthcare/)\n\n## SENS motion® – For Research\ntitle: SENS motion® – For Research\n\n### SENS motion® – For Research consists of\nsubtitle: SENS motion® – For Research consists of\nlist: The SENS motion® activity sensor.Smartphone app for automatically transferring data to the secure cloud.Web-application for managing sensors, viewing or exporting data\n**SENS motion® – For Research** enables the use of SENS motion activity sensor for collecting activity data or raw accelerometer data in research projects\n\n[Read More →](/en/research/)\n\nSENS motion® – Connect\nOEM Platform for medical sensors\nDo you want to build a wireless, scalable, battery-powered medical sensor or have a business opportunity where measurement of physical data is needed?\n\n[Image: demos10 (source: /img/demos10.png)](https://www.demos10.dk/)\n[Image: icompression (source: /img/icompression.png)](https://icompression.dk/)\n[Image: ventriject (source: /img/ventriject-2.png)](https://ventriject.com/)\n\nContact us for options on OEM Cooperation\n\n                    ### Goal\n                    Extract specific data values and attributes for the given Individuals based on the Original Text and Valid Data Axioms.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are an Ontology Instance Declaration Agent.\n\n### Goal\nIdentify real-world named entities, specific objects, or instances in the Source Text and assign them to the appropriate Local Class.\n\n### Terminology\n**Individual / Instance**: A specific, concrete real-world entity (e.g., \"John Doe\", \"SENS motionÂ®\", \"Project Omega\").\n**Class**: The category or type that the Individual belongs to.\n\n### Guidelines\n1. **Extract Specifics Only**: DO NOT extract abstract concepts or adjectives as instances. Extract only concrete nouns, specific people, specific systems, or named things.\n2. **Strict Classes**: You may ONLY assign the Individual to one of the provided 'Local Classes'.\n\n### Example\n[\n  {\"id\": \"Instance A\", \"class\": \"System\"},\n  {\"id\": \"Individual X\", \"class\": \"Role\"}\n]<|end|><|user|>\n                    ### Local Classes\n                    - TeamMember: An individual who is part of a team, typically associated with a group of people with a common purpose or interest, such as a company or organization.\n\n                    ### Source Text\n                    title: Company Profile\ntext: SENS Innovation ApS\n\n## Background\ntitle: Background\nvision_quote: Our vision is to revolutionize the way physical activity can be used as an integrated and measurable part of the treatment and prevention of numerous diseases – on an equal footing with other medicine\nvision_author_name: Kasper L. Lykkegaard\nvision_author_title: Co-founder and CEO\nSENS Innovation ApS was founded in 2014 by Kasper L. Lykkegaard and Morten Kjærgaard. The company develops medical sensor products, based on advanced sensor technology, for monitoring of physical activity with patients\n\nThe SENS products and platforms are easy to use, flexible, scalable and present accurate monitoring of the body's position and the nature of the activity, for both the individual or even larger groups. Therefore, SENS's products and technology are a valuable tool in research trials and studies in correlation to physical activity and diseases\n\n## Meet Our Team\ntitle: Meet Our Team\nTeam member: Kasper L. Lykkegaard; role: CEO & Founder; email: kasper@sens.dk; linkedin: https://www.linkedin.com/in/kasper-lundberg-lykkegaard-7795246/\nTeam member: Morten Kjærgaard; role: CTO & Founder; email: morten@sens.dk; linkedin: https://www.linkedin.com/in/morten-kj%C3%A6rgaard-9a08242/\nTeam member: Ida Marie Pierrel-Boas; role: Senior Project Manager; email: ida@sens.dk; linkedin: https://www.linkedin.com/in/idaboas/\nTeam member: Christian Lindharth; role: Senior Account Executive; email: christian@sens.dk; linkedin: https://www.linkedin.com/in/clindharth/\nTeam member: Miriam Cabrita; role: Partnerships Manager; email: miriam@sens.dk\nTeam member: Karen Shakespeare; role: UK & Ireland Account Executive; email: karen@sens.dk\nTeam member: Amin Rezaei; role: Software Developer\nTeam member: August Blicher Friis; role: Software Developer\nTeam member: Renata Oliveira; role: UX Specialist\nTeam member: Huong Nguyen; role: Frontend Developer\nTeam member: Mathias Elmegaard Nielsen; role: Student Assistant\nTeam member: Mats Ellingsen; role: Student Assistant\nTeam member: Lea Møller Storm; role: Student Assistant\n\n                    ### Goal\n                    Identify real-world named entities, specific objects, or instances in the Source Text and assign them to the appropriate Local Class.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are an Ontology Instance Object Property Agent.\n\n### Goal\nIdentify relationships between the provided Individuals based on the provided Object Property Axioms and Source Text.\n\n### Guidelines\n1. **Strict Subjects/Objects**: You MUST ONLY use the exact 'id's of the provided 'Declared Individuals' for both \"subject\" and \"object\". Do not invent new individuals.\n2. **Strict Properties**: You MUST ONLY use the exact properties defined in the 'Valid Object Axioms'. \n\n### Example\n[\n  {\"subject\": \"Instance A\", \"property\": \"hasPart\", \"object\": \"Instance B\"},\n  {\"subject\": \"Individual X\", \"property\": \"participatesIn\", \"object\": \"Event Y\"}\n]<|end|><|user|>\n                    ### Declared Individuals\n                    - SENS Innovation ApS (Class: TeamMember)\n- Kasper L. Lykkegaard (Class: TeamMember)\n- Morten Kjærgaard (Class: TeamMember)\n- Ida Marie Pierrel-Boas (Class: TeamMember)\n- Christian Lindharth (Class: TeamMember)\n- Miriam Cabrita (Class: TeamMember)\n- Karen Shakespeare (Class: TeamMember)\n- Amin Rezaei (Class: TeamMember)\n- August Blicher Friis (Class: TeamMember)\n- Renata Oliveira (Class: TeamMember)\n- Huong Nguyen (Class: TeamMember)\n- Mathias Elmegaard Nielsen (Class: TeamMember)\n- Mats Ellingsen (Class: TeamMember)\n- Lea Møller Storm (Class: TeamMember)\n\n                    ### Valid Object Axioms\n                    - TeamMember -> hasRole -> TeamMember\n\n                    ### Source Text\n                    title: Company Profile\ntext: SENS Innovation ApS\n\n## Background\ntitle: Background\nvision_quote: Our vision is to revolutionize the way physical activity can be used as an integrated and measurable part of the treatment and prevention of numerous diseases – on an equal footing with other medicine\nvision_author_name: Kasper L. Lykkegaard\nvision_author_title: Co-founder and CEO\nSENS Innovation ApS was founded in 2014 by Kasper L. Lykkegaard and Morten Kjærgaard. The company develops medical sensor products, based on advanced sensor technology, for monitoring of physical activity with patients\n\nThe SENS products and platforms are easy to use, flexible, scalable and present accurate monitoring of the body's position and the nature of the activity, for both the individual or even larger groups. Therefore, SENS's products and technology are a valuable tool in research trials and studies in correlation to physical activity and diseases\n\n## Meet Our Team\ntitle: Meet Our Team\nTeam member: Kasper L. Lykkegaard; role: CEO & Founder; email: kasper@sens.dk; linkedin: https://www.linkedin.com/in/kasper-lundberg-lykkegaard-7795246/\nTeam member: Morten Kjærgaard; role: CTO & Founder; email: morten@sens.dk; linkedin: https://www.linkedin.com/in/morten-kj%C3%A6rgaard-9a08242/\nTeam member: Ida Marie Pierrel-Boas; role: Senior Project Manager; email: ida@sens.dk; linkedin: https://www.linkedin.com/in/idaboas/\nTeam member: Christian Lindharth; role: Senior Account Executive; email: christian@sens.dk; linkedin: https://www.linkedin.com/in/clindharth/\nTeam member: Miriam Cabrita; role: Partnerships Manager; email: miriam@sens.dk\nTeam member: Karen Shakespeare; role: UK & Ireland Account Executive; email: karen@sens.dk\nTeam member: Amin Rezaei; role: Software Developer\nTeam member: August Blicher Friis; role: Software Developer\nTeam member: Renata Oliveira; role: UX Specialist\nTeam member: Huong Nguyen; role: Frontend Developer\nTeam member: Mathias Elmegaard Nielsen; role: Student Assistant\nTeam member: Mats Ellingsen; role: Student Assistant\nTeam member: Lea Møller Storm; role: Student Assistant\n\n                    ### Goal\n                    Identify relationships between the provided Individuals based on the Original Text and Valid Object Axioms.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are an Ontology Instance Data Property Agent.\n\n### Goal\nExtract specific data values and attributes for the given Individuals based on the provided Data Property Axioms and Source Text.\n\n### Guidelines\n1. **Strict Subjects**: You MUST ONLY use the exact 'id's of the provided 'Declared Individuals' for \"subject\".\n2. **Strict Properties**: You MUST ONLY use the exact properties defined in the 'Valid Data Axioms'.\n3. **Datatypes**: Assign the appropriate XSD datatype (e.g., xsd:string, xsd:boolean, xsd:integer).\n\n### Example\n[\n  {\"subject\": \"Instance A\", \"property\": \"isActive\", \"value\": \"true\", \"datatype\": \"xsd:boolean\"},\n  {\"subject\": \"Individual X\", \"property\": \"identifier\", \"value\": \"ID-12345\", \"datatype\": \"xsd:string\"}\n]<|end|><|user|>\n                    ### Declared Individuals\n                    - SENS Innovation ApS (Class: TeamMember)\n- Kasper L. Lykkegaard (Class: TeamMember)\n- Morten Kjærgaard (Class: TeamMember)\n- Ida Marie Pierrel-Boas (Class: TeamMember)\n- Christian Lindharth (Class: TeamMember)\n- Miriam Cabrita (Class: TeamMember)\n- Karen Shakespeare (Class: TeamMember)\n- Amin Rezaei (Class: TeamMember)\n- August Blicher Friis (Class: TeamMember)\n- Renata Oliveira (Class: TeamMember)\n- Huong Nguyen (Class: TeamMember)\n- Mathias Elmegaard Nielsen (Class: TeamMember)\n- Mats Ellingsen (Class: TeamMember)\n- Lea Møller Storm (Class: TeamMember)\n\n                    ### Valid Data Axioms\n                    - TeamMember -> hasRole -> xsd:string\n- TeamMember -> hasEmail -> xsd:string\n- TeamMember -> hasLinkedInProfile -> xsd:string\n\n                    ### Source Text\n                    title: Company Profile\ntext: SENS Innovation ApS\n\n## Background\ntitle: Background\nvision_quote: Our vision is to revolutionize the way physical activity can be used as an integrated and measurable part of the treatment and prevention of numerous diseases – on an equal footing with other medicine\nvision_author_name: Kasper L. Lykkegaard\nvision_author_title: Co-founder and CEO\nSENS Innovation ApS was founded in 2014 by Kasper L. Lykkegaard and Morten Kjærgaard. The company develops medical sensor products, based on advanced sensor technology, for monitoring of physical activity with patients\n\nThe SENS products and platforms are easy to use, flexible, scalable and present accurate monitoring of the body's position and the nature of the activity, for both the individual or even larger groups. Therefore, SENS's products and technology are a valuable tool in research trials and studies in correlation to physical activity and diseases\n\n## Meet Our Team\ntitle: Meet Our Team\nTeam member: Kasper L. Lykkegaard; role: CEO & Founder; email: kasper@sens.dk; linkedin: https://www.linkedin.com/in/kasper-lundberg-lykkegaard-7795246/\nTeam member: Morten Kjærgaard; role: CTO & Founder; email: morten@sens.dk; linkedin: https://www.linkedin.com/in/morten-kj%C3%A6rgaard-9a08242/\nTeam member: Ida Marie Pierrel-Boas; role: Senior Project Manager; email: ida@sens.dk; linkedin: https://www.linkedin.com/in/idaboas/\nTeam member: Christian Lindharth; role: Senior Account Executive; email: christian@sens.dk; linkedin: https://www.linkedin.com/in/clindharth/\nTeam member: Miriam Cabrita; role: Partnerships Manager; email: miriam@sens.dk\nTeam member: Karen Shakespeare; role: UK & Ireland Account Executive; email: karen@sens.dk\nTeam member: Amin Rezaei; role: Software Developer\nTeam member: August Blicher Friis; role: Software Developer\nTeam member: Renata Oliveira; role: UX Specialist\nTeam member: Huong Nguyen; role: Frontend Developer\nTeam member: Mathias Elmegaard Nielsen; role: Student Assistant\nTeam member: Mats Ellingsen; role: Student Assistant\nTeam member: Lea Møller Storm; role: Student Assistant\n\n                    ### Goal\n                    Extract specific data values and attributes for the given Individuals based on the Original Text and Valid Data Axioms.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are an Ontology Instance Declaration Agent.\n\n### Goal\nIdentify real-world named entities, specific objects, or instances in the Source Text and assign them to the appropriate Local Class.\n\n### Terminology\n**Individual / Instance**: A specific, concrete real-world entity (e.g., \"John Doe\", \"SENS motionÂ®\", \"Project Omega\").\n**Class**: The category or type that the Individual belongs to.\n\n### Guidelines\n1. **Extract Specifics Only**: DO NOT extract abstract concepts or adjectives as instances. Extract only concrete nouns, specific people, specific systems, or named things.\n2. **Strict Classes**: You may ONLY assign the Individual to one of the provided 'Local Classes'.\n\n### Example\n[\n  {\"id\": \"Instance A\", \"class\": \"System\"},\n  {\"id\": \"Individual X\", \"class\": \"Role\"}\n]<|end|><|user|>\n                    ### Local Classes\n                    - CommunicationChannel: A medium or system used for the exchange of messages, information, or data between entities.\n\n                    ### Source Text\n                    ## Send us a message\n\n                    ### Goal\n                    Identify real-world named entities, specific objects, or instances in the Source Text and assign them to the appropriate Local Class.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are an Ontology Instance Object Property Agent.\n\n### Goal\nIdentify relationships between the provided Individuals based on the provided Object Property Axioms and Source Text.\n\n### Guidelines\n1. **Strict Subjects/Objects**: You MUST ONLY use the exact 'id's of the provided 'Declared Individuals' for both \"subject\" and \"object\". Do not invent new individuals.\n2. **Strict Properties**: You MUST ONLY use the exact properties defined in the 'Valid Object Axioms'. \n\n### Example\n[\n  {\"subject\": \"Instance A\", \"property\": \"hasPart\", \"object\": \"Instance B\"},\n  {\"subject\": \"Individual X\", \"property\": \"participatesIn\", \"object\": \"Event Y\"}\n]<|end|><|user|>\n                    ### Declared Individuals\n                    - Instance A (Class: CommunicationChannel)\n\n                    ### Valid Object Axioms\n                    - CommunicationChannel -> hasParticipant -> CommunicationChannel\n\n                    ### Source Text\n                    ## Send us a message\n\n                    ### Goal\n                    Identify relationships between the provided Individuals based on the Original Text and Valid Object Axioms.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are an Ontology Instance Data Property Agent.\n\n### Goal\nExtract specific data values and attributes for the given Individuals based on the provided Data Property Axioms and Source Text.\n\n### Guidelines\n1. **Strict Subjects**: You MUST ONLY use the exact 'id's of the provided 'Declared Individuals' for \"subject\".\n2. **Strict Properties**: You MUST ONLY use the exact properties defined in the 'Valid Data Axioms'.\n3. **Datatypes**: Assign the appropriate XSD datatype (e.g., xsd:string, xsd:boolean, xsd:integer).\n\n### Example\n[\n  {\"subject\": \"Instance A\", \"property\": \"isActive\", \"value\": \"true\", \"datatype\": \"xsd:boolean\"},\n  {\"subject\": \"Individual X\", \"property\": \"identifier\", \"value\": \"ID-12345\", \"datatype\": \"xsd:string\"}\n]<|end|><|user|>\n                    ### Declared Individuals\n                    - Instance A (Class: CommunicationChannel)\n\n                    ### Valid Data Axioms\n                    - CommunicationChannel -> messageContent -> xsd:string\n\n                    ### Source Text\n                    ## Send us a message\n\n                    ### Goal\n                    Extract specific data values and attributes for the given Individuals based on the Original Text and Valid Data Axioms.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are an Ontology Instance Declaration Agent.\n\n### Goal\nIdentify real-world named entities, specific objects, or instances in the Source Text and assign them to the appropriate Local Class.\n\n### Terminology\n**Individual / Instance**: A specific, concrete real-world entity (e.g., \"John Doe\", \"SENS motionÂ®\", \"Project Omega\").\n**Class**: The category or type that the Individual belongs to.\n\n### Guidelines\n1. **Extract Specifics Only**: DO NOT extract abstract concepts or adjectives as instances. Extract only concrete nouns, specific people, specific systems, or named things.\n2. **Strict Classes**: You may ONLY assign the Individual to one of the provided 'Local Classes'.\n\n### Example\n[\n  {\"id\": \"Instance A\", \"class\": \"System\"},\n  {\"id\": \"Individual X\", \"class\": \"Role\"}\n]<|end|><|user|>\n                    ### Local Classes\n                    - Feedback: A response or reaction to a message or communication, typically indicating that the message has been received and will be addressed.\n\n                    ### Source Text\n                    title: Thank you for your message\n\nWe have received your message and will get back to you as soon as possible\n[Back to home page](/)\n\n                    ### Goal\n                    Identify real-world named entities, specific objects, or instances in the Source Text and assign them to the appropriate Local Class.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are an Ontology Instance Object Property Agent.\n\n### Goal\nIdentify relationships between the provided Individuals based on the provided Object Property Axioms and Source Text.\n\n### Guidelines\n1. **Strict Subjects/Objects**: You MUST ONLY use the exact 'id's of the provided 'Declared Individuals' for both \"subject\" and \"object\". Do not invent new individuals.\n2. **Strict Properties**: You MUST ONLY use the exact properties defined in the 'Valid Object Axioms'. \n\n### Example\n[\n  {\"subject\": \"Instance A\", \"property\": \"hasPart\", \"object\": \"Instance B\"},\n  {\"subject\": \"Individual X\", \"property\": \"participatesIn\", \"object\": \"Event Y\"}\n]<|end|><|user|>\n                    ### Declared Individuals\n                    - Instance A (Class: Feedback)\n\n                    ### Valid Object Axioms\n                    - Feedback -> hasPart -> Feedback\n- Feedback -> hasParticipant -> Feedback\n- Feedback -> hasQuality -> Feedback\n- Feedback -> isAbout -> Feedback\n- Feedback -> hasLocation -> Feedback\n- Feedback -> hasTime -> Feedback\n- Feedback -> hasRole -> Feedback\n- Feedback -> hasDataValue -> Feedback\n- Feedback -> hasMember -> Feedback\n- Feedback -> isMemberOf -> Feedback\n- Feedback -> expresses -> Feedback\n- Feedback -> hasPrecondition -> Feedback\n- Feedback -> hasPostcondition -> Feedback\n- Feedback -> executesTask -> Feedback\n- Feedback -> actsThrough -> Feedback\n- Feedback -> satisfies -> Feedback\n\n                    ### Source Text\n                    title: Thank you for your message\n\nWe have received your message and will get back to you as soon as possible\n[Back to home page](/)\n\n                    ### Goal\n                    Identify relationships between the provided Individuals based on the Original Text and Valid Object Axioms.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are an Ontology Instance Data Property Agent.\n\n### Goal\nExtract specific data values and attributes for the given Individuals based on the provided Data Property Axioms and Source Text.\n\n### Guidelines\n1. **Strict Subjects**: You MUST ONLY use the exact 'id's of the provided 'Declared Individuals' for \"subject\".\n2. **Strict Properties**: You MUST ONLY use the exact properties defined in the 'Valid Data Axioms'.\n3. **Datatypes**: Assign the appropriate XSD datatype (e.g., xsd:string, xsd:boolean, xsd:integer).\n\n### Example\n[\n  {\"subject\": \"Instance A\", \"property\": \"isActive\", \"value\": \"true\", \"datatype\": \"xsd:boolean\"},\n  {\"subject\": \"Individual X\", \"property\": \"identifier\", \"value\": \"ID-12345\", \"datatype\": \"xsd:string\"}\n]<|end|><|user|>\n                    ### Declared Individuals\n                    - Instance A (Class: Feedback)\n\n                    ### Valid Data Axioms\n                    - Feedback -> responseStatus -> xsd:string\n- Feedback -> acknowledgment -> xsd:boolean\n\n                    ### Source Text\n                    title: Thank you for your message\n\nWe have received your message and will get back to you as soon as possible\n[Back to home page](/)\n\n                    ### Goal\n                    Extract specific data values and attributes for the given Individuals based on the Original Text and Valid Data Axioms.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are an Ontology Instance Declaration Agent.\n\n### Goal\nIdentify real-world named entities, specific objects, or instances in the Source Text and assign them to the appropriate Local Class.\n\n### Terminology\n**Individual / Instance**: A specific, concrete real-world entity (e.g., \"John Doe\", \"SENS motionÂ®\", \"Project Omega\").\n**Class**: The category or type that the Individual belongs to.\n\n### Guidelines\n1. **Extract Specifics Only**: DO NOT extract abstract concepts or adjectives as instances. Extract only concrete nouns, specific people, specific systems, or named things.\n2. **Strict Classes**: You may ONLY assign the Individual to one of the provided 'Local Classes'.\n\n### Example\n[\n  {\"id\": \"Instance A\", \"class\": \"System\"},\n  {\"id\": \"Individual X\", \"class\": \"Role\"}\n]<|end|><|user|>\n                    ### Local Classes\n                    - PilotPackage: A limited-time promotional offer that allows the use of a product or service in a specific setting, with a set number of uses or a limited time frame.\n\n                    ### Source Text\n                    title: Promote increased mobilisation among inpatients\ntext: Certified medical device (CE-marked)\n\n## Introduction\ntitle: Introduction\n\n### SENS motion® increases physical activity for admitted patients\nsubtitle: SENS motion® increases physical activity for admitted patients\nlist: Motivates the patient by visualizing goals and expectations on a tablet next to the bed.Provides a data-based overview of the patients' physical activity for the healthcare professional.Improved dialog about physical activity between the healthcare professional, the patient and relatives.Increased compliance of data-driven management\n\n## Pilot Package\ntitle: Pilot Package\n\n### Try SENS motion® for 3 months – It is easy, and support is free of charge\nsubtitle: Try SENS motion® for 3 months – It is easy, and support is free of charge\nbutton_text: Read more about the pilot package\n**Try SENS motion® for 3 months** and experience the positive effect on patients. It is easy and quick. Complete package for only 19.995 DKK\n\nPilot package is an introductory offer that gives the possibility to use SENS motion in a clinical ward for 3 months with up to 120 patients\n\n## Motivational App\ntitle: Motivational App\n\n### Motivational visual feedback from the app increases the patient's self-activation\nsubtitle: Motivational visual feedback from the app increases the patient's self-activation\nlist: Motivates the patient to be more active by using elements of gamification and nudging.The patient walks a visual tour through Copenhagen visiting various attractions.The patient can continuously track her/his own progress, goals, and expectations.The patient and healthcare professional can access more information using a detailed history view to facilitate dialog and follow up\n\n                    ### Goal\n                    Identify real-world named entities, specific objects, or instances in the Source Text and assign them to the appropriate Local Class.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are an Ontology Instance Object Property Agent.\n\n### Goal\nIdentify relationships between the provided Individuals based on the provided Object Property Axioms and Source Text.\n\n### Guidelines\n1. **Strict Subjects/Objects**: You MUST ONLY use the exact 'id's of the provided 'Declared Individuals' for both \"subject\" and \"object\". Do not invent new individuals.\n2. **Strict Properties**: You MUST ONLY use the exact properties defined in the 'Valid Object Axioms'. \n\n### Example\n[\n  {\"subject\": \"Instance A\", \"property\": \"hasPart\", \"object\": \"Instance B\"},\n  {\"subject\": \"Individual X\", \"property\": \"participatesIn\", \"object\": \"Event Y\"}\n]<|end|><|user|>\n                    ### Declared Individuals\n                    - SENS motion® (Class: PilotPackage)\n\n                    ### Valid Object Axioms\n                    - PilotPackage -> hasPart -> PilotPackage\n- PilotPackage -> hasParticipant -> PilotPackage\n- PilotPackage -> hasQuality -> PilotPackage\n- PilotPackage -> hasLocation -> PilotPackage\n- PilotPackage -> hasTime -> PilotPackage\n- PilotPackage -> hasRole -> PilotPackage\n- PilotPackage -> hasMember -> PilotPackage\n- PilotPackage -> isMemberOf -> PilotPackage\n- PilotPackage -> hasPrecondition -> PilotPackage\n- PilotPackage -> hasPostcondition -> PilotPackage\n\n                    ### Source Text\n                    title: Promote increased mobilisation among inpatients\ntext: Certified medical device (CE-marked)\n\n## Introduction\ntitle: Introduction\n\n### SENS motion® increases physical activity for admitted patients\nsubtitle: SENS motion® increases physical activity for admitted patients\nlist: Motivates the patient by visualizing goals and expectations on a tablet next to the bed.Provides a data-based overview of the patients' physical activity for the healthcare professional.Improved dialog about physical activity between the healthcare professional, the patient and relatives.Increased compliance of data-driven management\n\n## Pilot Package\ntitle: Pilot Package\n\n### Try SENS motion® for 3 months – It is easy, and support is free of charge\nsubtitle: Try SENS motion® for 3 months – It is easy, and support is free of charge\nbutton_text: Read more about the pilot package\n**Try SENS motion® for 3 months** and experience the positive effect on patients. It is easy and quick. Complete package for only 19.995 DKK\n\nPilot package is an introductory offer that gives the possibility to use SENS motion in a clinical ward for 3 months with up to 120 patients\n\n## Motivational App\ntitle: Motivational App\n\n### Motivational visual feedback from the app increases the patient's self-activation\nsubtitle: Motivational visual feedback from the app increases the patient's self-activation\nlist: Motivates the patient to be more active by using elements of gamification and nudging.The patient walks a visual tour through Copenhagen visiting various attractions.The patient can continuously track her/his own progress, goals, and expectations.The patient and healthcare professional can access more information using a detailed history view to facilitate dialog and follow up\n\n                    ### Goal\n                    Identify relationships between the provided Individuals based on the Original Text and Valid Object Axioms.<|end|><|assistant|>",
+                    "<|system|>### Role\nYou are an Ontology Instance Data Property Agent.\n\n### Goal\nExtract specific data values and attributes for the given Individuals based on the provided Data Property Axioms and Source Text.\n\n### Guidelines\n1. **Strict Subjects**: You MUST ONLY use the exact 'id's of the provided 'Declared Individuals' for \"subject\".\n2. **Strict Properties**: You MUST ONLY use the exact properties defined in the 'Valid Data Axioms'.\n3. **Datatypes**: Assign the appropriate XSD datatype (e.g., xsd:string, xsd:boolean, xsd:integer).\n\n### Example\n[\n  {\"subject\": \"Instance A\", \"property\": \"isActive\", \"value\": \"true\", \"datatype\": \"xsd:boolean\"},\n  {\"subject\": \"Individual X\", \"property\": \"identifier\", \"value\": \"ID-12345\", \"datatype\": \"xsd:string\"}\n]<|end|><|user|>\n                    ### Declared Individuals\n                    - SENS motion® (Class: PilotPackage)\n\n                    ### Valid Data Axioms\n                    - PilotPackage -> promotionDuration -> xsd:string\n- PilotPackage -> usageLimit -> xsd:integer\n- PilotPackage -> promotionPeriod -> xsd:date\n- PilotPackage -> offerPrice -> xsd:decimal\n- PilotPackage -> patientLimit -> xsd:integer\n\n                    ### Source Text\n                    title: Promote increased mobilisation among inpatients\ntext: Certified medical device (CE-marked)\n\n## Introduction\ntitle: Introduction\n\n### SENS motion® increases physical activity for admitted patients\nsubtitle: SENS motion® increases physical activity for admitted patients\nlist: Motivates the patient by visualizing goals and expectations on a tablet next to the bed.Provides a data-based overview of the patients' physical activity for the healthcare professional.Improved dialog about physical activity between the healthcare professional, the patient and relatives.Increased compliance of data-driven management\n\n## Pilot Package\ntitle: Pilot Package\n\n### Try SENS motion® for 3 months – It is easy, and support is free of charge\nsubtitle: Try SENS motion® for 3 months – It is easy, and support is free of charge\nbutton_text: Read more about the pilot package\n**Try SENS motion® for 3 months** and experience the positive effect on patients. It is easy and quick. Complete package for only 19.995 DKK\n\nPilot package is an introductory offer that gives the possibility to use SENS motion in a clinical ward for 3 months with up to 120 patients\n\n## Motivational App\ntitle: Motivational App\n\n### Motivational visual feedback from the app increases the patient's self-activation\nsubtitle: Motivational visual feedback from the app increases the patient's self-activation\nlist: Motivates the patient to be more active by using elements of gamification and nudging.The patient walks a visual tour through Copenhagen visiting various attractions.The patient can continuously track her/his own progress, goals, and expectations.The patient and healthcare professional can access more information using a detailed history view to facilitate dialog and follow up\n\n                    ### Goal\n                    Extract specific data values and attributes for the given Individuals based on the Original Text and Valid Data Axioms.<|end|><|assistant|>"
+                ]
+            }
+        },
+        "num_classes": 24,
+        "num_axioms": 102,
+        "num_instances": 94
+    },
+    "ontology_tbox": {
+        "classes": [
+            {
+                "id": "Entity",
+                "description": "Anything: real, possible, or imaginary, which some modeller wants to talk about for some purpose.",
+                "chunk_ids": []
+            },
+            {
+                "id": "Object",
+                "description": "Any physical, social, or mental object, or a substance. Objects are endurants: they can change some of their parts or qualities while keeping their identity.",
+                "chunk_ids": []
+            },
+            {
+                "id": "PhysicalObject",
+                "description": "Any Object that has a proper space region. Examples include people, equipment, sensors, and buildings.",
+                "chunk_ids": []
+            },
+            {
+                "id": "SocialObject",
+                "description": "Any Object that exists only within some social context, such as organizations, laws, plans, or projects.",
+                "chunk_ids": []
+            },
+            {
+                "id": "InformationObject",
+                "description": "A piece of information, such as a text, a word, a picture, or data, independently from how it is concretely realized.",
+                "chunk_ids": []
+            },
+            {
+                "id": "InformationRealization",
+                "description": "A physical object or event that realizes an information object. For example, a physical printed document or a digital file on a hard drive.",
+                "chunk_ids": []
+            },
+            {
+                "id": "Event",
+                "description": "Any physical, social, or mental process, event, or state. Events unfold in time and have objects as participants.",
+                "chunk_ids": []
+            },
+            {
+                "id": "Action",
+                "description": "An Event with at least one agent that participates in it, and that executes a task.",
+                "chunk_ids": []
+            },
+            {
+                "id": "Quality",
+                "description": "Any aspect of an Entity (but not a part of it), which cannot exist without that Entity. For example, the color of a physical object or the duration of an event.",
+                "chunk_ids": []
+            },
+            {
+                "id": "Concept",
+                "description": "A Concept is a SocialObject that classifies or defines something. For example, the idea of a 'Sensor' or 'Therapy'.",
+                "chunk_ids": []
+            },
+            {
+                "id": "Role",
+                "description": "A Concept that classifies an Object. For example, 'Doctor' is a Role played by a person, and 'Monitor' is a Role played by a device.",
+                "chunk_ids": []
+            },
+            {
+                "id": "Collection",
+                "description": "Any collection of objects, events, or other entities, such as a group of people or a dataset.",
+                "chunk_ids": []
+            },
+            {
+                "id": "TimeInterval",
+                "description": "A specific period or duration of time.",
+                "chunk_ids": []
+            },
+            {
+                "id": "SpaceRegion",
+                "description": "A specific location or region in space.",
+                "chunk_ids": []
+            },
+            {
+                "id": "HealthcareSensor",
+                "description": "A device or system designed to monitor and record physical activity or vital signs for healthcare purposes.",
+                "chunk_ids": [
+                    0
+                ]
+            },
+            {
+                "id": "ResearchProject",
+                "description": "A coordinated effort to investigate and understand phenomena, typically involving the collection and analysis of data.",
+                "chunk_ids": [
+                    0
+                ]
+            },
+            {
+                "id": "SensorApplication",
+                "description": "A software application that utilizes a physical sensor to collect and manage data related to physical activity or other measurable phenomena.",
+                "chunk_ids": [
+                    0
+                ]
+            },
+            {
+                "id": "GamificationApp",
+                "description": "A mobile application that incorporates game-like elements to motivate and engage users, often used in healthcare to encourage physical activity.",
+                "chunk_ids": [
+                    0
+                ]
+            },
+            {
+                "id": "SensorManagementWebApp",
+                "description": "A web application designed to manage, view, and export data collected from various sensors.",
+                "chunk_ids": [
+                    0
+                ]
+            },
+            {
+                "id": "OEMPlatform",
+                "description": "A platform that allows for the development and integration of wireless, battery-powered medical sensors into various systems or devices.",
+                "chunk_ids": [
+                    0
+                ]
+            },
+            {
+                "id": "TeamMember",
+                "description": "An individual who is part of a team, typically associated with a group of people with a common purpose or interest, such as a company or organization.",
+                "chunk_ids": [
+                    1
+                ]
+            },
+            {
+                "id": "CommunicationChannel",
+                "description": "A medium or system used for the exchange of messages, information, or data between entities.",
+                "chunk_ids": [
+                    2
+                ]
+            },
+            {
+                "id": "Feedback",
+                "description": "A response or reaction to a message or communication, typically indicating that the message has been received and will be addressed.",
+                "chunk_ids": [
+                    3
+                ]
+            },
+            {
+                "id": "PilotPackage",
+                "description": "A limited-time promotional offer that allows the use of a product or service in a specific setting, with a set number of uses or a limited time frame.",
+                "chunk_ids": [
+                    4
+                ]
+            }
+        ],
+        "axioms": [
+            {
+                "type": "subClassOf",
+                "domains": [
+                    "Entity"
+                ],
+                "ranges": [
+                    "Entity"
+                ],
+                "description": "A hierarchical connection indicating that one class is a sub-type or child of another class."
+            },
+            {
+                "type": "hasPart",
+                "domains": [
+                    "Entity"
+                ],
+                "ranges": [
+                    "Entity"
+                ],
+                "description": "Relates an entity to its components or parts. (e.g., A car hasPart an engine)."
+            },
+            {
+                "type": "isPartOf",
+                "domains": [
+                    "Entity"
+                ],
+                "ranges": [
+                    "Entity"
+                ],
+                "description": "The inverse of hasPart. Relates a component to the whole. (e.g., An engine isPart of a car)."
+            },
+            {
+                "type": "participatesIn",
+                "domains": [
+                    "Object"
+                ],
+                "ranges": [
+                    "Event"
+                ],
+                "description": "Relates an object to an event or process it is involved in. (e.g., A person participatesIn a meeting)."
+            },
+            {
+                "type": "hasParticipant",
+                "domains": [
+                    "Event"
+                ],
+                "ranges": [
+                    "Object"
+                ],
+                "description": "The inverse of participatesIn. Relates an event to the objects involved in it. (e.g., A meeting hasParticipant a person)."
+            },
+            {
+                "type": "hasQuality",
+                "domains": [
+                    "Entity"
+                ],
+                "ranges": [
+                    "Quality"
+                ],
+                "description": "Relates an entity to an attribute, characteristic, or value it possesses. (e.g., A car hasQuality color)."
+            },
+            {
+                "type": "realizes",
+                "domains": [
+                    "InformationRealization",
+                    "PhysicalObject"
+                ],
+                "ranges": [
+                    "InformationObject"
+                ],
+                "description": "Relates a physical manifestation to the abstract information it represents. (e.g., A printed book realizes a text; A physical statue realizes a 3D design)."
+            },
+            {
+                "type": "classifies",
+                "domains": [
+                    "Concept",
+                    "Role"
+                ],
+                "ranges": [
+                    "Entity"
+                ],
+                "description": "Relates a concept, category, or role to the actual entity it describes. (e.g., The role 'Teacher' classifies a specific Person)."
+            },
+            {
+                "type": "hasLocation",
+                "domains": [
+                    "Entity"
+                ],
+                "ranges": [
+                    "SpaceRegion"
+                ],
+                "description": "Relates an object or event to the spatial region where it is located or occurs. (e.g., A meeting hasLocation 'Conference Room A')."
+            },
+            {
+                "type": "hasTime",
+                "domains": [
+                    "Event"
+                ],
+                "ranges": [
+                    "TimeInterval"
+                ],
+                "description": "Relates an event or process to the specific time period during which it occurs. (e.g., A concert hasTime 'Saturday Night')."
+            },
+            {
+                "type": "isAbout",
+                "domains": [
+                    "InformationObject"
+                ],
+                "ranges": [
+                    "Entity"
+                ],
+                "description": "Relates an information object (like data, text, or a picture) to the entity it represents or describes. (e.g., A photograph isAbout a landscape)."
+            },
+            {
+                "type": "hasComponent",
+                "domains": [
+                    "Object"
+                ],
+                "ranges": [
+                    "Object"
+                ],
+                "description": "Relates a complex system or platform to its individual components. (e.g., A computer hasComponent a motherboard)."
+            },
+            {
+                "type": "isComponentOf",
+                "domains": [
+                    "Object"
+                ],
+                "ranges": [
+                    "Object"
+                ],
+                "description": "The inverse of hasComponent. Relates a component to the system it belongs to. (e.g., A motherboard isComponentOf a computer)."
+            },
+            {
+                "type": "precedes",
+                "domains": [
+                    "Event",
+                    "Action",
+                    "TimeInterval"
+                ],
+                "ranges": [
+                    "Event",
+                    "Action",
+                    "TimeInterval"
+                ],
+                "description": "A sequence relation indicating that one event, process, or time happens before another. (e.g., 'Writing' precedes 'Publishing')."
+            },
+            {
+                "type": "follows",
+                "domains": [
+                    "Event",
+                    "Action",
+                    "TimeInterval"
+                ],
+                "ranges": [
+                    "Event",
+                    "Action",
+                    "TimeInterval"
+                ],
+                "description": "The inverse of precedes. Indicates one event or process comes after another. (e.g., 'Publishing' follows 'Writing')."
+            },
+            {
+                "type": "hasRole",
+                "domains": [
+                    "Object"
+                ],
+                "ranges": [
+                    "Role"
+                ],
+                "description": "Relates an object to the function or role it performs. (e.g., A person hasRole 'Manager')."
+            },
+            {
+                "type": "hasDataValue",
+                "domains": [
+                    "Entity",
+                    "Quality"
+                ],
+                "ranges": [
+                    "xsd:string",
+                    "xsd:integer",
+                    "xsd:decimal",
+                    "xsd:boolean"
+                ],
+                "description": "A data property that assigns a specific numeric or literal value to an entity or its quality. (e.g., A WeightQuality hasDataValue '75.5')."
+            },
+            {
+                "type": "hasMember",
+                "domains": [
+                    "Collection"
+                ],
+                "ranges": [
+                    "Entity"
+                ],
+                "description": "Relates a collection, dataset, or group to the individual items it contains. (e.g., A Library hasMember 'Book')."
+            },
+            {
+                "type": "isMemberOf",
+                "domains": [
+                    "Entity"
+                ],
+                "ranges": [
+                    "Collection"
+                ],
+                "description": "The inverse of hasMember. Relates an item to the collection it belongs to. (e.g., A 'Book' isMemberOf a Library)."
+            },
+            {
+                "type": "expresses",
+                "domains": [
+                    "InformationObject"
+                ],
+                "ranges": [
+                    "Concept",
+                    "SocialObject"
+                ],
+                "description": "Relates a piece of information or data to the abstract concept it means or represents. (e.g., A spoken word expresses a concept)."
+            },
+            {
+                "type": "hasPrecondition",
+                "domains": [
+                    "Event",
+                    "Action"
+                ],
+                "ranges": [
+                    "Event",
+                    "Action"
+                ],
+                "description": "Direct precedence indicating a requirement. Relates an action to another action or event that must happen first. (e.g., 'Buying a Ticket' is a precondition for 'Boarding a Train')."
+            },
+            {
+                "type": "hasPostcondition",
+                "domains": [
+                    "Event",
+                    "Action"
+                ],
+                "ranges": [
+                    "Event",
+                    "Action"
+                ],
+                "description": "Direct succession indicating a result. Relates an action to the outcome or event that necessarily follows it. (e.g., 'Getting Wet' is a postcondition of 'Swimming')."
+            },
+            {
+                "type": "executesTask",
+                "domains": [
+                    "Event",
+                    "Action"
+                ],
+                "ranges": [
+                    "Concept"
+                ],
+                "description": "Relates an action or physical event to the specific conceptual task or goal it is designed to accomplish. (e.g., A reading event executesTask 'Learning')."
+            },
+            {
+                "type": "actsThrough",
+                "domains": [
+                    "Object"
+                ],
+                "ranges": [
+                    "PhysicalObject",
+                    "InformationObject"
+                ],
+                "description": "Relates an entity to the medium or tool it uses to interact or perform an action. (e.g., A writer actsThrough a 'Pen')."
+            },
+            {
+                "type": "satisfies",
+                "domains": [
+                    "Event",
+                    "Action",
+                    "Object"
+                ],
+                "ranges": [
+                    "InformationObject",
+                    "Concept"
+                ],
+                "description": "Relates an entity or action to a rule, plan, or requirement that it successfully fulfills. (e.g., A building process satisfies a 'Blueprint')."
+            },
+            {
+                "type": "SubClassOf",
+                "subclass": "HealthcareSensor",
+                "superclass": "PhysicalObject",
+                "chunk_id": 0
+            },
+            {
+                "type": "SubClassOf",
+                "subclass": "SensorApplication",
+                "superclass": "InformationRealization",
+                "chunk_id": 0
+            },
+            {
+                "type": "SubClassOf",
+                "subclass": "GamificationApp",
+                "superclass": "SocialObject",
+                "chunk_id": 0
+            },
+            {
+                "type": "SubClassOf",
+                "subclass": "SensorManagementWebApp",
+                "superclass": "SocialObject",
+                "chunk_id": 0
+            },
+            {
+                "type": "SubClassOf",
+                "subclass": "OEMPlatform",
+                "superclass": "SocialObject",
+                "chunk_id": 0
+            },
+            {
+                "type": "SubClassOf",
+                "subclass": "ResearchProject",
+                "superclass": "SocialObject",
+                "chunk_id": 0
+            },
+            {
+                "type": "SubClassOf",
+                "subclass": "SensorApplication",
+                "superclass": "ResearchProject",
+                "chunk_id": 0
+            },
+            {
+                "type": "SubClassOf",
+                "subclass": "GamificationApp",
+                "superclass": "ResearchProject",
+                "chunk_id": 0
+            },
+            {
+                "type": "SubClassOf",
+                "subclass": "SensorManagementWebApp",
+                "superclass": "ResearchProject",
+                "chunk_id": 0
+            },
+            {
+                "type": "SubClassOf",
+                "subclass": "OEMPlatform",
+                "superclass": "ResearchProject",
+                "chunk_id": 0
+            },
+            {
+                "domain": "SensorApplication",
+                "property": "hasPart",
+                "range": "SensorManagementWebApp",
+                "chunk_id": 0
+            },
+            {
+                "domain": "SensorManagementWebApp",
+                "property": "hasPart",
+                "range": "SensorApplication",
+                "chunk_id": 0
+            },
+            {
+                "domain": "SensorManagementWebApp",
+                "property": "hasPart",
+                "range": "GamificationApp",
+                "chunk_id": 0
+            },
+            {
+                "domain": "GamificationApp",
+                "property": "hasPart",
+                "range": "SensorManagementWebApp",
+                "chunk_id": 0
+            },
+            {
+                "domain": "SensorManagementWebApp",
+                "property": "hasPart",
+                "range": "ResearchProject",
+                "chunk_id": 0
+            },
+            {
+                "domain": "ResearchProject",
+                "property": "hasPart",
+                "range": "SensorManagementWebApp",
+                "chunk_id": 0
+            },
+            {
+                "domain": "SensorManagementWebApp",
+                "property": "hasPart",
+                "range": "OEMPlatform",
+                "chunk_id": 0
+            },
+            {
+                "domain": "OEMPlatform",
+                "property": "hasPart",
+                "range": "SensorManagementWebApp",
+                "chunk_id": 0
+            },
+            {
+                "domain": "GamificationApp",
+                "property": "hasPart",
+                "range": "ResearchProject",
+                "chunk_id": 0
+            },
+            {
+                "domain": "ResearchProject",
+                "property": "hasPart",
+                "range": "GamificationApp",
+                "chunk_id": 0
+            },
+            {
+                "domain": "OEMPlatform",
+                "property": "hasPart",
+                "range": "SensorApplication",
+                "chunk_id": 0
+            },
+            {
+                "domain": "GamificationApp",
+                "property": "hasPart",
+                "range": "SensorApplication",
+                "chunk_id": 0
+            },
+            {
+                "domain": "HealthcareSensor",
+                "property": "isWireless",
+                "datatype": "xsd:boolean",
+                "chunk_id": 0
+            },
+            {
+                "domain": "HealthcareSensor",
+                "property": "isScalable",
+                "datatype": "xsd:boolean",
+                "chunk_id": 0
+            },
+            {
+                "domain": "HealthcareSensor",
+                "property": "isBatteryPowered",
+                "datatype": "xsd:boolean",
+                "chunk_id": 0
+            },
+            {
+                "domain": "HealthcareSensor",
+                "property": "hasBusinessOpportunity",
+                "datatype": "xsd:boolean",
+                "chunk_id": 0
+            },
+            {
+                "domain": "SensorApplication",
+                "property": "hasActivitySensor",
+                "datatype": "xsd:string",
+                "chunk_id": 0
+            },
+            {
+                "domain": "SensorApplication",
+                "property": "hasSmartphoneApp",
+                "datatype": "xsd:string",
+                "chunk_id": 0
+            },
+            {
+                "domain": "SensorApplication",
+                "property": "hasWebApplication",
+                "datatype": "xsd:string",
+                "chunk_id": 0
+            },
+            {
+                "domain": "SensorManagementWebApp",
+                "property": "hasSensorDataManagement",
+                "datatype": "xsd:string",
+                "chunk_id": 0
+            },
+            {
+                "domain": "SensorManagementWebApp",
+                "property": "hasDataView",
+                "datatype": "xsd:string",
+                "chunk_id": 0
+            },
+            {
+                "domain": "SensorManagementWebApp",
+                "property": "hasDataExport",
+                "datatype": "xsd:string",
+                "chunk_id": 0
+            },
+            {
+                "domain": "OEMPlatform",
+                "property": "hasMedicalSensorDevelopment",
+                "datatype": "xsd:string",
+                "chunk_id": 0
+            },
+            {
+                "domain": "OEMPlatform",
+                "property": "hasBusinessOpportunity",
+                "datatype": "xsd:string",
+                "chunk_id": 0
+            },
+            {
+                "type": "SubClassOf",
+                "subclass": "TeamMember",
+                "superclass": "Collection",
+                "chunk_id": 1
+            },
+            {
+                "domain": "TeamMember",
+                "property": "hasRole",
+                "range": "TeamMember",
+                "chunk_id": 1
+            },
+            {
+                "domain": "TeamMember",
+                "property": "hasRole",
+                "datatype": "xsd:string",
+                "chunk_id": 1
+            },
+            {
+                "domain": "TeamMember",
+                "property": "hasEmail",
+                "datatype": "xsd:string",
+                "chunk_id": 1
+            },
+            {
+                "domain": "TeamMember",
+                "property": "hasLinkedInProfile",
+                "datatype": "xsd:string",
+                "chunk_id": 1
+            },
+            {
+                "type": "SubClassOf",
+                "subclass": "CommunicationChannel",
+                "superclass": "InformationRealization",
+                "chunk_id": 2
+            },
+            {
+                "domain": "CommunicationChannel",
+                "property": "hasParticipant",
+                "range": "CommunicationChannel",
+                "chunk_id": 2
+            },
+            {
+                "domain": "CommunicationChannel",
+                "property": "messageContent",
+                "datatype": "xsd:string",
+                "chunk_id": 2
+            },
+            {
+                "type": "SubClassOf",
+                "subclass": "Feedback",
+                "superclass": "Event",
+                "chunk_id": 3
+            },
+            {
+                "domain": "Feedback",
+                "property": "hasPart",
+                "range": "Feedback",
+                "chunk_id": 3
+            },
+            {
+                "domain": "Feedback",
+                "property": "hasParticipant",
+                "range": "Feedback",
+                "chunk_id": 3
+            },
+            {
+                "domain": "Feedback",
+                "property": "hasQuality",
+                "range": "Feedback",
+                "chunk_id": 3
+            },
+            {
+                "domain": "Feedback",
+                "property": "isAbout",
+                "range": "Feedback",
+                "chunk_id": 3
+            },
+            {
+                "domain": "Feedback",
+                "property": "hasLocation",
+                "range": "Feedback",
+                "chunk_id": 3
+            },
+            {
+                "domain": "Feedback",
+                "property": "hasTime",
+                "range": "Feedback",
+                "chunk_id": 3
+            },
+            {
+                "domain": "Feedback",
+                "property": "hasRole",
+                "range": "Feedback",
+                "chunk_id": 3
+            },
+            {
+                "domain": "Feedback",
+                "property": "hasDataValue",
+                "range": "Feedback",
+                "chunk_id": 3
+            },
+            {
+                "domain": "Feedback",
+                "property": "hasMember",
+                "range": "Feedback",
+                "chunk_id": 3
+            },
+            {
+                "domain": "Feedback",
+                "property": "isMemberOf",
+                "range": "Feedback",
+                "chunk_id": 3
+            },
+            {
+                "domain": "Feedback",
+                "property": "expresses",
+                "range": "Feedback",
+                "chunk_id": 3
+            },
+            {
+                "domain": "Feedback",
+                "property": "hasPrecondition",
+                "range": "Feedback",
+                "chunk_id": 3
+            },
+            {
+                "domain": "Feedback",
+                "property": "hasPostcondition",
+                "range": "Feedback",
+                "chunk_id": 3
+            },
+            {
+                "domain": "Feedback",
+                "property": "executesTask",
+                "range": "Feedback",
+                "chunk_id": 3
+            },
+            {
+                "domain": "Feedback",
+                "property": "actsThrough",
+                "range": "Feedback",
+                "chunk_id": 3
+            },
+            {
+                "domain": "Feedback",
+                "property": "satisfies",
+                "range": "Feedback",
+                "chunk_id": 3
+            },
+            {
+                "domain": "Feedback",
+                "property": "responseStatus",
+                "datatype": "xsd:string",
+                "chunk_id": 3
+            },
+            {
+                "domain": "Feedback",
+                "property": "acknowledgment",
+                "datatype": "xsd:boolean",
+                "chunk_id": 3
+            },
+            {
+                "type": "SubClassOf",
+                "subclass": "PilotPackage",
+                "superclass": "Collection",
+                "chunk_id": 4
+            },
+            {
+                "domain": "PilotPackage",
+                "property": "hasPart",
+                "range": "PilotPackage",
+                "chunk_id": 4
+            },
+            {
+                "domain": "PilotPackage",
+                "property": "hasParticipant",
+                "range": "PilotPackage",
+                "chunk_id": 4
+            },
+            {
+                "domain": "PilotPackage",
+                "property": "hasQuality",
+                "range": "PilotPackage",
+                "chunk_id": 4
+            },
+            {
+                "domain": "PilotPackage",
+                "property": "hasLocation",
+                "range": "PilotPackage",
+                "chunk_id": 4
+            },
+            {
+                "domain": "PilotPackage",
+                "property": "hasTime",
+                "range": "PilotPackage",
+                "chunk_id": 4
+            },
+            {
+                "domain": "PilotPackage",
+                "property": "hasRole",
+                "range": "PilotPackage",
+                "chunk_id": 4
+            },
+            {
+                "domain": "PilotPackage",
+                "property": "hasMember",
+                "range": "PilotPackage",
+                "chunk_id": 4
+            },
+            {
+                "domain": "PilotPackage",
+                "property": "isMemberOf",
+                "range": "PilotPackage",
+                "chunk_id": 4
+            },
+            {
+                "domain": "PilotPackage",
+                "property": "hasPrecondition",
+                "range": "PilotPackage",
+                "chunk_id": 4
+            },
+            {
+                "domain": "PilotPackage",
+                "property": "hasPostcondition",
+                "range": "PilotPackage",
+                "chunk_id": 4
+            },
+            {
+                "domain": "PilotPackage",
+                "property": "promotionDuration",
+                "datatype": "xsd:string",
+                "chunk_id": 4
+            },
+            {
+                "domain": "PilotPackage",
+                "property": "usageLimit",
+                "datatype": "xsd:integer",
+                "chunk_id": 4
+            },
+            {
+                "domain": "PilotPackage",
+                "property": "promotionPeriod",
+                "datatype": "xsd:date",
+                "chunk_id": 4
+            },
+            {
+                "domain": "PilotPackage",
+                "property": "offerPrice",
+                "datatype": "xsd:decimal",
+                "chunk_id": 4
+            },
+            {
+                "domain": "PilotPackage",
+                "property": "patientLimit",
+                "datatype": "xsd:integer",
+                "chunk_id": 4
+            }
+        ]
+    },
+    "ontology_abox": [
+        {
+            "type": "DeclareIndividual",
+            "id": "SENS motion®",
+            "chunk_id": 0
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "SENS motion®",
+            "class": "HealthcareSensor",
+            "chunk_id": 0
+        },
+        {
+            "type": "DeclareIndividual",
+            "id": "SENS motion® – For Healthcare",
+            "chunk_id": 0
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "SENS motion® – For Healthcare",
+            "class": "SensorApplication",
+            "chunk_id": 0
+        },
+        {
+            "type": "DeclareIndividual",
+            "id": "SENS motion® – For Research",
+            "chunk_id": 0
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "SENS motion® – For Research",
+            "class": "SensorApplication",
+            "chunk_id": 0
+        },
+        {
+            "type": "DeclareIndividual",
+            "id": "SENS motion® – Connect",
+            "chunk_id": 0
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "SENS motion® – Connect",
+            "class": "OEMPlatform",
+            "chunk_id": 0
+        },
+        {
+            "type": "ObjectPropertyAssertion",
+            "subject": "SENS motion® – For Healthcare",
+            "property": "hasPart",
+            "object": "SENS motion® – For Research",
+            "chunk_id": 0
+        },
+        {
+            "type": "DataPropertyAssertion",
+            "subject": "SENS motion® – For Healthcare",
+            "property": "isWireless",
+            "value": "true",
+            "datatype": "xsd:boolean",
+            "chunk_id": 0
+        },
+        {
+            "type": "DataPropertyAssertion",
+            "subject": "SENS motion® – For Healthcare",
+            "property": "isScalable",
+            "value": "true",
+            "datatype": "xsd:boolean",
+            "chunk_id": 0
+        },
+        {
+            "type": "DataPropertyAssertion",
+            "subject": "SENS motion® – For Healthcare",
+            "property": "isBatteryPowered",
+            "value": "true",
+            "datatype": "xsd:boolean",
+            "chunk_id": 0
+        },
+        {
+            "type": "DataPropertyAssertion",
+            "subject": "SENS motion® – For Healthcare",
+            "property": "hasBusinessOpportunity",
+            "value": "true",
+            "datatype": "xsd:boolean",
+            "chunk_id": 0
+        },
+        {
+            "type": "DataPropertyAssertion",
+            "subject": "SENS motion® – For Healthcare",
+            "property": "hasActivitySensor",
+            "value": "true",
+            "datatype": "xsd:string",
+            "chunk_id": 0
+        },
+        {
+            "type": "DataPropertyAssertion",
+            "subject": "SENS motion® – For Healthcare",
+            "property": "hasSmartphoneApp",
+            "value": "true",
+            "datatype": "xsd:string",
+            "chunk_id": 0
+        },
+        {
+            "type": "DataPropertyAssertion",
+            "subject": "SENS motion® – For Healthcare",
+            "property": "hasWebApplication",
+            "value": "true",
+            "datatype": "xsd:string",
+            "chunk_id": 0
+        },
+        {
+            "type": "DataPropertyAssertion",
+            "subject": "SENS motion® – For Healthcare",
+            "property": "hasSensorDataManagement",
+            "value": "true",
+            "datatype": "xsd:string",
+            "chunk_id": 0
+        },
+        {
+            "type": "DataPropertyAssertion",
+            "subject": "SENS motion® – For Healthcare",
+            "property": "hasDataView",
+            "value": "true",
+            "datatype": "xsd:string",
+            "chunk_id": 0
+        },
+        {
+            "type": "DataPropertyAssertion",
+            "subject": "SENS motion® – For Healthcare",
+            "property": "hasDataExport",
+            "value": "true",
+            "datatype": "xsd:string",
+            "chunk_id": 0
+        },
+        {
+            "type": "DataPropertyAssertion",
+            "subject": "SENS motion® – For Healthcare",
+            "property": "hasMedicalSensorDevelopment",
+            "value": "true",
+            "datatype": "xsd:string",
+            "chunk_id": 0
+        },
+        {
+            "type": "DataPropertyAssertion",
+            "subject": "SENS motion® – For Healthcare",
+            "property": "hasBusinessOpportunity",
+            "value": "true",
+            "datatype": "xsd:string",
+            "chunk_id": 0
+        },
+        {
+            "type": "DeclareIndividual",
+            "id": "SENS Innovation ApS",
+            "chunk_id": 1
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "SENS Innovation ApS",
+            "class": "TeamMember",
+            "chunk_id": 1
+        },
+        {
+            "type": "DeclareIndividual",
+            "id": "Kasper L. Lykkegaard",
+            "chunk_id": 1
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Kasper L. Lykkegaard",
+            "class": "TeamMember",
+            "chunk_id": 1
+        },
+        {
+            "type": "DeclareIndividual",
+            "id": "Morten Kjærgaard",
+            "chunk_id": 1
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Morten Kjærgaard",
+            "class": "TeamMember",
+            "chunk_id": 1
+        },
+        {
+            "type": "DeclareIndividual",
+            "id": "Ida Marie Pierrel-Boas",
+            "chunk_id": 1
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Ida Marie Pierrel-Boas",
+            "class": "TeamMember",
+            "chunk_id": 1
+        },
+        {
+            "type": "DeclareIndividual",
+            "id": "Christian Lindharth",
+            "chunk_id": 1
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Christian Lindharth",
+            "class": "TeamMember",
+            "chunk_id": 1
+        },
+        {
+            "type": "DeclareIndividual",
+            "id": "Miriam Cabrita",
+            "chunk_id": 1
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Miriam Cabrita",
+            "class": "TeamMember",
+            "chunk_id": 1
+        },
+        {
+            "type": "DeclareIndividual",
+            "id": "Karen Shakespeare",
+            "chunk_id": 1
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Karen Shakespeare",
+            "class": "TeamMember",
+            "chunk_id": 1
+        },
+        {
+            "type": "DeclareIndividual",
+            "id": "Amin Rezaei",
+            "chunk_id": 1
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Amin Rezaei",
+            "class": "TeamMember",
+            "chunk_id": 1
+        },
+        {
+            "type": "DeclareIndividual",
+            "id": "August Blicher Friis",
+            "chunk_id": 1
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "August Blicher Friis",
+            "class": "TeamMember",
+            "chunk_id": 1
+        },
+        {
+            "type": "DeclareIndividual",
+            "id": "Renata Oliveira",
+            "chunk_id": 1
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Renata Oliveira",
+            "class": "TeamMember",
+            "chunk_id": 1
+        },
+        {
+            "type": "DeclareIndividual",
+            "id": "Huong Nguyen",
+            "chunk_id": 1
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Huong Nguyen",
+            "class": "TeamMember",
+            "chunk_id": 1
+        },
+        {
+            "type": "DeclareIndividual",
+            "id": "Mathias Elmegaard Nielsen",
+            "chunk_id": 1
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Mathias Elmegaard Nielsen",
+            "class": "TeamMember",
+            "chunk_id": 1
+        },
+        {
+            "type": "DeclareIndividual",
+            "id": "Mats Ellingsen",
+            "chunk_id": 1
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Mats Ellingsen",
+            "class": "TeamMember",
+            "chunk_id": 1
+        },
+        {
+            "type": "DeclareIndividual",
+            "id": "Lea Møller Storm",
+            "chunk_id": 1
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Lea Møller Storm",
+            "class": "TeamMember",
+            "chunk_id": 1
+        },
+        {
+            "type": "ObjectPropertyAssertion",
+            "subject": "SENS Innovation ApS",
+            "property": "hasRole",
+            "object": "SENS Innovation ApS",
+            "chunk_id": 1
+        },
+        {
+            "type": "ObjectPropertyAssertion",
+            "subject": "Kasper L. Lykkegaard",
+            "property": "hasRole",
+            "object": "SENS Innovation ApS",
+            "chunk_id": 1
+        },
+        {
+            "type": "ObjectPropertyAssertion",
+            "subject": "Morten Kjærgaard",
+            "property": "hasRole",
+            "object": "SENS Innovation ApS",
+            "chunk_id": 1
+        },
+        {
+            "type": "ObjectPropertyAssertion",
+            "subject": "Ida Marie Pierrel-Boas",
+            "property": "hasRole",
+            "object": "SENS Innovation ApS",
+            "chunk_id": 1
+        },
+        {
+            "type": "ObjectPropertyAssertion",
+            "subject": "Christian Lindharth",
+            "property": "hasRole",
+            "object": "SENS Innovation ApS",
+            "chunk_id": 1
+        },
+        {
+            "type": "ObjectPropertyAssertion",
+            "subject": "Miriam Cabrita",
+            "property": "hasRole",
+            "object": "SENS Innovation ApS",
+            "chunk_id": 1
+        },
+        {
+            "type": "ObjectPropertyAssertion",
+            "subject": "Karen Shakespeare",
+            "property": "hasRole",
+            "object": "SENS Innovation ApS",
+            "chunk_id": 1
+        },
+        {
+            "type": "ObjectPropertyAssertion",
+            "subject": "Amin Rezaei",
+            "property": "hasRole",
+            "object": "SENS Innovation ApS",
+            "chunk_id": 1
+        },
+        {
+            "type": "ObjectPropertyAssertion",
+            "subject": "August Blicher Friis",
+            "property": "hasRole",
+            "object": "SENS Innovation ApS",
+            "chunk_id": 1
+        },
+        {
+            "type": "ObjectPropertyAssertion",
+            "subject": "Renata Oliveira",
+            "property": "hasRole",
+            "object": "SENS Innovation ApS",
+            "chunk_id": 1
+        },
+        {
+            "type": "ObjectPropertyAssertion",
+            "subject": "Huong Nguyen",
+            "property": "hasRole",
+            "object": "SENS Innovation ApS",
+            "chunk_id": 1
+        },
+        {
+            "type": "ObjectPropertyAssertion",
+            "subject": "Mathias Elmegaard Nielsen",
+            "property": "hasRole",
+            "object": "SENS Innovation ApS",
+            "chunk_id": 1
+        },
+        {
+            "type": "ObjectPropertyAssertion",
+            "subject": "Mats Ellingsen",
+            "property": "hasRole",
+            "object": "SENS Innovation ApS",
+            "chunk_id": 1
+        },
+        {
+            "type": "ObjectPropertyAssertion",
+            "subject": "Lea Møller Storm",
+            "property": "hasRole",
+            "object": "SENS Innovation ApS",
+            "chunk_id": 1
+        },
+        {
+            "type": "DataPropertyAssertion",
+            "subject": "SENS Innovation ApS",
+            "property": "hasRole",
+            "value": "TeamMember",
+            "datatype": "xsd:string",
+            "chunk_id": 1
+        },
+        {
+            "type": "DataPropertyAssertion",
+            "subject": "Kasper L. Lykkegaard",
+            "property": "hasRole",
+            "value": "CEO & Founder",
+            "datatype": "xsd:string",
+            "chunk_id": 1
+        },
+        {
+            "type": "DataPropertyAssertion",
+            "subject": "Morten Kjærgaard",
+            "property": "hasRole",
+            "value": "CTO & Founder",
+            "datatype": "xsd:string",
+            "chunk_id": 1
+        },
+        {
+            "type": "DataPropertyAssertion",
+            "subject": "Ida Marie Pierrel-Boas",
+            "property": "hasRole",
+            "value": "Senior Project Manager",
+            "datatype": "xsd:string",
+            "chunk_id": 1
+        },
+        {
+            "type": "DataPropertyAssertion",
+            "subject": "Christian Lindharth",
+            "property": "hasRole",
+            "value": "Senior Account Executive",
+            "datatype": "xsd:string",
+            "chunk_id": 1
+        },
+        {
+            "type": "DataPropertyAssertion",
+            "subject": "Miriam Cabrita",
+            "property": "hasRole",
+            "value": "Partnerships Manager",
+            "datatype": "xsd:string",
+            "chunk_id": 1
+        },
+        {
+            "type": "DataPropertyAssertion",
+            "subject": "Karen Shakespeare",
+            "property": "hasRole",
+            "value": "UK & Ireland Account Executive",
+            "datatype": "xsd:string",
+            "chunk_id": 1
+        },
+        {
+            "type": "DataPropertyAssertion",
+            "subject": "Amin Rezaei",
+            "property": "hasRole",
+            "value": "Software Developer",
+            "datatype": "xsd:string",
+            "chunk_id": 1
+        },
+        {
+            "type": "DataPropertyAssertion",
+            "subject": "August Blicher Friis",
+            "property": "hasRole",
+            "value": "Software Developer",
+            "datatype": "xsd:string",
+            "chunk_id": 1
+        },
+        {
+            "type": "DataPropertyAssertion",
+            "subject": "Renata Oliveira",
+            "property": "hasRole",
+            "value": "UX Specialist",
+            "datatype": "xsd:string",
+            "chunk_id": 1
+        },
+        {
+            "type": "DataPropertyAssertion",
+            "subject": "Huong Nguyen",
+            "property": "hasRole",
+            "value": "Frontend Developer",
+            "datatype": "xsd:string",
+            "chunk_id": 1
+        },
+        {
+            "type": "DataPropertyAssertion",
+            "subject": "Mathias Elmegaard Nielsen",
+            "property": "hasRole",
+            "value": "Student Assistant",
+            "datatype": "xsd:string",
+            "chunk_id": 1
+        },
+        {
+            "type": "DataPropertyAssertion",
+            "subject": "Mats Ellingsen",
+            "property": "hasRole",
+            "value": "Student Assistant",
+            "datatype": "xsd:string",
+            "chunk_id": 1
+        },
+        {
+            "type": "DataPropertyAssertion",
+            "subject": "Lea Møller Storm",
+            "property": "hasRole",
+            "value": "Student Assistant",
+            "datatype": "xsd:string",
+            "chunk_id": 1
+        },
+        {
+            "type": "DeclareIndividual",
+            "id": "Instance A",
+            "chunk_id": 2
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Instance A",
+            "class": "CommunicationChannel",
+            "chunk_id": 2
+        },
+        {
+            "type": "ObjectPropertyAssertion",
+            "subject": "Instance A",
+            "property": "hasParticipant",
+            "object": "Instance A",
+            "chunk_id": 2
+        },
+        {
+            "type": "DataPropertyAssertion",
+            "subject": "Instance A",
+            "property": "messageContent",
+            "value": "Send us a message",
+            "datatype": "xsd:string",
+            "chunk_id": 2
+        },
+        {
+            "type": "DeclareIndividual",
+            "id": "Instance A",
+            "chunk_id": 3
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "Instance A",
+            "class": "Feedback",
+            "chunk_id": 3
+        },
+        {
+            "type": "ObjectPropertyAssertion",
+            "subject": "Instance A",
+            "property": "hasTime",
+            "object": "Instance A",
+            "chunk_id": 3
+        },
+        {
+            "type": "DataPropertyAssertion",
+            "subject": "Instance A",
+            "property": "responseStatus",
+            "value": "We have received your message and will get back to you as soon as possible",
+            "datatype": "xsd:string",
+            "chunk_id": 3
+        },
+        {
+            "type": "DataPropertyAssertion",
+            "subject": "Instance A",
+            "property": "acknowledgment",
+            "value": "true",
+            "datatype": "xsd:boolean",
+            "chunk_id": 3
+        },
+        {
+            "type": "DeclareIndividual",
+            "id": "SENS motion®",
+            "chunk_id": 4
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "SENS motion®",
+            "class": "PilotPackage",
+            "chunk_id": 4
+        },
+        {
+            "type": "ObjectPropertyAssertion",
+            "subject": "SENS motion®",
+            "property": "hasQuality",
+            "object": "SENS motion®",
+            "chunk_id": 4
+        },
+        {
+            "type": "DataPropertyAssertion",
+            "subject": "SENS motion®",
+            "property": "promotionDuration",
+            "value": "xsd:string",
+            "datatype": "xsd:string",
+            "chunk_id": 4
+        },
+        {
+            "type": "DataPropertyAssertion",
+            "subject": "SENS motion®",
+            "property": "usageLimit",
+            "value": "xsd:integer",
+            "datatype": "xsd:integer",
+            "chunk_id": 4
+        },
+        {
+            "type": "DataPropertyAssertion",
+            "subject": "SENS motion®",
+            "property": "promotionPeriod",
+            "value": "xsd:date",
+            "datatype": "xsd:date",
+            "chunk_id": 4
+        },
+        {
+            "type": "DataPropertyAssertion",
+            "subject": "SENS motion®",
+            "property": "offerPrice",
+            "value": "xsd:decimal",
+            "datatype": "xsd:decimal",
+            "chunk_id": 4
+        },
+        {
+            "type": "DataPropertyAssertion",
+            "subject": "SENS motion®",
+            "property": "patientLimit",
+            "value": "xsd:integer",
+            "datatype": "xsd:integer",
+            "chunk_id": 4
+        }
+    ]
+}

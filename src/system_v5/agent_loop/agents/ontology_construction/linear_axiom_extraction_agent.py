@@ -13,6 +13,10 @@ class LinearAxiomExtractionAgent(BaseConstructionAgent):
         # 1. Prepare Enums (Strictly Local Classes)
         local_class_names = [c["class"] for c in local_existing_classes]
 
+        # Load base axioms
+        base_axioms = self.seed_axioms.copy() # Start with seeds name->desc
+        valid_properties = [a["type"] for a in base_axioms if a["type"] != "subClassOf"]
+        
         # 2. Define Schema (Strictly linear properties only, restricted to local classes)
         linear_axiom_schema = {
             "type": "array",
@@ -22,7 +26,7 @@ class LinearAxiomExtractionAgent(BaseConstructionAgent):
                         "type": "object",
                         "properties": {
                             "type": {"enum": ["ObjectPropertyDomain", "ObjectPropertyRange", "DataPropertyDomain"]},
-                            "property": {"type": "string"},
+                            "property": {"enum": valid_properties},
                             "class": {"enum": local_class_names if local_class_names else [""]}
                         },
                         "required": ["type", "property", "class"],
@@ -32,8 +36,8 @@ class LinearAxiomExtractionAgent(BaseConstructionAgent):
                         "type": "object",
                         "properties": {
                             "type": {"const": "InverseObjectProperties"},
-                            "property": {"type": "string"},
-                            "inverseProperty": {"type": "string"}
+                            "property": {"enum": valid_properties},
+                            "inverseProperty": {"enum": valid_properties}
                         },
                         "required": ["type", "property", "inverseProperty"],
                         "additionalProperties": False
@@ -42,7 +46,7 @@ class LinearAxiomExtractionAgent(BaseConstructionAgent):
                         "type": "object",
                         "properties": {
                             "type": {"const": "DataPropertyRange"},
-                            "property": {"type": "string"},
+                            "property": {"enum": valid_properties},
                             "datatype": {"enum": ["xsd:string", "xsd:integer", "xsd:decimal", "xsd:boolean", "xsd:date"]}
                         },
                         "required": ["type", "property", "datatype"],
@@ -54,9 +58,13 @@ class LinearAxiomExtractionAgent(BaseConstructionAgent):
 
         # 3. Format Prompt
         local_classes_block = "\n".join([f"- {c['class']}: {c['desc']}" for c in local_existing_classes])
+        base_axioms_block = "\n".join([f"- {a['type']}: {a['description']}" for a in base_axioms if a['type'] != "subClassOf"])
         user_msg = f"""
                     ### Local Classes  
                     {local_classes_block}
+
+                    ### Valid Properties
+                    {base_axioms_block}
 
                     ### Source Text
                     {chunk_text}

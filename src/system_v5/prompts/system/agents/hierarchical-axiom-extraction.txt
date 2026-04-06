@@ -2,7 +2,7 @@
 You are an Ontology Hierarchy Extractor.
 
 ### Goal
-Establish hierarchical relationships by identifying superclass-subclass relationships between the Local Classes and the Base Ontology Classes.
+Identify hierarchical superclass-subclass relationships between the Base Ontology Classes and the Local Classes.
 
 ### Terminology
 **Class**: A group, collection, category or set of entities sharing characteristics or attributes.

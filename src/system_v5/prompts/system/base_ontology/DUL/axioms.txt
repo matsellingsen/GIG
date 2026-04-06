@@ -1,68 +1,276 @@
 [
     {
         "type": "subClassOf",
-        "domains": ["Entity"],
-        "ranges": ["Entity"],
+        "domains": [
+            "Entity"
+        ],
+        "ranges": [
+            "Entity"
+        ],
         "description": "A hierarchical connection indicating that one class is a sub-type or child of another class."
     },
     {
         "type": "hasPart",
-        "domains": ["Entity"],
-        "ranges": ["Entity"],
+        "domains": [
+            "Entity"
+        ],
+        "ranges": [
+            "Entity"
+        ],
         "description": "Relates an entity to its components or parts. (e.g., A car hasPart an engine)."
     },
     {
         "type": "isPartOf",
-        "domains": ["Entity"],
-        "ranges": ["Entity"],
+        "domains": [
+            "Entity"
+        ],
+        "ranges": [
+            "Entity"
+        ],
         "description": "The inverse of hasPart. Relates a component to the whole. (e.g., An engine isPart of a car)."
     },
     {
         "type": "participatesIn",
-        "domains": ["Object"],
-        "ranges": ["Event"],
-        "description": "Relates an object (like a person or sensor) to an event or process it is involved in. (e.g., A patient participatesIn a clinical trial)."
+        "domains": [
+            "Object"
+        ],
+        "ranges": [
+            "Event"
+        ],
+        "description": "Relates an object to an event or process it is involved in. (e.g., A person participatesIn a meeting)."
     },
     {
         "type": "hasParticipant",
-        "domains": ["Event"],
-        "ranges": ["Object"],
-        "description": "The inverse of participatesIn. Relates an event to the objects involved in it."
+        "domains": [
+            "Event"
+        ],
+        "ranges": [
+            "Object"
+        ],
+        "description": "The inverse of participatesIn. Relates an event to the objects involved in it. (e.g., A meeting hasParticipant a person)."
     },
     {
         "type": "hasQuality",
-        "domains": ["Entity"],
-        "ranges": ["Quality"],
-        "description": "Relates an entity to an attribute, characteristic, or value it possesses. (e.g., A sensor hasQuality accuracy)."
+        "domains": [
+            "Entity"
+        ],
+        "ranges": [
+            "Quality"
+        ],
+        "description": "Relates an entity to an attribute, characteristic, or value it possesses. (e.g., A car hasQuality color)."
     },
     {
         "type": "realizes",
-        "domains": ["InformationRealization", "PhysicalObject"],
-        "ranges": ["InformationObject"],
-        "description": "Relates a physical manifestation to the abstract information it represents. (e.g., A printed book realizes a text; A hard drive realizes activity data)."
+        "domains": [
+            "InformationRealization",
+            "PhysicalObject"
+        ],
+        "ranges": [
+            "InformationObject"
+        ],
+        "description": "Relates a physical manifestation to the abstract information it represents. (e.g., A printed book realizes a text; A physical statue realizes a 3D design)."
     },
     {
         "type": "classifies",
-        "domains": ["Concept", "Role"],
-        "ranges": ["Entity"],
-        "description": "Relates a concept, category, or role to the actual entity it describes. (e.g., The role 'Doctor' classifies a specific Person)."
+        "domains": [
+            "Concept",
+            "Role"
+        ],
+        "ranges": [
+            "Entity"
+        ],
+        "description": "Relates a concept, category, or role to the actual entity it describes. (e.g., The role 'Teacher' classifies a specific Person)."
     },
     {
         "type": "hasLocation",
-        "domains": ["Entity"],
-        "ranges": ["SpaceRegion"],
-        "description": "Relates an object or event to the spatial region where it is located or occurs."
+        "domains": [
+            "Entity"
+        ],
+        "ranges": [
+            "SpaceRegion"
+        ],
+        "description": "Relates an object or event to the spatial region where it is located or occurs. (e.g., A meeting hasLocation 'Conference Room A')."
     },
     {
         "type": "hasTime",
-        "domains": ["Event"],
-        "ranges": ["TimeInterval"],
-        "description": "Relates an event or process to the specific time period during which it occurs."
+        "domains": [
+            "Event"
+        ],
+        "ranges": [
+            "TimeInterval"
+        ],
+        "description": "Relates an event or process to the specific time period during which it occurs. (e.g., A concert hasTime 'Saturday Night')."
     },
     {
         "type": "isAbout",
-        "domains": ["InformationObject"],
-        "ranges": ["Entity"],
-        "description": "Relates an information object (like data, text, or a picture) to the entity it represents or describes. (e.g., ActivityData isAbout a Patient's movement)."
+        "domains": [
+            "InformationObject"
+        ],
+        "ranges": [
+            "Entity"
+        ],
+        "description": "Relates an information object (like data, text, or a picture) to the entity it represents or describes. (e.g., A photograph isAbout a landscape)."
+    },
+    {
+        "type": "hasComponent",
+        "domains": [
+            "Object"
+        ],
+        "ranges": [
+            "Object"
+        ],
+        "description": "Relates a complex system or platform to its individual components. (e.g., A computer hasComponent a motherboard)."
+    },
+    {
+        "type": "isComponentOf",
+        "domains": [
+            "Object"
+        ],
+        "ranges": [
+            "Object"
+        ],
+        "description": "The inverse of hasComponent. Relates a component to the system it belongs to. (e.g., A motherboard isComponentOf a computer)."
+    },
+    {
+        "type": "precedes",
+        "domains": [
+            "Event",
+            "Action",
+            "TimeInterval"
+        ],
+        "ranges": [
+            "Event",
+            "Action",
+            "TimeInterval"
+        ],
+        "description": "A sequence relation indicating that one event, process, or time happens before another. (e.g., 'Writing' precedes 'Publishing')."
+    },
+    {
+        "type": "follows",
+        "domains": [
+            "Event",
+            "Action",
+            "TimeInterval"
+        ],
+        "ranges": [
+            "Event",
+            "Action",
+            "TimeInterval"
+        ],
+        "description": "The inverse of precedes. Indicates one event or process comes after another. (e.g., 'Publishing' follows 'Writing')."
+    },
+    {
+        "type": "hasRole",
+        "domains": [
+            "Object"
+        ],
+        "ranges": [
+            "Role"
+        ],
+        "description": "Relates an object to the function or role it performs. (e.g., A person hasRole 'Manager')."
+    },
+    {
+        "type": "hasDataValue",
+        "domains": [
+            "Entity",
+            "Quality"
+        ],
+        "ranges": [
+            "xsd:string",
+            "xsd:integer",
+            "xsd:decimal",
+            "xsd:boolean"
+        ],
+        "description": "A data property that assigns a specific numeric or literal value to an entity or its quality. (e.g., A WeightQuality hasDataValue '75.5')."
+    },
+    {
+        "type": "hasMember",
+        "domains": [
+            "Collection"
+        ],
+        "ranges": [
+            "Entity"
+        ],
+        "description": "Relates a collection, dataset, or group to the individual items it contains. (e.g., A Library hasMember 'Book')."
+    },
+    {
+        "type": "isMemberOf",
+        "domains": [
+            "Entity"
+        ],
+        "ranges": [
+            "Collection"
+        ],
+        "description": "The inverse of hasMember. Relates an item to the collection it belongs to. (e.g., A 'Book' isMemberOf a Library)."
+    },
+    {
+        "type": "expresses",
+        "domains": [
+            "InformationObject"
+        ],
+        "ranges": [
+            "Concept",
+            "SocialObject"
+        ],
+        "description": "Relates a piece of information or data to the abstract concept it means or represents. (e.g., A spoken word expresses a concept)."
+    },
+    {
+        "type": "hasPrecondition",
+        "domains": [
+            "Event",
+            "Action"
+        ],
+        "ranges": [
+            "Event",
+            "Action"
+        ],
+        "description": "Direct precedence indicating a requirement. Relates an action to another action or event that must happen first. (e.g., 'Buying a Ticket' is a precondition for 'Boarding a Train')."
+    },
+    {
+        "type": "hasPostcondition",
+        "domains": [
+            "Event",
+            "Action"
+        ],
+        "ranges": [
+            "Event",
+            "Action"
+        ],
+        "description": "Direct succession indicating a result. Relates an action to the outcome or event that necessarily follows it. (e.g., 'Getting Wet' is a postcondition of 'Swimming')."
+    },
+    {
+        "type": "executesTask",
+        "domains": [
+            "Event",
+            "Action"
+        ],
+        "ranges": [
+            "Concept"
+        ],
+        "description": "Relates an action or physical event to the specific conceptual task or goal it is designed to accomplish. (e.g., A reading event executesTask 'Learning')."
+    },
+    {
+        "type": "actsThrough",
+        "domains": [
+            "Object"
+        ],
+        "ranges": [
+            "PhysicalObject",
+            "InformationObject"
+        ],
+        "description": "Relates an entity to the medium or tool it uses to interact or perform an action. (e.g., A writer actsThrough a 'Pen')."
+    },
+    {
+        "type": "satisfies",
+        "domains": [
+            "Event",
+            "Action",
+            "Object"
+        ],
+        "ranges": [
+            "InformationObject",
+            "Concept"
+        ],
+        "description": "Relates an entity or action to a rule, plan, or requirement that it successfully fulfills. (e.g., A building process satisfies a 'Blueprint')."
     }
 ]

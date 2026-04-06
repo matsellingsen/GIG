@@ -15,7 +15,7 @@ def main():
     orchestrator = Orchestrator(backend=backend)
     # load chunked text data
     chunks = load_chunks("C:\\Users\\matse\\gig\\src\\system_v5\\content\\chunks.jsonl")
-    run_chunks = 1
+    run_chunks = None # set to None to run on all chunks, or set to an integer for testing with a limited number of chunks.
     print("Loaded system prompt and chunked text.")
 
     pipeline_result, extraction_status, prompts = orchestrator.run_pipeline(chunks=chunks, run_chunks=run_chunks) #run_chunks limits how many chunks we process for testing. Remove this limit for full run.

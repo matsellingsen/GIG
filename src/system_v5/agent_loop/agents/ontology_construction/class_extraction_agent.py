@@ -10,7 +10,10 @@ class ClassExtractionAgent(BaseConstructionAgent):
             "items": {
                 "type": "object",
                 "properties": {
-                    "class": {"type": "string"},
+                    "class": {
+                        "type": "string",
+                        "pattern": "^[A-Z][a-zA-Z0-9]*$"
+                    },
                     "desc": {"type": "string"}
                 },
                 "required": ["class", "desc"],

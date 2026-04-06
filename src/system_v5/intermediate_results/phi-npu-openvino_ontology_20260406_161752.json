@@ -1,0 +1,696 @@
+{
+    "metadata": {
+        "model_name": "phi-npu-openvino",
+        "timestamp": "2026-04-06T16:17:52.007237",
+        "pipeline_info": {
+            "num_chunks": 61,
+            "chunks_processed": 1,
+            "orchestrator_type": "V5",
+            "source": "chunks.jsonl",
+            "extraction_status": {
+                "chunk_index": [
+                    0
+                ],
+                "class_failed": [
+                    false
+                ],
+                "hierarchy_failed": [
+                    false
+                ],
+                "relation_failed": [
+                    false
+                ],
+                "instance_failed": [
+                    false
+                ]
+            },
+            "prompts": {
+                "class_extraction": [
+                    "<|system|>### Role\nYou are a Class Extraction Agent.\n\n### Goal\nAnalyze the provided text to identify **new** classes that are not present in the list of Base Ontology Classes.\n\n### Terminology\n**Class**: A group, collection, category or set of entities sharing characteristics or attributes.\n\n### Guidelines\n**Base Classes**: Treat the provided Base Ontology Classes as an established foundation to expand upon. \n**Rich Extraction**: Extract a wide variety of classes, ranging from mid-level categories to highly specific domain terminology.\n**Uniqueness**: Create a new class only once.\n**Naming Convention**: Use UpperCamelCase foundation conventions.\n**Descriptions**: Provide a concise, objective definition for each new class.\n\n### Examples\n[\n  {\n    \"class\": \"DigitalDocument\",\n    \"description\": \"An electronic file containing structured or unstructured text data.\"\n  },\n  {\n    \"class\": \"ManufacturingFacility\",\n    \"description\": \"A physical location consisting of buildings and machinery or equipment used for production.\"\n  }\n]\n<|end|><|user|>\n                    ### Base Ontology Classes\n                    {'Entity': 'Anything: real, possible, or imaginary, which some modeller wants to talk about for some purpose.', 'Object': 'Any physical, social, or mental object, or a substance. Objects are endurants: they can change some of their parts or qualities while keeping their identity.', 'PhysicalObject': 'Any Object that has a proper space region. Examples include people, equipment, sensors, and buildings.', 'SocialObject': 'Any Object that exists only within some social context, such as organizations, laws, plans, or projects.', 'InformationObject': 'A piece of information, such as a text, a word, a picture, or data, independently from how it is concretely realized.', 'InformationRealization': 'A physical object or event that realizes an information object. For example, a physical printed document or a digital file on a hard drive.', 'Event': 'Any physical, social, or mental process, event, or state. Events unfold in time and have objects as participants.', 'Action': 'An Event with at least one agent that participates in it, and that executes a task.', 'Quality': 'Any aspect of an Entity (but not a part of it), which cannot exist without that Entity. For example, the color of a physical object or the duration of an event.', 'Concept': \"A Concept is a SocialObject that classifies or defines something. For example, the idea of a 'Sensor' or 'Therapy'.\", 'Role': \"A Concept that classifies an Object. For example, 'Doctor' is a Role played by a person, and 'Monitor' is a Role played by a device.\", 'Collection': 'Any collection of objects, events, or other entities, such as a group of people or a dataset.', 'TimeInterval': 'A specific period or duration of time.', 'SpaceRegion': 'A specific location or region in space.'}\n\n                    ### Source Text\n                    title: Discrete Wearable Activity Sensor for Healthcare and Research\ntext: Better Treatment. Better Research\n\n## What is SENS motion®\ntitle: What is SENS motion®\n\n### System Measures\nsubtitle: System Measures\nlist: Rest time.Standing time.Walking time.Running & High Intensity Movement time.Cycling time.Steps.Intensity.Sleep time and quality\n**SENS motion®** is an integrated system for collecting physical activity data from groups of people. It consists of a wireless activity sensor that automatically transfers data to a secure cloud. It is especially well suited for use in the healthcare sector and for large research projects\n\n## SENS motion® – For Healthcare\ntitle: SENS motion® – For Healthcare\n\n### SENS motion® – For Healthcare consists of\nsubtitle: SENS motion® – For Healthcare consists of\nlist: The SENS motion activity sensor for use on patients.A patient app, with gamification feedback for motivating the patient to become more active.(Optional) Monitor display providing overview of patients.Access to reports of individual patients activity\n**SENS motion® – For Healthcare** enables the use of SENS motion® activity sensor in healthcare environments, such as hospitals or care centres. The collected activity data can be presented to the patient itself for motivational purpose, assist healthcare professionals in treatment and help prioritize their valuable time efficiently\n\n[Read More →](/en/healthcare/)\n\n## SENS motion® – For Research\ntitle: SENS motion® – For Research\n\n### SENS motion® – For Research consists of\nsubtitle: SENS motion® – For Research consists of\nlist: The SENS motion® activity sensor.Smartphone app for automatically transferring data to the secure cloud.Web-application for managing sensors, viewing or exporting data\n**SENS motion® – For Research** enables the use of SENS motion activity sensor for collecting activity data or raw accelerometer data in research projects\n\n[Read More →](/en/research/)\n\nSENS motion® – Connect\nOEM Platform for medical sensors\nDo you want to build a wireless, scalable, battery-powered medical sensor or have a business opportunity where measurement of physical data is needed?\n\n[Image: demos10 (source: /img/demos10.png)](https://www.demos10.dk/)\n[Image: icompression (source: /img/icompression.png)](https://icompression.dk/)\n[Image: ventriject (source: /img/ventriject-2.png)](https://ventriject.com/)\n\nContact us for options on OEM Cooperation\n\n                    ### Goal\n                    Analyze the provided Source Text to identify **new** classes that are not present in the list of Base Ontology Classes.<|end|><|assistant|>"
+                ],
+                "hierarchy_extraction": [
+                    "<|system|>### Role\nYou are an Ontology Hierarchy Extractor.\n\n### Goal\nIdentify hierarchical superclass-subclass relationships between the Local Classes and the Base Ontology Classes.\n\n### Terminology\n**Class**: A group, collection, category or set of entities sharing characteristics or attributes.\n**Hierarchy**: A top-down classification system where broader classes encompass more specific ones.\n**Subclass**: A specialized class that represents a specific type or subset of a broader class. It represents an \"is-a\" relationship (e.g., a Dog is-a Mammal).\n**Superclass **: A generalized category that encompasses one or more specific sub-categories. \n**Base Ontology Class**: An established, foundational class provided to act as the structural anchor for the hierarchy.\n**Local Class**: A newly extracted class from the Source Text that must be categorized within the structural hierarchy.\n\n### Guidelines\n1. **SubClassOf Only**: Identify \"is-a\" hierarchies. A subclass is a more specific type of its superclass.\n2. **Hierarchical Completeness (Rooting)**: EVERY single Local Class MUST eventually connect to at least one Base Ontology Class. No Local Class should be left disconnected.\n3. **Direct vs. Indirect Connections**: You may connect a Local Class directly to a Base Ontology Class (e.g., `Manager` -> `Role`), or indirectly through a broader Local Class (e.g., `SeniorManager` -> `Manager` -> `Role`). If connected indirectly, the top-most Local Class MUST be a subclass of a Base Ontology Class.\n4. **Hierarchy Direction**: A Base Ontology Class can NEVER be a subclass of a Local Class. Base Classes represent the absolute top of the structural anchor.\n\n### Example \n[\n  {\"type\": \"SubClassOf\", \"subclass\": \"Manager\", \"superclass\": \"Employee\"},\n  {\"type\": \"SubClassOf\", \"subclass\": \"Employee\", \"superclass\": \"Role\"} \n]<|end|><|user|>\n                    ### Base Ontology Classes\n                    - Entity: Anything: real, possible, or imaginary, which some modeller wants to talk about for some purpose.\n- Object: Any physical, social, or mental object, or a substance. Objects are endurants: they can change some of their parts or qualities while keeping their identity.\n- PhysicalObject: Any Object that has a proper space region. Examples include people, equipment, sensors, and buildings.\n- SocialObject: Any Object that exists only within some social context, such as organizations, laws, plans, or projects.\n- InformationObject: A piece of information, such as a text, a word, a picture, or data, independently from how it is concretely realized.\n- InformationRealization: A physical object or event that realizes an information object. For example, a physical printed document or a digital file on a hard drive.\n- Event: Any physical, social, or mental process, event, or state. Events unfold in time and have objects as participants.\n- Action: An Event with at least one agent that participates in it, and that executes a task.\n- Quality: Any aspect of an Entity (but not a part of it), which cannot exist without that Entity. For example, the color of a physical object or the duration of an event.\n- Concept: A Concept is a SocialObject that classifies or defines something. For example, the idea of a 'Sensor' or 'Therapy'.\n- Role: A Concept that classifies an Object. For example, 'Doctor' is a Role played by a person, and 'Monitor' is a Role played by a device.\n- Collection: Any collection of objects, events, or other entities, such as a group of people or a dataset.\n- TimeInterval: A specific period or duration of time.\n- SpaceRegion: A specific location or region in space.\n\n                    ### Local Classes  \n                    - HealthcareSensor: A device specifically designed for healthcare environments to monitor and record physical activity data.\n- ResearchSensor: A device used in research projects to collect and transfer physical activity data.\n- ActivitySensor: A sensor that automatically transfers data to a cloud service, used for monitoring physical activity.\n- SensorApp: A smartphone application that manages and transfers sensor data to a cloud service.\n- SensorWebApplication: A web application designed for managing, viewing, or exporting sensor data.\n- OEMPlatform: A platform for building wireless, scalable, and battery-powered medical sensors.\n- OEMOpportunity: A business opportunity related to the development and sale of medical sensors.\n- SensorDemos: A collection of images or demos showcasing different sensors.\n- SensorDemo: An individual demonstration or example of a sensor in use.\n- SensorSource: A reference to the source or origin of sensor-related images or information.\n- SensorCooperation: The act of collaborating or partnering with another entity for the development or use of sensors.\n- SensorOEM: A company or entity that offers OEM (Original Equipment Manufacturer) services for medical sensors.\n- SensorOEMCooperation: The process of engaging in OEM cooperation, typically between businesses or manufacturers.\n- SensorOEMDemo: A demonstration or example provided by an OEM company to showcase their sensor products.\n- SensorOEMSource: A source or reference point for OEM-related information or services.\n- SensorOEMDemoSource: A source that provides information or examples of OEM demonstrations.\n- SensorOEMDemoImage: A visual representation or image of an OEM demonstration.\n- SensorOEMDemoLink: A hyperlink to additional information or a demonstration of OEM products.\n- SensorOEMDemoContact: A point of contact information for OEM companies or services.\n- SensorOEMDemoDemo: A demonstration of OEM services or products, possibly including a live or recorded demonstration.\n- SensorOEMDemoDemoSource: The source or origin of a live or recorded OEM demonstration.\n- SensorOEMDemoDemoImageSource: The origin of images used in OEM demonstrations.\n- SensorOEMDemoDemoLinkSource: The source of hyperlinks associated with OEM demonstrations.\n- SensorOEMDemoDemoContactSource: The source of contact information for OEM demonstrations.\n- SensorOEMDemoDemo: A demonstration event or showcase for OEM products or services.\n- SensorOEMDemoDemoSource: The source or origin of information about a demonstration event or showcase for OEM products or services.\n- SensorOEMDemoDemoImage: Visual aids or promotional materials used in OEM demonstrations.\n- SensorOEMDemoDemoLink: Online resources or promotional materials related to OEM demonstrations.\n- SensorOEMDemoDemoContact: Points of contact for OEM demonstrations, such as customer service or support.\n- SensorOEMDemoDemoSource: The origin of information or documentation for OEM demonstrations.\n- SensorOEMDemoDemoImageSource: The source of images or visual content used in OEM demonstrations.\n- SensorOEMDemoDemoLinkSource: The source of links or references to OEM demonstration materials.\n- SensorOEMDemoDemoContactSource: The source of contact information for OEM demonstration inquiries.\n- SensorOEMDemoDemo: A specific instance or event where OEM products or services are demonstrated.\n- SensorOEMDemoSource: The origin or reference point for information about a specific OEM demonstration.\n- SensorOEMDemoDemoImage: Images or visual content related to a specific OEM demonstration.\n- SensorOEMDemoDemoLink: Links or references to materials or information about a specific OEM demonstration.\n- SensorOEMDemoDemoContact: Contact information or points of contact for inquiries related to a specific OEM demonstration.\n- SensorOEMDemoSource: The source or origin of information about a specific OEM demonstration.\n- SensorOEMDemoDemoImageSource: The source of images or visual content related to a specific OEM demonstration.\n- SensorOEMDemoDemoLinkSource: The source of links or references to information about a specific OEM demonstration.\n- SensorOEMDemoDemoContactSource: The source of contact information for inquiries related to a specific OEM demonstration.\n- SensorOEMDemoDemo: A specific instance of an OEM demonstration, which may include a live event, webinar, or product showcase.\n- SensorOEMDemoSource: The reference point for obtaining information about a specific OEM demonstration.\n- SensorOEMDemoDemoImage: Visual materials used to promote or document a specific OEM demonstration.\n- SensorOEMDemoDemoLink: Online resources or promotional materials associated with a specific OEM demonstration.\n- SensorOEMDemoDemoContact: Points of contact for obtaining more information or participating in a specific OEM demonstration.\n- SensorOEMDemoSource: The origin of information or documentation for a specific OEM demonstration.\n- SensorOEMDemoDemoImageSource: The source of images or visual content used in promoting or documenting a specific OEM demonstration.\n- SensorOEMDemoDemoLinkSource: The source of links or references to promotional materials or information about a specific OEM demonstration.\n\n                    ### Goal\n                    Identify hierarchical superclass-subclass relationships between the Local Classes and the Base Ontology Classes.<|end|><|assistant|>"
+                ],
+                "relation_extraction": [
+                    "<|system|>### Role\nYou are an Ontology Relation Extractor.\n\n### Goal\nDefine the lateral relationships (ObjectProperties) and attributes (DataProperties) for the provided Local Classes based on the Source Text.\n\n### Terminology\n**Class**: A group, collection, category or set of entities sharing characteristics or attributes.\n**ObjectProperty**: A relationship that links two classes together.\n**DataProperty**: An attribute that links a class to a specific data type or value.\n**Domain**: The subject or \"owner\" class of the property.\n**Range**: The object/target class (for ObjectProperties) or the data type (for DataProperties).\n**Local Class**: A newly extracted class from the text.\n\n### Guidelines\n1. **NO Hierarchies**: DO NOT extract \"is-a\", SubClassOf, Equivalent, or Disjoint relationships. Focus ONLY on lateral links and attributes.\n2. **Strict Vocabulary**: You may ONLY use the exact names of the classes listed in the provided 'Local Classes' block for Domains and Ranges.\n3. **Naming Convention**: Property names must be **lowerCamelCase** active verbs (for ObjectProperties) or active phrases (for DataProperties).\n4. **Class Interaction**: You must ONLY link the provided Local Classes to each other.\n\n### Example \n[\n  {\"type\": \"ObjectPropertyDomain\", \"property\": \"manages\", \"class\": \"Manager\"},\n  {\"type\": \"ObjectPropertyRange\", \"property\": \"manages\", \"class\": \"Project\"},\n  {\"type\": \"DataPropertyDomain\", \"property\": \"hasDeadline\", \"class\": \"Project\"},\n  {\"type\": \"DataPropertyRange\", \"property\": \"hasDeadline\", \"datatype\": \"xsd:date\"},\n  {\"type\": \"InverseObjectProperties\", \"property\": \"manages\", \"inverseProperty\": \"isManagedBy\"}\n]\n<|end|><|user|>\n                    ### Local Classes  \n                    - HealthcareSensor: A device specifically designed for healthcare environments to monitor and record physical activity data.\n- ResearchSensor: A device used in research projects to collect and transfer physical activity data.\n- ActivitySensor: A sensor that automatically transfers data to a cloud service, used for monitoring physical activity.\n- SensorApp: A smartphone application that manages and transfers sensor data to a cloud service.\n- SensorWebApplication: A web application designed for managing, viewing, or exporting sensor data.\n- OEMPlatform: A platform for building wireless, scalable, and battery-powered medical sensors.\n- OEMOpportunity: A business opportunity related to the development and sale of medical sensors.\n- SensorDemos: A collection of images or demos showcasing different sensors.\n- SensorDemo: An individual demonstration or example of a sensor in use.\n- SensorSource: A reference to the source or origin of sensor-related images or information.\n- SensorCooperation: The act of collaborating or partnering with another entity for the development or use of sensors.\n- SensorOEM: A company or entity that offers OEM (Original Equipment Manufacturer) services for medical sensors.\n- SensorOEMCooperation: The process of engaging in OEM cooperation, typically between businesses or manufacturers.\n- SensorOEMDemo: A demonstration or example provided by an OEM company to showcase their sensor products.\n- SensorOEMSource: A source or reference point for OEM-related information or services.\n- SensorOEMDemoSource: A source that provides information or examples of OEM demonstrations.\n- SensorOEMDemoImage: A visual representation or image of an OEM demonstration.\n- SensorOEMDemoLink: A hyperlink to additional information or a demonstration of OEM products.\n- SensorOEMDemoContact: A point of contact information for OEM companies or services.\n- SensorOEMDemoDemo: A demonstration of OEM services or products, possibly including a live or recorded demonstration.\n- SensorOEMDemoDemoSource: The source or origin of a live or recorded OEM demonstration.\n- SensorOEMDemoDemoImageSource: The origin of images used in OEM demonstrations.\n- SensorOEMDemoDemoLinkSource: The source of hyperlinks associated with OEM demonstrations.\n- SensorOEMDemoDemoContactSource: The source of contact information for OEM demonstrations.\n- SensorOEMDemoDemo: A demonstration event or showcase for OEM products or services.\n- SensorOEMDemoDemoSource: The source or origin of information about a demonstration event or showcase for OEM products or services.\n- SensorOEMDemoDemoImage: Visual aids or promotional materials used in OEM demonstrations.\n- SensorOEMDemoDemoLink: Online resources or promotional materials related to OEM demonstrations.\n- SensorOEMDemoDemoContact: Points of contact for OEM demonstrations, such as customer service or support.\n- SensorOEMDemoDemoSource: The origin of information or documentation for OEM demonstrations.\n- SensorOEMDemoDemoImageSource: The source of images or visual content used in OEM demonstrations.\n- SensorOEMDemoDemoLinkSource: The source of links or references to OEM demonstration materials.\n- SensorOEMDemoDemoContactSource: The source of contact information for OEM demonstration inquiries.\n- SensorOEMDemoDemo: A specific instance or event where OEM products or services are demonstrated.\n- SensorOEMDemoSource: The origin or reference point for information about a specific OEM demonstration.\n- SensorOEMDemoDemoImage: Images or visual content related to a specific OEM demonstration.\n- SensorOEMDemoDemoLink: Links or references to materials or information about a specific OEM demonstration.\n- SensorOEMDemoDemoContact: Contact information or points of contact for inquiries related to a specific OEM demonstration.\n- SensorOEMDemoSource: The source or origin of information about a specific OEM demonstration.\n- SensorOEMDemoDemoImageSource: The source of images or visual content related to a specific OEM demonstration.\n- SensorOEMDemoDemoLinkSource: The source of links or references to information about a specific OEM demonstration.\n- SensorOEMDemoDemoContactSource: The source of contact information for inquiries related to a specific OEM demonstration.\n- SensorOEMDemoDemo: A specific instance of an OEM demonstration, which may include a live event, webinar, or product showcase.\n- SensorOEMDemoSource: The reference point for obtaining information about a specific OEM demonstration.\n- SensorOEMDemoDemoImage: Visual materials used to promote or document a specific OEM demonstration.\n- SensorOEMDemoDemoLink: Online resources or promotional materials associated with a specific OEM demonstration.\n- SensorOEMDemoDemoContact: Points of contact for obtaining more information or participating in a specific OEM demonstration.\n- SensorOEMDemoSource: The origin of information or documentation for a specific OEM demonstration.\n- SensorOEMDemoDemoImageSource: The source of images or visual content used in promoting or documenting a specific OEM demonstration.\n- SensorOEMDemoDemoLinkSource: The source of links or references to promotional materials or information about a specific OEM demonstration.\n\n                    ### Valid Properties\n                    - hasPart: Relates an entity to its components or parts. (e.g., A car hasPart an engine).\n- isPartOf: The inverse of hasPart. Relates a component to the whole. (e.g., An engine isPart of a car).\n- participatesIn: Relates an object to an event or process it is involved in. (e.g., A person participatesIn a meeting).\n- hasParticipant: The inverse of participatesIn. Relates an event to the objects involved in it. (e.g., A meeting hasParticipant a person).\n- hasQuality: Relates an entity to an attribute, characteristic, or value it possesses. (e.g., A car hasQuality color).\n- realizes: Relates a physical manifestation to the abstract information it represents. (e.g., A printed book realizes a text; A physical statue realizes a 3D design).\n- classifies: Relates a concept, category, or role to the actual entity it describes. (e.g., The role 'Teacher' classifies a specific Person).\n- hasLocation: Relates an object or event to the spatial region where it is located or occurs. (e.g., A meeting hasLocation 'Conference Room A').\n- hasTime: Relates an event or process to the specific time period during which it occurs. (e.g., A concert hasTime 'Saturday Night').\n- isAbout: Relates an information object (like data, text, or a picture) to the entity it represents or describes. (e.g., A photograph isAbout a landscape).\n- hasComponent: Relates a complex system or platform to its individual components. (e.g., A computer hasComponent a motherboard).\n- isComponentOf: The inverse of hasComponent. Relates a component to the system it belongs to. (e.g., A motherboard isComponentOf a computer).\n- precedes: A sequence relation indicating that one event, process, or time happens before another. (e.g., 'Writing' precedes 'Publishing').\n- follows: The inverse of precedes. Indicates one event or process comes after another. (e.g., 'Publishing' follows 'Writing').\n- hasRole: Relates an object to the function or role it performs. (e.g., A person hasRole 'Manager').\n- hasDataValue: A data property that assigns a specific numeric or literal value to an entity or its quality. (e.g., A WeightQuality hasDataValue '75.5').\n- hasMember: Relates a collection, dataset, or group to the individual items it contains. (e.g., A Library hasMember 'Book').\n- isMemberOf: The inverse of hasMember. Relates an item to the collection it belongs to. (e.g., A 'Book' isMemberOf a Library).\n- expresses: Relates a piece of information or data to the abstract concept it means or represents. (e.g., A spoken word expresses a concept).\n- hasPrecondition: Direct precedence indicating a requirement. Relates an action to another action or event that must happen first. (e.g., 'Buying a Ticket' is a precondition for 'Boarding a Train').\n- hasPostcondition: Direct succession indicating a result. Relates an action to the outcome or event that necessarily follows it. (e.g., 'Getting Wet' is a postcondition of 'Swimming').\n- executesTask: Relates an action or physical event to the specific conceptual task or goal it is designed to accomplish. (e.g., A reading event executesTask 'Learning').\n- actsThrough: Relates an entity to the medium or tool it uses to interact or perform an action. (e.g., A writer actsThrough a 'Pen').\n- satisfies: Relates an entity or action to a rule, plan, or requirement that it successfully fulfills. (e.g., A building process satisfies a 'Blueprint').\n\n                    ### Source Text\n                    title: Discrete Wearable Activity Sensor for Healthcare and Research\ntext: Better Treatment. Better Research\n\n## What is SENS motion®\ntitle: What is SENS motion®\n\n### System Measures\nsubtitle: System Measures\nlist: Rest time.Standing time.Walking time.Running & High Intensity Movement time.Cycling time.Steps.Intensity.Sleep time and quality\n**SENS motion®** is an integrated system for collecting physical activity data from groups of people. It consists of a wireless activity sensor that automatically transfers data to a secure cloud. It is especially well suited for use in the healthcare sector and for large research projects\n\n## SENS motion® – For Healthcare\ntitle: SENS motion® – For Healthcare\n\n### SENS motion® – For Healthcare consists of\nsubtitle: SENS motion® – For Healthcare consists of\nlist: The SENS motion activity sensor for use on patients.A patient app, with gamification feedback for motivating the patient to become more active.(Optional) Monitor display providing overview of patients.Access to reports of individual patients activity\n**SENS motion® – For Healthcare** enables the use of SENS motion® activity sensor in healthcare environments, such as hospitals or care centres. The collected activity data can be presented to the patient itself for motivational purpose, assist healthcare professionals in treatment and help prioritize their valuable time efficiently\n\n[Read More →](/en/healthcare/)\n\n## SENS motion® – For Research\ntitle: SENS motion® – For Research\n\n### SENS motion® – For Research consists of\nsubtitle: SENS motion® – For Research consists of\nlist: The SENS motion® activity sensor.Smartphone app for automatically transferring data to the secure cloud.Web-application for managing sensors, viewing or exporting data\n**SENS motion® – For Research** enables the use of SENS motion activity sensor for collecting activity data or raw accelerometer data in research projects\n\n[Read More →](/en/research/)\n\nSENS motion® – Connect\nOEM Platform for medical sensors\nDo you want to build a wireless, scalable, battery-powered medical sensor or have a business opportunity where measurement of physical data is needed?\n\n[Image: demos10 (source: /img/demos10.png)](https://www.demos10.dk/)\n[Image: icompression (source: /img/icompression.png)](https://icompression.dk/)\n[Image: ventriject (source: /img/ventriject-2.png)](https://ventriject.com/)\n\nContact us for options on OEM Cooperation\n\n                    ### Goal\n                    Define the lateral relationships (ObjectProperties) and attributes (DataProperties) for the provided Local Classes based on the Source Text.<|end|><|assistant|>"
+                ],
+                "instance_population": [
+                    "<|system|>### Role\nYou are an Ontology Instance Extractor.\n\n### Goal\nExtract specific instances from the Source Text and map them exclusively to the provided Valid Classes and Valid Properties.\n\n### Terminology\n**Instance**: A specific, concrete occurrence of a class.\n**Class**: A group, collection, category or set of entities sharing characteristics or attributes.\n**Property**: A valid relationship or attribute provided in the 'Valid Properties' list used to link instances.\n\n### Guidelines\n1. **Identify Instances**: Find specific instances mentioned in the Source Text.\n2. **Instance Identification**:\n    - **ID**: Assign a clean, unique name representing the specific instance.\n    - **Class**: Map the instance to EXACTLY ONE class from the 'Valid Classes' list. Pick the most specific fit.\n    - **Relations**: List observed relationships linking this instance to ANOTHER extracted instance.\n    - **Attributes**: List observed data values or traits belonging to this instance.\n3. **Strict Schema Compliance**: You can ONLY use the exact Class and Property names provided in the provided Valid Classes and Valid Properties.\n\n### Example\n{\n  \"entities\": [\n    {\n       \"id\": \"Alice\",\n       \"class\": \"Employee\",\n       \"relations\": [{\"property\": \"worksFor\", \"targetId\": \"AcmeCorp\"}],\n       \"attributes\": [{\"property\": \"hasStatus\", \"value\": \"Active\"}]\n    },\n    {\n       \"id\": \"AcmeCorp\",\n       \"class\": \"Organization\",\n       \"relations\": [],\n       \"attributes\": []\n    }\n  ]\n}<|end|><|user|>\n\n### Valid Classes\nHealthcareSensor, ResearchSensor, ActivitySensor, SensorApp, SensorWebApplication, OEMPlatform, OEMOpportunity, SensorDemos, SensorDemo, SensorSource, SensorCooperation, SensorOEM, SensorOEMCooperation, SensorOEMDemo, SensorOEMSource, SensorOEMDemoSource, SensorOEMDemoImage, SensorOEMDemoLink, SensorOEMDemoContact, SensorOEMDemoDemo, SensorOEMDemoDemoSource, SensorOEMDemoDemoImageSource, SensorOEMDemoDemoLinkSource, SensorOEMDemoDemoContactSource, SensorOEMDemoDemo, SensorOEMDemoDemoSource, SensorOEMDemoDemoImage, SensorOEMDemoDemoLink, SensorOEMDemoDemoContact, SensorOEMDemoDemoSource, SensorOEMDemoDemoImageSource, SensorOEMDemoDemoLinkSource, SensorOEMDemoDemoContactSource, SensorOEMDemoDemo, SensorOEMDemoSource, SensorOEMDemoDemoImage, SensorOEMDemoDemoLink, SensorOEMDemoDemoContact, SensorOEMDemoSource, SensorOEMDemoDemoImageSource, SensorOEMDemoDemoLinkSource, SensorOEMDemoDemoContactSource, SensorOEMDemoDemo, SensorOEMDemoSource, SensorOEMDemoDemoImage, SensorOEMDemoDemoLink, SensorOEMDemoDemoContact, SensorOEMDemoSource, SensorOEMDemoDemoImageSource, SensorOEMDemoDemoLinkSource\n\n### Valid Properties\nhasLocation, hasMember, isPartOf\n\n### Source Text\ntitle: Discrete Wearable Activity Sensor for Healthcare and Research\ntext: Better Treatment. Better Research\n\n## What is SENS motion®\ntitle: What is SENS motion®\n\n### System Measures\nsubtitle: System Measures\nlist: Rest time.Standing time.Walking time.Running & High Intensity Movement time.Cycling time.Steps.Intensity.Sleep time and quality\n**SENS motion®** is an integrated system for collecting physical activity data from groups of people. It consists of a wireless activity sensor that automatically transfers data to a secure cloud. It is especially well suited for use in the healthcare sector and for large research projects\n\n## SENS motion® – For Healthcare\ntitle: SENS motion® – For Healthcare\n\n### SENS motion® – For Healthcare consists of\nsubtitle: SENS motion® – For Healthcare consists of\nlist: The SENS motion activity sensor for use on patients.A patient app, with gamification feedback for motivating the patient to become more active.(Optional) Monitor display providing overview of patients.Access to reports of individual patients activity\n**SENS motion® – For Healthcare** enables the use of SENS motion® activity sensor in healthcare environments, such as hospitals or care centres. The collected activity data can be presented to the patient itself for motivational purpose, assist healthcare professionals in treatment and help prioritize their valuable time efficiently\n\n[Read More →](/en/healthcare/)\n\n## SENS motion® – For Research\ntitle: SENS motion® – For Research\n\n### SENS motion® – For Research consists of\nsubtitle: SENS motion® – For Research consists of\nlist: The SENS motion® activity sensor.Smartphone app for automatically transferring data to the secure cloud.Web-application for managing sensors, viewing or exporting data\n**SENS motion® – For Research** enables the use of SENS motion activity sensor for collecting activity data or raw accelerometer data in research projects\n\n[Read More →](/en/research/)\n\nSENS motion® – Connect\nOEM Platform for medical sensors\nDo you want to build a wireless, scalable, battery-powered medical sensor or have a business opportunity where measurement of physical data is needed?\n\n[Image: demos10 (source: /img/demos10.png)](https://www.demos10.dk/)\n[Image: icompression (source: /img/icompression.png)](https://icompression.dk/)\n[Image: ventriject (source: /img/ventriject-2.png)](https://ventriject.com/)\n\nContact us for options on OEM Cooperation\n\n### Goal\nExtract specific instances from the Source Text and map them exclusively to the provided Valid Classes and Valid Properties.<|end|><|assistant|>"
+                ]
+            }
+        },
+        "num_classes": 41,
+        "num_axioms": 46,
+        "num_instances": 20
+    },
+    "ontology_tbox": {
+        "classes": [
+            {
+                "id": "Entity",
+                "description": "Anything: real, possible, or imaginary, which some modeller wants to talk about for some purpose."
+            },
+            {
+                "id": "Object",
+                "description": "Any physical, social, or mental object, or a substance. Objects are endurants: they can change some of their parts or qualities while keeping their identity."
+            },
+            {
+                "id": "PhysicalObject",
+                "description": "Any Object that has a proper space region. Examples include people, equipment, sensors, and buildings."
+            },
+            {
+                "id": "SocialObject",
+                "description": "Any Object that exists only within some social context, such as organizations, laws, plans, or projects."
+            },
+            {
+                "id": "InformationObject",
+                "description": "A piece of information, such as a text, a word, a picture, or data, independently from how it is concretely realized."
+            },
+            {
+                "id": "InformationRealization",
+                "description": "A physical object or event that realizes an information object. For example, a physical printed document or a digital file on a hard drive."
+            },
+            {
+                "id": "Event",
+                "description": "Any physical, social, or mental process, event, or state. Events unfold in time and have objects as participants."
+            },
+            {
+                "id": "Action",
+                "description": "An Event with at least one agent that participates in it, and that executes a task."
+            },
+            {
+                "id": "Quality",
+                "description": "Any aspect of an Entity (but not a part of it), which cannot exist without that Entity. For example, the color of a physical object or the duration of an event."
+            },
+            {
+                "id": "Concept",
+                "description": "A Concept is a SocialObject that classifies or defines something. For example, the idea of a 'Sensor' or 'Therapy'."
+            },
+            {
+                "id": "Role",
+                "description": "A Concept that classifies an Object. For example, 'Doctor' is a Role played by a person, and 'Monitor' is a Role played by a device."
+            },
+            {
+                "id": "Collection",
+                "description": "Any collection of objects, events, or other entities, such as a group of people or a dataset."
+            },
+            {
+                "id": "TimeInterval",
+                "description": "A specific period or duration of time."
+            },
+            {
+                "id": "SpaceRegion",
+                "description": "A specific location or region in space."
+            },
+            {
+                "id": "HealthcareSensor",
+                "description": "A device specifically designed for healthcare environments to monitor and record physical activity data."
+            },
+            {
+                "id": "ResearchSensor",
+                "description": "A device used in research projects to collect and transfer physical activity data."
+            },
+            {
+                "id": "ActivitySensor",
+                "description": "A sensor that automatically transfers data to a cloud service, used for monitoring physical activity."
+            },
+            {
+                "id": "SensorApp",
+                "description": "A smartphone application that manages and transfers sensor data to a cloud service."
+            },
+            {
+                "id": "SensorWebApplication",
+                "description": "A web application designed for managing, viewing, or exporting sensor data."
+            },
+            {
+                "id": "OEMPlatform",
+                "description": "A platform for building wireless, scalable, and battery-powered medical sensors."
+            },
+            {
+                "id": "OEMOpportunity",
+                "description": "A business opportunity related to the development and sale of medical sensors."
+            },
+            {
+                "id": "SensorDemos",
+                "description": "A collection of images or demos showcasing different sensors."
+            },
+            {
+                "id": "SensorDemo",
+                "description": "An individual demonstration or example of a sensor in use."
+            },
+            {
+                "id": "SensorSource",
+                "description": "A reference to the source or origin of sensor-related images or information."
+            },
+            {
+                "id": "SensorCooperation",
+                "description": "The act of collaborating or partnering with another entity for the development or use of sensors."
+            },
+            {
+                "id": "SensorOEM",
+                "description": "A company or entity that offers OEM (Original Equipment Manufacturer) services for medical sensors."
+            },
+            {
+                "id": "SensorOEMCooperation",
+                "description": "The process of engaging in OEM cooperation, typically between businesses or manufacturers."
+            },
+            {
+                "id": "SensorOEMDemo",
+                "description": "A demonstration or example provided by an OEM company to showcase their sensor products."
+            },
+            {
+                "id": "SensorOEMSource",
+                "description": "A source or reference point for OEM-related information or services."
+            },
+            {
+                "id": "SensorOEMDemoSource",
+                "description": "A source that provides information or examples of OEM demonstrations."
+            },
+            {
+                "id": "SensorOEMDemoImage",
+                "description": "A visual representation or image of an OEM demonstration."
+            },
+            {
+                "id": "SensorOEMDemoLink",
+                "description": "A hyperlink to additional information or a demonstration of OEM products."
+            },
+            {
+                "id": "SensorOEMDemoContact",
+                "description": "A point of contact information for OEM companies or services."
+            },
+            {
+                "id": "SensorOEMDemoDemo",
+                "description": "A demonstration of OEM services or products, possibly including a live or recorded demonstration."
+            },
+            {
+                "id": "SensorOEMDemoDemoSource",
+                "description": "The source or origin of a live or recorded OEM demonstration."
+            },
+            {
+                "id": "SensorOEMDemoDemoImageSource",
+                "description": "The origin of images used in OEM demonstrations."
+            },
+            {
+                "id": "SensorOEMDemoDemoLinkSource",
+                "description": "The source of hyperlinks associated with OEM demonstrations."
+            },
+            {
+                "id": "SensorOEMDemoDemoContactSource",
+                "description": "The source of contact information for OEM demonstrations."
+            },
+            {
+                "id": "SensorOEMDemoDemoImage",
+                "description": "Visual aids or promotional materials used in OEM demonstrations."
+            },
+            {
+                "id": "SensorOEMDemoDemoLink",
+                "description": "Online resources or promotional materials related to OEM demonstrations."
+            },
+            {
+                "id": "SensorOEMDemoDemoContact",
+                "description": "Points of contact for OEM demonstrations, such as customer service or support."
+            }
+        ],
+        "axioms": [
+            {
+                "type": "subClassOf",
+                "domains": [
+                    "Entity"
+                ],
+                "ranges": [
+                    "Entity"
+                ],
+                "description": "A hierarchical connection indicating that one class is a sub-type or child of another class."
+            },
+            {
+                "type": "hasPart",
+                "domains": [
+                    "Entity"
+                ],
+                "ranges": [
+                    "Entity"
+                ],
+                "description": "Relates an entity to its components or parts. (e.g., A car hasPart an engine)."
+            },
+            {
+                "type": "isPartOf",
+                "domains": [
+                    "Entity"
+                ],
+                "ranges": [
+                    "Entity"
+                ],
+                "description": "The inverse of hasPart. Relates a component to the whole. (e.g., An engine isPart of a car)."
+            },
+            {
+                "type": "participatesIn",
+                "domains": [
+                    "Object"
+                ],
+                "ranges": [
+                    "Event"
+                ],
+                "description": "Relates an object to an event or process it is involved in. (e.g., A person participatesIn a meeting)."
+            },
+            {
+                "type": "hasParticipant",
+                "domains": [
+                    "Event"
+                ],
+                "ranges": [
+                    "Object"
+                ],
+                "description": "The inverse of participatesIn. Relates an event to the objects involved in it. (e.g., A meeting hasParticipant a person)."
+            },
+            {
+                "type": "hasQuality",
+                "domains": [
+                    "Entity"
+                ],
+                "ranges": [
+                    "Quality"
+                ],
+                "description": "Relates an entity to an attribute, characteristic, or value it possesses. (e.g., A car hasQuality color)."
+            },
+            {
+                "type": "realizes",
+                "domains": [
+                    "InformationRealization",
+                    "PhysicalObject"
+                ],
+                "ranges": [
+                    "InformationObject"
+                ],
+                "description": "Relates a physical manifestation to the abstract information it represents. (e.g., A printed book realizes a text; A physical statue realizes a 3D design)."
+            },
+            {
+                "type": "classifies",
+                "domains": [
+                    "Concept",
+                    "Role"
+                ],
+                "ranges": [
+                    "Entity"
+                ],
+                "description": "Relates a concept, category, or role to the actual entity it describes. (e.g., The role 'Teacher' classifies a specific Person)."
+            },
+            {
+                "type": "hasLocation",
+                "domains": [
+                    "Entity"
+                ],
+                "ranges": [
+                    "SpaceRegion"
+                ],
+                "description": "Relates an object or event to the spatial region where it is located or occurs. (e.g., A meeting hasLocation 'Conference Room A')."
+            },
+            {
+                "type": "hasTime",
+                "domains": [
+                    "Event"
+                ],
+                "ranges": [
+                    "TimeInterval"
+                ],
+                "description": "Relates an event or process to the specific time period during which it occurs. (e.g., A concert hasTime 'Saturday Night')."
+            },
+            {
+                "type": "isAbout",
+                "domains": [
+                    "InformationObject"
+                ],
+                "ranges": [
+                    "Entity"
+                ],
+                "description": "Relates an information object (like data, text, or a picture) to the entity it represents or describes. (e.g., A photograph isAbout a landscape)."
+            },
+            {
+                "type": "hasComponent",
+                "domains": [
+                    "Object"
+                ],
+                "ranges": [
+                    "Object"
+                ],
+                "description": "Relates a complex system or platform to its individual components. (e.g., A computer hasComponent a motherboard)."
+            },
+            {
+                "type": "isComponentOf",
+                "domains": [
+                    "Object"
+                ],
+                "ranges": [
+                    "Object"
+                ],
+                "description": "The inverse of hasComponent. Relates a component to the system it belongs to. (e.g., A motherboard isComponentOf a computer)."
+            },
+            {
+                "type": "precedes",
+                "domains": [
+                    "Event",
+                    "Action",
+                    "TimeInterval"
+                ],
+                "ranges": [
+                    "Event",
+                    "Action",
+                    "TimeInterval"
+                ],
+                "description": "A sequence relation indicating that one event, process, or time happens before another. (e.g., 'Writing' precedes 'Publishing')."
+            },
+            {
+                "type": "follows",
+                "domains": [
+                    "Event",
+                    "Action",
+                    "TimeInterval"
+                ],
+                "ranges": [
+                    "Event",
+                    "Action",
+                    "TimeInterval"
+                ],
+                "description": "The inverse of precedes. Indicates one event or process comes after another. (e.g., 'Publishing' follows 'Writing')."
+            },
+            {
+                "type": "hasRole",
+                "domains": [
+                    "Object"
+                ],
+                "ranges": [
+                    "Role"
+                ],
+                "description": "Relates an object to the function or role it performs. (e.g., A person hasRole 'Manager')."
+            },
+            {
+                "type": "hasDataValue",
+                "domains": [
+                    "Entity",
+                    "Quality"
+                ],
+                "ranges": [
+                    "xsd:string",
+                    "xsd:integer",
+                    "xsd:decimal",
+                    "xsd:boolean"
+                ],
+                "description": "A data property that assigns a specific numeric or literal value to an entity or its quality. (e.g., A WeightQuality hasDataValue '75.5')."
+            },
+            {
+                "type": "hasMember",
+                "domains": [
+                    "Collection"
+                ],
+                "ranges": [
+                    "Entity"
+                ],
+                "description": "Relates a collection, dataset, or group to the individual items it contains. (e.g., A Library hasMember 'Book')."
+            },
+            {
+                "type": "isMemberOf",
+                "domains": [
+                    "Entity"
+                ],
+                "ranges": [
+                    "Collection"
+                ],
+                "description": "The inverse of hasMember. Relates an item to the collection it belongs to. (e.g., A 'Book' isMemberOf a Library)."
+            },
+            {
+                "type": "expresses",
+                "domains": [
+                    "InformationObject"
+                ],
+                "ranges": [
+                    "Concept",
+                    "SocialObject"
+                ],
+                "description": "Relates a piece of information or data to the abstract concept it means or represents. (e.g., A spoken word expresses a concept)."
+            },
+            {
+                "type": "hasPrecondition",
+                "domains": [
+                    "Event",
+                    "Action"
+                ],
+                "ranges": [
+                    "Event",
+                    "Action"
+                ],
+                "description": "Direct precedence indicating a requirement. Relates an action to another action or event that must happen first. (e.g., 'Buying a Ticket' is a precondition for 'Boarding a Train')."
+            },
+            {
+                "type": "hasPostcondition",
+                "domains": [
+                    "Event",
+                    "Action"
+                ],
+                "ranges": [
+                    "Event",
+                    "Action"
+                ],
+                "description": "Direct succession indicating a result. Relates an action to the outcome or event that necessarily follows it. (e.g., 'Getting Wet' is a postcondition of 'Swimming')."
+            },
+            {
+                "type": "executesTask",
+                "domains": [
+                    "Event",
+                    "Action"
+                ],
+                "ranges": [
+                    "Concept"
+                ],
+                "description": "Relates an action or physical event to the specific conceptual task or goal it is designed to accomplish. (e.g., A reading event executesTask 'Learning')."
+            },
+            {
+                "type": "actsThrough",
+                "domains": [
+                    "Object"
+                ],
+                "ranges": [
+                    "PhysicalObject",
+                    "InformationObject"
+                ],
+                "description": "Relates an entity to the medium or tool it uses to interact or perform an action. (e.g., A writer actsThrough a 'Pen')."
+            },
+            {
+                "type": "satisfies",
+                "domains": [
+                    "Event",
+                    "Action",
+                    "Object"
+                ],
+                "ranges": [
+                    "InformationObject",
+                    "Concept"
+                ],
+                "description": "Relates an entity or action to a rule, plan, or requirement that it successfully fulfills. (e.g., A building process satisfies a 'Blueprint')."
+            },
+            {
+                "type": "SubClassOf",
+                "subclass": "HealthcareSensor",
+                "superclass": "SensorApp"
+            },
+            {
+                "type": "SubClassOf",
+                "subclass": "ResearchSensor",
+                "superclass": "SensorApp"
+            },
+            {
+                "type": "SubClassOf",
+                "subclass": "ActivitySensor",
+                "superclass": "SensorApp"
+            },
+            {
+                "type": "SubClassOf",
+                "subclass": "SensorWebApplication",
+                "superclass": "SensorApp"
+            },
+            {
+                "type": "SubClassOf",
+                "subclass": "SensorDemos",
+                "superclass": "Collection"
+            },
+            {
+                "type": "SubClassOf",
+                "subclass": "SensorDemo",
+                "superclass": "Collection"
+            },
+            {
+                "type": "SubClassOf",
+                "subclass": "SensorSource",
+                "superclass": "Collection"
+            },
+            {
+                "type": "SubClassOf",
+                "subclass": "SensorCooperation",
+                "superclass": "Collection"
+            },
+            {
+                "type": "SubClassOf",
+                "subclass": "SensorOEM",
+                "superclass": "Collection"
+            },
+            {
+                "type": "SubClassOf",
+                "subclass": "SensorOEMCooperation",
+                "superclass": "Collection"
+            },
+            {
+                "type": "SubClassOf",
+                "subclass": "SensorOEMDemo",
+                "superclass": "Collection"
+            },
+            {
+                "type": "SubClassOf",
+                "subclass": "SensorOEMDemoSource",
+                "superclass": "Collection"
+            },
+            {
+                "type": "SubClassOf",
+                "subclass": "SensorOEMDemoDemo",
+                "superclass": "Collection"
+            },
+            {
+                "type": "SubClassOf",
+                "subclass": "SensorOEMDemoDemoLink",
+                "superclass": "Collection"
+            },
+            {
+                "type": "SubClassOf",
+                "subclass": "SensorOEMDemoDemoLinkSource",
+                "superclass": "Collection"
+            },
+            {
+                "type": "SubClassOf",
+                "subclass": "SensorOEMDemoDemoContact",
+                "superclass": "Collection"
+            },
+            {
+                "type": "SubClassOf",
+                "subclass": "SensorOEMDemoDemoSource",
+                "superclass": "Collection"
+            },
+            {
+                "type": "ObjectPropertyDomain",
+                "property": "isPartOf",
+                "class": "SensorOEMDemo"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "hasLocation",
+                "class": "SensorOEMDemo"
+            },
+            {
+                "type": "ObjectPropertyDomain",
+                "property": "hasMember",
+                "class": "SensorOEMDemo"
+            },
+            {
+                "type": "ObjectPropertyRange",
+                "property": "hasMember",
+                "class": "SensorOEMDemo"
+            }
+        ]
+    },
+    "ontology_abox": [
+        {
+            "type": "DeclareIndividual",
+            "id": "SENS motion®"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "SENS motion®",
+            "class": "SensorApp"
+        },
+        {
+            "type": "DeclareIndividual",
+            "id": "SENS motion® – For Healthcare"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "SENS motion® – For Healthcare",
+            "class": "SensorDemo"
+        },
+        {
+            "type": "ObjectPropertyAssertion",
+            "subject": "SENS motion® – For Healthcare",
+            "property": "isPartOf",
+            "object": "SENS motion®"
+        },
+        {
+            "type": "DeclareIndividual",
+            "id": "SENS motion® – For Research"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "SENS motion® – For Research",
+            "class": "SensorDemo"
+        },
+        {
+            "type": "ObjectPropertyAssertion",
+            "subject": "SENS motion® – For Research",
+            "property": "isPartOf",
+            "object": "SENS motion®"
+        },
+        {
+            "type": "DeclareIndividual",
+            "id": "SENS motion® – Connect"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "SENS motion® – Connect",
+            "class": "SensorDemo"
+        },
+        {
+            "type": "ObjectPropertyAssertion",
+            "subject": "SENS motion® – Connect",
+            "property": "isPartOf",
+            "object": "SENS motion®"
+        },
+        {
+            "type": "DeclareIndividual",
+            "id": "demos10"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "demos10",
+            "class": "SensorDemo"
+        },
+        {
+            "type": "ObjectPropertyAssertion",
+            "subject": "demos10",
+            "property": "isPartOf",
+            "object": "SENS motion® – Connect"
+        },
+        {
+            "type": "DeclareIndividual",
+            "id": "icompression"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "icompression",
+            "class": "SensorDemo"
+        },
+        {
+            "type": "ObjectPropertyAssertion",
+            "subject": "icompression",
+            "property": "isPartOf",
+            "object": "SENS motion® – Connect"
+        },
+        {
+            "type": "DeclareIndividual",
+            "id": "ventriject"
+        },
+        {
+            "type": "ClassAssertion",
+            "individual": "ventriject",
+            "class": "SensorDemo"
+        },
+        {
+            "type": "ObjectPropertyAssertion",
+            "subject": "ventriject",
+            "property": "isPartOf",
+            "object": "SENS motion® – Connect"
+        }
+    ]
+}

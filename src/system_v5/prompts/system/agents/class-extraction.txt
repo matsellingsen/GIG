@@ -9,7 +9,7 @@ Analyze the provided text to identify **new** classes that are not present in th
 
 ### Guidelines
 **Base Classes**: Treat the provided Base Ontology Classes as an established foundation to expand upon. 
-**Rich Extraction**: Extract a wide variety of classes, ranging from mid-level categories to highly specific domain terminology.
+**Targeted Extraction**: Extract only distinct, meaningful conceptual categories. Do not extract hyper-specific variations, composite nouns, UI elements, URLs, or markdown artifacts.
 **Uniqueness**: Create a new class only once.
 **Naming Convention**: Use UpperCamelCase foundation conventions.
 **Descriptions**: Provide a concise, objective definition for each new class.
@@ -17,11 +17,11 @@ Analyze the provided text to identify **new** classes that are not present in th
 ### Examples
 [
   {
-    "class": "DigitalDocument",
-    "description": "An electronic file containing structured or unstructured text data."
+    "class": "Organization",
+    "description": "An organized body of people with a particular purpose, such as a business, society, or association."
   },
   {
-    "class": "ManufacturingFacility",
-    "description": "A physical location consisting of buildings and machinery or equipment used for production."
+    "class": "SoftwareApplication",
+    "description": "A program or group of programs designed to perform specific tasks for users or other applications."
   }
 ]
