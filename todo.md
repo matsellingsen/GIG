@@ -23,7 +23,7 @@
             -- inconsistency handler (?)
 
 
-## week 13
+## week 13 - 15
 - Continue tasks from week 12
     -- USE CONSTRAINED GENERATION WHICH OPENVINO_GENAI SUPPORTS (DONE)
     -- Also seperate different agent-types into each their py-file. (DONE)
@@ -35,15 +35,35 @@
     -- Seperate data & object properties in Axiom extractor and use in instance extractor.
 - Revise prompts to add concise definitions of concept, class, axiom, etc.. (V4)
     --> Makes it easier to verify and makes the construction more grounded in MY understanding
-    -- Class extractor V4 (DONE)
+    -- Class Extractor V4 (DONE)
     -- Axiom Extractor V4
     -- Instance Extractor V4
 - (V5) Instead of ^, use BFO as foundational ontology with classes and axioms.
     -- 1. Migrate functions that extract BFO classes and axioms (DONE)
-    -- 2. Rewrite Agent 1 to use them instead of the simple seed classes
-    -- 3. Split Axiom extractor agent into two:
+    -- 2. Rewrite Agent 1 to use them instead of the simple seed classes (DONE)
+    -- 3. Split Axiom extractor agent into two: (DONE)
         -- 1. (Hierarchically) Connect extracted classes to BFO classes as well as pairs of extracted classes
         -- 2. (Linearly) connect classes by properties (object or data property)
-    -- 4. Instance population agent acts as normal, but the Json constrainer might need to be updated(?)
+    -- 4. Instance population agent acts as normal, but the Json constrainer might need to be updated(?) (DONE)
+
+    TODO:
+    -- Revise the Base Ontology. (Either switch or simplify it) <-- Use pruned DUL (1/2 DONE)
+        -- Pruned DUL needs to be vetted. Preferably prune it manually yourself and avoid LLM-generated version.
+    -- Revise the Linear axiom agent.
+        -- Should only DUL axioms be allowed? <-- YES (for now)
+        -- Is the system prompt sufficiently describing and constraining the task?
+    -- Check if source text is necessary for the axiom extraction agents
+        -- Not for Hierarchcial but should be there for linear(?)
+    -- make sure allowed properties are correctly inserted to the prompts.
+    -- Handle that all classes must be connected to a base class. And remove islands 
+    -- Handle in-chunk overlap & inconsistencies (Instance agent especially)
+    -- Handle cross-chunk overlap & inconsistencies (Instance agent especially)
+    -- Seperate data & object properties in Axiom extractor and use in instance extractor.
 - clean up code: Remove unused stuff, document, etc.
 
+- RESOLVE TASK:
+    Extract classes (Done - load_classes_from_ontology)
+    Cluster semantically equivalents (Done - cluster_classes)
+    Resolve to canonical semantic IDs using an LLM (Done - ResolveClassesAgent)
+    Map class redundancies (Done - generating OWL:equivalentClass axioms instead of doing a destructive rewiring)
+    Entity Resolution / Instance Deduplication (Pending)

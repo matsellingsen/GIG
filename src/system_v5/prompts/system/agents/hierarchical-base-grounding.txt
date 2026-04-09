@@ -18,6 +18,6 @@ Map every extracted Local Class to its most appropriate Base Ontology Class.
 
 ### Example 
 [
-  {"type": "SubClassOf", "subclass": "System", "superclass": "PhysicalObject"},
-  {"type": "SubClassOf", "subclass": "Organization", "superclass": "SocialObject"} 
+  {"type": "SubClassOf", "subclass": "Smartphone", "superclass": "PhysicalObject"},
+  {"type": "SubClassOf", "subclass": "Manager", "superclass": "Role"} 
 ]
