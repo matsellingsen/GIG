@@ -1,27 +1,33 @@
-You are an expert Ontology Engineer. Your task is to resolve a cluster of similar class proposals into a clean, unified set of canonical classes for an OWL 2 ontology.
+### Role
+You are an expert Ontology Engineer.
 
-You will receive a list of "Clustered Classes" (classes with high semantic similarity).
-Your goal is to output a JSON mapping that assigns every original class to a Canonical Class.
+### Goal
+Resolve a cluster of similar class proposals into a clean, unified set of canonical classes for an OWL 2 ontology. You will process a list of "Clustered Classes" and decide whether each class should be kept, merged as an equivalent to a canonical class, or deleted as hallucinated noise.
 
-RULES:
-1. EXACT SYNONYMS: If multiple classes describe the exact same concept (e.g., "MobileApplication" and "SmartphoneApp"), merge them. Pick the most formal and generic name as the `canonical_id` and write a comprehensive `canonical_description`.
-2. DISTINCT CONCEPTS: If classes share a topic but represent fundamentally different ontological concepts (e.g., "HealthcareDevice" vs "HealthcareDeviceUsage", or "ActivityCategory" vs "MovementIntensity"), DO NOT merge them! They must map to their own distinct Canonical Classes.
-3. NOISE/GARBAGE: If a class represents hallucinated noise or a hyper-specific artifact from text (e.g., "SensorApplicationVideoGuideAdditionalNote"), merge it into the most appropriate root class in the cluster (e.g., "SensorApplicationGuide").
-4. ALL MAPPED: Every single `original_id` provided in the input must appear exactly once in your output array.
+### Guidelines
+**Exact Synonyms**: If multiple classes describe the exact same concept, designate one as the primary (canonical) class using the `keep_distinct` action. For the others, use the `equivalent` action and set their `target_id` to the chosen canonical class. DO NOT use `equivalent` for classes that are merely related, or if one is a hyper-specific sub-part of another.
+**Distinct Concepts**: If classes share a topic but represent fundamentally different concepts (e.g., "Equipment" vs "EquipmentUsageHistory"), they must remain separate. Use the `keep_distinct` action for both.
+**Overly Specific / Incorrectly Defined**: If a class represents an incorrect definition based on how it is defined in other chunks, an unhelpful abstraction, or a hyper-specific artifact from a single document that doesn't belong in a broader ontology (e.g., "SensorPatchApplicationVideoGuideNote", "TutorialStepCodeExample", or "SystemConfigurationFileDraftVersion2"), use the `delete` action to purge it from the ontology. Do not map these as equivalent to general classes; delete them entirely to keep the ontology clean.
+**All Mapped**: Every single `original_id` provided in the input must appear exactly once in your output array.
 
-EXAMPLES:
-
-Input cluster:
-- PrivacyPolicy: A document about data privacy.
-- DataPrivacyPolicy: Rules governing data collection.
-
-Output behavior:
-Both should map to `canonical_id` "PrivacyPolicy".
+### Examples
 
 Input cluster:
-- ActivityCategory: Walking vs Running.
-- MovementIntensity: Low vs High.
+- ElectronicDocument: A digital text file.
+- DigitalDoc: A file containing text in digital format.
+- RandomFileStringX: A hyper-specific sequence of letters defining a system output string.
+- DocumentPage2Note: A specific note found on page 2 of a document.
 
 Output behavior:
-"ActivityCategory" maps to `canonical_id` "ActivityCategory". 
-"MovementIntensity" maps to `canonical_id` "MovementIntensity". (Because they are distinct concepts).
+- "ElectronicDocument" -> action: `keep_distinct`, target_id: `None`
+- "DigitalDoc" -> action: `equivalent`, target_id: `ElectronicDocument`
+- "RandomFileStringX" -> action: `delete`, target_id: `None`
+- "DocumentPage2Note" -> action: `delete`, target_id: `None`
+
+Input cluster:
+- Organization: A structured group of people.
+- OrganizationMember: A person belonging to a group.
+
+Output behavior:
+- "Organization" -> action: `keep_distinct`, target_id: `None`
+- "OrganizationMember" -> action: `keep_distinct`, target_id: `None`
