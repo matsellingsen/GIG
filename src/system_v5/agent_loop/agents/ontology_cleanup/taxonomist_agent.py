@@ -31,27 +31,27 @@ class TaxonomistAgent(BaseConstructionAgent):
         )
 
         original_ids = [c["id"] for c in cluster]
-        num_original_classes = len(original_ids)
 
         # JSON schema for OpenVINO GenAI structured generation
+        # Using an object with explicit keys mathematically forces the SLM to generate every single class ID
         resolution_schema = {
             "type": "object",
             "properties": {
                 "resolved_classes": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "original_id": {"type": "string", "enum": original_ids},
-                            "action": {"type": "string", "enum": ["keep_distinct", "subclass"]},
-                            "target_id": {"type": ["string", "null"]}
-                        },
-                        "required": ["original_id", "action", "target_id"],
-                        "additionalProperties": False
+                    "type": "object",
+                    "properties": {
+                        orig_id: {
+                            "type": "object",
+                            "properties": {
+                                "action": {"type": "string", "enum": ["keep_distinct", "subclass"]},
+                                "target_id": {"type": ["string", "null"]}
+                            },
+                            "required": ["action", "target_id"],
+                            "additionalProperties": False
+                        } for orig_id in original_ids
                     },
-                    "minItems": num_original_classes,
-                    "maxItems": num_original_classes,
-                    "uniqueItems": True
+                    "required": original_ids,
+                    "additionalProperties": False
                 }
             },
             "required": ["resolved_classes"],
@@ -64,6 +64,22 @@ class TaxonomistAgent(BaseConstructionAgent):
         # Parse the outputs safely
         resolutions = []
         if raw_extractions and "resolved_classes" in raw_extractions:
-            resolutions = raw_extractions["resolved_classes"]
+            parsed_ids = set()
+            for orig_id, res in raw_extractions["resolved_classes"].items():
+                resolutions.append({
+                    "original_id": orig_id,
+                    "action": res.get("action", "keep_distinct"),
+                    "target_id": res.get("target_id")
+                })
+                parsed_ids.add(orig_id)
+            
+            # Universal Python Safety Net: If the LLM somehow omitted a class, auto-keep it
+            for orig_id in original_ids:
+                if orig_id not in parsed_ids:
+                    resolutions.append({
+                        "original_id": orig_id,
+                        "action": "keep_distinct",
+                        "target_id": None
+                    })
             
         return resolutions, prompt_used
