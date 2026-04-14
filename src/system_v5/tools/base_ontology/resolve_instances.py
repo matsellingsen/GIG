@@ -7,14 +7,17 @@ from collections import defaultdict
 
 sys.path.append(r"C:\Users\matse\gig\src\system_v5")
 from backends import load_backend
+
 from agent_loop.agents.ontology_cleanup.instance_polysemy_agent import InstancePolysemyAgent
 from agent_loop.agents.ontology_cleanup.semantic_cluster_agent import SemanticClusterAgent
+from agent_loop.agents.ontology_cleanup.instance_cleanup_agent import InstanceCleanupAgent
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.cluster import AgglomerativeClustering
 from scipy.sparse import hstack
 
 class InstanceResolver:
+
     def __init__(self, backend):
         self.backend = backend
 
@@ -101,6 +104,7 @@ class InstanceResolver:
         same_individual_assertions = []
         
         for group_key, items in exact_clusters.items():
+
             # Group by class within the exact string match
             class_groups = defaultdict(list)
             
@@ -338,6 +342,81 @@ class InstanceResolver:
         else:
             print("\n[!] Phase 4 did not produce any new SameIndividual assertions.")
 
+    def _phase5_instance_cleanup(self, ontology: dict, tbox_classes: dict):
+        print("\n" + "="*50)
+        print("PHASE 5: FINAL INSTANCE CLEANUP")
+        print("="*50)
+
+        # Gather all surviving instances with their context
+        instance_map = {}
+        for assertion in ontology.get("ontology_abox", []):
+            if assertion.get("type") == "ClassAssertion":
+                inst_id = assertion.get("individual", "")
+                inst_class = assertion.get("class", "")
+                inst_chunk = assertion.get("chunk_id", "")
+                instance_map[inst_id] = {
+                    "name": inst_id,
+                    "class": inst_class,
+                    "class_description": tbox_classes.get(inst_class, "No description available."),
+                    "properties": [],
+                    "chunk_id": inst_chunk
+                }
+        # Add properties
+        for assertion in ontology.get("ontology_abox", []):
+            if assertion.get("type") == "DataPropertyAssertion":
+                subj = assertion.get("subject", "")
+                if subj in instance_map:
+                    instance_map[subj]["properties"].append(f"{assertion.get('property')}: {assertion.get('value')}")
+            elif assertion.get("type") == "ObjectPropertyAssertion":
+                subj = assertion.get("subject", "")
+                if subj in instance_map:
+                    instance_map[subj]["properties"].append(f"{assertion.get('property')}: {assertion.get('object')}")
+
+        instances = list(instance_map.values())
+        if not instances:
+            print("No instances found for cleanup.")
+            return
+
+        agent = InstanceCleanupAgent(backend=self.backend)
+        #batch_size = 30  # Avoid context overflow for large ontologies
+        to_remove = set()
+        for instance in instances:
+            print(f"  - Evaluating instance '{instance['name']}' of class '{instance['class']}' with {len(instance['properties'])} properties.")
+            #batch = instances[i:i+batch_size]
+            resolution, _ = agent.run(instance)
+            print("resolution: ", resolution)
+            if resolution.get("action") == "remove":
+                    to_remove.add((instance["name"], instance["chunk_id"])) # We need chunk_id to ensure we only remove the exact instance in its local context, not homonyms in other chunks.
+
+        if not to_remove:
+            print("No instances marked for removal in Phase 5.")
+            return
+
+        print(f"Phase 5 will remove {len(to_remove)} instances (and their properties/relations).")
+
+        # Remove all assertions related to these instances
+        new_abox = []
+        for assertion in ontology.get("ontology_abox", []):
+            ids = set()
+            if assertion.get("type") == "ClassAssertion":
+                ids.add(assertion.get("individual", ""))
+            elif assertion.get("type") == "DeclareIndividual":
+                ids.add(assertion.get("id", ""))
+            elif assertion.get("type") == "DataPropertyAssertion":
+                ids.add(assertion.get("subject", ""))
+            elif assertion.get("type") == "ObjectPropertyAssertion":
+                ids.add(assertion.get("subject", ""))
+                ids.add(assertion.get("object", ""))
+            else:
+                # Keep unknown assertion types
+                new_abox.append(assertion)
+                continue
+            if not (ids & to_remove):
+                new_abox.append(assertion)
+
+        removed_count = len(ontology.get("ontology_abox", [])) - len(new_abox)
+        ontology["ontology_abox"] = new_abox
+        print(f"Phase 5 removed {removed_count} assertions related to flagged instances.")
     def _update_abox_with_assertions(self, ontology: dict, same_individual_assertions: list):
         print("\n[!] Updating ABox with Phase 1 SameIndividual assertions...")
         
@@ -352,7 +431,7 @@ class InstanceResolver:
         
         print(f"\nABox successfully enriched with {len(same_individual_assertions)} SameIndividual axioms.")
 
-    def resolve(self, ontology: dict, save_phase2: str = None, resume_from_phase3: bool = False) -> dict:
+    def resolve(self, ontology: dict, save_phase2: str = None, resume_from_phase3: bool = False, resume_from_phase5: bool = False) -> dict:
         
         # Build class lookup dictionary for descriptions
         tbox_classes = {}
@@ -424,12 +503,12 @@ class InstanceResolver:
                 full_equivalence_map[cls] = sorted(eq_group)
         print(f"Loaded {len(full_equivalence_map)} equivalence class groups from TBox axioms.")
 
-        if not resume_from_phase3:
+        if not resume_from_phase3 and not resume_from_phase5:
             # Phase 1
-            polysemy_candidates, same_individual_assertions = self._phase1_deterministic_normalization(ontology, equivalence_map)
+            polysemy_candidates, same_individual_assertions = self._phase1_deterministic_normalization(ontology, full_equivalence_map)
 
             # Phase 2
-            same_individual_assertions = self._phase2_polysemy_resolution(ontology, polysemy_candidates, tbox_classes, equivalence_map, same_individual_assertions)
+            same_individual_assertions = self._phase2_polysemy_resolution(ontology, polysemy_candidates, tbox_classes, full_equivalence_map, same_individual_assertions)
 
             # Update ABox with Phase 1 & 2 SameIndividual assertions so they are saved
             self._update_abox_with_assertions(ontology, same_individual_assertions)
@@ -441,11 +520,18 @@ class InstanceResolver:
         else:
             print("\n[!] Resuming from Phase 3: Skipping Phase 1 and Phase 2.")
 
-        # Phase 3
-        fuzzy_clusters = self._phase3_fuzzy_clustering(ontology)
+        if not resume_from_phase5:
+            # Phase 3
+            fuzzy_clusters = self._phase3_fuzzy_clustering(ontology)
 
-        # Phase 4
-        self._phase4_semantic_resolution(ontology, fuzzy_clusters, tbox_classes, full_equivalence_map)
+            # Phase 4
+            self._phase4_semantic_resolution(ontology, fuzzy_clusters, tbox_classes, full_equivalence_map)
+
+        else:
+            print("\n[!] Resuming from Phase 5: Skipping Phase 3 and Phase 4.")
+
+        # Phase 5: Final instance cleanup
+        self._phase5_instance_cleanup(ontology, tbox_classes)
 
         return ontology
 
@@ -457,6 +543,8 @@ def main():
     parser.add_argument("--dev", action="store_true", help="Run in development mode (does not save the output file).")
     parser.add_argument("--save_phase2", action="store_true", help="Save the ontology after Phase 2 completes in a local cache folder.")
     parser.add_argument("--resume_from_phase3", action="store_true", help="Skip Phase 1 and 2; assume the input ontology was already saved after Phase 2.")
+    parser.add_argument("--resume_from_phase5", action="store_true", help="Skip Phase 1-4; assume the input ontology was already saved after Phase 4.")
+
     args = parser.parse_args()
 
     backend = load_backend(name=args.backend)
@@ -478,7 +566,7 @@ def main():
         save_path = os.path.join(cache_dir, f"{name}_phase2_cached{ext}")
 
     resolver = InstanceResolver(backend=backend)
-    ontology = resolver.resolve(ontology, save_phase2=save_path, resume_from_phase3=args.resume_from_phase3)
+    ontology = resolver.resolve(ontology, save_phase2=save_path, resume_from_phase3=args.resume_from_phase3, resume_from_phase5=args.resume_from_phase5)
 
     # Save the updated ontology to a new file (skip saving in dev mode)
     if not args.dev:    
