@@ -19,7 +19,7 @@ For every single name in the cluster, you must select an action and a target_id:
 - **Identifiers & Numbers**: Be extremely careful with numbers, IDs, dimensional axes, dates, and version codes. Differing alphanumeric identifiers usually distinguish unique versions (like an Android vs iOS app, or v1 vs v2). Label them as `keep_distinct` unless it's a clear typo.
 - **Artifacts**: If there are trailing metadata texts (such as file paths, image sources, or layout artifacts), label them as `equivalent` and set the `target_id` to the cleaner version of the concept.
 
-### Examples
+### Example
 {
   "resolved_instances": {
     "United States of America": {

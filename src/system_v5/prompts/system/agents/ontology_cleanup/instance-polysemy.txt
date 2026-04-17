@@ -25,7 +25,7 @@ For each class (and its description) assigned to the entity name, select one act
 **Reject Incompatible Classes**: If the entity name is assigned to an unrelated homonym OR mutually exclusive domains (like a Physical Object vs. an Event), label the primary concept as `merge` and the incompatible concept as `reject`.
 **Remove Artifacts**: Identify classes that describe document formatting or text fragments and label them as `reject`.
 
-### Examples
+### Example
 {
   "resolutions": {
     "CoreDomainConcept": {"action": "merge"},

@@ -21,41 +21,91 @@ class InstanceResolver:
     def __init__(self, backend):
         self.backend = backend
 
-    def __resolve_class(self, raw_class: str, equivalence_map: dict) -> str:
-        """Helper to resolve a class to its canonical TBox equivalent."""
-        c = raw_class
-        visited = set()
-        while c in equivalence_map and c not in visited:
-            visited.add(c)
-            c = equivalence_map[c]
-        return c
+    def log_pruned_instances(self, ontology, instance_to_remove, phase_label):
+        """
+        Collects all assertions related to pruned instances and logs them under ontology['pruned'][phase_label].
+        """
+        pruned = []
+        for assertion in ontology.get("ontology_abox", []):
+            a_type = assertion.get("type")
+            chunk_id = assertion.get("chunk_id", None)
+            if a_type == "ClassAssertion":
+                key = (assertion.get("individual", ""), chunk_id)
+                if key in instance_to_remove:
+                    pruned.append(assertion)
+            elif a_type == "DeclareIndividual":
+                key = (assertion.get("id", ""), chunk_id)
+                if key in instance_to_remove:
+                    pruned.append(assertion)
+            elif a_type == "DataPropertyAssertion":
+                key = (assertion.get("subject", ""), chunk_id)
+                if key in instance_to_remove:
+                    pruned.append(assertion)
+            elif a_type == "ObjectPropertyAssertion":
+                subj_key = (assertion.get("subject", ""), chunk_id)
+                obj_key = (assertion.get("object", ""), chunk_id)
+                if subj_key in instance_to_remove or obj_key in instance_to_remove:
+                    pruned.append(assertion)
+        # Add to ontology['pruned']
+        if "pruned" not in ontology:
+            ontology["pruned"] = {}
+        if phase_label not in ontology["pruned"]:
+            ontology["pruned"][phase_label] = []
+        ontology["pruned"][phase_label].extend(pruned)
+        
+    def __resolve_classes(self, raw_class, equivalence_map: dict) -> list:
+        """Resolve a class or list of classes to its full equivalence set (always returns a list)."""
+        # Accepts string or list as input
+        if isinstance(raw_class, list):
+            classes = set(raw_class)
+        elif raw_class is not None:
+            classes = {raw_class}
+        else:
+            return []
+        # Expand all equivalence sets
+        result = set()
+        for c in classes:
+            eqs = equivalence_map.get(c, [c])
+            if isinstance(eqs, list):
+                result.update(eqs)
+            else:
+                result.add(eqs)
+        return sorted(result)
 
-    def _prune_abox(self, abox: list, class_actions: dict, equivalence_map: dict) -> tuple[list, int]:
+    def _prune_abox(self, ontology: dict, class_actions: dict = None, equivalence_map: dict = None, nodes_to_remove: set = None, phase_label: str = None) -> tuple[list, int]:
         """
-        Safely removes rejected classes and all their associated properties based on Phase 2 actions.
-        Uses (instance_id, chunk_id) to ensure exact local sub-graph deletion without affecting 
-        homonyms in other document chunks.
+        Removes all assertions related to nodes in nodes_to_remove, or (if not provided) those rejected by class_actions.
+        nodes_to_remove: set of (instance_id, chunk_id) to remove (Phase 5).
+        class_actions/equivalence_map: used for Phase 2.
         """
-        rejected_nodes = set()
-        # Pass 1: Identify all specific (orig_id, chunk_id) nodes to be rejected
-        for assertion in abox:
-            if assertion.get("type") == "ClassAssertion":
-                orig_id = assertion.get("individual", "")
-                raw_class = assertion.get("class", "")
-                resolved_class = self.__resolve_class(raw_class, equivalence_map)
-                
-                if class_actions.get((orig_id, resolved_class), "merge") == "reject":
-                    rejected_nodes.add((orig_id, assertion.get("chunk_id")))
-                    
-        # Pass 2: Filter the ABox
+        # get current ABox
+        abox = ontology.get("ontology_abox", [])
+
+        # Determine which nodes to remove based on class_actions and equivalence_map if nodes_to_remove is not explicitly provided
+        if nodes_to_remove is not None:
+            rejected_nodes = nodes_to_remove
+        else:
+            rejected_nodes = set()
+            if class_actions and equivalence_map:
+                for assertion in abox:
+                    if assertion.get("type") == "ClassAssertion":
+                        orig_id = assertion.get("individual", "")
+                        raw_class = assertion.get("class", "")
+                        resolved_classes = self.__resolve_classes(raw_class, equivalence_map)
+                        # If any equivalent class triggers rejection, reject
+                        if any(class_actions.get((orig_id, rc), "merge") == "reject" for rc in resolved_classes):
+                            rejected_nodes.add((orig_id, assertion.get("chunk_id")))
+
+        # Log pruned instances before actually removing them
+        self.log_pruned_instances(ontology, rejected_nodes, phase_label=phase_label or "unknown_phase")
+
+        # Now prune
         new_abox = []
         deleted_count = 0
-        
         for assertion in abox:
             chunk_id = assertion.get("chunk_id")
             a_type = assertion.get("type")
             is_dead = False
-            
             if a_type == "ClassAssertion":
                 is_dead = (assertion.get("individual", ""), chunk_id) in rejected_nodes
             elif a_type == "DeclareIndividual":
@@ -64,13 +114,11 @@ class InstanceResolver:
                 is_dead = (assertion.get("subject", ""), chunk_id) in rejected_nodes
             elif a_type == "ObjectPropertyAssertion":
                 is_dead = ((assertion.get("subject", ""), chunk_id) in rejected_nodes or
-                           (assertion.get("object", ""), chunk_id) in rejected_nodes)
-                           
+                        (assertion.get("object", ""), chunk_id) in rejected_nodes)
             if is_dead:
                 deleted_count += 1
             else:
                 new_abox.append(assertion)
-                
         return new_abox, deleted_count
 
     def _phase1_deterministic_normalization(self, ontology: dict, equivalence_map: dict) -> tuple[dict, list]:
@@ -104,15 +152,13 @@ class InstanceResolver:
         same_individual_assertions = []
         
         for group_key, items in exact_clusters.items():
-
-            # Group by class within the exact string match
+            # Group by class (equivalence set) within the exact string match
             class_groups = defaultdict(list)
-            
             for item in items:
                 orig_id = item["original_id"]
-                resolved_class = self.__resolve_class(item["class"], equivalence_map)
-                class_groups[resolved_class].append(orig_id)
-            
+                resolved_classes = self.__resolve_classes(item["class"], equivalence_map)
+                for rc in resolved_classes:
+                    class_groups[rc].append(orig_id)
             # For each class group, if there are multiple unique string variations/instances, assert SameIndividual
             for cls, ids in class_groups.items():
                 unique_ids = sorted(list(set(ids)))
@@ -122,7 +168,6 @@ class InstanceResolver:
                         "individuals": unique_ids,
                         "_class_ref": cls # Temporary ref to filter after Phase 2
                     })
-                
             # If there are multiple classes for this normalized string, this is Polysemy / Extraction Bleed!
             if len(class_groups) > 1:
                 polysemy_candidates[group_key] = class_groups
@@ -138,47 +183,38 @@ class InstanceResolver:
         print("="*50)
         
         class_actions = {}
-        
         if not polysemy_candidates:
             print("No identical-name collisions found. Skipping Phase 2.")
         else:
             print(f"Preparing {len(polysemy_candidates)} identical-string collisions for LLM review...")
             agent = InstancePolysemyAgent(backend=self.backend)
-            
             for i, (group_key, class_groups) in enumerate(polysemy_candidates.items()):
                 print(f"\n  [Collision {i+1}/{len(polysemy_candidates)}] String: '{group_key}'")
                 resolutions, _ = agent.run(group_key, class_groups, tbox_classes)
-                
                 for res in resolutions:
                     cls = res.get("class")
                     action = res.get("action")
                     print(f"    - Sub-Entity Class '{cls}' -> Action: {action.upper()}")
-                    
                     if cls in class_groups:
                         for orig_id in class_groups[cls]:
                             class_actions[(orig_id, cls)] = action
-
             print("\n[!] Applying Phase 2 Actions to ABox...")
-            abox = ontology.get("ontology_abox", [])
-            new_abox, deleted_count = self._prune_abox(abox, class_actions, equivalence_map)
-            
+            new_abox, deleted_count = self._prune_abox(ontology, class_actions, equivalence_map, phase_label="Phase 2: Polysemy Resolution")
             # Prune Phase 1 SameIndividual assertions that have been rejected in Phase 2
             pruned_same_individuals = []
             for sa in same_individual_assertions:
                 cls_ref = sa.pop("_class_ref", None) # Remove it so it doesn't leak into output
+                # Accept that cls_ref may be a class in the equivalence set, so check all equivalents
                 valid_individuals = [
-                    ind for ind in sa["individuals"] 
-                    if class_actions.get((ind, cls_ref), "merge") != "reject"
+                    ind for ind in sa["individuals"]
+                    if not any(class_actions.get((ind, eq_cls), "merge") == "reject" for eq_cls in equivalence_map.get(cls_ref, [cls_ref]))
                 ]
                 if len(valid_individuals) > 1:
                     sa["individuals"] = valid_individuals
                     pruned_same_individuals.append(sa)
-                    
             same_individual_assertions = pruned_same_individuals
-
             ontology["ontology_abox"] = new_abox
             print(f"Phase 2 applied. Automatically dropped {deleted_count} artifact assertions. (counting both ClassAssertions and associated properties)")
-            
         return same_individual_assertions
 
     def _phase3_fuzzy_clustering(self, ontology: dict) -> list:
@@ -379,44 +415,25 @@ class InstanceResolver:
 
         agent = InstanceCleanupAgent(backend=self.backend)
         #batch_size = 30  # Avoid context overflow for large ontologies
-        to_remove = set()
-        for instance in instances:
-            print(f"  - Evaluating instance '{instance['name']}' of class '{instance['class']}' with {len(instance['properties'])} properties.")
+        instance_to_remove = set()
+        for i, instance in enumerate(instances):
+            print(f"instance {i}/{len(instances)}")
             #batch = instances[i:i+batch_size]
             resolution, _ = agent.run(instance)
             print("resolution: ", resolution)
             if resolution.get("action") == "remove":
-                    to_remove.add((instance["name"], instance["chunk_id"])) # We need chunk_id to ensure we only remove the exact instance in its local context, not homonyms in other chunks.
+                    instance_to_remove.add((instance["name"], instance["chunk_id"])) # We need chunk_id to ensure we only remove the exact instance in its local context, not homonyms in other chunks.
 
-        if not to_remove:
+        if not instance_to_remove:
             print("No instances marked for removal in Phase 5.")
             return
 
-        print(f"Phase 5 will remove {len(to_remove)} instances (and their properties/relations).")
+        print(f"Phase 5 will remove {len(instance_to_remove)} instances (and their properties/relations).")
 
-        # Remove all assertions related to these instances
-        new_abox = []
-        for assertion in ontology.get("ontology_abox", []):
-            ids = set()
-            if assertion.get("type") == "ClassAssertion":
-                ids.add(assertion.get("individual", ""))
-            elif assertion.get("type") == "DeclareIndividual":
-                ids.add(assertion.get("id", ""))
-            elif assertion.get("type") == "DataPropertyAssertion":
-                ids.add(assertion.get("subject", ""))
-            elif assertion.get("type") == "ObjectPropertyAssertion":
-                ids.add(assertion.get("subject", ""))
-                ids.add(assertion.get("object", ""))
-            else:
-                # Keep unknown assertion types
-                new_abox.append(assertion)
-                continue
-            if not (ids & to_remove):
-                new_abox.append(assertion)
-
-        removed_count = len(ontology.get("ontology_abox", [])) - len(new_abox)
+        new_abox, removed_count = self._prune_abox(ontology, nodes_to_remove=instance_to_remove, phase_label="Phase 5: Final instance Cleanup")
         ontology["ontology_abox"] = new_abox
         print(f"Phase 5 removed {removed_count} assertions related to flagged instances.")
+
     def _update_abox_with_assertions(self, ontology: dict, same_individual_assertions: list):
         print("\n[!] Updating ABox with Phase 1 SameIndividual assertions...")
         
@@ -441,29 +458,6 @@ class InstanceResolver:
                 if cls_id:
                     tbox_classes[cls_id] = cls.get("description", "No description available.")
 
-        """
-        # Build equivalence map from TBox axioms to act as an in-memory reasoner
-        equivalence_map = {}
-        if "ontology_tbox" in ontology and "axioms" in ontology["ontology_tbox"]:
-            for axiom in ontology["ontology_tbox"]["axioms"]:
-                if axiom.get("type") == "equivalentClass":
-                    domains = axiom.get("domains", [])
-                    ranges = axiom.get("ranges", [])
-                    for d in domains:
-                        for r in ranges:
-                            if d != "Entity" and r != "Entity":
-                                union(d, r)
-
-        # Build equivalence sets
-        equivalence_sets = defaultdict(set)
-        for cls in parent:
-            root = find(cls)
-            equivalence_sets[root].add(cls)
-        # For each class, map to its full equivalence set (including itself)
-        full_equivalence_map = {}
-        for eq_group in equivalence_sets.values():
-            for cls in eq_group:
-                full_equivalence_map[cls] = sorted(eq_group) """
         # --- Build a complete, bidirectional, transitively closed equivalence mapping ---
         # Union-Find (Disjoint Set) for equivalence classes
         parent = {}

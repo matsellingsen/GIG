@@ -4,7 +4,7 @@ from tools.load_prompt import load_prompt
 class InstancePolysemyAgent(BaseConstructionAgent):
     def __init__(self, backend):
         # Load the corresponding system prompt
-        system_prompt = load_prompt(r"c:\Users\matse\gig\src\system_v5\prompts\system\agents\instance-polysemy.txt")
+        system_prompt = load_prompt(r"c:\Users\matse\gig\src\system_v5\prompts\system\agents\ontology_cleanup\instance-polysemy.txt")
         super().__init__(backend=backend, system_prompt=system_prompt)
 
     def run(self, group_key: str, class_groups: dict, tbox_classes: dict = None) -> tuple:
@@ -37,7 +37,6 @@ class InstancePolysemyAgent(BaseConstructionAgent):
             desc = tbox_classes.get(cls, "No description available.") if tbox_classes else "No description available."
             classes_block_lines.append(f"- Class '{cls}' ({len(ids)} extractions): {desc}")
         classes_block = "\n".join(classes_block_lines)
-        print(f"\n[DEBUG] Formatted classes block for LLM:\n{classes_block}\n") # Debug print to verify formatting
         user_msg = (
             f"### Target Entity Name\n'{group_key}'\n\n"
             f"### Assigned Classes and Descriptions\n{classes_block}\n\n"

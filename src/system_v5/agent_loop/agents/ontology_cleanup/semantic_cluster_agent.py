@@ -4,7 +4,7 @@ from tools.load_prompt import load_prompt
 class SemanticClusterAgent(BaseConstructionAgent):
     def __init__(self, backend):
         # Load the corresponding system prompt
-        system_prompt = load_prompt(r"c:\Users\matse\gig\src\system_v5\prompts\system\agents\semantic-cluster.txt")
+        system_prompt = load_prompt(r"c:\Users\matse\gig\src\system_v5\prompts\system\agents\ontology_cleanup\semantic-cluster.txt")
         super().__init__(backend=backend, system_prompt=system_prompt)
 
     def run(self, cluster: list, cluster_context: dict = None) -> tuple:
@@ -39,7 +39,6 @@ class SemanticClusterAgent(BaseConstructionAgent):
                 #if props:
                     #cluster_block += f"  Properties: {', '.join(props)}\n"
             cluster_block += "\n"
-        print(f"\n[DEBUG] Formatted cluster block for LLM:\n{cluster_block}\n") # Debug print to verify formatting
         user_msg = (
             f"### Fuzzy Cluster of Entities\n{cluster_block}\n"
             "### Goal\nAnalyze these similar entity names to determine which ones are actual synonyms/typos "
