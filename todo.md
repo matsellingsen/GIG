@@ -80,6 +80,7 @@
 - Carefully go through the cleanup pipeline, and lastly run it all in one go and save the result.
     --All stages are done, and a first-version final-ontology is made. 
     -- did not run it through all at once, but processed it in stages and cached.
-- clean up code: Remove unused stuff, document, etc. (1/2 DONE)
+- clean up code: Remove unused stuff, document, etc. (DONE)
+- Verify json -> ttl script (1/2 DONE)
 
 

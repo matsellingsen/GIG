@@ -308,16 +308,6 @@ class InstanceResolver:
                 if subj:
                     instance_details[subj]["properties"].append(f"{assertion.get('property')}: {assertion.get('object')}")
 
-        """
-        # Build reverse equivalence map for all equivalent classes
-        reverse_equivalence = defaultdict(set)
-        for k, v in full_equivalence_map.items():
-            reverse_equivalence[k].add(k)
-            reverse_equivalence[k].add(v)
-            reverse_equivalence[v].add(k)
-            reverse_equivalence[v].add(v)
-        """ 
-
         # Also, for each class, collect all classes that are equivalent (including itself)
         def get_equivalent_classes(cls_name):
             return full_equivalence_map.get(cls_name, [cls_name])

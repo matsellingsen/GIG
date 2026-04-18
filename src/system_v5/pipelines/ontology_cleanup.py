@@ -5,9 +5,9 @@ import argparse
 import os
 import json
 from backends import load_backend
-from tools.base_ontology.log_cleanup_metedata import add_cleanup_metadata
-from tools.base_ontology.resolve_classes import ClassResolver
-from tools.base_ontology.resolve_instances import InstanceResolver
+from system_v5.tools.ontology_cleanup.log_cleanup_metedata import add_cleanup_metadata
+from system_v5.tools.ontology_cleanup.resolve_classes import ClassResolver
+from system_v5.tools.ontology_cleanup.resolve_instances import InstanceResolver
 
 def main():
     parser = argparse.ArgumentParser()
