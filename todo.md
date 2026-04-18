@@ -59,11 +59,27 @@
     -- Handle in-chunk overlap & inconsistencies (Instance agent especially)
     -- Handle cross-chunk overlap & inconsistencies (Instance agent especially)
     -- Seperate data & object properties in Axiom extractor and use in instance extractor.
-- clean up code: Remove unused stuff, document, etc.
 
+## Week 16 -
 - RESOLVE TASK:
     Extract classes (Done - load_classes_from_ontology)
     Cluster semantically equivalents (Done - cluster_classes)
     Resolve to canonical semantic IDs using an LLM (Done - ResolveClassesAgent)
-    Map class redundancies (Done - generating OWL:equivalentClass axioms instead of doing a destructive rewiring)
-    Entity Resolution / Instance Deduplication (Pending)
+        -- SPLIT UP TO MULTIPLE AGENTS INSTEAD
+            --equivalency (DONE)
+            -- axioms (subclass) <-- omitted for now
+            -- auditor (delete incorrect classes) <-- omitted for now
+    Map class redundancies <--  ?
+    Entity Resolution / Instance Deduplication (working on)
+        -- Resolve identical non-aplhanumeric instances with different classes (polysemy-agent)
+        -- Resolve similar instances (similar-agent)
+        -- Perform some pruning of all instances (either only here and both here and before in the clusters/groups) (pruning-agent) (working on)
+
+- Noticed that making an action be attached to a description describing the reasoning behind the choice might be beneficial --> Accuracy vs. generation load question
+
+- Carefully go through the cleanup pipeline, and lastly run it all in one go and save the result.
+    --All stages are done, and a first-version final-ontology is made. 
+    -- did not run it through all at once, but processed it in stages and cached.
+- clean up code: Remove unused stuff, document, etc. (1/2 DONE)
+
+
