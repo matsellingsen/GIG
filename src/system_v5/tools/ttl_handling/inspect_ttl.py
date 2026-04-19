@@ -1,18 +1,20 @@
 from rdflib import Graph
 from rdflib.namespace import RDF, OWL, RDFS
 import argparse
+from .load_ttl import load_ttl
+from .resolve_ttl_path import resolve_ttl_path
 
 def inspect_ttl_file(file_path):
 
-    g = Graph()
-    g.parse(file_path, format="turtle")
-    print(f"Total triples: {len(g)}")
+    resolved_ttl_path = resolve_ttl_path(file_path)
+    ttl = load_ttl(file_path=resolved_ttl_path)
+    print(f"Total triples: {len(ttl['graph'])}")
 
-
-    classes = set(g.subjects(RDF.type, OWL.Class))
-    individuals = set(g.subjects(RDF.type, OWL.NamedIndividual))
-    object_properties = set(g.subjects(RDF.type, OWL.ObjectProperty))
-    datatype_properties = set(g.subjects(RDF.type, OWL.DatatypeProperty))
+    g = ttl["graph"]
+    classes = ttl["classes"]
+    individuals = ttl["individuals"]
+    object_properties = ttl["object_properties"]
+    datatype_properties = ttl["datatype_properties"]
 
     print(f"Classes: {len(classes)}")
     print(f"Individuals: {len(individuals)}")

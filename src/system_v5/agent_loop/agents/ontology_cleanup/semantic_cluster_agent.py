@@ -1,7 +1,7 @@
-from ..ontology_construction.base_construction_agent import BaseConstructionAgent
+from ..base_ontology_agent import BaseOntologyAgent
 from tools.load_prompt import load_prompt
 
-class SemanticClusterAgent(BaseConstructionAgent):
+class SemanticClusterAgent(BaseOntologyAgent):
     def __init__(self, backend):
         # Load the corresponding system prompt
         system_prompt = load_prompt(r"c:\Users\matse\gig\src\system_v5\prompts\system\agents\ontology_cleanup\semantic-cluster.txt")

@@ -1,7 +1,7 @@
-from .base_construction_agent import BaseConstructionAgent
+from ..base_ontology_agent import BaseOntologyAgent
 from tools.load_prompt import load_prompt
 
-class ClassExtractionAgent(BaseConstructionAgent):
+class ClassExtractionAgent(BaseOntologyAgent):
     def __init__(self, backend):
         # 1. Define Static Schema
         # We want a list of {"class": "Name", "desc": "Description"}

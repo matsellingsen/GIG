@@ -1,12 +1,12 @@
-"""Superclass Base agent for ontology construction."""
+"""Superclass Base agent for ontology tasks."""
 import json
-from ..agent import Agent
+from .agent import Agent
 from tools.structure_prompt import structure_prompt
 from tools.base_ontology.load_base_ontology import load_classes, load_axioms
 
-class BaseConstructionAgent(Agent):
+class BaseOntologyAgent(Agent):
     """
-    Base agent for ontology construction tasks.
+    Base agent for ontology tasks.
     Enforces a specific JSON schema on the backend's output.
     """
 
