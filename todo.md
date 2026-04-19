@@ -82,5 +82,7 @@
     -- did not run it through all at once, but processed it in stages and cached.
 - clean up code: Remove unused stuff, document, etc. (DONE)
 - Verify json -> ttl script (1/2 DONE)
+- Merge with main and start step 2 of inference component.
+
 
 
