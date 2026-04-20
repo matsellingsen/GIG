@@ -61,7 +61,7 @@ def main():
     global triple_extraction_agent
     triple_extraction_agent = ExtractTripleAgent(backend=backend)
 
-    input_str = ["wasn't a sensor small?", "who is Mats?", "what is Sens Motion?", "What activity types are supported by Sens Motion?"]
+    input_str = ["wasn't a sensor small?", "who is Mats Ellingsen?", "Who is Kasper?", "Is a rat subtype of a mammal? ", "what is Sens Motion?", "What activity types are supported by Sens Motion?"]
 
     for atomic_input in input_str:
         result = atomic_to_graph(atomic_input)
