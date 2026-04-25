@@ -115,7 +115,7 @@ class ExtractEntityAgent(BaseOntologyAgent):
                     {qtype_examples_str}
 
                     ### Instructions
-                    Using the rules and examples above:
+                    Using the guidelines and examples above:
                     1. Identify the primary entity the question is about.
                     2. Extract the full noun phrase exactly as written.
                     3. Classify it as `class`, `individual`, or `unknown`.
