@@ -49,7 +49,7 @@ def convert_ontology_json_to_turtle(ontology_json: dict) -> str:
         if axiom.get("type"):
             print(f"Processing axiom of type: {axiom['type']}")
             # Handle SubClassOf axioms
-            if axiom.get("type") == "subClassOf":
+            if axiom.get("type") == "SubClassOf":
                 subclass_uri = EX[safe_uri_fragment(axiom["subclass"])]
                 superclass_uri = EX[safe_uri_fragment(axiom["superclass"])]
                 g.add((subclass_uri, RDFS.subClassOf, superclass_uri))
@@ -137,7 +137,7 @@ def main():
     print(f"Loading ontology from: {args.ontology_json_path}")
     with open(args.ontology_json_path, 'r', encoding='utf-8') as f:
         ontology = json.load(f)
-
+    
     print("Converting ontology JSON to Turtle format...")
     ttl_output = convert_ontology_json_to_turtle(ontology)
 
