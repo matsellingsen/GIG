@@ -8,57 +8,57 @@ class ExtractEntityAgent(BaseOntologyAgent):
         super().__init__(backend=backend, system_prompt=system_prompt)
         self.question_type_to_entity_type_examples = {
             "definition": [
-                { "input": "What is a protocol?", "anchor_entity": "protocol", "entity_type": "class" },
-                { "input": "Who is Alice?", "anchor_entity": "Alice", "entity_type": "individual" },
-                { "input": "What is a framework?", "anchor_entity": "framework", "entity_type": "class" }
+                { "input": "What is a protocol?", "primary_entity": "protocol", "entity_type": "class" },
+                { "input": "Who is Alice?", "primary_entity": "Alice", "entity_type": "individual" },
+                { "input": "What is a framework?", "primary_entity": "framework", "entity_type": "class" }
             ],
 
             "taxonomic": [
-                { "input": "Is a sedan a type of vehicle?", "anchor_entity": "sedan", "entity_type": "class" },
-                { "input": "Is a notebook a kind of document?", "anchor_entity": "notebook", "entity_type": "class" },
-                { "input": "Is a laptop classified as equipment?", "anchor_entity": "laptop", "entity_type": "class" }
+                { "input": "Is a sedan a type of vehicle?", "primary_entity": "sedan", "entity_type": "class" },
+                { "input": "Is a notebook a kind of document?", "primary_entity": "notebook", "entity_type": "class" },
+                { "input": "Is a laptop classified as equipment?", "primary_entity": "laptop", "entity_type": "class" }
             ],
 
             "capability": [
-                { "input": "Can a scanner read text?", "anchor_entity": "scanner", "entity_type": "class" },
-                { "input": "Does a filter detect noise?", "anchor_entity": "filter", "entity_type": "class" },
-                { "input": "How does a system generate reports?", "anchor_entity": "system", "entity_type": "class" }
+                { "input": "Can a scanner read text?", "primary_entity": "scanner", "entity_type": "class" },
+                { "input": "Does a filter detect noise?", "primary_entity": "filter", "entity_type": "class" },
+                { "input": "How does a system generate reports?", "primary_entity": "system", "entity_type": "class" }
             ],
 
             "property": [
-                { "input": "How tall is the structure?", "anchor_entity": "structure", "entity_type": "class" },
-                { "input": "How tall is Alice?", "anchor_entity": "Alice", "entity_type": "individual" },
-                { "input": "What is the size of the container?", "anchor_entity": "container", "entity_type": "class" }
+                { "input": "How tall is the structure?", "primary_entity": "structure", "entity_type": "class" },
+                { "input": "How tall is Alice?", "primary_entity": "Alice", "entity_type": "individual" },
+                { "input": "What is the size of the container?", "primary_entity": "container", "entity_type": "class" }
             ],
 
-            "membership": [
-                { "input": "What items are included in the package?", "anchor_entity": "package", "entity_type": "class" },
-                { "input": "What parts does the system contain?", "anchor_entity": "system", "entity_type": "class" },
-                { "input": "What components are found in the kit?", "anchor_entity": "kit", "entity_type": "class" }
+            "membership": [{"input": "What items are included in the package?", "primary_entity": "package", "entity_type": "class"},
+                           {"input": "What parts does the system contain?", "primary_entity": "system", "entity_type": "class"},
+                           {"input": "What files are stored in Data Archive System?", "primary_entity": "Data Archive System", "entity_type": "individual"}
             ],
+
 
             "comparative": [
-                { "input": "Is the box bigger than the crate?", "anchor_entity": "box", "entity_type": "class" },
-                { "input": "Is Alice faster than Daniel?", "anchor_entity": "Alice", "entity_type": "individual" },
-                { "input": "Is the system more efficient than the module?", "anchor_entity": "system", "entity_type": "class" }
+                { "input": "Is the box bigger than the crate?", "primary_entity": "box", "entity_type": "class" },
+                { "input": "Is Alice faster than Daniel?", "primary_entity": "Alice", "entity_type": "individual" },
+                { "input": "Is the system more efficient than the module?", "primary_entity": "system", "entity_type": "class" }
             ],
 
             "quantification": [
-                { "input": "How many items does the box have?", "anchor_entity": "box", "entity_type": "class" },
-                { "input": "Are there any files in the folder?", "anchor_entity": "folder", "entity_type": "class" },
-                { "input": "How many entries belong to the list?", "anchor_entity": "list", "entity_type": "class" }
+                { "input": "How many items does the box have?", "primary_entity": "box", "entity_type": "class" },
+                { "input": "Are there any files in the folder?", "primary_entity": "folder", "entity_type": "class" },
+                { "input": "How many entries belong to the list?", "primary_entity": "list", "entity_type": "class" }
             ],
 
             "existential": [
-                { "input": "Does the file exist?", "anchor_entity": "file", "entity_type": "class" },
-                { "input": "Is Alice present?", "anchor_entity": "Alice", "entity_type": "individual" },
-                { "input": "Is there a document?", "anchor_entity": "document", "entity_type": "class" }
+                { "input": "Does the file exist?", "primary_entity": "file", "entity_type": "class" },
+                { "input": "Is Alice present?", "primary_entity": "Alice", "entity_type": "individual" },
+                { "input": "Is there a document?", "primary_entity": "document", "entity_type": "class" }
             ],
 
             "unknown": [
-                { "input": "What does this mean?", "anchor_entity": "unknown", "entity_type": "unknown" },
-                { "input": "Explain the situation.", "anchor_entity": "unknown", "entity_type": "unknown" },
-                { "input": "Help me understand this.", "anchor_entity": "unknown", "entity_type": "unknown" }
+                { "input": "What does this mean?", "primary_entity": "unknown", "entity_type": "unknown" },
+                { "input": "Explain the situation.", "primary_entity": "unknown", "entity_type": "unknown" },
+                { "input": "Help me understand this.", "primary_entity": "unknown", "entity_type": "unknown" }
             ]
             }
     
@@ -70,7 +70,7 @@ class ExtractEntityAgent(BaseOntologyAgent):
                 f'Input: "{ex["input"]}"\n\n'
                 "Output:\n"
                 "{\n"
-                f'  "entity": "{ex["anchor_entity"]}",\n'
+                f'  "entity": "{ex["primary_entity"]}",\n'
                 f'  "entity_type": "{ex["entity_type"]}"\n'
                 "}"
             )
@@ -105,25 +105,18 @@ class ExtractEntityAgent(BaseOntologyAgent):
             if qtype in self.question_type_to_entity_type_examples.keys():
                 qtype_examples_str = self._format_examples(self.question_type_to_entity_type_examples, qtype)
         user_msg = f"""
-                    ### Atomic Input
-                    {chunk_text}
-
-                    ### Question Classification
-                    {qc_info}
+                    ### Goal
+                    Identify the Primary Entity that functions as the subject or container in the relation expressed by the sentence. and classify it as 
+                    `class`, `individual`, or `unknown`.
 
                     ### Examples for This Question Type
                     {qtype_examples_str}
 
-                    ### Instructions
-                    Using the guidelines and examples above:
-                    1. Identify the primary entity the question is about.
-                    2. Extract the full noun phrase exactly as written.
-                    3. Classify it as `class`, `individual`, or `unknown`.
+                    ### Atomic Input
+                    {chunk_text}
 
-                    ### Goal
-                    Identify the primary entity the sentence is about and classify it as one of: `class`, `individual`, or `unknown`.
-                    Use the Question Classification information (if provided) to bias whether the entity is more likely a class or an individual.
-                    Return a JSON object matching the provided schema exactly.
+                    ### Question type
+                    {qc_info}
                     """
         #print("Running ExtractEntityAgent with user message:")
         #print(user_msg)

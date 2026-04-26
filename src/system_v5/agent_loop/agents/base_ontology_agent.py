@@ -30,7 +30,9 @@ class BaseOntologyAgent(Agent):
         # 1. Structure the prompt (Model-specific formatting)
         # We assume 'phi-4' or similar model type for structure_prompt
         full_prompt = structure_prompt("phi-npu-openvino", self.system_prompt, user_msg)
-
+        #print("Generated Prompt for Backend:")
+        #print(full_prompt)
+        #print("=================================")
         # 2. Call Backend with Constraint
         # The backend natively supports 'json_schema' arg now.
         response_str = self.backend.generate(full_prompt, json_schema=target_schema)

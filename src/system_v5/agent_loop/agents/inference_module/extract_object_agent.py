@@ -8,29 +8,152 @@ class ExtractObjectAgent(BaseOntologyAgent):
         )
         super().__init__(backend=backend, system_prompt=system_prompt)
 
-    def run(self, chunk_text: str, parsed_input: list = None,
-        entity_candidate: dict = None, relation_candidate: dict = None,
-        question_classification: dict = None) -> tuple:
+        # Few-shot examples per question type
+        self.qtype_to_examples = {
+            "definition": [
+                {
+                    "input": "What is a protocol?",
+                    "object": "unknown",
+                    "object_type": "unknown"
+                },
+                {
+                    "input": "Who is Alice?",
+                    "object": "unknown",
+                    "object_type": "unknown"
+                }
+            ],
+            "taxonomic": [
+                {
+                    "input": "Is a sedan a type of vehicle?",
+                    "object": "vehicle",
+                    "object_type": "class"
+                },
+                {
+                    "input": "Is a notebook a kind of document?",
+                    "object": "document",
+                    "object_type": "class"
+                }
+            ],
+            "capability": [
+                {
+                    "input": "Can a scanner read text?",
+                    "object": "text",
+                    "object_type": "class"
+                },
+                {
+                    "input": "Does a filter detect noise?",
+                    "object": "noise",
+                    "object_type": "class"
+                }
+            ],
+            "property": [
+                {
+                    "input": "How tall is the structure?",
+                    "object": "tall",
+                    "object_type": "literal"
+                },
+                {
+                    "input": "What is the size of the container?",
+                    "object": "size",
+                    "object_type": "literal"
+                }
+            ],
+            "membership": [
+                {
+                    "input": "What items are included in the package?",
+                    "object": "items",
+                    "object_type": "class"
+                },
+                {
+                    "input": "What parts does the system contain?",
+                    "object": "parts",
+                    "object_type": "class"
+                },
+                {
+                    "input": "What elements are included in the device?",
+                    "object": "elements",
+                    "object_type": "class"
+                }
+            ],
+            "comparative": [
+                {
+                    "input": "Is the box bigger than the crate?",
+                    "object": "crate",
+                    "object_type": "class"
+                },
+                {
+                    "input": "Is Alice faster than Daniel?",
+                    "object": "Daniel",
+                    "object_type": "individual"
+                }
+            ],
+            "quantification": [
+                {
+                    "input": "How many items does the box have?",
+                    "object": "items",
+                    "object_type": "class"
+                },
+                {
+                    "input": "How many entries belong to the list?",
+                    "object": "entries",
+                    "object_type": "class"
+                }
+            ],
+            "existential": [
+                {
+                    "input": "Does the file exist?",
+                    "object": "file",
+                    "object_type": "class"
+                },
+                {
+                    "input": "Is Alice present?",
+                    "object": "Alice",
+                    "object_type": "individual"
+                }
+            ],
+            "unknown": [
+                {
+                    "input": "Explain the situation.",
+                    "object": "unknown",
+                    "object_type": "unknown"
+                }
+            ]
+        }
 
-        # Optionally constrain object to parsed tokens when provided
-        # but allow question-type-driven overrides below.
+    def _format_examples(self, qtype):
+        blocks = []
+        for ex in self.qtype_to_examples.get(qtype, []):
+            block = (
+                f'Input: "{ex["input"]}"\n\n'
+                "Output:\n"
+                "{\n"
+                f'  "object": "{ex["object"]}",\n'
+                f'  "object_type": "{ex["object_type"]}"\n'
+                "}"
+            )
+            blocks.append(block)
+        return "\n\n".join(blocks)
+
+    def run(self, chunk_text: str, parsed_input: list = None,
+            entity_candidate: dict = None, relation_candidate: dict = None,
+            question_classification: dict = None) -> tuple:
+
+        # Determine question type
+        qtype = None
+        if isinstance(question_classification, dict):
+            qtype = question_classification.get("question_type", "unknown")
+        else:
+            qtype = str(question_classification) if question_classification else "unknown"
+
+        # Build schema
         if parsed_input:
             base_object_prop = {"type": "string", "enum": parsed_input + ["unknown"]}
         else:
             base_object_prop = {"type": "string"}
 
-        # Determine question type (accept dict or plain string)
-        qtype = None
-        if question_classification:
-            if isinstance(question_classification, dict):
-                qtype = question_classification.get("question_type")
-            else:
-                qtype = str(question_classification)
-
-        # Hard mapping: allowed object_type values per question type
         allowed_by_qtype = {
             "definition": ["unknown"],
-            "taxonomic": ["class"],
+            "taxonomic": ["class", "individual"],
             "capability": ["individual", "class"],
             "property": ["literal"],
             "membership": ["class", "individual"],
@@ -40,15 +163,15 @@ class ExtractObjectAgent(BaseOntologyAgent):
             "unknown": ["class", "individual", "literal", "unknown"]
         }
 
-        # Build object property schema constrained by question type when present
-        if qtype in allowed_by_qtype:
-            object_type_prop = {"type": "string", "enum": allowed_by_qtype[qtype]}
-        else:
-            object_type_prop = {"type": "string", "enum": ["class", "individual", "literal", "unknown"]}
+        object_type_prop = {
+            "type": "string",
+            "enum": allowed_by_qtype.get(qtype, ["class", "individual", "literal", "unknown"])
+        }
 
-        # For some qtypes, also hard-limit the object text itself (e.g., definition->unknown)
-        if qtype == "definition":
+        if qtype == "definition": #SKIP GENERATION (only 1 valid option so generation is trivial)
             object_prop = {"type": "string", "enum": ["unknown"]}
+            json_output = {"object": "unknown", "object_type": "unknown"}
+            return json_output, None # deterministic output (only "unknown" is valid), so skip the agent call and return directly
         else:
             object_prop = base_object_prop
 
@@ -62,17 +185,28 @@ class ExtractObjectAgent(BaseOntologyAgent):
             "additionalProperties": False
         }
 
-        # Entity context (optional)
-        entity_info = "None"
-        if isinstance(entity_candidate, dict):
-            entity_info = f"entity: {entity_candidate.get('entity')} (type: {entity_candidate.get('entity_type')})"
+        # Build user message
+        examples_str = self._format_examples(qtype)
 
-        # Relation context (optional)
-        relation_info = "None"
-        if isinstance(relation_candidate, dict):
-            relation_info = f"relation: {relation_candidate.get('relation')}"
+        entity_info = (
+            f'entity: {entity_candidate.get("entity")} (type: {entity_candidate.get("entity_type")})'
+            if isinstance(entity_candidate, dict) else "None"
+        )
+
+        relation_info = (
+            f'relation: {relation_candidate.get("relation")}'
+            if isinstance(relation_candidate, dict) else "None"
+        )
 
         user_msg = f"""
+        ### Goal
+        Extract the object (the target/value of the relation) and classify it as
+        `class`, `individual`, `literal`, or `unknown`. Use the Question Type and the
+        Entity/Relation context to determine where to look for the object and how to type it.
+
+        ### Examples for This Question Type
+        {examples_str}
+
         ### Atomic Input
         {chunk_text}
 
@@ -84,13 +218,6 @@ class ExtractObjectAgent(BaseOntologyAgent):
 
         ### Question Type
         {question_classification}
-
-        ### Goal
-        Extract the object (the target/value of the relation) and classify it as 
-        `class`, `individual`, `literal`, or `unknown`. Use the question type to 
-        determine where to look for the object and how to type it.
-
-        Return a JSON object matching the schema exactly.
         """
 
         return self.generate_with_schema(user_msg, schema)
