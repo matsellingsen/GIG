@@ -21,7 +21,7 @@ Your high-level approach for the inference component is well-structured and alig
 - You may want to standardize the representation (e.g., RDF triple, or a custom dict format).
 - Consider normalizing entity and property names to match ontology conventions.
 
-**STATUS**: pending
+**STATUS**: working on
 
 ## 3. Relevant Subgraph Retrieval
 **Your idea:** Traverse the ABox to find k-relevant sections.
@@ -94,3 +94,37 @@ Your high-level approach for the inference component is well-structured and alig
 ## Summary
 
 Your approach is solid and covers all key steps for robust, ontology-based QA under the closed world assumption. The main challenges will be in question decomposition, graph matching, and strict answer validation. If you want, we can next sketch out the interfaces or modules for each step, or discuss specific algorithms for subgraph retrieval and validation. Let me know your priorities!
+
+
+### Example
+**Input:**  
+"Is a pizza small?"
+
+**Output:**
+{
+  "subject": "pizza",
+  "predicate": "hasQuality",
+  "object": "small",
+  "confidence": 0.95  
+}
+
+**Input:**  
+"Tom goes to the store."
+
+**Output:**
+{
+  "subject": "Tom",
+  "predicate": "hasLocation",
+  "object": "store",
+  "confidence": 0.88
+}
+
+**Input:** "What relation does X have to Y?" 
+
+**Output:**
+{
+  "subject": "X",
+  "predicate": "unknown",
+  "object": "Y",
+  "confidence": 0.35
+}

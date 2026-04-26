@@ -82,7 +82,36 @@
     -- did not run it through all at once, but processed it in stages and cached.
 - clean up code: Remove unused stuff, document, etc. (DONE)
 - Verify json -> ttl script (1/2 DONE)
-- Merge with main and start step 2 of inference component.
+- Merge with main and start step 2 of inference component. (DONE)
+
+- INFERENCE MODULE:
+    - atomic question -> triple
+        -- Extract-triple-agent (paused)
+        --question classifier agent (DONE)
+        -- entity extraction agent (DONE)
+        -- relation extraction agent (DONE)
+        -- object extraction agent (DONE)
+
+    - Use triple & question-type to extract relevant parts of the ontology
+        -- Map canonical relation to axiom-type (DONE)
+        -- Resolve primary entity (to one/group of class(es) or instance(es) in ontology)
+            -- Retrieve top n candidates (DONE)
+            -- Use agent to choose amongst candidates (pending)
+        -- retrieve relevant sections from ontology:
+            WHERE:
+                --Tbox classes if entity is a class
+                -- Abox instances if entity is an individual
+            HOW:
+                -- Depends on question type
+            WHAT:
+                --Depends on relation type
+
+    - Pass both triple and relevant parts to answer-agent.
+
+TODO: 
+1. Revise the inference agents. A lot can be made deterministic.
+2. Extract relevant instances or classes from the ontology.
+
 
 
 
