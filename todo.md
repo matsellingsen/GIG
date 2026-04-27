@@ -105,9 +105,9 @@
         
     - Pass both triple and relevant parts to answer-agent. (pending)
         -- Init agent, and dynamically adjust user prompt and fetch correct system promt 
-           based on the question type and relation and object.
-        -- prepare relevant info
-        --run agent
+           based on the question type and relation and object. (DONE: but needs revising)
+        -- prepare relevant info (DONE: but needs revising)
+        --run agent (DONE: but needs revising)
         --validate agent output 
         --return final answer
 

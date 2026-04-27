@@ -754,10 +754,10 @@ def fetch_relevant_info(question_info: dict, ttl: dict):
     
     # 3. Retrieve full context for the resolved entity
     full_entity_context = retrieve_full_entity_context(resolved_entity, ttl["graph"])
-    print("== FULL ENTITY CONTEXT ==")
-    for key, value in full_entity_context.items():
-        print(f"{key}: {value}")
-    print("==========================")
+    #print("== FULL ENTITY CONTEXT ==")
+    #for key, value in full_entity_context.items():
+    #    print(f"{key}: {value}")
+    #print("==========================")
     
 
     # 4. Filter the full context based on the question type to get the most relevant information for answering the question.
