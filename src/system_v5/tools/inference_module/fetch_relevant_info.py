@@ -1,13 +1,17 @@
 import sys
+
+
 sys.path.append("C:\\Users\\matse\\gig\\src\\system_v5") # Adjust this path to point to the root of your project if needed
 
 from urllib.parse import unquote
-from rdflib import RDF, RDFS, OWL
+from rdflib import RDF, RDFS, OWL, URIRef
 import difflib
 import re
 
+from backends import load_backend
 from tools.ttl_handling.load_ttl import load_ttl
 from tools.ttl_handling.resolve_ttl_path import resolve_ttl_path
+from agent_loop.agents.inference_module.resolve_entity_agent import ResolveEntityAgent
 
 def canonical_relation_to_axiom_type(rel: str) -> str:
     rel = rel.lower().strip()
@@ -125,13 +129,15 @@ def canonical_relation_to_base_axiom(rel: str) -> str:
 
 from rdflib import RDF, RDFS, OWL
 
-def resolve_primary_entity(entity: str, entity_type: str, graph):
+def resolve_primary_entity(question_info: dict, graph):
     """
     Resolve an entity name to a URI in the TTL graph.
     Performs exact match on label and URI fragment, then fuzzy match.
     """
+    entity = question_info.get("entity", {}).get("value")
+
     #1. Fetch candidates
-    top_candidates = retrieve_top_candidates(graph, entity, top_n=5)
+    top_candidates = retrieve_top_candidates(graph, entity, top_n=3)
     print("Candidate entities retrieved from TTL:")
     for candidate in top_candidates:
         print("label: ", candidate["label"])
@@ -143,7 +149,23 @@ def resolve_primary_entity(entity: str, entity_type: str, graph):
         print("score: ", candidate["score"])
         print("-----------------------------!!")
     print("---------------------------------")
-    return None
+    ''
+    #2. resolve candidates with rules or ResolveEntityAgent
+    if not top_candidates: # no candidates found above threshold
+        print("No candidates found in TTL for entity:", entity)
+        return None
+    if len(top_candidates) == 1 or top_candidates[0]["score"] == 1.0: # exact match found (score 1.0) or only 1 candidate. Agent is redundant.
+        print("High confidence candidate found, selecting without agent:", top_candidates[0]["label"])
+        return top_candidates[0]
+    
+    # Multiple candidates are found, use agent to resolve
+    selected_candidate, _ = resolve_entity_agent.run(question_info, candidates=top_candidates, )
+    print("Selected candidate after resolution:", selected_candidate)
+    selected_candidate_label = selected_candidate.get("selected_label") if isinstance(selected_candidate, dict) else selected_candidate
+    final_candidate = next((c for c in top_candidates if c["label"] == selected_candidate_label), None)
+
+    return final_candidate
+
 def normalize(text: str) -> str:
     text = text.lower().strip()
     if text.endswith("s"):
@@ -280,10 +302,13 @@ def retrieve_top_candidates(graph, entity: str, top_n: int = 10):
         })
 
     enriched_candidates.sort(key=lambda x: x["score"], reverse=True)
-    return enriched_candidates[:top_n]
+
+    # drop candidates with a score less than 0.5
+    filtered_candidates = [cand for cand in enriched_candidates if cand["score"] >= 0.5]
+    return filtered_candidates[:top_n]
 
 
-def retrieve_axioms_for_entity(entity_uri, graph):
+def retrieve_axioms_for_entity(entity: dict, graph):
     """
     Retrieve all axioms involving the resolved entity.
     Returns a dict with keys:
@@ -292,7 +317,7 @@ def retrieve_axioms_for_entity(entity_uri, graph):
         - data_property_assertions
         - annotations
     """
-
+    entity_uri = entity["uri"]
     results = {
         "class_axioms": [],
         "object_property_assertions": [],
@@ -334,6 +359,208 @@ def retrieve_axioms_for_entity(entity_uri, graph):
             results["annotations"].append((p, entity_uri, o))
 
     return results
+from rdflib import RDF, RDFS, OWL, Literal
+from rdflib.namespace import XSD
+
+def retrieve_full_entity_context(entity: dict, graph):
+    """
+    Retrieve ALL relevant OWL information about an entity, including SAME-AS MERGING:
+    - direct types
+    - superclasses (direct + transitive)
+    - equivalent classes
+    - outgoing object properties
+    - outgoing data properties
+    - incoming object properties
+    - incoming data properties
+    - annotations on the entity
+    - annotations on its classes
+    - property semantics (domain, range, labels, comments)
+    - provenance (chunk_id)
+    - SAME-AS: merge context across all owl:sameAs-linked individuals
+    """
+
+    entity_uri = entity["uri"]
+
+    # ---------------------------------------------------------
+    # 0. Collect all URIs equivalent via owl:sameAs
+    # ---------------------------------------------------------
+    equivalent_uris = set([URIRef(entity_uri)])
+    queue = [URIRef(entity_uri)]
+
+    while queue:
+        current = queue.pop()
+
+        # outgoing sameAs
+        for eq in graph.objects(current, OWL.sameAs):
+            if eq not in equivalent_uris:
+                equivalent_uris.add(eq)
+                queue.append(eq)
+
+        # incoming sameAs
+        for eq in graph.subjects(OWL.sameAs, current):
+            if eq not in equivalent_uris:
+                equivalent_uris.add(eq)
+                queue.append(eq)
+    print(f"Equivalent URIs for entity {entity_uri}: {[str(uri) for uri in equivalent_uris]}")
+    # Helper to get readable labels
+    def get_label(x):
+        for lbl in graph.objects(x, RDFS.label):
+            return str(lbl)
+        return str(x).split("#")[-1]
+
+    # ---------------------------------------------------------
+    # 1. Direct rdf:type assertions
+    # ---------------------------------------------------------
+    types = []
+    for uri in equivalent_uris:
+        for t in graph.objects(uri, RDF.type):
+            if t not in (OWL.NamedIndividual, OWL.Class):
+                types.append(str(t))
+
+    # ---------------------------------------------------------
+    # 2. Superclasses (transitive)
+    # ---------------------------------------------------------
+    superclasses = set()
+
+    def collect_superclasses(cls):
+        for sup in graph.objects(cls, RDFS.subClassOf):
+            if sup not in superclasses:
+                superclasses.add(sup)
+                collect_superclasses(sup)
+
+    for uri in equivalent_uris:
+        for t in graph.objects(uri, RDF.type):
+            collect_superclasses(t)
+
+    superclasses = [str(s) for s in superclasses]
+
+    # ---------------------------------------------------------
+    # 3. Equivalent classes
+    # ---------------------------------------------------------
+    equivalent_classes = []
+    for uri in equivalent_uris:
+        for eq in graph.objects(uri, OWL.equivalentClass):
+            equivalent_classes.append(str(eq))
+
+    # ---------------------------------------------------------
+    # 4. Outgoing object properties
+    # ---------------------------------------------------------
+    outgoing_object_properties = []
+    for uri in equivalent_uris:
+        for p, o in graph.predicate_objects(uri):
+            if (p, RDF.type, OWL.ObjectProperty) in graph:
+                outgoing_object_properties.append({
+                    "property": str(p),
+                    "property_label": get_label(p),
+                    "object": str(o),
+                    "object_label": get_label(o)
+                })
+
+    # ---------------------------------------------------------
+    # 5. Outgoing data properties
+    # ---------------------------------------------------------
+    outgoing_data_properties = []
+    for uri in equivalent_uris:
+        for p, o in graph.predicate_objects(uri):
+            if (p, RDF.type, OWL.DatatypeProperty) in graph:
+                outgoing_data_properties.append({
+                    "property": str(p),
+                    "property_label": get_label(p),
+                    "value": str(o),
+                    "datatype": str(o.datatype) if isinstance(o, Literal) else None
+                })
+
+    # ---------------------------------------------------------
+    # 6. Incoming object properties
+    # ---------------------------------------------------------
+    incoming_object_properties = []
+    for uri in equivalent_uris:
+        for s, p in graph.subject_predicates(uri):
+            if (p, RDF.type, OWL.ObjectProperty) in graph:
+                incoming_object_properties.append({
+                    "subject": str(s),
+                    "subject_label": get_label(s),
+                    "property": str(p),
+                    "property_label": get_label(p)
+                })
+
+    # ---------------------------------------------------------
+    # 7. Incoming data properties
+    # ---------------------------------------------------------
+    incoming_data_properties = []
+    for uri in equivalent_uris:
+        for s, p in graph.subject_predicates(uri):
+            if (p, RDF.type, OWL.DatatypeProperty) in graph:
+                incoming_data_properties.append({
+                    "subject": str(s),
+                    "subject_label": get_label(s),
+                    "property": str(p),
+                    "property_label": get_label(p)
+                })
+
+    # ---------------------------------------------------------
+    # 8. Entity annotations
+    # ---------------------------------------------------------
+    annotations = {}
+    for uri in equivalent_uris:
+        for p, o in graph.predicate_objects(uri):
+            if (p, RDF.type, OWL.AnnotationProperty) in graph or p in (RDFS.label, RDFS.comment):
+                annotations[str(p)] = str(o)
+
+    # ---------------------------------------------------------
+    # 9. Class annotations
+    # ---------------------------------------------------------
+    class_annotations = {}
+    for uri in equivalent_uris:
+        for t in graph.objects(uri, RDF.type):
+            class_annotations[str(t)] = {
+                "label": get_label(t),
+                "comment": next((str(c) for c in graph.objects(t, RDFS.comment)), None)
+            }
+
+    # ---------------------------------------------------------
+    # 10. Property semantics
+    # ---------------------------------------------------------
+    property_semantics = {}
+    for uri in equivalent_uris:
+        for p in graph.predicates(uri, None):
+            if (p, RDF.type, OWL.ObjectProperty) in graph or (p, RDF.type, OWL.DatatypeProperty) in graph:
+                property_semantics[str(p)] = {
+                    "label": get_label(p),
+                    "comment": next((str(c) for c in graph.objects(p, RDFS.comment)), None),
+                    "domain": [str(d) for d in graph.objects(p, RDFS.domain)],
+                    "range": [str(r) for r in graph.objects(p, RDFS.range)]
+                }
+
+    # ---------------------------------------------------------
+    # 11. Provenance (chunk_id)
+    # ---------------------------------------------------------
+    provenance = []
+    CHUNK = URIRef("http://example.org/sensInnovationAps_ontology#chunk_id")
+
+    for uri in equivalent_uris:
+        for cid in graph.objects(uri, CHUNK):
+            provenance.append(str(cid))
+
+    # ---------------------------------------------------------
+    # Return merged context
+    # ---------------------------------------------------------
+    return {
+        "uri": str(entity_uri),
+        "label": get_label(URIRef(entity_uri)),
+        "types": types,
+        "superclasses": superclasses,
+        "equivalent_classes": equivalent_classes,
+        "outgoing_object_properties": outgoing_object_properties,
+        "outgoing_data_properties": outgoing_data_properties,
+        "incoming_object_properties": incoming_object_properties,
+        "incoming_data_properties": incoming_data_properties,
+        "annotations": annotations,
+        "class_annotations": class_annotations,
+        "property_semantics": property_semantics,
+        "provenance": provenance
+    }
+
 
 def filter_axioms(retrieved, base_axiom, owl_axiom_type):
     """
@@ -366,14 +593,13 @@ def filter_axioms(retrieved, base_axiom, owl_axiom_type):
         return retrieved["annotations"]
 
     return []
-from urllib.parse import unquote
 
-def visualize_retrieved_axioms(entity_uri, retrieved):
+def visualize_retrieved_axioms(entity: dict, retrieved):
     """
     Display retrieved TTL axioms as a simple node-edge diagram.
     """
-
-    entity_label = unquote(entity_uri.split("#")[-1])
+    entity_uri = entity["uri"]
+    entity_label = unquote(entity["uri"].split("#")[-1])
 
     print("\n================ TTL ENTITY GRAPH ================")
     print(f"Entity: {entity_label}")
@@ -414,6 +640,81 @@ def visualize_retrieved_axioms(entity_uri, retrieved):
 
     print("==================================================\n")
 
+def filter_context(question_info, full_context):
+    """Filter context based on question type."""
+    qtype = question_info["question_type"]
+
+    if qtype == "definition":
+        return {
+            "definition": {
+                "types": full_context["types"],
+                "superclasses": full_context["superclasses"],
+                "annotations": full_context["annotations"],
+                "class_descriptions": full_context["class_annotations"]
+            }
+        }
+
+    if qtype == "taxonomic":
+        return {
+            "taxonomic": {
+                "types": full_context["types"],
+                "superclasses": full_context["superclasses"],
+                "equivalent_classes": full_context["equivalent_classes"]
+            }
+        }
+
+    if qtype == "capability":
+        return {
+            "capability": {
+                "actions": full_context["outgoing_object_properties"],
+                "participations": full_context["incoming_object_properties"],
+                "property_semantics": full_context["property_semantics"]
+            }
+        }
+
+    if qtype == "property":
+        return {
+            "property": {
+                "data_properties": full_context["outgoing_data_properties"],
+                "object_properties": full_context["outgoing_object_properties"],
+                "property_semantics": full_context["property_semantics"]
+            }
+        }
+
+    if qtype == "membership":
+        return {
+            "membership": {
+                "outgoing": full_context["outgoing_object_properties"],
+                "incoming": full_context["incoming_object_properties"]
+            }
+        }
+
+    if qtype == "comparative":
+        return {
+            "comparative": {
+                "entity_A_properties": full_context["outgoing_data_properties"],
+                "property_semantics": full_context["property_semantics"]
+            }
+        }
+
+    if qtype == "quantification":
+        return {
+            "quantification": {
+                "countable_relations": full_context["outgoing_object_properties"],
+                "numeric_properties": full_context["outgoing_data_properties"]
+            }
+        }
+
+    if qtype == "existential":
+        return {
+            "existential": {
+                "matching_relations": full_context["outgoing_object_properties"],
+                "matching_properties": full_context["outgoing_data_properties"]
+            }
+        }
+
+    return {"unknown": {"message": "Unsupported or malformed question."}}
+
 def fetch_relevant_info(question_info: dict, ttl: dict):
     """
     Fetch relevant information from the TTL based on the extracted question information.
@@ -443,30 +744,42 @@ def fetch_relevant_info(question_info: dict, ttl: dict):
     print("base axiom:", base_axiom)
 
     #2. Resolve the primary entity and object to URIs in the TTL graph
-    resolved_entity = resolve_primary_entity(entity, entity_type, ttl["graph"])
+    resolved_entity = resolve_primary_entity(question_info, ttl["graph"])
+      
     
-    """
     print("resolved entity:", resolved_entity)
     if resolved_entity is None:
         print("Could not resolve primary entity to a URI in the TTL.")
         return None
     
-    #3. Retrieve all axioms involving the resolved entity
-    entity_axioms = retrieve_axioms_for_entity(resolved_entity, ttl["graph"])
-    print("retrieved axioms for entity:", entity_axioms)
+    # 3. Retrieve full context for the resolved entity
+    full_entity_context = retrieve_full_entity_context(resolved_entity, ttl["graph"])
+    print("== FULL ENTITY CONTEXT ==")
+    for key, value in full_entity_context.items():
+        print(f"{key}: {value}")
+    print("==========================")
+    
 
-    #3.1 Optionally visualize the retrieved axioms for debugging
-    visualize_retrieved_axioms(resolved_entity, entity_axioms)
+    # 4. Filter the full context based on the question type to get the most relevant information for answering the question.
+    relevant_info = filter_context(question_info, full_entity_context)
+    
+    # 5. group together all information and return it.
+    final_output = {
+        "question_info": question_info,
+        "resolved_entity": resolved_entity,
+        "relevant_info": relevant_info
+    }
+    return final_output
 
-    #4. Filter the retrieved axioms based on the axiom type and base axiom
-    #relevant_axioms = filter_axioms(entity_axioms, base_axiom, axiom_type)
-    #print("---------------------------------")
-    #print("relevant axioms after filtering:", relevant_axioms)
-    #print("===============================")
-    """
 
 def main():
     dummy_questions = {
+        "q0": {
+            "question_type": "definition",
+            "entity": {"value": "Kasper Lykkegaard", "type": "individual"},
+            "relation": "be",
+            "object": {"value": "unknown", "type": "unknown"}
+        },
         "q1": {
             "question_type": "membership",
             "entity": {"value": "Sens Motion", "type": "individual"},
@@ -503,13 +816,22 @@ def main():
         }
     }
     
+    # start backend and init agents/classes needed for entity resolution and TTL retrieval
+    global backend
+    backend = load_backend(name="phi-npu-openvino")
+    global resolve_entity_agent
+    resolve_entity_agent = ResolveEntityAgent(backend=backend)
+
     # load ttl 
     resolved_ttl_path = resolve_ttl_path(ttl_path=None)
     ttl = load_ttl(file_path=resolved_ttl_path) 
 
+    outputs = {}
     for qid, qinfo in dummy_questions.items():
         print(f"\n\n========== Processing question {qid} ==========")
-        fetch_relevant_info(question_info=qinfo, ttl=ttl)
+        outputs[qid] = fetch_relevant_info(question_info=qinfo, ttl=ttl)
+
+    return outputs
 
 if __name__ == "__main__":
     main()

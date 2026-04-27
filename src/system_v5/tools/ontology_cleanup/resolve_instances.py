@@ -380,7 +380,8 @@ class InstanceResolver:
                 inst_id = assertion.get("individual", "")
                 inst_class = assertion.get("class", "")
                 inst_chunk = assertion.get("chunk_id", "")
-                instance_map[inst_id] = {
+                unique_id = str(inst_id) + "_" + str(inst_chunk)
+                instance_map[unique_id] = {
                     "name": inst_id,
                     "class": inst_class,
                     "class_description": tbox_classes.get(inst_class, "No description available."),
@@ -391,12 +392,16 @@ class InstanceResolver:
         for assertion in ontology.get("ontology_abox", []):
             if assertion.get("type") == "DataPropertyAssertion":
                 subj = assertion.get("subject", "")
-                if subj in instance_map:
-                    instance_map[subj]["properties"].append(f"{assertion.get('property')}: {assertion.get('value')}")
+                chunk_id = assertion.get("chunk_id", "")
+                unique_id = str(subj) + "_" + str(chunk_id)
+                if unique_id in instance_map:
+                    instance_map[unique_id]["properties"].append(f"{assertion.get('property')}: {assertion.get('value')}")
             elif assertion.get("type") == "ObjectPropertyAssertion":
                 subj = assertion.get("subject", "")
-                if subj in instance_map:
-                    instance_map[subj]["properties"].append(f"{assertion.get('property')}: {assertion.get('object')}")
+                chunk_id = assertion.get("chunk_id", "")
+                unique_id = str(subj) + "_" + str(chunk_id)
+                if unique_id in instance_map:
+                    instance_map[unique_id]["properties"].append(f"{assertion.get('property')}: {assertion.get('object')}")
 
         instances = list(instance_map.values())
         if not instances:
