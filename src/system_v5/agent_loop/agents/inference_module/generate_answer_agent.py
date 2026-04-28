@@ -38,6 +38,8 @@ class GenerateAnswerAgent(BaseOntologyAgent):
     # ---------------------------------------------------------
     def _build_user_message(self, question_type, question_info, relevant_info):
 
+        atomic_question = question_info.get("atomic_question", "unknown")
+        question_info = {k: v for k, v in question_info.items() if k != "atomic_question"}  # drop atomic question from question info since it's already included separately in the prompt
         # Always include question info
         qinfo_str = json.dumps(question_info, indent=2)
         context_str = json.dumps(relevant_info, indent=2) if relevant_info else "None"
@@ -48,16 +50,14 @@ class GenerateAnswerAgent(BaseOntologyAgent):
             ### Task
             Answer a definition-style question. Describe what the entity *is* using only the provided context.
 
+            ### Atomic Question
+            {atomic_question}
+
             ### Question Information
             {qinfo_str}
 
             ### Relevant Ontology Context
             {context_str}
-
-            ### Instructions
-            - Use types, superclasses, annotations, and class descriptions.
-            - Do NOT invent facts.
-            - Keep the answer concise and factual.
             """
 
         # --- Taxonomic questions ---
@@ -66,32 +66,30 @@ class GenerateAnswerAgent(BaseOntologyAgent):
             ### Task
             Answer a taxonomic question about class membership or subclass relations.
 
+            ### Atomic Question
+            {atomic_question}
+
             ### Question Information
             {qinfo_str}
 
             ### Relevant Ontology Context
             {context_str}
-
-            ### Instructions
-            - Use types, superclasses, and equivalent classes.
-            - Do NOT use unrelated properties.
             """
-
+        
         # --- Capability questions ---
         if question_type == "capability":
             return f"""
             ### Task
             Answer a capability question about what the entity does or can do.
+            
+            ### Atomic Question
+            {atomic_question}
 
             ### Question Information
             {qinfo_str}
 
             ### Relevant Ontology Context
             {context_str}
-
-            ### Instructions
-            - Focus on outgoing/incoming object properties that represent actions or processes.
-            - Use property semantics to identify action-like relations.
             """
 
         # --- Property questions ---
@@ -99,16 +97,15 @@ class GenerateAnswerAgent(BaseOntologyAgent):
             return f"""
             ### Task
             Answer a property question about qualities, attributes, or literal values.
+            
+            ### Atomic Question
+            {atomic_question}
 
             ### Question Information
             {qinfo_str}
 
             ### Relevant Ontology Context
             {context_str}
-
-            ### Instructions
-            - Use data properties and object properties.
-            - If the question specifies a property (e.g., DOI), extract that value.
             """
 
         # --- Membership questions ---
@@ -116,15 +113,14 @@ class GenerateAnswerAgent(BaseOntologyAgent):
             return f"""
             ### Task
             Answer a membership question about parts, members, or included items.
+            ### Atomic Question
+            {atomic_question}
 
             ### Question Information
             {qinfo_str}
 
             ### Relevant Ontology Context
             {context_str}
-
-            ### Instructions
-            - Use outgoing/incoming object properties related to part/whole relations.
             """
 
         # --- Comparative questions ---
@@ -132,16 +128,14 @@ class GenerateAnswerAgent(BaseOntologyAgent):
             return f"""
             ### Task
             Answer a comparative question between two entities.
+            ### Atomic Question
+            {atomic_question}
 
             ### Question Information
             {qinfo_str}
 
             ### Relevant Ontology Context
             {context_str}
-
-            ### Instructions
-            - Compare numeric or literal properties.
-            - Use only the provided context.
             """
 
         # --- Quantification questions ---
@@ -150,14 +144,14 @@ class GenerateAnswerAgent(BaseOntologyAgent):
             ### Task
             Answer a quantification question about counts or quantities.
 
+            ### Atomic Question
+            {atomic_question}
+
             ### Question Information
             {qinfo_str}
 
             ### Relevant Ontology Context
             {context_str}
-
-            ### Instructions
-            - Count relevant outgoing object properties or numeric data properties.
             """
 
         # --- Existential questions ---
@@ -166,15 +160,14 @@ class GenerateAnswerAgent(BaseOntologyAgent):
             ### Task
             Answer an existential question (yes/no) about whether a property or relation exists.
 
+            ### Atomic Question
+            {atomic_question}
+
             ### Question Information
             {qinfo_str}
 
             ### Relevant Ontology Context
             {context_str}
-
-            ### Instructions
-            - Check if the relevant property or relation is present.
-            - Answer yes/no and provide a short justification.
             """
 
         # --- Unknown / fallback ---

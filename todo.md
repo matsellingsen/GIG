@@ -105,11 +105,14 @@
         
     - Pass both triple and relevant parts to answer-agent. (pending)
         -- Init agent, and dynamically adjust user prompt and fetch correct system promt 
-           based on the question type and relation and object. (DONE: but needs revising)
-        -- prepare relevant info (DONE: but needs revising)
-        --run agent (DONE: but needs revising)
-        --validate agent output 
-        --return final answer
+           based on the question type and relation and object. (DONE)
+        -- prepare relevant info (DONE)
+        --run agent (DONE)
+        -- map answer to context through deterministic script (DONE: but may have gaps not yet discovered)
+        --validate agent output (pending)
+        --return final answer (pending)
+    - Hard-code SENS Innviation APS as the root of certain base-axioms?
+        -- e.g. socialObject should mean that the object is a socialobject in the context of the company(?)
 
 TODO: 
 1. Revise the inference agents. A lot can be made deterministic.

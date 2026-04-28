@@ -814,6 +814,7 @@ def fetch_relevant_info(question_info: dict, ttl: dict):
             - object: A dictionary with 'value' and 'type' keys for the object.
     """
     # 0. Setup variables
+    atomic_question = question_info.get("atomic_question")
     question_type = question_info.get("question_type")
     entity = question_info.get("entity", {}).get("value")
     entity_type = question_info.get("entity", {}).get("type")
@@ -866,12 +867,14 @@ def fetch_relevant_info(question_info: dict, ttl: dict):
 def main():
     dummy_questions = {
         "q0": {
+            "atomic_question": "What is Sens Motion?",
             "question_type": "definition",
             "entity": {"value": "SENS Motion", "type": "individual"},
             "relation": "be",
             "object": {"value": "unknown", "type": "unknown"}
         },
         "q1": {
+            "atomic_question": "What parts does Sens Motion have?",
             "question_type": "membership",
             "entity": {"value": "Sens Motion", "type": "individual"},
             "relation": "has member",
@@ -879,6 +882,7 @@ def main():
         },
 
         "q2": {
+            "atomic_question": "Who is Mats Ellingsen?",
             "question_type": "definition",
             "entity": {"value": "Mats Ellingsen", "type": "individual"},
             "relation": "be",
@@ -886,6 +890,7 @@ def main():
         },
 
         "q3": {
+            "atomic_question": "What is the DOI of Sens Motion?",
             "question_type": "property",
             "entity": {"value": "Sens Motion", "type": "individual"},
             "relation": "have property",
@@ -893,6 +898,7 @@ def main():
         },
 
         "q4": {
+            "atomic_question": "What color does Sens Motion have?",
             "question_type": "property",
             "entity": {"value": "Sens Motion", "type": "individual"},
             "relation": "have property",
@@ -900,6 +906,7 @@ def main():
         },
 
         "q5": {
+            "atomic_question": "Is employee a subtype of person?",
             "question_type": "taxonomic",
             "entity": {"value": "employee", "type": "class"},
             "relation": "be subtype of",
