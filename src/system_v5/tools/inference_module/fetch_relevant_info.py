@@ -12,6 +12,8 @@ from backends import load_backend
 from tools.ttl_handling.load_ttl import load_ttl
 from tools.ttl_handling.resolve_ttl_path import resolve_ttl_path
 from agent_loop.agents.inference_module.resolve_entity_agent import ResolveEntityAgent
+import urllib.parse
+
 
 def canonical_relation_to_axiom_type(rel: str) -> str:
     rel = rel.lower().strip()
@@ -366,7 +368,7 @@ def retrieve_full_entity_context(entity: dict, graph):
     """
     Retrieve ALL relevant OWL information about an entity, including SAME-AS MERGING:
     - direct types
-    - superclasses (direct + transitive)
+    - superclasses (transitive)
     - equivalent classes
     - outgoing object properties
     - outgoing data properties
@@ -402,6 +404,7 @@ def retrieve_full_entity_context(entity: dict, graph):
                 equivalent_uris.add(eq)
                 queue.append(eq)
     print(f"Equivalent URIs for entity {entity_uri}: {[str(uri) for uri in equivalent_uris]}")
+
     # Helper to get readable labels
     def get_label(x):
         for lbl in graph.objects(x, RDFS.label):
@@ -409,30 +412,43 @@ def retrieve_full_entity_context(entity: dict, graph):
         return str(x).split("#")[-1]
 
     # ---------------------------------------------------------
-    # 1. Direct rdf:type assertions
+    # 1. Direct types (most specific)
     # ---------------------------------------------------------
-    types = []
-    for uri in equivalent_uris:
-        for t in graph.objects(uri, RDF.type):
-            if t not in (OWL.NamedIndividual, OWL.Class):
-                types.append(str(t))
+    all_types = list(graph.objects(entity_uri, RDF.type))
+
+    def is_subclass_of(c, d):
+        if c == d:
+            return False  # strict subclass only
+        to_visit = [c]
+        visited = set()
+        while to_visit:
+            cur = to_visit.pop()
+            for sup in graph.objects(cur, RDFS.subClassOf):
+                if sup == d:
+                    return True
+                if sup not in visited:
+                    visited.add(sup)
+                    to_visit.append(sup)
+        return False
+
+    # ✅ Correct: keep the *most specific* classes
+    direct_types = [c for c in all_types if not any(is_subclass_of(d, c) for d in all_types if d != c)]
 
     # ---------------------------------------------------------
-    # 2. Superclasses (transitive)
+    # 2. Superclasses seperated by direct types (transitive)
     # ---------------------------------------------------------
-    superclasses = set()
+    superclasses_by_direct_type = {}
 
-    def collect_superclasses(cls):
+    def collect_supers(cls, acc):
         for sup in graph.objects(cls, RDFS.subClassOf):
-            if sup not in superclasses:
-                superclasses.add(sup)
-                collect_superclasses(sup)
+            if sup not in acc:
+                acc.add(sup)
+                collect_supers(sup, acc)
 
-    for uri in equivalent_uris:
-        for t in graph.objects(uri, RDF.type):
-            collect_superclasses(t)
-
-    superclasses = [str(s) for s in superclasses]
+    for dt in direct_types:
+        acc = set()
+        collect_supers(dt, acc)
+        superclasses_by_direct_type[str(dt)] = [str(s) for s in acc]
 
     # ---------------------------------------------------------
     # 3. Equivalent classes
@@ -443,61 +459,70 @@ def retrieve_full_entity_context(entity: dict, graph):
             equivalent_classes.append(str(eq))
 
     # ---------------------------------------------------------
-    # 4. Outgoing object properties
+    # PROPERTY GROUPING BY DIRECT TYPE
     # ---------------------------------------------------------
-    outgoing_object_properties = []
+
+    # Helper: check if a property belongs to a class via rdfs:domain
+    def property_applies_to_type(prop, cls):
+        for dom in graph.objects(prop, RDFS.domain):
+            if dom == cls or is_subclass_of(cls, dom):
+                return True
+        return False
+
+    # Initialize structure
+    properties_by_type = {
+        str(dt): {
+            "outgoing_object_properties": [],
+            "outgoing_data_properties": [],
+            "incoming_object_properties": [],
+            "incoming_data_properties": []
+        }
+        for dt in direct_types
+    }
+
+    # Iterate over equivalent URIs
     for uri in equivalent_uris:
+
+        # Outgoing object properties
         for p, o in graph.predicate_objects(uri):
-            if (p, RDF.type, OWL.ObjectProperty) in graph:
-                outgoing_object_properties.append({
-                    "property": str(p),
-                    "property_label": get_label(p),
-                    "object": str(o),
-                    "object_label": get_label(o)
-                })
+            if isinstance(o, URIRef):
+                for dt in direct_types:
+                    if property_applies_to_type(p, dt):
+                        properties_by_type[str(dt)]["outgoing_object_properties"].append({
+                            "property": str(p),
+                            "object": str(o)
+                        })
 
-    # ---------------------------------------------------------
-    # 5. Outgoing data properties
-    # ---------------------------------------------------------
-    outgoing_data_properties = []
-    for uri in equivalent_uris:
+        # Outgoing data properties
         for p, o in graph.predicate_objects(uri):
-            if (p, RDF.type, OWL.DatatypeProperty) in graph:
-                outgoing_data_properties.append({
-                    "property": str(p),
-                    "property_label": get_label(p),
-                    "value": str(o),
-                    "datatype": str(o.datatype) if isinstance(o, Literal) else None
-                })
+            if not isinstance(o, URIRef):
+                for dt in direct_types:
+                    if property_applies_to_type(p, dt):
+                        properties_by_type[str(dt)]["outgoing_data_properties"].append({
+                            "property": str(p),
+                            "value": str(o),
+                            "datatype": str(o.datatype) if hasattr(o, "datatype") else None
+                        })
 
-    # ---------------------------------------------------------
-    # 6. Incoming object properties
-    # ---------------------------------------------------------
-    incoming_object_properties = []
-    for uri in equivalent_uris:
+        # Incoming object properties
         for s, p in graph.subject_predicates(uri):
-            if (p, RDF.type, OWL.ObjectProperty) in graph:
-                incoming_object_properties.append({
-                    "subject": str(s),
-                    "subject_label": get_label(s),
-                    "property": str(p),
-                    "property_label": get_label(p)
-                })
+            if isinstance(s, URIRef):
+                for dt in direct_types:
+                    if property_applies_to_type(p, dt):
+                        properties_by_type[str(dt)]["incoming_object_properties"].append({
+                            "subject": str(s),
+                            "property": str(p)
+                        })
 
-    # ---------------------------------------------------------
-    # 7. Incoming data properties
-    # ---------------------------------------------------------
-    incoming_data_properties = []
-    for uri in equivalent_uris:
+        # Incoming data properties
         for s, p in graph.subject_predicates(uri):
-            if (p, RDF.type, OWL.DatatypeProperty) in graph:
-                incoming_data_properties.append({
-                    "subject": str(s),
-                    "subject_label": get_label(s),
-                    "property": str(p),
-                    "property_label": get_label(p)
-                })
-
+            if not isinstance(s, URIRef):
+                for dt in direct_types:
+                    if property_applies_to_type(p, dt):
+                        properties_by_type[str(dt)]["incoming_data_properties"].append({
+                            "subject": str(s),
+                            "property": str(p)
+                        })
     # ---------------------------------------------------------
     # 8. Entity annotations
     # ---------------------------------------------------------
@@ -508,26 +533,24 @@ def retrieve_full_entity_context(entity: dict, graph):
                 annotations[str(p)] = str(o)
 
     # ---------------------------------------------------------
-    # 9. Class annotations
+    # 9. Class descriptions
     # ---------------------------------------------------------
-    class_annotations = {}
+    class_descriptions = {}
     for uri in equivalent_uris:
         for t in graph.objects(uri, RDF.type):
-            class_annotations[str(t)] = {
-                "label": get_label(t),
-                "comment": next((str(c) for c in graph.objects(t, RDFS.comment)), None)
+            class_descriptions[str(t)] = {
+                "description": next((str(c) for c in graph.objects(t, RDFS.comment)), None)
             }
 
     # ---------------------------------------------------------
-    # 10. Property semantics
+    # 10. Object Property Descriptions
     # ---------------------------------------------------------
-    property_semantics = {}
+    object_property_descriptions = {}
     for uri in equivalent_uris:
         for p in graph.predicates(uri, None):
-            if (p, RDF.type, OWL.ObjectProperty) in graph or (p, RDF.type, OWL.DatatypeProperty) in graph:
-                property_semantics[str(p)] = {
-                    "label": get_label(p),
-                    "comment": next((str(c) for c in graph.objects(p, RDFS.comment)), None),
+            if (p, RDF.type, OWL.ObjectProperty) in graph:
+                object_property_descriptions[str(p)] = {
+                    "description": next((str(c) for c in graph.objects(p, RDFS.comment)), None),
                     "domain": [str(d) for d in graph.objects(p, RDFS.domain)],
                     "range": [str(r) for r in graph.objects(p, RDFS.range)]
                 }
@@ -548,16 +571,13 @@ def retrieve_full_entity_context(entity: dict, graph):
     return {
         "uri": str(entity_uri),
         "label": get_label(URIRef(entity_uri)),
-        "types": types,
-        "superclasses": superclasses,
+        "types": direct_types,
+        "superclasses": superclasses_by_direct_type,
         "equivalent_classes": equivalent_classes,
-        "outgoing_object_properties": outgoing_object_properties,
-        "outgoing_data_properties": outgoing_data_properties,
-        "incoming_object_properties": incoming_object_properties,
-        "incoming_data_properties": incoming_data_properties,
+        "properties_by_type": properties_by_type,
         "annotations": annotations,
-        "class_annotations": class_annotations,
-        "property_semantics": property_semantics,
+        "class_descriptions": class_descriptions,
+        "object_property_descriptions": object_property_descriptions,
         "provenance": provenance
     }
 
@@ -650,7 +670,7 @@ def filter_context(question_info, full_context):
                 "types": full_context["types"],
                 "superclasses": full_context["superclasses"],
                 "annotations": full_context["annotations"],
-                "class_descriptions": full_context["class_annotations"]
+                "class_descriptions": full_context["class_descriptions"]
             }
         }
 
@@ -668,7 +688,7 @@ def filter_context(question_info, full_context):
             "capability": {
                 "actions": full_context["outgoing_object_properties"],
                 "participations": full_context["incoming_object_properties"],
-                "property_semantics": full_context["property_semantics"]
+                "object_property_semantics": full_context["object_property_semantics"]
             }
         }
 
@@ -677,7 +697,7 @@ def filter_context(question_info, full_context):
             "property": {
                 "data_properties": full_context["outgoing_data_properties"],
                 "object_properties": full_context["outgoing_object_properties"],
-                "property_semantics": full_context["property_semantics"]
+                "object_property_semantics": full_context["object_property_semantics"]
             }
         }
 
@@ -693,7 +713,7 @@ def filter_context(question_info, full_context):
         return {
             "comparative": {
                 "entity_A_properties": full_context["outgoing_data_properties"],
-                "property_semantics": full_context["property_semantics"]
+                "object_property_semantics": full_context["object_property_semantics"]
             }
         }
 
@@ -714,6 +734,73 @@ def filter_context(question_info, full_context):
         }
 
     return {"unknown": {"message": "Unsupported or malformed question."}}
+
+def normalize_and_clean_context_for_llm(relevant_info):
+    """
+    Normalize interpreted context for LLM consumption:
+    - Remove all URIs (convert to readable labels)
+    - URL-decode labels
+    - Recursively normalize nested lists/dicts
+    - Keep only property label + comment (drop domain/range)
+    """
+    #def clean_structure(val: dict):
+
+    def strip_uri(value):
+        """Convert URI → label, decode URL-encoded fragments."""
+        if not isinstance(value, str):
+            return value
+        if "#" in value:
+            value = value.split("#")[-1]
+        return urllib.parse.unquote(value)
+
+    def normalize_value(val):
+        """Recursively normalize any value."""
+        # String → strip URI
+        if isinstance(val, str):
+            return strip_uri(val)
+
+        # List → normalize each element
+        if isinstance(val, list):
+            return [normalize_value(x) for x in val]
+
+        # Dict → normalize keys and values
+        if isinstance(val, dict):
+            normalized = {}
+            for k, v in val.items():
+                # Special case: object property semantics → keep only label + description
+                if k == "object_property_descriptions":
+                    normalized[k] = normalize_object_property_semantics(v)
+                else:
+                    normalized[strip_uri(k)] = normalize_value(v)
+            return normalized
+
+        # Other types → return as-is
+        return val
+
+    def normalize_object_property_semantics(semantics_dict):
+        """
+        Keep only:
+        - description
+        Remove:
+        - domain
+        - range
+        """
+        cleaned = {}
+        for prop_uri, info in semantics_dict.items():
+            prop_name = strip_uri(prop_uri)
+            cleaned[prop_name] = {
+                "description": info.get("description")
+            }
+        return cleaned
+
+    # ---------------------------------------------------------
+    # Normalize each question_type block
+    # ---------------------------------------------------------
+    normalized = normalize_value(relevant_info)
+
+    normalized_and_cleaned = normalized #clean_structure(normalized)
+
+    return normalized_and_cleaned
 
 def fetch_relevant_info(question_info: dict, ttl: dict):
     """
@@ -761,13 +848,17 @@ def fetch_relevant_info(question_info: dict, ttl: dict):
     
 
     # 4. Filter the full context based on the question type to get the most relevant information for answering the question.
-    relevant_info = filter_context(question_info, full_entity_context)
+    #relevant_info = filter_context(question_info, full_entity_context)
+    relevant_info = full_entity_context # for now, skip filtering to show all retrieved info. We can re-introduce this later once we have the full context retrieval working well.
     
+    # 5. Normalize the relevant information to be LLM-friendly (no URIs, only human-readable labels and comments).
+    relevant_info_normalized = normalize_and_clean_context_for_llm(relevant_info)
+
     # 5. group together all information and return it.
     final_output = {
         "question_info": question_info,
         "resolved_entity": resolved_entity,
-        "relevant_info": relevant_info
+        "relevant_info": relevant_info_normalized
     }
     return final_output
 
@@ -776,7 +867,7 @@ def main():
     dummy_questions = {
         "q0": {
             "question_type": "definition",
-            "entity": {"value": "Kasper Lykkegaard", "type": "individual"},
+            "entity": {"value": "SENS Motion", "type": "individual"},
             "relation": "be",
             "object": {"value": "unknown", "type": "unknown"}
         },

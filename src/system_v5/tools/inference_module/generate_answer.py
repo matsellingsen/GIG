@@ -31,8 +31,12 @@ def main():
         relevant_info = info.get("relevant_info")
         print(f"\n\n========== Generating answer for question {qid} ==========")
         print(f"Question info: {question_info}")
-        print(f"Resolved entity: {resolved_entity}")
-        print(f"Relevant info: {relevant_info}")
+        #print(f"Resolved entity: {resolved_entity}")
+        #print(f"Relevant info: {relevant_info}")
+        print(" == Relevant info details ==")
+        for key, value in relevant_info.items():
+            print(f"  {key}: {value}")
+        print(" ====================")
 
         answer = generate_answer(question_info=question_info, relevant_info=relevant_info)
         print(f"Generated answer: {answer}")
