@@ -122,7 +122,11 @@
             -- I.e. one single user/system prompt instead of one for each question type.
     - Hard-code SENS Innviation APS as the root of certain base-axioms?
         -- e.g. socialObject should mean that the object is a socialobject in the context of the company(?)
-    - Fix nondeterministic operations. e.g. set -> list scrambles original order randomly, and 
+    - Fix nondeterministic operations. (DONE)
+    - Decide how to test the system. Local tests, baselines etc..
+        -- I believe full end-to-end baselines might be to big to do
+        -- It could be better to test sub-components robustness and reliability, 
+        -- and the whole inference pipeline by itself and prove/argue for answer completeness, grounding etc..
 
 TODO: 
 1. Revise the inference agents. A lot can be made deterministic. (partly done)
