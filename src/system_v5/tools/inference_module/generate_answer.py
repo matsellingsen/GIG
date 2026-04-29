@@ -6,6 +6,7 @@ import argparse
 from backends import load_backend
 from tools.inference_module.fetch_relevant_info import main as fetch_info_main
 from tools.inference_module.map_answer_to_context import map_answer_to_context
+from tools.inference_module.validate_answer import validate_answer
 from agent_loop.agents.inference_module.generate_answer_agent import GenerateAnswerAgent
 from agent_loop.agents.inference_module.filter_evidence_agent import FilterEvidenceAgent
 from agent_loop.agents.inference_module.map_to_context_agent import MapToContextAgent
@@ -34,13 +35,15 @@ def main():
         resolved_entity = info.get("resolved_entity")
         relevant_info = info.get("relevant_info")
         print(f"\n\n========== Generating answer for question {qid} ==========")
+        triplets = {"entity": question_info.get("entity"), "relation": question_info.get("relation"), "object": question_info.get("object")}
+        #print(f"Extracted triplet: {triplets}")
         #print(f"Question info: {question_info}")
         #print(f"Resolved entity: {resolved_entity}")
         #print(f"Relevant info: {relevant_info}")
-        print(" == Relevant info details ==")
-        for key, value in relevant_info.items():
-            print(f"  {key}: {value}")
-        print(" ====================")
+        #print(" == Relevant info details ==")
+        #for key, value in relevant_info.items():
+        #    print(f"  {key}: {value}")
+        #print(" ====================")
 
         """ NOT IN USE
         # 1. filter the relevant info to only include the most pertinent facts (this simulates the evidence selection step)
@@ -48,17 +51,26 @@ def main():
         #print(f"Filtered relevant info: {filtered_relevant_info}")
         #print("================================")
         """
-
-        # 2. generate the final answer based on the relevant info
+        #print("atomic question:", question_info.get("atomic_question"))
+        #print("==============================================")
+        # 1. generate the final answer based on the relevant info
         answer = generate_answer(question_info=question_info, relevant_info=relevant_info)
-        print(f"Generated answer: {answer.get('answer')}")
-        print("================================")
-        # 3. map the answer back to the ontology context
+        #print(f"Generated answer: {answer.get('answer')}")
+        #print("================================")
+
+        # 2. map the answer back to the ontology context
         answer_text = answer.get("answer")
         mapped_answer = map_answer_to_context(answer=answer_text, context=relevant_info)
         #mapped_answer, _ = map_to_context_agent.run(answer=answer_text, full_context=relevant_info)
-        print(f"Mapped answer: {mapped_answer}")
-        print("================================")
+        #print(f"Mapped answer: {mapped_answer}")
+        #print("================================")
+
+        # 3. Validate answer with validation agent (not implemented yet)
+        validation_result = validate_answer(answer=answer, 
+                                            question_info=question_info, 
+                                            relevant_info=relevant_info, 
+                                            mapped_answer=mapped_answer)
+
 
 
 if __name__ == "__main__":

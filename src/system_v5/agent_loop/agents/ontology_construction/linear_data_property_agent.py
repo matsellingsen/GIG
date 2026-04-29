@@ -10,7 +10,7 @@ class LinearDataPropertyAgent(BaseOntologyAgent):
         if not local_existing_classes: # failsafe-guard
             return [], "Skipped: No local classes to map."
             
-        local_class_names = [c["class"] for c in local_existing_classes]
+        local_class_names = sorted({str(c.get("class")) for c in local_existing_classes})
 
         data_property_schema = {
             "type": "array",

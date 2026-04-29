@@ -10,11 +10,11 @@ class LinearObjectPropertyAgent(BaseOntologyAgent):
         if not local_existing_classes: # failsafe-guard
             return [], "Skipped: No local classes to map."
             
-        local_class_names = [c["class"] for c in local_existing_classes]
+        local_class_names = sorted({str(c.get("class")) for c in local_existing_classes})
 
         # Load base axioms (to provide valid property verbs if needed)
         base_axioms = self.seed_axioms.copy()
-        valid_properties = [a["type"] for a in base_axioms if a["type"] != "subClassOf"]
+        valid_properties = sorted({str(a.get("type")) for a in base_axioms if a.get("type") and a.get("type") != "subClassOf"})
         
         object_property_schema = {
             "type": "array",

@@ -110,12 +110,17 @@
         --run agent (DONE)
         -- map answer to context through deterministic script (DONE: but may have gaps not yet discovered)
         --validate agent output (pending)
+            -- Must add stops somewhere so that the validation agent only sees answers that are positivt (not answer "idk") (pending)
+            -- Is the answer (fully) answering the question? (DONE)
+            -- Is the answer consistent with the KB?    
+         
         --return final answer (pending)
     - Hard-code SENS Innviation APS as the root of certain base-axioms?
         -- e.g. socialObject should mean that the object is a socialobject in the context of the company(?)
+    - Fix nondeterministic operations. e.g. set -> list scrambles original order randomly, and 
 
 TODO: 
-1. Revise the inference agents. A lot can be made deterministic.
+1. Revise the inference agents. A lot can be made deterministic. (partly done)
 2. Extract relevant instances or classes from the ontology.
 
 

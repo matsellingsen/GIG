@@ -10,7 +10,10 @@ class ExtractSubjectAgent(BaseOntologyAgent):
     def run(self, chunk_text: str, parsed_input: list = None) -> tuple:
         # If parsed_input tokens are provided, constrain the subject string to those tokens when possible
         if parsed_input:
-            subject_schema = {"type": "string", "enum": parsed_input + ["unknown"]}
+            unique = [str(x) for x in dict.fromkeys(parsed_input)]
+            if "unknown" not in unique:
+                unique.append("unknown")
+            subject_schema = {"type": "string", "enum": unique}
         else:
             subject_schema = {"type": "string"}
 

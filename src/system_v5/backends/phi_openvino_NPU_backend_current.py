@@ -48,7 +48,7 @@ class PhiOpenVINONPUBackend(Backend):
             structured_config = StructuredOutputConfig()
             # Depending on your specific OV version, syntax might vary slightly:
             # Option A: Stringified JSON Schema
-            structured_config.json_schema = json.dumps(json_schema) 
+            structured_config.json_schema = json.dumps(json_schema, sort_keys=True, ensure_ascii=False)
             
             # CRITICAL FIX: Pass as a separate argument, NOT attached to gen_config
             # This ensures the C++ binding receives the configuration.

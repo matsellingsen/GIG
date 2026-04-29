@@ -10,8 +10,8 @@ class HierarchicalLocalSubclassingAgent(BaseOntologyAgent):
         if len(local_existing_classes) < 2:
             return [], "Skipped: Not enough local classes to form lateral hierarchy."
         
-        # 1. Prepare Enums
-        local_class_names = [c["class"] for c in local_existing_classes]
+        # 1. Prepare Enums (deterministic order)
+        local_class_names = sorted({str(c.get("class")) for c in local_existing_classes})
         
         # 2. Define Schema with strictly enforced limits
         hierarchical_axiom_schema = {

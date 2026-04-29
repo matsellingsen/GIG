@@ -140,18 +140,18 @@ def resolve_primary_entity(question_info: dict, graph):
 
     #1. Fetch candidates
     top_candidates = retrieve_top_candidates(graph, entity, top_n=3)
-    print("Candidate entities retrieved from TTL:")
-    for candidate in top_candidates:
-        print("label: ", candidate["label"])
-        print("entity type(s): ", candidate["types"])
-        print("superclasses (if class): ", candidate["superclasses"])
-        print("object properties: ", candidate["object_properties"])
-        print("data properties: ", candidate["data_properties"])
-        print("annotations: ", candidate["annotations"])
-        print("score: ", candidate["score"])
-        print("-----------------------------!!")
-    print("---------------------------------")
-    ''
+    #print("Candidate entities retrieved from TTL:")
+    #for candidate in top_candidates:
+    #    print("label: ", candidate["label"])
+    #    print("entity type(s): ", candidate["types"])
+    #    print("superclasses (if class): ", candidate["superclasses"])
+    #    print("object properties: ", candidate["object_properties"])
+    #    print("data properties: ", candidate["data_properties"])
+    #    print("annotations: ", candidate["annotations"])
+    #    print("score: ", candidate["score"])
+    #    print("-----------------------------!!")
+    #print("---------------------------------")
+    
     #2. resolve candidates with rules or ResolveEntityAgent
     if not top_candidates: # no candidates found above threshold
         print("No candidates found in TTL for entity:", entity)
@@ -825,11 +825,11 @@ def fetch_relevant_info(question_info: dict, ttl: dict):
     # 1. Determine the axiom type and base axiom based on the canonical relation
     axiom_type = canonical_relation_to_axiom_type(relation)
     base_axiom = canonical_relation_to_base_axiom(relation)
-    print("===============================")
-    print("input information:", question_info)
-    print("---------------------------------")
-    print("axiom type:", axiom_type)
-    print("base axiom:", base_axiom)
+    #print("===============================")
+    #print("input information:", question_info)
+    #print("---------------------------------")
+    #print("axiom type:", axiom_type)
+    #print("base axiom:", base_axiom)
 
     #2. Resolve the primary entity and object to URIs in the TTL graph
     resolved_entity = resolve_primary_entity(question_info, ttl["graph"])

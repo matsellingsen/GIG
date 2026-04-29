@@ -10,10 +10,10 @@ class InstanceDataPropertyAgent(BaseOntologyAgent):
         if not declared_individuals or not data_axioms:
             return [], "Skipped: Missing individuals or data axioms."
 
-        # Extract strict enums to prevent hallucination
-        individual_ids = list(set([ind["id"] for ind in declared_individuals if "id" in ind]))
+        # Extract strict enums to prevent hallucination (deterministic)
+        individual_ids = sorted({str(ind["id"]) for ind in declared_individuals if "id" in ind})
         # We only look at data axioms (where datatype exists)
-        valid_data_props = list(set([ax["property"] for ax in data_axioms if "datatype" in ax]))
+        valid_data_props = sorted({str(ax["property"]) for ax in data_axioms if "datatype" in ax})
 
         if not individual_ids or not valid_data_props:
              return [], "Skipped: No valid individuals or data properties to link."

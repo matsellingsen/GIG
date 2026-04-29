@@ -80,7 +80,10 @@ class ExtractEntityAgent(BaseOntologyAgent):
     def run(self, chunk_text: str, parsed_input: list = None, question_classification: dict = None) -> tuple:
         # Optionally constrain entity to parsed tokens when provided
         if parsed_input:
-            entity_prop = {"type": "string", "enum": parsed_input + ["unknown"]}
+            unique = [str(x) for x in dict.fromkeys(parsed_input)]
+            if "unknown" not in unique:
+                unique.append("unknown")
+            entity_prop = {"type": "string", "enum": unique}
         else:
             entity_prop = {"type": "string"}
 

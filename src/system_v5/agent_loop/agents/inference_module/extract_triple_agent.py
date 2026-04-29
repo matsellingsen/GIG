@@ -15,7 +15,7 @@ class ExtractTripleAgent(BaseOntologyAgent):
         except Exception:
             axioms = []
 
-        axiom_labels = [a.get("type") for a in axioms if isinstance(a, dict) and a.get("type")]
+        axiom_labels = sorted({str(a.get("type")) for a in axioms if isinstance(a, dict) and a.get("type")})
         axiom_descriptions = {a.get("type"): a.get("description", "") for a in axioms if isinstance(a, dict) and a.get("type")}
         # allow explicit 'unknown' sentinel when no base-axiom applies
         if axiom_labels:
@@ -24,8 +24,11 @@ class ExtractTripleAgent(BaseOntologyAgent):
             predicate_prop = {"type": "string"}
         
         if parsed_input:
-            subject_prop = {"type": "string", "enum": parsed_input + ["unknown"]}
-            object_prop = {"type": "string", "enum": parsed_input + ["unknown"]}
+            unique = [str(x) for x in dict.fromkeys(parsed_input)]
+            if "unknown" not in unique:
+                unique.append("unknown")
+            subject_prop = {"type": "string", "enum": unique}
+            object_prop = {"type": "string", "enum": unique}
         else:
             subject_prop = {"type": "string"}
             object_prop = {"type": "string"}

@@ -59,12 +59,14 @@ class FilterEvidenceAgent(BaseOntologyAgent):
         }
 
         def wrap_component(allowed_keys):
+            # Normalize and sort allowed keys for deterministic enums
+            normalized = sorted({str(k) for k in allowed_keys}) if allowed_keys else ["none"]
             return {
                 "type": "object",
                 "properties": {
                     "value": {
                         "type": "array",
-                        "items": {"enum": allowed_keys},
+                        "items": {"enum": normalized},
                         "uniqueItems": True
                     },
                     "justification": {"type": "string"}

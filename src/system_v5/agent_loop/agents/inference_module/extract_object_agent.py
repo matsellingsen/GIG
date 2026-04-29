@@ -147,7 +147,10 @@ class ExtractObjectAgent(BaseOntologyAgent):
 
         # Build schema
         if parsed_input:
-            base_object_prop = {"type": "string", "enum": parsed_input + ["unknown"]}
+            unique = [str(x) for x in dict.fromkeys(parsed_input)]
+            if "unknown" not in unique:
+                unique.append("unknown")
+            base_object_prop = {"type": "string", "enum": unique}
         else:
             base_object_prop = {"type": "string"}
 

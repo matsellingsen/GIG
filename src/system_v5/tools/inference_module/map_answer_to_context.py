@@ -229,13 +229,13 @@ def map_answer_to_context(answer: str, context: Dict[str, Any]) -> Dict[str, Any
     # -----------------------------------------------------
     # 6. OBJECT PROPERTY DESCRIPTIONS
     # -----------------------------------------------------
-    obj_prop_keys = list(context.get("object_property_descriptions", {}).keys())
-    obj_prop_matches = match_candidates(answer, obj_prop_keys)
+    #obj_prop_keys = list(context.get("object_property_descriptions", {}).keys())
+    #obj_prop_matches = match_candidates(answer, obj_prop_keys)
 
     # Disambiguation: "part of a collection" ≠ isPartOf
-    if "isPartOf" in obj_prop_matches and "collection" in normalize(answer):
-        obj_prop_matches.remove("isPartOf")
+    #if "isPartOf" in obj_prop_matches and "collection" in normalize(answer):
+    #    obj_prop_matches.remove("isPartOf")
 
-    result["object_property_descriptions"] = obj_prop_matches
+    #result["object_property_descriptions"] = obj_prop_matches
 
     return result

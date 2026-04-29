@@ -10,7 +10,7 @@ class InstanceDeclarationAgent(BaseOntologyAgent):
         if not local_classes:
             return [], [], "Skipped: No local classes available."
 
-        local_class_names = [c["class"] for c in local_classes]
+        local_class_names = sorted({str(c.get("class")) for c in local_classes})
 
         declaration_schema = {
             "type": "array",

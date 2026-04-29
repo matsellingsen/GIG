@@ -352,6 +352,7 @@ class ExtractRelationAgent(BaseOntologyAgent):
         # Override allowed relations if type is known
         if question_classification["question_type"] in question_type_to_relations.keys():
             allowed = question_type_to_relations[question_classification["question_type"]]
+            # Preserve insertion order from `allowed` (examples/descriptions align to this order)
             list_of_allowed = list(allowed.keys())
             relation_prop = {"type": "string", "enum": list_of_allowed}
         

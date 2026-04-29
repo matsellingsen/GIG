@@ -45,9 +45,11 @@ class MapToContextAgent(BaseOntologyAgent):
             if not allowed_values:
                 allowed_values = ["none"]
 
+            # Normalize to strings and sort for deterministic enums
+            normalized = sorted({str(v) for v in allowed_values})
             return {
                 "type": "array",
-                "items": {"enum": allowed_values},
+                "items": {"enum": normalized},
                 "uniqueItems": True
             }
 

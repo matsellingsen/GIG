@@ -13,9 +13,9 @@ class HierarchicalBaseGroundingAgent(BaseOntologyAgent):
         # 1. Load the base ontology classes
         base_ontology_classes = self.seed_classes.copy() 
         
-        # 2. Prepare Enums
-        base_class_names = list(self.seed_classes.keys())
-        local_class_names = [c["class"] for c in local_existing_classes]
+        # 2. Prepare Enums (deterministic)
+        base_class_names = sorted(list(self.seed_classes.keys()))
+        local_class_names = sorted({str(c.get("class")) for c in local_existing_classes})
         num_local_classes = len(local_existing_classes)
         
         # 3. Define Schema with strictly enforced limits
