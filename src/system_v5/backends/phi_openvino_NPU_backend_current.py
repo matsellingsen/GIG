@@ -48,7 +48,11 @@ class PhiOpenVINONPUBackend(Backend):
             structured_config = StructuredOutputConfig()
             # Depending on your specific OV version, syntax might vary slightly:
             # Option A: Stringified JSON Schema
-            structured_config.json_schema = json.dumps(json_schema, sort_keys=True, ensure_ascii=False)
+            # Preserve the original insertion order of keys in the provided schema.
+            # Previously we used `sort_keys=True` which alphabetically reordered keys
+            # (this could put `question_type` before `reasoning`). Removing that
+            # ensures the schema fields appear in the same order the agent created them.
+            structured_config.json_schema = json.dumps(json_schema, ensure_ascii=False)
             
             # CRITICAL FIX: Pass as a separate argument, NOT attached to gen_config
             # This ensures the C++ binding receives the configuration.

@@ -131,7 +131,7 @@ def canonical_relation_to_base_axiom(rel: str) -> str:
 
 from rdflib import RDF, RDFS, OWL
 
-def resolve_primary_entity(question_info: dict, graph):
+def resolve_primary_entity(question_info: dict, graph, resolve_entity_agent: ResolveEntityAgent):
     """
     Resolve an entity name to a URI in the TTL graph.
     Performs exact match on label and URI fragment, then fuzzy match.
@@ -802,7 +802,7 @@ def normalize_and_clean_context_for_llm(relevant_info):
 
     return normalized_and_cleaned
 
-def fetch_relevant_info(question_info: dict, ttl: dict):
+def fetch_relevant_info(question_info: dict, ttl: dict, resolve_entity_agent: ResolveEntityAgent):
     """
     Fetch relevant information from the TTL based on the extracted question information.
     
@@ -832,13 +832,13 @@ def fetch_relevant_info(question_info: dict, ttl: dict):
     #print("base axiom:", base_axiom)
 
     #2. Resolve the primary entity and object to URIs in the TTL graph
-    resolved_entity = resolve_primary_entity(question_info, ttl["graph"])
+    resolved_entity = resolve_primary_entity(question_info, ttl["graph"], resolve_entity_agent=resolve_entity_agent)
       
     
     print("resolved entity:", resolved_entity)
     if resolved_entity is None:
         print("Could not resolve primary entity to a URI in the TTL.")
-        return None
+        return "noPrimaryEntityFound"
     
     # 3. Retrieve full context for the resolved entity
     full_entity_context = retrieve_full_entity_context(resolved_entity, ttl["graph"])
@@ -917,7 +917,6 @@ def main():
     # start backend and init agents/classes needed for entity resolution and TTL retrieval
     global backend
     backend = load_backend(name="phi-npu-openvino")
-    global resolve_entity_agent
     resolve_entity_agent = ResolveEntityAgent(backend=backend)
 
     # load ttl 
@@ -927,7 +926,7 @@ def main():
     outputs = {}
     for qid, qinfo in dummy_questions.items():
         print(f"\n\n========== Processing question {qid} ==========")
-        outputs[qid] = fetch_relevant_info(question_info=qinfo, ttl=ttl)
+        outputs[qid] = fetch_relevant_info(question_info=qinfo, ttl=ttl, resolve_entity_agent=resolve_entity_agent)
 
     return outputs
 

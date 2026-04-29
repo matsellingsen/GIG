@@ -109,12 +109,14 @@
         -- prepare relevant info (DONE)
         --run agent (DONE)
         -- map answer to context through deterministic script (DONE: but may have gaps not yet discovered)
-        --validate agent output (pending)
+        --validate agent output (DONE)
             -- Must add stops somewhere so that the validation agent only sees answers that are positivt (not answer "idk") (pending)
             -- Is the answer (fully) answering the question? (DONE)
             -- Is the answer consistent with the KB?    
          
         --return final answer (pending)
+        -- REVISE QUESTION-TYPE AGENT
+            -- It is currently to restrictive, and can only answer certain types of questions.
     - Hard-code SENS Innviation APS as the root of certain base-axioms?
         -- e.g. socialObject should mean that the object is a socialobject in the context of the company(?)
     - Fix nondeterministic operations. e.g. set -> list scrambles original order randomly, and 

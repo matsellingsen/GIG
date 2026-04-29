@@ -30,7 +30,9 @@ class GenerateAnswerAgent(BaseOntologyAgent):
             "required": ["reasoning", "answer"],
             "additionalProperties": False
         }
-
+        #print("================================")
+        #print(f"User message for answer generation: {user_msg}")
+        #print("================================")
         return self.generate_with_schema(user_msg, answer_schema)
 
     # ---------------------------------------------------------

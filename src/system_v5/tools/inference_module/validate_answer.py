@@ -27,7 +27,7 @@ def clean_and_prepare_mapped_answer_triplets(entity_value: str, mapped_answer: d
                     cleaned_answer.append({"entity": entity_value, "relation": prop, "object": val}) # ensure entity value is included in the mapped answer for validation
     return cleaned_answer
 
-def validate_answer(answer: dict, question_info: dict, relevant_info: dict, mapped_answer: dict) -> bool:
+def validate_answer(answer: dict, question_info: dict, relevant_info: dict, mapped_answer: dict, validate_answer_agent: ValidateAnswerAgent = None) -> bool:
     #0. unpack inputs
     atomic_question = question_info.get("atomic_question")
     question_type = question_info.get("question_type")
@@ -45,10 +45,10 @@ def validate_answer(answer: dict, question_info: dict, relevant_info: dict, mapp
     print(f"Mapped answer triplets: {mapped_answer_triplets}")
     print("================================")
 
-    # 1. Initialize backend and agents
-    backend = load_backend(name="phi-npu-openvino")
-    global validate_answer_agent
-    validate_answer_agent = ValidateAnswerAgent(backend=backend)
+    if validate_answer_agent is None:
+        # 1. Initialize backend and agents
+        backend = load_backend(name="phi-npu-openvino")
+        validate_answer_agent = ValidateAnswerAgent(backend=backend)
 
     # 2. Run validation agent with the above inputs and return validation result
     validation_result, _ = validate_answer_agent.run(atomic_question=atomic_question,
@@ -58,3 +58,4 @@ def validate_answer(answer: dict, question_info: dict, relevant_info: dict, mapp
                                                   mapped_answer_triplets=mapped_answer_triplets)
     
     print(f"Validation result: {validation_result}")
+    return validation_result.get("decision")

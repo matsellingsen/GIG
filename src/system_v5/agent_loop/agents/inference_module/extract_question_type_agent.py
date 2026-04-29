@@ -22,13 +22,18 @@ class ExtractQuestionTypeAgent(BaseOntologyAgent):
         json_schema = {
             "type": "object",
             "properties": {
+                "reasoning": {
+                    "type": "string",
+                    "description": "Short explanation of the reasoning behind the question type classification.",
+                },
                 "question_type": {
                     "type": "string",
                     "enum": question_types_list,
+                    "description": "The classified question type.",
                 },
                 #"confidence": {"type": "number", "minimum": 0.0, "maximum": 1.0},
             },
-            "required": ["question_type"],# "confidence"],
+            "required": ["reasoning", "question_type"],# "confidence"],
             "additionalProperties": False,
         }
 
@@ -38,14 +43,14 @@ class ExtractQuestionTypeAgent(BaseOntologyAgent):
         question_types_and_descriptions = "\n".join([f"- `{qt}`: {desc}" for qt, desc in self.question_types_dict.items()])
 
         user_msg = f"""
+                ### Goal
+                Classify the Atomic Input into exactly one of the allowed question types.
+
                 ### Allowed Question Types
                 {question_types_and_descriptions}
 
                 ### Atomic Input
                 {chunk_text}
-
-                ### Goal
-                Classify the Atomic Input into exactly one of the allowed question types.
                 """
 
         return self.generate_with_schema(user_msg)

@@ -18,7 +18,7 @@ from tools.ttl_handling.load_ttl import load_ttl
 from tools.inference_module.fetch_relevant_info import fetch_relevant_info
 
 
-def atomic_to_graph(atomic_input: str, ttl_path: str = None) -> dict:
+def atomic_to_graph(atomic_input: str, extract_question_type_agent: ExtractQuestionTypeAgent, extract_entity_agent: ExtractEntityAgent, extract_relation_agent: ExtractRelationAgent, extract_object_agent: ExtractObjectAgent) -> dict:
     """
     Converts an ATOMIC input string into a triplet + question-type.
     
@@ -29,8 +29,6 @@ def atomic_to_graph(atomic_input: str, ttl_path: str = None) -> dict:
         dict: a dictionary containing the subject, predicate, object and question-type.
     """
     
-    print("atomic input:", atomic_input)
-
     # 1. Extract question type, entity, relation, and object candidates from the atomic input using the respective agents.
     question_type, _ = extract_question_type_agent.run(atomic_input)
     print(f"Extracted question type: {question_type}")
@@ -40,7 +38,7 @@ def atomic_to_graph(atomic_input: str, ttl_path: str = None) -> dict:
     print(f"Extracted relation: {relation}")
     obj, _ = extract_object_agent.run(atomic_input, entity_candidate=entity, relation_candidate=relation, question_classification=question_type)
     print(f"Extracted object: {obj}")
-
+    print("================================")
     #2. Structure the extracted information as a triple with the 4 extracted components.
     result = {
         "question_type": question_type.get("question_type"),
@@ -59,10 +57,7 @@ def main():
 
     global triple_extraction_agent
     global extract_subject_agent
-    global extract_entity_agent
-    global extract_relation_agent
-    global extract_question_type_agent
-    global extract_object_agent
+    
     triple_extraction_agent = ExtractTripleAgent(backend=backend)
     extract_subject_agent = ExtractSubjectAgent(backend=backend)
     extract_entity_agent = ExtractEntityAgent(backend=backend)
@@ -74,7 +69,7 @@ def main():
 
     for atomic_input in input_str:
         # 1. Extract information from the atomic input using the respective agents.
-        result = atomic_to_graph(atomic_input)
+        result = atomic_to_graph(atomic_input, extract_question_type_agent, extract_entity_agent, extract_relation_agent, extract_object_agent)
 
 
         # Maybe move this to a different script that takes the result from here.

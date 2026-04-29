@@ -11,7 +11,7 @@ from agent_loop.agents.inference_module.generate_answer_agent import GenerateAns
 from agent_loop.agents.inference_module.filter_evidence_agent import FilterEvidenceAgent
 from agent_loop.agents.inference_module.map_to_context_agent import MapToContextAgent
 
-def generate_answer(question_info, relevant_info):
+def generate_answer(question_info, relevant_info, generate_answer_agent: GenerateAnswerAgent) -> dict:
     answer, _ = generate_answer_agent.run(question_info=question_info, relevant_info=relevant_info)
     return answer
 
@@ -54,7 +54,7 @@ def main():
         #print("atomic question:", question_info.get("atomic_question"))
         #print("==============================================")
         # 1. generate the final answer based on the relevant info
-        answer = generate_answer(question_info=question_info, relevant_info=relevant_info)
+        answer = generate_answer(question_info=question_info, relevant_info=relevant_info, generate_answer_agent=generate_answer_agent)
         #print(f"Generated answer: {answer.get('answer')}")
         #print("================================")
 
