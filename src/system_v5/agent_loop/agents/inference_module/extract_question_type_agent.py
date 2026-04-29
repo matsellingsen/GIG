@@ -8,16 +8,71 @@ class ExtractQuestionTypeAgent(BaseOntologyAgent):
             "C:\\Users\\matse\\gig\\src\\system_v5\\prompts\\system\\agents\\inference_module\\extract-question-type.txt"
         )
         self.question_types_dict = {
-            "definition": "Questions asking what or who an entity is.",  
-            "taxonomic": "Questions about class membership or subclass relations.",
-            "capability": "Questions about what an entity does or can do.",
-            "property": "Questions about qualities, attributes, or literal values.",
-            "membership": "Questions about parts, members, or included items.",
-            "comparative": "Questions comparing two entities on a property.",
-            "quantification": "Questions about counts or quantities.",
-            "existential": "Questions about existence or presence.",
-            "unknown": "Fallback for malformed, ambiguous, or unsupported inputs."
+            "definition": (
+                "Questions asking for the identity, nature, or general description of an entity. "
+                "These questions seek to establish *what the entity is*, not a specific attribute. "
+                "Typical linguistic cues include 'What is X?' or 'Who is X?'. "
+                "Also includes questions about the general purpose or role of an entity when framed "
+                "as part of its identity (e.g., 'What is X used for?' when the intent is definitional)."
+            ),
+
+            "taxonomic": (
+                "Questions about class membership, category assignment, or hierarchical relations. "
+                "These questions ask whether an entity belongs to a class, type, or category, or what "
+                "category it belongs to. They involve relations like 'type of', 'kind of', 'category of', "
+                "'subclass of', or 'is every A a B'."
+            ),
+
+            "capability": (
+                "Questions about what an entity does, can do, or what processes it participates in. "
+                "These questions focus on actions, functions, behaviors, or mechanisms. "
+                "They often involve verbs like 'measure', 'detect', 'produce', 'generate', 'perform', "
+                "or phrases like 'How does X do Y?' or 'What does X do?'."
+            ),
+
+            "property": (
+                "Questions about attributes, roles, states, labels, or literal values associated with an entity. "
+                "These questions request a specific value rather than a general identity. "
+                "Includes measurable attributes (height, size), roles (job, position, function), "
+                "statuses (state, condition), and literal values (names, IDs, codes). "
+                "Typical forms include 'How tall is X?', 'What role does X have?', "
+                "'What is the value of Y?', or 'What is X's status?'."
+            ),
+
+            "membership": (
+                "Questions about the members, parts, or elements contained within a whole or collection. "
+                "These questions ask what items, components, or individuals are included in or belong to something. "
+                "Typical forms include 'What items are included in X?', 'What parts does X contain?', "
+                "'Which elements are in X?', or 'Who are the members of X?'."
+            ),
+
+            "comparative": (
+                "Questions comparing two or more entities along some dimension or property. "
+                "These questions ask which entity has more or less of a property, or which is superior "
+                "in some respect. They involve comparative adjectives or explicit comparison structures "
+                "such as 'bigger than', 'faster than', 'more reliable than', or 'Which is better, X or Y'."
+            ),
+
+            "quantification": (
+                "Questions about counts, quantities, or amounts. "
+                "These questions ask how many items exist, how much of something there is, or whether "
+                "any instances are present. Typical cues include 'How many', 'How much', "
+                "'Are there any', or 'What is the number of'."
+            ),
+
+            "existential": (
+                "Questions about the existence or presence of entities. "
+                "These questions ask whether something exists at all, or whether any instances of a class exist. "
+                "Typical cues include 'Does X exist', 'Is there a Y', or 'Are there any X'."
+            ),
+
+            "unknown": (
+                "Fallback category for ambiguous, malformed, or open-ended explanatory requests that do not "
+                "fit any other question type. Includes requests for explanation, interpretation, or elaboration "
+                "without a clear semantic target, such as 'Explain X' or 'What does this mean'."
+            )
         }
+
         question_types_list = list(self.question_types_dict.keys())
         json_schema = {
             "type": "object",

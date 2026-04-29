@@ -15,6 +15,7 @@ from tools.inference_module.validate_answer import validate_answer
 
 # Import agents used in the pipeline
 from agent_loop.agents.inference_module.extract_question_type_agent import ExtractQuestionTypeAgent
+from agent_loop.agents.inference_module.resolve_answer_form_agent import ResolveAnswerFormAgent
 from agent_loop.agents.inference_module.extract_entity_agent import ExtractEntityAgent
 from agent_loop.agents.inference_module.extract_relation_agent import ExtractRelationAgent
 from agent_loop.agents.inference_module.extract_object_agent import ExtractObjectAgent
@@ -30,6 +31,7 @@ class InferenceModule:
 
         #init agents used in the pipeline
         self.extract_question_type_agent = ExtractQuestionTypeAgent(backend=self.backend)
+        self.extract_answer_form_agent = ResolveAnswerFormAgent(backend=self.backend)
         self.extract_entity_agent = ExtractEntityAgent(backend=self.backend)
         self.extract_relation_agent = ExtractRelationAgent(backend=self.backend)
         self.extract_object_agent = ExtractObjectAgent(backend=self.backend)
@@ -48,6 +50,7 @@ class InferenceModule:
         # Step 1: Convert the input question in ATOMIC format into a structured graph representation (triplet + question type)
         question_info = atomic_to_graph(atomic_input=atomic_input, 
                                         extract_question_type_agent=self.extract_question_type_agent, 
+                                        extract_answer_form_agent=self.extract_answer_form_agent,
                                         extract_entity_agent=self.extract_entity_agent, 
                                         extract_relation_agent=self.extract_relation_agent, 
                                         extract_object_agent=self.extract_object_agent)

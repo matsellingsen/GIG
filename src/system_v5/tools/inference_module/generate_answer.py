@@ -13,6 +13,8 @@ from agent_loop.agents.inference_module.map_to_context_agent import MapToContext
 
 def generate_answer(question_info, relevant_info, generate_answer_agent: GenerateAnswerAgent) -> dict:
     answer, _ = generate_answer_agent.run(question_info=question_info, relevant_info=relevant_info)
+    print(f"Generated answer: {answer}")
+    print("================================")
     return answer
 
 

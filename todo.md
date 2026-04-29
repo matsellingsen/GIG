@@ -109,14 +109,17 @@
         -- prepare relevant info (DONE)
         --run agent (DONE)
         -- map answer to context through deterministic script (DONE: but may have gaps not yet discovered)
-        --validate agent output (DONE)
+        --validate agent output (pending)
             -- Must add stops somewhere so that the validation agent only sees answers that are positivt (not answer "idk") (pending)
             -- Is the answer (fully) answering the question? (DONE)
             -- Is the answer consistent with the KB?    
          
         --return final answer (pending)
-        -- REVISE QUESTION-TYPE AGENT
+        -- REVISE QUESTION-TYPE AGENT (DONE)
             -- It is currently to restrictive, and can only answer certain types of questions.
+        -- ADD ANSWER FROM AGENT (done) <-- In combination with the quesiton type classification, this perfectly disambiguates how to answer they atomic question.
+        -- UNIFY ANSWER AGENT (DONE)
+            -- I.e. one single user/system prompt instead of one for each question type.
     - Hard-code SENS Innviation APS as the root of certain base-axioms?
         -- e.g. socialObject should mean that the object is a socialobject in the context of the company(?)
     - Fix nondeterministic operations. e.g. set -> list scrambles original order randomly, and 

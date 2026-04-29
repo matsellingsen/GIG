@@ -155,7 +155,7 @@ class ExtractObjectAgent(BaseOntologyAgent):
             base_object_prop = {"type": "string"}
 
         allowed_by_qtype = {
-            "definition": ["unknown"],
+            "definition": ["null"],
             "taxonomic": ["class", "individual"],
             "capability": ["individual", "class"],
             "property": ["literal"],
@@ -163,18 +163,18 @@ class ExtractObjectAgent(BaseOntologyAgent):
             "comparative": ["individual", "class"],
             "quantification": ["class"],
             "existential": ["class", "individual"],
-            "unknown": ["class", "individual", "literal", "unknown"]
+            "unknown": ["class", "individual", "literal", "null"]
         }
 
         object_type_prop = {
             "type": "string",
-            "enum": allowed_by_qtype.get(qtype, ["class", "individual", "literal", "unknown"])
+            "enum": allowed_by_qtype.get(qtype, ["class", "individual", "literal", "null"])
         }
 
         if qtype == "definition": #SKIP GENERATION (only 1 valid option so generation is trivial)
-            object_prop = {"type": "string", "enum": ["unknown"]}
-            json_output = {"object": "unknown", "object_type": "unknown"}
-            return json_output, None # deterministic output (only "unknown" is valid), so skip the agent call and return directly
+            object_prop = {"type": "string", "enum": ["null"]}
+            json_output = {"object": "null", "object_type": "null"}
+            return json_output, None # deterministic output (only "null" is valid), so skip the agent call and return directly
         else:
             object_prop = base_object_prop
 
@@ -204,7 +204,7 @@ class ExtractObjectAgent(BaseOntologyAgent):
         user_msg = f"""
         ### Goal
         Extract the object (the target/value of the relation) and classify it as
-        `class`, `individual`, `literal`, or `unknown`. Use the Question Type and the
+        `class`, `individual`, `literal`, or `null`. Use the Question Type and the
         Entity/Relation context to determine where to look for the object and how to type it.
 
         ### Examples for This Question Type
