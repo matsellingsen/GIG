@@ -1,0 +1,137 @@
+[
+  {
+    "id": "algorithm",
+    "input": "Algorithm",
+    "question_info": {
+      "entity": { "value": "Algorithm" }
+    },
+    "expected_label": "Algorithm",
+    "expected_uri": "http://example.org/sensInnovationAps_ontology#Algorithm"
+  },
+  {
+    "id": "cohort",
+    "input": "Cohort",
+    "question_info": {
+      "entity": { "value": "Cohort" }
+    },
+    "expected_label": "Cohort",
+    "expected_uri": "http://example.org/sensInnovationAps_ontology#Cohort"
+  },
+  {
+    "id": "patch",
+    "input": "Patch",
+    "question_info": {
+      "entity": { "value": "Patch" }
+    },
+    "expected_label": "Patch",
+    "expected_uri": "http://example.org/sensInnovationAps_ontology#Patch"
+  },
+  {
+    "id": "filesize",
+    "input": "FileSize",
+    "question_info": {
+      "entity": { "value": "FileSize" }
+    },
+    "expected_label": "FileSize",
+    "expected_uri": "http://example.org/sensInnovationAps_ontology#FileSize"
+  },
+  {
+    "id": "art_no_136_100_c",
+    "input": "Art. No. 136-100-C",
+    "question_info": {
+      "entity": { "value": "Art. No. 136-100-C" }
+    },
+    "expected_label": "Art. No. 136-100-C",
+    "expected_uri": "http://example.org/sensInnovationAps_ontology#Art.%20No.%20136-100-C"
+  },
+  {
+    "id": "battery_lifetime_estimation",
+    "input": "Battery Lifetime Estimation",
+    "question_info": {
+      "entity": { "value": "Battery Lifetime Estimation" }
+    },
+    "expected_label": "Battery Lifetime Estimation",
+    "expected_uri": "http://example.org/sensInnovationAps_ontology#Battery%20Lifetime%20Estimation"
+  },
+  {
+    "id": "bulk_actions",
+    "input": "Bulk Actions",
+    "question_info": {
+      "entity": { "value": "Bulk Actions" }
+    },
+    "expected_label": "Bulk Actions",
+    "expected_uri": "http://example.org/sensInnovationAps_ontology#Bulk%20Actions"
+  },
+  {
+    "id": "bulk_edit",
+    "input": "Bulk Edit",
+    "question_info": {
+      "entity": { "value": "Bulk Edit" }
+    },
+    "expected_label": "Bulk Edit",
+    "expected_uri": "http://example.org/sensInnovationAps_ontology#Bulk%20Edit"
+  },
+  {
+    "id": "sens_motion_app",
+    "input": "SENS motion app",
+    "question_info": {
+      "entity": { "value": "SENS motion app" }
+    },
+    "expected_label": "SENS motion app",
+    "expected_uri": "http://example.org/sensInnovationAps_ontology#SENS%20motion%20app"
+  },
+  {
+    "id": "pilot_package",
+    "input": "Pilot package",
+    "question_info": {
+      "entity": { "value": "Pilot package" }
+    },
+    "expected_label": "Pilot package",
+    "expected_uri": "http://example.org/sensInnovationAps_ontology#Pilot%20package"
+  },
+  {
+    "id": "participant_table_enhancements",
+    "input": "Participant Table Enhancements",
+    "question_info": {
+      "entity": { "value": "Participant Table Enhancements" }
+    },
+    "expected_label": "Participant Table Enhancements",
+    "expected_uri": "http://example.org/sensInnovationAps_ontology#Participant%20Table%20Enhancements"
+  },
+  {
+    "id": "allan_linneberg",
+    "input": "Allan Linneberg",
+    "question_info": {
+      "entity": { "value": "Allan Linneberg" }
+    },
+    "expected_label": "Allan Linneberg",
+    "expected_uri": "http://example.org/sensInnovationAps_ontology#Allan%20Linneberg"
+  },
+  {
+    "id": "guide_to_changing_the_patch",
+    "input": "Guide to changing the patch",
+    "question_info": {
+      "entity": { "value": "Guide to changing the patch" }
+    },
+    "expected_label": "Guide to changing the patch",
+    "expected_uri": "http://example.org/sensInnovationAps_ontology#Guide%20to%20changing%20the%20patch"
+  },
+  {
+    "id": "resting",
+    "input": "Resting",
+    "question_info": {
+      "entity": { "value": "Resting" }
+    },
+    "expected_label": "Resting",
+    "expected_uri": "http://example.org/sensInnovationAps_ontology#Resting"
+  },
+  {
+    "id": "five_second_intervals",
+    "input": "5 second intervals",
+    "question_info": {
+      "entity": { "value": "5 second intervals" }
+    },
+    "expected_label": "5 second intervals",
+    "expected_uri": "http://example.org/sensInnovationAps_ontology#5%20second%20intervals"
+  }
+]

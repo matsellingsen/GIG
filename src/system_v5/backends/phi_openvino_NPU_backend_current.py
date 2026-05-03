@@ -5,7 +5,7 @@ import json
 
 
 class PhiOpenVINONPUBackend(Backend):
-    def __init__(self, model_path="../../models/phi-4-mini-instruct-int4-sym", device="NPU"):
+    def __init__(self, model_path="C:\\Users\\matse\\gig\\models\\phi-4-mini-instruct-int4-sym", device="NPU"):
     
         # 1. Compilation Config for NPU Execution
         cache_dir = model_path + "/ov_cache"

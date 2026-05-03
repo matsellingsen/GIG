@@ -21,13 +21,13 @@ from tools.inference_module.fetch_relevant_info import fetch_relevant_info
 
 def atomic_to_graph(atomic_input: str, extract_question_type_agent: ExtractQuestionTypeAgent, extract_answer_form_agent: ResolveAnswerFormAgent, extract_entity_agent: ExtractEntityAgent, extract_relation_agent: ExtractRelationAgent, extract_object_agent: ExtractObjectAgent) -> dict:
     """
-    Converts an ATOMIC input string into a triplet + question-type.
+    Converts an ATOMIC input string into a triplet + question-type & answer-form.
     
     Args:
         atomic_input (str): The input in ATOMIC format, e.g., "PersonX goes to the store" or "PersonX wants to buy something."
         
     Returns:
-        dict: a dictionary containing the subject, predicate, object and question-type.
+        dict: a dictionary containing the subject, predicate, object, question-type and answer-form.
     """
     
     # 1. Extract question type, answer form, entity, relation, and object candidates from the atomic input using the respective agents.

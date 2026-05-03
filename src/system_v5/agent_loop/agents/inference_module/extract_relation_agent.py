@@ -45,6 +45,23 @@ class ExtractRelationAgent(BaseOntologyAgent):
                     "relation": "be subtype of"
                     }
                 ]
+                },
+                "be instance of": {
+                "description": "Indicates that an individual belongs to, or is an instance of, a class.",
+                "examples": [
+                    {
+                    "input": "Is Alice a person?",
+                    "primary_entity": "Alice",
+                    "entity_type": "individual",
+                    "relation": "be instance of"
+                    },
+                    {
+                    "input": "Is Document42 a policy?",
+                    "primary_entity": "Document42",
+                    "entity_type": "individual",
+                    "relation": "be instance of"
+                    }
+                ]
                 }
             },
 
@@ -134,6 +151,23 @@ class ExtractRelationAgent(BaseOntologyAgent):
                     }
                 ]
                 },
+                "perform": {
+                "description": "Indicates that the entity performs or carries out actions or tasks, when no more specific capability verb applies.",
+                "examples": [
+                    {
+                    "input": "What actions can the robot perform?",
+                    "primary_entity": "robot",
+                    "entity_type": "class",
+                    "relation": "perform"
+                    },
+                    {
+                    "input": "What tasks does the system perform?",
+                    "primary_entity": "system",
+                    "entity_type": "class",
+                    "relation": "perform"
+                    }
+                ]
+                },
                 "unknown": {
                 "description": "Indicates that the capability relation is unclear or cannot be determined from the question.",
                 "examples": [
@@ -205,6 +239,40 @@ class ExtractRelationAgent(BaseOntologyAgent):
                     "primary_entity": "document",
                     "entity_type": "class",
                     "relation": "is member of"
+                    }
+                ]
+                },
+                "contain": {
+                "description": "Indicates that the entity contains items, components, or elements.",
+                "examples": [
+                    {
+                    "input": "What does the folder contain?",
+                    "primary_entity": "folder",
+                    "entity_type": "class",
+                    "relation": "contain"
+                    },
+                    {
+                    "input": "What does the box contain?",
+                    "primary_entity": "box",
+                    "entity_type": "class",
+                    "relation": "contain"
+                    }
+                ]
+                },
+                "include": {
+                "description": "Indicates that the entity includes items, components, or elements.",
+                "examples": [
+                    {
+                    "input": "What does the package include?",
+                    "primary_entity": "package",
+                    "entity_type": "class",
+                    "relation": "include"
+                    },
+                    {
+                    "input": "Which tools does the kit include?",
+                    "primary_entity": "kit",
+                    "entity_type": "class",
+                    "relation": "include"
                     }
                 ]
                 }
@@ -307,6 +375,7 @@ class ExtractRelationAgent(BaseOntologyAgent):
                 }
             }
             }
+
 
     def _prepare_relation_descriptions_and_examples(self, question_type_to_relations, question_type):
         """

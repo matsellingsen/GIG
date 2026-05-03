@@ -127,6 +127,18 @@
         -- I believe full end-to-end baselines might be to big to do
         -- It could be better to test sub-components robustness and reliability, 
         -- and the whole inference pipeline by itself and prove/argue for answer completeness, grounding etc..
+    - TESTING
+        -- unit test the input_to_graph() agents (1/2 DONE) <-- Failures must be handled
+            -- Create labelled dataset containing 6 domains, and evenly distributed across labels.
+        -- component-test the other subcomponents of the inference-module
+        (Only testing semantic/non-deterministic parts)
+        (using real data from the extracted ontology)
+            -- Fetch_relevant_info (doing)
+            -- generate_answer
+            -- map_answer
+            -- Validate_answer
+        -- end-to-end inference-module testing
+
 
 TODO: 
 1. Revise the inference agents. A lot can be made deterministic. (partly done)

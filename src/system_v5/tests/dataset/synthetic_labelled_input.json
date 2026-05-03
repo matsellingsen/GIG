@@ -1,0 +1,1503 @@
+{
+  "biology": {
+    "canonical": [
+      {
+        "atomic_input": "What is a Cell",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": { "value": "Cell", "type": "Class" },
+        "relation": "be",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "Is a Mammal a type of Animal",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": { "value": "Mammal", "type": "Class" },
+        "relation": "be subtype of",
+        "object": { "value": "Animal", "type": "Class" }
+      },
+      {
+        "atomic_input": "Is Specimen42 an instance of Bacterium",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": { "value": "Specimen42", "type": "Individual" },
+        "relation": "be instance of",
+        "object": { "value": "Bacterium", "type": "Class" }
+      },
+      {
+        "atomic_input": "Can a SensorCell measure glucose",
+        "question_type": "capability",
+        "answer_form": "assertion",
+        "entity": { "value": "SensorCell", "type": "Class" },
+        "relation": "measure",
+        "object": { "value": "glucose", "type": "Class" }
+      },
+      {
+        "atomic_input": "Can a Neuron detect signals",
+        "question_type": "capability",
+        "answer_form": "assertion",
+        "entity": { "value": "Neuron", "type": "Class" },
+        "relation": "detect",
+        "object": { "value": "signal", "type": "Class" }
+      },
+      {
+        "atomic_input": "Does a Ribosome produce proteins",
+        "question_type": "capability",
+        "answer_form": "assertion",
+        "entity": { "value": "Ribosome", "type": "Class" },
+        "relation": "produce",
+        "object": { "value": "protein", "type": "Class" }
+      },
+      {
+        "atomic_input": "What is the color of LeafA",
+        "question_type": "property",
+        "answer_form": "value",
+        "entity": { "value": "LeafA", "type": "Individual" },
+        "relation": "have property",
+        "object": { "value": "color", "type": "Literal" }
+      },
+      {
+        "atomic_input": "What components are found in a PlantCell",
+        "question_type": "membership",
+        "answer_form": "list",
+        "entity": { "value": "PlantCell", "type": "Class" },
+        "relation": "has member",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "What does the Chloroplast contain",
+        "question_type": "membership",
+        "answer_form": "list",
+        "entity": { "value": "Chloroplast", "type": "Class" },
+        "relation": "contain",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "Which is larger, CellA or CellB",
+        "question_type": "comparative",
+        "answer_form": "value",
+        "entity": { "value": "CellA", "type": "Individual" },
+        "relation": "compare",
+        "object": { "value": "CellB", "type": "Individual" }
+      }
+    ],
+    "paraphrased": [
+        {
+            "atomic_input": "Describe what a Cell is",
+            "question_type": "definition",
+            "answer_form": "value",
+            "entity": { "value": "Cell", "type": "Class" },
+            "relation": "be",
+            "object": { "value": null, "type": null }
+        },
+        {
+            "atomic_input": "Would you classify a Mammal as an Animal",
+            "question_type": "taxonomic",
+            "answer_form": "assertion",
+            "entity": { "value": "Mammal", "type": "Class" },
+            "relation": "be subtype of",
+            "object": { "value": "Animal", "type": "Class" }
+        },
+        {
+            "atomic_input": "Does Specimen42 belong to the class Bacterium",
+            "question_type": "taxonomic",
+            "answer_form": "assertion",
+            "entity": { "value": "Specimen42", "type": "Individual" },
+            "relation": "be instance of",
+            "object": { "value": "Bacterium", "type": "Class" }
+        },
+        {
+            "atomic_input": "Can a SensorCell classify nutrients",
+            "question_type": "capability",
+            "answer_form": "assertion",
+            "entity": { "value": "SensorCell", "type": "Class" },
+            "relation": "classify",
+            "object": { "value": "nutrient", "type": "Class" }
+        },
+        {
+            "atomic_input": "Does a Neuron use neurotransmitters",
+            "question_type": "capability",
+            "answer_form": "assertion",
+            "entity": { "value": "Neuron", "type": "Class" },
+            "relation": "use",
+            "object": { "value": "neurotransmitter", "type": "Class" }
+        },
+        {
+            "atomic_input": "What tasks does a Ribosome perform",
+            "question_type": "capability",
+            "answer_form": "list",
+            "entity": { "value": "Ribosome", "type": "Class" },
+            "relation": "perform",
+            "object": { "value": null, "type": null }
+        },
+        {
+            "atomic_input": "What property does LeafA have regarding its color",
+            "question_type": "property",
+            "answer_form": "value",
+            "entity": { "value": "LeafA", "type": "Individual" },
+            "relation": "have property",
+            "object": { "value": "color", "type": "Literal" }
+        },
+        {
+            "atomic_input": "Which structures are included in a PlantCell",
+            "question_type": "membership",
+            "answer_form": "list",
+            "entity": { "value": "PlantCell", "type": "Class" },
+            "relation": "include",
+            "object": { "value": null, "type": null }
+        },
+        {
+            "atomic_input": "Which group is ChloroplastA a member of",
+            "question_type": "membership",
+            "answer_form": "value",
+            "entity": { "value": "ChloroplastA", "type": "Individual" },
+            "relation": "is member of",
+            "object": { "value": "CellComponent", "type": "Class" }
+        },
+        {
+            "atomic_input": "Between CellA and CellB, which has a greater size",
+            "question_type": "comparative",
+            "answer_form": "value",
+            "entity": { "value": "CellA", "type": "Individual" },
+            "relation": "have property",
+            "object": { "value": "CellB", "type": "Individual" }
+        }
+        ],
+    "adversarial": [
+      {
+        "atomic_input": "So what exactly is a Cell supposed to be",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": { "value": "Cell", "type": "Class" },
+        "relation": "be",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "Isn't it true that a Mammal isn't really an Animal",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": { "value": "Mammal", "type": "Class" },
+        "relation": "be subtype of",
+        "object": { "value": "Animal", "type": "Class" }
+      },
+      {
+        "atomic_input": "Is Specimen42 actually an instance of Bacterium or not",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": { "value": "Specimen42", "type": "Individual" },
+        "relation": "be instance of",
+        "object": { "value": "Bacterium", "type": "Class" }
+      },
+      {
+        "atomic_input": "Does a SensorCell really detect anything at all",
+        "question_type": "capability",
+        "answer_form": "assertion",
+        "entity": { "value": "SensorCell", "type": "Class" },
+        "relation": "detect",
+        "object": { "value": "signal", "type": "Class" }
+      },
+      {
+        "atomic_input": "Can a Neuron supposedly produce anything meaningful",
+        "question_type": "capability",
+        "answer_form": "list",
+        "entity": { "value": "Neuron", "type": "Class" },
+        "relation": "produce",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "What does a Ribosome even use then",
+        "question_type": "capability",
+        "answer_form": "list",
+        "entity": { "value": "Ribosome", "type": "Class" },
+        "relation": "use",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "What property is LeafA actually supposed to have",
+        "question_type": "property",
+        "answer_form": "value",
+        "entity": { "value": "LeafA", "type": "Individual" },
+        "relation": "have property",
+        "object": { "value": "color", "type": "Literal" }
+      },
+      {
+        "atomic_input": "Name all the things a PlantCell supposedly contains",
+        "question_type": "membership",
+        "answer_form": "list",
+        "entity": { "value": "PlantCell", "type": "Class" },
+        "relation": "contain",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "Which group is ChloroplastA actually part of",
+        "question_type": "membership",
+        "answer_form": "value",
+        "entity": { "value": "ChloroplastA", "type": "Individual" },
+        "relation": "is member of",
+        "object": { "value": "CellComponent", "type": "Class" }
+      },
+      {
+        "atomic_input": "Who is really larger, CellA or CellB",
+        "question_type": "comparative",
+        "answer_form": "value",
+        "entity": { "value": "CellA", "type": "Individual" },
+        "relation": "compare",
+        "object": { "value": "CellB", "type": "Individual" }
+      }
+    ]
+  },
+  "geography": {
+    "canonical": [
+      {
+        "atomic_input": "What is a Mountain",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": { "value": "Mountain", "type": "Class" },
+        "relation": "be",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "Is a River a type of Waterbody",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": { "value": "River", "type": "Class" },
+        "relation": "be subtype of",
+        "object": { "value": "Waterbody", "type": "Class" }
+      },
+      {
+        "atomic_input": "Is Peak42 an instance of Mountain",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": { "value": "Peak42", "type": "Individual" },
+        "relation": "be instance of",
+        "object": { "value": "Mountain", "type": "Class" }
+      },
+      {
+        "atomic_input": "Can a WeatherStation measure humidity",
+        "question_type": "capability",
+        "answer_form": "assertion",
+        "entity": { "value": "WeatherStation", "type": "Class" },
+        "relation": "measure",
+        "object": { "value": "humidity", "type": "Class" }
+      },
+      {
+        "atomic_input": "Can a Satellite detect storms",
+        "question_type": "capability",
+        "answer_form": "assertion",
+        "entity": { "value": "Satellite", "type": "Class" },
+        "relation": "detect",
+        "object": { "value": "storm", "type": "Class" }
+      },
+      {
+        "atomic_input": "Does a Volcano produce ash",
+        "question_type": "capability",
+        "answer_form": "assertion",
+        "entity": { "value": "Volcano", "type": "Class" },
+        "relation": "produce",
+        "object": { "value": "ash", "type": "Class" }
+      },
+      {
+        "atomic_input": "What is the height of MountainA",
+        "question_type": "property",
+        "answer_form": "value",
+        "entity": { "value": "MountainA", "type": "Individual" },
+        "relation": "have property",
+        "object": { "value": "height", "type": "Literal" }
+      },
+      {
+        "atomic_input": "What regions are found in a Continent",
+        "question_type": "membership",
+        "answer_form": "list",
+        "entity": { "value": "Continent", "type": "Class" },
+        "relation": "has member",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "What does the Ocean contain",
+        "question_type": "membership",
+        "answer_form": "list",
+        "entity": { "value": "Ocean", "type": "Class" },
+        "relation": "contain",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "Which is larger, LakeA or LakeB",
+        "question_type": "comparative",
+        "answer_form": "value",
+        "entity": { "value": "LakeA", "type": "Individual" },
+        "relation": "compare",
+        "object": { "value": "LakeB", "type": "Individual" }
+      }
+    ],
+
+    "paraphrased": [
+      {
+        "atomic_input": "Explain what a Mountain is",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": { "value": "Mountain", "type": "Class" },
+        "relation": "be",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "Would you classify a River as a Waterbody",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": { "value": "River", "type": "Class" },
+        "relation": "be subtype of",
+        "object": { "value": "Waterbody", "type": "Class" }
+      },
+      {
+        "atomic_input": "Does Peak42 belong to the class Mountain",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": { "value": "Peak42", "type": "Individual" },
+        "relation": "be instance of",
+        "object": { "value": "Mountain", "type": "Class" }
+      },
+      {
+        "atomic_input": "Can a WeatherStation classify cloud types",
+        "question_type": "capability",
+        "answer_form": "assertion",
+        "entity": { "value": "WeatherStation", "type": "Class" },
+        "relation": "classify",
+        "object": { "value": "cloud type", "type": "Class" }
+      },
+      {
+        "atomic_input": "Does a Satellite use sensors",
+        "question_type": "capability",
+        "answer_form": "assertion",
+        "entity": { "value": "Satellite", "type": "Class" },
+        "relation": "use",
+        "object": { "value": "sensor", "type": "Class" }
+      },
+      {
+        "atomic_input": "What tasks does a Volcano perform",
+        "question_type": "capability",
+        "answer_form": "list",
+        "entity": { "value": "Volcano", "type": "Class" },
+        "relation": "perform",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "What property does MountainA have regarding its height",
+        "question_type": "property",
+        "answer_form": "value",
+        "entity": { "value": "MountainA", "type": "Individual" },
+        "relation": "have property",
+        "object": { "value": "height", "type": "Literal" }
+      },
+      {
+        "atomic_input": "Which regions are included in a Continent",
+        "question_type": "membership",
+        "answer_form": "list",
+        "entity": { "value": "Continent", "type": "Class" },
+        "relation": "include",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "Which group is IslandA a member of",
+        "question_type": "membership",
+        "answer_form": "value",
+        "entity": { "value": "IslandA", "type": "Individual" },
+        "relation": "is member of",
+        "object": { "value": "Archipelago", "type": "Class" }
+      },
+      {
+        "atomic_input": "Between LakeA and LakeB, which has a greater area",
+        "question_type": "comparative",
+        "answer_form": "value",
+        "entity": { "value": "LakeA", "type": "Individual" },
+        "relation": "have property",
+        "object": { "value": "LakeB", "type": "Individual" }
+      }
+    ],
+
+    "adversarial": [
+      {
+        "atomic_input": "So what exactly is a Mountain supposed to be",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": { "value": "Mountain", "type": "Class" },
+        "relation": "be",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "Isn't it true that a River isn't really a Waterbody",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": { "value": "River", "type": "Class" },
+        "relation": "be subtype of",
+        "object": { "value": "Waterbody", "type": "Class" }
+      },
+      {
+        "atomic_input": "Is Peak42 actually an instance of Mountain or not",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": { "value": "Peak42", "type": "Individual" },
+        "relation": "be instance of",
+        "object": { "value": "Mountain", "type": "Class" }
+      },
+      {
+        "atomic_input": "Does a WeatherStation really detect anything at all",
+        "question_type": "capability",
+        "answer_form": "assertion",
+        "entity": { "value": "WeatherStation", "type": "Class" },
+        "relation": "detect",
+        "object": { "value": "storm", "type": "Class" }
+      },
+      {
+        "atomic_input": "Can a Satellite supposedly produce anything meaningful",
+        "question_type": "capability",
+        "answer_form": "list",
+        "entity": { "value": "Satellite", "type": "Class" },
+        "relation": "produce",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "What does a Volcano even use then",
+        "question_type": "capability",
+        "answer_form": "list",
+        "entity": { "value": "Volcano", "type": "Class" },
+        "relation": "use",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "What property is MountainA actually supposed to have",
+        "question_type": "property",
+        "answer_form": "value",
+        "entity": { "value": "MountainA", "type": "Individual" },
+        "relation": "have property",
+        "object": { "value": "height", "type": "Literal" }
+      },
+      {
+        "atomic_input": "Name all the things a Continent supposedly contains",
+        "question_type": "membership",
+        "answer_form": "list",
+        "entity": { "value": "Continent", "type": "Class" },
+        "relation": "contain",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "Which group is IslandA actually part of",
+        "question_type": "membership",
+        "answer_form": "value",
+        "entity": { "value": "IslandA", "type": "Individual" },
+        "relation": "is member of",
+        "object": { "value": "Archipelago", "type": "Class" }
+      },
+      {
+        "atomic_input": "Who is really larger, LakeA or LakeB",
+        "question_type": "comparative",
+        "answer_form": "value",
+        "entity": { "value": "LakeA", "type": "Individual" },
+        "relation": "compare",
+        "object": { "value": "LakeB", "type": "Individual" }
+      }
+    ]
+  },
+  "technology": {
+    "canonical": [
+      {
+        "atomic_input": "What is a Processor",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": { "value": "Processor", "type": "Class" },
+        "relation": "be",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "Is a Laptop a type of Computer",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": { "value": "Laptop", "type": "Class" },
+        "relation": "be subtype of",
+        "object": { "value": "Computer", "type": "Class" }
+      },
+      {
+        "atomic_input": "Is Device42 an instance of Router",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": { "value": "Device42", "type": "Individual" },
+        "relation": "be instance of",
+        "object": { "value": "Router", "type": "Class" }
+      },
+      {
+        "atomic_input": "Can a Sensor measure temperature",
+        "question_type": "capability",
+        "answer_form": "assertion",
+        "entity": { "value": "Sensor", "type": "Class" },
+        "relation": "measure",
+        "object": { "value": "temperature", "type": "Class" }
+      },
+      {
+        "atomic_input": "Can a Firewall detect intrusions",
+        "question_type": "capability",
+        "answer_form": "assertion",
+        "entity": { "value": "Firewall", "type": "Class" },
+        "relation": "detect",
+        "object": { "value": "intrusion", "type": "Class" }
+      },
+      {
+        "atomic_input": "Does a Compiler produce binaries",
+        "question_type": "capability",
+        "answer_form": "assertion",
+        "entity": { "value": "Compiler", "type": "Class" },
+        "relation": "produce",
+        "object": { "value": "binary", "type": "Class" }
+      },
+      {
+        "atomic_input": "What is the speed of ProcessorA",
+        "question_type": "property",
+        "answer_form": "value",
+        "entity": { "value": "ProcessorA", "type": "Individual" },
+        "relation": "have property",
+        "object": { "value": "speed", "type": "Literal" }
+      },
+      {
+        "atomic_input": "What components are found in a Computer",
+        "question_type": "membership",
+        "answer_form": "list",
+        "entity": { "value": "Computer", "type": "Class" },
+        "relation": "has member",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "What does the Server contain",
+        "question_type": "membership",
+        "answer_form": "list",
+        "entity": { "value": "Server", "type": "Class" },
+        "relation": "contain",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "Which is faster, DeviceA or DeviceB",
+        "question_type": "comparative",
+        "answer_form": "value",
+        "entity": { "value": "DeviceA", "type": "Individual" },
+        "relation": "compare",
+        "object": { "value": "DeviceB", "type": "Individual" }
+      }
+    ],
+
+    "paraphrased": [
+      {
+        "atomic_input": "Explain what a Processor is",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": { "value": "Processor", "type": "Class" },
+        "relation": "be",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "Would you classify a Laptop as a Computer",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": { "value": "Laptop", "type": "Class" },
+        "relation": "be subtype of",
+        "object": { "value": "Computer", "type": "Class" }
+      },
+      {
+        "atomic_input": "Does Device42 belong to the class Router",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": { "value": "Device42", "type": "Individual" },
+        "relation": "be instance of",
+        "object": { "value": "Router", "type": "Class" }
+      },
+      {
+        "atomic_input": "Can a Sensor classify signals",
+        "question_type": "capability",
+        "answer_form": "assertion",
+        "entity": { "value": "Sensor", "type": "Class" },
+        "relation": "classify",
+        "object": { "value": "signal", "type": "Class" }
+      },
+      {
+        "atomic_input": "Does a Firewall use rulesets",
+        "question_type": "capability",
+        "answer_form": "assertion",
+        "entity": { "value": "Firewall", "type": "Class" },
+        "relation": "use",
+        "object": { "value": "ruleset", "type": "Class" }
+      },
+      {
+        "atomic_input": "What tasks does a Compiler perform",
+        "question_type": "capability",
+        "answer_form": "list",
+        "entity": { "value": "Compiler", "type": "Class" },
+        "relation": "perform",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "What property does ProcessorA have regarding its speed",
+        "question_type": "property",
+        "answer_form": "value",
+        "entity": { "value": "ProcessorA", "type": "Individual" },
+        "relation": "have property",
+        "object": { "value": "speed", "type": "Literal" }
+      },
+      {
+        "atomic_input": "Which components are included in a Computer",
+        "question_type": "membership",
+        "answer_form": "list",
+        "entity": { "value": "Computer", "type": "Class" },
+        "relation": "include",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "Which group is ModuleA a member of",
+        "question_type": "membership",
+        "answer_form": "value",
+        "entity": { "value": "ModuleA", "type": "Individual" },
+        "relation": "is member of",
+        "object": { "value": "SoftwareSuite", "type": "Class" }
+      },
+      {
+        "atomic_input": "Between DeviceA and DeviceB, which has a higher speed",
+        "question_type": "comparative",
+        "answer_form": "value",
+        "entity": { "value": "DeviceA", "type": "Individual" },
+        "relation": "have property",
+        "object": { "value": "DeviceB", "type": "Individual" }
+      }
+    ],
+
+    "adversarial": [
+      {
+        "atomic_input": "So what exactly is a Processor supposed to be",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": { "value": "Processor", "type": "Class" },
+        "relation": "be",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "Isn't it true that a Laptop isn't really a Computer",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": { "value": "Laptop", "type": "Class" },
+        "relation": "be subtype of",
+        "object": { "value": "Computer", "type": "Class" }
+      },
+      {
+        "atomic_input": "Is Device42 actually an instance of Router or not",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": { "value": "Device42", "type": "Individual" },
+        "relation": "be instance of",
+        "object": { "value": "Router", "type": "Class" }
+      },
+      {
+        "atomic_input": "Does a Sensor really detect anything at all",
+        "question_type": "capability",
+        "answer_form": "assertion",
+        "entity": { "value": "Sensor", "type": "Class" },
+        "relation": "detect",
+        "object": { "value": "signal", "type": "Class" }
+      },
+      {
+        "atomic_input": "Can a Firewall supposedly produce anything meaningful",
+        "question_type": "capability",
+        "answer_form": "list",
+        "entity": { "value": "Firewall", "type": "Class" },
+        "relation": "produce",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "What does a Compiler even use then",
+        "question_type": "capability",
+        "answer_form": "list",
+        "entity": { "value": "Compiler", "type": "Class" },
+        "relation": "use",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "What property is ProcessorA actually supposed to have",
+        "question_type": "property",
+        "answer_form": "value",
+        "entity": { "value": "ProcessorA", "type": "Individual" },
+        "relation": "have property",
+        "object": { "value": "speed", "type": "Literal" }
+      },
+      {
+        "atomic_input": "Name all the things a Computer supposedly contains",
+        "question_type": "membership",
+        "answer_form": "list",
+        "entity": { "value": "Computer", "type": "Class" },
+        "relation": "contain",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "Which group is ModuleA actually part of",
+        "question_type": "membership",
+        "answer_form": "value",
+        "entity": { "value": "ModuleA", "type": "Individual" },
+        "relation": "is member of",
+        "object": { "value": "SoftwareSuite", "type": "Class" }
+      },
+      {
+        "atomic_input": "Who is really faster, DeviceA or DeviceB",
+        "question_type": "comparative",
+        "answer_form": "value",
+        "entity": { "value": "DeviceA", "type": "Individual" },
+        "relation": "compare",
+        "object": { "value": "DeviceB", "type": "Individual" }
+      }
+    ]
+  },
+  "people": {
+    "canonical": [
+      {
+        "atomic_input": "Who is Alice",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": { "value": "Alice", "type": "Individual" },
+        "relation": "be",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "Is a Teacher a type of Profession",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": { "value": "Teacher", "type": "Class" },
+        "relation": "be subtype of",
+        "object": { "value": "Profession", "type": "Class" }
+      },
+      {
+        "atomic_input": "Is Person42 an instance of Student",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": { "value": "Person42", "type": "Individual" },
+        "relation": "be instance of",
+        "object": { "value": "Student", "type": "Class" }
+      },
+      {
+        "atomic_input": "Can a Doctor measure blood pressure",
+        "question_type": "capability",
+        "answer_form": "assertion",
+        "entity": { "value": "Doctor", "type": "Class" },
+        "relation": "measure",
+        "object": { "value": "blood pressure", "type": "Class" }
+      },
+      {
+        "atomic_input": "Can a SecurityGuard detect threats",
+        "question_type": "capability",
+        "answer_form": "assertion",
+        "entity": { "value": "SecurityGuard", "type": "Class" },
+        "relation": "detect",
+        "object": { "value": "threat", "type": "Class" }
+      },
+      {
+        "atomic_input": "Does a Chef produce meals",
+        "question_type": "capability",
+        "answer_form": "assertion",
+        "entity": { "value": "Chef", "type": "Class" },
+        "relation": "produce",
+        "object": { "value": "meal", "type": "Class" }
+      },
+      {
+        "atomic_input": "What is the age of PersonA",
+        "question_type": "property",
+        "answer_form": "value",
+        "entity": { "value": "PersonA", "type": "Individual" },
+        "relation": "have property",
+        "object": { "value": "age", "type": "Literal" }
+      },
+      {
+        "atomic_input": "What members are found in a Family",
+        "question_type": "membership",
+        "answer_form": "list",
+        "entity": { "value": "Family", "type": "Class" },
+        "relation": "has member",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "What does the Team contain",
+        "question_type": "membership",
+        "answer_form": "list",
+        "entity": { "value": "Team", "type": "Class" },
+        "relation": "contain",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "Who is taller, Alice or Bob",
+        "question_type": "comparative",
+        "answer_form": "value",
+        "entity": { "value": "Alice", "type": "Individual" },
+        "relation": "compare",
+        "object": { "value": "Bob", "type": "Individual" }
+      }
+    ],
+
+    "paraphrased": [
+      {
+        "atomic_input": "Explain who Alice is",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": { "value": "Alice", "type": "Individual" },
+        "relation": "be",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "Would you classify a Teacher as a Profession",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": { "value": "Teacher", "type": "Class" },
+        "relation": "be subtype of",
+        "object": { "value": "Profession", "type": "Class" }
+      },
+      {
+        "atomic_input": "Does Person42 belong to the class Student",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": { "value": "Person42", "type": "Individual" },
+        "relation": "be instance of",
+        "object": { "value": "Student", "type": "Class" }
+      },
+      {
+        "atomic_input": "Can a Doctor classify symptoms",
+        "question_type": "capability",
+        "answer_form": "assertion",
+        "entity": { "value": "Doctor", "type": "Class" },
+        "relation": "classify",
+        "object": { "value": "symptom", "type": "Class" }
+      },
+      {
+        "atomic_input": "Does a SecurityGuard use equipment",
+        "question_type": "capability",
+        "answer_form": "assertion",
+        "entity": { "value": "SecurityGuard", "type": "Class" },
+        "relation": "use",
+        "object": { "value": "equipment", "type": "Class" }
+      },
+      {
+        "atomic_input": "What tasks does a Chef perform",
+        "question_type": "capability",
+        "answer_form": "list",
+        "entity": { "value": "Chef", "type": "Class" },
+        "relation": "perform",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "What property does PersonA have regarding age",
+        "question_type": "property",
+        "answer_form": "value",
+        "entity": { "value": "PersonA", "type": "Individual" },
+        "relation": "have property",
+        "object": { "value": "age", "type": "Literal" }
+      },
+      {
+        "atomic_input": "Which members are included in a Family",
+        "question_type": "membership",
+        "answer_form": "list",
+        "entity": { "value": "Family", "type": "Class" },
+        "relation": "include",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "Which group is PersonB a member of",
+        "question_type": "membership",
+        "answer_form": "value",
+        "entity": { "value": "PersonB", "type": "Individual" },
+        "relation": "is member of",
+        "object": { "value": "Family", "type": "Class" }
+      },
+      {
+        "atomic_input": "Between Alice and Bob, who has greater height",
+        "question_type": "comparative",
+        "answer_form": "value",
+        "entity": { "value": "Alice", "type": "Individual" },
+        "relation": "have property",
+        "object": { "value": "Bob", "type": "Individual" }
+      }
+    ],
+
+    "adversarial": [
+      {
+        "atomic_input": "So who exactly is Alice supposed to be",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": { "value": "Alice", "type": "Individual" },
+        "relation": "be",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "Isn't it true that a Teacher isn't really a Profession",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": { "value": "Teacher", "type": "Class" },
+        "relation": "be subtype of",
+        "object": { "value": "Profession", "type": "Class" }
+      },
+      {
+        "atomic_input": "Is Person42 actually an instance of Student or not",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": { "value": "Person42", "type": "Individual" },
+        "relation": "be instance of",
+        "object": { "value": "Student", "type": "Class" }
+      },
+      {
+        "atomic_input": "Does a Doctor really detect anything at all",
+        "question_type": "capability",
+        "answer_form": "assertion",
+        "entity": { "value": "Doctor", "type": "Class" },
+        "relation": "detect",
+        "object": { "value": "symptom", "type": "Class" }
+      },
+      {
+        "atomic_input": "Can a SecurityGuard supposedly produce anything meaningful",
+        "question_type": "capability",
+        "answer_form": "list",
+        "entity": { "value": "SecurityGuard", "type": "Class" },
+        "relation": "produce",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "What does a Chef even use then",
+        "question_type": "capability",
+        "answer_form": "list",
+        "entity": { "value": "Chef", "type": "Class" },
+        "relation": "use",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "What property is PersonA actually supposed to have",
+        "question_type": "property",
+        "answer_form": "value",
+        "entity": { "value": "PersonA", "type": "Individual" },
+        "relation": "have property",
+        "object": { "value": "age", "type": "Literal" }
+      },
+      {
+        "atomic_input": "Name all the people a Family supposedly contains",
+        "question_type": "membership",
+        "answer_form": "list",
+        "entity": { "value": "Family", "type": "Class" },
+        "relation": "contain",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "Which group is PersonB actually part of",
+        "question_type": "membership",
+        "answer_form": "value",
+        "entity": { "value": "PersonB", "type": "Individual" },
+        "relation": "is member of",
+        "object": { "value": "Family", "type": "Class" }
+      },
+      {
+        "atomic_input": "Who is really taller, Alice or Bob",
+        "question_type": "comparative",
+        "answer_form": "value",
+        "entity": { "value": "Alice", "type": "Individual" },
+        "relation": "compare",
+        "object": { "value": "Bob", "type": "Individual" }
+      }
+    ]
+  },
+  "abstract": {
+    "canonical": [
+      {
+        "atomic_input": "What is Justice",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": { "value": "Justice", "type": "Class" },
+        "relation": "be",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "Is Honesty a type of Virtue",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": { "value": "Honesty", "type": "Class" },
+        "relation": "be subtype of",
+        "object": { "value": "Virtue", "type": "Class" }
+      },
+      {
+        "atomic_input": "Is Concept42 an instance of Idea",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": { "value": "Concept42", "type": "Individual" },
+        "relation": "be instance of",
+        "object": { "value": "Idea", "type": "Class" }
+      },
+      {
+        "atomic_input": "Can a Theory measure complexity",
+        "question_type": "capability",
+        "answer_form": "assertion",
+        "entity": { "value": "Theory", "type": "Class" },
+        "relation": "measure",
+        "object": { "value": "complexity", "type": "Class" }
+      },
+      {
+        "atomic_input": "Can an Algorithm detect patterns",
+        "question_type": "capability",
+        "answer_form": "assertion",
+        "entity": { "value": "Algorithm", "type": "Class" },
+        "relation": "detect",
+        "object": { "value": "pattern", "type": "Class" }
+      },
+      {
+        "atomic_input": "Does a Model produce predictions",
+        "question_type": "capability",
+        "answer_form": "assertion",
+        "entity": { "value": "Model", "type": "Class" },
+        "relation": "produce",
+        "object": { "value": "prediction", "type": "Class" }
+      },
+      {
+        "atomic_input": "What is the meaning of ConceptA",
+        "question_type": "property",
+        "answer_form": "value",
+        "entity": { "value": "ConceptA", "type": "Individual" },
+        "relation": "have property",
+        "object": { "value": "meaning", "type": "Literal" }
+      },
+      {
+        "atomic_input": "What elements are found in a Framework",
+        "question_type": "membership",
+        "answer_form": "list",
+        "entity": { "value": "Framework", "type": "Class" },
+        "relation": "has member",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "What does the Theory contain",
+        "question_type": "membership",
+        "answer_form": "list",
+        "entity": { "value": "Theory", "type": "Class" },
+        "relation": "contain",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "Which is more abstract, IdeaA or IdeaB",
+        "question_type": "comparative",
+        "answer_form": "value",
+        "entity": { "value": "IdeaA", "type": "Individual" },
+        "relation": "compare",
+        "object": { "value": "IdeaB", "type": "Individual" }
+      }
+    ],
+
+    "paraphrased": [
+      {
+        "atomic_input": "Explain what Justice is",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": { "value": "Justice", "type": "Class" },
+        "relation": "be",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "Would you classify Honesty as a Virtue",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": { "value": "Honesty", "type": "Class" },
+        "relation": "be subtype of",
+        "object": { "value": "Virtue", "type": "Class" }
+      },
+      {
+        "atomic_input": "Does Concept42 belong to the class Idea",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": { "value": "Concept42", "type": "Individual" },
+        "relation": "be instance of",
+        "object": { "value": "Idea", "type": "Class" }
+      },
+      {
+        "atomic_input": "Can a Theory classify arguments",
+        "question_type": "capability",
+        "answer_form": "assertion",
+        "entity": { "value": "Theory", "type": "Class" },
+        "relation": "classify",
+        "object": { "value": "argument", "type": "Class" }
+      },
+      {
+        "atomic_input": "Does an Algorithm use heuristics",
+        "question_type": "capability",
+        "answer_form": "assertion",
+        "entity": { "value": "Algorithm", "type": "Class" },
+        "relation": "use",
+        "object": { "value": "heuristic", "type": "Class" }
+      },
+      {
+        "atomic_input": "What tasks does a Model perform",
+        "question_type": "capability",
+        "answer_form": "list",
+        "entity": { "value": "Model", "type": "Class" },
+        "relation": "perform",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "What property does ConceptA have regarding meaning",
+        "question_type": "property",
+        "answer_form": "value",
+        "entity": { "value": "ConceptA", "type": "Individual" },
+        "relation": "have property",
+        "object": { "value": "meaning", "type": "Literal" }
+      },
+      {
+        "atomic_input": "Which elements are included in a Framework",
+        "question_type": "membership",
+        "answer_form": "list",
+        "entity": { "value": "Framework", "type": "Class" },
+        "relation": "include",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "Which group is ConceptB a member of",
+        "question_type": "membership",
+        "answer_form": "value",
+        "entity": { "value": "ConceptB", "type": "Individual" },
+        "relation": "is member of",
+        "object": { "value": "Category", "type": "Class" }
+      },
+      {
+        "atomic_input": "Between IdeaA and IdeaB, which has greater abstraction",
+        "question_type": "comparative",
+        "answer_form": "value",
+        "entity": { "value": "IdeaA", "type": "Individual" },
+        "relation": "have property",
+        "object": { "value": "IdeaB", "type": "Individual" }
+      }
+    ],
+
+    "adversarial": [
+      {
+        "atomic_input": "So what exactly is Justice supposed to be",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": { "value": "Justice", "type": "Class" },
+        "relation": "be",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "Isn't it true that Honesty isn't really a Virtue",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": { "value": "Honesty", "type": "Class" },
+        "relation": "be subtype of",
+        "object": { "value": "Virtue", "type": "Class" }
+      },
+      {
+        "atomic_input": "Is Concept42 actually an instance of Idea or not",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": { "value": "Concept42", "type": "Individual" },
+        "relation": "be instance of",
+        "object": { "value": "Idea", "type": "Class" }
+      },
+      {
+        "atomic_input": "Does a Theory really detect anything at all",
+        "question_type": "capability",
+        "answer_form": "assertion",
+        "entity": { "value": "Theory", "type": "Class" },
+        "relation": "detect",
+        "object": { "value": "pattern", "type": "Class" }
+      },
+      {
+        "atomic_input": "Can an Algorithm supposedly produce anything meaningful",
+        "question_type": "capability",
+        "answer_form": "list",
+        "entity": { "value": "Algorithm", "type": "Class" },
+        "relation": "produce",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "What does a Model even use then",
+        "question_type": "capability",
+        "answer_form": "list",
+        "entity": { "value": "Model", "type": "Class" },
+        "relation": "use",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "What property is ConceptA actually supposed to have",
+        "question_type": "property",
+        "answer_form": "value",
+        "entity": { "value": "ConceptA", "type": "Individual" },
+        "relation": "have property",
+        "object": { "value": "meaning", "type": "Literal" }
+      },
+      {
+        "atomic_input": "Name all the things a Framework supposedly contains",
+        "question_type": "membership",
+        "answer_form": "list",
+        "entity": { "value": "Framework", "type": "Class" },
+        "relation": "contain",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "Which group is ConceptB actually part of",
+        "question_type": "membership",
+        "answer_form": "value",
+        "entity": { "value": "ConceptB", "type": "Individual" },
+        "relation": "is member of",
+        "object": { "value": "Category", "type": "Class" }
+      },
+      {
+        "atomic_input": "Which idea is really more abstract, IdeaA or IdeaB",
+        "question_type": "comparative",
+        "answer_form": "value",
+        "entity": { "value": "IdeaA", "type": "Individual" },
+        "relation": "compare",
+        "object": { "value": "IdeaB", "type": "Individual" }
+      }
+    ]
+  },
+  "everyday": {
+    "canonical": [
+      {
+        "atomic_input": "What is a Chair",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": { "value": "Chair", "type": "Class" },
+        "relation": "be",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "Is a Mug a type of Container",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": { "value": "Mug", "type": "Class" },
+        "relation": "be subtype of",
+        "object": { "value": "Container", "type": "Class" }
+      },
+      {
+        "atomic_input": "Is Item42 an instance of Tool",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": { "value": "Item42", "type": "Individual" },
+        "relation": "be instance of",
+        "object": { "value": "Tool", "type": "Class" }
+      },
+      {
+        "atomic_input": "Can a Thermometer measure temperature",
+        "question_type": "capability",
+        "answer_form": "assertion",
+        "entity": { "value": "Thermometer", "type": "Class" },
+        "relation": "measure",
+        "object": { "value": "temperature", "type": "Class" }
+      },
+      {
+        "atomic_input": "Can a SmokeDetector detect smoke",
+        "question_type": "capability",
+        "answer_form": "assertion",
+        "entity": { "value": "SmokeDetector", "type": "Class" },
+        "relation": "detect",
+        "object": { "value": "smoke", "type": "Class" }
+      },
+      {
+        "atomic_input": "Does a CoffeeMachine produce coffee",
+        "question_type": "capability",
+        "answer_form": "assertion",
+        "entity": { "value": "CoffeeMachine", "type": "Class" },
+        "relation": "produce",
+        "object": { "value": "coffee", "type": "Class" }
+      },
+      {
+        "atomic_input": "What is the color of ObjectA",
+        "question_type": "property",
+        "answer_form": "value",
+        "entity": { "value": "ObjectA", "type": "Individual" },
+        "relation": "have property",
+        "object": { "value": "color", "type": "Literal" }
+      },
+      {
+        "atomic_input": "What items are found in a Backpack",
+        "question_type": "membership",
+        "answer_form": "list",
+        "entity": { "value": "Backpack", "type": "Class" },
+        "relation": "has member",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "What does the Drawer contain",
+        "question_type": "membership",
+        "answer_form": "list",
+        "entity": { "value": "Drawer", "type": "Class" },
+        "relation": "contain",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "Which is heavier, BoxA or BoxB",
+        "question_type": "comparative",
+        "answer_form": "value",
+        "entity": { "value": "BoxA", "type": "Individual" },
+        "relation": "compare",
+        "object": { "value": "BoxB", "type": "Individual" }
+      }
+    ],
+
+    "paraphrased": [
+      {
+        "atomic_input": "Explain what a Chair is",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": { "value": "Chair", "type": "Class" },
+        "relation": "be",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "Would you classify a Mug as a Container",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": { "value": "Mug", "type": "Class" },
+        "relation": "be subtype of",
+        "object": { "value": "Container", "type": "Class" }
+      },
+      {
+        "atomic_input": "Does Item42 belong to the class Tool",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": { "value": "Item42", "type": "Individual" },
+        "relation": "be instance of",
+        "object": { "value": "Tool", "type": "Class" }
+      },
+      {
+        "atomic_input": "Can a Thermometer classify readings",
+        "question_type": "capability",
+        "answer_form": "assertion",
+        "entity": { "value": "Thermometer", "type": "Class" },
+        "relation": "classify",
+        "object": { "value": "reading", "type": "Class" }
+      },
+      {
+        "atomic_input": "Does a SmokeDetector use sensors",
+        "question_type": "capability",
+        "answer_form": "assertion",
+        "entity": { "value": "SmokeDetector", "type": "Class" },
+        "relation": "use",
+        "object": { "value": "sensor", "type": "Class" }
+      },
+      {
+        "atomic_input": "What tasks does a CoffeeMachine perform",
+        "question_type": "capability",
+        "answer_form": "list",
+        "entity": { "value": "CoffeeMachine", "type": "Class" },
+        "relation": "perform",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "What property does ObjectA have regarding color",
+        "question_type": "property",
+        "answer_form": "value",
+        "entity": { "value": "ObjectA", "type": "Individual" },
+        "relation": "have property",
+        "object": { "value": "color", "type": "Literal" }
+      },
+      {
+        "atomic_input": "Which items are included in a Backpack",
+        "question_type": "membership",
+        "answer_form": "list",
+        "entity": { "value": "Backpack", "type": "Class" },
+        "relation": "include",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "Which group is ObjectB a member of",
+        "question_type": "membership",
+        "answer_form": "value",
+        "entity": { "value": "ObjectB", "type": "Individual" },
+        "relation": "is member of",
+        "object": { "value": "StorageItem", "type": "Class" }
+      },
+      {
+        "atomic_input": "Between BoxA and BoxB, which has greater weight",
+        "question_type": "comparative",
+        "answer_form": "value",
+        "entity": { "value": "BoxA", "type": "Individual" },
+        "relation": "have property",
+        "object": { "value": "BoxB", "type": "Individual" }
+      }
+    ],
+
+    "adversarial": [
+      {
+        "atomic_input": "So what exactly is a Chair supposed to be",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": { "value": "Chair", "type": "Class" },
+        "relation": "be",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "Isn't it true that a Mug isn't really a Container",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": { "value": "Mug", "type": "Class" },
+        "relation": "be subtype of",
+        "object": { "value": "Container", "type": "Class" }
+      },
+      {
+        "atomic_input": "Is Item42 actually an instance of Tool or not",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": { "value": "Item42", "type": "Individual" },
+        "relation": "be instance of",
+        "object": { "value": "Tool", "type": "Class" }
+      },
+      {
+        "atomic_input": "Does a Thermometer really detect anything at all",
+        "question_type": "capability",
+        "answer_form": "assertion",
+        "entity": { "value": "Thermometer", "type": "Class" },
+        "relation": "detect",
+        "object": { "value": "temperature", "type": "Class" }
+      },
+      {
+        "atomic_input": "Can a SmokeDetector supposedly produce anything meaningful",
+        "question_type": "capability",
+        "answer_form": "list",
+        "entity": { "value": "SmokeDetector", "type": "Class" },
+        "relation": "produce",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "What does a CoffeeMachine even use then",
+        "question_type": "capability",
+        "answer_form": "list",
+        "entity": { "value": "CoffeeMachine", "type": "Class" },
+        "relation": "use",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "What property is ObjectA actually supposed to have",
+        "question_type": "property",
+        "answer_form": "value",
+        "entity": { "value": "ObjectA", "type": "Individual" },
+        "relation": "have property",
+        "object": { "value": "color", "type": "Literal" }
+      },
+      {
+        "atomic_input": "Name all the things a Backpack supposedly contains",
+        "question_type": "membership",
+        "answer_form": "list",
+        "entity": { "value": "Backpack", "type": "Class" },
+        "relation": "contain",
+        "object": { "value": null, "type": null }
+      },
+      {
+        "atomic_input": "Which group is ObjectB actually part of",
+        "question_type": "membership",
+        "answer_form": "value",
+        "entity": { "value": "ObjectB", "type": "Individual" },
+        "relation": "is member of",
+        "object": { "value": "StorageItem", "type": "Class" }
+      },
+      {
+        "atomic_input": "Who is really heavier, BoxA or BoxB",
+        "question_type": "comparative",
+        "answer_form": "value",
+        "entity": { "value": "BoxA", "type": "Individual" },
+        "relation": "compare",
+        "object": { "value": "BoxB", "type": "Individual" }
+      }
+    ]
+  }
+}
+
+
+
