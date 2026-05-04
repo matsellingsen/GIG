@@ -1,0 +1,62 @@
+[
+  {
+    "id": "def_sens_motion",
+    "atomic_input": "What is SENS motion?",
+    "expected_decision": "answer",
+    "acceptable_labels": ["sensor", "product", "device"]
+  },
+  {
+    "id": "taxonomic_sens_motion_sensor",
+    "atomic_input": "Is SENS motion a sensor?",
+    "expected_decision": "answer",
+    "acceptable_labels": ["yes", "true", "sensor"]
+  },
+  {
+    "id": "serial_number_sens_motion",
+    "atomic_input": "What is the serial number of SENS motion?",
+    "expected_decision": "answer",
+    "acceptable_labels": ["sm-001"]
+  },
+  {
+    "id": "weight_sens_motion",
+    "atomic_input": "What is the weight of SENS motion?",
+    "expected_decision": "answer",
+    "acceptable_labels": ["0.15", "0.15 kg", "0.15kg"]
+  },
+  {
+    "id": "manufacturer_sens_motion",
+    "atomic_input": "Who manufactures SENS motion?",
+    "expected_decision": "answer",
+    "acceptable_labels": ["sens innovation"]
+  },
+  {
+    "id": "parts_sens_motion",
+    "atomic_input": "What parts does SENS motion have?",
+    "expected_decision": "answer",
+    "acceptable_labels": ["sensorcore"]
+  },
+  {
+    "id": "sameas_sens_motion_v2",
+    "atomic_input": "What is SENS motion v2?",
+    "expected_decision": "answer",
+    "acceptable_labels": ["sensor", "product", "device"]
+  },
+  {
+    "id": "serial_number_sensorcore",
+    "atomic_input": "What is the serial number of SensorCore?",
+    "expected_decision": "abstain",
+    "acceptable_labels": ["i don't know", "unknown", "not in ontology", "not found"]
+  },
+  {
+    "id": "manufacturer_acme",
+    "atomic_input": "Is SENS motion manufactured by ACME?",
+    "expected_decision": "abstain",
+    "acceptable_labels": ["i don't know", "unknown", "not in ontology", "not found"]
+  },
+  {
+    "id": "weight_company",
+    "atomic_input": "What is the weight of SENS Innovation?",
+    "expected_decision": "abstain",
+    "acceptable_labels": ["i don't know", "unknown", "not in ontology", "not found"]
+  }
+]

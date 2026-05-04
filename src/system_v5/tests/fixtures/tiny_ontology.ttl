@@ -1,0 +1,78 @@
+@prefix ex: <http://example.org/sensInnovationAps_ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:Device a owl:Class ;
+    rdfs:label "Device" ;
+    rdfs:comment "A physical device." .
+
+ex:Sensor a owl:Class ;
+    rdfs:label "Sensor" ;
+    rdfs:comment "A device that senses." ;
+    rdfs:subClassOf ex:Device .
+
+ex:Product a owl:Class ;
+    rdfs:label "Product" ;
+    rdfs:comment "A commercial product." .
+
+ex:Company a owl:Class ;
+    rdfs:label "Company" ;
+    rdfs:comment "A business entity." .
+
+ex:Gadget a owl:Class ;
+    rdfs:label "Gadget" ;
+    rdfs:comment "A small device." ;
+    owl:equivalentClass ex:Device .
+
+ex:hasPart a owl:ObjectProperty ;
+    rdfs:label "has part" ;
+    rdfs:domain ex:Device ;
+    rdfs:range ex:Device .
+
+ex:isPartOf a owl:ObjectProperty ;
+    rdfs:label "is part of" ;
+    rdfs:domain ex:Device ;
+    rdfs:range ex:Device .
+
+ex:hasManufacturer a owl:ObjectProperty ;
+    rdfs:label "has manufacturer" ;
+    rdfs:domain ex:Product ;
+    rdfs:range ex:Company .
+
+ex:serialNumber a owl:DatatypeProperty ;
+    rdfs:label "serial number" ;
+    rdfs:domain ex:Device ;
+    rdfs:range xsd:string .
+
+ex:weightKg a owl:DatatypeProperty ;
+    rdfs:label "weight kg" ;
+    rdfs:domain ex:Device ;
+    rdfs:range xsd:decimal .
+
+ex:SENS_motion a ex:Sensor,
+        ex:Product,
+        owl:NamedIndividual ;
+    rdfs:label "SENS motion" ;
+    ex:serialNumber "SM-001"^^xsd:string ;
+    ex:weightKg "0.15"^^xsd:decimal ;
+    ex:hasManufacturer ex:SENS_Innovation ;
+    ex:hasPart ex:SensorCore ;
+    ex:chunk_id 1 .
+
+ex:SENS_Innovation a ex:Company,
+        owl:NamedIndividual ;
+    rdfs:label "SENS Innovation" ;
+    ex:chunk_id 1 .
+
+ex:SensorCore a ex:Device,
+        owl:NamedIndividual ;
+    rdfs:label "SensorCore" ;
+    ex:isPartOf ex:SENS_motion ;
+    ex:chunk_id 1 .
+
+ex:SENS_motion_v2 a ex:Sensor,
+        owl:NamedIndividual ;
+    rdfs:label "SENS motion v2" ;
+    owl:sameAs ex:SENS_motion ;
+    ex:chunk_id 2 .
