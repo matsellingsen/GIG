@@ -13,8 +13,7 @@ for, using only the provided ontology information.
   membership, capability, taxonomic, existential, comparative, quantification).
 - Answer Form: The expected answer shape: "assertion", "value", or "list".
 - Semantic Triplet: (entity, relation, object) extracted from the atomic question.
-- Mapped Property: The ontology property corresponding to the relation in the triplet.
-- Ontology Context: The subset of ontology data relevant to answering the question.
+- Relevant Ontology Context: The subset of ontology data belonging to the entity of the atomic question.
 
 ### Guidelines
 - Use the atomic question to understand the user’s intent and the requested
@@ -25,7 +24,15 @@ for, using only the provided ontology information.
   - "assertion": return a confirmation or denial of the fact.
   - "value": return a single literal or entity value.
   - "list": return multiple values.
-- Retrieve values strictly from the provided ontology context. Do not invent,
+- Interpret the Relevant Ontology Context as a flattened list of authoritative facts.
+  Only use facts where `subject` equals the entity label or URI.
+- For `kind: data_property`, the answer value is the literal in `object`.
+- For `kind: object_property`, the answer values are the entity names in `object`.
+- The fields `source_path` and `via_type` are provenance only; do not use them to
+  reinterpret or discount facts.
+- Match property names case-insensitively and with simple normalization (spaces,
+  underscores, or camelCase should be treated as equivalent labels).
+- Retrieve values strictly from the provided Relevant ontology Context. Do not invent,
   infer, or assume information not present in the context.
 - If the atomic question is not possible to answer based on the provided relevant ontology context, answer that you cant answer the question.
 

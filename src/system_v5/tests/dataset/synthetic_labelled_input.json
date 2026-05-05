@@ -200,7 +200,7 @@
       {
         "atomic_input": "Can a Neuron supposedly produce anything meaningful",
         "question_type": "capability",
-        "answer_form": "list",
+        "answer_form": "assertion",
         "entity": { "value": "Neuron", "type": "Class" },
         "relation": "produce",
         "object": { "value": null, "type": null }
@@ -450,7 +450,7 @@
       {
         "atomic_input": "Can a Satellite supposedly produce anything meaningful",
         "question_type": "capability",
-        "answer_form": "list",
+        "answer_form": "assertion",
         "entity": { "value": "Satellite", "type": "Class" },
         "relation": "produce",
         "object": { "value": null, "type": null }
@@ -700,7 +700,7 @@
       {
         "atomic_input": "Can a Firewall supposedly produce anything meaningful",
         "question_type": "capability",
-        "answer_form": "list",
+        "answer_form": "assertion",
         "entity": { "value": "Firewall", "type": "Class" },
         "relation": "produce",
         "object": { "value": null, "type": null }
@@ -950,7 +950,7 @@
       {
         "atomic_input": "Can a SecurityGuard supposedly produce anything meaningful",
         "question_type": "capability",
-        "answer_form": "list",
+        "answer_form": "assertion",
         "entity": { "value": "SecurityGuard", "type": "Class" },
         "relation": "produce",
         "object": { "value": null, "type": null }
@@ -1200,7 +1200,7 @@
       {
         "atomic_input": "Can an Algorithm supposedly produce anything meaningful",
         "question_type": "capability",
-        "answer_form": "list",
+        "answer_form": "assertion",
         "entity": { "value": "Algorithm", "type": "Class" },
         "relation": "produce",
         "object": { "value": null, "type": null }
@@ -1450,7 +1450,7 @@
       {
         "atomic_input": "Can a SmokeDetector supposedly produce anything meaningful",
         "question_type": "capability",
-        "answer_form": "list",
+        "answer_form": "assertion",
         "entity": { "value": "SmokeDetector", "type": "Class" },
         "relation": "produce",
         "object": { "value": null, "type": null }

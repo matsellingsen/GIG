@@ -69,16 +69,18 @@ class InferenceModule:
             return            
         
         relevant_info = fetched_relevant_info.get("relevant_info") #unpack the relevant info from the full context
+        relevant_info_flat = fetched_relevant_info.get("relevant_info_flat") #get the flattened relevant info
 
         # Step 3: Generate an answer to the question based on the retrieved relevant information
         answer = generate_answer(question_info=question_info,
-                                 relevant_info=relevant_info,
+                                 relevant_info=relevant_info_flat, # we provide the flattened relevant info to the agent to make it easier for it to use all the relevant info without having to navigate complex structures. The original relevant_info with its full structure is still provided as context for grounding and mapping purposes.
                                  generate_answer_agent=self.generate_answer_agent)
         
         # Step 4: Map the generated answer back to the ontology context
         answer_text = answer.get("answer")
         print("================================")
         print(f"Generated answer before mapping: {answer_text}")
+        print(f"Flattened relevant info used to show the agent: {relevant_info_flat}")
         print(f"Relevant info used for mapping: {relevant_info}")
         print("================================")
         mapped_answer = map_answer_to_context(answer=answer_text, context=relevant_info)

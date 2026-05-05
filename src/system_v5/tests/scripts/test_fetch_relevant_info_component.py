@@ -1,3 +1,4 @@
+import json
 import os
 import pytest
 
@@ -8,6 +9,11 @@ from system_v5.tools.inference_module.fetch_relevant_info import fetch_relevant_
 TINY_TTL_PATH = os.path.abspath(
     os.path.join(os.path.dirname(__file__), "..", "fixtures", "tiny_ontology.ttl")
 )
+REPORT_PATH = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "..", "reports", "fetch_relevant_info_component_results.json")
+)
+
+RESULTS = []
 
 
 class StubResolveEntityAgent:
@@ -27,6 +33,25 @@ def tiny_ttl():
     return load_ttl(file_path=TINY_TTL_PATH)
 
 
+@pytest.fixture(scope="session", autouse=True)
+def write_report():
+    yield
+    os.makedirs(os.path.dirname(REPORT_PATH), exist_ok=True)
+    with open(REPORT_PATH, "w", encoding="utf-8") as f:
+        json.dump(RESULTS, f, indent=2)
+
+
+def record_check(checks, name, passed, expected=None, actual=None):
+    checks.append(
+        {
+            "name": name,
+            "passed": bool(passed),
+            "expected": expected,
+            "actual": actual,
+        }
+    )
+
+
 def collect_property_names(relevant_info):
     properties = set()
     for _, data in relevant_info.get("properties_by_type", {}).items():
@@ -38,6 +63,7 @@ def collect_property_names(relevant_info):
 
 
 def test_fetch_relevant_info_single_candidate(tiny_ttl):
+    checks = []
     question_info = {
         "question_type": "definition",
         "entity": {"value": "SensorCore", "type": "individual"},
@@ -51,13 +77,24 @@ def test_fetch_relevant_info_single_candidate(tiny_ttl):
         resolve_entity_agent=StubResolveEntityAgent(),
     )
 
-    assert result != "noPrimaryEntityFound"
-    assert "relevant_info" in result
-    types = result["relevant_info"].get("types", [])
-    assert "Device" in types
+    record_check(
+        checks,
+        "resolved_entity",
+        result != "noPrimaryEntityFound",
+        expected="found",
+        actual="noPrimaryEntityFound" if result == "noPrimaryEntityFound" else "found",
+    )
+    record_check(checks, "has_relevant_info", "relevant_info" in result, expected=True, actual="relevant_info" in result)
+    types = result.get("relevant_info", {}).get("types", []) if result != "noPrimaryEntityFound" else []
+    record_check(checks, "type_contains_device", "Device" in types, expected=True, actual=types)
+
+    RESULTS.append({"case": {"test": "single_candidate", "question_info": question_info}, "checks": checks})
+    failures = [c for c in checks if not c["passed"]]
+    assert not failures, f"{len(failures)} checks failed: {', '.join(c['name'] for c in failures)}"
 
 
 def test_fetch_relevant_info_properties(tiny_ttl):
+    checks = []
     question_info = {
         "question_type": "property",
         "entity": {"value": "SENS motion", "type": "individual"},
@@ -71,16 +108,27 @@ def test_fetch_relevant_info_properties(tiny_ttl):
         resolve_entity_agent=StubResolveEntityAgent(selected_label="SENS motion"),
     )
 
-    assert result != "noPrimaryEntityFound"
-    relevant_info = result["relevant_info"]
+    record_check(
+        checks,
+        "resolved_entity",
+        result != "noPrimaryEntityFound",
+        expected="found",
+        actual="noPrimaryEntityFound" if result == "noPrimaryEntityFound" else "found",
+    )
+    relevant_info = result.get("relevant_info", {}) if result != "noPrimaryEntityFound" else {}
     properties = collect_property_names(relevant_info)
-    assert "hasPart" in properties
-    assert "hasManufacturer" in properties
-    assert "serialNumber" in properties
-    assert "weightKg" in properties
+    record_check(checks, "hasPart_present", "hasPart" in properties, expected=True, actual=sorted(properties))
+    record_check(checks, "hasManufacturer_present", "hasManufacturer" in properties, expected=True, actual=sorted(properties))
+    record_check(checks, "serialNumber_present", "serialNumber" in properties, expected=True, actual=sorted(properties))
+    record_check(checks, "weightKg_present", "weightKg" in properties, expected=True, actual=sorted(properties))
+
+    RESULTS.append({"case": {"test": "properties", "question_info": question_info}, "checks": checks})
+    failures = [c for c in checks if not c["passed"]]
+    assert not failures, f"{len(failures)} checks failed: {', '.join(c['name'] for c in failures)}"
 
 
 def test_fetch_relevant_info_sameas_merge(tiny_ttl):
+    checks = []
     question_info = {
         "question_type": "definition",
         "entity": {"value": "SENS motion v2", "type": "individual"},
@@ -94,7 +142,17 @@ def test_fetch_relevant_info_sameas_merge(tiny_ttl):
         resolve_entity_agent=StubResolveEntityAgent(selected_label="SENS motion v2"),
     )
 
-    assert result != "noPrimaryEntityFound"
-    provenance = result["relevant_info"].get("provenance", [])
-    assert "1" in provenance
-    assert "2" in provenance
+    record_check(
+        checks,
+        "resolved_entity",
+        result != "noPrimaryEntityFound",
+        expected="found",
+        actual="noPrimaryEntityFound" if result == "noPrimaryEntityFound" else "found",
+    )
+    provenance = result.get("relevant_info", {}).get("provenance", []) if result != "noPrimaryEntityFound" else []
+    record_check(checks, "provenance_has_1", "1" in provenance, expected=True, actual=provenance)
+    record_check(checks, "provenance_has_2", "2" in provenance, expected=True, actual=provenance)
+
+    RESULTS.append({"case": {"test": "sameas_merge", "question_info": question_info}, "checks": checks})
+    failures = [c for c in checks if not c["passed"]]
+    assert not failures, f"{len(failures)} checks failed: {', '.join(c['name'] for c in failures)}"

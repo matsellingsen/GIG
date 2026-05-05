@@ -1,0 +1,184 @@
+[
+  {
+    "case": {
+      "id": "answer_serial_number"
+    },
+    "checks": [
+      {
+        "name": "answer_matches_labels",
+        "passed": true,
+        "expected": [
+          "SM-001"
+        ],
+        "actual": "SM-001"
+      }
+    ],
+    "atomic question": "What is the serial number of SENS motion?",
+    "triplet": {
+      "entity": "SENS motion",
+      "relation": "have property",
+      "object": "serial number"
+    },
+    "answer": "SM-001",
+    "reasoning": "The relevant ontology context provides a 'data_property' with the predicate 'serialNumber' and a literal object 'SM-001'. This matches the question's relation 'have property' and the object's literal value 'serial number'. The subject 'SENS motion' is the individual in question, and the object 'SM-001' is the literal value of the property 'serial number'. Therefore, the answer can be directly retrieved from the provided context.",
+    "relevant_info": {
+      "entity": {
+        "uri": "http://example.org/sensInnovationAps_ontology#SENS_motion",
+        "label": "SENS motion",
+        "types": [
+          "Sensor",
+          "Product"
+        ],
+        "equivalent_classes": [],
+        "provenance": []
+      },
+      "facts": [
+        {
+          "kind": "type",
+          "subject": "SENS motion",
+          "predicate": "rdf:type",
+          "object": "Sensor",
+          "object_type": "class",
+          "direction": null,
+          "via_type": null,
+          "datatype": null,
+          "details": null,
+          "source_path": "types.0"
+        },
+        {
+          "kind": "type",
+          "subject": "SENS motion",
+          "predicate": "rdf:type",
+          "object": "Product",
+          "object_type": "class",
+          "direction": null,
+          "via_type": null,
+          "datatype": null,
+          "details": null,
+          "source_path": "types.1"
+        },
+        {
+          "kind": "superclass",
+          "subject": "Sensor",
+          "predicate": "rdfs:subClassOf",
+          "object": "Device",
+          "object_type": "class",
+          "direction": null,
+          "via_type": "Sensor",
+          "datatype": null,
+          "details": null,
+          "source_path": "superclasses.Sensor.0"
+        },
+        {
+          "kind": "object_property",
+          "subject": "SENS motion",
+          "predicate": "hasPart",
+          "object": "SensorCore",
+          "object_type": "entity",
+          "direction": "outgoing",
+          "via_type": "Sensor",
+          "datatype": null,
+          "details": null,
+          "source_path": "properties_by_type.Sensor.outgoing_object_properties.0"
+        },
+        {
+          "kind": "data_property",
+          "subject": "SENS motion",
+          "predicate": "serialNumber",
+          "object": "SM-001",
+          "object_type": "literal",
+          "direction": "outgoing",
+          "via_type": "Sensor",
+          "datatype": null,
+          "details": null,
+          "source_path": "properties_by_type.Sensor.outgoing_data_properties.0"
+        }
+      ]
+    }
+  },
+  {
+    "case": {
+      "id": "answer_parts"
+    },
+    "checks": [
+      {
+        "name": "answer_matches_labels",
+        "passed": true,
+        "expected": [
+          "SensorCore"
+        ],
+        "actual": "SensorCore"
+      }
+    ],
+    "atomic question": "What parts does SENS motion have?",
+    "triplet": {
+      "entity": "SENS motion",
+      "relation": "has member",
+      "object": "parts"
+    },
+    "answer": "SensorCore",
+    "reasoning": "The relevant ontology context provides a fact of the kind 'object_property' with the subject 'SENS motion' and the predicate 'hasPart', which indicates a part of the SENS motion. The object of this property is 'SensorCore', which is an entity and not a class or a literal value.",
+    "relevant_info": {
+      "entity": {
+        "uri": "http://example.org/sensInnovationAps_ontology#SENS_motion",
+        "label": "SENS motion",
+        "types": [
+          "Sensor",
+          "Product"
+        ],
+        "equivalent_classes": [],
+        "provenance": []
+      },
+      "facts": [
+        {
+          "kind": "type",
+          "subject": "SENS motion",
+          "predicate": "rdf:type",
+          "object": "Sensor",
+          "object_type": "class",
+          "direction": null,
+          "via_type": null,
+          "datatype": null,
+          "details": null,
+          "source_path": "types.0"
+        },
+        {
+          "kind": "type",
+          "subject": "SENS motion",
+          "predicate": "rdf:type",
+          "object": "Product",
+          "object_type": "class",
+          "direction": null,
+          "via_type": null,
+          "datatype": null,
+          "details": null,
+          "source_path": "types.1"
+        },
+        {
+          "kind": "superclass",
+          "subject": "Sensor",
+          "predicate": "rdfs:subClassOf",
+          "object": "Device",
+          "object_type": "class",
+          "direction": null,
+          "via_type": "Sensor",
+          "datatype": null,
+          "details": null,
+          "source_path": "superclasses.Sensor.0"
+        },
+        {
+          "kind": "object_property",
+          "subject": "SENS motion",
+          "predicate": "hasPart",
+          "object": "SensorCore",
+          "object_type": "entity",
+          "direction": "outgoing",
+          "via_type": "Sensor",
+          "datatype": null,
+          "details": null,
+          "source_path": "properties_by_type.Sensor.outgoing_object_properties.0"
+        }
+      ]
+    }
+  }
+]

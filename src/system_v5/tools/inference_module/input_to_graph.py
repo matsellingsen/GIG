@@ -44,6 +44,7 @@ def atomic_to_graph(atomic_input: str, extract_question_type_agent: ExtractQuest
     print("================================")
     #2. Structure the extracted information as a triple with the 4 extracted components.
     result = {
+        "atomic_question": atomic_input,
         "question_type": question_type.get("question_type"),
         "answer_form": answer_form.get("answer_form"),
         "entity": {"value": entity.get("entity"), "type": entity.get("entity_type")},

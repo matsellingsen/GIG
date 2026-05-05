@@ -35,6 +35,17 @@ class PhiOpenVINONPUBackend(Backend):
         # DETERMINISM:
         gen_config.do_sample = False # forces deterministic behaviour
 
+        # Explicit decoding parameters to avoid backend defaults.
+        # Guarded by hasattr to stay compatible with different GenAI versions.
+        if hasattr(gen_config, "temperature"):
+            gen_config.temperature = 0.0
+        if hasattr(gen_config, "top_p"):
+            gen_config.top_p = 1.0
+        if hasattr(gen_config, "top_k"):
+            gen_config.top_k = 0
+        if hasattr(gen_config, "seed"):
+            gen_config.seed = 42
+
         # EFFICIENCY / QUALITY trade-off:
         #gen_config.repetition_penalty = 1.2 # gives a small boost to output diversity without needing sampling, which can be less efficient on NPU. Adjust as needed.
 

@@ -802,6 +802,222 @@ def normalize_and_clean_context_for_llm(relevant_info):
 
     return normalized_and_cleaned
 
+
+def flatten_entity_context(full_context: dict) -> dict:
+    """
+    Flatten the structured entity context into a lossless list of facts.
+    This avoids ambiguous nesting while preserving source paths for mapping.
+    """
+    facts = []
+
+    entity_label = full_context.get("label") or full_context.get("uri")
+
+    def add_fact(
+        kind,
+        subject,
+        predicate,
+        obj,
+        object_type,
+        direction,
+        via_type,
+        datatype,
+        details,
+        source_path,
+    ):
+        facts.append(
+            {
+                "kind": kind,
+                "subject": subject,
+                "predicate": predicate,
+                "object": obj,
+                "object_type": object_type,
+                "direction": direction,
+                "via_type": via_type,
+                "datatype": datatype,
+                "details": details,
+                "source_path": source_path,
+            }
+        )
+
+    # Types
+    for idx, t in enumerate(full_context.get("types", [])):
+        add_fact(
+            kind="type",
+            subject=entity_label,
+            predicate="rdf:type",
+            obj=t,
+            object_type="class",
+            direction=None,
+            via_type=None,
+            datatype=None,
+            details=None,
+            source_path=f"types.{idx}",
+        )
+
+    # Superclasses by direct type
+    for dt, supers in full_context.get("superclasses", {}).items():
+        for idx, sup in enumerate(supers):
+            add_fact(
+                kind="superclass",
+                subject=dt,
+                predicate="rdfs:subClassOf",
+                obj=sup,
+                object_type="class",
+                direction=None,
+                via_type=dt,
+                datatype=None,
+                details=None,
+                source_path=f"superclasses.{dt}.{idx}",
+            )
+
+    # Equivalent classes
+    for idx, eq in enumerate(full_context.get("equivalent_classes", [])):
+        add_fact(
+            kind="equivalent_class",
+            subject=entity_label,
+            predicate="owl:equivalentClass",
+            obj=eq,
+            object_type="class",
+            direction=None,
+            via_type=None,
+            datatype=None,
+            details=None,
+            source_path=f"equivalent_classes.{idx}",
+        )
+
+    # Properties grouped by type
+    for dt, pdata in full_context.get("properties_by_type", {}).items():
+        for idx, item in enumerate(pdata.get("outgoing_object_properties", [])):
+            add_fact(
+                kind="object_property",
+                subject=entity_label,
+                predicate=item.get("property"),
+                obj=item.get("object"),
+                object_type="entity",
+                direction="outgoing",
+                via_type=dt,
+                datatype=None,
+                details=None,
+                source_path=f"properties_by_type.{dt}.outgoing_object_properties.{idx}",
+            )
+
+        for idx, item in enumerate(pdata.get("outgoing_data_properties", [])):
+            add_fact(
+                kind="data_property",
+                subject=entity_label,
+                predicate=item.get("property"),
+                obj=item.get("value"),
+                object_type="literal",
+                direction="outgoing",
+                via_type=dt,
+                datatype=item.get("datatype"),
+                details=None,
+                source_path=f"properties_by_type.{dt}.outgoing_data_properties.{idx}",
+            )
+
+        for idx, item in enumerate(pdata.get("incoming_object_properties", [])):
+            add_fact(
+                kind="object_property",
+                subject=item.get("subject"),
+                predicate=item.get("property"),
+                obj=entity_label,
+                object_type="entity",
+                direction="incoming",
+                via_type=dt,
+                datatype=None,
+                details=None,
+                source_path=f"properties_by_type.{dt}.incoming_object_properties.{idx}",
+            )
+
+        for idx, item in enumerate(pdata.get("incoming_data_properties", [])):
+            add_fact(
+                kind="data_property",
+                subject=item.get("subject"),
+                predicate=item.get("property"),
+                obj=entity_label,
+                object_type="entity",
+                direction="incoming",
+                via_type=dt,
+                datatype=None,
+                details=None,
+                source_path=f"properties_by_type.{dt}.incoming_data_properties.{idx}",
+            )
+
+    # Annotations
+    for prop, val in full_context.get("annotations", {}).items():
+        add_fact(
+            kind="annotation",
+            subject=entity_label,
+            predicate=prop,
+            obj=val,
+            object_type="literal",
+            direction=None,
+            via_type=None,
+            datatype=None,
+            details=None,
+            source_path=f"annotations.{prop}",
+        )
+
+    # Class descriptions
+    for cls, desc in full_context.get("class_descriptions", {}).items():
+        add_fact(
+            kind="class_description",
+            subject=cls,
+            predicate="rdfs:comment",
+            obj=desc.get("description"),
+            object_type="literal",
+            direction=None,
+            via_type=None,
+            datatype=None,
+            details=None,
+            source_path=f"class_descriptions.{cls}.description",
+        )
+
+    # Object property descriptions
+    for prop, details in full_context.get("object_property_descriptions", {}).items():
+        add_fact(
+            kind="object_property_description",
+            subject=prop,
+            predicate="description",
+            obj=None,
+            object_type=None,
+            direction=None,
+            via_type=None,
+            datatype=None,
+            details={
+                "description": details.get("description"),
+                "domain": details.get("domain"),
+                "range": details.get("range"),
+            },
+            source_path=f"object_property_descriptions.{prop}",
+        )
+
+    # Provenance
+    for idx, cid in enumerate(full_context.get("provenance", [])):
+        add_fact(
+            kind="provenance",
+            subject=entity_label,
+            predicate="chunk_id",
+            obj=cid,
+            object_type="literal",
+            direction=None,
+            via_type=None,
+            datatype=None,
+            details=None,
+            source_path=f"provenance.{idx}",
+        )
+
+    return {
+        "entity": {
+            "uri": full_context.get("uri"),
+            "label": full_context.get("label"),
+            "types": full_context.get("types", []),
+            "equivalent_classes": full_context.get("equivalent_classes", []),
+            "provenance": full_context.get("provenance", []),
+        },
+        "facts": facts,
+    }
+
 def fetch_relevant_info(question_info: dict, ttl: dict, resolve_entity_agent: ResolveEntityAgent):
     """
     Fetch relevant information from the TTL based on the extracted question information.
@@ -848,18 +1064,25 @@ def fetch_relevant_info(question_info: dict, ttl: dict, resolve_entity_agent: Re
     #print("==========================")
     
 
-    # 4. Filter the full context based on the question type to get the most relevant information for answering the question.
+    # 4. Flatten the context for LLM consumption (lossless; keeps source paths).
+    full_entity_context_flat = flatten_entity_context(full_entity_context)
+
+    # 5. Filter the full context based on the question type to get the most relevant information for answering the question.
     #relevant_info = filter_context(question_info, full_entity_context)
     relevant_info = full_entity_context # for now, skip filtering to show all retrieved info. We can re-introduce this later once we have the full context retrieval working well.
     
-    # 5. Normalize the relevant information to be LLM-friendly (no URIs, only human-readable labels and comments).
+    # 6. Normalize the relevant information to be LLM-friendly (no URIs, only human-readable labels and comments).
     relevant_info_normalized = normalize_and_clean_context_for_llm(relevant_info)
 
-    # 5. group together all information and return it.
+    # 7. Normalize the flattened context for LLM use.
+    relevant_info_flat_normalized = normalize_and_clean_context_for_llm(full_entity_context_flat)
+
+    # 8. group together all information and return it.
     final_output = {
         "question_info": question_info,
         "resolved_entity": resolved_entity,
-        "relevant_info": relevant_info_normalized
+        "relevant_info": relevant_info_normalized,
+        "relevant_info_flat": relevant_info_flat_normalized
     }
     return final_output
 

@@ -1,0 +1,154 @@
+[
+  {
+    "case": {
+      "test": "single_candidate",
+      "question_info": {
+        "question_type": "definition",
+        "entity": {
+          "value": "SensorCore",
+          "type": "individual"
+        },
+        "relation": "be",
+        "object": {
+          "value": "unknown",
+          "type": "unknown"
+        }
+      }
+    },
+    "checks": [
+      {
+        "name": "resolved_entity",
+        "passed": true,
+        "expected": "found",
+        "actual": "found"
+      },
+      {
+        "name": "has_relevant_info",
+        "passed": true,
+        "expected": true,
+        "actual": true
+      },
+      {
+        "name": "type_contains_device",
+        "passed": true,
+        "expected": true,
+        "actual": [
+          "Device",
+          "NamedIndividual"
+        ]
+      }
+    ]
+  },
+  {
+    "case": {
+      "test": "properties",
+      "question_info": {
+        "question_type": "property",
+        "entity": {
+          "value": "SENS motion",
+          "type": "individual"
+        },
+        "relation": "have property",
+        "object": {
+          "value": "serial number",
+          "type": "literal"
+        }
+      }
+    },
+    "checks": [
+      {
+        "name": "resolved_entity",
+        "passed": true,
+        "expected": "found",
+        "actual": "found"
+      },
+      {
+        "name": "hasPart_present",
+        "passed": true,
+        "expected": true,
+        "actual": [
+          "hasManufacturer",
+          "hasPart",
+          "serialNumber",
+          "weightKg"
+        ]
+      },
+      {
+        "name": "hasManufacturer_present",
+        "passed": true,
+        "expected": true,
+        "actual": [
+          "hasManufacturer",
+          "hasPart",
+          "serialNumber",
+          "weightKg"
+        ]
+      },
+      {
+        "name": "serialNumber_present",
+        "passed": true,
+        "expected": true,
+        "actual": [
+          "hasManufacturer",
+          "hasPart",
+          "serialNumber",
+          "weightKg"
+        ]
+      },
+      {
+        "name": "weightKg_present",
+        "passed": true,
+        "expected": true,
+        "actual": [
+          "hasManufacturer",
+          "hasPart",
+          "serialNumber",
+          "weightKg"
+        ]
+      }
+    ]
+  },
+  {
+    "case": {
+      "test": "sameas_merge",
+      "question_info": {
+        "question_type": "definition",
+        "entity": {
+          "value": "SENS motion v2",
+          "type": "individual"
+        },
+        "relation": "be",
+        "object": {
+          "value": "unknown",
+          "type": "unknown"
+        }
+      }
+    },
+    "checks": [
+      {
+        "name": "resolved_entity",
+        "passed": true,
+        "expected": "found",
+        "actual": "found"
+      },
+      {
+        "name": "provenance_has_1",
+        "passed": true,
+        "expected": true,
+        "actual": [
+          "1",
+          "2"
+        ]
+      },
+      {
+        "name": "provenance_has_2",
+        "passed": true,
+        "expected": true,
+        "actual": [
+          "1",
+          "2"
+        ]
+      }
+    ]
+  }
+]

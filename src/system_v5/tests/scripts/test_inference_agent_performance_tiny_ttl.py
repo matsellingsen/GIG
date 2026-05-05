@@ -119,6 +119,7 @@ def test_agent_performance_tiny_ttl(case, ttl_fixture, agents):
         resolve_entity_agent=agents["resolve_entity"],
     )
 
+    resolved_entity = None
     if fetched == "noPrimaryEntityFound":
         resolved_ok = expected_decision != "answer"
         record_check(
@@ -132,6 +133,7 @@ def test_agent_performance_tiny_ttl(case, ttl_fixture, agents):
         relevant_info = {}
     else:
         record_check(checks, "resolved_entity", True, expected="found", actual="found")
+        resolved_entity = fetched.get("resolved_entity")
         relevant_info = fetched.get("relevant_info", {})
         answer = generate_answer(
             question_info=question_info,
@@ -139,6 +141,7 @@ def test_agent_performance_tiny_ttl(case, ttl_fixture, agents):
             generate_answer_agent=agents["generate_answer"],
         )
         answer_text = answer.get("answer", "") if isinstance(answer, dict) else ""
+        reasoning_text = answer.get("reasoning", "") if isinstance(answer, dict) else ""
 
     mapped = map_answer_to_context(answer=answer_text, context=relevant_info)
 
@@ -166,6 +169,17 @@ def test_agent_performance_tiny_ttl(case, ttl_fixture, agents):
             actual="noPrimaryEntityFound" if fetched == "noPrimaryEntityFound" else answer_text,
         )
 
-    RESULTS.append({"case": case_meta, "checks": checks, "mapped": mapped})
+    RESULTS.append(
+        {
+            "case": case_meta,
+            "checks": checks,
+            "question_info": question_info,
+            "resolved_entity": resolved_entity,
+            "relevant_info": relevant_info,
+            "answer": answer_text,
+            "reasoning": reasoning_text,
+            "mapped": mapped,
+        }
+    )
     failures = [c for c in checks if not c["passed"]]
     assert not failures, f"{len(failures)} checks failed: {', '.join(c['name'] for c in failures)}"

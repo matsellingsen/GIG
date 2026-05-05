@@ -48,11 +48,22 @@ class GenerateAnswerAgent(BaseOntologyAgent):
         question_type = question_info.get("question_type", "unknown")
         answer_form = question_info.get("answer_form", "value")
 
-        entity = question_info.get("entity", "unknown")
+        extracted_entity = question_info.get("entity", "unknown")
         relation = question_info.get("relation", "unknown")
         obj = question_info.get("object", "unknown")
 
+        resolved_entity = relevant_info.get("entity", {}) if isinstance(relevant_info, dict) else {}
+        resolved_label = resolved_entity.get("label")
+        resolved_uri = resolved_entity.get("uri")
+        entity_value = resolved_label or resolved_uri or extracted_entity
+
         context_str = json.dumps(relevant_info, indent=2) if relevant_info else "None"
+        rules_str = self._build_interpretation_rules(
+            question_type=question_type,
+            answer_form=answer_form,
+            relation=relation,
+            obj=obj,
+        )
 
         return f"""
         ### Goal
@@ -66,10 +77,77 @@ class GenerateAnswerAgent(BaseOntologyAgent):
         - answer_form: {answer_form}
 
         ### Extracted Triplet
-        - entity: {entity}
+        - entity: {entity_value}
         - relation: {relation}
         - object: {obj}
+
+        ### Extracted Entity Alias
+        {extracted_entity}
 
         ### Relevant Ontology Context
         {context_str}
         """
+
+    def _build_interpretation_rules(self, question_type, answer_form, relation, obj):
+        relation_value = relation if isinstance(relation, str) else str(relation)
+        object_value = obj.get("value") if isinstance(obj, dict) else obj
+        object_value = "unknown" if object_value in (None, "null") else object_value
+
+        rules = []
+        rules.append(f"- question_type: {question_type}, answer_form: {answer_form}.")
+        rules.append(
+            "- Normalize labels by lowercasing, removing spaces/underscores/hyphens, "
+            "splitting camelCase, and stripping leading 'has'/'is'."
+        )
+
+        if question_type == "property":
+            if relation_value == "have property":
+                rules.append(
+                    f"- The target property name is the triplet object: '{object_value}'."
+                    "The target property name should correspond to a predicate label in the context (after normalization)."
+                )
+            else:
+                rules.append(
+                    f"- The target property name is the triplet relation: '{relation_value}'."
+                )
+            if answer_form == "assertion":
+                rules.append(
+                    "- An assertion asks whether the entity has that property."
+                )
+            else:
+                rules.append(
+                    "- A value/list asks for the value(s) of that property."
+                )
+
+        elif question_type == "membership":
+            rules.append(
+                "- Membership questions ask about inclusion or part-whole relations."
+            )
+
+        elif question_type == "taxonomic":
+            if relation_value == "be instance of":
+                rules.append("- The target relation is instance-of (class membership).")
+            else:
+                rules.append(
+                    "- The target relation is subclass/superclass membership."
+                )
+
+            if answer_form == "assertion":
+                rules.append(
+                    "- An assertion asks whether the membership relation holds."
+                )
+            else:
+                rules.append("- A value/list asks for the relevant class name(s).")
+
+        elif question_type == "definition":
+            pass
+            rules.append(
+                "- A definition asks what class the entity belongs to and what properties it has."
+            )
+
+        else:
+            rules.append(
+                "- Interpret the triplet to identify the target attribute or relation."
+        )
+
+        return "\n".join(rules)

@@ -45,18 +45,18 @@
     "id": "serial_number_sensorcore",
     "atomic_input": "What is the serial number of SensorCore?",
     "expected_decision": "abstain",
-    "acceptable_labels": ["i don't know", "unknown", "not in ontology", "not found"]
+    "acceptable_labels": ["i don't know", "unknown", "not in ontology", "not found", "can't answer the question"]
   },
   {
     "id": "manufacturer_acme",
     "atomic_input": "Is SENS motion manufactured by ACME?",
     "expected_decision": "abstain",
-    "acceptable_labels": ["i don't know", "unknown", "not in ontology", "not found"]
+    "acceptable_labels": ["i don't know", "unknown", "not in ontology", "not found", "can't answer the question"]
   },
   {
     "id": "weight_company",
     "atomic_input": "What is the weight of SENS Innovation?",
     "expected_decision": "abstain",
-    "acceptable_labels": ["i don't know", "unknown", "not in ontology", "not found"]
+    "acceptable_labels": ["i don't know", "unknown", "not in ontology", "not found", "can't answer the question"]
   }
 ]

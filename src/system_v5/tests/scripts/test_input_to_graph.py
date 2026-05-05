@@ -117,32 +117,38 @@ def test_input_to_graph(case):
     actual_relation = result.get("relation")
     actual_object = result.get("object", {}).get("value")
 
+    qt_ok = actual_question_type == expected_question_type
+    af_ok = actual_answer_form == expected_answer_form
+    entity_ok = actual_entity == expected_entity
+    relation_ok = actual_relation == expected_relation
+    object_ok = actual_object == expected_object if expected_object is not None else None
+
     # Semantic checks
     record_check(
         checks,
         "question_type_match",
-        actual_question_type == expected_question_type,
+        qt_ok,
         expected=expected_question_type,
         actual=actual_question_type,
     )
     record_check(
         checks,
         "answer_form_match",
-        actual_answer_form == expected_answer_form,
+        af_ok,
         expected=expected_answer_form,
         actual=actual_answer_form,
     )
     record_check(
         checks,
         "entity_match",
-        actual_entity == expected_entity,
+        entity_ok,
         expected=expected_entity,
         actual=actual_entity,
     )
     record_check(
         checks,
         "relation_match",
-        actual_relation == expected_relation,
+        relation_ok,
         expected=expected_relation,
         actual=actual_relation,
     )
@@ -151,11 +157,24 @@ def test_input_to_graph(case):
         record_check(
             checks,
             "object_match",
-            actual_object == expected_object,
+            object_ok,
             expected=expected_object,
             actual=actual_object,
         )
 
-    RESULTS.append({"case": case_meta, "checks": checks})
+    attribution = {
+        "question_type_match": "pass" if qt_ok else "direct",
+        "answer_form_match": "pass" if af_ok else "direct",
+        "entity_match": "pass" if entity_ok else ("direct" if qt_ok else "cascade"),
+        "relation_match": "pass" if relation_ok else ("direct" if (qt_ok and entity_ok) else "cascade"),
+    }
+    if expected_object is not None:
+        attribution["object_match"] = (
+            "pass"
+            if object_ok
+            else ("direct" if (qt_ok and entity_ok and relation_ok) else "cascade")
+        )
+
+    RESULTS.append({"case": case_meta, "checks": checks, "attribution": attribution})
     failures = [c for c in checks if not c["passed"]]
     assert not failures, f"{len(failures)} checks failed: {', '.join(c['name'] for c in failures)}"
