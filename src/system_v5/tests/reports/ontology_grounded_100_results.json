@@ -1,69 +1,23 @@
 [
   {
     "case": {
-      "id": "present_07"
+      "id": "absent_02"
     },
     "checks": [
       {
-        "name": "answer_non_empty",
+        "name": "abstain_expected",
         "passed": true,
-        "expected": "non-empty",
-        "actual": "Yes, App is an InformationObject."
-      },
-      {
-        "name": "answer_matches_labels",
-        "passed": true,
-        "expected": [
-          "yes",
-          "true"
-        ],
-        "actual": "Yes, App is an InformationObject."
-      },
-      {
-        "name": "gold_answer_matches_labels",
-        "passed": true,
-        "expected": [
-          "yes",
-          "true"
-        ],
-        "actual": "Yes, App is a InformationObject."
-      },
-      {
-        "name": "mapping_covers_expected_context",
-        "passed": false,
-        "expected": {
-          "entity_side": {
-            "types": [],
-            "superclasses": [
-              "InformationObject"
-            ],
-            "equivalent_classes": [],
-            "properties": [],
-            "property_values": {}
-          }
-        },
-        "actual": {
-          "types": [],
-          "superclasses": [],
-          "equivalent_classes": [],
-          "properties": [],
-          "property_values": {}
-        }
-      },
-      {
-        "name": "reasoning_non_empty",
-        "passed": true,
-        "expected": "non-empty",
-        "actual": "The ontology information defines 'InformationObject' as a 'Class', which is a type of 'Class'. Since 'InformationObject' is a 'Class', it is an 'InformationObject'."
+        "expected": "abstain",
+        "actual": "abstain"
       }
     ],
     "question_info": {
-      "atomic_question": "Is App an InformationObject?",
+      "atomic_question": "What is WebApplication?",
       "question_type": "definition",
-      "answer_form": "assertion",
+      "answer_form": "value",
       "entity": {
-        "value": "InformationObject",
-        "type": "class"
+        "value": "WebApplication",
+        "type": "individual"
       },
       "relation": "be",
       "object": {
@@ -73,12 +27,12 @@
     },
     "fetched": {
       "question_info": {
-        "atomic_question": "Is App an InformationObject?",
+        "atomic_question": "What is WebApplication?",
         "question_type": "definition",
-        "answer_form": "assertion",
+        "answer_form": "value",
         "entity": {
-          "value": "InformationObject",
-          "type": "class"
+          "value": "WebApplication",
+          "type": "individual"
         },
         "relation": "be",
         "object": {
@@ -87,28 +41,37 @@
         }
       },
       "resolved_entity": {
-        "uri": "http://example.org/sensInnovationAps_ontology#InformationObject",
-        "label": "InformationObject",
+        "uri": "http://example.org/sensInnovationAps_ontology#WebApplication",
+        "label": "WebApplication",
         "score": 1.0,
         "labels": [
-          "InformationObject"
+          "WebApplication"
         ],
         "entity_type": "Class",
         "types": [],
-        "superclasses": [],
+        "superclasses": [
+          "InformationObject",
+          "PhysicalObject",
+          "UserInterface"
+        ],
         "object_properties": {},
         "data_properties": {},
         "annotations": {}
       },
       "entity_context": {
         "scope_note": "All information in this object is directly related to the resolved entity of the atomic question.",
-        "uri": "InformationObject",
-        "label": "InformationObject",
+        "uri": "WebApplication",
+        "label": "WebApplication",
         "types": [
           "Class"
         ],
         "superclasses": {
-          "Class": []
+          "Class": [],
+          "WebApplication": [
+            "InformationObject",
+            "PhysicalObject",
+            "UserInterface"
+          ]
         },
         "equivalent_classes": [],
         "properties_by_type": {
@@ -120,8 +83,8 @@
           }
         },
         "annotations": {
-          "label": "InformationObject",
-          "comment": "A piece of information, such as a text, a word, a picture, or data, independently from how it is concretely realized."
+          "label": "WebApplication",
+          "comment": "A software application that is designed to be used over the internet, typically accessed through a web browser."
         },
         "class_descriptions": {
           "Class": {
@@ -136,13 +99,18 @@
     },
     "entity_context": {
       "scope_note": "All information in this object is directly related to the resolved entity of the atomic question.",
-      "uri": "InformationObject",
-      "label": "InformationObject",
+      "uri": "WebApplication",
+      "label": "WebApplication",
       "types": [
         "Class"
       ],
       "superclasses": {
-        "Class": []
+        "Class": [],
+        "WebApplication": [
+          "InformationObject",
+          "PhysicalObject",
+          "UserInterface"
+        ]
       },
       "equivalent_classes": [],
       "properties_by_type": {
@@ -154,8 +122,8 @@
         }
       },
       "annotations": {
-        "label": "InformationObject",
-        "comment": "A piece of information, such as a text, a word, a picture, or data, independently from how it is concretely realized."
+        "label": "WebApplication",
+        "comment": "A software application that is designed to be used over the internet, typically accessed through a web browser."
       },
       "class_descriptions": {
         "Class": {
@@ -166,15 +134,21 @@
       "provenance": []
     },
     "object_context": null,
-    "answer": "Yes, App is an InformationObject.",
-    "reasoning": "The ontology information defines 'InformationObject' as a 'Class', which is a type of 'Class'. Since 'InformationObject' is a 'Class', it is an 'InformationObject'.",
+    "answer": "A WebApplication is a Class, which is a type of 'InformationObject', 'PhysicalObject', and 'UserInterface'.",
+    "reasoning": "The ontology information provides a label and a scope note for the entity 'WebApplication', which is a 'Class'.",
     "gold_answer_agent": {
-      "reasoning": "The ontology lists 'App' with a superclass 'InformationObject', which supports classifying App as a InformationObject.",
-      "answer": "Yes, App is a InformationObject."
+      "reasoning": "The entity has labels WebApplication, but no explicit type/superclass was found in the extracted mapping.",
+      "answer": "I can't answer the question."
     },
     "mapped_entity_answer": {
-      "types": [],
-      "superclasses": [],
+      "types": [
+        "Class"
+      ],
+      "superclasses": [
+        "InformationObject",
+        "PhysicalObject",
+        "UserInterface"
+      ],
       "equivalent_classes": [],
       "properties": [],
       "property_values": {}
