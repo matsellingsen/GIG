@@ -128,9 +128,17 @@
         -- It could be better to test sub-components robustness and reliability, 
         -- and the whole inference pipeline by itself and prove/argue for answer completeness, grounding etc..
     - TESTING
-        -- unit test the input_to_graph() agents (1/2 DONE) <-- Failures must be handled
+        -- Component-test the input_to_graph() agents (1/2 DONE) <-- Failures must be handled
             -- Create labelled dataset containing 6 domains, and evenly distributed across labels.
-        -- component-test the other subcomponents of the inference-module
+        -- component-test the other subcomponents of the inference-module (1/2 DONE)
+            -- Determine whether some other components must be tested
+        -- small (10) End-to-End on tiny ttl (DONE)
+        -- Large End-to-End using real ttl with questions based on real ttl
+            -- 50% answerable
+            -- 50% unanswerable
+        -- Large End-to-End using real ttl with questions based on source
+            -- 50% answerable
+            -- 50% unanswerable
         (Only testing semantic/non-deterministic parts)
         (using real data from the extracted ontology)
             -- Fetch_relevant_info (doing)

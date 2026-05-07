@@ -20,8 +20,8 @@ class GenerateAnswerAgent(BaseOntologyAgent):
         system_prompt = load_prompt("C:\\Users\\matse\\gig\\src\\system_v5\\prompts\\system\\agents\\inference_module\\generate-answer.txt")
         super().__init__(backend=backend, system_prompt=system_prompt)
 
-    def run(self, question_info, relevant_info):
-        user_msg = self._build_user_message(question_info, relevant_info)
+    def run(self, question_info, entity_context, object_context) -> dict:
+        user_msg = self._build_user_message(question_info, entity_context, object_context)
 
         answer_schema = {
             "type": "object",
@@ -42,7 +42,7 @@ class GenerateAnswerAgent(BaseOntologyAgent):
     # ---------------------------------------------------------
     # Unified dynamic user message builder
     # ---------------------------------------------------------
-    def _build_user_message(self, question_info, relevant_info):
+    def _build_user_message(self, question_info, entity_context, object_context):
 
         atomic_question = question_info.get("atomic_question", "unknown")
         question_type = question_info.get("question_type", "unknown")
@@ -52,20 +52,27 @@ class GenerateAnswerAgent(BaseOntologyAgent):
         relation = question_info.get("relation", "unknown")
         obj = question_info.get("object", "unknown")
 
-        resolved_entity = relevant_info.get("entity", {}) if isinstance(relevant_info, dict) else {}
+        resolved_entity = entity_context.get("entity", {}) if isinstance(entity_context, dict) else {}
         resolved_label = resolved_entity.get("label")
         resolved_uri = resolved_entity.get("uri")
         entity_value = resolved_label or resolved_uri or extracted_entity
 
-        context_str = json.dumps(relevant_info, indent=2) if relevant_info else "None"
+        if object_context is not None:
+            resolved_object = object_context.get("object", {}) if isinstance(object_context, dict) else {}
+            resolved_object_label = resolved_object.get("label")
+            resolved_object_uri = resolved_object.get("uri")
+            object_value = resolved_object_label or resolved_object_uri or obj
+
+        entity_context_str = json.dumps(entity_context, indent=2) if entity_context else "None"
+        object_context_str = json.dumps(object_context, indent=2) if object_context else "None"
+
         rules_str = self._build_interpretation_rules(
             question_type=question_type,
             answer_form=answer_form,
             relation=relation,
             obj=obj,
         )
-
-        return f"""
+        user_msg = f"""
         ### Goal
         Generate an ontology‑grounded answer to the atomic question.
 
@@ -77,16 +84,27 @@ class GenerateAnswerAgent(BaseOntologyAgent):
         - answer_form: {answer_form}
 
         ### Extracted Triplet
-        - entity: {entity_value}
+        - entity: {extracted_entity}
         - relation: {relation}
         - object: {obj}
 
         ### Extracted Entity Alias
-        {extracted_entity}
+        {entity_value}
 
-        ### Relevant Ontology Context
-        {context_str}
+        ### Ontology information connected to the Entity
+        {entity_context_str}
         """
+
+        if object_context is not None:
+            user_msg += f"""        
+        ### Extracted Object Alias
+        {object_value}
+
+        ### Ontology information connected to the Object
+        {object_context_str}
+        """
+
+        return user_msg
 
     def _build_interpretation_rules(self, question_type, answer_form, relation, obj):
         relation_value = relation if isinstance(relation, str) else str(relation)

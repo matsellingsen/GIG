@@ -131,12 +131,17 @@ def canonical_relation_to_base_axiom(rel: str) -> str:
 
 from rdflib import RDF, RDFS, OWL
 
-def resolve_primary_entity(question_info: dict, graph, resolve_entity_agent: ResolveEntityAgent):
+def resolve_entity(type: str, question_info: dict, graph, resolve_entity_agent: ResolveEntityAgent):
     """
     Resolve an entity name to a URI in the TTL graph.
     Performs exact match on label and URI fragment, then fuzzy match.
     """
-    entity = question_info.get("entity", {}).get("value")
+    if type == "entity":
+        entity = question_info.get("entity", {}).get("value")
+    elif type == "object":
+        entity = question_info.get("object", {}).get("value")
+    else:
+        raise ValueError("Invalid entity type. Must be 'entity' or 'object'.")
 
     #1. Fetch candidates
     top_candidates = retrieve_top_candidates(graph, entity, top_n=3)
@@ -450,6 +455,22 @@ def retrieve_full_entity_context(entity: dict, graph):
         collect_supers(dt, acc)
         superclasses_by_direct_type[str(dt)] = [str(s) for s in acc]
 
+    # If the resolved entity itself is a Class (i.e. the subject is an OWL.Class node),
+    # make sure we expose its direct rdfs:subClassOf targets under a human-readable
+    # key (the entity label). This ensures downstream mapping functions can match
+    # text like "InformationObject" against the entity's superclasses.
+    try:
+        if (URIRef(entity_uri), RDF.type, OWL.Class) in graph:
+            # use the entity's short label as key
+            entity_label = unquote(str(entity_uri).split("#")[-1])
+            direct_supers = [unquote(str(o).split("#")[-1]) for _, _, o in graph.triples((URIRef(entity_uri), RDFS.subClassOf, None))]
+            # only set if we found any direct superclasses
+            if direct_supers:
+                superclasses_by_direct_type[entity_label] = direct_supers
+    except Exception:
+        # defensive: if anything goes wrong, do not break the caller
+        pass
+
     # ---------------------------------------------------------
     # 3. Equivalent classes
     # ---------------------------------------------------------
@@ -569,6 +590,7 @@ def retrieve_full_entity_context(entity: dict, graph):
     # Return merged context
     # ---------------------------------------------------------
     return {
+        "scope_note": "All information in this object is directly related to the resolved entity of the atomic question.",
         "uri": str(entity_uri),
         "label": get_label(URIRef(entity_uri)),
         "types": direct_types,
@@ -1048,41 +1070,43 @@ def fetch_relevant_info(question_info: dict, ttl: dict, resolve_entity_agent: Re
     #print("base axiom:", base_axiom)
 
     #2. Resolve the primary entity and object to URIs in the TTL graph
-    resolved_entity = resolve_primary_entity(question_info, ttl["graph"], resolve_entity_agent=resolve_entity_agent)
-      
+    resolved_entity = resolve_entity(type="entity", question_info=question_info, graph=ttl["graph"], resolve_entity_agent=resolve_entity_agent)
     
+    # conditionally resolve object if its ontology context is also needed to answer the question.
+    resolved_object = None
+    if question_type == "comparative":
+        resolved_object = resolve_entity(type="object", question_info=question_info, graph=ttl["graph"], resolve_entity_agent=resolve_entity_agent)
+        if resolved_object is None:
+            print("Could not resolve comparative object to a URI in the TTL.")
+            return "noComparativeObjectFound"
+        
     print("resolved entity:", resolved_entity)
+
+    # return if primary entity cannot be resolved, as we won't be able to retrieve any relevant info without it. 
     if resolved_entity is None:
         print("Could not resolve primary entity to a URI in the TTL.")
         return "noPrimaryEntityFound"
     
+     
     # 3. Retrieve full context for the resolved entity
     full_entity_context = retrieve_full_entity_context(resolved_entity, ttl["graph"])
-    #print("== FULL ENTITY CONTEXT ==")
-    #for key, value in full_entity_context.items():
-    #    print(f"{key}: {value}")
-    #print("==========================")
-    
-
-    # 4. Flatten the context for LLM consumption (lossless; keeps source paths).
-    full_entity_context_flat = flatten_entity_context(full_entity_context)
-
-    # 5. Filter the full context based on the question type to get the most relevant information for answering the question.
-    #relevant_info = filter_context(question_info, full_entity_context)
-    relevant_info = full_entity_context # for now, skip filtering to show all retrieved info. We can re-introduce this later once we have the full context retrieval working well.
+    full_object_context = None
+    if resolved_object is not None:
+        full_object_context = retrieve_full_entity_context(resolved_object, ttl["graph"])
     
     # 6. Normalize the relevant information to be LLM-friendly (no URIs, only human-readable labels and comments).
-    relevant_info_normalized = normalize_and_clean_context_for_llm(relevant_info)
-
-    # 7. Normalize the flattened context for LLM use.
-    relevant_info_flat_normalized = normalize_and_clean_context_for_llm(full_entity_context_flat)
+    entity_context_normalized = normalize_and_clean_context_for_llm(full_entity_context)
+    object_context_normalized = None
+    if full_object_context is not None:
+        object_context_normalized = normalize_and_clean_context_for_llm(full_object_context)
 
     # 8. group together all information and return it.
     final_output = {
         "question_info": question_info,
         "resolved_entity": resolved_entity,
-        "relevant_info": relevant_info_normalized,
-        "relevant_info_flat": relevant_info_flat_normalized
+        "entity_context": entity_context_normalized,
+        "resolved_object": resolved_object,
+        "object_context": object_context_normalized
     }
     return final_output
 

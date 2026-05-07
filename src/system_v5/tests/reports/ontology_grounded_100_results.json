@@ -1,0 +1,190 @@
+[
+  {
+    "case": {
+      "id": "present_07"
+    },
+    "checks": [
+      {
+        "name": "answer_non_empty",
+        "passed": true,
+        "expected": "non-empty",
+        "actual": "Yes, App is an InformationObject."
+      },
+      {
+        "name": "answer_matches_labels",
+        "passed": true,
+        "expected": [
+          "yes",
+          "true"
+        ],
+        "actual": "Yes, App is an InformationObject."
+      },
+      {
+        "name": "gold_answer_matches_labels",
+        "passed": true,
+        "expected": [
+          "yes",
+          "true"
+        ],
+        "actual": "Yes, App is a InformationObject."
+      },
+      {
+        "name": "mapping_covers_expected_context",
+        "passed": false,
+        "expected": {
+          "entity_side": {
+            "types": [],
+            "superclasses": [
+              "InformationObject"
+            ],
+            "equivalent_classes": [],
+            "properties": [],
+            "property_values": {}
+          }
+        },
+        "actual": {
+          "types": [],
+          "superclasses": [],
+          "equivalent_classes": [],
+          "properties": [],
+          "property_values": {}
+        }
+      },
+      {
+        "name": "reasoning_non_empty",
+        "passed": true,
+        "expected": "non-empty",
+        "actual": "The ontology information defines 'InformationObject' as a 'Class', which is a type of 'Class'. Since 'InformationObject' is a 'Class', it is an 'InformationObject'."
+      }
+    ],
+    "question_info": {
+      "atomic_question": "Is App an InformationObject?",
+      "question_type": "definition",
+      "answer_form": "assertion",
+      "entity": {
+        "value": "InformationObject",
+        "type": "class"
+      },
+      "relation": "be",
+      "object": {
+        "value": "null",
+        "type": "null"
+      }
+    },
+    "fetched": {
+      "question_info": {
+        "atomic_question": "Is App an InformationObject?",
+        "question_type": "definition",
+        "answer_form": "assertion",
+        "entity": {
+          "value": "InformationObject",
+          "type": "class"
+        },
+        "relation": "be",
+        "object": {
+          "value": "null",
+          "type": "null"
+        }
+      },
+      "resolved_entity": {
+        "uri": "http://example.org/sensInnovationAps_ontology#InformationObject",
+        "label": "InformationObject",
+        "score": 1.0,
+        "labels": [
+          "InformationObject"
+        ],
+        "entity_type": "Class",
+        "types": [],
+        "superclasses": [],
+        "object_properties": {},
+        "data_properties": {},
+        "annotations": {}
+      },
+      "entity_context": {
+        "scope_note": "All information in this object is directly related to the resolved entity of the atomic question.",
+        "uri": "InformationObject",
+        "label": "InformationObject",
+        "types": [
+          "Class"
+        ],
+        "superclasses": {
+          "Class": []
+        },
+        "equivalent_classes": [],
+        "properties_by_type": {
+          "Class": {
+            "outgoing_object_properties": [],
+            "outgoing_data_properties": [],
+            "incoming_object_properties": [],
+            "incoming_data_properties": []
+          }
+        },
+        "annotations": {
+          "label": "InformationObject",
+          "comment": "A piece of information, such as a text, a word, a picture, or data, independently from how it is concretely realized."
+        },
+        "class_descriptions": {
+          "Class": {
+            "description": null
+          }
+        },
+        "object_property_descriptions": {},
+        "provenance": []
+      },
+      "resolved_object": null,
+      "object_context": null
+    },
+    "entity_context": {
+      "scope_note": "All information in this object is directly related to the resolved entity of the atomic question.",
+      "uri": "InformationObject",
+      "label": "InformationObject",
+      "types": [
+        "Class"
+      ],
+      "superclasses": {
+        "Class": []
+      },
+      "equivalent_classes": [],
+      "properties_by_type": {
+        "Class": {
+          "outgoing_object_properties": [],
+          "outgoing_data_properties": [],
+          "incoming_object_properties": [],
+          "incoming_data_properties": []
+        }
+      },
+      "annotations": {
+        "label": "InformationObject",
+        "comment": "A piece of information, such as a text, a word, a picture, or data, independently from how it is concretely realized."
+      },
+      "class_descriptions": {
+        "Class": {
+          "description": null
+        }
+      },
+      "object_property_descriptions": {},
+      "provenance": []
+    },
+    "object_context": null,
+    "answer": "Yes, App is an InformationObject.",
+    "reasoning": "The ontology information defines 'InformationObject' as a 'Class', which is a type of 'Class'. Since 'InformationObject' is a 'Class', it is an 'InformationObject'.",
+    "gold_answer_agent": {
+      "reasoning": "The ontology lists 'App' with a superclass 'InformationObject', which supports classifying App as a InformationObject.",
+      "answer": "Yes, App is a InformationObject."
+    },
+    "mapped_entity_answer": {
+      "types": [],
+      "superclasses": [],
+      "equivalent_classes": [],
+      "properties": [],
+      "property_values": {}
+    },
+    "mapped_reasoning_answer": {
+      "types": [],
+      "superclasses": [],
+      "equivalent_classes": [],
+      "properties": [],
+      "property_values": {}
+    }
+  }
+]

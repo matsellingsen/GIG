@@ -11,8 +11,8 @@ from agent_loop.agents.inference_module.generate_answer_agent import GenerateAns
 from agent_loop.agents.inference_module.filter_evidence_agent import FilterEvidenceAgent
 from agent_loop.agents.inference_module.map_to_context_agent import MapToContextAgent
 
-def generate_answer(question_info, relevant_info, generate_answer_agent: GenerateAnswerAgent) -> dict:
-    answer, _ = generate_answer_agent.run(question_info=question_info, relevant_info=relevant_info)
+def generate_answer(question_info, entity_context, object_context, generate_answer_agent: GenerateAnswerAgent) -> dict:
+    answer, _ = generate_answer_agent.run(question_info=question_info, entity_context=entity_context, object_context=object_context)
     print(f"Generated answer: {answer}")
     print("================================")
     return answer
@@ -35,14 +35,16 @@ def main():
     for qid, info in relevant_infos.items():
         question_info = info.get("question_info")
         resolved_entity = info.get("resolved_entity")
-        relevant_info = info.get("relevant_info")
+        entity_context = info.get("entity_context")
+        object_context = info.get("object_context")
         print(f"\n\n========== Generating answer for question {qid} ==========")
         triplets = {"entity": question_info.get("entity"), "relation": question_info.get("relation"), "object": question_info.get("object")}
         #print(f"Extracted triplet: {triplets}")
         #print(f"Question info: {question_info}")
         #print(f"Resolved entity: {resolved_entity}")
-        #print(f"Relevant info: {relevant_info}")
-        #print(" == Relevant info details ==")
+        #print(f"Entity context: {entity_context}")
+        #print(f"Object context: {object_context}")
+        #print(" == Context details ==")
         #for key, value in relevant_info.items():
         #    print(f"  {key}: {value}")
         #print(" ====================")
@@ -56,22 +58,25 @@ def main():
         #print("atomic question:", question_info.get("atomic_question"))
         #print("==============================================")
         # 1. generate the final answer based on the relevant info
-        answer = generate_answer(question_info=question_info, relevant_info=relevant_info, generate_answer_agent=generate_answer_agent)
+        answer = generate_answer(question_info=question_info, entity_context=entity_context, object_context=object_context, generate_answer_agent=generate_answer_agent)
         #print(f"Generated answer: {answer.get('answer')}")
         #print("================================")
 
         # 2. map the answer back to the ontology context
         answer_text = answer.get("answer")
-        mapped_answer = map_answer_to_context(answer=answer_text, context=relevant_info)
-        #mapped_answer, _ = map_to_context_agent.run(answer=answer_text, full_context=relevant_info)
+        mapped_entity_answer = map_answer_to_context(answer=answer_text, context=entity_context)
+        mapped_object_answer = map_answer_to_context(answer=answer_text, context=object_context) if object_context is not None else None
+        #mapped_answer, _ = map_to_context_agent.run(answer=answer_text, full_context=entity_context)
         #print(f"Mapped answer: {mapped_answer}")
         #print("================================")
 
         # 3. Validate answer with validation agent (not implemented yet)
         validation_result = validate_answer(answer=answer, 
                                             question_info=question_info, 
-                                            relevant_info=relevant_info, 
-                                            mapped_answer=mapped_answer)
+                                            entity_context=entity_context,
+                                            object_context=object_context,
+                                            mapped_entity_answer=mapped_entity_answer,
+                                            mapped_object_answer=mapped_object_answer)
 
 
 

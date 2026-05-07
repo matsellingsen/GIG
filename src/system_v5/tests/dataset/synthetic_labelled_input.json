@@ -39,7 +39,7 @@
         "answer_form": "assertion",
         "entity": { "value": "Neuron", "type": "Class" },
         "relation": "detect",
-        "object": { "value": "signal", "type": "Class" }
+        "object": { "value": "signals", "type": "Class" }
       },
       {
         "atomic_input": "Does a Ribosome produce proteins",
@@ -47,7 +47,7 @@
         "answer_form": "assertion",
         "entity": { "value": "Ribosome", "type": "Class" },
         "relation": "produce",
-        "object": { "value": "protein", "type": "Class" }
+        "object": { "value": "proteins", "type": "Class" }
       },
       {
         "atomic_input": "What is the color of LeafA",
@@ -113,7 +113,7 @@
             "answer_form": "assertion",
             "entity": { "value": "SensorCell", "type": "Class" },
             "relation": "classify",
-            "object": { "value": "nutrient", "type": "Class" }
+            "object": { "value": "nutrients", "type": "Class" }
         },
         {
             "atomic_input": "Does a Neuron use neurotransmitters",
@@ -121,7 +121,7 @@
             "answer_form": "assertion",
             "entity": { "value": "Neuron", "type": "Class" },
             "relation": "use",
-            "object": { "value": "neurotransmitter", "type": "Class" }
+            "object": { "value": "neurotransmitters", "type": "Class" }
         },
         {
             "atomic_input": "What tasks does a Ribosome perform",
@@ -153,7 +153,7 @@
             "answer_form": "value",
             "entity": { "value": "ChloroplastA", "type": "Individual" },
             "relation": "is member of",
-            "object": { "value": "CellComponent", "type": "Class" }
+            "object": { "value": "group", "type": "Class" }
         },
         {
             "atomic_input": "Between CellA and CellB, which has a greater size",
@@ -195,7 +195,7 @@
         "answer_form": "assertion",
         "entity": { "value": "SensorCell", "type": "Class" },
         "relation": "detect",
-        "object": { "value": "signal", "type": "Class" }
+        "object": { "value": "anything", "type": "Class" }
       },
       {
         "atomic_input": "Can a Neuron supposedly produce anything meaningful",
@@ -235,7 +235,7 @@
         "answer_form": "value",
         "entity": { "value": "ChloroplastA", "type": "Individual" },
         "relation": "is member of",
-        "object": { "value": "CellComponent", "type": "Class" }
+        "object": { "value": "group", "type": "Class" }
       },
       {
         "atomic_input": "Who is really larger, CellA or CellB",
@@ -287,7 +287,7 @@
         "answer_form": "assertion",
         "entity": { "value": "Satellite", "type": "Class" },
         "relation": "detect",
-        "object": { "value": "storm", "type": "Class" }
+        "object": { "value": "storms", "type": "Class" }
       },
       {
         "atomic_input": "Does a Volcano produce ash",
@@ -362,7 +362,7 @@
         "answer_form": "assertion",
         "entity": { "value": "WeatherStation", "type": "Class" },
         "relation": "classify",
-        "object": { "value": "cloud type", "type": "Class" }
+        "object": { "value": "cloud types", "type": "Class" }
       },
       {
         "atomic_input": "Does a Satellite use sensors",
@@ -370,7 +370,7 @@
         "answer_form": "assertion",
         "entity": { "value": "Satellite", "type": "Class" },
         "relation": "use",
-        "object": { "value": "sensor", "type": "Class" }
+        "object": { "value": "sensors", "type": "Class" }
       },
       {
         "atomic_input": "What tasks does a Volcano perform",
@@ -445,7 +445,7 @@
         "answer_form": "assertion",
         "entity": { "value": "WeatherStation", "type": "Class" },
         "relation": "detect",
-        "object": { "value": "storm", "type": "Class" }
+        "object": { "value": "anything", "type": "Class" }
       },
       {
         "atomic_input": "Can a Satellite supposedly produce anything meaningful",
@@ -453,7 +453,7 @@
         "answer_form": "assertion",
         "entity": { "value": "Satellite", "type": "Class" },
         "relation": "produce",
-        "object": { "value": null, "type": null }
+        "object": { "value": "anything", "type": "Class" }
       },
       {
         "atomic_input": "What does a Volcano even use then",
@@ -545,7 +545,7 @@
         "answer_form": "assertion",
         "entity": { "value": "Compiler", "type": "Class" },
         "relation": "produce",
-        "object": { "value": "binary", "type": "Class" }
+        "object": { "value": "binaries", "type": "Class" }
       },
       {
         "atomic_input": "What is the speed of ProcessorA",
@@ -612,7 +612,7 @@
         "answer_form": "assertion",
         "entity": { "value": "Sensor", "type": "Class" },
         "relation": "classify",
-        "object": { "value": "signal", "type": "Class" }
+        "object": { "value": "signals", "type": "Class" }
       },
       {
         "atomic_input": "Does a Firewall use rulesets",
@@ -620,7 +620,7 @@
         "answer_form": "assertion",
         "entity": { "value": "Firewall", "type": "Class" },
         "relation": "use",
-        "object": { "value": "ruleset", "type": "Class" }
+        "object": { "value": "rulesets", "type": "Class" }
       },
       {
         "atomic_input": "What tasks does a Compiler perform",
@@ -652,14 +652,14 @@
         "answer_form": "value",
         "entity": { "value": "ModuleA", "type": "Individual" },
         "relation": "is member of",
-        "object": { "value": "SoftwareSuite", "type": "Class" }
+        "object": { "value": "group", "type": "Class" }
       },
       {
         "atomic_input": "Between DeviceA and DeviceB, which has a higher speed",
         "question_type": "comparative",
         "answer_form": "value",
         "entity": { "value": "DeviceA", "type": "Individual" },
-        "relation": "have property",
+        "relation": "compare",
         "object": { "value": "DeviceB", "type": "Individual" }
       }
     ],
@@ -695,7 +695,7 @@
         "answer_form": "assertion",
         "entity": { "value": "Sensor", "type": "Class" },
         "relation": "detect",
-        "object": { "value": "signal", "type": "Class" }
+        "object": { "value": "anything", "type": "Class" }
       },
       {
         "atomic_input": "Can a Firewall supposedly produce anything meaningful",
@@ -703,12 +703,12 @@
         "answer_form": "assertion",
         "entity": { "value": "Firewall", "type": "Class" },
         "relation": "produce",
-        "object": { "value": null, "type": null }
+        "object": { "value": "anything", "type": "Class" }
       },
       {
         "atomic_input": "What does a Compiler even use then",
         "question_type": "capability",
-        "answer_form": "list",
+        "answer_form": "value",
         "entity": { "value": "Compiler", "type": "Class" },
         "relation": "use",
         "object": { "value": null, "type": null }
@@ -719,7 +719,7 @@
         "answer_form": "value",
         "entity": { "value": "ProcessorA", "type": "Individual" },
         "relation": "have property",
-        "object": { "value": "speed", "type": "Literal" }
+        "object": { "value": "property", "type": "Literal" }
       },
       {
         "atomic_input": "Name all the things a Computer supposedly contains",
@@ -735,7 +735,7 @@
         "answer_form": "value",
         "entity": { "value": "ModuleA", "type": "Individual" },
         "relation": "is member of",
-        "object": { "value": "SoftwareSuite", "type": "Class" }
+        "object": { "value": "group", "type": "Class" }
       },
       {
         "atomic_input": "Who is really faster, DeviceA or DeviceB",
@@ -862,7 +862,7 @@
         "answer_form": "assertion",
         "entity": { "value": "Doctor", "type": "Class" },
         "relation": "classify",
-        "object": { "value": "symptom", "type": "Class" }
+        "object": { "value": "symptoms", "type": "Class" }
       },
       {
         "atomic_input": "Does a SecurityGuard use equipment",
@@ -902,7 +902,7 @@
         "answer_form": "value",
         "entity": { "value": "PersonB", "type": "Individual" },
         "relation": "is member of",
-        "object": { "value": "Family", "type": "Class" }
+        "object": { "value": "group", "type": "Class" }
       },
       {
         "atomic_input": "Between Alice and Bob, who has greater height",
@@ -945,7 +945,7 @@
         "answer_form": "assertion",
         "entity": { "value": "Doctor", "type": "Class" },
         "relation": "detect",
-        "object": { "value": "symptom", "type": "Class" }
+        "object": { "value": "anything", "type": "Class" }
       },
       {
         "atomic_input": "Can a SecurityGuard supposedly produce anything meaningful",
@@ -985,7 +985,7 @@
         "answer_form": "value",
         "entity": { "value": "PersonB", "type": "Individual" },
         "relation": "is member of",
-        "object": { "value": "Family", "type": "Class" }
+        "object": { "value": "group", "type": "Class" }
       },
       {
         "atomic_input": "Who is really taller, Alice or Bob",

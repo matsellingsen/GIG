@@ -68,33 +68,44 @@ class InferenceModule:
             self.run() # restart the process for a new question
             return            
         
-        relevant_info = fetched_relevant_info.get("relevant_info") #unpack the relevant info from the full context
-        relevant_info_flat = fetched_relevant_info.get("relevant_info_flat") #get the flattened relevant info
+        entity_context = fetched_relevant_info.get("entity_context") #unpack the relevant info from the full context
+        object_context = fetched_relevant_info.get("object_context") #get the object context
 
         # Step 3: Generate an answer to the question based on the retrieved relevant information
         answer = generate_answer(question_info=question_info,
-                                 relevant_info=relevant_info_flat, # we provide the flattened relevant info to the agent to make it easier for it to use all the relevant info without having to navigate complex structures. The original relevant_info with its full structure is still provided as context for grounding and mapping purposes.
+                                 entity_context=entity_context,
+                                 object_context=object_context,
                                  generate_answer_agent=self.generate_answer_agent)
         
         # Step 4: Map the generated answer back to the ontology context
         answer_text = answer.get("answer")
+        reasoning_text = answer.get("reasoning")
         print("================================")
         print(f"Generated answer before mapping: {answer_text}")
-        print(f"Flattened relevant info used to show the agent: {relevant_info_flat}")
-        print(f"Relevant info used for mapping: {relevant_info}")
+        print(f"Generated reasoning before mapping: {reasoning_text}")
+        #print(f"Flattened relevant info used to show the agent: {relevant_info_flat}")
+        print(f"entity info used for mapping: {entity_context}")
         print("================================")
-        mapped_answer = map_answer_to_context(answer=answer_text, context=relevant_info)
+        mapped_entity_answer = map_answer_to_context(answer=answer_text, context=entity_context)
+        mapped_reasoning_entity_answer = map_answer_to_context(answer=reasoning_text, context=entity_context)
+        mapped_object_answer = map_answer_to_context(answer=answer_text, context=object_context) if object_context is not None else None
+        print(f"Mapped entity answer: {mapped_entity_answer}")
+        print(f"Mapped reasoning answer: {mapped_reasoning_entity_answer}")
+        if object_context is not None:
+            print(f"Mapped object answer: {mapped_object_answer}")
 
         # Step 5: Validate the generated answer based on the question, the extracted triplet, and the retrieved relevant information
-        validation_result = validate_answer(answer=answer,
-                                          question_info=question_info,
-                                          relevant_info=relevant_info,
-                                          mapped_answer=mapped_answer,
-                                          validate_answer_agent=self.validate_answer_agent)
-        if validation_result:
-            print(f"Final answer: {answer_text}")
-        else:
-            print("The generated answer did not pass final validation.")
+        #validation_result = validate_answer(answer=answer,
+        #                                  question_info=question_info,
+        #                                  entity_context=entity_context,
+        #                                  object_context=object_context,
+        #                                  mapped_entity_answer=mapped_entity_answer,
+        #                                  mapped_object_answer=mapped_object_answer,
+        #                                  validate_answer_agent=self.validate_answer_agent)
+        #if validation_result:
+        #    print(f"Final answer: {answer_text}")
+        #else:
+        #    print("The generated answer did not pass final validation.")
 
 def main():
     inference_module = InferenceModule()

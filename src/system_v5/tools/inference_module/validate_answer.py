@@ -27,7 +27,7 @@ def clean_and_prepare_mapped_answer_triplets(entity_value: str, mapped_answer: d
                     cleaned_answer.append({"entity": entity_value, "relation": prop, "object": val}) # ensure entity value is included in the mapped answer for validation
     return cleaned_answer
 
-def validate_answer(answer: dict, question_info: dict, relevant_info: dict, mapped_answer: dict, validate_answer_agent: ValidateAnswerAgent = None) -> bool:
+def validate_answer(answer: dict, question_info: dict, entity_context: dict, object_context: dict, mapped_entity_answer: dict, mapped_object_answer: dict, validate_answer_agent: ValidateAnswerAgent = None) -> bool:
     #0. unpack inputs
     atomic_question = question_info.get("atomic_question")
     question_type = question_info.get("question_type")
@@ -36,7 +36,7 @@ def validate_answer(answer: dict, question_info: dict, relevant_info: dict, mapp
                          "object": question_info.get("object").get("value")}
     entity_value = question_info.get("entity").get("value")
     generated_answer = answer.get("answer")
-    mapped_answer_triplets = clean_and_prepare_mapped_answer_triplets(entity_value, mapped_answer)
+    mapped_answer_triplets = clean_and_prepare_mapped_answer_triplets(entity_value, mapped_entity_answer)
     print("================================")
     print("atomic question:", atomic_question)
     print(f"Question type: {question_type}")

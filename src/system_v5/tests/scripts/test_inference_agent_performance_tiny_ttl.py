@@ -134,16 +134,18 @@ def test_agent_performance_tiny_ttl(case, ttl_fixture, agents):
     else:
         record_check(checks, "resolved_entity", True, expected="found", actual="found")
         resolved_entity = fetched.get("resolved_entity")
-        relevant_info = fetched.get("relevant_info", {})
+        entity_context = fetched.get("entity_context", {})
+        object_context = fetched.get("object_context", {})
         answer = generate_answer(
             question_info=question_info,
-            relevant_info=relevant_info,
+            entity_context=entity_context,
+            object_context=object_context,
             generate_answer_agent=agents["generate_answer"],
         )
         answer_text = answer.get("answer", "") if isinstance(answer, dict) else ""
         reasoning_text = answer.get("reasoning", "") if isinstance(answer, dict) else ""
 
-    mapped = map_answer_to_context(answer=answer_text, context=relevant_info)
+    mapped = map_answer_to_context(answer=answer_text, context=entity_context)
 
     acceptable_labels = case["acceptable_labels"]
     matched_label = matches_any_label(answer_text, acceptable_labels)
@@ -175,7 +177,8 @@ def test_agent_performance_tiny_ttl(case, ttl_fixture, agents):
             "checks": checks,
             "question_info": question_info,
             "resolved_entity": resolved_entity,
-            "relevant_info": relevant_info,
+            "entity_context": entity_context,
+            "object_context": object_context,
             "answer": answer_text,
             "reasoning": reasoning_text,
             "mapped": mapped,

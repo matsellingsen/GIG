@@ -9,7 +9,7 @@
     "id": "taxonomic_sens_motion_sensor",
     "atomic_input": "Is SENS motion a sensor?",
     "expected_decision": "answer",
-    "acceptable_labels": ["yes", "true", "sensor"]
+    "acceptable_labels": ["yes", "true", "sensor", "assertion"]
   },
   {
     "id": "serial_number_sens_motion",

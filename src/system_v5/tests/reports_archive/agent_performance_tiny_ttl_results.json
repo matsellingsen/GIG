@@ -21,7 +21,7 @@
         "name": "answer_non_empty",
         "passed": true,
         "expected": "non-empty",
-        "actual": "SENS motion is a Sensor, Product, and NamedIndividual."
+        "actual": "SENS motion v2 is a Product that senses."
       },
       {
         "name": "answer_matches_labels",
@@ -31,7 +31,7 @@
           "product",
           "device"
         ],
-        "actual": "SENS motion is a Sensor, Product, and NamedIndividual."
+        "actual": "SENS motion v2 is a Product that senses."
       }
     ],
     "question_info": {
@@ -156,13 +156,11 @@
       ]
     },
     "object_context": null,
-    "answer": "SENS motion is a Sensor, Product, and NamedIndividual.",
-    "reasoning": "The ontology information provides a label 'SENS motion' which is associated with the entity 'SENS motion'.",
+    "answer": "SENS motion v2 is a Product that senses.",
+    "reasoning": "The atomic question asks for the definition of 'SENS motion,' which is a class in the ontology. The ontology information provides a label for 'SENS motion' as 'SENS motion v2' and describes 'Sensor' as 'A device that senses.' By combining these pieces of information, we can infer the definition of 'SENS motion' as a type of 'Sensor' that senses, and it is a product with the label 'SENS motion v2'.",
     "mapped": {
       "types": [
-        "NamedIndividual",
-        "Product",
-        "Sensor"
+        "Product"
       ],
       "superclasses": [],
       "equivalent_classes": [],
@@ -193,7 +191,7 @@
         "name": "answer_non_empty",
         "passed": true,
         "expected": "non-empty",
-        "actual": "SENS motion is a sensor."
+        "actual": "assertion"
       },
       {
         "name": "answer_matches_labels",
@@ -204,7 +202,7 @@
           "sensor",
           "assertion"
         ],
-        "actual": "SENS motion is a sensor."
+        "actual": "assertion"
       }
     ],
     "question_info": {
@@ -329,12 +327,10 @@
       ]
     },
     "object_context": null,
-    "answer": "SENS motion is a sensor.",
-    "reasoning": "The ontology information defines 'Sensor' as a 'device that senses.' and 'SENS motion' is classified as a 'Sensor'.",
+    "answer": "assertion",
+    "reasoning": "The ontology information defines 'SENS motion' as a 'Sensor', which is a 'Device that senses'.",
     "mapped": {
-      "types": [
-        "Sensor"
-      ],
+      "types": [],
       "superclasses": [],
       "equivalent_classes": [],
       "properties": [],
@@ -361,7 +357,7 @@
         "name": "answer_non_empty",
         "passed": true,
         "expected": "non-empty",
-        "actual": "The serial number of SENS motion is SM-001."
+        "actual": "SM-001"
       },
       {
         "name": "answer_matches_labels",
@@ -369,7 +365,7 @@
         "expected": [
           "sm-001"
         ],
-        "actual": "The serial number of SENS motion is SM-001."
+        "actual": "SM-001"
       }
     ],
     "question_info": {
@@ -494,8 +490,8 @@
       ]
     },
     "object_context": null,
-    "answer": "The serial number of SENS motion is SM-001.",
-    "reasoning": "The ontology information provided includes a property 'Sensor' with an outgoing data property 'serialNumber'. The individual 'SENS motion' is of type 'Sensor', and thus, it should have a 'serial number' as a data property.",
+    "answer": "SM-001",
+    "reasoning": "The ontology information provided includes a property 'Sensor' with an outgoing data property 'serialNumber'. The individual 'SENS motion' is of type 'NamedIndividual', which is a subclass of 'Sensor'. Therefore, it should have the 'serialNumber' property associated with it.",
     "mapped": {
       "types": [],
       "superclasses": [],
@@ -530,7 +526,7 @@
         "name": "answer_non_empty",
         "passed": true,
         "expected": "non-empty",
-        "actual": "The weight of SENS motion is 0.15 kilograms."
+        "actual": "0.15"
       },
       {
         "name": "answer_matches_labels",
@@ -540,7 +536,7 @@
           "0.15 kg",
           "0.15kg"
         ],
-        "actual": "The weight of SENS motion is 0.15 kilograms."
+        "actual": "0.15"
       }
     ],
     "question_info": {
@@ -665,8 +661,8 @@
       ]
     },
     "object_context": null,
-    "answer": "The weight of SENS motion is 0.15 kilograms.",
-    "reasoning": "The ontology information provides the property 'weightKg' with a value of '0.15' for the individual 'SENS motion'.",
+    "answer": "0.15",
+    "reasoning": "The ontology information provided includes a property 'weightKg' with a value of '0.15' for the entity 'SENS motion'. This value is directly related to the question about the weight of 'SENS motion'.",
     "mapped": {
       "types": [],
       "superclasses": [],
@@ -866,7 +862,7 @@
         "name": "answer_non_empty",
         "passed": true,
         "expected": "non-empty",
-        "actual": "SENS motion has a part."
+        "actual": "I can't answer the question."
       },
       {
         "name": "answer_matches_labels",
@@ -874,7 +870,7 @@
         "expected": [
           "sensorcore"
         ],
-        "actual": "SENS motion has a part."
+        "actual": "I can't answer the question."
       }
     ],
     "question_info": {
@@ -999,8 +995,8 @@
       ]
     },
     "object_context": null,
-    "answer": "SENS motion has a part.",
-    "reasoning": "The ontology information provided includes a property 'hasPart' associated with the class 'Sensor', which is related to the individual 'SENS motion'. This property can be interpreted as a part of the 'SENS motion' based on the context of the question, which is about the parts of 'SENS motion'.",
+    "answer": "I can't answer the question.",
+    "reasoning": "The ontology information provided does not contain any explicit list of 'parts' for the individual 'SENS motion'.",
     "mapped": {
       "types": [],
       "superclasses": [],
@@ -1031,17 +1027,17 @@
         "name": "answer_non_empty",
         "passed": true,
         "expected": "non-empty",
-        "actual": "SENS motion v2 is SENS motion v2."
+        "actual": "SENS motion v2 is a 'Sensor', which is a 'Device that senses'."
       },
       {
         "name": "answer_matches_labels",
-        "passed": false,
+        "passed": true,
         "expected": [
           "sensor",
           "product",
           "device"
         ],
-        "actual": "SENS motion v2 is SENS motion v2."
+        "actual": "SENS motion v2 is a 'Sensor', which is a 'Device that senses'."
       }
     ],
     "question_info": {
@@ -1152,11 +1148,15 @@
       ]
     },
     "object_context": null,
-    "answer": "SENS motion v2 is SENS motion v2.",
-    "reasoning": "The ontology information provides a label for the entity 'SENS motion v2', which is 'SENS motion v2'.",
+    "answer": "SENS motion v2 is a 'Sensor', which is a 'Device that senses'.",
+    "reasoning": "The question 'What is SENS motion v2?' is a request for a definition of the term 'SENS motion v2'. The ontology information provides the label 'SENS motion v2' and its types 'Sensor' and 'NamedIndividual', which are related to the 'Sensor' class with the description 'A device that senses.'",
     "mapped": {
-      "types": [],
-      "superclasses": [],
+      "types": [
+        "Sensor"
+      ],
+      "superclasses": [
+        "Device"
+      ],
       "equivalent_classes": [],
       "properties": [],
       "property_values": {}
@@ -1192,7 +1192,7 @@
           "not found",
           "can't answer the question"
         ],
-        "actual": "I can't answer the question."
+        "actual": "can't answer the question"
       }
     ],
     "question_info": {
@@ -1283,8 +1283,8 @@
       ]
     },
     "object_context": null,
-    "answer": "I can't answer the question.",
-    "reasoning": "The ontology information provided does not contain a property or relation that directly associates the individual 'SensorCore' with a 'serial number'.",
+    "answer": "can't answer the question",
+    "reasoning": "The question asks for the serial number of an individual named 'SensorCore'. The ontology information provided includes a 'properties_by_type' section for 'Device', which lists 'outgoing_object_properties'. One of these properties is 'isPartOf', which has an associated object 'SENS_motion'. However, the question specifically asks for 'SensorCore', not 'SENS_motion', and no direct information about 'SensorCore' having a 'serial number' property is provided in the ontology information. Therefore, the question cannot be answered with the provided ontology information.",
     "mapped": {
       "types": [],
       "superclasses": [],
@@ -1449,7 +1449,7 @@
     },
     "object_context": null,
     "answer": "I can't answer the question.",
-    "reasoning": "The ontology information provided includes a property 'hasManufacturer' associated with the class 'Product', and the individual 'SENS motion' is of type 'Product'. The object 'ACME' is identified as a literal, which is the manufacturer in question. However, the ontology information does not explicitly state that 'ACME' is the manufacturer of 'SENS motion'.",
+    "reasoning": "The ontology information provided includes a property 'hasManufacturer' associated with the class 'Product', and the individual 'SENS motion' is of type 'Product'. The object 'ACME' is a literal representing a manufacturer. However, the ontology information does not explicitly state that 'ACME' is the manufacturer of 'SENS motion'. Therefore, based on the provided information, we cannot confirm the assertion.",
     "mapped": {
       "types": [],
       "superclasses": [],
@@ -1566,7 +1566,7 @@
     },
     "object_context": null,
     "answer": "I can't answer the question.",
-    "reasoning": "The question asks for the weight of an individual, which is SENS Innovation. However, the provided ontology information does not include any data related to the weight of entities or individuals.",
+    "reasoning": "The atomic question asks for a property of an individual, which is the 'weight' of 'SENS Innovation'. However, the provided ontology information does not contain any data related to the 'weight' of 'SENS Innovation'. It only provides general information about the entity being a 'Company' and a 'NamedIndividual', with no specific data about its properties or attributes such as weight.",
     "mapped": {
       "types": [],
       "superclasses": [],

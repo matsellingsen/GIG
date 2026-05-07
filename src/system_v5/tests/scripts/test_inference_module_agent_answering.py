@@ -129,7 +129,7 @@ ANSWER_CASES = [
             "relation": "have property",
             "object": {"value": "serial number", "type": "literal"},
         },
-        "relevant_info": {
+        "entity_context": {
             "uri": "http://example.org/sensInnovationAps_ontology#SENS_motion",
             "label": "SENS motion",
             "types": ["Sensor", "Product"],
@@ -164,7 +164,7 @@ ANSWER_CASES = [
             "relation": "has member",
             "object": {"value": "parts", "type": "class"},
         },
-        "relevant_info": {
+        "entity_context": {
             "uri": "http://example.org/sensInnovationAps_ontology#SENS_motion",
             "label": "SENS motion",
             "types": ["Sensor", "Product"],
@@ -195,11 +195,12 @@ ANSWER_CASES = [
 def test_generate_answer_agent(case, agents):
     checks = []
 
-    flat_context = flatten_entity_context(case["relevant_info"])
+    flat_context = flatten_entity_context(case["entity_context"])
 
     result, _ = agents["generate_answer"].run(
         question_info=case["question_info"],
-        relevant_info=flat_context,
+        entity_context=case["entity_context"],
+        object_context=None,
     )
 
     answer_text = result.get("answer") if isinstance(result, dict) else ""
@@ -225,7 +226,7 @@ def test_generate_answer_agent(case, agents):
             },
             "answer": answer_text,
             "reasoning": result.get("reasoning") if isinstance(result, dict) else None,
-            "relevant_info": flat_context,
+            "entity_context": case["entity_context"],
         }
     )
     failures = [c for c in checks if not c["passed"]]
