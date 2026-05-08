@@ -1,0 +1,67 @@
+TITLE: Methodology for Constructing the 100‑Question Webpage‑Based Evaluation Dataset
+
+OVERVIEW
+The 100‑question dataset is designed to evaluate the ontology‑construction component and the grounded QA pipeline using questions derived from the SENS website. Unlike the ontology‑based dataset, this benchmark is fully ontology‑agnostic: it does not rely on ontology relations, ontology classes, or ontology answer‑form distributions. Instead, it evaluates whether the system can correctly extract entities, attach relations and properties, and abstain when information is not supported by the source text.
+
+DATA SOURCES
+All questions are created from the text content of the SENS website pages that were processed by the ontology‑construction component. This includes product descriptions, support documentation, activity category descriptions, sleep parameter descriptions, and team member information.
+
+DATASET STRUCTURE
+The dataset contains 100 questions, split evenly into:
+- 50 supported questions (answerable from the webpage text)
+- 50 unsupported questions (intentionally unanswerable)
+
+Each question belongs to one of four extraction categories. The dataset is balanced so that each category contains exactly 25 questions:
+- 25 Object‑Property questions
+- 25 Data‑Property questions
+- 25 Pure‑Relation questions
+- 25 Class‑to‑Class questions
+
+Within each category:
+- 12 questions are supported by the webpage
+- 13 questions are unsupported
+
+This yields a total of 50 supported and 50 unsupported questions.
+
+EXTRACTION CATEGORIES
+
+1. OBJECT‑PROPERTY EXTRACTION (Entity → relation → entity)
+Tests whether the system can extract entity‑to‑entity relations from text.
+Examples: “SENS motion measures walking time”, “The patient app provides feedback”.
+
+2. DATA‑PROPERTY EXTRACTION (Entity → relation → literal)
+Tests whether the system can extract literal‑valued properties.
+Examples: “SENS motion is wireless”, “The sensor has long battery life”.
+
+3. PURE RELATION EXTRACTION (Entity → relation)
+Tests whether the system can extract the predicate even when the object is not explicitly requested.
+Examples: “What does SENS motion measure?”, “What does the web‑application export?”.
+
+4. CLASS‑TO‑CLASS ATTACHMENT (Class → relation → class)
+Tests whether the system can identify class membership and category assignments.
+Examples: “Is walking time an activity category?”, “Is sleep quality a sleep parameter?”.
+
+SUPPORTED VS UNSUPPORTED QUESTIONS
+Supported questions are directly answerable from the webpage text. Unsupported questions are intentionally designed so that the webpage does not contain the required relation, property, or category information. Unsupported questions test the system’s ability to abstain rather than hallucinate.
+
+WHAT THE DATASET TESTS
+
+1. ENTITY GROUNDING ACCURACY
+Measures whether the ontology‑construction component extracts an entity representation that resolves to a TTL entity. This evaluates entity extraction, normalization, and grounding.
+
+2. RELATION ATTACHMENT ACCURACY
+If the system answers, its answer is compared to the gold answer (via manual or LLM‑based semantic comparison). This evaluates:
+- relation extraction
+- object‑property extraction
+- data‑property extraction
+- class‑to‑class attachment
+
+3. ABSTENTION ACCURACY
+Unsupported questions test whether the system avoids hallucination. The system should abstain when:
+- the entity cannot be grounded, or
+- the webpage does not support the relation, object, or property.
+
+This evaluates grounding discipline and safety behavior.
+
+SUMMARY
+The 100‑question dataset provides a balanced, ontology‑agnostic evaluation of four core extraction behaviors (object‑property, data‑property, pure relation, class‑to‑class) across both supported and unsupported cases. It enables precise measurement of entity grounding, relation/property extraction, and abstention behavior, forming a complete assessment of the ontology‑construction component’s performance on real‑world text.

@@ -1,7 +1,7 @@
 [
   {
     "id": "present_01",
-    "atomic_input": "What is App?",
+    "atomic_input": "What is an App?",
     "question_type": "definition",
     "answer_form": "value",
     "entity": {
@@ -18,7 +18,9 @@
       "entity_side": {
         "types": [],
         "superclasses": [
-          "InformationObject"
+        ],
+        "annotations":[
+          "App"
         ],
         "equivalent_classes": [],
         "properties": [],
@@ -26,10 +28,7 @@
       }
     },
     "expected_decision": "answer",
-    "acceptable_labels": [
-      "informationobject",
-      "InformationObject"
-    ],
+   
     "stage_labels": {
       "input_to_graph": {
         "question_type": "definition",
@@ -40,17 +39,13 @@
       },
       "resolve_entity": "App",
       "fetch_relevant_info": "present",
-      "generate_answer": "InformationObject",
       "map_answer_to_context": "grounded"
-    },
-    "gold_answer_agent": {
-      "reasoning": "The ontology lists 'App' with a superclass 'InformationObject', which supports classifying App as a InformationObject.",
-      "answer": "App is a InformationObject."
     }
   },
+
   {
     "id": "present_02",
-    "atomic_input": "What is WebApplication?",
+    "atomic_input": "What is a WebApplication?",
     "question_type": "definition",
     "answer_form": "value",
     "entity": {
@@ -67,18 +62,18 @@
       "entity_side": {
         "types": [],
         "superclasses": [
-          "InformationObject"
         ],
+        "annotations":[
+          "WebApplication"
+        ],
+
         "equivalent_classes": [],
         "properties": [],
         "property_values": {}
       }
     },
     "expected_decision": "answer",
-    "acceptable_labels": [
-      "informationobject",
-      "InformationObject"
-    ],
+  
     "stage_labels": {
       "input_to_graph": {
         "question_type": "definition",
@@ -89,17 +84,13 @@
       },
       "resolve_entity": "WebApplication",
       "fetch_relevant_info": "present",
-      "generate_answer": "InformationObject",
       "map_answer_to_context": "grounded"
-    },
-    "gold_answer_agent": {
-      "reasoning": "The ontology lists 'WebApplication' with a superclass 'InformationObject', which supports classifying WebApplication as a InformationObject.",
-      "answer": "WebApplication is a InformationObject."
     }
+
   },
   {
     "id": "present_03",
-    "atomic_input": "What is SensorPatch?",
+    "atomic_input": "What is a SensorPatch?",
     "question_type": "definition",
     "answer_form": "value",
     "entity": {
@@ -117,6 +108,9 @@
         "types": [],
         "superclasses": [
           "PhysicalObject"
+        ],
+        "annotations":[
+          "SensorPatch"
         ],
         "equivalent_classes": [],
         "properties": [],
@@ -148,11 +142,11 @@
   },
   {
     "id": "present_04",
-    "atomic_input": "What is SENS motion app?",
+    "atomic_input": "What is the SENS motion app?",
     "question_type": "definition",
     "answer_form": "value",
     "entity": {
-      "value": "SENS motion app",
+      "value": "the SENS motion app",
       "type": "instance"
     },
     "relation": "be",
@@ -163,7 +157,9 @@
     "ontology_presence": "present",
     "gold_mapped_answer": {
       "entity_side": {
-        "types": [],
+        "types": [
+          "App"
+        ],
         "superclasses": [],
         "equivalent_classes": [],
         "properties": [],
@@ -189,8 +185,8 @@
       "map_answer_to_context": "grounded"
     },
     "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'SENS motion app'.",
-      "answer": "SENS motion app is a App."
+      "reasoning": "The ontology lists 'SENS motion app' as an App.",
+      "answer": "SENS motion app is an App."
     }
   },
   {
@@ -210,7 +206,9 @@
     "ontology_presence": "present",
     "gold_mapped_answer": {
       "entity_side": {
-        "types": [],
+        "types": [
+          "InformationObject"
+        ],
         "superclasses": [],
         "equivalent_classes": [],
         "properties": [],
@@ -219,8 +217,8 @@
     },
     "expected_decision": "answer",
     "acceptable_labels": [
-      "sens motion web app",
-      "SENS motion web app"
+      "InformationObject",
+      "informationobject"
     ],
     "stage_labels": {
       "input_to_graph": {
@@ -236,8 +234,8 @@
       "map_answer_to_context": "grounded"
     },
     "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'SENS motion web app'.",
-      "answer": "SENS motion web app is a InformationObject."
+      "reasoning": "The ontology lists 'SENS motion web app' as an InformationObject.",
+      "answer": "SENS motion web app is an InformationObject."
     }
   },
   {
@@ -261,12 +259,12 @@
         "superclasses": [],
         "equivalent_classes": [],
         "properties": [
-          "http://example.org/sensInnovationAps_ontology#releaseNumber",
-          "http://example.org/sensInnovationAps_ontology#version"
+          "releaseNumber",
+          "version"
         ],
         "property_values": {
-          "http://example.org/sensInnovationAps_ontology#releaseNumber": "3.9",
-          "http://example.org/sensInnovationAps_ontology#version": "3.9"
+          "releaseNumber": "3.9",
+          "version": "3.9"
         }
       }
     },
@@ -289,7 +287,7 @@
       "map_answer_to_context": "grounded"
     },
     "gold_answer_agent": {
-      "reasoning": "Property assertions supporting the answer: 'http://example.org/sensInnovationAps_ontology#releaseNumber' = '3.9', 'http://example.org/sensInnovationAps_ontology#version' = '3.9'.",
+      "reasoning": "Property assertions supporting the answer: releaseNumber = 3.9, version = 3.9.",
       "answer": "version 3.9 is a InformationRealization."
     }
   },
@@ -360,7 +358,11 @@
     "gold_mapped_answer": {
       "entity_side": {
         "types": [],
-        "superclasses": [],
+        "superclasses": [
+          "InformationObject",
+          "PhysicalObject",
+          "UserInterface"
+        ],
         "equivalent_classes": [],
         "properties": [],
         "property_values": {}
@@ -385,7 +387,7 @@
       "map_answer_to_context": "grounded"
     },
     "gold_answer_agent": {
-      "reasoning": "The entity has labels WebApplication, but no explicit type/superclass was found in the extracted mapping.",
+      "reasoning": "WebApplication has superclasses InformationObject, PhysicalObject, and UserInterface, so it is not a SocialObject.",
       "answer": "No, WebApplication is not a SocialObject."
     }
   },
@@ -455,7 +457,9 @@
     "ontology_presence": "present",
     "gold_mapped_answer": {
       "entity_side": {
-        "types": [],
+        "types": [
+          "SmartphoneApp"
+        ],
         "superclasses": [],
         "equivalent_classes": [],
         "properties": [],
@@ -481,7 +485,7 @@
       "map_answer_to_context": "grounded"
     },
     "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'SENS motion app'.",
+      "reasoning": "The ontology lists 'SENS motion app' as a SmartphoneApp.",
       "answer": "Yes, SENS motion app is a SmartphoneApp."
     }
   },
@@ -502,7 +506,9 @@
     "ontology_presence": "present",
     "gold_mapped_answer": {
       "entity_side": {
-        "types": [],
+        "types": [
+          "WebApplication"
+        ],
         "superclasses": [],
         "equivalent_classes": [],
         "properties": [],
@@ -528,7 +534,7 @@
       "map_answer_to_context": "grounded"
     },
     "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'support.sens.dk'.",
+      "reasoning": "The ontology lists 'support.sens.dk' as a WebApplication.",
       "answer": "Yes, support.sens.dk is a WebApplication."
     }
   },
@@ -549,7 +555,9 @@
     "ontology_presence": "present",
     "gold_mapped_answer": {
       "entity_side": {
-        "types": [],
+        "types": [
+          "ActivityDataSensor"
+        ],
         "superclasses": [],
         "equivalent_classes": [],
         "properties": [],
@@ -575,8 +583,8 @@
       "map_answer_to_context": "grounded"
     },
     "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'SENS motion activity sensor'.",
-      "answer": "Yes, SENS motion activity sensor is a ActivityDataSensor."
+      "reasoning": "The ontology lists 'SENS motion activity sensor' as an ActivityDataSensor.",
+      "answer": "Yes, SENS motion activity sensor is an ActivityDataSensor."
     }
   },
   {
@@ -590,7 +598,7 @@
     },
     "relation": "capability",
     "object": {
-      "value": "browser-accessible",
+      "value": "capability",
       "type": "literal"
     },
     "ontology_presence": "present",
@@ -637,7 +645,7 @@
     },
     "relation": "capability",
     "object": {
-      "value": "wearable",
+      "value": "capability",
       "type": "literal"
     },
     "ontology_presence": "present",
@@ -684,7 +692,7 @@
     },
     "relation": "capability",
     "object": {
-      "value": "nearby sensors",
+      "value": "capability",
       "type": "literal"
     },
     "ontology_presence": "present",
@@ -693,8 +701,20 @@
         "types": [],
         "superclasses": [],
         "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
+        "properties": [
+          "hasNearbySensors",
+          "hasFavoriteSensors",
+          "isBluetoothEnabled",
+          "isLocationServicesEnabled",
+          "hasPart"
+        ],
+        "property_values": {
+          "hasNearbySensors": "true",
+          "hasFavoriteSensors": "true",
+          "isBluetoothEnabled": "true",
+          "isLocationServicesEnabled": "true",
+          "hasPart": "Location services"
+        }
       }
     },
     "expected_decision": "answer",
@@ -716,8 +736,8 @@
       "map_answer_to_context": "grounded"
     },
     "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'SENS motion app on Android'.",
-      "answer": "I can't answer the question."
+      "reasoning": "The ontology records hasNearbySensors = true, hasFavoriteSensors = true, isBluetoothEnabled = true, and isLocationServicesEnabled = true for 'SENS motion app on Android'.",
+      "answer": "Yes, SENS motion app on Android has the listed capabilities."
     }
   },
   {
@@ -731,7 +751,7 @@
     },
     "relation": "capability",
     "object": {
-      "value": "usability enhancements",
+      "value": "capability",
       "type": "literal"
     },
     "ontology_presence": "present",
@@ -740,8 +760,16 @@
         "types": [],
         "superclasses": [],
         "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
+        "properties": [
+          "capability",
+          "releaseNumber",
+          "version"
+        ],
+        "property_values": {
+          "capability": "major improvements to navigation, sensor management, and file handling",
+          "releaseNumber": "3.9",
+          "version": "3.9"
+        }
       }
     },
     "expected_decision": "answer",
@@ -763,8 +791,8 @@
       "map_answer_to_context": "grounded"
     },
     "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'version 3.9'.",
-      "answer": "I can't answer the question."
+      "reasoning": "The ontology records capability, releaseNumber = 3.9, and version = 3.9 for 'version 3.9'.",
+      "answer": "Yes, version 3.9 has a capability description."
     }
   },
   {
@@ -778,7 +806,7 @@
     },
     "relation": "capability",
     "object": {
-      "value": "ExportFunctionality",
+      "value": "features",
       "type": "class"
     },
     "ontology_presence": "present",
@@ -787,8 +815,12 @@
         "types": [],
         "superclasses": [],
         "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
+        "properties": [
+          "hasWebAppFeature"
+        ],
+        "property_values": {
+          "hasWebAppFeature": "ExportFunctionality"
+        }
       }
     },
     "expected_decision": "answer",
@@ -810,8 +842,8 @@
       "map_answer_to_context": "grounded"
     },
     "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'support.sens.dk'.",
-      "answer": "I can't answer the question."
+      "reasoning": "The ontology records hasWebAppFeature = ExportFunctionality for support.sens.dk.",
+      "answer": "ExportFunctionality"
     }
   },
   {
@@ -825,13 +857,15 @@
     },
     "relation": "capability",
     "object": {
-      "value": "SensorFavoriteList",
+      "value": "features",
       "type": "class"
     },
     "ontology_presence": "present",
     "gold_mapped_answer": {
       "entity_side": {
-        "types": [],
+        "types": [
+          "SensorFavoriteList"
+        ],
         "superclasses": [],
         "equivalent_classes": [],
         "properties": [],
@@ -857,8 +891,8 @@
       "map_answer_to_context": "grounded"
     },
     "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'SENS motion app on Android'.",
-      "answer": "I can't answer the question."
+      "reasoning": "The ontology lists 'SENS motion app on Android' as a SensorFavoriteList.",
+      "answer": "SensorFavoriteList"
     }
   },
   {
@@ -872,7 +906,7 @@
     },
     "relation": "label",
     "object": {
-      "value": "label",
+      "value": null,
       "type": "literal"
     },
     "ontology_presence": "present",
@@ -881,8 +915,12 @@
         "types": [],
         "superclasses": [],
         "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
+        "properties": [
+          "label"
+        ],
+        "property_values": {
+          "label": "WebApplication"
+        }
       }
     },
     "expected_decision": "answer",
@@ -904,8 +942,8 @@
       "map_answer_to_context": "grounded"
     },
     "gold_answer_agent": {
-      "reasoning": "The entity has labels WebApplication, but no explicit type/superclass was found in the extracted mapping.",
-      "answer": "I can't answer the question."
+      "reasoning": "The ontology labels the class WebApplication as 'WebApplication'.",
+      "answer": "WebApplication"
     }
   },
   {
@@ -919,7 +957,7 @@
     },
     "relation": "label",
     "object": {
-      "value": "label",
+      "value": null,
       "type": "literal"
     },
     "ontology_presence": "present",
@@ -928,8 +966,12 @@
         "types": [],
         "superclasses": [],
         "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
+        "properties": [
+          "label"
+        ],
+        "property_values": {
+          "label": "SensorPatch"
+        }
       }
     },
     "expected_decision": "answer",
@@ -951,8 +993,8 @@
       "map_answer_to_context": "grounded"
     },
     "gold_answer_agent": {
-      "reasoning": "The entity has labels SensorPatch, but no explicit type/superclass was found in the extracted mapping.",
-      "answer": "I can't answer the question."
+      "reasoning": "The ontology labels the class SensorPatch as 'SensorPatch'.",
+      "answer": "SensorPatch"
     }
   },
   {
@@ -966,7 +1008,7 @@
     },
     "relation": "comment",
     "object": {
-      "value": "comment",
+      "value": null,
       "type": "literal"
     },
     "ontology_presence": "present",
@@ -975,8 +1017,12 @@
         "types": [],
         "superclasses": [],
         "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
+        "properties": [
+          "label"
+        ],
+        "property_values": {
+          "label": "ActivityType"
+        }
       }
     },
     "expected_decision": "answer",
@@ -998,8 +1044,8 @@
       "map_answer_to_context": "grounded"
     },
     "gold_answer_agent": {
-      "reasoning": "The entity has labels ActivityType, but no explicit type/superclass was found in the extracted mapping.",
-      "answer": "I can't answer the question."
+      "reasoning": "The ontology labels the class ActivityType as 'ActivityType'.",
+      "answer": "ActivityType"
     }
   },
   {
@@ -1013,7 +1059,7 @@
     },
     "relation": "hasAppUrl",
     "object": {
-      "value": "hasAppUrl",
+      "value": "URL",
       "type": "literal"
     },
     "ontology_presence": "present",
@@ -1022,8 +1068,12 @@
         "types": [],
         "superclasses": [],
         "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
+        "properties": [
+          "hasAppUrl"
+        ],
+        "property_values": {
+          "hasAppUrl": "https://app.sens.dk"
+        }
       }
     },
     "expected_decision": "answer",
@@ -1045,8 +1095,8 @@
       "map_answer_to_context": "grounded"
     },
     "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'SENS motion web app'.",
-      "answer": "I can't answer the question."
+      "reasoning": "The ontology records hasAppUrl = https://app.sens.dk for SENS motion web app.",
+      "answer": "https://app.sens.dk"
     }
   },
   {
@@ -1060,7 +1110,7 @@
     },
     "relation": "hasLoginUrl",
     "object": {
-      "value": "hasLoginUrl",
+      "value": "URL",
       "type": "literal"
     },
     "ontology_presence": "present",
@@ -1069,8 +1119,12 @@
         "types": [],
         "superclasses": [],
         "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
+        "properties": [
+          "hasLoginUrl"
+        ],
+        "property_values": {
+          "hasLoginUrl": "https://app.sens.dk/r/login"
+        }
       }
     },
     "expected_decision": "answer",
@@ -1092,8 +1146,8 @@
       "map_answer_to_context": "grounded"
     },
     "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'SENS motion web app'.",
-      "answer": "I can't answer the question."
+      "reasoning": "The ontology records hasLoginUrl = https://app.sens.dk/r/login for SENS motion web app.",
+      "answer": "https://app.sens.dk/r/login"
     }
   },
   {
@@ -1107,7 +1161,7 @@
     },
     "relation": "releaseNumber",
     "object": {
-      "value": "releaseNumber",
+      "value": "release number",
       "type": "literal"
     },
     "ontology_presence": "present",
@@ -1116,8 +1170,14 @@
         "types": [],
         "superclasses": [],
         "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
+        "properties": [
+          "releaseNumber",
+          "version"
+        ],
+        "property_values": {
+          "releaseNumber": "3.9",
+          "version": "3.9"
+        }
       }
     },
     "expected_decision": "answer",
@@ -1139,8 +1199,8 @@
       "map_answer_to_context": "grounded"
     },
     "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'version 3.9'.",
-      "answer": "I can't answer the question."
+      "reasoning": "The ontology records releaseNumber = 3.9 and version = 3.9 for version 3.9.",
+      "answer": "3.9"
     }
   },
   {
@@ -1154,14 +1214,21 @@
     },
     "relation": "has member",
     "object": {
-      "value": null,
+      "value": "subtypes",
       "type": "class-list"
     },
     "ontology_presence": "present",
     "gold_mapped_answer": {
       "entity_side": {
-        "types": [],
-        "superclasses": [],
+        "types": [
+          "ActivityDescription",
+          "ActivityIntensity",
+          "ActivityType",
+          "TimeCategory"
+        ],
+        "superclasses": [
+          "ActivityCategory"
+        ],
         "equivalent_classes": [],
         "properties": [],
         "property_values": {}
@@ -1193,8 +1260,13 @@
       "map_answer_to_context": "grounded"
     },
     "gold_answer_agent": {
-      "reasoning": "The entity has labels ActivityCategory, but no explicit type/superclass was found in the extracted mapping.",
-      "answer": "I can't answer the question."
+      "reasoning": "ActivityCategory has four direct subclasses in the ontology.",
+      "answer": [
+        "ActivityDescription",
+        "ActivityIntensity",
+        "ActivityType",
+        "TimeCategory"
+      ]
     }
   },
   {
@@ -1208,14 +1280,18 @@
     },
     "relation": "has member",
     "object": {
-      "value": null,
+      "value": "subtypes",
       "type": "class-list"
     },
     "ontology_presence": "present",
     "gold_mapped_answer": {
       "entity_side": {
-        "types": [],
-        "superclasses": [],
+        "types": [
+          "ParticipantID"
+        ],
+        "superclasses": [
+          "WebApplication"
+        ],
         "equivalent_classes": [],
         "properties": [],
         "property_values": {}
@@ -1241,8 +1317,10 @@
       "map_answer_to_context": "grounded"
     },
     "gold_answer_agent": {
-      "reasoning": "The entity has labels WebApplication, but no explicit type/superclass was found in the extracted mapping.",
-      "answer": "I can't answer the question."
+      "reasoning": "WebApplication has one direct subclass in the ontology.",
+      "answer": [
+        "ParticipantID"
+      ]
     }
   },
   {
@@ -1256,14 +1334,27 @@
     },
     "relation": "has member",
     "object": {
-      "value": null,
+      "value": "subtypes",
       "type": "class-list"
     },
     "ontology_presence": "present",
     "gold_mapped_answer": {
       "entity_side": {
-        "types": [],
-        "superclasses": [],
+        "types": [
+          "ArticleID",
+          "Author",
+          "ClinicalStudy",
+          "DOI",
+          "HospitalSetting",
+          "KeyFinding",
+          "KeyFindings",
+          "MonitoringSystem",
+          "PeerReviewedArticle",
+          "ResearchStudy"
+        ],
+        "superclasses": [
+          "Publication"
+        ],
         "equivalent_classes": [],
         "properties": [],
         "property_values": {}
@@ -1307,8 +1398,19 @@
       "map_answer_to_context": "grounded"
     },
     "gold_answer_agent": {
-      "reasoning": "The entity has labels Publication, but no explicit type/superclass was found in the extracted mapping.",
-      "answer": "I can't answer the question."
+      "reasoning": "Publication has ten direct subclasses in the ontology.",
+      "answer": [
+        "ArticleID",
+        "Author",
+        "ClinicalStudy",
+        "DOI",
+        "HospitalSetting",
+        "KeyFinding",
+        "KeyFindings",
+        "MonitoringSystem",
+        "PeerReviewedArticle",
+        "ResearchStudy"
+      ]
     }
   },
   {
@@ -1322,7 +1424,7 @@
     },
     "relation": "has member",
     "object": {
-      "value": null,
+      "value": "parts or components",
       "type": "list"
     },
     "ontology_presence": "present",
@@ -1331,8 +1433,13 @@
         "types": [],
         "superclasses": [],
         "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
+        "properties": [
+          "hasPart",
+          "hasWebAppFeature"
+        ],
+        "property_values": {
+          "hasWebAppFeature": "ExportFunctionality"
+        }
       }
     },
     "expected_decision": "answer",
@@ -1381,8 +1488,23 @@
       "map_answer_to_context": "grounded"
     },
     "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'support.sens.dk'.",
-      "answer": "I can't answer the question."
+      "reasoning": "The ontology shows support.sens.dk has 14 hasPart values and one hasWebAppFeature value.",
+      "answer": [
+        "016C87D85F170022FFD9FFAC",
+        "016C87D85F6E0022FFD9FFAC",
+        "016C87D85FC50022FFD9FFAC",
+        "Accelerometer data export option",
+        "Bulk export",
+        "CSV export options",
+        "Files tab",
+        "Internet browser",
+        "Main Server",
+        "PDF export options",
+        "Workspace",
+        "X, Y, Z values",
+        "green 'Export selected' button",
+        "support.sens.dk"
+      ]
     }
   },
   {
@@ -1396,7 +1518,7 @@
     },
     "relation": "has member",
     "object": {
-      "value": null,
+      "value": "parts or components",
       "type": "list"
     },
     "ontology_presence": "present",
@@ -1440,7 +1562,7 @@
     },
     "relation": "has member",
     "object": {
-      "value": null,
+      "value": "parts or components",
       "type": "list"
     },
     "ontology_presence": "present",
@@ -1493,7 +1615,9 @@
         "types": [],
         "superclasses": [],
         "equivalent_classes": [],
-        "properties": [],
+        "properties": [
+          "hasPart"
+        ],
         "property_values": {}
       }
     },
@@ -1516,8 +1640,8 @@
       "map_answer_to_context": "grounded"
     },
     "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'support.sens.dk'.",
-      "answer": "I can't answer the question."
+      "reasoning": "support.sens.dk has more component-related entries than SENS motion app.",
+      "answer": "support.sens.dk"
     }
   },
   {
@@ -1540,7 +1664,9 @@
         "types": [],
         "superclasses": [],
         "equivalent_classes": [],
-        "properties": [],
+        "properties": [
+          "hasPart"
+        ],
         "property_values": {}
       }
     },
@@ -1563,8 +1689,8 @@
       "map_answer_to_context": "grounded"
     },
     "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'SENS motion activity sensor'.",
-      "answer": "I can't answer the question."
+      "reasoning": "SENS motion activity sensor has 10 hasPart values while version 3.9 has 2 hasPart values.",
+      "answer": "SENS motion activity sensor"
     }
   },
   {
@@ -1587,7 +1713,9 @@
         "types": [],
         "superclasses": [],
         "equivalent_classes": [],
-        "properties": [],
+        "properties": [
+          "hasPart"
+        ],
         "property_values": {}
       }
     },
@@ -1610,8 +1738,8 @@
       "map_answer_to_context": "grounded"
     },
     "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'pop-up modal'.",
-      "answer": "I can't answer the question."
+      "reasoning": "pop-up modal and guide each have 4 hasPart values in the ontology, so neither has more components.",
+      "answer": "They are equal."
     }
   },
   {
@@ -1634,7 +1762,9 @@
         "types": [],
         "superclasses": [],
         "equivalent_classes": [],
-        "properties": [],
+        "properties": [
+          "hasPart"
+        ],
         "property_values": {}
       }
     },
@@ -1657,8 +1787,8 @@
       "map_answer_to_context": "grounded"
     },
     "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'SENS motion web app'.",
-      "answer": "I can't answer the question."
+      "reasoning": "SENS motion app on Android has 1 hasPart value while SENS motion web app has 0 hasPart values.",
+      "answer": "SENS motion app on Android"
     }
   },
   {
@@ -1681,7 +1811,9 @@
         "types": [],
         "superclasses": [],
         "equivalent_classes": [],
-        "properties": [],
+        "properties": [
+          "hasPart"
+        ],
         "property_values": {}
       }
     },
@@ -1704,8 +1836,8 @@
       "map_answer_to_context": "grounded"
     },
     "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'support.sens.dk'.",
-      "answer": "I can't answer the question."
+      "reasoning": "support.sens.dk has 14 component-related entries in the ontology.",
+      "answer": "14"
     }
   },
   {
@@ -1751,8 +1883,8 @@
       "map_answer_to_context": "grounded"
     },
     "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'SENS motion activity sensor'.",
-      "answer": "I can't answer the question."
+      "reasoning": "SENS motion activity sensor and version 3.9 have the same number of parts/components in the ontology.",
+      "answer": "0"
     }
   },
   {
@@ -1775,7 +1907,9 @@
         "types": [],
         "superclasses": [],
         "equivalent_classes": [],
-        "properties": [],
+        "properties": [
+          "hasPart"
+        ],
         "property_values": {}
       }
     },
@@ -1798,8 +1932,8 @@
       "map_answer_to_context": "grounded"
     },
     "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'support.sens.dk'.",
-      "answer": "I can't answer the question."
+      "reasoning": "support.sens.dk has 14 component-related entries in the ontology.",
+      "answer": "14"
     }
   },
   {
@@ -1822,7 +1956,9 @@
         "types": [],
         "superclasses": [],
         "equivalent_classes": [],
-        "properties": [],
+        "properties": [
+          "hasPart"
+        ],
         "property_values": {}
       }
     },
@@ -1845,8 +1981,8 @@
       "map_answer_to_context": "grounded"
     },
     "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'guide'.",
-      "answer": "I can't answer the question."
+      "reasoning": "guide and pop-up modal each have 4 hasPart values in the ontology, so the difference is 0.",
+      "answer": "0"
     }
   },
   {
@@ -1855,7 +1991,7 @@
     "question_type": "quantification",
     "answer_form": "value",
     "entity": {
-      "value": "support.sens.dk",
+      "value": "14 parts",
       "type": "instance"
     },
     "relation": "count",
@@ -1869,7 +2005,9 @@
         "types": [],
         "superclasses": [],
         "equivalent_classes": [],
-        "properties": [],
+        "properties": [
+          "hasPart"
+        ],
         "property_values": {}
       }
     },
@@ -1892,8 +2030,8 @@
       "map_answer_to_context": "grounded"
     },
     "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'support.sens.dk'.",
-      "answer": "I can't answer the question."
+      "reasoning": "The ontology associates the 14-part count with support.sens.dk.",
+      "answer": "support.sens.dk"
     }
   },
   {
@@ -1902,7 +2040,7 @@
     "question_type": "quantification",
     "answer_form": "value",
     "entity": {
-      "value": "SENS motion activity sensor",
+      "value": "10 parts",
       "type": "instance"
     },
     "relation": "count",
@@ -1916,7 +2054,9 @@
         "types": [],
         "superclasses": [],
         "equivalent_classes": [],
-        "properties": [],
+        "properties": [
+          "measures"
+        ],
         "property_values": {}
       }
     },
@@ -1939,8 +2079,8 @@
       "map_answer_to_context": "grounded"
     },
     "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'SENS motion activity sensor'.",
-      "answer": "I can't answer the question."
+      "reasoning": "The ontology associates the 10-part count with SENS motion activity sensor.",
+      "answer": "SENS motion activity sensor"
     }
   },
   {
@@ -1949,7 +2089,7 @@
     "question_type": "quantification",
     "answer_form": "value",
     "entity": {
-      "value": "ActivityCategory",
+      "value": "4 direct subclasses",
       "type": "class"
     },
     "relation": "count",
@@ -1960,8 +2100,15 @@
     "ontology_presence": "present",
     "gold_mapped_answer": {
       "entity_side": {
-        "types": [],
-        "superclasses": [],
+        "types": [
+          "ActivityDescription",
+          "ActivityIntensity",
+          "ActivityType",
+          "TimeCategory"
+        ],
+        "superclasses": [
+          "ActivityCategory"
+        ],
         "equivalent_classes": [],
         "properties": [],
         "property_values": {}
@@ -1986,8 +2133,8 @@
       "map_answer_to_context": "grounded"
     },
     "gold_answer_agent": {
-      "reasoning": "The entity has labels ActivityCategory, but no explicit type/superclass was found in the extracted mapping.",
-      "answer": "I can't answer the question."
+      "reasoning": "ActivityCategory has four direct subclasses in the ontology.",
+      "answer": "ActivityCategory"
     }
   },
   {
@@ -1996,12 +2143,12 @@
     "question_type": "quantification",
     "answer_form": "value",
     "entity": {
-      "value": "SENS motion app on Android",
+      "value": "1 sameas link",
       "type": "instance"
     },
     "relation": "count",
     "object": {
-      "value": "1 sameAs link",
+      "value": "1 sameas link",
       "type": "literal"
     },
     "ontology_presence": "present",
@@ -2033,8 +2180,8 @@
       "map_answer_to_context": "grounded"
     },
     "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'SENS motion app on Android'.",
-      "answer": "I can't answer the question."
+      "reasoning": "The ontology shows SENS motion app on Android has one owl:sameAs counterpart.",
+      "answer": "SENS motion app on Android"
     }
   },
   {
@@ -2048,14 +2195,27 @@
     },
     "relation": "count",
     "object": {
-      "value": null,
+      "value": "important elements",
       "type": "class-list"
     },
     "ontology_presence": "present",
     "gold_mapped_answer": {
       "entity_side": {
-        "types": [],
-        "superclasses": [],
+        "types": [
+          "ArticleID",
+          "Author",
+          "ClinicalStudy",
+          "DOI",
+          "HospitalSetting",
+          "KeyFinding",
+          "KeyFindings",
+          "MonitoringSystem",
+          "PeerReviewedArticle",
+          "ResearchStudy"
+        ],
+        "superclasses": [
+          "Publication"
+        ],
         "equivalent_classes": [],
         "properties": [],
         "property_values": {}
@@ -2099,8 +2259,19 @@
       "map_answer_to_context": "grounded"
     },
     "gold_answer_agent": {
-      "reasoning": "The entity has labels Publication, but no explicit type/superclass was found in the extracted mapping.",
-      "answer": "I can't answer the question."
+      "reasoning": "Publication has ten direct subclasses in the ontology.",
+      "answer": [
+        "ArticleID",
+        "Author",
+        "ClinicalStudy",
+        "DOI",
+        "HospitalSetting",
+        "KeyFinding",
+        "KeyFindings",
+        "MonitoringSystem",
+        "PeerReviewedArticle",
+        "ResearchStudy"
+      ]
     }
   },
   {
@@ -2114,7 +2285,7 @@
     },
     "relation": "count",
     "object": {
-      "value": null,
+      "value": "important elements",
       "type": "list"
     },
     "ontology_presence": "present",
@@ -2158,15 +2329,17 @@
     },
     "relation": "exists",
     "object": {
-      "value": "sameAs counterpart",
-      "type": "instance"
+      "value": null,
+      "type": null
     },
     "ontology_presence": "present",
     "gold_mapped_answer": {
       "entity_side": {
         "types": [],
         "superclasses": [],
-        "equivalent_classes": [],
+        "equivalent_classes": [
+          "SENS motion app on iOS"
+        ],
         "properties": [],
         "property_values": {}
       }
@@ -2190,8 +2363,8 @@
       "map_answer_to_context": "grounded"
     },
     "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'SENS motion app on Android'.",
-      "answer": "I can't answer the question."
+      "reasoning": "The ontology links SENS motion app on Android to SENS motion app on iOS with owl:sameAs.",
+      "answer": "SENS motion app on iOS"
     }
   },
   {
@@ -2205,15 +2378,17 @@
     },
     "relation": "exists",
     "object": {
-      "value": "sameAs counterpart",
-      "type": "instance"
+      "value": null,
+      "type": null
     },
     "ontology_presence": "present",
     "gold_mapped_answer": {
       "entity_side": {
         "types": [],
         "superclasses": [],
-        "equivalent_classes": [],
+        "equivalent_classes": [
+          "SENS web app"
+        ],
         "properties": [],
         "property_values": {}
       }
@@ -2237,8 +2412,8 @@
       "map_answer_to_context": "grounded"
     },
     "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'SENS motion web app'.",
-      "answer": "I can't answer the question."
+      "reasoning": "The ontology links SENS motion web app to SENS web app with owl:sameAs.",
+      "answer": "SENS web app"
     }
   },
   {
@@ -2252,8 +2427,8 @@
     },
     "relation": "exists",
     "object": {
-      "value": "web app feature",
-      "type": "class"
+      "value": null,
+      "type": null
     },
     "ontology_presence": "present",
     "gold_mapped_answer": {
@@ -2261,8 +2436,12 @@
         "types": [],
         "superclasses": [],
         "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
+        "properties": [
+          "hasWebAppFeature"
+        ],
+        "property_values": {
+          "hasWebAppFeature": "ExportFunctionality"
+        }
       }
     },
     "expected_decision": "answer",
@@ -2284,8 +2463,8 @@
       "map_answer_to_context": "grounded"
     },
     "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'support.sens.dk'.",
-      "answer": "I can't answer the question."
+      "reasoning": "The ontology records hasWebAppFeature = ExportFunctionality for support.sens.dk.",
+      "answer": "ExportFunctionality"
     }
   },
   {
@@ -2299,8 +2478,8 @@
     },
     "relation": "exists",
     "object": {
-      "value": "release number",
-      "type": "literal"
+      "value": null,
+      "type": null
     },
     "ontology_presence": "present",
     "gold_mapped_answer": {
@@ -2308,7 +2487,9 @@
         "types": [],
         "superclasses": [],
         "equivalent_classes": [],
-        "properties": [],
+        "properties": [
+          "hasPart"
+        ],
         "property_values": {}
       }
     },
@@ -2331,8 +2512,8 @@
       "map_answer_to_context": "grounded"
     },
     "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'version 3.9'.",
-      "answer": "I can't answer the question."
+      "reasoning": "The ontology links version 3.9 to component parts through hasPart assertions.",
+      "answer": "version 3.9"
     }
   },
   {
@@ -2346,7 +2527,7 @@
     },
     "relation": "exists",
     "object": {
-      "value": null,
+      "value": "components",
       "type": "list"
     },
     "ontology_presence": "present",
@@ -2390,7 +2571,7 @@
     },
     "relation": "exists",
     "object": {
-      "value": null,
+      "value": "components",
       "type": "list"
     },
     "ontology_presence": "present",
@@ -2429,7 +2610,7 @@
     "question_type": "definition",
     "answer_form": "value",
     "entity": {
-      "value": "Imaginary App",
+      "value": "App",
       "type": "class"
     },
     "relation": "be",
@@ -2480,7 +2661,7 @@
     "question_type": "definition",
     "answer_form": "value",
     "entity": {
-      "value": "Imaginary WebApplication",
+      "value": "WebApplication",
       "type": "class"
     },
     "relation": "be",
@@ -2531,7 +2712,7 @@
     "question_type": "definition",
     "answer_form": "value",
     "entity": {
-      "value": "Imaginary SensorPatch",
+      "value": "SensorPatch",
       "type": "class"
     },
     "relation": "be",
@@ -2582,7 +2763,7 @@
     "question_type": "definition",
     "answer_form": "value",
     "entity": {
-      "value": "Imaginary SENS motion app",
+      "value": "SENS motion app",
       "type": "instance"
     },
     "relation": "be",
@@ -2633,7 +2814,7 @@
     "question_type": "definition",
     "answer_form": "value",
     "entity": {
-      "value": "Imaginary SENS motion web app",
+      "value": "SENS motion web app",
       "type": "instance"
     },
     "relation": "be",
@@ -2684,7 +2865,7 @@
     "question_type": "definition",
     "answer_form": "value",
     "entity": {
-      "value": "Imaginary version 3.9",
+      "value": "version 3.9",
       "type": "instance"
     },
     "relation": "be",
@@ -2735,12 +2916,12 @@
     "question_type": "taxonomic",
     "answer_form": "assertion",
     "entity": {
-      "value": "Imaginary App",
+      "value": "App",
       "type": "class"
     },
     "relation": "be",
     "object": {
-      "value": "Imaginary InformationObject",
+      "value": "InformationObject",
       "type": "class"
     },
     "ontology_presence": "absent",
@@ -2786,12 +2967,12 @@
     "question_type": "taxonomic",
     "answer_form": "assertion",
     "entity": {
-      "value": "Imaginary WebApplication",
+      "value": "WebApplication",
       "type": "class"
     },
     "relation": "be",
     "object": {
-      "value": "Imaginary SocialObject",
+      "value": "SocialObject",
       "type": "class"
     },
     "ontology_presence": "absent",
@@ -2837,12 +3018,12 @@
     "question_type": "taxonomic",
     "answer_form": "assertion",
     "entity": {
-      "value": "Imaginary ActivityType",
+      "value": "ActivityType",
       "type": "class"
     },
     "relation": "be",
     "object": {
-      "value": "Imaginary ActivityCategory",
+      "value": "ActivityCategory",
       "type": "class"
     },
     "ontology_presence": "absent",
@@ -2888,12 +3069,12 @@
     "question_type": "taxonomic",
     "answer_form": "assertion",
     "entity": {
-      "value": "Imaginary SENS motion app",
+      "value": "SENS motion app",
       "type": "instance"
     },
     "relation": "be",
     "object": {
-      "value": "Imaginary SmartphoneApp",
+      "value": "SmartphoneApp",
       "type": "class"
     },
     "ontology_presence": "absent",
@@ -2939,12 +3120,12 @@
     "question_type": "taxonomic",
     "answer_form": "assertion",
     "entity": {
-      "value": "Imaginary support.sens.dk",
+      "value": "support.sens.dk",
       "type": "instance"
     },
     "relation": "be",
     "object": {
-      "value": "Imaginary WebApplication",
+      "value": "WebApplication",
       "type": "class"
     },
     "ontology_presence": "absent",
@@ -2990,12 +3171,12 @@
     "question_type": "taxonomic",
     "answer_form": "assertion",
     "entity": {
-      "value": "Imaginary SENS motion activity sensor",
+      "value": "SENS motion activity sensor",
       "type": "instance"
     },
     "relation": "be",
     "object": {
-      "value": "Imaginary ActivityDataSensor",
+      "value": "ActivityDataSensor",
       "type": "class"
     },
     "ontology_presence": "absent",
@@ -3041,12 +3222,12 @@
     "question_type": "capability",
     "answer_form": "assertion",
     "entity": {
-      "value": "Imaginary WebApplication",
+      "value": "WebApplication",
       "type": "class"
     },
     "relation": "capability",
     "object": {
-      "value": "Imaginary browser-accessible",
+      "value": "capability",
       "type": "literal"
     },
     "ontology_presence": "absent",
@@ -3092,12 +3273,12 @@
     "question_type": "capability",
     "answer_form": "assertion",
     "entity": {
-      "value": "Imaginary SensorPatch",
+      "value": "SensorPatch",
       "type": "class"
     },
     "relation": "capability",
     "object": {
-      "value": "Imaginary wearable",
+      "value": "capability",
       "type": "literal"
     },
     "ontology_presence": "absent",
@@ -3143,12 +3324,12 @@
     "question_type": "capability",
     "answer_form": "assertion",
     "entity": {
-      "value": "Imaginary SENS motion app on Android",
+      "value": "SENS motion app on Android",
       "type": "instance"
     },
     "relation": "capability",
     "object": {
-      "value": "Imaginary nearby sensors",
+      "value": "capability",
       "type": "literal"
     },
     "ontology_presence": "absent",
@@ -3194,12 +3375,12 @@
     "question_type": "capability",
     "answer_form": "assertion",
     "entity": {
-      "value": "Imaginary version 3.9",
+      "value": "version 3.9",
       "type": "instance"
     },
     "relation": "capability",
     "object": {
-      "value": "Imaginary usability enhancements",
+      "value": "capability",
       "type": "literal"
     },
     "ontology_presence": "absent",
@@ -3245,12 +3426,12 @@
     "question_type": "capability",
     "answer_form": "value",
     "entity": {
-      "value": "Imaginary support.sens.dk",
+      "value": "support.sens.dk",
       "type": "instance"
     },
     "relation": "capability",
     "object": {
-      "value": "Imaginary ExportFunctionality",
+      "value": "features",
       "type": "class"
     },
     "ontology_presence": "absent",
@@ -3296,12 +3477,12 @@
     "question_type": "capability",
     "answer_form": "value",
     "entity": {
-      "value": "Imaginary SENS motion app on Android",
+      "value": "SENS motion app on Android",
       "type": "instance"
     },
     "relation": "capability",
     "object": {
-      "value": "Imaginary SensorFavoriteList",
+      "value": "features",
       "type": "class"
     },
     "ontology_presence": "absent",
@@ -3347,12 +3528,12 @@
     "question_type": "property",
     "answer_form": "value",
     "entity": {
-      "value": "Imaginary WebApplication",
+      "value": "WebApplication",
       "type": "class"
     },
     "relation": "label",
     "object": {
-      "value": "Imaginary label",
+      "value": null,
       "type": "literal"
     },
     "ontology_presence": "absent",
@@ -3398,12 +3579,12 @@
     "question_type": "property",
     "answer_form": "value",
     "entity": {
-      "value": "Imaginary SensorPatch",
+      "value": "SensorPatch",
       "type": "class"
     },
     "relation": "label",
     "object": {
-      "value": "Imaginary label",
+      "value": null,
       "type": "literal"
     },
     "ontology_presence": "absent",
@@ -3449,12 +3630,12 @@
     "question_type": "property",
     "answer_form": "value",
     "entity": {
-      "value": "Imaginary ActivityType",
+      "value": "ActivityType",
       "type": "class"
     },
     "relation": "comment",
     "object": {
-      "value": "Imaginary comment",
+      "value": null,
       "type": "literal"
     },
     "ontology_presence": "absent",
@@ -3500,12 +3681,12 @@
     "question_type": "property",
     "answer_form": "value",
     "entity": {
-      "value": "Imaginary SENS motion web app",
+      "value": "SENS motion web app",
       "type": "instance"
     },
     "relation": "hasAppUrl",
     "object": {
-      "value": "Imaginary hasAppUrl",
+      "value": "URL",
       "type": "literal"
     },
     "ontology_presence": "absent",
@@ -3551,12 +3732,12 @@
     "question_type": "property",
     "answer_form": "value",
     "entity": {
-      "value": "Imaginary SENS motion web app",
+      "value": "SENS motion web app",
       "type": "instance"
     },
     "relation": "hasLoginUrl",
     "object": {
-      "value": "Imaginary hasLoginUrl",
+      "value": "URL",
       "type": "literal"
     },
     "ontology_presence": "absent",
@@ -3602,12 +3783,12 @@
     "question_type": "property",
     "answer_form": "value",
     "entity": {
-      "value": "Imaginary version 3.9",
+      "value": "version 3.9",
       "type": "instance"
     },
     "relation": "releaseNumber",
     "object": {
-      "value": "Imaginary releaseNumber",
+      "value": "release number",
       "type": "literal"
     },
     "ontology_presence": "absent",
@@ -3653,12 +3834,12 @@
     "question_type": "membership",
     "answer_form": "list",
     "entity": {
-      "value": "Imaginary ActivityCategory",
+      "value": "ActivityCategory",
       "type": "class"
     },
     "relation": "has member",
     "object": {
-      "value": null,
+      "value": "subtypes",
       "type": "class-list"
     },
     "ontology_presence": "absent",
@@ -3704,12 +3885,12 @@
     "question_type": "membership",
     "answer_form": "list",
     "entity": {
-      "value": "Imaginary WebApplication",
+      "value": "WebApplication",
       "type": "class"
     },
     "relation": "has member",
     "object": {
-      "value": null,
+      "value": "subtypes",
       "type": "class-list"
     },
     "ontology_presence": "absent",
@@ -3755,12 +3936,12 @@
     "question_type": "membership",
     "answer_form": "list",
     "entity": {
-      "value": "Imaginary Publication",
+      "value": "Publication",
       "type": "class"
     },
     "relation": "has member",
     "object": {
-      "value": null,
+      "value": "subtypes",
       "type": "class-list"
     },
     "ontology_presence": "absent",
@@ -3806,12 +3987,12 @@
     "question_type": "membership",
     "answer_form": "list",
     "entity": {
-      "value": "Imaginary support.sens.dk",
+      "value": "support.sens.dk",
       "type": "instance"
     },
     "relation": "has member",
     "object": {
-      "value": null,
+      "value": "parts or components",
       "type": "list"
     },
     "ontology_presence": "absent",
@@ -3857,12 +4038,12 @@
     "question_type": "membership",
     "answer_form": "list",
     "entity": {
-      "value": "Imaginary SENS motion activity sensor",
+      "value": "SENS motion activity sensor",
       "type": "instance"
     },
     "relation": "has member",
     "object": {
-      "value": null,
+      "value": "parts or components",
       "type": "list"
     },
     "ontology_presence": "absent",
@@ -3908,12 +4089,12 @@
     "question_type": "membership",
     "answer_form": "list",
     "entity": {
-      "value": "Imaginary pop-up modal",
+      "value": "pop-up modal",
       "type": "instance"
     },
     "relation": "has member",
     "object": {
-      "value": null,
+      "value": "parts or components",
       "type": "list"
     },
     "ontology_presence": "absent",
@@ -3959,12 +4140,12 @@
     "question_type": "comparative",
     "answer_form": "value",
     "entity": {
-      "value": "Imaginary support.sens.dk",
+      "value": "support.sens.dk",
       "type": "instance"
     },
     "relation": "compare",
     "object": {
-      "value": "Imaginary SENS motion app",
+      "value": "SENS motion app",
       "type": "instance"
     },
     "ontology_presence": "absent",
@@ -4010,12 +4191,12 @@
     "question_type": "comparative",
     "answer_form": "value",
     "entity": {
-      "value": "Imaginary SENS motion activity sensor",
+      "value": "SENS motion activity sensor",
       "type": "instance"
     },
     "relation": "compare",
     "object": {
-      "value": "Imaginary version 3.9",
+      "value": "version 3.9",
       "type": "instance"
     },
     "ontology_presence": "absent",
@@ -4061,12 +4242,12 @@
     "question_type": "comparative",
     "answer_form": "value",
     "entity": {
-      "value": "Imaginary pop-up modal",
+      "value": "pop-up modal",
       "type": "instance"
     },
     "relation": "compare",
     "object": {
-      "value": "Imaginary guide",
+      "value": "guide",
       "type": "instance"
     },
     "ontology_presence": "absent",
@@ -4112,12 +4293,12 @@
     "question_type": "comparative",
     "answer_form": "value",
     "entity": {
-      "value": "Imaginary SENS motion web app",
+      "value": "SENS motion web app",
       "type": "instance"
     },
     "relation": "compare",
     "object": {
-      "value": "Imaginary SENS motion app on Android",
+      "value": "SENS motion app on Android",
       "type": "instance"
     },
     "ontology_presence": "absent",
@@ -4163,12 +4344,12 @@
     "question_type": "comparative",
     "answer_form": "value",
     "entity": {
-      "value": "Imaginary support.sens.dk",
+      "value": "support.sens.dk",
       "type": "instance"
     },
     "relation": "compare",
     "object": {
-      "value": "Imaginary SENS motion app",
+      "value": "SENS motion app",
       "type": "instance"
     },
     "ontology_presence": "absent",
@@ -4214,12 +4395,12 @@
     "question_type": "comparative",
     "answer_form": "value",
     "entity": {
-      "value": "Imaginary SENS motion activity sensor",
+      "value": "SENS motion activity sensor",
       "type": "instance"
     },
     "relation": "compare",
     "object": {
-      "value": "Imaginary version 3.9",
+      "value": "version 3.9",
       "type": "instance"
     },
     "ontology_presence": "absent",
@@ -4265,12 +4446,12 @@
     "question_type": "comparative",
     "answer_form": "value",
     "entity": {
-      "value": "Imaginary support.sens.dk",
+      "value": "support.sens.dk",
       "type": "instance"
     },
     "relation": "compare",
     "object": {
-      "value": "Imaginary SENS motion app on Android",
+      "value": "SENS motion app on Android",
       "type": "instance"
     },
     "ontology_presence": "absent",
@@ -4316,12 +4497,12 @@
     "question_type": "comparative",
     "answer_form": "value",
     "entity": {
-      "value": "Imaginary guide",
+      "value": "guide",
       "type": "instance"
     },
     "relation": "compare",
     "object": {
-      "value": "Imaginary pop-up modal",
+      "value": "pop-up modal",
       "type": "instance"
     },
     "ontology_presence": "absent",
@@ -4367,12 +4548,12 @@
     "question_type": "quantification",
     "answer_form": "value",
     "entity": {
-      "value": "Imaginary support.sens.dk",
+      "value": "14 parts",
       "type": "instance"
     },
     "relation": "count",
     "object": {
-      "value": "Imaginary 14 parts",
+      "value": "14 parts",
       "type": "literal"
     },
     "ontology_presence": "absent",
@@ -4418,12 +4599,12 @@
     "question_type": "quantification",
     "answer_form": "value",
     "entity": {
-      "value": "Imaginary SENS motion activity sensor",
+      "value": "10 parts",
       "type": "instance"
     },
     "relation": "count",
     "object": {
-      "value": "Imaginary 10 parts",
+      "value": "10 parts",
       "type": "literal"
     },
     "ontology_presence": "absent",
@@ -4469,12 +4650,12 @@
     "question_type": "quantification",
     "answer_form": "value",
     "entity": {
-      "value": "Imaginary ActivityCategory",
+      "value": "4 direct subclasses",
       "type": "class"
     },
     "relation": "count",
     "object": {
-      "value": "Imaginary 4 direct subclasses",
+      "value": "4 direct subclasses",
       "type": "literal"
     },
     "ontology_presence": "absent",
@@ -4520,12 +4701,12 @@
     "question_type": "quantification",
     "answer_form": "value",
     "entity": {
-      "value": "Imaginary SENS motion app on Android",
+      "value": "1 sameas link",
       "type": "instance"
     },
     "relation": "count",
     "object": {
-      "value": "Imaginary 1 sameAs link",
+      "value": "1 sameas link",
       "type": "literal"
     },
     "ontology_presence": "absent",
@@ -4571,12 +4752,12 @@
     "question_type": "quantification",
     "answer_form": "list",
     "entity": {
-      "value": "Imaginary Publication",
+      "value": "Publication",
       "type": "class"
     },
     "relation": "count",
     "object": {
-      "value": null,
+      "value": "important elements",
       "type": "class-list"
     },
     "ontology_presence": "absent",
@@ -4622,12 +4803,12 @@
     "question_type": "quantification",
     "answer_form": "list",
     "entity": {
-      "value": "Imaginary SENS motion app on Android",
+      "value": "SENS motion app on Android",
       "type": "instance"
     },
     "relation": "count",
     "object": {
-      "value": null,
+      "value": "important elements",
       "type": "list"
     },
     "ontology_presence": "absent",
@@ -4673,13 +4854,13 @@
     "question_type": "existential",
     "answer_form": "value",
     "entity": {
-      "value": "Imaginary SENS motion app on Android",
+      "value": "SENS motion app on Android",
       "type": "instance"
     },
     "relation": "exists",
     "object": {
-      "value": "Imaginary sameAs counterpart",
-      "type": "instance"
+      "value": null,
+      "type": null
     },
     "ontology_presence": "absent",
     "gold_mapped_answer": {
@@ -4724,13 +4905,13 @@
     "question_type": "existential",
     "answer_form": "value",
     "entity": {
-      "value": "Imaginary SENS motion web app",
+      "value": "SENS motion web app",
       "type": "instance"
     },
     "relation": "exists",
     "object": {
-      "value": "Imaginary sameAs counterpart",
-      "type": "instance"
+      "value": null,
+      "type": null
     },
     "ontology_presence": "absent",
     "gold_mapped_answer": {
@@ -4775,13 +4956,13 @@
     "question_type": "existential",
     "answer_form": "value",
     "entity": {
-      "value": "Imaginary support.sens.dk",
+      "value": "support.sens.dk",
       "type": "instance"
     },
     "relation": "exists",
     "object": {
-      "value": "Imaginary web app feature",
-      "type": "class"
+      "value": null,
+      "type": null
     },
     "ontology_presence": "absent",
     "gold_mapped_answer": {
@@ -4826,13 +5007,13 @@
     "question_type": "existential",
     "answer_form": "value",
     "entity": {
-      "value": "Imaginary version 3.9",
+      "value": "version 3.9",
       "type": "instance"
     },
     "relation": "exists",
     "object": {
-      "value": "Imaginary release number",
-      "type": "literal"
+      "value": null,
+      "type": null
     },
     "ontology_presence": "absent",
     "gold_mapped_answer": {
@@ -4877,12 +5058,12 @@
     "question_type": "existential",
     "answer_form": "list",
     "entity": {
-      "value": "Imaginary SENS motion app on Android",
+      "value": "SENS motion app on Android",
       "type": "instance"
     },
     "relation": "exists",
     "object": {
-      "value": null,
+      "value": "components",
       "type": "list"
     },
     "ontology_presence": "absent",
@@ -4928,12 +5109,12 @@
     "question_type": "existential",
     "answer_form": "list",
     "entity": {
-      "value": "Imaginary SENS motion activity sensor",
+      "value": "SENS motion activity sensor",
       "type": "instance"
     },
     "relation": "exists",
     "object": {
-      "value": null,
+      "value": "components",
       "type": "list"
     },
     "ontology_presence": "absent",

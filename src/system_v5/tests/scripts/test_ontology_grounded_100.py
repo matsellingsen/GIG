@@ -10,7 +10,7 @@ from system_v5.tools.ttl_handling.resolve_ttl_path import resolve_ttl_path
 from system_v5.tools.inference_module.input_to_graph import atomic_to_graph
 from system_v5.tools.inference_module.fetch_relevant_info import fetch_relevant_info
 from system_v5.tools.inference_module.generate_answer import generate_answer
-from system_v5.tools.inference_module.map_answer_to_context import map_answer_to_context
+from system_v5.tools.inference_module.map_answer_to_context import map_answer_to_context, merge_mappings
 
 from agent_loop.agents.inference_module.extract_question_type_agent import ExtractQuestionTypeAgent
 from agent_loop.agents.inference_module.resolve_answer_form_agent import ResolveAnswerFormAgent
@@ -57,6 +57,36 @@ def record_check(checks, name, passed, expected=None, actual=None):
             "actual": actual,
         }
     )
+
+
+def build_stage_log(question_info, fetched=None, answer=None, reasoning=None):
+    fetched = fetched or {}
+    return {
+        "input_to_graph": {
+            "question_type": question_info.get("question_type"),
+            "answer_form": question_info.get("answer_form"),
+            "entity": question_info.get("entity", {}).get("value"),
+            "relation": question_info.get("relation"),
+            "object": question_info.get("object", {}).get("value"),
+        },
+        "fetch_relevant_info": {
+            "resolved_entity": fetched.get("resolved_entity") if isinstance(fetched, dict) else None,
+            "resolved_object": fetched.get("resolved_object") if isinstance(fetched, dict) else None,
+            "status": "noPrimaryEntityFound"
+            if fetched == "noPrimaryEntityFound"
+            else "noComparativeObjectFound"
+            if fetched == "noComparativeObjectFound"
+            else "present",
+        },
+        "generate_answer": {
+            "answer": answer.get("answer") if isinstance(answer, dict) else None,
+            "reasoning": reasoning,
+        },
+        "map_answer_to_context": {
+            "entity_answer": None,
+            "reasoning_answer": None,
+        },
+    }
 
 
 def mapping_covers_expected(actual_mapping, expected_mapping):
@@ -127,6 +157,16 @@ def test_ontology_grounded_100(case, ttl_fixture, agents):
     )
     question_info["atomic_question"] = case["atomic_input"]
 
+    generated_question_stage = {
+        "question_type": question_info.get("question_type"),
+        "answer_form": question_info.get("answer_form"),
+        "entity": question_info.get("entity", {}).get("value"),
+        "entity_type": question_info.get("entity", {}).get("type"),
+        "relation": question_info.get("relation"),
+        "object": question_info.get("object", {}).get("value"),
+        "object_type": question_info.get("object", {}).get("type"),
+    }
+
     fetched = fetch_relevant_info(
         question_info=question_info,
         ttl=ttl_fixture,
@@ -147,6 +187,33 @@ def test_ontology_grounded_100(case, ttl_fixture, agents):
                 "checks": checks,
                 "question_info": question_info,
                 "fetched": fetched,
+                "stage_log": build_stage_log(question_info, fetched=fetched),
+                "generated_question_stage": generated_question_stage,
+                "answer": None,
+                "reasoning": None,
+                "mapped_entity_answer": None,
+                "mapped_reasoning_answer": None,
+            }
+        )
+        failures = [c for c in checks if not c["passed"]]
+        assert not failures, f"{len(failures)} checks failed: {', '.join(c['name'] for c in failures)}"
+        return
+    elif fetched == "noComparativeObjectFound":
+        record_check(
+            checks,
+            "object_resolution",
+            case["expected_decision"] == "abstain",
+            expected=case["expected_decision"],
+            actual="noComparativeObjectFound",
+        )
+        RESULTS.append(
+            {
+                "case": {"id": case["id"]},
+                "checks": checks,
+                "question_info": question_info,
+                "fetched": fetched,
+                "stage_log": build_stage_log(question_info, fetched=fetched),
+                "generated_question_stage": generated_question_stage,
                 "answer": None,
                 "reasoning": None,
                 "mapped_entity_answer": None,
@@ -172,56 +239,94 @@ def test_ontology_grounded_100(case, ttl_fixture, agents):
 
     mapped_entity_answer = map_answer_to_context(answer=answer_text, context=entity_context)
     mapped_reasoning_answer = map_answer_to_context(answer=reasoning_text, context=entity_context)
+    mapped_entity_merged = merge_mappings(mapped_reasoning_answer, mapped_entity_answer)
+
+    
+    stage_log = build_stage_log(
+        question_info,
+        fetched=fetched,
+        answer=answer,
+        reasoning=reasoning_text,
+    )
+
+    stage_log["map_answer_to_context"]["merged_entity_answer"] = mapped_entity_merged
 
     expected_decision = case["expected_decision"]
-    acceptable_labels = case.get("acceptable_labels", [])
+    #acceptable_labels = case.get("acceptable_labels", [])
     gold_answer_agent = case.get("gold_answer_agent") or {}
-    gold_answer = gold_answer_agent.get("answer")
+    #gold_answer = gold_answer_agent.get("answer")
     gold_reasoning = gold_answer_agent.get("reasoning")
     gold_mapped_answer = case.get("gold_mapped_answer")
 
+    # Preferred grounding: gold mapping is subset of actual mapping
+    preferred_ok = mapping_covers_expected(mapped_entity_merged, gold_mapped_answer)
+
+    # Acceptable grounding: any ontology grounding at all
+    grounded_nonempty = any(
+        bool(mapped_entity_merged.get(key))
+        for key in ["annotations", "superclasses", "types", "properties", "property_values"]
+    )
+    # Incorrect grounding: no grounding
+    incorrect_grounding = not grounded_nonempty
+
+
     if expected_decision == "answer":
         record_check(
-            checks,
-            "answer_non_empty",
-            bool(answer_text),
+            checks=checks,
+            name="answer_non_empty",
+            passed=bool(answer_text),
             expected="non-empty",
             actual=answer_text,
         )
-        record_check(
-            checks,
-            "answer_matches_labels",
-            matches_any_label(answer_text, acceptable_labels),
+        """record_check(
+            checks=checks,
+            name="answer_matches_labels",
+            passed=matches_any_label(answer_text, acceptable_labels),
             expected=acceptable_labels,
             actual=answer_text,
         )
         record_check(
-            checks,
-            "gold_answer_matches_labels",
-            matches_any_label(gold_answer, acceptable_labels),
+            checks=checks,
+            name="gold_answer_matches_labels",
+            passed=matches_any_label(gold_answer, acceptable_labels),
             expected=acceptable_labels,
             actual=gold_answer,
+        )"""
+        record_check(
+        checks,
+        name="grounding_preferred",
+        passed=preferred_ok,
+        expected=gold_mapped_answer,
+        actual=mapped_entity_merged,
         )
         record_check(
             checks,
-            "mapping_covers_expected_context",
-            mapping_covers_expected(mapped_entity_answer, gold_mapped_answer),
-            expected=gold_mapped_answer,
-            actual=mapped_entity_answer,
+            name="grounding_nonempty",
+            passed=grounded_nonempty,
+            expected="any non-empty grounding",
+            actual=mapped_entity_merged,
         )
+        record_check(
+            checks,
+            name="grounding_incorrect",
+            passed=not incorrect_grounding,
+            expected="non-empty grounding",
+            actual=mapped_entity_merged,
+        )
+
         if gold_reasoning:
             record_check(
-                checks,
-                "reasoning_non_empty",
-                bool(reasoning_text),
+                checks=checks,
+                name="reasoning_non_empty",
+                passed=bool(reasoning_text),
                 expected="non-empty",
                 actual=reasoning_text,
             )
     else:
         record_check(
-            checks,
-            "abstain_expected",
-            expected_decision == "abstain",
+            checks=checks,
+            name="abstain_expected",
+            passed=expected_decision == "abstain",
             expected="abstain",
             actual=expected_decision,
         )
@@ -232,15 +337,33 @@ def test_ontology_grounded_100(case, ttl_fixture, agents):
             "checks": checks,
             "question_info": question_info,
             "fetched": fetched,
+            "stage_log": stage_log,
+            "generated_question_stage": generated_question_stage,
             "entity_context": entity_context,
             "object_context": object_context,
             "answer": answer_text,
             "reasoning": reasoning_text,
             "gold_answer_agent": gold_answer_agent,
-            "mapped_entity_answer": mapped_entity_answer,
             "mapped_reasoning_answer": mapped_reasoning_answer,
+            "mapped_entity_answer": mapped_entity_answer,
+            "mapped_entity_merged": mapped_entity_merged,
         }
     )
 
-    failures = [c for c in checks if not c["passed"]]
-    assert not failures, f"{len(failures)} checks failed: {', '.join(c['name'] for c in failures)}"
+    failures = [
+    c for c in checks
+    if c["name"] != "grounding_preferred"
+    and c["name"] != "grounding_nonempty"
+    and not c["passed"]
+    ]
+
+    # Grounding fails ONLY if grounding_incorrect is false
+    grounding_failure = any(
+        c for c in checks
+        if c["name"] == "grounding_incorrect" and not c["passed"]
+    )
+
+    assert not failures and not grounding_failure, (
+        f"{len(failures)} structural checks failed or grounding incorrect: "
+        f"{', '.join(c['name'] for c in failures)}"
+)

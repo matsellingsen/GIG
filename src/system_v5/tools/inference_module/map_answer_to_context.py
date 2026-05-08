@@ -2,6 +2,40 @@ import re
 import difflib
 from typing import List, Dict, Any
 
+# ---------------------------------------------------------
+# Merging mappings utility
+# ---------------------------------------------------------
+def merge_mappings(map_reasoning: Dict[str, Any],
+                   map_answer: Dict[str, Any]) -> Dict[str, Any]:
+    """
+    Deterministically merge the reasoning-based mapping and the answer-based mapping.
+    - Lists are merged by set-union and sorted.
+    - Dicts (e.g., property_values) are merged with answer overriding reasoning.
+    - Missing keys are treated as empty.
+    """
+
+    merged = {}
+
+    all_keys = set(map_reasoning.keys()).union(map_answer.keys())
+
+    for key in all_keys:
+        v_r = map_reasoning.get(key)
+        v_a = map_answer.get(key)
+
+        # Case 1: list-like fields (types, superclasses, eq_classes, annotation_labels, properties)
+        if isinstance(v_r, list) or isinstance(v_a, list):
+            merged[key] = sorted(set((v_r or []) + (v_a or [])))
+            continue
+
+        # Case 2: dict-like fields (property_values)
+        if isinstance(v_r, dict) or isinstance(v_a, dict):
+            merged[key] = {**(v_r or {}), **(v_a or {})}
+            continue
+
+        # Case 3: fallback (rare)
+        merged[key] = v_a if v_a is not None else v_r
+
+    return merged
 
 # ---------------------------------------------------------
 # Normalization utilities
@@ -116,6 +150,20 @@ def extract_chunks_from_class_descriptions(context: Dict[str, Any], chunk_size: 
 
     return types_chunks, superClasses_chunks, eqClasses_chunks
 
+def extract_chunks_from_annotation_comments(context: Dict[str, Any], chunk_size: int = 4):
+    """
+    Extract chunks from annotation comments for fuzzy matching.
+    """
+    annotations = context.get("annotations", {})
+    annotation_label = annotations.get("label", "")
+    annotation_comment = annotations.get("comment", "")
+    annotation_chunks = {}
+    
+    text = normalize(annotation_comment)
+    chunks = extract_ntoken_chunks(text, n=chunk_size)
+    annotation_chunks[annotation_label] = chunks
+
+    return annotation_chunks
 
 def match_class_description_chunks(answer: str, chunk_map: Dict[str, List[str]]) -> List[str]:
     answer_chunks = tokenize_chunks(answer)
@@ -140,6 +188,9 @@ def map_answer_to_context(answer: str, context: Dict[str, Any]) -> Dict[str, Any
 
     # Precompute super-class description keywords
     types_keywords, superClasses_keywords, eqClasses_keywords = extract_chunks_from_class_descriptions(context, chunk_size=4)
+
+    # Precompute annotation keywords
+    annotation_keywords = extract_chunks_from_annotation_comments(context, chunk_size=4)
 
     # -----------------------------------------------------
     # 1. TYPES
@@ -225,6 +276,12 @@ def map_answer_to_context(answer: str, context: Dict[str, Any]) -> Dict[str, Any
 
     result["properties"] = sorted(prop_matches)
     result["property_values"] = value_matches  # optional but extremely useful
+
+    # -----------------------------------------------------
+    # 5. ANNOTATIONS (entity-level labels/comments)
+    # -----------------------------------------------------
+    annotation_matches = match_class_description_chunks(answer, annotation_keywords)
+    result["annotations"] = sorted(set(annotation_matches))
 
     # -----------------------------------------------------
     # 6. OBJECT PROPERTY DESCRIPTIONS

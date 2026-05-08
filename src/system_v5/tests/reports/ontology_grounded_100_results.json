@@ -1,22 +1,78 @@
 [
   {
     "case": {
-      "id": "absent_02"
+      "id": "present_01"
     },
     "checks": [
       {
-        "name": "abstain_expected",
+        "name": "answer_non_empty",
         "passed": true,
-        "expected": "abstain",
-        "actual": "abstain"
+        "expected": "non-empty",
+        "actual": "An App is a software application designed to perform specific tasks on a mobile device or tablet."
+      },
+      {
+        "name": "grounding_preferred",
+        "passed": true,
+        "expected": {
+          "entity_side": {
+            "types": [],
+            "superclasses": [],
+            "annotations": [
+              "App"
+            ],
+            "equivalent_classes": [],
+            "properties": [],
+            "property_values": {}
+          }
+        },
+        "actual": {
+          "types": [],
+          "property_values": {},
+          "properties": [],
+          "annotations": [
+            "App"
+          ],
+          "superclasses": [],
+          "equivalent_classes": []
+        }
+      },
+      {
+        "name": "grounding_nonempty",
+        "passed": true,
+        "expected": "any non-empty grounding",
+        "actual": {
+          "types": [],
+          "property_values": {},
+          "properties": [],
+          "annotations": [
+            "App"
+          ],
+          "superclasses": [],
+          "equivalent_classes": []
+        }
+      },
+      {
+        "name": "grounding_incorrect",
+        "passed": true,
+        "expected": "non-empty grounding",
+        "actual": {
+          "types": [],
+          "property_values": {},
+          "properties": [],
+          "annotations": [
+            "App"
+          ],
+          "superclasses": [],
+          "equivalent_classes": []
+        }
       }
     ],
     "question_info": {
-      "atomic_question": "What is WebApplication?",
+      "atomic_question": "What is an App?",
       "question_type": "definition",
       "answer_form": "value",
       "entity": {
-        "value": "WebApplication",
+        "value": "App",
         "type": "individual"
       },
       "relation": "be",
@@ -27,11 +83,11 @@
     },
     "fetched": {
       "question_info": {
-        "atomic_question": "What is WebApplication?",
+        "atomic_question": "What is an App?",
         "question_type": "definition",
         "answer_form": "value",
         "entity": {
-          "value": "WebApplication",
+          "value": "App",
           "type": "individual"
         },
         "relation": "be",
@@ -41,18 +97,16 @@
         }
       },
       "resolved_entity": {
-        "uri": "http://example.org/sensInnovationAps_ontology#WebApplication",
-        "label": "WebApplication",
+        "uri": "http://example.org/sensInnovationAps_ontology#App",
+        "label": "App",
         "score": 1.0,
         "labels": [
-          "WebApplication"
+          "App"
         ],
         "entity_type": "Class",
         "types": [],
         "superclasses": [
-          "InformationObject",
-          "PhysicalObject",
-          "UserInterface"
+          "InformationObject"
         ],
         "object_properties": {},
         "data_properties": {},
@@ -60,17 +114,15 @@
       },
       "entity_context": {
         "scope_note": "All information in this object is directly related to the resolved entity of the atomic question.",
-        "uri": "WebApplication",
-        "label": "WebApplication",
+        "uri": "App",
+        "label": "App",
         "types": [
           "Class"
         ],
         "superclasses": {
           "Class": [],
-          "WebApplication": [
-            "InformationObject",
-            "PhysicalObject",
-            "UserInterface"
+          "App": [
+            "InformationObject"
           ]
         },
         "equivalent_classes": [],
@@ -83,8 +135,8 @@
           }
         },
         "annotations": {
-          "label": "WebApplication",
-          "comment": "A software application that is designed to be used over the internet, typically accessed through a web browser."
+          "label": "App",
+          "comment": "A software application designed to perform specific tasks on a mobile device or tablet, such as the SENS motion app mentioned in the source text."
         },
         "class_descriptions": {
           "Class": {
@@ -97,19 +149,73 @@
       "resolved_object": null,
       "object_context": null
     },
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "App",
+        "relation": "be",
+        "object": "null"
+      },
+      "fetch_relevant_info": {
+        "resolved_entity": {
+          "uri": "http://example.org/sensInnovationAps_ontology#App",
+          "label": "App",
+          "score": 1.0,
+          "labels": [
+            "App"
+          ],
+          "entity_type": "Class",
+          "types": [],
+          "superclasses": [
+            "InformationObject"
+          ],
+          "object_properties": {},
+          "data_properties": {},
+          "annotations": {}
+        },
+        "resolved_object": null,
+        "status": "present"
+      },
+      "generate_answer": {
+        "answer": "An App is a software application designed to perform specific tasks on a mobile device or tablet.",
+        "reasoning": "The ontology information provided defines 'App' as a 'Class' and describes it as a 'software application designed to perform specific tasks on a mobile device or tablet.'"
+      },
+      "map_answer_to_context": {
+        "entity_answer": null,
+        "reasoning_answer": null,
+        "merged_entity_answer": {
+          "types": [],
+          "property_values": {},
+          "properties": [],
+          "annotations": [
+            "App"
+          ],
+          "superclasses": [],
+          "equivalent_classes": []
+        }
+      }
+    },
+    "generated_question_stage": {
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": "App",
+      "entity_type": "individual",
+      "relation": "be",
+      "object": "null",
+      "object_type": "null"
+    },
     "entity_context": {
       "scope_note": "All information in this object is directly related to the resolved entity of the atomic question.",
-      "uri": "WebApplication",
-      "label": "WebApplication",
+      "uri": "App",
+      "label": "App",
       "types": [
         "Class"
       ],
       "superclasses": {
         "Class": [],
-        "WebApplication": [
-          "InformationObject",
-          "PhysicalObject",
-          "UserInterface"
+        "App": [
+          "InformationObject"
         ]
       },
       "equivalent_classes": [],
@@ -122,8 +228,8 @@
         }
       },
       "annotations": {
-        "label": "WebApplication",
-        "comment": "A software application that is designed to be used over the internet, typically accessed through a web browser."
+        "label": "App",
+        "comment": "A software application designed to perform specific tasks on a mobile device or tablet, such as the SENS motion app mentioned in the source text."
       },
       "class_descriptions": {
         "Class": {
@@ -134,31 +240,38 @@
       "provenance": []
     },
     "object_context": null,
-    "answer": "A WebApplication is a Class, which is a type of 'InformationObject', 'PhysicalObject', and 'UserInterface'.",
-    "reasoning": "The ontology information provides a label and a scope note for the entity 'WebApplication', which is a 'Class'.",
-    "gold_answer_agent": {
-      "reasoning": "The entity has labels WebApplication, but no explicit type/superclass was found in the extracted mapping.",
-      "answer": "I can't answer the question."
-    },
-    "mapped_entity_answer": {
-      "types": [
-        "Class"
-      ],
-      "superclasses": [
-        "InformationObject",
-        "PhysicalObject",
-        "UserInterface"
-      ],
-      "equivalent_classes": [],
-      "properties": [],
-      "property_values": {}
-    },
+    "answer": "An App is a software application designed to perform specific tasks on a mobile device or tablet.",
+    "reasoning": "The ontology information provided defines 'App' as a 'Class' and describes it as a 'software application designed to perform specific tasks on a mobile device or tablet.'",
+    "gold_answer_agent": {},
     "mapped_reasoning_answer": {
       "types": [],
       "superclasses": [],
       "equivalent_classes": [],
       "properties": [],
-      "property_values": {}
+      "property_values": {},
+      "annotations": [
+        "App"
+      ]
+    },
+    "mapped_entity_answer": {
+      "types": [],
+      "superclasses": [],
+      "equivalent_classes": [],
+      "properties": [],
+      "property_values": {},
+      "annotations": [
+        "App"
+      ]
+    },
+    "mapped_entity_merged": {
+      "types": [],
+      "property_values": {},
+      "properties": [],
+      "annotations": [
+        "App"
+      ],
+      "superclasses": [],
+      "equivalent_classes": []
     }
   }
 ]

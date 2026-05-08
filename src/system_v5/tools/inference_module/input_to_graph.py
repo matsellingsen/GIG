@@ -42,7 +42,7 @@ def atomic_to_graph(atomic_input: str, extract_question_type_agent: ExtractQuest
     obj, _ = extract_object_agent.run(atomic_input, entity_candidate=entity, relation_candidate=relation, question_classification=question_type)
     print(f"Extracted object: {obj}")
     print("================================")
-    #2. Structure the extracted information as a triple with the 4 extracted components.
+    #2. Structure the extracted information as a dict with the 5 extracted components + the atomic question.
     result = {
         "atomic_question": atomic_input,
         "question_type": question_type.get("question_type"),
