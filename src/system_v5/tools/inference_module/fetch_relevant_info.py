@@ -1070,11 +1070,17 @@ def fetch_relevant_info(question_info: dict, ttl: dict, resolve_entity_agent: Re
     if resolved_object is not None:
         full_object_context = retrieve_full_entity_context(type="object", entity=resolved_object, graph=ttl["graph"])
     
+    #2b. filter the retrieved context based on the question type (e.g., for definition questions, we may only care about types, superclasses and annotations, while for capability questions we care more about properties and their semantics).
+    entity_context_filtered = filter_context(question_info=question_info, full_context=full_entity_context)
+    object_context_filtered = None
+    if full_object_context is not None:
+        object_context_filtered = filter_context(question_info=question_info, full_context=full_object_context)
+
     # 3. Normalize the context(s) to be LLM-friendly (no URIs, only human-readable labels and comments).
-    entity_context_normalized = normalize_and_clean_context_for_llm(full_entity_context)
+    entity_context_normalized = normalize_and_clean_context_for_llm(entity_context_filtered)
     object_context_normalized = None
     if full_object_context is not None:
-        object_context_normalized = normalize_and_clean_context_for_llm(full_object_context)
+        object_context_normalized = normalize_and_clean_context_for_llm(object_context_filtered)
 
     # 4. group together all information and return it.
     final_output = {

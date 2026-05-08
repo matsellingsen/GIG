@@ -32,7 +32,7 @@
     "stage_labels": {
       "input_to_graph": {
         "question_type": "definition",
-        "answer_form": "entity",
+        "answer_form": "value",
         "entity": "App",
         "relation": "be",
         "object": null
@@ -77,7 +77,7 @@
     "stage_labels": {
       "input_to_graph": {
         "question_type": "definition",
-        "answer_form": "entity",
+        "answer_form": "value",
         "entity": "WebApplication",
         "relation": "be",
         "object": null
@@ -107,7 +107,6 @@
       "entity_side": {
         "types": [],
         "superclasses": [
-          "PhysicalObject"
         ],
         "annotations":[
           "SensorPatch"
@@ -125,20 +124,16 @@
     "stage_labels": {
       "input_to_graph": {
         "question_type": "definition",
-        "answer_form": "entity",
+        "answer_form": "value",
         "entity": "SensorPatch",
         "relation": "be",
         "object": null
       },
       "resolve_entity": "SensorPatch",
       "fetch_relevant_info": "present",
-      "generate_answer": "PhysicalObject",
       "map_answer_to_context": "grounded"
-    },
-    "gold_answer_agent": {
-      "reasoning": "The ontology lists 'SensorPatch' with a superclass 'PhysicalObject', which supports classifying SensorPatch as a PhysicalObject.",
-      "answer": "SensorPatch is a PhysicalObject."
     }
+
   },
   {
     "id": "present_04",
@@ -146,7 +141,7 @@
     "question_type": "definition",
     "answer_form": "value",
     "entity": {
-      "value": "the SENS motion app",
+      "value": "SENS motion app",
       "type": "instance"
     },
     "relation": "be",
@@ -158,8 +153,11 @@
     "gold_mapped_answer": {
       "entity_side": {
         "types": [
-          "App"
+          "App",
+          "SmartphoneApp",
+          "MobileApplication"
         ],
+        "annotations":[],
         "superclasses": [],
         "equivalent_classes": [],
         "properties": [],
@@ -167,31 +165,23 @@
       }
     },
     "expected_decision": "answer",
-    "acceptable_labels": [
-      "sens motion app",
-      "SENS motion app"
-    ],
     "stage_labels": {
       "input_to_graph": {
         "question_type": "definition",
-        "answer_form": "entity",
+        "answer_form": "value",
         "entity": "SENS motion app",
         "relation": "be",
         "object": null
       },
       "resolve_entity": "SENS motion app",
       "fetch_relevant_info": "present",
-      "generate_answer": "SENS motion app",
       "map_answer_to_context": "grounded"
-    },
-    "gold_answer_agent": {
-      "reasoning": "The ontology lists 'SENS motion app' as an App.",
-      "answer": "SENS motion app is an App."
     }
+
   },
   {
     "id": "present_05",
-    "atomic_input": "What is SENS motion web app?",
+    "atomic_input": "What is the SENS motion web app?",
     "question_type": "definition",
     "answer_form": "value",
     "entity": {
@@ -207,8 +197,10 @@
     "gold_mapped_answer": {
       "entity_side": {
         "types": [
-          "InformationObject"
+          "WebApplication",
+          "Webapp"
         ],
+        "annotations":[],
         "superclasses": [],
         "equivalent_classes": [],
         "properties": [],
@@ -216,26 +208,17 @@
       }
     },
     "expected_decision": "answer",
-    "acceptable_labels": [
-      "InformationObject",
-      "informationobject"
-    ],
     "stage_labels": {
       "input_to_graph": {
         "question_type": "definition",
-        "answer_form": "entity",
+        "answer_form": "value",
         "entity": "SENS motion web app",
         "relation": "be",
         "object": null
       },
       "resolve_entity": "SENS motion web app",
       "fetch_relevant_info": "present",
-      "generate_answer": "SENS motion web app",
       "map_answer_to_context": "grounded"
-    },
-    "gold_answer_agent": {
-      "reasoning": "The ontology lists 'SENS motion web app' as an InformationObject.",
-      "answer": "SENS motion web app is an InformationObject."
     }
   },
   {
@@ -255,49 +238,120 @@
     "ontology_presence": "present",
     "gold_mapped_answer": {
       "entity_side": {
-        "types": [],
+        "types": [
+          "SoftwareRelease"
+        ],
+        "annotations":[],
         "superclasses": [],
         "equivalent_classes": [],
-        "properties": [
-          "releaseNumber",
-          "version"
-        ],
-        "property_values": {
-          "releaseNumber": "3.9",
-          "version": "3.9"
-        }
+        "properties": [],
+        "property_values": {}
       }
     },
     "expected_decision": "answer",
-    "acceptable_labels": [
-      "version 3.9",
-      "version 3.9"
-    ],
     "stage_labels": {
       "input_to_graph": {
         "question_type": "definition",
-        "answer_form": "entity",
+        "answer_form": "value",
         "entity": "version 3.9",
         "relation": "be",
         "object": null
       },
       "resolve_entity": "version 3.9",
       "fetch_relevant_info": "present",
-      "generate_answer": "version 3.9",
       "map_answer_to_context": "grounded"
-    },
-    "gold_answer_agent": {
-      "reasoning": "Property assertions supporting the answer: releaseNumber = 3.9, version = 3.9.",
-      "answer": "version 3.9 is a InformationRealization."
     }
   },
   {
-    "id": "present_07",
-    "atomic_input": "Is App an InformationObject?",
+    "id": "present_07_answerable",
+    "atomic_input": "Is App a type of InformationObject?",
     "question_type": "taxonomic",
     "answer_form": "assertion",
     "entity": {
       "value": "App",
+      "type": "class"
+    },
+    "relation": "be subtype of",
+    "object": {
+      "value": "InformationObject",
+      "type": "class"
+    },
+    "ontology_presence": "present",
+    "gold_mapped_answer": {
+      "entity_side": {
+        "types": [],
+        "annotations":[],
+        "superclasses": [
+          "InformationObject"
+        ],
+        "equivalent_classes": [],
+        "properties": [],
+        "property_values": {}
+      }
+    },
+    "expected_decision": "answer",
+    "stage_labels": {
+      "input_to_graph": {
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": "App",
+        "relation": "be subtype of",
+        "object": "InformationObject"
+      },
+      "resolve_entity": "App",
+      "fetch_relevant_info": "present",
+      "generate_answer": "yes",
+      "map_answer_to_context": "grounded"
+    }
+  },
+   {
+    "id": "present_07_unanswerable",
+    "atomic_input": "Is App a type of Webpage?",
+    "question_type": "taxonomic",
+    "answer_form": "assertion",
+    "entity": {
+      "value": "App",
+      "type": "class"
+    },
+    "relation": "be subtype of",
+    "object": {
+      "value": "Webpage",
+      "type": "class"
+    },
+    "ontology_presence": "present",
+    "gold_mapped_answer": {
+      "entity_side": {
+        "types": [],
+        "annotations":[],
+        "superclasses": [
+        ],
+        "equivalent_classes": [],
+        "properties": [],
+        "property_values": {}
+      }
+    },
+    "expected_decision": "abstain",
+    "stage_labels": {
+      "input_to_graph": {
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": "App",
+        "relation": "be subtype of",
+        "object": "Webpage"
+      },
+      "resolve_entity": "App",
+      "fetch_relevant_info": "present",
+      "generate_answer": "no",
+      "map_answer_to_context": "grounded"
+    }
+  },
+  {
+    "id": "present_08_answerable",
+    "atomic_input": "Is WebApplication an InformationObject?",
+    "question_type": "taxonomic",
+    "answer_form": "assertion",
+    "entity": {
+      "value": "WebApplication",
       "type": "class"
     },
     "relation": "be",
@@ -309,8 +363,9 @@
     "gold_mapped_answer": {
       "entity_side": {
         "types": [],
+        "annotations":[],
         "superclasses": [
-          "InformationObject"
+        "InformationObject"
         ],
         "equivalent_classes": [],
         "properties": [],
@@ -318,30 +373,22 @@
       }
     },
     "expected_decision": "answer",
-    "acceptable_labels": [
-      "yes",
-      "true"
-    ],
     "stage_labels": {
       "input_to_graph": {
         "question_type": "taxonomic",
-        "answer_form": "boolean",
-        "entity": "App",
-        "relation": "be",
+        "answer_form": "assertion",
+        "entity": "WebApplication",
+        "relation": "be subtype of",
         "object": "InformationObject"
       },
-      "resolve_entity": "App",
+      "resolve_entity": "WebApplication",
       "fetch_relevant_info": "present",
       "generate_answer": "yes",
       "map_answer_to_context": "grounded"
-    },
-    "gold_answer_agent": {
-      "reasoning": "The ontology lists 'App' with a superclass 'InformationObject', which supports classifying App as a InformationObject.",
-      "answer": "Yes, App is a InformationObject."
     }
   },
   {
-    "id": "present_08",
+    "id": "present_08_unanswerable",
     "atomic_input": "Is WebApplication a SocialObject?",
     "question_type": "taxonomic",
     "answer_form": "assertion",
@@ -358,41 +405,30 @@
     "gold_mapped_answer": {
       "entity_side": {
         "types": [],
-        "superclasses": [
-          "InformationObject",
-          "PhysicalObject",
-          "UserInterface"
-        ],
+        "annotations":[],
+        "superclasses": [],
         "equivalent_classes": [],
         "properties": [],
         "property_values": {}
       }
     },
-    "expected_decision": "answer",
-    "acceptable_labels": [
-      "yes",
-      "true"
-    ],
+    "expected_decision": "abstain",
     "stage_labels": {
       "input_to_graph": {
         "question_type": "taxonomic",
-        "answer_form": "boolean",
+        "answer_form": "assertion",
         "entity": "WebApplication",
-        "relation": "be",
+        "relation": "be subtype of",
         "object": "SocialObject"
       },
       "resolve_entity": "WebApplication",
       "fetch_relevant_info": "present",
-      "generate_answer": "yes",
+      "generate_answer": "no",
       "map_answer_to_context": "grounded"
-    },
-    "gold_answer_agent": {
-      "reasoning": "WebApplication has superclasses InformationObject, PhysicalObject, and UserInterface, so it is not a SocialObject.",
-      "answer": "No, WebApplication is not a SocialObject."
     }
   },
   {
-    "id": "present_09",
+    "id": "present_09_answerable",
     "atomic_input": "Is ActivityType an ActivityCategory?",
     "question_type": "taxonomic",
     "answer_form": "assertion",
@@ -409,6 +445,7 @@
     "gold_mapped_answer": {
       "entity_side": {
         "types": [],
+        "annotations":[],
         "superclasses": [
           "ActivityCategory"
         ],
@@ -418,14 +455,10 @@
       }
     },
     "expected_decision": "answer",
-    "acceptable_labels": [
-      "yes",
-      "true"
-    ],
     "stage_labels": {
       "input_to_graph": {
         "question_type": "taxonomic",
-        "answer_form": "boolean",
+        "answer_form": "assertion",
         "entity": "ActivityType",
         "relation": "be",
         "object": "ActivityCategory"
@@ -434,14 +467,51 @@
       "fetch_relevant_info": "present",
       "generate_answer": "yes",
       "map_answer_to_context": "grounded"
-    },
-    "gold_answer_agent": {
-      "reasoning": "The ontology lists 'ActivityType' with a superclass 'ActivityCategory', which supports classifying ActivityType as a ActivityCategory.",
-      "answer": "Yes, ActivityType is a ActivityCategory."
     }
   },
   {
-    "id": "present_10",
+    "id": "present_09_unanswerable",
+    "atomic_input": "Is ActivityType a SoftwareApplication?",
+    "question_type": "taxonomic",
+    "answer_form": "assertion",
+    "entity": {
+      "value": "ActivityType",
+      "type": "class"
+    },
+    "relation": "be",
+    "object": {
+      "value": "SoftwareApplication",
+      "type": "class"
+    },
+    "ontology_presence": "present",
+    "gold_mapped_answer": {
+      "entity_side": {
+        "types": [],
+        "annotations":[],
+        "superclasses": [
+        ],
+        "equivalent_classes": [],
+        "properties": [],
+        "property_values": {}
+      }
+    },
+    "expected_decision": "abstain",
+    "stage_labels": {
+      "input_to_graph": {
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": "ActivityType",
+        "relation": "be subtype of",
+        "object": "SoftwareApplication  "
+      },
+      "resolve_entity": "ActivityType",
+      "fetch_relevant_info": "present",
+      "generate_answer": "no",
+      "map_answer_to_context": "grounded"
+    }
+  },
+  {
+    "id": "present_10_answerable",
     "atomic_input": "Is SENS motion app a SmartphoneApp?",
     "question_type": "taxonomic",
     "answer_form": "assertion",
@@ -449,7 +519,7 @@
       "value": "SENS motion app",
       "type": "instance"
     },
-    "relation": "be",
+    "relation": "be instance of",
     "object": {
       "value": "SmartphoneApp",
       "type": "class"
@@ -460,6 +530,7 @@
         "types": [
           "SmartphoneApp"
         ],
+        "annotations":[],
         "superclasses": [],
         "equivalent_classes": [],
         "properties": [],
@@ -467,30 +538,62 @@
       }
     },
     "expected_decision": "answer",
-    "acceptable_labels": [
-      "yes",
-      "true"
-    ],
     "stage_labels": {
       "input_to_graph": {
         "question_type": "taxonomic",
-        "answer_form": "boolean",
+        "answer_form": "assertion",
         "entity": "SENS motion app",
-        "relation": "be",
+        "relation": "be instance of",
         "object": "SmartphoneApp"
       },
       "resolve_entity": "SENS motion app",
       "fetch_relevant_info": "present",
       "generate_answer": "yes",
       "map_answer_to_context": "grounded"
-    },
-    "gold_answer_agent": {
-      "reasoning": "The ontology lists 'SENS motion app' as a SmartphoneApp.",
-      "answer": "Yes, SENS motion app is a SmartphoneApp."
     }
   },
   {
-    "id": "present_11",
+    "id": "present_10_unanswerable",
+    "atomic_input": "Is SENS motion app a Sensor?",
+    "question_type": "taxonomic",
+    "answer_form": "assertion",
+    "entity": {
+      "value": "SENS motion app",
+      "type": "instance"
+    },
+    "relation": "be instance of",
+    "object": {
+      "value": "Sensor",
+      "type": "class"
+    },
+    "ontology_presence": "present",
+    "gold_mapped_answer": {
+      "entity_side": {
+        "types": [],
+        "annotations":[],
+        "superclasses": [],
+        "equivalent_classes": [],
+        "properties": [],
+        "property_values": {}
+      }
+    },
+    "expected_decision": "abstain",
+    "stage_labels": {
+      "input_to_graph": {
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": "SENS motion app",
+        "relation": "be instance of",
+        "object": "Sensor"
+      },
+      "resolve_entity": "SENS motion app",
+      "fetch_relevant_info": "present",
+      "generate_answer": "no",
+      "map_answer_to_context": "grounded"
+    }
+  },
+  {
+    "id": "present_11_answerable",
     "atomic_input": "Is support.sens.dk a WebApplication?",
     "question_type": "taxonomic",
     "answer_form": "assertion",
@@ -498,7 +601,7 @@
       "value": "support.sens.dk",
       "type": "instance"
     },
-    "relation": "be",
+    "relation": "be instance of",
     "object": {
       "value": "WebApplication",
       "type": "class"
@@ -509,6 +612,7 @@
         "types": [
           "WebApplication"
         ],
+        "annotations":[],
         "superclasses": [],
         "equivalent_classes": [],
         "properties": [],
@@ -516,30 +620,62 @@
       }
     },
     "expected_decision": "answer",
-    "acceptable_labels": [
-      "yes",
-      "true"
-    ],
     "stage_labels": {
       "input_to_graph": {
         "question_type": "taxonomic",
-        "answer_form": "boolean",
+        "answer_form": "assertion",
         "entity": "support.sens.dk",
-        "relation": "be",
+        "relation": "be instance of",
         "object": "WebApplication"
       },
       "resolve_entity": "support.sens.dk",
       "fetch_relevant_info": "present",
       "generate_answer": "yes",
       "map_answer_to_context": "grounded"
+    }
+  },
+   {
+    "id": "present_11_unanswerable",
+    "atomic_input": "Is support.sens.dk a MonitorSystem?",
+    "question_type": "taxonomic",
+    "answer_form": "assertion",
+    "entity": {
+      "value": "support.sens.dk",
+      "type": "instance"
     },
-    "gold_answer_agent": {
-      "reasoning": "The ontology lists 'support.sens.dk' as a WebApplication.",
-      "answer": "Yes, support.sens.dk is a WebApplication."
+    "relation": "be instance of",
+    "object": {
+      "value": "MonitorSystem",
+      "type": "class"
+    },
+    "ontology_presence": "present",
+    "gold_mapped_answer": {
+      "entity_side": {
+        "types": [],
+        "annotations":[],
+        "superclasses": [],
+        "equivalent_classes": [],
+        "properties": [],
+        "property_values": {}
+      }
+    },
+    "expected_decision": "abstain",
+    "stage_labels": {
+      "input_to_graph": {
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": "support.sens.dk",
+        "relation": "be instance of",
+        "object": "MonitorSystem"
+      },
+      "resolve_entity": "support.sens.dk",
+      "fetch_relevant_info": "present",
+      "generate_answer": "no",
+      "map_answer_to_context": "grounded"
     }
   },
   {
-    "id": "present_12",
+    "id": "present_12_answerable",
     "atomic_input": "Is SENS motion activity sensor an ActivityDataSensor?",
     "question_type": "taxonomic",
     "answer_form": "assertion",
@@ -547,7 +683,7 @@
       "value": "SENS motion activity sensor",
       "type": "instance"
     },
-    "relation": "be",
+    "relation": "be instance of",
     "object": {
       "value": "ActivityDataSensor",
       "type": "class"
@@ -558,6 +694,7 @@
         "types": [
           "ActivityDataSensor"
         ],
+        "annotations":[],
         "superclasses": [],
         "equivalent_classes": [],
         "properties": [],
@@ -565,30 +702,61 @@
       }
     },
     "expected_decision": "answer",
-    "acceptable_labels": [
-      "yes",
-      "true"
-    ],
     "stage_labels": {
       "input_to_graph": {
         "question_type": "taxonomic",
-        "answer_form": "boolean",
+        "answer_form": "assertion",
         "entity": "SENS motion activity sensor",
-        "relation": "be",
+        "relation": "be instance of",
         "object": "ActivityDataSensor"
       },
       "resolve_entity": "SENS motion activity sensor",
       "fetch_relevant_info": "present",
       "generate_answer": "yes",
       "map_answer_to_context": "grounded"
-    },
-    "gold_answer_agent": {
-      "reasoning": "The ontology lists 'SENS motion activity sensor' as an ActivityDataSensor.",
-      "answer": "Yes, SENS motion activity sensor is an ActivityDataSensor."
     }
   },
   {
-    "id": "present_13",
+    "id": "present_12_unanswerable",
+    "atomic_input": "Is SENS motion activity sensor an ActivityEvent?",
+    "question_type": "taxonomic",
+    "answer_form": "assertion",
+    "entity": {
+      "value": "SENS motion activity sensor",
+      "type": "instance"
+    },
+    "relation": "be instance of",
+    "object": {
+      "value": "ActivityEvent",
+      "type": "class"
+    },
+    "ontology_presence": "present",
+    "gold_mapped_answer": {
+      "entity_side": {
+        "types": [],
+        "superclasses": [],
+        "equivalent_classes": [],
+        "properties": [],
+        "property_values": {}
+      }
+    },
+    "expected_decision": "abstain",
+    "stage_labels": {
+      "input_to_graph": {
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": "SENS motion activity sensor",
+        "relation": "be instance of",
+        "object": "ActivityDataSensor"
+      },
+      "resolve_entity": "SENS motion activity sensor",
+      "fetch_relevant_info": "present",
+      "generate_answer": "no",
+      "map_answer_to_context": "grounded"
+    }
+  },
+  {
+    "id": "present_13_answerable",
     "atomic_input": "Does WebApplication have capability?",
     "question_type": "capability",
     "answer_form": "assertion",

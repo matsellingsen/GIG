@@ -238,8 +238,13 @@ def test_ontology_grounded_100(case, ttl_fixture, agents):
     reasoning_text = answer.get("reasoning", "") if isinstance(answer, dict) else ""
 
     mapped_entity_answer = map_answer_to_context(answer=answer_text, context=entity_context)
-    mapped_reasoning_answer = map_answer_to_context(answer=reasoning_text, context=entity_context)
-    mapped_entity_merged = merge_mappings(mapped_reasoning_answer, mapped_entity_answer)
+    mapped_entity_reasoning = map_answer_to_context(answer=reasoning_text, context=entity_context)
+    mapped_entity_merged = merge_mappings(mapped_entity_reasoning, mapped_entity_answer)
+
+    if object_context: # to be used in future cases with comparative objects
+        mapped_object_answer = map_answer_to_context(answer=answer_text, context=object_context)
+        mapped_object_reasoning = map_answer_to_context(answer=reasoning_text, context=object_context)
+        mapped_object_merged = merge_mappings(mapped_object_reasoning, mapped_object_answer)
 
     
     stage_log = build_stage_log(
@@ -267,7 +272,7 @@ def test_ontology_grounded_100(case, ttl_fixture, agents):
         for key in ["annotations", "superclasses", "types", "properties", "property_values"]
     )
     # Incorrect grounding: no grounding
-    incorrect_grounding = not grounded_nonempty
+    empty_grounding = not grounded_nonempty
 
 
     if expected_decision == "answer":
@@ -278,20 +283,6 @@ def test_ontology_grounded_100(case, ttl_fixture, agents):
             expected="non-empty",
             actual=answer_text,
         )
-        """record_check(
-            checks=checks,
-            name="answer_matches_labels",
-            passed=matches_any_label(answer_text, acceptable_labels),
-            expected=acceptable_labels,
-            actual=answer_text,
-        )
-        record_check(
-            checks=checks,
-            name="gold_answer_matches_labels",
-            passed=matches_any_label(gold_answer, acceptable_labels),
-            expected=acceptable_labels,
-            actual=gold_answer,
-        )"""
         record_check(
         checks,
         name="grounding_preferred",
@@ -309,7 +300,7 @@ def test_ontology_grounded_100(case, ttl_fixture, agents):
         record_check(
             checks,
             name="grounding_incorrect",
-            passed=not incorrect_grounding,
+            passed=not empty_grounding,
             expected="non-empty grounding",
             actual=mapped_entity_merged,
         )
@@ -322,14 +313,42 @@ def test_ontology_grounded_100(case, ttl_fixture, agents):
                 expected="non-empty",
                 actual=reasoning_text,
             )
-    else:
+    elif expected_decision == "abstain":
+        explicit_abstain = "can't answer" in answer_text.lower()
+        system_abstained = empty_grounding or explicit_abstain
+
         record_check(
-            checks=checks,
-            name="abstain_expected",
-            passed=expected_decision == "abstain",
+            checks,
+            "abstain_expected",
+            system_abstained,
             expected="abstain",
-            actual=expected_decision,
+            actual=answer_text,
         )
+
+        RESULTS.append(
+        {
+            "case": {"id": case["id"]},
+            "checks": checks,
+            "question_info": question_info,
+            "fetched": fetched,
+            "stage_log": stage_log,
+            "generated_question_stage": generated_question_stage,
+            "entity_context": entity_context,
+            "object_context": object_context,
+            "answer": answer_text,
+            "reasoning": reasoning_text,
+            "mapped_entity_answer": mapped_entity_answer,
+            "mapped_reasoning_answer": mapped_entity_reasoning,
+            "mapped_entity_merged": mapped_entity_merged,
+        }
+        )
+
+        failures = [c for c in checks if not c["passed"]]
+        assert not failures, f"{len(failures)} abstention checks failed: {', '.join(c['name'] for c in failures)}"
+
+        return
+
+
 
     RESULTS.append(
         {
@@ -344,7 +363,7 @@ def test_ontology_grounded_100(case, ttl_fixture, agents):
             "answer": answer_text,
             "reasoning": reasoning_text,
             "gold_answer_agent": gold_answer_agent,
-            "mapped_reasoning_answer": mapped_reasoning_answer,
+            "mapped_reasoning_answer": mapped_entity_reasoning,
             "mapped_entity_answer": mapped_entity_answer,
             "mapped_entity_merged": mapped_entity_merged,
         }

@@ -1,99 +1,43 @@
 [
   {
     "case": {
-      "id": "present_01"
+      "id": "present_07_unanswerable"
     },
     "checks": [
       {
-        "name": "answer_non_empty",
-        "passed": true,
-        "expected": "non-empty",
-        "actual": "An App is a software application designed to perform specific tasks on a mobile device or tablet."
-      },
-      {
-        "name": "grounding_preferred",
-        "passed": true,
-        "expected": {
-          "entity_side": {
-            "types": [],
-            "superclasses": [],
-            "annotations": [
-              "App"
-            ],
-            "equivalent_classes": [],
-            "properties": [],
-            "property_values": {}
-          }
-        },
-        "actual": {
-          "types": [],
-          "property_values": {},
-          "properties": [],
-          "annotations": [
-            "App"
-          ],
-          "superclasses": [],
-          "equivalent_classes": []
-        }
-      },
-      {
-        "name": "grounding_nonempty",
-        "passed": true,
-        "expected": "any non-empty grounding",
-        "actual": {
-          "types": [],
-          "property_values": {},
-          "properties": [],
-          "annotations": [
-            "App"
-          ],
-          "superclasses": [],
-          "equivalent_classes": []
-        }
-      },
-      {
-        "name": "grounding_incorrect",
-        "passed": true,
-        "expected": "non-empty grounding",
-        "actual": {
-          "types": [],
-          "property_values": {},
-          "properties": [],
-          "annotations": [
-            "App"
-          ],
-          "superclasses": [],
-          "equivalent_classes": []
-        }
+        "name": "abstain_expected",
+        "passed": false,
+        "expected": "abstain",
+        "actual": "App is not a type of Webpage."
       }
     ],
     "question_info": {
-      "atomic_question": "What is an App?",
-      "question_type": "definition",
-      "answer_form": "value",
+      "atomic_question": "Is App a type of Webpage?",
+      "question_type": "taxonomic",
+      "answer_form": "assertion",
       "entity": {
         "value": "App",
         "type": "individual"
       },
-      "relation": "be",
+      "relation": "be instance of",
       "object": {
-        "value": "null",
-        "type": "null"
+        "value": "Webpage",
+        "type": "class"
       }
     },
     "fetched": {
       "question_info": {
-        "atomic_question": "What is an App?",
-        "question_type": "definition",
-        "answer_form": "value",
+        "atomic_question": "Is App a type of Webpage?",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
         "entity": {
           "value": "App",
           "type": "individual"
         },
-        "relation": "be",
+        "relation": "be instance of",
         "object": {
-          "value": "null",
-          "type": "null"
+          "value": "Webpage",
+          "type": "class"
         }
       },
       "resolved_entity": {
@@ -151,11 +95,11 @@
     },
     "stage_log": {
       "input_to_graph": {
-        "question_type": "definition",
-        "answer_form": "value",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
         "entity": "App",
-        "relation": "be",
-        "object": "null"
+        "relation": "be instance of",
+        "object": "Webpage"
       },
       "fetch_relevant_info": {
         "resolved_entity": {
@@ -178,32 +122,32 @@
         "status": "present"
       },
       "generate_answer": {
-        "answer": "An App is a software application designed to perform specific tasks on a mobile device or tablet.",
-        "reasoning": "The ontology information provided defines 'App' as a 'Class' and describes it as a 'software application designed to perform specific tasks on a mobile device or tablet.'"
+        "answer": "App is not a type of Webpage.",
+        "reasoning": "The ontology information provided indicates that 'App' is a 'Class', which is a type of 'Class' in the ontology. However, 'Webpage' is not listed as a 'Class' or related to 'App' in any way, nor is there any information suggesting that 'App' is a 'Class of' 'Webpage'. Therefore, based on the provided ontology information, 'App' is not a 'Class of' 'Webpage'."
       },
       "map_answer_to_context": {
         "entity_answer": null,
         "reasoning_answer": null,
         "merged_entity_answer": {
-          "types": [],
-          "property_values": {},
-          "properties": [],
-          "annotations": [
-            "App"
+          "equivalent_classes": [],
+          "annotations": [],
+          "types": [
+            "Class"
           ],
+          "properties": [],
           "superclasses": [],
-          "equivalent_classes": []
+          "property_values": {}
         }
       }
     },
     "generated_question_stage": {
-      "question_type": "definition",
-      "answer_form": "value",
+      "question_type": "taxonomic",
+      "answer_form": "assertion",
       "entity": "App",
       "entity_type": "individual",
-      "relation": "be",
-      "object": "null",
-      "object_type": "null"
+      "relation": "be instance of",
+      "object": "Webpage",
+      "object_type": "class"
     },
     "entity_context": {
       "scope_note": "All information in this object is directly related to the resolved entity of the atomic question.",
@@ -240,38 +184,35 @@
       "provenance": []
     },
     "object_context": null,
-    "answer": "An App is a software application designed to perform specific tasks on a mobile device or tablet.",
-    "reasoning": "The ontology information provided defines 'App' as a 'Class' and describes it as a 'software application designed to perform specific tasks on a mobile device or tablet.'",
-    "gold_answer_agent": {},
-    "mapped_reasoning_answer": {
-      "types": [],
-      "superclasses": [],
-      "equivalent_classes": [],
-      "properties": [],
-      "property_values": {},
-      "annotations": [
-        "App"
-      ]
-    },
+    "answer": "App is not a type of Webpage.",
+    "reasoning": "The ontology information provided indicates that 'App' is a 'Class', which is a type of 'Class' in the ontology. However, 'Webpage' is not listed as a 'Class' or related to 'App' in any way, nor is there any information suggesting that 'App' is a 'Class of' 'Webpage'. Therefore, based on the provided ontology information, 'App' is not a 'Class of' 'Webpage'.",
     "mapped_entity_answer": {
       "types": [],
       "superclasses": [],
       "equivalent_classes": [],
       "properties": [],
       "property_values": {},
-      "annotations": [
-        "App"
-      ]
+      "annotations": []
     },
-    "mapped_entity_merged": {
-      "types": [],
-      "property_values": {},
-      "properties": [],
-      "annotations": [
-        "App"
+    "mapped_reasoning_answer": {
+      "types": [
+        "Class"
       ],
       "superclasses": [],
-      "equivalent_classes": []
+      "equivalent_classes": [],
+      "properties": [],
+      "property_values": {},
+      "annotations": []
+    },
+    "mapped_entity_merged": {
+      "equivalent_classes": [],
+      "annotations": [],
+      "types": [
+        "Class"
+      ],
+      "properties": [],
+      "superclasses": [],
+      "property_values": {}
     }
   }
 ]

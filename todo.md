@@ -137,7 +137,12 @@
             -- 50% answerable
             -- 50% unanswerable
             -- Manually going through test-questions.
-                PROGRESS/CURRENTLY AT: Q3
+                PROGRESS/CURRENTLY AT: Q13
+                NOTES:
+                    -- Definition and Taxonomy only uses types/superclasses/annotations
+                    -- Capability should only use object properties.
+                        -- Potentially reintroduce filtering of context to make sure the agent sees only what is relevant for the question type.
+                        -- INFERENCE MODULE IS BROKEN NOW AS IM MID REINTRODUCING FILTERING
                 
         -- Large End-to-End using real ttl with questions based on source
             -- 50% answerable
