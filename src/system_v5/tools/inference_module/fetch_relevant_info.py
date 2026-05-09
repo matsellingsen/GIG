@@ -1,3 +1,4 @@
+from cProfile import label
 import sys
 
 
@@ -574,8 +575,17 @@ def retrieve_full_entity_context(type: str, entity: dict, graph):
     for uri in equivalent_uris:
         for cid in graph.objects(uri, CHUNK):
             provenance.append(str(cid))
+    
 
-    if type == "entity":
+    # ---------------------------------------------------------
+    # 12. instances of the resolved entity (if it's a class)
+    # ---------------------------------------------------------
+    instances = []
+    if (URIRef(entity_uri), RDF.type, OWL.Class) in graph:    
+        for s in graph.subjects(RDF.type, URIRef(entity_uri)):
+            instances.append(str(s))
+
+    if type == "subject":
         scope_note = "All information in this object is directly related to the resolved entity of the atomic question."
     elif type == "object":
         scope_note = "All information in this object is directly related to the resolved object of the atomic question."
@@ -594,7 +604,8 @@ def retrieve_full_entity_context(type: str, entity: dict, graph):
         "annotations": annotations,
         "class_descriptions": class_descriptions,
         "object_property_descriptions": object_property_descriptions,
-        "provenance": provenance
+        "provenance": provenance,
+        "members": instances
     }
 
 
@@ -677,79 +688,85 @@ def visualize_retrieved_axioms(entity: dict, retrieved):
     print("==================================================\n")
 
 def filter_context(question_info, full_context):
-    """Filter context based on question type."""
+    def _flatten_properties(full_context):
+        out_obj = []
+        out_data = []
+        in_obj = []
+        in_data = []
+
+        for t, pdata in full_context["properties_by_type"].items():
+            out_obj.extend(pdata.get("outgoing_object_properties", []))
+            out_data.extend(pdata.get("outgoing_data_properties", []))
+            in_obj.extend(pdata.get("incoming_object_properties", []))
+            in_data.extend(pdata.get("incoming_data_properties", []))
+
+        return {
+            "outgoing_object_properties": out_obj,
+            "outgoing_data_properties": out_data,
+            "incoming_object_properties": in_obj,
+            "incoming_data_properties": in_data,
+        }
+
     qtype = question_info["question_type"]
 
+    flat = _flatten_properties(full_context)
+
+    filtered_context = { # all question types should have these core elements in their context.
+    "scope_note": full_context["scope_note"],
+    "label": full_context["label"],
+    "types": full_context["types"],
+    "superclasses": full_context["superclasses"],
+    "equivalent_classes": full_context["equivalent_classes"],
+    }
+
+    # 1. Definition questions
     if qtype == "definition":
-        return {
-            "definition": {
-                "types": full_context["types"],
-                "superclasses": full_context["superclasses"],
-                "annotations": full_context["annotations"],
-                "class_descriptions": full_context["class_descriptions"]
-            }
-        }
+        filtered_context["superclasses"] = full_context["superclasses"]
+        filtered_context["equivalent_classes"] = full_context["equivalent_classes"]
+        filtered_context["annotations"] = full_context["annotations"]
+        filtered_context["class_descriptions"] = full_context["class_descriptions"]
+        return filtered_context
 
+    # 2. Taxonomic questions
     if qtype == "taxonomic":
-        return {
-            "taxonomic": {
-                "types": full_context["types"],
-                "superclasses": full_context["superclasses"],
-                "equivalent_classes": full_context["equivalent_classes"]
-            }
-        }
+        filtered_context["superclasses"] = full_context["superclasses"]
+        filtered_context["equivalent_classes"] = full_context["equivalent_classes"]
+        return filtered_context
 
+    # 3. Capability questions
     if qtype == "capability":
-        return {
-            "capability": {
-                "actions": full_context["outgoing_object_properties"],
-                "participations": full_context["incoming_object_properties"],
-                "object_property_semantics": full_context["object_property_semantics"]
-            }
-        }
+        filtered_context["properties_by_type"] = full_context["properties_by_type"]
+        return filtered_context
 
+    # 4. Property questions (non-capability)
     if qtype == "property":
-        return {
-            "property": {
-                "data_properties": full_context["outgoing_data_properties"],
-                "object_properties": full_context["outgoing_object_properties"],
-                "object_property_semantics": full_context["object_property_semantics"]
-            }
-        }
+        filtered_context["properties_by_type"] = full_context["properties_by_type"]
+        return filtered_context
 
+    # 5. Membership questions
     if qtype == "membership":
-        return {
-            "membership": {
-                "outgoing": full_context["outgoing_object_properties"],
-                "incoming": full_context["incoming_object_properties"]
-            }
-        }
+        filtered_context["superclasses"] = full_context["superclasses"]
+        filtered_context["equivalent_classes"] = full_context["equivalent_classes"]
+        filtered_context["properties_by_type"] = full_context["properties_by_type"]
+        filtered_context["annotations"] = full_context["annotations"]
+        filtered_context["members"] = full_context["members"]
+        return filtered_context
 
+    # 6. Comparative questions
     if qtype == "comparative":
-        return {
-            "comparative": {
-                "entity_A_properties": full_context["outgoing_data_properties"],
-                "object_property_semantics": full_context["object_property_semantics"]
-            }
-        }
+        filtered_context["properties_by_type"] = full_context["properties_by_type"]
+        return filtered_context
 
+    # 7. Quantification questions
     if qtype == "quantification":
-        return {
-            "quantification": {
-                "countable_relations": full_context["outgoing_object_properties"],
-                "numeric_properties": full_context["outgoing_data_properties"]
-            }
-        }
+        filtered_context["properties_by_type"] = full_context["properties_by_type"]
+        return filtered_context
 
+    # 8. Existential questions
     if qtype == "existential":
-        return {
-            "existential": {
-                "matching_relations": full_context["outgoing_object_properties"],
-                "matching_properties": full_context["outgoing_data_properties"]
-            }
-        }
+        filtered_context["properties_by_type"] = full_context["properties_by_type"]
+        return filtered_context
 
-    return {"unknown": {"message": "Unsupported or malformed question."}}
 
 def normalize_and_clean_context_for_llm(relevant_info):
     """
@@ -1065,11 +1082,12 @@ def fetch_relevant_info(question_info: dict, ttl: dict, resolve_entity_agent: Re
         return "noPrimaryEntityFound"
      
     # 2. Retrieve full context for the resolved entity and conditionally for the resolved object (if comparative question).
-    full_entity_context = retrieve_full_entity_context(type="entity", entity=resolved_entity, graph=ttl["graph"])
+    full_entity_context = retrieve_full_entity_context(type="subject", entity=resolved_entity, graph=ttl["graph"])
     full_object_context = None
     if resolved_object is not None:
         full_object_context = retrieve_full_entity_context(type="object", entity=resolved_object, graph=ttl["graph"])
     
+    print("full entity context:", full_entity_context)
     #2b. filter the retrieved context based on the question type (e.g., for definition questions, we may only care about types, superclasses and annotations, while for capability questions we care more about properties and their semantics).
     entity_context_filtered = filter_context(question_info=question_info, full_context=full_entity_context)
     object_context_filtered = None

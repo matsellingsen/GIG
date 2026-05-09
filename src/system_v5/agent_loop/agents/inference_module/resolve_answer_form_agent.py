@@ -8,8 +8,32 @@ class ResolveAnswerFormAgent(BaseOntologyAgent):
     def __init__(self, backend):
         system_prompt = load_prompt("C:\\Users\\matse\\gig\\src\\system_v5\\prompts\\system\\agents\\inference_module\\resolve-answer-form.txt"
         )
+        self.all_answer_forms_list = ["assertion", "value", "list"]
+        super().__init__(system_prompt=system_prompt, backend=backend)
 
-        self.answer_forms_list = ["assertion", "value", "list"]
+    def resolve_answer_form(self,question_type: str) -> list:
+            if question_type == "definition":
+                return ["value"]
+            elif question_type == "taxonomic":
+                return ["value", "list"]
+            elif question_type == "property":
+                return ["value", "list"]
+            elif question_type == "membership":
+                return ["list"]
+            elif question_type == "capability":
+                 return ["assertion", "value"]
+            elif question_type == "comparative":
+                return ["assertion", "value"]
+            elif question_type == "quantification":
+                return ["list", "value"]
+            elif question_type == "existential":
+                return ["assertion"]
+            else:
+                return self.all_answer_forms_list
+            
+    def run(self, chunk_text: str, question_type: str) -> tuple:
+        answer_forms_list = self.resolve_answer_form(question_type)
+        answer_forms = "\n".join([f"- {form}" for form in answer_forms_list])
         json_schema = {
                 "type": "object",
                 "properties": {
@@ -19,7 +43,7 @@ class ResolveAnswerFormAgent(BaseOntologyAgent):
                     },
                     "answer_form": {
                         "type": "string",
-                        "enum": self.answer_forms_list,
+                        "enum": answer_forms_list,
                         "description": "The classified answer form.",
                     },
                     #"confidence": {"type": "number", "minimum": 0.0, "maximum": 1.0},
@@ -27,11 +51,7 @@ class ResolveAnswerFormAgent(BaseOntologyAgent):
                 "required": ["reasoning", "answer_form"],# "confidence"],
                 "additionalProperties": False,
             }
-        super().__init__(system_prompt=system_prompt, backend=backend, json_schema=json_schema)
-
-
-    def run(self, chunk_text: str) -> tuple:
-        answer_forms = "\n".join([f"- {form}" for form in self.answer_forms_list])
+        
         user_msg = f"""
                 ### Goal
                 Classify the Atomic Input into exactly one of the allowed answer forms.
@@ -43,4 +63,4 @@ class ResolveAnswerFormAgent(BaseOntologyAgent):
                 {answer_forms}
                 """
 
-        return self.generate_with_schema(user_msg)
+        return self.generate_with_schema(user_msg, json_schema)

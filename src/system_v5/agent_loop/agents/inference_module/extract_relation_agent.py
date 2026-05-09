@@ -225,23 +225,6 @@ class ExtractRelationAgent(BaseOntologyAgent):
                     }
                 ]
                 },
-                "is member of": {
-                "description": "Indicates that the entity belongs to, is included in, or is part of another entity.",
-                "examples": [
-                    {
-                    "input": "Which group is this item part of?",
-                    "primary_entity": "item",
-                    "entity_type": "class",
-                    "relation": "is member of"
-                    },
-                    {
-                    "input": "Which collection does this document belong to?",
-                    "primary_entity": "document",
-                    "entity_type": "class",
-                    "relation": "is member of"
-                    }
-                ]
-                },
                 "contain": {
                 "description": "Indicates that the entity contains items, components, or elements.",
                 "examples": [

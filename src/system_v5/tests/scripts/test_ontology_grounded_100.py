@@ -93,21 +93,26 @@ def mapping_covers_expected(actual_mapping, expected_mapping):
     expected_mapping = expected_mapping or {}
     expected_entity_side = expected_mapping.get("entity_side", {})
 
-    expected_superclasses = set(expected_entity_side.get("superclasses", []))
     expected_types = set(expected_entity_side.get("types", []))
+    expected_superclasses = set(expected_entity_side.get("superclasses", []))
     expected_equivalent_classes = set(expected_entity_side.get("equivalent_classes", []))
     expected_properties = set(expected_entity_side.get("properties", []))
+    expected_members = set(expected_entity_side.get("members", []))
+    expected_annotations = set(expected_entity_side.get("annotations", []))
 
-    actual_superclasses = set(actual_mapping.get("superclasses", []))
     actual_types = set(actual_mapping.get("types", []))
+    actual_superclasses = set(actual_mapping.get("superclasses", []))
     actual_equivalent_classes = set(actual_mapping.get("equivalent_classes", []))
     actual_properties = set(actual_mapping.get("properties", []))
-
+    actual_members = set(actual_mapping.get("members", []))
+    actual_annotations = set(actual_mapping.get("annotations", []))
     return (
         expected_superclasses.issubset(actual_superclasses)
         and expected_types.issubset(actual_types)
         and expected_equivalent_classes.issubset(actual_equivalent_classes)
         and expected_properties.issubset(actual_properties)
+        and expected_members.issubset(actual_members)
+        and expected_annotations.issubset(actual_annotations)
     )
 
 
@@ -256,17 +261,20 @@ def test_ontology_grounded_100(case, ttl_fixture, agents):
 
     stage_log["map_answer_to_context"]["merged_entity_answer"] = mapped_entity_merged
 
+    expected_question_type = case.get("question_type")
+    expected_answer_form = case.get("answer_form")
+    expected_extracted_entity = case.get("entity").get("value")
+    expected_relation = case.get("relation")
+    expected_extracted_object = case.get("object").get("value")
     expected_decision = case["expected_decision"]
-    #acceptable_labels = case.get("acceptable_labels", [])
     gold_answer_agent = case.get("gold_answer_agent") or {}
-    #gold_answer = gold_answer_agent.get("answer")
     gold_reasoning = gold_answer_agent.get("reasoning")
     gold_mapped_answer = case.get("gold_mapped_answer")
 
     # Preferred grounding: gold mapping is subset of actual mapping
     preferred_ok = mapping_covers_expected(mapped_entity_merged, gold_mapped_answer)
 
-    # Acceptable grounding: any ontology grounding at all
+    # Acceptable grounding: any ontology grounding at all (indicates that the answer is grounded in some way, but the question understanding or mapping was not fully correct, which is still a better outcome than no grounding at all)
     grounded_nonempty = any(
         bool(mapped_entity_merged.get(key))
         for key in ["annotations", "superclasses", "types", "properties", "property_values"]
@@ -276,6 +284,7 @@ def test_ontology_grounded_100(case, ttl_fixture, agents):
 
 
     if expected_decision == "answer":
+        explicit_abstain = "can't answer" in answer_text.lower()
         record_check(
             checks=checks,
             name="answer_non_empty",
@@ -283,12 +292,54 @@ def test_ontology_grounded_100(case, ttl_fixture, agents):
             expected="non-empty",
             actual=answer_text,
         )
+        record_check( 
+            checks=checks,
+            name = "answer_not_abstain",
+            passed = not explicit_abstain,
+            expected = "answer that does not explicitly abstain",
+            actual = answer_text,
+        )
         record_check(
         checks,
         name="grounding_preferred",
         passed=preferred_ok,
         expected=gold_mapped_answer,
         actual=mapped_entity_merged,
+        )
+        record_check(
+            checks = checks,
+            name = "correct_question_type",
+            passed = question_info.get("question_type") == expected_question_type,
+            expected = expected_question_type,
+            actual = question_info.get("question_type"),
+        )
+        record_check(
+            checks = checks,
+            name = "correct_answer_form",
+            passed = question_info.get("answer_form") == expected_answer_form,
+            expected = expected_answer_form,
+            actual = question_info.get("answer_form"),
+        )
+        record_check(
+            checks = checks,
+            name = "correct_extracted_entity",
+            passed = question_info.get("entity", {}).get("value") == expected_extracted_entity,
+            expected = expected_extracted_entity,
+            actual = question_info.get("entity", {}).get("value"),
+        )
+        record_check(
+            checks = checks,
+            name = "correct_relation_extraction",
+            passed = question_info.get("relation") == expected_relation,
+            expected = expected_relation,
+            actual = question_info.get("relation"),
+        )
+        record_check(
+            checks = checks,
+            name = "correct_object_extraction",
+            passed = question_info.get("object", {}).get("value") == expected_extracted_object,
+            expected = expected_extracted_object,
+            actual = question_info.get("object", {}).get("value"),
         )
         record_check(
             checks,
@@ -323,6 +374,42 @@ def test_ontology_grounded_100(case, ttl_fixture, agents):
             system_abstained,
             expected="abstain",
             actual=answer_text,
+        )
+
+        record_check(
+            checks = checks,
+            name = "correct_question_type",
+            passed = question_info.get("question_type") == expected_question_type,
+            expected = expected_question_type,
+            actual = question_info.get("question_type"),
+        )
+        record_check(
+            checks = checks,
+            name = "correct_answer_form",
+            passed = question_info.get("answer_form") == expected_answer_form,
+            expected = expected_answer_form,
+            actual = question_info.get("answer_form"),
+        )
+        record_check(
+            checks = checks,
+            name = "correct_extracted_entity",
+            passed = question_info.get("entity", {}).get("value") == expected_extracted_entity,
+            expected = expected_extracted_entity,
+            actual = question_info.get("entity", {}).get("value"),
+        )
+        record_check(
+            checks = checks,
+            name = "correct_relation_extraction",
+            passed = question_info.get("relation") == expected_relation,
+            expected = expected_relation,
+            actual = question_info.get("relation"),
+        )
+        record_check(
+            checks = checks,
+            name = "correct_object_extraction",
+            passed = question_info.get("object", {}).get("value") == expected_extracted_object,
+            expected = expected_extracted_object,
+            actual = question_info.get("object", {}).get("value"),
         )
 
         RESULTS.append(

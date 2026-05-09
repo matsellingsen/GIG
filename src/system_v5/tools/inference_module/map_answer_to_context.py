@@ -234,6 +234,9 @@ def map_answer_to_context(answer: str, context: Dict[str, Any]) -> Dict[str, Any
     property_values = []  # list of (property_name, value_string)
 
     for t, pdata in context.get("properties_by_type", {}).items():
+        print("T: ", t)
+        print("- pdata: ", pdata)
+        print("--------------------------------)-------------------------------")
 
         # Outgoing object properties
         for item in pdata.get("outgoing_object_properties", []):
@@ -252,18 +255,33 @@ def map_answer_to_context(answer: str, context: Dict[str, Any]) -> Dict[str, Any
             property_values.append((item["property"], normalize(item["value"])))
 
 
-    # Match values in the answer
+    # Match values and property-names in the answer
     for prop, val in property_values:
+        if prop == "providesBatteryEstimation":
+            print(f"Checking property '{prop}' with value '{val}' against answer: '{answer}'")
+
+        # normalize property and value for matching
+        prop_norm = normalize(prop)
+        val_norm = normalize(val)
 
         # Exact match
-        if val and val in answer_norm:
+        if val_norm and val_norm in answer_norm:
+            prop_matches.add(prop)
+            value_matches[prop] = val
+            continue
+        if prop_norm and prop_norm in answer_norm:
             prop_matches.add(prop)
             value_matches[prop] = val
             continue
 
         # Fuzzy match (only if value is long enough)
-        if len(val) > 5:
-            ratio = difflib.SequenceMatcher(None, answer_norm, val).ratio()
+        if len(val_norm) > 5:
+            ratio = difflib.SequenceMatcher(None, answer_norm, val_norm).ratio()
+            if ratio >= 0.85:
+                prop_matches.add(prop)
+                value_matches[prop] = val
+        if len(prop_norm) >= 5: 
+            ratio = difflib.SequenceMatcher(None, answer_norm, prop_norm).ratio()
             if ratio >= 0.85:
                 prop_matches.add(prop)
                 value_matches[prop] = val
@@ -284,7 +302,15 @@ def map_answer_to_context(answer: str, context: Dict[str, Any]) -> Dict[str, Any
     result["annotations"] = sorted(set(annotation_matches))
 
     # -----------------------------------------------------
-    # 6. OBJECT PROPERTY DESCRIPTIONS
+    # 6 MEMBERS (if the resolved entity is a class)
+    # -----------------------------------------------------
+    member_matches = []
+    for member in context.get("members", []):
+        if member in answer:
+            member_matches.append(member)
+    result["members"] = sorted(set(member_matches))
+
+    # 7. OBJECT PROPERTY DESCRIPTIONS
     # -----------------------------------------------------
     #obj_prop_keys = list(context.get("object_property_descriptions", {}).keys())
     #obj_prop_matches = match_candidates(answer, obj_prop_keys)

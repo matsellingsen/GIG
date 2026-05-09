@@ -1,218 +1,65 @@
 [
   {
     "case": {
-      "id": "present_07_unanswerable"
+      "id": "present_mem_06_unanswerable"
     },
     "checks": [
       {
-        "name": "abstain_expected",
-        "passed": false,
+        "name": "entity_resolution",
+        "passed": true,
         "expected": "abstain",
-        "actual": "App is not a type of Webpage."
+        "actual": "noPrimaryEntityFound"
       }
     ],
     "question_info": {
-      "atomic_question": "Is App a type of Webpage?",
-      "question_type": "taxonomic",
-      "answer_form": "assertion",
+      "atomic_question": "Who are the members of the class Algorithm?",
+      "question_type": "membership",
+      "answer_form": "list",
       "entity": {
-        "value": "App",
-        "type": "individual"
-      },
-      "relation": "be instance of",
-      "object": {
-        "value": "Webpage",
+        "value": "class",
         "type": "class"
+      },
+      "relation": "has member",
+      "object": {
+        "value": "null",
+        "type": "null"
       }
     },
-    "fetched": {
-      "question_info": {
-        "atomic_question": "Is App a type of Webpage?",
-        "question_type": "taxonomic",
-        "answer_form": "assertion",
-        "entity": {
-          "value": "App",
-          "type": "individual"
-        },
-        "relation": "be instance of",
-        "object": {
-          "value": "Webpage",
-          "type": "class"
-        }
-      },
-      "resolved_entity": {
-        "uri": "http://example.org/sensInnovationAps_ontology#App",
-        "label": "App",
-        "score": 1.0,
-        "labels": [
-          "App"
-        ],
-        "entity_type": "Class",
-        "types": [],
-        "superclasses": [
-          "InformationObject"
-        ],
-        "object_properties": {},
-        "data_properties": {},
-        "annotations": {}
-      },
-      "entity_context": {
-        "scope_note": "All information in this object is directly related to the resolved entity of the atomic question.",
-        "uri": "App",
-        "label": "App",
-        "types": [
-          "Class"
-        ],
-        "superclasses": {
-          "Class": [],
-          "App": [
-            "InformationObject"
-          ]
-        },
-        "equivalent_classes": [],
-        "properties_by_type": {
-          "Class": {
-            "outgoing_object_properties": [],
-            "outgoing_data_properties": [],
-            "incoming_object_properties": [],
-            "incoming_data_properties": []
-          }
-        },
-        "annotations": {
-          "label": "App",
-          "comment": "A software application designed to perform specific tasks on a mobile device or tablet, such as the SENS motion app mentioned in the source text."
-        },
-        "class_descriptions": {
-          "Class": {
-            "description": null
-          }
-        },
-        "object_property_descriptions": {},
-        "provenance": []
-      },
-      "resolved_object": null,
-      "object_context": null
-    },
+    "fetched": "noPrimaryEntityFound",
     "stage_log": {
       "input_to_graph": {
-        "question_type": "taxonomic",
-        "answer_form": "assertion",
-        "entity": "App",
-        "relation": "be instance of",
-        "object": "Webpage"
+        "question_type": "membership",
+        "answer_form": "list",
+        "entity": "class",
+        "relation": "has member",
+        "object": "null"
       },
       "fetch_relevant_info": {
-        "resolved_entity": {
-          "uri": "http://example.org/sensInnovationAps_ontology#App",
-          "label": "App",
-          "score": 1.0,
-          "labels": [
-            "App"
-          ],
-          "entity_type": "Class",
-          "types": [],
-          "superclasses": [
-            "InformationObject"
-          ],
-          "object_properties": {},
-          "data_properties": {},
-          "annotations": {}
-        },
+        "resolved_entity": null,
         "resolved_object": null,
-        "status": "present"
+        "status": "noPrimaryEntityFound"
       },
       "generate_answer": {
-        "answer": "App is not a type of Webpage.",
-        "reasoning": "The ontology information provided indicates that 'App' is a 'Class', which is a type of 'Class' in the ontology. However, 'Webpage' is not listed as a 'Class' or related to 'App' in any way, nor is there any information suggesting that 'App' is a 'Class of' 'Webpage'. Therefore, based on the provided ontology information, 'App' is not a 'Class of' 'Webpage'."
+        "answer": null,
+        "reasoning": null
       },
       "map_answer_to_context": {
         "entity_answer": null,
-        "reasoning_answer": null,
-        "merged_entity_answer": {
-          "equivalent_classes": [],
-          "annotations": [],
-          "types": [
-            "Class"
-          ],
-          "properties": [],
-          "superclasses": [],
-          "property_values": {}
-        }
+        "reasoning_answer": null
       }
     },
     "generated_question_stage": {
-      "question_type": "taxonomic",
-      "answer_form": "assertion",
-      "entity": "App",
-      "entity_type": "individual",
-      "relation": "be instance of",
-      "object": "Webpage",
-      "object_type": "class"
+      "question_type": "membership",
+      "answer_form": "list",
+      "entity": "class",
+      "entity_type": "class",
+      "relation": "has member",
+      "object": "null",
+      "object_type": "null"
     },
-    "entity_context": {
-      "scope_note": "All information in this object is directly related to the resolved entity of the atomic question.",
-      "uri": "App",
-      "label": "App",
-      "types": [
-        "Class"
-      ],
-      "superclasses": {
-        "Class": [],
-        "App": [
-          "InformationObject"
-        ]
-      },
-      "equivalent_classes": [],
-      "properties_by_type": {
-        "Class": {
-          "outgoing_object_properties": [],
-          "outgoing_data_properties": [],
-          "incoming_object_properties": [],
-          "incoming_data_properties": []
-        }
-      },
-      "annotations": {
-        "label": "App",
-        "comment": "A software application designed to perform specific tasks on a mobile device or tablet, such as the SENS motion app mentioned in the source text."
-      },
-      "class_descriptions": {
-        "Class": {
-          "description": null
-        }
-      },
-      "object_property_descriptions": {},
-      "provenance": []
-    },
-    "object_context": null,
-    "answer": "App is not a type of Webpage.",
-    "reasoning": "The ontology information provided indicates that 'App' is a 'Class', which is a type of 'Class' in the ontology. However, 'Webpage' is not listed as a 'Class' or related to 'App' in any way, nor is there any information suggesting that 'App' is a 'Class of' 'Webpage'. Therefore, based on the provided ontology information, 'App' is not a 'Class of' 'Webpage'.",
-    "mapped_entity_answer": {
-      "types": [],
-      "superclasses": [],
-      "equivalent_classes": [],
-      "properties": [],
-      "property_values": {},
-      "annotations": []
-    },
-    "mapped_reasoning_answer": {
-      "types": [
-        "Class"
-      ],
-      "superclasses": [],
-      "equivalent_classes": [],
-      "properties": [],
-      "property_values": {},
-      "annotations": []
-    },
-    "mapped_entity_merged": {
-      "equivalent_classes": [],
-      "annotations": [],
-      "types": [
-        "Class"
-      ],
-      "properties": [],
-      "superclasses": [],
-      "property_values": {}
-    }
+    "answer": null,
+    "reasoning": null,
+    "mapped_entity_answer": null,
+    "mapped_reasoning_answer": null
   }
 ]

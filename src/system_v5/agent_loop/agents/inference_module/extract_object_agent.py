@@ -175,6 +175,10 @@ class ExtractObjectAgent(BaseOntologyAgent):
             object_prop = {"type": "string", "enum": ["null"]}
             json_output = {"object": "null", "object_type": "null"}
             return json_output, None # deterministic output (only "null" is valid), so skip the agent call and return directly
+        elif qtype == "membership": #SKIP GENERATION (only 1 valid option so generation is trivial)
+            object_prop = {"type": "string", "enum": ["null"]}
+            json_output = {"object": "null", "object_type": "null"}
+            return json_output, None # deterministic output (only "null" is valid), so skip the agent call and return directly
         else:
             object_prop = base_object_prop
 
@@ -200,11 +204,11 @@ class ExtractObjectAgent(BaseOntologyAgent):
             f'relation: {relation_candidate.get("relation")}'
             if isinstance(relation_candidate, dict) else "None"
         )
-
+        prop_allowed_values_str = ", ".join(allowed_by_qtype.get(qtype, []))
         user_msg = f"""
         ### Goal
         Extract the object (the target/value of the relation) and classify it as
-        `class`, `individual`, `literal`, or `null`. Use the Question Type and the
+        {prop_allowed_values_str}. Use the Question Type and the
         Entity/Relation context to determine where to look for the object and how to type it.
 
         ### Examples for This Question Type

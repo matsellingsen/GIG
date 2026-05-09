@@ -143,6 +143,7 @@
                     -- Capability should only use object properties.
                         -- Potentially reintroduce filtering of context to make sure the agent sees only what is relevant for the question type.
                         -- INFERENCE MODULE IS BROKEN NOW AS IM MID REINTRODUCING FILTERING
+                    -- Some questions must be explictly/unnaturally posed for the input_to_graph() to work properly. <-- WEAKNESS
                 
         -- Large End-to-End using real ttl with questions based on source
             -- 50% answerable

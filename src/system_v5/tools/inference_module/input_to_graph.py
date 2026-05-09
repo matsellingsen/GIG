@@ -33,7 +33,7 @@ def atomic_to_graph(atomic_input: str, extract_question_type_agent: ExtractQuest
     # 1. Extract question type, answer form, entity, relation, and object candidates from the atomic input using the respective agents.
     question_type, _ = extract_question_type_agent.run(atomic_input)
     print(f"Extracted question type: {question_type}")
-    answer_form, _ = extract_answer_form_agent.run(atomic_input)
+    answer_form, _ = extract_answer_form_agent.run(atomic_input, question_type=question_type)
     print(f"Extracted answer form: {answer_form}")
     entity, _ = extract_entity_agent.run(atomic_input, question_classification=question_type)
     print(f"Extracted entity: {entity}")

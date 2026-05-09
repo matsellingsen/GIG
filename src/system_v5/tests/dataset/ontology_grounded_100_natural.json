@@ -756,1013 +756,1465 @@
     }
   },
   {
-    "id": "present_13_answerable",
-    "atomic_input": "Does WebApplication have capability?",
-    "question_type": "capability",
-    "answer_form": "assertion",
-    "entity": {
-      "value": "WebApplication",
-      "type": "class"
-    },
-    "relation": "capability",
-    "object": {
-      "value": "capability",
-      "type": "literal"
-    },
-    "ontology_presence": "present",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
+  "id": "present_cap_01_answerable",
+  "atomic_input": "What does Battery Lifetime Estimation estimate?",
+  "question_type": "capability",
+  "answer_form": "value",
+  "entity": {
+    "value": "Battery Lifetime Estimation",
+    "type": "individual"
+  },
+  "relation": "provide",
+  "object": {
+    "value": "what",
+    "type": "literal"
+  },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "types": [],
+      "superclasses": [],
+      "equivalent_classes": [],
+      "properties": ["providesBatteryEstimation"],
+      "property_values": {
+        "providesBatteryEstimation": ["true"]
       }
-    },
-    "expected_decision": "answer",
-    "acceptable_labels": [
-      "yes",
-      "true"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "capability",
-        "answer_form": "boolean",
-        "entity": "WebApplication",
-        "relation": "capability",
-        "object": "browser-accessible"
-      },
-      "resolve_entity": "WebApplication",
-      "fetch_relevant_info": "present",
-      "generate_answer": "yes",
-      "map_answer_to_context": "grounded"
-    },
-    "gold_answer_agent": {
-      "reasoning": "The entity has labels WebApplication, but no explicit type/superclass was found in the extracted mapping.",
-      "answer": "I can't answer the question."
     }
   },
-  {
-    "id": "present_14",
-    "atomic_input": "Does SensorPatch have capability?",
-    "question_type": "capability",
-    "answer_form": "assertion",
-    "entity": {
-      "value": "SensorPatch",
-      "type": "class"
+  "expected_decision": "answer",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "capability",
+      "answer_form": "value",
+      "entity": "Battery Lifetime Estimation",
+      "relation": "provide",
+      "object": "what"
     },
-    "relation": "capability",
-    "object": {
-      "value": "capability",
-      "type": "literal"
-    },
-    "ontology_presence": "present",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "answer",
-    "acceptable_labels": [
-      "yes",
-      "true"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "capability",
-        "answer_form": "boolean",
-        "entity": "SensorPatch",
-        "relation": "capability",
-        "object": "wearable"
-      },
-      "resolve_entity": "SensorPatch",
-      "fetch_relevant_info": "present",
-      "generate_answer": "yes",
-      "map_answer_to_context": "grounded"
-    },
-    "gold_answer_agent": {
-      "reasoning": "The entity has labels SensorPatch, but no explicit type/superclass was found in the extracted mapping.",
-      "answer": "I can't answer the question."
+    "resolve_entity": "Battery Lifetime Estimation",
+    "fetch_relevant_info": "present",
+    "generate_answer": "yes",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_cap_01_unanswerable",
+  "atomic_input": "What does Battery Lifetime Estimation export?",
+  "question_type": "capability",
+  "answer_form": "value",
+  "entity": {
+    "value": "Battery Lifetime Estimation",
+    "type": "individual"
+  },
+  "relation": "export",
+  "object": {
+    "value": "what",
+    "type": "literal"
+  },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "types": [],
+      "superclasses": [],
+      "equivalent_classes": [],
+      "properties": [],
+      "property_values": {}
     }
   },
-  {
-    "id": "present_15",
-    "atomic_input": "Does SENS motion app on Android have capability?",
-    "question_type": "capability",
-    "answer_form": "assertion",
-    "entity": {
-      "value": "SENS motion app on Android",
-      "type": "instance"
+  "expected_decision": "abstain",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "capability",
+      "answer_form": "value",
+      "entity": "Battery Lifetime Estimation",
+      "relation": "export",
+      "object": "what"
     },
-    "relation": "capability",
-    "object": {
-      "value": "capability",
-      "type": "literal"
+    "resolve_entity": "Battery Lifetime Estimation",
+    "fetch_relevant_info": "present",
+    "generate_answer": "no",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_cap_02_answerable",
+  "atomic_input": "What does Bulk Actions allow?",
+  "question_type": "capability",
+  "answer_form": "value",
+  "entity": {
+    "value": "Bulk Actions",
+    "type": "individual"
+  },
+  "relation": "allow",
+  "object": {
+    "value": "what",
+    "type": "literal"
+  },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "types": [],
+      "superclasses": [],
+      "equivalent_classes": [],
+      "properties": ["allowsBulkOperations"],
+      "property_values": {
+        "allowsBulkOperations": ["true"]
+      }
+    }
+  },
+  "expected_decision": "answer",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "capability",
+      "answer_form": "value",
+      "entity": "Bulk Actions",
+      "relation": "allow",
+      "object": "what"
     },
-    "ontology_presence": "present",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [
-          "hasNearbySensors",
-          "hasFavoriteSensors",
-          "isBluetoothEnabled",
-          "isLocationServicesEnabled",
-          "hasPart"
-        ],
-        "property_values": {
-          "hasNearbySensors": "true",
-          "hasFavoriteSensors": "true",
-          "isBluetoothEnabled": "true",
-          "isLocationServicesEnabled": "true",
-          "hasPart": "Location services"
+    "resolve_entity": "Bulk Actions",
+    "fetch_relevant_info": "present",
+    "generate_answer": "yes",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_cap_02_unanswerable",
+  "atomic_input": "What does Bulk Operation import?",
+  "question_type": "capability",
+  "answer_form": "value",
+  "entity": {
+    "value": "Bulk Actions",
+    "type": "individual"
+  },
+  "relation": "do",
+  "object": {
+    "value": "what",
+    "type": "literal"
+  },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "types": [],
+      "superclasses": [],
+      "equivalent_classes": [],
+      "properties": [],
+      "property_values": {}
+    }
+  },
+  "expected_decision": "abstain",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "capability",
+      "answer_form": "value",
+      "entity": "Bulk Actions",
+      "relation": "do",
+      "object": "what"
+    },
+    "resolve_entity": "Bulk Actions",
+    "fetch_relevant_info": "present",
+    "generate_answer": "no",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_cap_03_answerable",
+  "atomic_input": "What does Bulk Edit allow?",
+  "question_type": "capability",
+  "answer_form": "value",
+  "entity": {
+    "value": "Bulk Edit",
+    "type": "individual"
+  },
+  "relation": "allow",
+  "object": {
+    "value": "what",
+    "type": "literal"
+  },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "types": [],
+      "superclasses": [],
+      "equivalent_classes": [],
+      "properties": ["allowsBulkEditing"],
+      "property_values": {
+        "allowsBulkEditing": ["true"]
+      }
+    }
+  },
+  "expected_decision": "answer",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "capability",
+      "answer_form": "value",
+      "entity": "Bulk Edit",
+      "relation": "allow",
+      "object": "what"
+    },
+    "resolve_entity": "Bulk Edit",
+    "fetch_relevant_info": "present",
+    "generate_answer": "yes",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_cap_03_unanswerable",
+  "atomic_input": "What does Bulk Edit authenticate?",
+  "question_type": "capability",
+  "answer_form": "value",
+  "entity": {
+    "value": "Bulk Edit",
+    "type": "individual"
+  },
+  "relation": "allow",
+  "object": {
+    "value": "what",
+    "type": "literal"
+  },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "types": [],
+      "superclasses": [],
+      "equivalent_classes": [],
+      "properties": [],
+      "property_values": {
+      }
+    }
+  },
+  "expected_decision": "abstain",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "capability",
+      "answer_form": "value",
+      "entity": "Bulk Edit",
+      "relation": "allow",
+      "object": "what"
+    },
+    "resolve_entity": "Bulk Edit",
+    "fetch_relevant_info": "present",
+    "generate_answer": "no",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_cap_04_answerable",
+  "atomic_input": "Does File Export Workflow streamline?",
+  "question_type": "capability",
+  "answer_form": "assertion",
+  "entity": {
+    "value": "File Export Workflow",
+    "type": "individual"
+  },
+  "relation": "streamline",
+  "object": {
+    "value": "what",
+    "type": "literal"
+  },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "types": [],
+      "superclasses": [],
+      "equivalent_classes": [],
+      "properties": ["hasStreamlinedExport"],
+      "property_values": {
+        "hasStreamlinedExport": ["true"]
+      }
+    }
+  },
+  "expected_decision": "answer",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "capability",
+      "answer_form": "assertion",
+      "entity": "File Export Workflow",
+      "relation": "streamline",
+      "object": "what"
+    },
+    "resolve_entity": "File Export Workflow",
+    "fetch_relevant_info": "present",
+    "generate_answer": "yes",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_cap_04_unanswerable",
+  "atomic_input": "Does File Export Workflow encrypt?",
+  "question_type": "capability",
+  "answer_form": "assertion",
+  "entity": {
+    "value": "File Export Workflow",
+    "type": "individual"
+  },
+  "relation": "encrypt",
+  "object": {
+    "value": "what",
+    "type": "literal"
+  },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "types": [],
+      "superclasses": [],
+      "equivalent_classes": [],
+      "properties": [],
+      "property_values": {}
+    }
+  },
+  "expected_decision": "abstain",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "capability",
+      "answer_form": "assertion",
+      "entity": "File Export Workflow",
+      "relation": "encrypt",
+      "object": "what"
+    },
+    "resolve_entity": "File Export Workflow",
+    "fetch_relevant_info": "present",
+    "generate_answer": "no",
+    "map_answer_to_context": "grounded"
+  }
+}
+,
+{
+  "id": "present_cap_05_answerable",
+  "atomic_input": "Is Participant Table Enhancements able to expand rows?",
+  "question_type": "capability",
+  "answer_form": "assertion",
+  "entity": {
+    "value": "Participant Table Enhancements",
+    "type": "individual"
+  },
+  "relation": "enable",
+  "object": {
+    "value": "what",
+    "type": "literal"
+  },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "types": [],
+      "superclasses": [],
+      "equivalent_classes": [],
+      "properties": ["hasExpandableRows"],
+      "property_values": {
+        "hasExpandableRows": ["true"]
+      }
+    }
+  },
+  "expected_decision": "answer",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "capability",
+      "answer_form": "assertion",
+      "entity": "Participant Table Enhancements",
+      "relation": "enable",
+      "object": "what"
+    },
+    "resolve_entity": "Participant Table Enhancements",
+    "fetch_relevant_info": "present",
+    "generate_answer": "yes",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_cap_05_unanswerable",
+  "atomic_input": "Is Participant Table Enhancements able to compress rows?",
+  "question_type": "capability",
+  "answer_form": "assertion",
+  "entity": {
+    "value": "Participant Table Enhancements",
+    "type": "individual"
+  },
+  "relation": "compress",
+  "object": {
+    "value": "what",
+    "type": "literal"
+  },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "types": [],
+      "superclasses": [],
+      "equivalent_classes": [],
+      "properties": [],
+      "property_values": {}
+    }
+  },
+  "expected_decision": "abstain",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "capability",
+      "answer_form": "assertion",
+      "entity": "Participant Table Enhancements",
+      "relation": "compress",
+      "object": "what"
+    },
+    "resolve_entity": "Participant Table Enhancements",
+    "fetch_relevant_info": "present",
+    "generate_answer": "no",
+    "map_answer_to_context": "grounded"
+  }
+}
+,
+{
+  "id": "present_cap_06_answerable",
+  "atomic_input": "Does Project Management Improvements include project creation?",
+  "question_type": "capability",
+  "answer_form": "assertion",
+  "entity": {
+    "value": "Project Management Improvements",
+    "type": "individual"
+  },
+  "relation": "include",
+  "object": {
+    "value": "what",
+    "type": "literal"
+  },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "types": [],
+      "superclasses": [],
+      "equivalent_classes": [],
+      "properties": ["includesProjectCreation"],
+      "property_values": {
+        "includesProjectCreation": ["true"]
+      }
+    }
+  },
+  "expected_decision": "answer",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "capability",
+      "answer_form": "assertion",
+      "entity": "Project Management Improvements",
+      "relation": "include",
+      "object": "what"
+    },
+    "resolve_entity": "Project Management Improvements",
+    "fetch_relevant_info": "present",
+    "generate_answer": "yes",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_cap_06_unanswerable",
+  "atomic_input": "Does Project Management Improvements authenticate users?",
+  "question_type": "capability",
+  "answer_form": "assertion",
+  "entity": {
+    "value": "Project Management Improvements",
+    "type": "individual"
+  },
+  "relation": "authenticate",
+  "object": {
+    "value": "what",
+    "type": "literal"
+  },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "types": [],
+      "superclasses": [],
+      "equivalent_classes": [],
+      "properties": [],
+      "property_values": {}
+    }
+  },
+  "expected_decision": "abstain",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "capability",
+      "answer_form": "assertion",
+      "entity": "Project Management Improvements",
+      "relation": "authenticate",
+      "object": "what"
+    },
+    "resolve_entity": "Project Management Improvements",
+    "fetch_relevant_info": "present",
+    "generate_answer": "no",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_prop_01_answerable",
+  "atomic_input": "What values does the study Allan Linneberg have for the property hasParticipant?",
+  "question_type": "property",
+  "answer_form": "list",
+  "entity": {
+    "value": "Allan Linneberg",
+    "type": "individual"
+  },
+  "relation": "hasParticipant",
+  "object": {
+    "value": "what",
+    "type": "literal"
+  },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "properties": ["hasParticipant"],
+      "property_values": {
+        "hasParticipant": ["Sier Warsma"]
+      }
+    }
+  },
+"expected_decision": "answer",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "property",
+      "answer_form": "list",
+      "entity": "Allan Linneberg",
+      "relation": "hasParticipant",
+      "object": "what"
+    },
+    "resolve_entity": "Allan Linneberg",
+    "fetch_relevant_info": "present",
+    "generate_answer": "yes",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_prop_01_unanswerable",
+  "atomic_input": "What values does the study Allan Linneberg have for the property hasOutcome?",
+  "question_type": "property",
+  "answer_form": "list",
+  "entity": {
+    "value": "Allan Linneberg",
+    "type": "individual"
+  },
+  "relation": "hasOutcome",
+  "object": {
+    "value": "what",
+    "type": "literal"
+  },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "properties": [],
+      "property_values": {}
+    }
+  },
+"expected_decision": "abstain",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "property",
+      "answer_form": "list",
+      "entity": "Allan Linneberg",
+      "relation": "hasOutcome",
+      "object": "what"
+    },
+    "resolve_entity": "Allan Linneberg",
+    "fetch_relevant_info": "present",
+    "generate_answer": "no",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_prop_02_answerable",
+  "atomic_input": "What values does the outcomes of Bispebjerg Hospital have?",
+  "question_type": "property",
+  "answer_form": "list",
+  "entity": {
+    "value": "Bispebjerg Hospital",
+    "type": "individual"
+  },
+  "relation": "hasOutcome",
+  "object": {
+    "value": "what",
+    "type": "literal"
+  },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "properties": ["hasOutcome"],
+      "property_values": {
+        "hasOutcome": ["51 minutes per day"]
+      }
+    }
+  },
+"expected_decision": "answer",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "property",
+      "answer_form": "list",
+      "entity": "Bispebjerg Hospital",
+      "relation": "hasOutcome",
+      "object": "what"
+    },
+    "resolve_entity": "Bispebjerg Hospital",
+    "fetch_relevant_info": "present",
+    "generate_answer": "yes",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_prop_02_unanswerable",
+  "atomic_input": "What values does the participants of Bispebjerg Hospital have?",
+  "question_type": "property",
+  "answer_form": "list",
+  "entity": {
+    "value": "Bispebjerg Hospital",
+    "type": "individual"
+  },
+  "relation": "hasParticipant",
+  "object": {
+    "value": "what",
+    "type": "literal"
+  },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "properties": [],
+      "property_values": {}
+    }
+  },
+"expected_decision": "abstain",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "property",
+      "answer_form": "list",
+      "entity": "Bispebjerg Hospital",
+      "relation": "hasParticipant",
+      "object": "what"
+    },
+    "resolve_entity": "Bispebjerg Hospital",
+    "fetch_relevant_info": "present",
+    "generate_answer": "no",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_prop_03_answerable",
+  "atomic_input": "What values does the study Anja Lykke Madsen have for the property hasParticipant?",
+  "question_type": "property",
+  "answer_form": "list",
+  "entity": {
+    "value": "Anja Lykke Madsen",
+    "type": "individual"
+  },
+  "relation": "hasParticipant",
+  "object": {
+    "value": "what",
+    "type": "literal"
+  },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "properties": ["hasParticipant"],
+      "property_values": {
+        "hasParticipant": ["Sier Warsma"]
+      }
+    }
+  },
+  "expected_decision": "answer",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "property",
+      "answer_form": "list",
+      "entity": "Anja Lykke Madsen",
+      "relation": "hasParticipant",
+      "object": "what"
+    },
+    "resolve_entity": "Anja Lykke Madsen",
+    "fetch_relevant_info": "present",
+    "generate_answer": "yes",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_prop_03_unanswerable",
+  "atomic_input": "What is the value of the outcome of the study Anja Lykke Madsen?",
+  "question_type": "property",
+  "answer_form": "list",
+  "entity": {
+    "value": "Anja Lykke Madsen",
+    "type": "individual"
+  },
+  "relation": "hasOutcome",
+  "object": {
+    "value": "what",
+    "type": "literal"
+  },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "properties": [],
+      "property_values": {}
+    }
+  },
+  "expected_decision": "abstain",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "property",
+      "answer_form": "list",
+      "entity": "Anja Lykke Madsen",
+      "relation": "hasOutcome",
+      "object": "what"
+    },
+    "resolve_entity": "Anja Lykke Madsen",
+    "fetch_relevant_info": "present",
+    "generate_answer": "no",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_prop_04_answerable",
+  "atomic_input": "What location does Bispebjerg Hospital have?",
+  "question_type": "property",
+  "answer_form": "value",
+  "entity": {
+    "value": "Bispebjerg Hospital",
+    "type": "individual"
+  },
+  "relation": "hasLocation",
+  "object": {
+    "value": "what",
+    "type": "literal"
+  },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "properties": ["hasLocation"],
+      "property_values": {
+        "hasLocation": ["Bispebjerg Hospital"]
+      }
+    }
+  },
+  "expected_decision": "answer",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "property",
+      "answer_form": "value",
+      "entity": "Bispebjerg Hospital",
+      "relation": "hasLocation",
+      "object": "what"
+    },
+    "resolve_entity": "Bispebjerg Hospital",
+    "fetch_relevant_info": "present",
+    "generate_answer": "yes",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_prop_04_unanswerable",
+  "atomic_input": "What DOI does Bispebjerg Hospital have?",
+  "question_type": "property",
+  "answer_form": "value",
+  "entity": {
+    "value": "Bispebjerg Hospital",
+    "type": "individual"
+  },
+  "relation": "hasDOI",
+  "object": {
+    "value": "what",
+    "type": "literal"
+  },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "properties": [],
+      "property_values": {}
+    }
+  },
+  "expected_decision": "abstain",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "property",
+      "answer_form": "value",
+      "entity": "Bispebjerg Hospital",
+      "relation": "hasDOI",
+      "object": "what"
+    },
+    "resolve_entity": "Bispebjerg Hospital",
+    "fetch_relevant_info": "present",
+    "generate_answer": "no",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_prop_05_answerable",
+  "atomic_input": "What role does Amin Rezaei have?",
+  "question_type": "property",
+  "answer_form": "value",
+  "entity": {
+    "value": "Amin Rezaei",
+    "type": "individual"
+  },
+  "relation": "hasRole",
+  "object": {
+    "value": "what",
+    "type": "literal"
+  },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "properties": ["hasRole"],
+      "property_values": {
+        "hasRole": ["Software Developer"]
+      }
+    }
+  },
+  "expected_decision": "answer",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "property",
+      "answer_form": "value",
+      "entity": "Amin Rezaei",
+      "relation": "hasRole",
+      "object": "what"
+    },
+    "resolve_entity": "Amin Rezaei",
+    "fetch_relevant_info": "present",
+    "generate_answer": "yes",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_prop_05_unanswerable",
+  "atomic_input": "What is the email of Amin Rezaei?",
+  "question_type": "property",
+  "answer_form": "value",
+  "entity": {
+    "value": "Amin Rezaei",
+    "type": "individual"
+  },
+  "relation": "hasEmail",
+  "object": {
+    "value": "what",
+    "type": "literal"
+  },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "properties": [],
+      "property_values": {}
+    }
+  },
+  "expected_decision": "abstain",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "property",
+      "answer_form": "value",
+      "entity": "Amin Rezaei",
+      "relation": "hasEmail",
+      "object": "what"
+    },
+    "resolve_entity": "Amin Rezaei",
+    "fetch_relevant_info": "present",
+    "generate_answer": "no",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_prop_06_answerable",
+  "atomic_input": "What intervention does Bispebjerg Hospital have as a property?",
+  "question_type": "property",
+  "answer_form": "value",
+  "entity": {
+    "value": "Bispebjerg Hospital",
+    "type": "individual"
+  },
+  "relation": "hasIntervention",
+  "object": {
+    "value": "what",
+    "type": "literal"
+  },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "properties": ["hasIntervention"],
+      "property_values": {
+        "hasIntervention": ["SENS motion"]
+      }
+    }
+  },
+  "expected_decision": "answer",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "property",
+      "answer_form": "value",
+      "entity": "Bispebjerg Hospital",
+      "relation": "hasIntervention",
+      "object": "what"
+    },
+    "resolve_entity": "Bispebjerg Hospital",
+    "fetch_relevant_info": "present",
+    "generate_answer": "yes",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_prop_06_unanswerable",
+  "atomic_input": "What DOI does Bispebjerg Hospital have?",
+  "question_type": "property",
+  "answer_form": "value",
+  "entity": {
+    "value": "Bispebjerg Hospital",
+    "type": "individual"
+  },
+  "relation": "hasDOI",
+  "object": {
+    "value": "what",
+    "type": "literal"
+  },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "properties": [],
+      "property_values": {}
+    }
+  },
+  "expected_decision": "abstain",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "property",
+      "answer_form": "value",
+      "entity": "Bispebjerg Hospital",
+      "relation": "hasDOI",
+      "object": "what"
+    },
+    "resolve_entity": "Bispebjerg Hospital",
+    "fetch_relevant_info": "present",
+    "generate_answer": "no",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_mem_01_answerable",
+  "atomic_input": "Who are the members of the class TeamMember?",
+  "question_type": "membership",
+  "answer_form": "list",
+  "entity": {
+    "value": "TeamMember",
+    "type": "class"
+  },
+  "relation": "has member",
+  "object": {
+    "value": "null",
+    "type": "null"
+  },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+          "members": [
+            "Amin Rezaei",
+            "August Blicher Friis",
+            "Christian Lindharth",
+            "Huong Nguyen",
+            "Ida Marie Pierrel-Boas",
+            "Karen Shakespeare",
+            "Kasper L. Lykkegaard",
+            "Lea M\u00f8ller Storm",
+            "Miriam Cabrita",
+            "Morten Kj\u00e6rgaard",
+            "Renata Oliveira"
+          ],
+          "property_values": {},
+          "types": [],
+          "annotations": [],
+          "equivalent_classes": [],
+          "superclasses": [],
+          "properties": []
         }
-      }
+  },
+  "expected_decision": "answer",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "membership",
+      "answer_form": "list",
+      "entity": "TeamMember",
+      "relation": "has member",
+      "object": "null"
     },
-    "expected_decision": "answer",
-    "acceptable_labels": [
-      "yes",
-      "true"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "capability",
-        "answer_form": "boolean",
-        "entity": "SENS motion app on Android",
-        "relation": "capability",
-        "object": "nearby sensors"
-      },
-      "resolve_entity": "SENS motion app on Android",
-      "fetch_relevant_info": "present",
-      "generate_answer": "yes",
-      "map_answer_to_context": "grounded"
-    },
-    "gold_answer_agent": {
-      "reasoning": "The ontology records hasNearbySensors = true, hasFavoriteSensors = true, isBluetoothEnabled = true, and isLocationServicesEnabled = true for 'SENS motion app on Android'.",
-      "answer": "Yes, SENS motion app on Android has the listed capabilities."
+    "resolve_entity": "TeamMember",
+    "fetch_relevant_info": "present",
+    "generate_answer": "yes",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_mem_01_unanswerable",
+  "atomic_input": "Which individuals belong to the class Logo?",
+  "question_type": "membership",
+  "answer_form": "list",
+  "entity": {
+    "value": "Logo",
+    "type": "class"
+  },
+  "relation": "has member",
+  "object": {
+    "value": "null",
+    "type": "null"
+  },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "properties": [],
+      "property_values": {}
     }
   },
-  {
-    "id": "present_16",
-    "atomic_input": "Does version 3.9 have capability?",
-    "question_type": "capability",
-    "answer_form": "assertion",
-    "entity": {
-      "value": "version 3.9",
-      "type": "instance"
+  "expected_decision": "abstain",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "membership",
+      "answer_form": "list",
+      "entity": "Logo",
+      "relation": "has member",
+      "object": "null"
     },
-    "relation": "capability",
-    "object": {
-      "value": "capability",
-      "type": "literal"
-    },
-    "ontology_presence": "present",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [
-          "capability",
-          "releaseNumber",
-          "version"
-        ],
-        "property_values": {
-          "capability": "major improvements to navigation, sensor management, and file handling",
-          "releaseNumber": "3.9",
-          "version": "3.9"
-        }
+    "resolve_entity": "Logo",
+    "fetch_relevant_info": "present",
+    "generate_answer": "no",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_mem_02_answerable",
+  "atomic_input": "Which individuals are members of the class Study?",
+  "question_type": "membership",
+  "answer_form": "list",
+  "entity": {
+    "value": "Study",
+    "type": "class"
+  },
+  "relation": "has member",
+  "object": {
+    "value": "null",
+    "type": "null"
+  },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "members" : [
+        "Allan Linneberg",
+          "Allan Vaag",
+          "Anja Lykke Madsen",
+          "Anne-Mette Krifa",
+          "Birgitte Hougs Kjær",
+          "Bjorn Lundbergh",
+          "Camilla Friis Bryde Nielsen",
+          "Cecilie D. Skov",
+          "Charlotte Brøns",
+          "Charlotte Suetta",
+          "Christian Stevns Hansen",
+          "Freja Bach Kampmann",
+          "Henrik Palm",
+          "Jørgen Kanters",
+          "Julie Midtgaard",
+          "Kirsten Nørgaard",
+          "Kirsten Schroll Bjørnsbo",
+          "Klaus Fuglsang Kofoed",
+          "Lars Køber",
+          "Line Lund Kårhus",
+          "Mette Aadahl",
+          "Michael Kjaer",
+          "Michael Larsen",
+          "Mie Rinaldo",
+          "Niels Grarup",
+          "Niklas Rye Jørgensen",
+          "Rasmus Wibaek",
+          "Ruth JF Loos",
+          "SAGE Open"
+      ]
       }
     },
-    "expected_decision": "answer",
-    "acceptable_labels": [
-      "yes",
-      "true"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "capability",
-        "answer_form": "boolean",
-        "entity": "version 3.9",
-        "relation": "capability",
-        "object": "usability enhancements"
-      },
-      "resolve_entity": "version 3.9",
-      "fetch_relevant_info": "present",
-      "generate_answer": "yes",
-      "map_answer_to_context": "grounded"
+  "expected_decision": "answer",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "membership",
+      "answer_form": "list",
+      "entity": "Study",
+      "relation": "has member",
+      "object": "null"
     },
-    "gold_answer_agent": {
-      "reasoning": "The ontology records capability, releaseNumber = 3.9, and version = 3.9 for 'version 3.9'.",
-      "answer": "Yes, version 3.9 has a capability description."
+    "resolve_entity": "Study",
+    "fetch_relevant_info": "present",
+    "generate_answer": "yes",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_mem_02_unanswerable",
+  "atomic_input": "Which individuals are members of the class FileSize?",
+  "question_type": "membership",
+  "answer_form": "list",
+  "entity": {
+    "value": "FileSize",
+    "type": "class"
+  },
+  "relation": "has member",
+  "object": {
+    "value": "null",
+    "type": "null"
+  },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "properties": [],
+      "property_values": {}
     }
   },
-  {
-    "id": "present_17",
-    "atomic_input": "What features does support.sens.dk provide?",
-    "question_type": "capability",
-    "answer_form": "value",
-    "entity": {
-      "value": "support.sens.dk",
-      "type": "instance"
+  "expected_decision": "abstain",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "membership",
+      "answer_form": "list",
+      "entity": "FileSize",
+      "relation": "has member",
+      "object": "what"
     },
-    "relation": "capability",
-    "object": {
-      "value": "features",
-      "type": "class"
-    },
-    "ontology_presence": "present",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [
-          "hasWebAppFeature"
-        ],
-        "property_values": {
-          "hasWebAppFeature": "ExportFunctionality"
-        }
-      }
-    },
-    "expected_decision": "answer",
-    "acceptable_labels": [
-      "exportfunctionality",
-      "ExportFunctionality"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "capability",
-        "answer_form": "entity",
-        "entity": "support.sens.dk",
-        "relation": "capability",
-        "object": "ExportFunctionality"
-      },
-      "resolve_entity": "support.sens.dk",
-      "fetch_relevant_info": "present",
-      "generate_answer": "ExportFunctionality",
-      "map_answer_to_context": "grounded"
-    },
-    "gold_answer_agent": {
-      "reasoning": "The ontology records hasWebAppFeature = ExportFunctionality for support.sens.dk.",
-      "answer": "ExportFunctionality"
-    }
+    "resolve_entity": "FileSize",
+    "fetch_relevant_info": "present",
+    "generate_answer": "no",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_mem_03_answerable",
+  "atomic_input": "Which individuals belong to the class MobileApplication?",
+  "question_type": "membership",
+  "answer_form": "list",
+  "entity": {
+    "value": "MobileApplication",
+    "type": "class"
   },
-  {
-    "id": "present_18",
-    "atomic_input": "What features does SENS motion app on Android provide?",
-    "question_type": "capability",
-    "answer_form": "value",
-    "entity": {
-      "value": "SENS motion app on Android",
-      "type": "instance"
-    },
-    "relation": "capability",
-    "object": {
-      "value": "features",
-      "type": "class"
-    },
-    "ontology_presence": "present",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [
-          "SensorFavoriteList"
-        ],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "answer",
-    "acceptable_labels": [
-      "sensorfavoritelist",
-      "SensorFavoriteList"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "capability",
-        "answer_form": "entity",
-        "entity": "SENS motion app on Android",
-        "relation": "capability",
-        "object": "SensorFavoriteList"
-      },
-      "resolve_entity": "SENS motion app on Android",
-      "fetch_relevant_info": "present",
-      "generate_answer": "SensorFavoriteList",
-      "map_answer_to_context": "grounded"
-    },
-    "gold_answer_agent": {
-      "reasoning": "The ontology lists 'SENS motion app on Android' as a SensorFavoriteList.",
-      "answer": "SensorFavoriteList"
-    }
+  "relation": "has member",
+  "object": {
+    "value": "null",
+    "type": "null"
   },
-  {
-    "id": "present_19",
-    "atomic_input": "What is WebApplication?",
-    "question_type": "property",
-    "answer_form": "value",
-    "entity": {
-      "value": "WebApplication",
-      "type": "class"
-    },
-    "relation": "label",
-    "object": {
-      "value": null,
-      "type": "literal"
-    },
-    "ontology_presence": "present",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [
-          "label"
-        ],
-        "property_values": {
-          "label": "WebApplication"
-        }
-      }
-    },
-    "expected_decision": "answer",
-    "acceptable_labels": [
-      "webapplication",
-      "WebApplication"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "property",
-        "answer_form": "literal",
-        "entity": "WebApplication",
-        "relation": "label",
-        "object": "label"
-      },
-      "resolve_entity": "WebApplication",
-      "fetch_relevant_info": "present",
-      "generate_answer": "WebApplication",
-      "map_answer_to_context": "grounded"
-    },
-    "gold_answer_agent": {
-      "reasoning": "The ontology labels the class WebApplication as 'WebApplication'.",
-      "answer": "WebApplication"
-    }
-  },
-  {
-    "id": "present_20",
-    "atomic_input": "What is SensorPatch?",
-    "question_type": "property",
-    "answer_form": "value",
-    "entity": {
-      "value": "SensorPatch",
-      "type": "class"
-    },
-    "relation": "label",
-    "object": {
-      "value": null,
-      "type": "literal"
-    },
-    "ontology_presence": "present",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [
-          "label"
-        ],
-        "property_values": {
-          "label": "SensorPatch"
-        }
-      }
-    },
-    "expected_decision": "answer",
-    "acceptable_labels": [
-      "sensorpatch",
-      "SensorPatch"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "property",
-        "answer_form": "literal",
-        "entity": "SensorPatch",
-        "relation": "label",
-        "object": "label"
-      },
-      "resolve_entity": "SensorPatch",
-      "fetch_relevant_info": "present",
-      "generate_answer": "SensorPatch",
-      "map_answer_to_context": "grounded"
-    },
-    "gold_answer_agent": {
-      "reasoning": "The ontology labels the class SensorPatch as 'SensorPatch'.",
-      "answer": "SensorPatch"
-    }
-  },
-  {
-    "id": "present_21",
-    "atomic_input": "What can you tell me about ActivityType?",
-    "question_type": "property",
-    "answer_form": "value",
-    "entity": {
-      "value": "ActivityType",
-      "type": "class"
-    },
-    "relation": "comment",
-    "object": {
-      "value": null,
-      "type": "literal"
-    },
-    "ontology_presence": "present",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [
-          "label"
-        ],
-        "property_values": {
-          "label": "ActivityType"
-        }
-      }
-    },
-    "expected_decision": "answer",
-    "acceptable_labels": [
-      "activitytype",
-      "ActivityType"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "property",
-        "answer_form": "literal",
-        "entity": "ActivityType",
-        "relation": "comment",
-        "object": "comment"
-      },
-      "resolve_entity": "ActivityType",
-      "fetch_relevant_info": "present",
-      "generate_answer": "ActivityType",
-      "map_answer_to_context": "grounded"
-    },
-    "gold_answer_agent": {
-      "reasoning": "The ontology labels the class ActivityType as 'ActivityType'.",
-      "answer": "ActivityType"
-    }
-  },
-  {
-    "id": "present_22",
-    "atomic_input": "What is the URL for SENS motion web app?",
-    "question_type": "property",
-    "answer_form": "value",
-    "entity": {
-      "value": "SENS motion web app",
-      "type": "instance"
-    },
-    "relation": "hasAppUrl",
-    "object": {
-      "value": "URL",
-      "type": "literal"
-    },
-    "ontology_presence": "present",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [
-          "hasAppUrl"
-        ],
-        "property_values": {
-          "hasAppUrl": "https://app.sens.dk"
-        }
-      }
-    },
-    "expected_decision": "answer",
-    "acceptable_labels": [
-      "https://app.sens.dk",
-      "https://app.sens.dk"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "property",
-        "answer_form": "literal",
-        "entity": "SENS motion web app",
-        "relation": "hasAppUrl",
-        "object": "hasAppUrl"
-      },
-      "resolve_entity": "SENS motion web app",
-      "fetch_relevant_info": "present",
-      "generate_answer": "https://app.sens.dk",
-      "map_answer_to_context": "grounded"
-    },
-    "gold_answer_agent": {
-      "reasoning": "The ontology records hasAppUrl = https://app.sens.dk for SENS motion web app.",
-      "answer": "https://app.sens.dk"
-    }
-  },
-  {
-    "id": "present_23",
-    "atomic_input": "What is the URL for SENS motion web app?",
-    "question_type": "property",
-    "answer_form": "value",
-    "entity": {
-      "value": "SENS motion web app",
-      "type": "instance"
-    },
-    "relation": "hasLoginUrl",
-    "object": {
-      "value": "URL",
-      "type": "literal"
-    },
-    "ontology_presence": "present",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [
-          "hasLoginUrl"
-        ],
-        "property_values": {
-          "hasLoginUrl": "https://app.sens.dk/r/login"
-        }
-      }
-    },
-    "expected_decision": "answer",
-    "acceptable_labels": [
-      "https://app.sens.dk/r/login",
-      "https://app.sens.dk/r/login"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "property",
-        "answer_form": "literal",
-        "entity": "SENS motion web app",
-        "relation": "hasLoginUrl",
-        "object": "hasLoginUrl"
-      },
-      "resolve_entity": "SENS motion web app",
-      "fetch_relevant_info": "present",
-      "generate_answer": "https://app.sens.dk/r/login",
-      "map_answer_to_context": "grounded"
-    },
-    "gold_answer_agent": {
-      "reasoning": "The ontology records hasLoginUrl = https://app.sens.dk/r/login for SENS motion web app.",
-      "answer": "https://app.sens.dk/r/login"
-    }
-  },
-  {
-    "id": "present_24",
-    "atomic_input": "What is the release number of version 3.9?",
-    "question_type": "property",
-    "answer_form": "value",
-    "entity": {
-      "value": "version 3.9",
-      "type": "instance"
-    },
-    "relation": "releaseNumber",
-    "object": {
-      "value": "release number",
-      "type": "literal"
-    },
-    "ontology_presence": "present",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [
-          "releaseNumber",
-          "version"
-        ],
-        "property_values": {
-          "releaseNumber": "3.9",
-          "version": "3.9"
-        }
-      }
-    },
-    "expected_decision": "answer",
-    "acceptable_labels": [
-      "3.9",
-      "3.9"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "property",
-        "answer_form": "literal",
-        "entity": "version 3.9",
-        "relation": "releaseNumber",
-        "object": "releaseNumber"
-      },
-      "resolve_entity": "version 3.9",
-      "fetch_relevant_info": "present",
-      "generate_answer": "3.9",
-      "map_answer_to_context": "grounded"
-    },
-    "gold_answer_agent": {
-      "reasoning": "The ontology records releaseNumber = 3.9 and version = 3.9 for version 3.9.",
-      "answer": "3.9"
-    }
-  },
-  {
-    "id": "present_25",
-    "atomic_input": "What are the main types or subtypes of ActivityCategory?",
-    "question_type": "membership",
-    "answer_form": "list",
-    "entity": {
-      "value": "ActivityCategory",
-      "type": "class"
-    },
-    "relation": "has member",
-    "object": {
-      "value": "subtypes",
-      "type": "class-list"
-    },
-    "ontology_presence": "present",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [
-          "ActivityDescription",
-          "ActivityIntensity",
-          "ActivityType",
-          "TimeCategory"
-        ],
-        "superclasses": [
-          "ActivityCategory"
-        ],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "answer",
-    "acceptable_labels": [
-      "activitydescription",
-      "activityintensity",
-      "activitytype",
-      "timecategory"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "membership",
-        "answer_form": "list",
-        "entity": "ActivityCategory",
-        "relation": "has member",
-        "object": "subclasses"
-      },
-      "resolve_entity": "ActivityCategory",
-      "fetch_relevant_info": "present",
-      "generate_answer": [
-        "ActivityDescription",
-        "ActivityIntensity",
-        "TimeCategory",
-        "ActivityType"
-      ],
-      "map_answer_to_context": "grounded"
-    },
-    "gold_answer_agent": {
-      "reasoning": "ActivityCategory has four direct subclasses in the ontology.",
-      "answer": [
-        "ActivityDescription",
-        "ActivityIntensity",
-        "ActivityType",
-        "TimeCategory"
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "members": [
+        "DEMOS-10",
+        "DEMOS-25",
+        "ErgoConnect",
+        "Lifetrack",
+        "Motus – Work Move Measure",
+        "SENS motion SENS",
+        "SENS motion app",
+        "SENS motion app for smartphone and tablet"
       ]
     }
   },
-  {
-    "id": "present_26",
-    "atomic_input": "What are the main types or subtypes of WebApplication?",
-    "question_type": "membership",
-    "answer_form": "list",
-    "entity": {
-      "value": "WebApplication",
-      "type": "class"
+  "expected_decision": "answer",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "membership",
+      "answer_form": "list",
+      "entity": "MobileApplication",
+      "relation": "has member",
+      "object": "null"
     },
-    "relation": "has member",
-    "object": {
-      "value": "subtypes",
-      "type": "class-list"
+    "resolve_entity": "MobileApplication",
+    "fetch_relevant_info": "present",
+    "generate_answer": "yes",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_mem_03_unanswerable",
+  "atomic_input": "Which individuals belong to the class DataCollectionTool?",
+  "question_type": "membership",
+  "answer_form": "list",
+  "entity": {
+    "value": "DataCollectionTool",
+    "type": "class"
+  },
+  "relation": "has member",
+  "object": {
+    "value": "null",
+    "type": "null"
+  },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "properties": [],
+      "property_values": {}
+    }
+  },
+  "expected_decision": "abstain",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "membership",
+      "answer_form": "list",
+      "entity": "DataCollectionTool",
+      "relation": "has member",
+      "object": "null"
     },
-    "ontology_presence": "present",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [
-          "ParticipantID"
-        ],
-        "superclasses": [
-          "WebApplication"
-        ],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "answer",
-    "acceptable_labels": [
-      "participantid"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "membership",
-        "answer_form": "list",
-        "entity": "WebApplication",
-        "relation": "has member",
-        "object": "subclasses"
-      },
-      "resolve_entity": "WebApplication",
-      "fetch_relevant_info": "present",
-      "generate_answer": [
-        "ParticipantID"
+    "resolve_entity": "DataCollectionTool",
+    "fetch_relevant_info": "present",
+    "generate_answer": "no",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_mem_04_answerable",
+  "atomic_input": "Who are the members of the class ActivityCategory?",
+  "question_type": "membership",
+  "answer_form": "list",
+  "entity": {
+    "value": "ActivityCategory",
+    "type": "class"
+  },
+  "relation": "has member",
+  "object": {
+    "value": "null",
+    "type": "null"
+  },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "members": [
+        "15 minutes",
+        "5 second intervals",
+        "Activity measurement graph",
+        "Cycling",
+        "High Intensity",
+        "Lying/Sitting Movement",
+        "Lying/Sitting Rest"
       ],
-      "map_answer_to_context": "grounded"
-    },
-    "gold_answer_agent": {
-      "reasoning": "WebApplication has one direct subclass in the ontology.",
-      "answer": [
-        "ParticipantID"
-      ]
+      "property_values": {},
+      "types": [],
+      "annotations": [],
+      "equivalent_classes": [],
+      "superclasses": [],
+      "properties": []
     }
   },
-  {
-    "id": "present_27",
-    "atomic_input": "What are the main types or subtypes of Publication?",
-    "question_type": "membership",
-    "answer_form": "list",
-    "entity": {
-      "value": "Publication",
-      "type": "class"
+  "expected_decision": "answer",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "membership",
+      "answer_form": "list",
+      "entity": "ActivityCategory",
+      "relation": "has member",
+      "object": "null"
     },
-    "relation": "has member",
-    "object": {
-      "value": "subtypes",
-      "type": "class-list"
+    "resolve_entity": "ActivityCategory",
+    "fetch_relevant_info": "present",
+    "generate_answer": "yes",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_mem_04_unanswerable",
+  "atomic_input": "Who are the members of the class Cohort?",
+  "question_type": "membership",
+  "answer_form": "list",
+  "entity": {
+    "value": "Cohort",
+    "type": "class"
+  },
+  "relation": "has member",
+  "object": {
+    "value": "null",
+    "type": "null"
+  },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "members": [],
+      "property_values": {},
+      "types": [],
+      "annotations": [],
+      "equivalent_classes": [],
+      "superclasses": [],
+      "properties": []
+    }
+  },
+  "expected_decision": "abstain",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "membership",
+      "answer_form": "list",
+      "entity": "Cohort",
+      "relation": "has member",
+      "object": "null"
     },
-    "ontology_presence": "present",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [
-          "ArticleID",
-          "Author",
-          "ClinicalStudy",
-          "DOI",
-          "HospitalSetting",
-          "KeyFinding",
-          "KeyFindings",
-          "MonitoringSystem",
-          "PeerReviewedArticle",
-          "ResearchStudy"
-        ],
-        "superclasses": [
-          "Publication"
-        ],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "answer",
-    "acceptable_labels": [
-      "articleid",
-      "author",
-      "clinicalstudy",
-      "doi",
-      "hospitalsetting",
-      "keyfinding",
-      "keyfindings",
-      "monitoringsystem",
-      "peerreviewedarticle",
-      "researchstudy"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "membership",
-        "answer_form": "list",
-        "entity": "Publication",
-        "relation": "has member",
-        "object": "subclasses"
-      },
-      "resolve_entity": "Publication",
-      "fetch_relevant_info": "present",
-      "generate_answer": [
-        "HospitalSetting",
-        "ArticleID",
-        "MonitoringSystem",
-        "ResearchStudy",
-        "KeyFinding",
-        "DOI",
-        "KeyFindings",
-        "ClinicalStudy",
-        "Author",
-        "PeerReviewedArticle"
+    "resolve_entity": "Cohort",
+    "fetch_relevant_info": "present",
+    "generate_answer": "no",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_mem_05_answerable",
+  "atomic_input": "Who are the members of HealthcareProfessional?",
+  "question_type": "membership",
+  "answer_form": "list",
+  "entity": {
+    "value": "HealthcareProfessional",
+    "type": "class"
+  },
+  "relation": "has member",
+  "object": {
+    "value": "null",
+    "type": "null"
+  },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "members": [
+        "Arch Phys Med Rehabil",
+        "Bertoldy, Cecilie; Christensen, R Christensen; Esbensen, M Appel; Henriksen, Marius; Bech-Azeddine, R; Nielsen, Louise; Rolving, Kasper; Lykkegaard, Kasper; Lykkegaard, Line Oluf; Olmer, Specht, Ina",
+        "Elderly patients",
+        "Bispebjerg Hospital – Department of Physical and Occupational Therapy",
+        "Pedersen, Klarlund B",
+        "RegionH VihTek"
       ],
-      "map_answer_to_context": "grounded"
-    },
-    "gold_answer_agent": {
-      "reasoning": "Publication has ten direct subclasses in the ontology.",
-      "answer": [
-        "ArticleID",
-        "Author",
-        "ClinicalStudy",
-        "DOI",
-        "HospitalSetting",
-        "KeyFinding",
-        "KeyFindings",
-        "MonitoringSystem",
-        "PeerReviewedArticle",
-        "ResearchStudy"
-      ]
+      "property_values": {},
+      "types": [],
+      "annotations": [],
+      "equivalent_classes": [],
+      "superclasses": [],
+      "properties": []
     }
   },
-  {
-    "id": "present_28",
-    "atomic_input": "What parts or components make up support.sens.dk?",
-    "question_type": "membership",
-    "answer_form": "list",
-    "entity": {
-      "value": "support.sens.dk",
-      "type": "instance"
+  "expected_decision": "answer",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "membership",
+      "answer_form": "list",
+      "entity": "HealthcareProfessional",
+      "relation": "has member",
+      "object": "what"
     },
-    "relation": "has member",
-    "object": {
-      "value": "parts or components",
-      "type": "list"
+    "resolve_entity": "HealthcareProfessional",
+    "fetch_relevant_info": "present",
+    "generate_answer": "yes",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_mem_05_unanswerable",
+  "atomic_input": "Who are the members of the class Patch?",
+  "question_type": "membership",
+  "answer_form": "list",
+  "entity": {
+    "value": "Patch",
+    "type": "class"
+  },
+  "relation": "has member",
+  "object": {
+    "value": "null",
+    "type": "null"
+  },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "members": [],
+      "property_values": {},
+      "types": [],
+      "annotations": [],
+      "equivalent_classes": [],
+      "superclasses": [],
+      "properties": []
+    }
+  },
+  "expected_decision": "abstain",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "membership",
+      "answer_form": "list",
+      "entity": "Patch",
+      "relation": "has member",
+      "object": "what"
     },
-    "ontology_presence": "present",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [
-          "hasPart",
-          "hasWebAppFeature"
-        ],
-        "property_values": {
-          "hasWebAppFeature": "ExportFunctionality"
-        }
-      }
-    },
-    "expected_decision": "answer",
-    "acceptable_labels": [
-      "016c87d85f170022ffd9ffac",
-      "016c87d85f6e0022ffd9ffac",
-      "016c87d85fc50022ffd9ffac",
-      "accelerometer data export option",
-      "bulk export",
-      "csv export options",
-      "files tab",
-      "green 'export selected' button",
-      "internet browser",
-      "main server",
-      "pdf export options",
-      "support.sens.dk",
-      "workspace",
-      "x, y, z values"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "membership",
-        "answer_form": "list",
-        "entity": "support.sens.dk",
-        "relation": "has member",
-        "object": "parts"
-      },
-      "resolve_entity": "support.sens.dk",
-      "fetch_relevant_info": "present",
-      "generate_answer": [
-        "016C87D85F170022FFD9FFAC",
-        "016C87D85F6E0022FFD9FFAC",
-        "016C87D85FC50022FFD9FFAC",
-        "Accelerometer data export option",
-        "Bulk export",
-        "CSV export options",
-        "Files tab",
-        "Internet browser",
-        "Main Server",
-        "PDF export options",
-        "Workspace",
-        "X, Y, Z values",
-        "green 'Export selected' button",
-        "support.sens.dk"
+    "resolve_entity": "Patch",
+    "fetch_relevant_info": "present",
+    "generate_answer": "no",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_mem_06_answerable",
+  "atomic_input": "Who are the members of the class MovementIntensityCategory?",
+  "question_type": "membership",
+  "answer_form": "list",
+  "entity": {
+    "value": "MovementIntensityCategory",
+    "type": "class"
+  },
+  "relation": "has member",
+  "object": {
+    "value": "null",
+    "type": "null"
+  },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "members": [
+        "Resting"
       ],
-      "map_answer_to_context": "grounded"
-    },
-    "gold_answer_agent": {
-      "reasoning": "The ontology shows support.sens.dk has 14 hasPart values and one hasWebAppFeature value.",
-      "answer": [
-        "016C87D85F170022FFD9FFAC",
-        "016C87D85F6E0022FFD9FFAC",
-        "016C87D85FC50022FFD9FFAC",
-        "Accelerometer data export option",
-        "Bulk export",
-        "CSV export options",
-        "Files tab",
-        "Internet browser",
-        "Main Server",
-        "PDF export options",
-        "Workspace",
-        "X, Y, Z values",
-        "green 'Export selected' button",
-        "support.sens.dk"
-      ]
+      "property_values": {},
+      "types": [],
+      "annotations": [],
+      "equivalent_classes": [],
+      "superclasses": [],
+      "properties": []
     }
   },
-  {
-    "id": "present_29",
-    "atomic_input": "What parts or components make up SENS motion activity sensor?",
-    "question_type": "membership",
-    "answer_form": "list",
-    "entity": {
-      "value": "SENS motion activity sensor",
-      "type": "instance"
+  "expected_decision": "answer",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "membership",
+      "answer_form": "list",
+      "entity": "MovementIntensityCategory",
+      "relation": "has member",
+      "object": "what"
     },
-    "relation": "has member",
-    "object": {
-      "value": "parts or components",
-      "type": "list"
-    },
-    "ontology_presence": "present",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "answer",
-    "acceptable_labels": [],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "membership",
-        "answer_form": "list",
-        "entity": "SENS motion activity sensor",
-        "relation": "has member",
-        "object": "parts"
-      },
-      "resolve_entity": "SENS motion activity sensor",
-      "fetch_relevant_info": "present",
-      "generate_answer": [],
-      "map_answer_to_context": "grounded"
-    },
-    "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'SENS motion activity sensor'.",
-      "answer": "I can't answer the question."
+    "resolve_entity": "MovementIntensityCategory",
+    "fetch_relevant_info": "present",
+    "generate_answer": "yes",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_mem_06_unanswerable",
+  "atomic_input": "Who are the members of the class Algorithm?",
+  "question_type": "membership",
+  "answer_form": "list",
+  "entity": {
+    "value": "Algorithm",
+    "type": "class"
+  },
+  "relation": "has member",
+  "object": {
+    "value": "null",
+    "type": "null"
+  },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "members": [],
+      "property_values": {},
+      "types": [],
+      "annotations": [],
+      "equivalent_classes": [],
+      "superclasses": [],
+      "properties": []
     }
   },
-  {
-    "id": "present_30",
-    "atomic_input": "What parts or components make up pop-up modal?",
-    "question_type": "membership",
-    "answer_form": "list",
-    "entity": {
-      "value": "pop-up modal",
-      "type": "instance"
+  "expected_decision": "abstain",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "membership",
+      "answer_form": "list",
+      "entity": "Algorithm",
+      "relation": "has member",
+      "object": "null"
     },
-    "relation": "has member",
-    "object": {
-      "value": "parts or components",
-      "type": "list"
-    },
-    "ontology_presence": "present",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "answer",
-    "acceptable_labels": [],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "membership",
-        "answer_form": "list",
-        "entity": "pop-up modal",
-        "relation": "has member",
-        "object": "parts"
-      },
-      "resolve_entity": "pop-up modal",
-      "fetch_relevant_info": "present",
-      "generate_answer": [],
-      "map_answer_to_context": "grounded"
-    },
-    "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'pop-up modal'.",
-      "answer": "I can't answer the question."
-    }
-  },
+    "resolve_entity": "Algorithm",
+    "fetch_relevant_info": "present",
+    "generate_answer": "no",
+    "map_answer_to_context": "grounded"
+  }
+},
   {
     "id": "present_31",
     "atomic_input": "Which has more components: support.sens.dk or SENS motion app?",
