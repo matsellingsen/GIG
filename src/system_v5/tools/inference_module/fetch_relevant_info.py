@@ -143,7 +143,7 @@ def resolve_entity(type: str, question_info: dict, graph, resolve_entity_agent: 
         entity = question_info.get("object", {}).get("value")
     else:
         raise ValueError("Invalid entity type. Must be 'entity' or 'object'.")
-
+    print("PRIMARY ENTITY TO RESOLVE:", entity)
     #1. Fetch candidates
     top_candidates = retrieve_top_candidates(type, graph, entity, top_n=3)
 
@@ -569,12 +569,12 @@ def retrieve_full_entity_context(type: str, entity: dict, graph):
     # ---------------------------------------------------------
     # 11. Provenance (chunk_id)
     # ---------------------------------------------------------
-    provenance = []
+    chunk_id = []
     CHUNK = URIRef("http://example.org/sensInnovationAps_ontology#chunk_id")
 
     for uri in equivalent_uris:
         for cid in graph.objects(uri, CHUNK):
-            provenance.append(str(cid))
+            chunk_id.append(str(cid))
     
 
     # ---------------------------------------------------------
@@ -604,7 +604,7 @@ def retrieve_full_entity_context(type: str, entity: dict, graph):
         "annotations": annotations,
         "class_descriptions": class_descriptions,
         "object_property_descriptions": object_property_descriptions,
-        "provenance": provenance,
+        "chunk_id": chunk_id,
         "members": instances
     }
 
@@ -755,6 +755,7 @@ def filter_context(question_info, full_context):
     # 6. Comparative questions
     if qtype == "comparative":
         filtered_context["properties_by_type"] = full_context["properties_by_type"]
+        filtered_context["chunk_id"] = full_context["chunk_id"]
         return filtered_context
 
     # 7. Quantification questions

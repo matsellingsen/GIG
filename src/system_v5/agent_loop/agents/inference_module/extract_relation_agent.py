@@ -358,7 +358,17 @@ class ExtractRelationAgent(BaseOntologyAgent):
                 }
             }
             }
-
+        self.deterministic_relations = {
+            "definition": "be",
+            "taxonomic": "be subtype of",
+            "property": "have property",
+            "membership": "have member",
+            "capability": "have capability",
+            "comparative": "compare",
+            "quantification": "count",
+            "existential": "exist",
+            "unknown": "unknown"
+        }
 
     def _prepare_relation_descriptions_and_examples(self, question_type_to_relations, question_type):
         """
@@ -400,7 +410,11 @@ class ExtractRelationAgent(BaseOntologyAgent):
 
         question_type_to_relations = self.question_type_to_relations
 
-
+        # TRY FULLY DETERMINISITIC APPROACH
+        question_type = question_classification.get("question_type") if isinstance(question_classification, dict) else None
+        determinisitc_relation = self.deterministic_relations.get(question_type) if question_type else None
+        return {"relation": determinisitc_relation if determinisitc_relation else "unknown"}, None
+    
         # Override allowed relations if type is known
         if question_classification["question_type"] in question_type_to_relations.keys():
             allowed = question_type_to_relations[question_classification["question_type"]]
@@ -416,10 +430,11 @@ class ExtractRelationAgent(BaseOntologyAgent):
         schema = {
             "type": "object",
             "properties": {
+                "reasoning": {
+                    "type": "string"},
                 "relation": relation_prop,
-                #"confidence": {"type": "number", "minimum": 0.0, "maximum": 1.0}
             },
-            "required": ["relation"],# "confidence"],
+            "required": ["reasoning", "relation"],
             "additionalProperties": False
         }
 

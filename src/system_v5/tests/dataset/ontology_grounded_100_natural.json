@@ -347,14 +347,14 @@
   },
   {
     "id": "present_08_answerable",
-    "atomic_input": "Is WebApplication an InformationObject?",
+    "atomic_input": "Is WebApplication a InformationObject?",
     "question_type": "taxonomic",
     "answer_form": "assertion",
     "entity": {
       "value": "WebApplication",
       "type": "class"
     },
-    "relation": "be",
+    "relation": "be subtype of",
     "object": {
       "value": "InformationObject",
       "type": "class"
@@ -396,7 +396,7 @@
       "value": "WebApplication",
       "type": "class"
     },
-    "relation": "be",
+    "relation": "be subtype of",
     "object": {
       "value": "SocialObject",
       "type": "class"
@@ -436,7 +436,7 @@
       "value": "ActivityType",
       "type": "class"
     },
-    "relation": "be",
+    "relation": "be subtype of",
     "object": {
       "value": "ActivityCategory",
       "type": "class"
@@ -460,7 +460,7 @@
         "question_type": "taxonomic",
         "answer_form": "assertion",
         "entity": "ActivityType",
-        "relation": "be",
+        "relation": "be subtype of",
         "object": "ActivityCategory"
       },
       "resolve_entity": "ActivityType",
@@ -478,7 +478,7 @@
       "value": "ActivityType",
       "type": "class"
     },
-    "relation": "be",
+    "relation": "be subtype of",
     "object": {
       "value": "SoftwareApplication",
       "type": "class"
@@ -502,7 +502,7 @@
         "answer_form": "assertion",
         "entity": "ActivityType",
         "relation": "be subtype of",
-        "object": "SoftwareApplication  "
+        "object": "SoftwareApplication"
       },
       "resolve_entity": "ActivityType",
       "fetch_relevant_info": "present",
@@ -519,7 +519,7 @@
       "value": "SENS motion app",
       "type": "instance"
     },
-    "relation": "be instance of",
+    "relation": "be subtype of",
     "object": {
       "value": "SmartphoneApp",
       "type": "class"
@@ -543,7 +543,7 @@
         "question_type": "taxonomic",
         "answer_form": "assertion",
         "entity": "SENS motion app",
-        "relation": "be instance of",
+        "relation": "be subtype of",
         "object": "SmartphoneApp"
       },
       "resolve_entity": "SENS motion app",
@@ -561,7 +561,7 @@
       "value": "SENS motion app",
       "type": "instance"
     },
-    "relation": "be instance of",
+    "relation": "be subtype of",
     "object": {
       "value": "Sensor",
       "type": "class"
@@ -583,7 +583,7 @@
         "question_type": "taxonomic",
         "answer_form": "assertion",
         "entity": "SENS motion app",
-        "relation": "be instance of",
+        "relation": "be subtype of",
         "object": "Sensor"
       },
       "resolve_entity": "SENS motion app",
@@ -601,7 +601,7 @@
       "value": "support.sens.dk",
       "type": "instance"
     },
-    "relation": "be instance of",
+    "relation": "be subtype of",
     "object": {
       "value": "WebApplication",
       "type": "class"
@@ -625,7 +625,7 @@
         "question_type": "taxonomic",
         "answer_form": "assertion",
         "entity": "support.sens.dk",
-        "relation": "be instance of",
+        "relation": "be subtype of",
         "object": "WebApplication"
       },
       "resolve_entity": "support.sens.dk",
@@ -643,7 +643,7 @@
       "value": "support.sens.dk",
       "type": "instance"
     },
-    "relation": "be instance of",
+    "relation": "be subtype of",
     "object": {
       "value": "MonitorSystem",
       "type": "class"
@@ -665,7 +665,7 @@
         "question_type": "taxonomic",
         "answer_form": "assertion",
         "entity": "support.sens.dk",
-        "relation": "be instance of",
+        "relation": "be subtype of",
         "object": "MonitorSystem"
       },
       "resolve_entity": "support.sens.dk",
@@ -683,7 +683,7 @@
       "value": "SENS motion activity sensor",
       "type": "instance"
     },
-    "relation": "be instance of",
+    "relation": "be subtype of",
     "object": {
       "value": "ActivityDataSensor",
       "type": "class"
@@ -707,7 +707,7 @@
         "question_type": "taxonomic",
         "answer_form": "assertion",
         "entity": "SENS motion activity sensor",
-        "relation": "be instance of",
+        "relation": "be subtype of",
         "object": "ActivityDataSensor"
       },
       "resolve_entity": "SENS motion activity sensor",
@@ -725,7 +725,7 @@
       "value": "SENS motion activity sensor",
       "type": "instance"
     },
-    "relation": "be instance of",
+    "relation": "be subtype of",
     "object": {
       "value": "ActivityEvent",
       "type": "class"
@@ -746,7 +746,7 @@
         "question_type": "taxonomic",
         "answer_form": "assertion",
         "entity": "SENS motion activity sensor",
-        "relation": "be instance of",
+        "relation": "be subtype of",
         "object": "ActivityDataSensor"
       },
       "resolve_entity": "SENS motion activity sensor",
@@ -1169,7 +1169,7 @@
   },
   "relation": "include",
   "object": {
-    "value": "what",
+    "value": "project creation",
     "type": "literal"
   },
   "ontology_presence": "present",
@@ -1191,7 +1191,7 @@
       "answer_form": "assertion",
       "entity": "Project Management Improvements",
       "relation": "include",
-      "object": "what"
+      "object": "project creation"
     },
     "resolve_entity": "Project Management Improvements",
     "fetch_relevant_info": "present",
@@ -2210,6 +2210,380 @@
       "object": "null"
     },
     "resolve_entity": "Algorithm",
+    "fetch_relevant_info": "present",
+    "generate_answer": "no",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_cmp_01_answerable",
+  "atomic_input": "Between Bulk Actions and Bulk Edit, What is the difference in chunk_id?",
+  "question_type": "comparative",
+  "answer_form": "value",
+  "entity": { "value": "Bulk Actions", "type": "individual" },
+  "relation": "compare",
+  "object": { "value": "Bulk Edit", "type": "individual" },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "chunk_id": [56]
+    },
+    "object_side": {
+      "chunk_id": [56]
+    }
+  },
+  "expected_decision": "answer",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "comparative",
+      "answer_form": "value",
+      "entity": "Bulk Actions",
+      "relation": "compare",
+      "object": "Bulk Edit"
+    },
+    "resolve_entity": "Bulk Actions",
+    "fetch_relevant_info": "present",
+    "generate_answer": "yes",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_cmp_02_answerable",
+  "atomic_input": "How much larger is the chunk_id of Resting compared to High intensity activities?",
+  "question_type": "comparative",
+  "answer_form": "value",
+  "entity": { "value": "Resting", "type": "individual" },
+  "relation": "compare",
+  "object": { "value": "High intensity activities", "type": "individual" },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "chunk_id": [47]
+    },
+    "object_side": {
+      "chunk_id": [48]
+    }
+  },
+  "expected_decision": "answer",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "comparative",
+      "answer_form": "value",
+      "entity": "Resting",
+      "relation": "compare",
+      "object": "High intensity activities"
+    },
+    "resolve_entity": "Resting",
+    "fetch_relevant_info": "present",
+    "generate_answer": "yes",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_cmp_03_answerable",
+  "atomic_input": "What is the chunk_id difference between DEMOS-10 and DEMOS-25?",
+  "question_type": "compare",
+  "answer_form": "value",
+  "entity": { "value": "DEMOS-10", "type": "individual" },
+  "relation": "has chunk_id difference",
+  "object": { "value": "DEMOS-25", "type": "individual" },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "value_side": {
+      "entity_chunk_id": 13,
+      "object_chunk_id": 13,
+      "difference": 0
+    }
+  },
+  "expected_decision": "answer",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "compare",
+      "answer_form": "value",
+      "entity": "DEMOS-10",
+      "relation": "has chunk_id difference",
+      "object": "DEMOS-25"
+    },
+    "resolve_entity": "DEMOS-10",
+    "fetch_relevant_info": "present",
+    "generate_answer": "yes",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_cmp_04_answerable",
+  "atomic_input": "Is the chunk_id of Bulk Actions greater than that of Bulk Edit?",
+  "question_type": "compare",
+  "answer_form": "assertion",
+  "entity": { "value": "Bulk Actions", "type": "individual" },
+  "relation": "chunk_id greater than",
+  "object": { "value": "Bulk Edit", "type": "individual" },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "assertion_side": {
+      "entity_chunk_id": 56,
+      "object_chunk_id": 56,
+      "result": false
+    }
+  },
+  "expected_decision": "answer",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "compare",
+      "answer_form": "assertion",
+      "entity": "Bulk Actions",
+      "relation": "chunk_id greater than",
+      "object": "Bulk Edit"
+    },
+    "resolve_entity": "Bulk Actions",
+    "fetch_relevant_info": "present",
+    "generate_answer": "yes",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_cmp_05_answerable",
+  "atomic_input": "Is the chunk_id of Resting smaller than that of High intensity activities?",
+  "question_type": "compare",
+  "answer_form": "assertion",
+  "entity": { "value": "Resting", "type": "individual" },
+  "relation": "chunk_id smaller than",
+  "object": { "value": "High intensity activities", "type": "individual" },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "assertion_side": {
+      "entity_chunk_id": 47,
+      "object_chunk_id": 48,
+      "result": true
+    }
+  },
+  "expected_decision": "answer",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "compare",
+      "answer_form": "assertion",
+      "entity": "Resting",
+      "relation": "chunk_id smaller than",
+      "object": "High intensity activities"
+    },
+    "resolve_entity": "Resting",
+    "fetch_relevant_info": "present",
+    "generate_answer": "yes",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_cmp_06_answerable",
+  "atomic_input": "Does DEMOS-10 have a higher chunk_id than DEMOS-25?",
+  "question_type": "compare",
+  "answer_form": "assertion",
+  "entity": { "value": "DEMOS-10", "type": "individual" },
+  "relation": "chunk_id greater than",
+  "object": { "value": "DEMOS-25", "type": "individual" },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "assertion_side": {
+      "entity_chunk_id": 13,
+      "object_chunk_id": 13,
+      "result": false
+    }
+  },
+  "expected_decision": "answer",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "compare",
+      "answer_form": "assertion",
+      "entity": "DEMOS-10",
+      "relation": "chunk_id greater than",
+      "object": "DEMOS-25"
+    },
+    "resolve_entity": "DEMOS-10",
+    "fetch_relevant_info": "present",
+    "generate_answer": "yes",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_cmp_01_unanswerable",
+  "atomic_input": "What is the difference in chunk_id between Bulk Actions and Logo?",
+  "question_type": "compare",
+  "answer_form": "value",
+  "entity": { "value": "Bulk Actions", "type": "individual" },
+  "relation": "has chunk_id difference",
+  "object": { "value": "Logo", "type": "class" },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "value_side": {
+      "entity_chunk_id": 56,
+      "object_chunk_id": null,
+      "difference": null
+    }
+  },
+  "expected_decision": "abstain",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "compare",
+      "answer_form": "value",
+      "entity": "Bulk Actions",
+      "relation": "has chunk_id difference",
+      "object": "Logo"
+    },
+    "resolve_entity": "Bulk Actions",
+    "fetch_relevant_info": "present",
+    "generate_answer": "no",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_cmp_02_unanswerable",
+  "atomic_input": "How much larger is the chunk_id of Resting compared to Patch?",
+  "question_type": "compare",
+  "answer_form": "value",
+  "entity": { "value": "Resting", "type": "individual" },
+  "relation": "has chunk_id difference",
+  "object": { "value": "Patch", "type": "class" },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "value_side": {
+      "entity_chunk_id": 47,
+      "object_chunk_id": null,
+      "difference": null
+    }
+  },
+  "expected_decision": "abstain",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "compare",
+      "answer_form": "value",
+      "entity": "Resting",
+      "relation": "has chunk_id difference",
+      "object": "Patch"
+    },
+    "resolve_entity": "Resting",
+    "fetch_relevant_info": "present",
+    "generate_answer": "no",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_cmp_03_unanswerable",
+  "atomic_input": "What is the chunk_id difference between DEMOS-10 and FileSize?",
+  "question_type": "compare",
+  "answer_form": "value",
+  "entity": { "value": "DEMOS-10", "type": "individual" },
+  "relation": "has chunk_id difference",
+  "object": { "value": "FileSize", "type": "class" },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "value_side": {
+      "entity_chunk_id": 13,
+      "object_chunk_id": null,
+      "difference": null
+    }
+  },
+  "expected_decision": "abstain",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "compare",
+      "answer_form": "value",
+      "entity": "DEMOS-10",
+      "relation": "has chunk_id difference",
+      "object": "FileSize"
+    },
+    "resolve_entity": "DEMOS-10",
+    "fetch_relevant_info": "present",
+    "generate_answer": "no",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_cmp_04_unanswerable",
+  "atomic_input": "Is the chunk_id of Bulk Actions greater than that of Logo?",
+  "question_type": "compare",
+  "answer_form": "assertion",
+  "entity": { "value": "Bulk Actions", "type": "individual" },
+  "relation": "chunk_id greater than",
+  "object": { "value": "Logo", "type": "class" },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "assertion_side": {
+      "entity_chunk_id": 56,
+      "object_chunk_id": null,
+      "result": null
+    }
+  },
+  "expected_decision": "abstain",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "compare",
+      "answer_form": "assertion",
+      "entity": "Bulk Actions",
+      "relation": "chunk_id greater than",
+      "object": "Logo"
+    },
+    "resolve_entity": "Bulk Actions",
+    "fetch_relevant_info": "present",
+    "generate_answer": "no",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_cmp_05_unanswerable",
+  "atomic_input": "Is the chunk_id of Resting smaller than that of Patch?",
+  "question_type": "compare",
+  "answer_form": "assertion",
+  "entity": { "value": "Resting", "type": "individual" },
+  "relation": "chunk_id smaller than",
+  "object": { "value": "Patch", "type": "class" },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "assertion_side": {
+      "entity_chunk_id": 47,
+      "object_chunk_id": null,
+      "result": null
+    }
+  },
+  "expected_decision": "abstain",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "compare",
+      "answer_form": "assertion",
+      "entity": "Resting",
+      "relation": "chunk_id smaller than",
+      "object": "Patch"
+    },
+    "resolve_entity": "Resting",
+    "fetch_relevant_info": "present",
+    "generate_answer": "no",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_cmp_06_unanswerable",
+  "atomic_input": "Does DEMOS-10 have a higher chunk_id than FileSize?",
+  "question_type": "compare",
+  "answer_form": "assertion",
+  "entity": { "value": "DEMOS-10", "type": "individual" },
+  "relation": "chunk_id greater than",
+  "object": { "value": "FileSize", "type": "class" },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "assertion_side": {
+      "entity_chunk_id": 13,
+      "object_chunk_id": null,
+      "result": null
+    }
+  },
+  "expected_decision": "abstain",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "compare",
+      "answer_form": "assertion",
+      "entity": "DEMOS-10",
+      "relation": "chunk_id greater than",
+      "object": "FileSize"
+    },
+    "resolve_entity": "DEMOS-10",
     "fetch_relevant_info": "present",
     "generate_answer": "no",
     "map_answer_to_context": "grounded"

@@ -310,6 +310,15 @@ def map_answer_to_context(answer: str, context: Dict[str, Any]) -> Dict[str, Any
             member_matches.append(member)
     result["members"] = sorted(set(member_matches))
 
+    # ------------------------------------------------------
+    # 7. CHUNK_ID (provenance)
+    # ------------------------------------------------------
+    chunk_id_matches = []
+    for cid in context.get("chunk_id", []):
+        if cid in answer:
+            chunk_id_matches.append(cid)
+    result["chunk_id"] = sorted(set(chunk_id_matches))
+
     # 7. OBJECT PROPERTY DESCRIPTIONS
     # -----------------------------------------------------
     #obj_prop_keys = list(context.get("object_property_descriptions", {}).keys())

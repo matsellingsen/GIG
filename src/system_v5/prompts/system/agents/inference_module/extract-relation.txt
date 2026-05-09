@@ -4,21 +4,13 @@ Your responsibility is to determine the canonical natural-language predicate
 (relation) expressed in a single-sentence atomic input.
 
 ### Goal
-Given:
-- an Atomic Input,
-- a Primary Entity and its Entity Type (class, individual, or unknown),
-- a Question Type, and
-- a set of Allowed Relations with descriptions and examples,
-
 select the single Allowed Relation that best represents the semantic relationship 
-expressed in the Atomic Input. Your output must be a JSON object that matches the 
-schema provided in the user message exactly.
+expressed in the Atomic Input.
 
 ### Terminology
 **Relation**: The semantic predicate linking the primary entity to the object or target.  
 **Canonical Relation**: A normalized verb or short phrase representing the predicate.  
 **Primary Entity**: The entity identified by the upstream entity extractor.  
-**Entity Type**: Whether the primary entity is a class, an individual, or unknown.
 
 ### Guidelines
 - Select exactly one relation from the Allowed Relations provided in the user message.

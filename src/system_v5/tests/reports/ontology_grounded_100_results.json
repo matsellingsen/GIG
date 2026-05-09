@@ -1,65 +1,287 @@
 [
   {
     "case": {
-      "id": "present_mem_06_unanswerable"
+      "id": "present_07_answerable"
     },
     "checks": [
       {
-        "name": "entity_resolution",
+        "name": "answer_non_empty",
         "passed": true,
-        "expected": "abstain",
-        "actual": "noPrimaryEntityFound"
+        "expected": "non-empty",
+        "actual": "Yes, App is a type of InformationObject."
+      },
+      {
+        "name": "answer_not_abstain",
+        "passed": true,
+        "expected": "answer that does not explicitly abstain",
+        "actual": "Yes, App is a type of InformationObject."
+      },
+      {
+        "name": "grounding_preferred",
+        "passed": true,
+        "expected": {
+          "entity_side": {
+            "types": [],
+            "annotations": [],
+            "superclasses": [
+              "InformationObject"
+            ],
+            "equivalent_classes": [],
+            "properties": [],
+            "property_values": {}
+          }
+        },
+        "actual": {
+          "chunk_id": [],
+          "properties": [],
+          "annotations": [],
+          "superclasses": [
+            "InformationObject"
+          ],
+          "types": [],
+          "equivalent_classes": [],
+          "property_values": {},
+          "members": []
+        }
+      },
+      {
+        "name": "correct_question_type",
+        "passed": true,
+        "expected": "taxonomic",
+        "actual": "taxonomic"
+      },
+      {
+        "name": "correct_answer_form",
+        "passed": true,
+        "expected": "assertion",
+        "actual": "assertion"
+      },
+      {
+        "name": "correct_extracted_entity",
+        "passed": true,
+        "expected": "App",
+        "actual": "App"
+      },
+      {
+        "name": "correct_relation_extraction",
+        "passed": true,
+        "expected": "be subtype of",
+        "actual": "be subtype of"
+      },
+      {
+        "name": "correct_object_extraction",
+        "passed": true,
+        "expected": "InformationObject",
+        "actual": "InformationObject"
+      },
+      {
+        "name": "grounding_nonempty",
+        "passed": true,
+        "expected": "any non-empty grounding",
+        "actual": {
+          "chunk_id": [],
+          "properties": [],
+          "annotations": [],
+          "superclasses": [
+            "InformationObject"
+          ],
+          "types": [],
+          "equivalent_classes": [],
+          "property_values": {},
+          "members": []
+        }
+      },
+      {
+        "name": "grounding_incorrect",
+        "passed": true,
+        "expected": "non-empty grounding",
+        "actual": {
+          "chunk_id": [],
+          "properties": [],
+          "annotations": [],
+          "superclasses": [
+            "InformationObject"
+          ],
+          "types": [],
+          "equivalent_classes": [],
+          "property_values": {},
+          "members": []
+        }
       }
     ],
     "question_info": {
-      "atomic_question": "Who are the members of the class Algorithm?",
-      "question_type": "membership",
-      "answer_form": "list",
+      "atomic_question": "Is App a type of InformationObject?",
+      "question_type": "taxonomic",
+      "answer_form": "assertion",
       "entity": {
-        "value": "class",
-        "type": "class"
+        "value": "App",
+        "type": null
       },
-      "relation": "has member",
+      "relation": "be subtype of",
       "object": {
-        "value": "null",
-        "type": "null"
+        "value": "InformationObject",
+        "type": null
       }
     },
-    "fetched": "noPrimaryEntityFound",
+    "fetched": {
+      "question_info": {
+        "atomic_question": "Is App a type of InformationObject?",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": {
+          "value": "App",
+          "type": null
+        },
+        "relation": "be subtype of",
+        "object": {
+          "value": "InformationObject",
+          "type": null
+        }
+      },
+      "resolved_entity": {
+        "uri": "http://example.org/sensInnovationAps_ontology#App",
+        "label": "App",
+        "score": 1.0,
+        "labels": [
+          "App"
+        ],
+        "entity_type": "Class",
+        "types": [],
+        "superclasses": [
+          "InformationObject"
+        ],
+        "object_properties": {},
+        "data_properties": {},
+        "annotations": {}
+      },
+      "entity_context": {
+        "scope_note": "All information in this object is directly related to the resolved entity of the atomic question.",
+        "label": "App",
+        "types": [
+          "Class"
+        ],
+        "superclasses": {
+          "Class": [],
+          "App": [
+            "InformationObject"
+          ]
+        },
+        "equivalent_classes": []
+      },
+      "resolved_object": null,
+      "object_context": null
+    },
     "stage_log": {
       "input_to_graph": {
-        "question_type": "membership",
-        "answer_form": "list",
-        "entity": "class",
-        "relation": "has member",
-        "object": "null"
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": "App",
+        "relation": "be subtype of",
+        "object": "InformationObject"
       },
       "fetch_relevant_info": {
-        "resolved_entity": null,
+        "resolved_entity": {
+          "uri": "http://example.org/sensInnovationAps_ontology#App",
+          "label": "App",
+          "score": 1.0,
+          "labels": [
+            "App"
+          ],
+          "entity_type": "Class",
+          "types": [],
+          "superclasses": [
+            "InformationObject"
+          ],
+          "object_properties": {},
+          "data_properties": {},
+          "annotations": {}
+        },
         "resolved_object": null,
-        "status": "noPrimaryEntityFound"
+        "status": "present"
       },
       "generate_answer": {
-        "answer": null,
-        "reasoning": null
+        "answer": "Yes, App is a type of InformationObject.",
+        "reasoning": "The ontology information provided includes a 'superclasses' property for the 'App' entity, which lists 'InformationObject' as one of its superclasses."
       },
       "map_answer_to_context": {
         "entity_answer": null,
-        "reasoning_answer": null
+        "reasoning_answer": null,
+        "merged_entity_answer": {
+          "chunk_id": [],
+          "properties": [],
+          "annotations": [],
+          "superclasses": [
+            "InformationObject"
+          ],
+          "types": [],
+          "equivalent_classes": [],
+          "property_values": {},
+          "members": []
+        }
       }
     },
     "generated_question_stage": {
-      "question_type": "membership",
-      "answer_form": "list",
-      "entity": "class",
-      "entity_type": "class",
-      "relation": "has member",
-      "object": "null",
-      "object_type": "null"
+      "question_type": "taxonomic",
+      "answer_form": "assertion",
+      "entity": "App",
+      "entity_type": null,
+      "relation": "be subtype of",
+      "object": "InformationObject",
+      "object_type": null
     },
-    "answer": null,
-    "reasoning": null,
-    "mapped_entity_answer": null,
-    "mapped_reasoning_answer": null
+    "entity_context": {
+      "scope_note": "All information in this object is directly related to the resolved entity of the atomic question.",
+      "label": "App",
+      "types": [
+        "Class"
+      ],
+      "superclasses": {
+        "Class": [],
+        "App": [
+          "InformationObject"
+        ]
+      },
+      "equivalent_classes": []
+    },
+    "object_context": null,
+    "answer": "Yes, App is a type of InformationObject.",
+    "reasoning": "The ontology information provided includes a 'superclasses' property for the 'App' entity, which lists 'InformationObject' as one of its superclasses.",
+    "gold_answer_agent": {},
+    "mapped_reasoning_answer": {
+      "types": [],
+      "superclasses": [
+        "InformationObject"
+      ],
+      "equivalent_classes": [],
+      "properties": [],
+      "property_values": {},
+      "annotations": [],
+      "members": [],
+      "chunk_id": []
+    },
+    "mapped_entity_answer": {
+      "types": [],
+      "superclasses": [
+        "InformationObject"
+      ],
+      "equivalent_classes": [],
+      "properties": [],
+      "property_values": {},
+      "annotations": [],
+      "members": [],
+      "chunk_id": []
+    },
+    "mapped_entity_merged": {
+      "chunk_id": [],
+      "properties": [],
+      "annotations": [],
+      "superclasses": [
+        "InformationObject"
+      ],
+      "types": [],
+      "equivalent_classes": [],
+      "property_values": {},
+      "members": []
+    }
   }
 ]

@@ -137,14 +137,24 @@
             -- 50% answerable
             -- 50% unanswerable
             -- Manually going through test-questions.
-                PROGRESS/CURRENTLY AT: Q13
+                PROGRESS/CURRENTLY AT: COMPARATIVE TYPES
                 NOTES:
                     -- Definition and Taxonomy only uses types/superclasses/annotations
                     -- Capability should only use object properties.
                         -- Potentially reintroduce filtering of context to make sure the agent sees only what is relevant for the question type.
                         -- INFERENCE MODULE IS BROKEN NOW AS IM MID REINTRODUCING FILTERING
                     -- Some questions must be explictly/unnaturally posed for the input_to_graph() to work properly. <-- WEAKNESS
-                
+                    -- Comparable question type can only be tested by comparing chunk_id between entities, as properties are not the same between entities necessarily.
+                        <-- WEAKNESS IN ONTOLOGY CONSTRUCTION MODULE
+                        -- Altohugh we can argue that simliar but not datatype-identical property-values could still be compared as we use an agent-based comparator.
+                            -- But we did not do it in teh testset, as it would introduce uncontrolled variability.
+            -- Revise input_to_graph agents.
+                --question_type (pending)
+                --answer_form (1/2 done)
+                -- Entity (DONE)
+                -- relation (potentially make fully deterministic)
+                -- object (conditionally extract or choose deterministically) (DONE)
+
         -- Large End-to-End using real ttl with questions based on source
             -- 50% answerable
             -- 50% unanswerable

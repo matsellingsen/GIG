@@ -89,9 +89,9 @@ def build_stage_log(question_info, fetched=None, answer=None, reasoning=None):
     }
 
 
-def mapping_covers_expected(actual_mapping, expected_mapping):
+def mapping_covers_expected(type, actual_mapping, expected_mapping):
     expected_mapping = expected_mapping or {}
-    expected_entity_side = expected_mapping.get("entity_side", {})
+    expected_entity_side = expected_mapping.get(type, {})
 
     expected_types = set(expected_entity_side.get("types", []))
     expected_superclasses = set(expected_entity_side.get("superclasses", []))
@@ -99,6 +99,7 @@ def mapping_covers_expected(actual_mapping, expected_mapping):
     expected_properties = set(expected_entity_side.get("properties", []))
     expected_members = set(expected_entity_side.get("members", []))
     expected_annotations = set(expected_entity_side.get("annotations", []))
+    expected_chunk_id = set(expected_entity_side.get("chunk_id", []))   
 
     actual_types = set(actual_mapping.get("types", []))
     actual_superclasses = set(actual_mapping.get("superclasses", []))
@@ -106,6 +107,8 @@ def mapping_covers_expected(actual_mapping, expected_mapping):
     actual_properties = set(actual_mapping.get("properties", []))
     actual_members = set(actual_mapping.get("members", []))
     actual_annotations = set(actual_mapping.get("annotations", []))
+    actual_chunk_id = set(actual_mapping.get("chunk_id", []))
+
     return (
         expected_superclasses.issubset(actual_superclasses)
         and expected_types.issubset(actual_types)
@@ -113,6 +116,7 @@ def mapping_covers_expected(actual_mapping, expected_mapping):
         and expected_properties.issubset(actual_properties)
         and expected_members.issubset(actual_members)
         and expected_annotations.issubset(actual_annotations)
+        and expected_chunk_id.issubset(actual_chunk_id)
     )
 
 
@@ -272,7 +276,12 @@ def test_ontology_grounded_100(case, ttl_fixture, agents):
     gold_mapped_answer = case.get("gold_mapped_answer")
 
     # Preferred grounding: gold mapping is subset of actual mapping
-    preferred_ok = mapping_covers_expected(mapped_entity_merged, gold_mapped_answer)
+    if expected_question_type == "comparative":
+        mapping_ok_entity = mapping_covers_expected("entity_side", mapped_entity_merged, gold_mapped_answer)
+        mapping_ok_object = mapping_covers_expected("object_side", mapped_object_merged, gold_mapped_answer) if object_context else True
+        preferred_ok = mapping_ok_entity and mapping_ok_object
+    else: # any other question type should only have entity grounding, so we check that the entity side mapping covers the expected answer
+        preferred_ok = mapping_covers_expected("entity_side", mapped_entity_merged, gold_mapped_answer)
 
     # Acceptable grounding: any ontology grounding at all (indicates that the answer is grounded in some way, but the question understanding or mapping was not fully correct, which is still a better outcome than no grounding at all)
     grounded_nonempty = any(
@@ -280,8 +289,16 @@ def test_ontology_grounded_100(case, ttl_fixture, agents):
         for key in ["annotations", "superclasses", "types", "properties", "property_values"]
     )
     # Incorrect grounding: no grounding
-    empty_grounding = not grounded_nonempty
+    empty_grounding = not grounded_nonempty    
 
+    # get generated values
+    actual_question_type = question_info.get("question_type")
+    actual_answer_form = question_info.get("answer_form")
+    actual_extracted_entity = question_info.get("entity", {}).get("value")
+    actual_relation = question_info.get("relation")
+    actual_extracted_object = question_info.get("object", {}).get("value")
+    if actual_extracted_object == "null":
+        actual_extracted_object = None
 
     if expected_decision == "answer":
         explicit_abstain = "can't answer" in answer_text.lower()
@@ -309,37 +326,37 @@ def test_ontology_grounded_100(case, ttl_fixture, agents):
         record_check(
             checks = checks,
             name = "correct_question_type",
-            passed = question_info.get("question_type") == expected_question_type,
+            passed = actual_question_type == expected_question_type,
             expected = expected_question_type,
-            actual = question_info.get("question_type"),
+            actual = actual_question_type,
         )
         record_check(
             checks = checks,
             name = "correct_answer_form",
-            passed = question_info.get("answer_form") == expected_answer_form,
+            passed = actual_answer_form == expected_answer_form,
             expected = expected_answer_form,
-            actual = question_info.get("answer_form"),
+            actual = actual_answer_form,
         )
         record_check(
             checks = checks,
             name = "correct_extracted_entity",
-            passed = question_info.get("entity", {}).get("value") == expected_extracted_entity,
+            passed = actual_extracted_entity == expected_extracted_entity,
             expected = expected_extracted_entity,
-            actual = question_info.get("entity", {}).get("value"),
+            actual = actual_extracted_entity,
         )
         record_check(
             checks = checks,
             name = "correct_relation_extraction",
-            passed = question_info.get("relation") == expected_relation,
+            passed = actual_relation == expected_relation,
             expected = expected_relation,
-            actual = question_info.get("relation"),
+            actual = actual_relation,
         )
         record_check(
             checks = checks,
             name = "correct_object_extraction",
-            passed = question_info.get("object", {}).get("value") == expected_extracted_object,
+            passed = actual_extracted_object == expected_extracted_object,
             expected = expected_extracted_object,
-            actual = question_info.get("object", {}).get("value"),
+            actual = actual_extracted_object,
         )
         record_check(
             checks,
@@ -393,23 +410,23 @@ def test_ontology_grounded_100(case, ttl_fixture, agents):
         record_check(
             checks = checks,
             name = "correct_extracted_entity",
-            passed = question_info.get("entity", {}).get("value") == expected_extracted_entity,
+            passed = actual_extracted_entity == expected_extracted_entity,
             expected = expected_extracted_entity,
-            actual = question_info.get("entity", {}).get("value"),
+            actual = actual_extracted_entity,
         )
         record_check(
             checks = checks,
             name = "correct_relation_extraction",
-            passed = question_info.get("relation") == expected_relation,
+            passed = actual_relation == expected_relation,
             expected = expected_relation,
-            actual = question_info.get("relation"),
+            actual = actual_relation,
         )
         record_check(
             checks = checks,
             name = "correct_object_extraction",
-            passed = question_info.get("object", {}).get("value") == expected_extracted_object,
+            passed = actual_extracted_object == expected_extracted_object,
             expected = expected_extracted_object,
-            actual = question_info.get("object", {}).get("value"),
+            actual = actual_extracted_object,
         )
 
         RESULTS.append(

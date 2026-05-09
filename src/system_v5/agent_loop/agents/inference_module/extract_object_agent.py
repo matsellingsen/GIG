@@ -136,8 +136,8 @@ class ExtractObjectAgent(BaseOntologyAgent):
 
     def run(self, chunk_text: str, parsed_input: list = None,
             entity_candidate: dict = None, relation_candidate: dict = None,
-            question_classification: dict = None) -> tuple:
-
+            question_classification: dict = None, answer_form: dict = None) -> tuple:
+   
         # Determine question type
         qtype = None
         if isinstance(question_classification, dict):
@@ -145,6 +145,19 @@ class ExtractObjectAgent(BaseOntologyAgent):
         else:
             qtype = str(question_classification) if question_classification else "unknown"
 
+        # Determine answer form
+        aform = None
+        if isinstance(answer_form, dict):
+            aform = answer_form.get("answer_form", "unknown")
+        else:
+            aform = str(answer_form) if answer_form else "unknown"
+
+        #Override system prompt conditionally if question type is comparative, since this requires a different reasoning approach and the base prompt is not sufficient to guide the model to the correct answer space.
+        if qtype == "comparative":
+            print("COMPARATIVE QUESTION DETECTED - SWITCHING TO COMPARATIVE SYSTEM PROMPT AND EXAMPLES")
+            self.system_prompt = load_prompt(
+                "C:\\Users\\matse\\gig\\src\\system_v5\\prompts\\system\\agents\\inference_module\\extract-object-comparative.txt"
+            )
         # Build schema
         if parsed_input:
             unique = [str(x) for x in dict.fromkeys(parsed_input)]
@@ -154,41 +167,26 @@ class ExtractObjectAgent(BaseOntologyAgent):
         else:
             base_object_prop = {"type": "string"}
 
-        allowed_by_qtype = {
-            "definition": ["null"],
-            "taxonomic": ["class", "individual"],
-            "capability": ["individual", "class"],
-            "property": ["literal"],
-            "membership": ["class", "individual"],
-            "comparative": ["individual", "class"],
-            "quantification": ["class"],
-            "existential": ["class", "individual"],
-            "unknown": ["class", "individual", "literal", "null"]
-        }
 
-        object_type_prop = {
-            "type": "string",
-            "enum": allowed_by_qtype.get(qtype, ["class", "individual", "literal", "null"])
-        }
-
-        if qtype == "definition": #SKIP GENERATION (only 1 valid option so generation is trivial)
+        determinisitic_qtypes = ["definition", "existential", "unknown"]
+        if qtype in determinisitic_qtypes or aform == "list": #SKIP GENERATION (object is not needed or not extractable for these cases, so return "null" directly)
             object_prop = {"type": "string", "enum": ["null"]}
-            json_output = {"object": "null", "object_type": "null"}
+            json_output = {"reasoning": "Deterministic output", "object": "null"}
             return json_output, None # deterministic output (only "null" is valid), so skip the agent call and return directly
-        elif qtype == "membership": #SKIP GENERATION (only 1 valid option so generation is trivial)
-            object_prop = {"type": "string", "enum": ["null"]}
-            json_output = {"object": "null", "object_type": "null"}
-            return json_output, None # deterministic output (only "null" is valid), so skip the agent call and return directly
+        
         else:
             object_prop = base_object_prop
 
         schema = {
             "type": "object",
             "properties": {
+                "reasoning": {
+                    "type": "string",
+                    "description": "Short explanation of the reasoning behind the object extraction.",
+                    },
                 "object": object_prop,
-                "object_type": object_type_prop
             },
-            "required": ["object", "object_type"],
+            "required": ["reasoning", "object"],
             "additionalProperties": False
         }
 
@@ -204,27 +202,23 @@ class ExtractObjectAgent(BaseOntologyAgent):
             f'relation: {relation_candidate.get("relation")}'
             if isinstance(relation_candidate, dict) else "None"
         )
-        prop_allowed_values_str = ", ".join(allowed_by_qtype.get(qtype, []))
         user_msg = f"""
         ### Goal
-        Extract the object (the target/value of the relation) and classify it as
-        {prop_allowed_values_str}. Use the Question Type and the
-        Entity/Relation context to determine where to look for the object and how to type it.
+        Extract the object (the target/value of the relation).
+        Use the Question Type and the Extracted Entity and Relation to determine where to look for the object and how to type it.
 
-        ### Examples for This Question Type
-        {examples_str}
+        ### Question Type
+        {question_classification}
+
+        ### Extracted Entity
+        {entity_info}
+
+        ### Extracted Relation
+        {relation_info}
 
         ### Atomic Input
         {chunk_text}
 
-        ### Entity Context
-        {entity_info}
-
-        ### Relation Context
-        {relation_info}
-
-        ### Question Type
-        {question_classification}
         """
 
         return self.generate_with_schema(user_msg, schema)
