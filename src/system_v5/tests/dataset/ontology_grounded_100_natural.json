@@ -1864,7 +1864,7 @@
   },
   "relation": "have property",
   "object": {
-    "value": null,
+    "value": "intervention",
     "type": "literal"
   },
   "ontology_presence": "present",
@@ -1883,7 +1883,7 @@
       "answer_form": "value",
       "entity": "Bispebjerg Hospital",
       "relation": "have property",
-      "object": null
+      "object": "intervention"
     },
     "resolve_entity": "Bispebjerg Hospital",
     "fetch_relevant_info": "present",

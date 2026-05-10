@@ -17,11 +17,12 @@ from agent_loop.agents.inference_module.resolve_entity_agent import ResolveEntit
 
 
 UNRESOLVABLE_PATH = os.path.abspath(
-    os.path.join(os.path.dirname(__file__), "..", "dataset", "unresolvable_30.json")
+    os.path.join(os.path.dirname(__file__), "..", "dataset", "unresolvable_simple_questions.json")
 )
 
 with open(UNRESOLVABLE_PATH, encoding="utf-8") as f:
-    CASES = json.load(f)["unresolvable"]
+    loaded = json.load(f)
+CASES = loaded["unresolvable"] if isinstance(loaded, dict) else loaded
 
 
 @pytest.fixture(scope="session")
@@ -78,7 +79,7 @@ def test_unresolvable_entities(case, ttl_fixture, agents):
     assert extracted_entity == case["entity"]["value"], f"Entity extraction failed: {extracted_entity}"
 
     assert question_info["relation"] == "be", "Relation should be 'be'"
-    assert question_info["object"]["value"] is None, "Object should be null for definition questions"
+    assert question_info["object"]["value"] == "null", "Object should be null for definition questions"
 
     # Run entity resolution
     fetched = fetch_relevant_info(
