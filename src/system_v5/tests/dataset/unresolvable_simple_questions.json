@@ -1,0 +1,227 @@
+[
+    {
+      "atomic_input": "What is a Lumeron?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": { "value": "Lumeron", "type": "Class" },
+      "relation": "be",
+      "object": { "value": null, "type": null }
+    },
+    {
+      "atomic_input": "What is a Trivax?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": { "value": "Trivax", "type": "Class" },
+      "relation": "be",
+      "object": { "value": null, "type": null }
+    },
+    {
+      "atomic_input": "What is a Norellian Object?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": { "value": "Norellian Object", "type": "Class" },
+      "relation": "be",
+      "object": { "value": null, "type": null }
+    },
+    {
+      "atomic_input": "What is a Veltrix Unit?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": { "value": "Veltrix Unit", "type": "Class" },
+      "relation": "be",
+      "object": { "value": null, "type": null }
+    },
+    {
+      "atomic_input": "What is a Sernite Structure?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": { "value": "Sernite Structure", "type": "Class" },
+      "relation": "be",
+      "object": { "value": null, "type": null }
+    },
+    {
+      "atomic_input": "What is a Dravonic Form?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": { "value": "Dravonic Form", "type": "Class" },
+      "relation": "be",
+      "object": { "value": null, "type": null }
+    },
+    {
+      "atomic_input": "What is a Kelvar Entity?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": { "value": "Kelvar Entity", "type": "Class" },
+      "relation": "be",
+      "object": { "value": null, "type": null }
+    },
+    {
+      "atomic_input": "What is a Miroth Component?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": { "value": "Miroth Component", "type": "Class" },
+      "relation": "be",
+      "object": { "value": null, "type": null }
+    },
+    {
+      "atomic_input": "What is a Plenoric System?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": { "value": "Plenoric System", "type": "Class" },
+      "relation": "be",
+      "object": { "value": null, "type": null }
+    },
+    {
+      "atomic_input": "What is a Teralin Module?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": { "value": "Teralin Module", "type": "Class" },
+      "relation": "be",
+      "object": { "value": null, "type": null }
+    },
+    {
+      "atomic_input": "What is a Vexorian Element?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": { "value": "Vexorian Element", "type": "Class" },
+      "relation": "be",
+      "object": { "value": null, "type": null }
+    },
+    {
+      "atomic_input": "What is a Quarnic Device?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": { "value": "Quarnic Device", "type": "Class" },
+      "relation": "be",
+      "object": { "value": null, "type": null }
+    },
+
+    {
+      "atomic_input": "What is a Solyrian Construct?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": { "value": "Solyrian Construct", "type": "Class" },
+      "relation": "be",
+      "object": { "value": null, "type": null }
+    },
+    {
+      "atomic_input": "What is a Brellite Form?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": { "value": "Brellite Form", "type": "Class" },
+      "relation": "be",
+      "object": { "value": null, "type": null }
+    },
+    {
+      "atomic_input": "What is a Nivorian Shape?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": { "value": "Nivorian Shape", "type": "Class" },
+      "relation": "be",
+      "object": { "value": null, "type": null }
+    },
+    {
+      "atomic_input": "What is a Corvax Pattern?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": { "value": "Corvax Pattern", "type": "Class" },
+      "relation": "be",
+      "object": { "value": null, "type": null }
+    },
+    {
+      "atomic_input": "What is a Jorilan Artifact?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": { "value": "Jorilan Artifact", "type": "Class" },
+      "relation": "be",
+      "object": { "value": null, "type": null }
+    },
+    {
+      "atomic_input": "What is a Valtoric Entity?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": { "value": "Valtoric Entity", "type": "Class" },
+      "relation": "be",
+      "object": { "value": null, "type": null }
+    },
+    {
+      "atomic_input": "What is an Orlian Construct?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": { "value": "Orlian Construct", "type": "Class" },
+      "relation": "be",
+      "object": { "value": null, "type": null }
+    },
+    {
+      "atomic_input": "What is a Trevonic Unit?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": { "value": "Trevonic Unit", "type": "Class" },
+      "relation": "be",
+      "object": { "value": null, "type": null }
+    },
+    {
+      "atomic_input": "What is a Melorian Object?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": { "value": "Melorian Object", "type": "Class" },
+      "relation": "be",
+      "object": { "value": null, "type": null }
+    },
+    {
+      "atomic_input": "What is a Drimex Structure?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": { "value": "Drimex Structure", "type": "Class" },
+      "relation": "be",
+      "object": { "value": null, "type": null }
+    },
+    {
+      "atomic_input": "What is an Ulvian Module?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": { "value": "Ulvian Module", "type": "Class" },
+      "relation": "be",
+      "object": { "value": null, "type": null }
+    },
+    {
+      "atomic_input": "What is a Zorlic Form?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": { "value": "Zorlic Form", "type": "Class" },
+      "relation": "be",
+      "object": { "value": null, "type": null }
+    },
+    {
+      "atomic_input": "What is a Fenorian Device?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": { "value": "Fenorian Device", "type": "Class" },
+      "relation": "be",
+      "object": { "value": null, "type": null }
+    },
+    {
+      "atomic_input": "What is a Kylothic Element?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": { "value": "Kylothic Element", "type": "Class" },
+      "relation": "be",
+      "object": { "value": null, "type": null }
+    },
+    {
+      "atomic_input": "What is a Brevonite Object?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": { "value": "Brevonite Object", "type": "Class" },
+      "relation": "be",
+      "object": { "value": null, "type": null }
+    },
+    {
+      "atomic_input": "What is a Lorvian Construct?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": { "value": "Lorvian Construct", "type": "Class" },
+      "relation": "be",
+      "object": { "value": null, "type": null }
+    }
+]

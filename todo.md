@@ -133,11 +133,11 @@
         -- component-test the other subcomponents of the inference-module (1/2 DONE)
             -- Determine whether some other components must be tested
         -- small (10) End-to-End on tiny ttl (DONE)
-        -- Large End-to-End using real ttl with questions based on real ttl
+        -- Large End-to-End using real ttl with questions based on real ttl (DONE)
             -- 50% answerable
-            -- 50% unanswerable
+            -- 50% unanswerable (but resolvable)
             -- Manually going through test-questions.
-                PROGRESS/CURRENTLY AT: COMPARATIVE TYPES
+                PROGRESS/CURRENTLY AT: DONE
                 NOTES:
                     -- Definition and Taxonomy only uses types/superclasses/annotations
                     -- Capability should only use object properties.
@@ -149,11 +149,13 @@
                         -- Altohugh we can argue that simliar but not datatype-identical property-values could still be compared as we use an agent-based comparator.
                             -- But we did not do it in teh testset, as it would introduce uncontrolled variability.
             -- Revise input_to_graph agents.
-                --question_type (pending)
-                --answer_form (1/2 done)
+                --question_type (DONE)
+                --answer_form (DONE)
                 -- Entity (DONE)
                 -- relation (potentially make fully deterministic)
                 -- object (conditionally extract or choose deterministically) (DONE)
+        -- Create unresolvable test-suite
+        -- revise input-to-graph test-suite
 
         -- Large End-to-End using real ttl with questions based on source
             -- 50% answerable

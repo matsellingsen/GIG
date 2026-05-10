@@ -284,10 +284,8 @@ def test_ontology_grounded_100(case, ttl_fixture, agents):
         preferred_ok = mapping_covers_expected("entity_side", mapped_entity_merged, gold_mapped_answer)
 
     # Acceptable grounding: any ontology grounding at all (indicates that the answer is grounded in some way, but the question understanding or mapping was not fully correct, which is still a better outcome than no grounding at all)
-    grounded_nonempty = any(
-        bool(mapped_entity_merged.get(key))
-        for key in ["annotations", "superclasses", "types", "properties", "property_values"]
-    )
+    grounded_nonempty = any(bool(v) for v in mapped_entity_merged.values())
+
     # Incorrect grounding: no grounding
     empty_grounding = not grounded_nonempty    
 
@@ -387,8 +385,8 @@ def test_ontology_grounded_100(case, ttl_fixture, agents):
 
         record_check(
             checks,
-            "abstain_expected",
-            system_abstained,
+            name="abstain_expected",
+            passed=system_abstained,
             expected="abstain",
             actual=answer_text,
         )

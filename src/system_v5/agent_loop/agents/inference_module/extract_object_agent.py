@@ -167,9 +167,12 @@ class ExtractObjectAgent(BaseOntologyAgent):
         else:
             base_object_prop = {"type": "string"}
 
-
-        determinisitic_qtypes = ["definition", "existential", "unknown"]
-        if qtype in determinisitic_qtypes or aform == "list": #SKIP GENERATION (object is not needed or not extractable for these cases, so return "null" directly)
+        deterministic_combinations = [("capability", "value")]
+        determinisitic_qtypes = ["definition", "unknown", "quantification"] # For these question types, the object is either not needed or not extractable, so we can skip generation and return "null" directly.
+        deterministic_aforms = ["list"]
+        if ((qtype in determinisitic_qtypes) or
+            (aform in deterministic_aforms) or
+            ((qtype, aform) in deterministic_combinations)): #SKIP GENERATION (object is not needed or not extractable for these cases, so return "null" directly)
             object_prop = {"type": "string", "enum": ["null"]}
             json_output = {"reasoning": "Deterministic output", "object": "null"}
             return json_output, None # deterministic output (only "null" is valid), so skip the agent call and return directly

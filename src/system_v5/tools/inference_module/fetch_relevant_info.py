@@ -143,6 +143,10 @@ def resolve_entity(type: str, question_info: dict, graph, resolve_entity_agent: 
         entity = question_info.get("object", {}).get("value")
     else:
         raise ValueError("Invalid entity type. Must be 'entity' or 'object'.")
+    if not entity:
+        print("No entity provided in question info.")
+        return None
+    
     print("PRIMARY ENTITY TO RESOLVE:", entity)
     #1. Fetch candidates
     top_candidates = retrieve_top_candidates(type, graph, entity, top_n=3)
@@ -761,6 +765,8 @@ def filter_context(question_info, full_context):
     # 7. Quantification questions
     if qtype == "quantification":
         filtered_context["properties_by_type"] = full_context["properties_by_type"]
+        filtered_context["members"] = full_context["members"]
+        filtered_context["chunk_id"] = full_context["chunk_id"]
         return filtered_context
 
     # 8. Existential questions

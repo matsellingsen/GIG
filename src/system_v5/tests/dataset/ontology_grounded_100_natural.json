@@ -1,6 +1,6 @@
 [
   {
-    "id": "present_01",
+    "id": "present_def_01",
     "atomic_input": "What is an App?",
     "question_type": "definition",
     "answer_form": "value",
@@ -42,9 +42,8 @@
       "map_answer_to_context": "grounded"
     }
   },
-
   {
-    "id": "present_02",
+    "id": "present_def_02",
     "atomic_input": "What is a WebApplication?",
     "question_type": "definition",
     "answer_form": "value",
@@ -89,7 +88,7 @@
 
   },
   {
-    "id": "present_03",
+    "id": "present_def_03",
     "atomic_input": "What is a SensorPatch?",
     "question_type": "definition",
     "answer_form": "value",
@@ -136,7 +135,7 @@
 
   },
   {
-    "id": "present_04",
+    "id": "present_def_04",
     "atomic_input": "What is the SENS motion app?",
     "question_type": "definition",
     "answer_form": "value",
@@ -180,7 +179,7 @@
 
   },
   {
-    "id": "present_05",
+    "id": "present_def_05",
     "atomic_input": "What is the SENS motion web app?",
     "question_type": "definition",
     "answer_form": "value",
@@ -222,8 +221,8 @@
     }
   },
   {
-    "id": "present_06",
-    "atomic_input": "What is version 3.9?",
+    "id": "present_def_06",
+    "atomic_input": "What is the definition of version 3.9?",
     "question_type": "definition",
     "answer_form": "value",
     "entity": {
@@ -262,6 +261,253 @@
       "map_answer_to_context": "grounded"
     }
   },
+ {
+  "id": "present_def_07",
+  "atomic_input": "What is an ActivityIntensityCategory?",
+  "question_type": "definition",
+  "answer_form": "value",
+  "entity": {
+    "value": "ActivityIntensityCategory",
+    "type": "class"
+  },
+  "relation": "be",
+  "object": {
+    "value": null,
+    "type": null
+  },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "types": [],
+      "superclasses": [],
+      "annotations": [
+        "ActivityIntensityCategory"
+      ],
+      "equivalent_classes": [],
+      "properties": [],
+      "property_values": {}
+    }
+  },
+  "expected_decision": "answer",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": "ActivityIntensityCategory",
+      "relation": "be",
+      "object": null
+    },
+    "resolve_entity": "ActivityIntensityCategory",
+    "fetch_relevant_info": "present",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_def_08",
+  "atomic_input": "What is a MovementType?",
+  "question_type": "definition",
+  "answer_form": "value",
+  "entity": {
+    "value": "MovementType",
+    "type": "class"
+  },
+  "relation": "be",
+  "object": {
+    "value": null,
+    "type": null
+  },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "types": [],
+      "superclasses": [],
+      "annotations": [
+        "MovementType"
+      ],
+      "equivalent_classes": [],
+      "properties": [],
+      "property_values": {}
+    }
+  },
+  "expected_decision": "answer",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": "MovementType",
+      "relation": "be",
+      "object": null
+    },
+    "resolve_entity": "MovementType",
+    "fetch_relevant_info": "present",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_def_09",
+  "atomic_input": "What is the definition of SensorStatus?",
+  "question_type": "definition",
+  "answer_form": "value",
+  "entity": {
+    "value": "SensorStatus",
+    "type": "class"
+  },
+  "relation": "be",
+  "object": {
+    "value": null,
+    "type": null
+  },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "types": [],
+      "superclasses": [],
+      "annotations": [
+        "SensorStatus"
+      ],
+      "equivalent_classes": [],
+      "properties": [],
+      "property_values": {}
+    }
+  },
+  "expected_decision": "answer",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": "SensorStatus",
+      "relation": "be",
+      "object": null
+    },
+    "resolve_entity": "SensorStatus",
+    "fetch_relevant_info": "present",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_def_10",
+  "atomic_input": "What is Bulk Actions?",
+  "question_type": "definition",
+  "answer_form": "value",
+  "entity": {
+    "value": "Bulk Actions",
+    "type": "instance"
+  },
+  "relation": "be",
+  "object": {
+    "value": null,
+    "type": null
+  },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "types": [
+        "BulkAction"
+      ],
+      "annotations": [],
+      "superclasses": [],
+      "equivalent_classes": [],
+      "properties": [],
+      "property_values": {}
+    }
+  },
+  "expected_decision": "answer",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": "Bulk Actions",
+      "relation": "be",
+      "object": null
+    },
+    "resolve_entity": "Bulk Actions",
+    "fetch_relevant_info": "present",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_def_11",
+  "atomic_input": "What is Continuous walking?",
+  "question_type": "definition",
+  "answer_form": "value",
+  "entity": {
+    "value": "Continuous walking",
+    "type": "instance"
+  },
+  "relation": "be",
+  "object": {
+    "value": null,
+    "type": null
+  },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "types": [
+        "ActivityIntensityCategory"
+      ],
+      "annotations": [],
+      "superclasses": [],
+      "equivalent_classes": [],
+      "properties": [],
+      "property_values": {}
+    }
+  },
+  "expected_decision": "answer",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": "Continuous walking",
+      "relation": "be",
+      "object": null
+    },
+    "resolve_entity": "Continuous walking",
+    "fetch_relevant_info": "present",
+    "map_answer_to_context": "grounded"
+  }
+},
+
+{
+  "id": "present_def_12",
+  "atomic_input": "Who is Mats Ellingsen?",
+  "question_type": "definition",
+  "answer_form": "value",
+  "entity": {
+    "value": "Mats Ellingsen",
+    "type": "instance"
+  },
+  "relation": "be",
+  "object": {
+    "value": null,
+    "type": null
+  },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "types": [
+        "TeamMember"
+      ],
+      "annotations": [],
+      "superclasses": [],
+      "equivalent_classes": [],
+      "properties": [],
+      "property_values": {}
+    }
+  },
+  "expected_decision": "answer",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": "Mats Ellingsen",
+      "relation": "be",
+      "object": null
+    },
+    "resolve_entity": "Mats Ellingsen",
+    "fetch_relevant_info": "present",
+    "map_answer_to_context": "grounded"
+  }
+},
   {
     "id": "present_07_answerable",
     "atomic_input": "Is App a type of InformationObject?",
@@ -304,6 +550,7 @@
       "map_answer_to_context": "grounded"
     }
   },
+  
    {
     "id": "present_07_unanswerable",
     "atomic_input": "Is App a type of Webpage?",
@@ -347,7 +594,7 @@
   },
   {
     "id": "present_08_answerable",
-    "atomic_input": "Is WebApplication a InformationObject?",
+    "atomic_input": "Is WebApplication a type of InformationObject?",
     "question_type": "taxonomic",
     "answer_form": "assertion",
     "entity": {
@@ -389,7 +636,7 @@
   },
   {
     "id": "present_08_unanswerable",
-    "atomic_input": "Is WebApplication a SocialObject?",
+    "atomic_input": "Is WebApplication a type of SocialObject?",
     "question_type": "taxonomic",
     "answer_form": "assertion",
     "entity": {
@@ -512,7 +759,7 @@
   },
   {
     "id": "present_10_answerable",
-    "atomic_input": "Is SENS motion app a SmartphoneApp?",
+    "atomic_input": "Is SENS motion app a type of SmartphoneApp?",
     "question_type": "taxonomic",
     "answer_form": "assertion",
     "entity": {
@@ -554,7 +801,7 @@
   },
   {
     "id": "present_10_unanswerable",
-    "atomic_input": "Is SENS motion app a Sensor?",
+    "atomic_input": "Is SENS motion app a type of Sensor?",
     "question_type": "taxonomic",
     "answer_form": "assertion",
     "entity": {
@@ -594,7 +841,7 @@
   },
   {
     "id": "present_11_answerable",
-    "atomic_input": "Is support.sens.dk a WebApplication?",
+    "atomic_input": "Is support.sens.dk a type of WebApplication?",
     "question_type": "taxonomic",
     "answer_form": "assertion",
     "entity": {
@@ -676,7 +923,7 @@
   },
   {
     "id": "present_12_answerable",
-    "atomic_input": "Is SENS motion activity sensor an ActivityDataSensor?",
+    "atomic_input": "Is SENS motion activity sensor a type of ActivityDataSensor?",
     "question_type": "taxonomic",
     "answer_form": "assertion",
     "entity": {
@@ -718,7 +965,7 @@
   },
   {
     "id": "present_12_unanswerable",
-    "atomic_input": "Is SENS motion activity sensor an ActivityEvent?",
+    "atomic_input": "Is SENS motion activity sensor a type of ActivityEvent?",
     "question_type": "taxonomic",
     "answer_form": "assertion",
     "entity": {
@@ -764,9 +1011,9 @@
     "value": "Battery Lifetime Estimation",
     "type": "individual"
   },
-  "relation": "provide",
+  "relation": "have capability",
   "object": {
-    "value": "what",
+    "value": null,
     "type": "literal"
   },
   "ontology_presence": "present",
@@ -787,8 +1034,8 @@
       "question_type": "capability",
       "answer_form": "value",
       "entity": "Battery Lifetime Estimation",
-      "relation": "provide",
-      "object": "what"
+      "relation": "have capability",
+      "object": null
     },
     "resolve_entity": "Battery Lifetime Estimation",
     "fetch_relevant_info": "present",
@@ -805,9 +1052,9 @@
     "value": "Battery Lifetime Estimation",
     "type": "individual"
   },
-  "relation": "export",
+  "relation": "have capability",
   "object": {
-    "value": "what",
+    "value": null,
     "type": "literal"
   },
   "ontology_presence": "present",
@@ -826,8 +1073,8 @@
       "question_type": "capability",
       "answer_form": "value",
       "entity": "Battery Lifetime Estimation",
-      "relation": "export",
-      "object": "what"
+      "relation": "have capability",
+      "object": null
     },
     "resolve_entity": "Battery Lifetime Estimation",
     "fetch_relevant_info": "present",
@@ -844,9 +1091,9 @@
     "value": "Bulk Actions",
     "type": "individual"
   },
-  "relation": "allow",
+  "relation": "have capability",
   "object": {
-    "value": "what",
+    "value": null,
     "type": "literal"
   },
   "ontology_presence": "present",
@@ -867,8 +1114,8 @@
       "question_type": "capability",
       "answer_form": "value",
       "entity": "Bulk Actions",
-      "relation": "allow",
-      "object": "what"
+      "relation": "have capability",
+      "object": null
     },
     "resolve_entity": "Bulk Actions",
     "fetch_relevant_info": "present",
@@ -885,9 +1132,9 @@
     "value": "Bulk Actions",
     "type": "individual"
   },
-  "relation": "do",
+  "relation": "have capability",
   "object": {
-    "value": "what",
+    "value": null,
     "type": "literal"
   },
   "ontology_presence": "present",
@@ -906,8 +1153,8 @@
       "question_type": "capability",
       "answer_form": "value",
       "entity": "Bulk Actions",
-      "relation": "do",
-      "object": "what"
+      "relation": "have capability",
+      "object": null
     },
     "resolve_entity": "Bulk Actions",
     "fetch_relevant_info": "present",
@@ -924,9 +1171,9 @@
     "value": "Bulk Edit",
     "type": "individual"
   },
-  "relation": "allow",
+  "relation": "have capability",
   "object": {
-    "value": "what",
+    "value": null,
     "type": "literal"
   },
   "ontology_presence": "present",
@@ -947,8 +1194,8 @@
       "question_type": "capability",
       "answer_form": "value",
       "entity": "Bulk Edit",
-      "relation": "allow",
-      "object": "what"
+      "relation": "have capability",
+      "object": null
     },
     "resolve_entity": "Bulk Edit",
     "fetch_relevant_info": "present",
@@ -965,9 +1212,9 @@
     "value": "Bulk Edit",
     "type": "individual"
   },
-  "relation": "allow",
+  "relation": "have capability",
   "object": {
-    "value": "what",
+    "value": null,
     "type": "literal"
   },
   "ontology_presence": "present",
@@ -987,8 +1234,8 @@
       "question_type": "capability",
       "answer_form": "value",
       "entity": "Bulk Edit",
-      "relation": "allow",
-      "object": "what"
+      "relation": "have capability",
+      "object": null
     },
     "resolve_entity": "Bulk Edit",
     "fetch_relevant_info": "present",
@@ -1005,9 +1252,9 @@
     "value": "File Export Workflow",
     "type": "individual"
   },
-  "relation": "streamline",
+  "relation": "have capability",
   "object": {
-    "value": "what",
+    "value": "streamline",
     "type": "literal"
   },
   "ontology_presence": "present",
@@ -1028,8 +1275,8 @@
       "question_type": "capability",
       "answer_form": "assertion",
       "entity": "File Export Workflow",
-      "relation": "streamline",
-      "object": "what"
+      "relation": "have capability",
+      "object": "streamline"
     },
     "resolve_entity": "File Export Workflow",
     "fetch_relevant_info": "present",
@@ -1046,9 +1293,9 @@
     "value": "File Export Workflow",
     "type": "individual"
   },
-  "relation": "encrypt",
+  "relation": "have capability",
   "object": {
-    "value": "what",
+    "value": "encrypt",
     "type": "literal"
   },
   "ontology_presence": "present",
@@ -1067,16 +1314,15 @@
       "question_type": "capability",
       "answer_form": "assertion",
       "entity": "File Export Workflow",
-      "relation": "encrypt",
-      "object": "what"
+      "relation": "have capability",
+      "object": "encrypt"
     },
     "resolve_entity": "File Export Workflow",
     "fetch_relevant_info": "present",
     "generate_answer": "no",
     "map_answer_to_context": "grounded"
   }
-}
-,
+},
 {
   "id": "present_cap_05_answerable",
   "atomic_input": "Is Participant Table Enhancements able to expand rows?",
@@ -1086,9 +1332,9 @@
     "value": "Participant Table Enhancements",
     "type": "individual"
   },
-  "relation": "enable",
+  "relation": "have capability",
   "object": {
-    "value": "what",
+    "value": "expand rows",
     "type": "literal"
   },
   "ontology_presence": "present",
@@ -1109,8 +1355,8 @@
       "question_type": "capability",
       "answer_form": "assertion",
       "entity": "Participant Table Enhancements",
-      "relation": "enable",
-      "object": "what"
+      "relation": "have capability",
+      "object": "expand rows"
     },
     "resolve_entity": "Participant Table Enhancements",
     "fetch_relevant_info": "present",
@@ -1127,9 +1373,9 @@
     "value": "Participant Table Enhancements",
     "type": "individual"
   },
-  "relation": "compress",
+  "relation": "have capability",
   "object": {
-    "value": "what",
+    "value": "compress rows",
     "type": "literal"
   },
   "ontology_presence": "present",
@@ -1148,16 +1394,15 @@
       "question_type": "capability",
       "answer_form": "assertion",
       "entity": "Participant Table Enhancements",
-      "relation": "compress",
-      "object": "what"
+      "relation": "have capability",
+      "object": "compress rows"
     },
     "resolve_entity": "Participant Table Enhancements",
     "fetch_relevant_info": "present",
     "generate_answer": "no",
     "map_answer_to_context": "grounded"
   }
-}
-,
+},
 {
   "id": "present_cap_06_answerable",
   "atomic_input": "Does Project Management Improvements include project creation?",
@@ -1167,7 +1412,7 @@
     "value": "Project Management Improvements",
     "type": "individual"
   },
-  "relation": "include",
+  "relation": "have capability",
   "object": {
     "value": "project creation",
     "type": "literal"
@@ -1190,7 +1435,7 @@
       "question_type": "capability",
       "answer_form": "assertion",
       "entity": "Project Management Improvements",
-      "relation": "include",
+      "relation": "have capability",
       "object": "project creation"
     },
     "resolve_entity": "Project Management Improvements",
@@ -1208,9 +1453,9 @@
     "value": "Project Management Improvements",
     "type": "individual"
   },
-  "relation": "authenticate",
+  "relation": "have capability",
   "object": {
-    "value": "what",
+    "value": "authenticate users",
     "type": "literal"
   },
   "ontology_presence": "present",
@@ -1229,8 +1474,8 @@
       "question_type": "capability",
       "answer_form": "assertion",
       "entity": "Project Management Improvements",
-      "relation": "authenticate",
-      "object": "what"
+      "relation": "have capability",
+      "object": "authenticate users"
     },
     "resolve_entity": "Project Management Improvements",
     "fetch_relevant_info": "present",
@@ -1240,16 +1485,16 @@
 },
 {
   "id": "present_prop_01_answerable",
-  "atomic_input": "What values does the study Allan Linneberg have for the property hasParticipant?",
+  "atomic_input": "What values does Allan Linneberg have for the property hasParticipant?",
   "question_type": "property",
   "answer_form": "list",
   "entity": {
     "value": "Allan Linneberg",
     "type": "individual"
   },
-  "relation": "hasParticipant",
+  "relation": "have property",
   "object": {
-    "value": "what",
+    "value": null,
     "type": "literal"
   },
   "ontology_presence": "present",
@@ -1267,8 +1512,8 @@
       "question_type": "property",
       "answer_form": "list",
       "entity": "Allan Linneberg",
-      "relation": "hasParticipant",
-      "object": "what"
+      "relation": "have property",
+      "object": null
     },
     "resolve_entity": "Allan Linneberg",
     "fetch_relevant_info": "present",
@@ -1278,16 +1523,16 @@
 },
 {
   "id": "present_prop_01_unanswerable",
-  "atomic_input": "What values does the study Allan Linneberg have for the property hasOutcome?",
+  "atomic_input": "What values does Allan Linneberg have for the property hasOutcome?",
   "question_type": "property",
   "answer_form": "list",
   "entity": {
     "value": "Allan Linneberg",
     "type": "individual"
   },
-  "relation": "hasOutcome",
+  "relation": "have property",
   "object": {
-    "value": "what",
+    "value": null,
     "type": "literal"
   },
   "ontology_presence": "present",
@@ -1303,8 +1548,8 @@
       "question_type": "property",
       "answer_form": "list",
       "entity": "Allan Linneberg",
-      "relation": "hasOutcome",
-      "object": "what"
+      "relation": "have property",
+      "object": null
     },
     "resolve_entity": "Allan Linneberg",
     "fetch_relevant_info": "present",
@@ -1314,16 +1559,16 @@
 },
 {
   "id": "present_prop_02_answerable",
-  "atomic_input": "What values does the outcomes of Bispebjerg Hospital have?",
+  "atomic_input": "What values does Bispebjerg Hospital have for the property hasOutcome?",
   "question_type": "property",
   "answer_form": "list",
   "entity": {
     "value": "Bispebjerg Hospital",
     "type": "individual"
   },
-  "relation": "hasOutcome",
+  "relation": "have property",
   "object": {
-    "value": "what",
+    "value": null,
     "type": "literal"
   },
   "ontology_presence": "present",
@@ -1341,8 +1586,8 @@
       "question_type": "property",
       "answer_form": "list",
       "entity": "Bispebjerg Hospital",
-      "relation": "hasOutcome",
-      "object": "what"
+      "relation": "have property",
+      "object": null
     },
     "resolve_entity": "Bispebjerg Hospital",
     "fetch_relevant_info": "present",
@@ -1352,16 +1597,16 @@
 },
 {
   "id": "present_prop_02_unanswerable",
-  "atomic_input": "What values does the participants of Bispebjerg Hospital have?",
+  "atomic_input": "What values does Bispebjerg Hospital have for the participant property?",
   "question_type": "property",
   "answer_form": "list",
   "entity": {
     "value": "Bispebjerg Hospital",
     "type": "individual"
   },
-  "relation": "hasParticipant",
+  "relation": "have property",
   "object": {
-    "value": "what",
+    "value": null,
     "type": "literal"
   },
   "ontology_presence": "present",
@@ -1377,8 +1622,8 @@
       "question_type": "property",
       "answer_form": "list",
       "entity": "Bispebjerg Hospital",
-      "relation": "hasParticipant",
-      "object": "what"
+      "relation": "have property",
+      "object": null
     },
     "resolve_entity": "Bispebjerg Hospital",
     "fetch_relevant_info": "present",
@@ -1388,16 +1633,16 @@
 },
 {
   "id": "present_prop_03_answerable",
-  "atomic_input": "What values does the study Anja Lykke Madsen have for the property hasParticipant?",
+  "atomic_input": "Does Anja Lykke Madsen have a hasParticipant property?",
   "question_type": "property",
-  "answer_form": "list",
+  "answer_form": "assertion",
   "entity": {
     "value": "Anja Lykke Madsen",
     "type": "individual"
   },
-  "relation": "hasParticipant",
+  "relation": "have property",
   "object": {
-    "value": "what",
+    "value": "hasParticipant",
     "type": "literal"
   },
   "ontology_presence": "present",
@@ -1413,10 +1658,10 @@
   "stage_labels": {
     "input_to_graph": {
       "question_type": "property",
-      "answer_form": "list",
+      "answer_form": "assertion",
       "entity": "Anja Lykke Madsen",
-      "relation": "hasParticipant",
-      "object": "what"
+      "relation": "have property",
+      "object": "hasParticipant"
     },
     "resolve_entity": "Anja Lykke Madsen",
     "fetch_relevant_info": "present",
@@ -1426,16 +1671,16 @@
 },
 {
   "id": "present_prop_03_unanswerable",
-  "atomic_input": "What is the value of the outcome of the study Anja Lykke Madsen?",
+  "atomic_input": "Does Anja Lykke Madsen have an Outcome property?",
   "question_type": "property",
-  "answer_form": "list",
+  "answer_form": "assertion",
   "entity": {
     "value": "Anja Lykke Madsen",
     "type": "individual"
   },
-  "relation": "hasOutcome",
+  "relation": "have property",
   "object": {
-    "value": "what",
+    "value": "Outcome",
     "type": "literal"
   },
   "ontology_presence": "present",
@@ -1449,10 +1694,10 @@
   "stage_labels": {
     "input_to_graph": {
       "question_type": "property",
-      "answer_form": "list",
+      "answer_form": "assertion",
       "entity": "Anja Lykke Madsen",
-      "relation": "hasOutcome",
-      "object": "what"
+      "relation": "have property",
+      "object": "Outcome"
     },
     "resolve_entity": "Anja Lykke Madsen",
     "fetch_relevant_info": "present",
@@ -1462,16 +1707,16 @@
 },
 {
   "id": "present_prop_04_answerable",
-  "atomic_input": "What location does Bispebjerg Hospital have?",
+  "atomic_input": "Does Bispebjerg Hospital have a location property?",
   "question_type": "property",
-  "answer_form": "value",
+  "answer_form": "assertion",
   "entity": {
     "value": "Bispebjerg Hospital",
     "type": "individual"
   },
-  "relation": "hasLocation",
+  "relation": "have property",
   "object": {
-    "value": "what",
+    "value": "location",
     "type": "literal"
   },
   "ontology_presence": "present",
@@ -1487,10 +1732,10 @@
   "stage_labels": {
     "input_to_graph": {
       "question_type": "property",
-      "answer_form": "value",
+      "answer_form": "assertion",
       "entity": "Bispebjerg Hospital",
-      "relation": "hasLocation",
-      "object": "what"
+      "relation": "have property",
+      "object": "location"
     },
     "resolve_entity": "Bispebjerg Hospital",
     "fetch_relevant_info": "present",
@@ -1500,16 +1745,16 @@
 },
 {
   "id": "present_prop_04_unanswerable",
-  "atomic_input": "What DOI does Bispebjerg Hospital have?",
+  "atomic_input": "Does Bispebjerg Hospital have a DOI property?",
   "question_type": "property",
-  "answer_form": "value",
+  "answer_form": "assertion",
   "entity": {
     "value": "Bispebjerg Hospital",
     "type": "individual"
   },
-  "relation": "hasDOI",
+  "relation": "have property",
   "object": {
-    "value": "what",
+    "value": "DOI",
     "type": "literal"
   },
   "ontology_presence": "present",
@@ -1523,10 +1768,10 @@
   "stage_labels": {
     "input_to_graph": {
       "question_type": "property",
-      "answer_form": "value",
+      "answer_form": "assertion",
       "entity": "Bispebjerg Hospital",
-      "relation": "hasDOI",
-      "object": "what"
+      "relation": "have property",
+      "object": "DOI"
     },
     "resolve_entity": "Bispebjerg Hospital",
     "fetch_relevant_info": "present",
@@ -1536,16 +1781,16 @@
 },
 {
   "id": "present_prop_05_answerable",
-  "atomic_input": "What role does Amin Rezaei have?",
+  "atomic_input": "What is Amin Rezaeis' role?",
   "question_type": "property",
   "answer_form": "value",
   "entity": {
     "value": "Amin Rezaei",
     "type": "individual"
   },
-  "relation": "hasRole",
+  "relation": "have property",
   "object": {
-    "value": "what",
+    "value": "role",
     "type": "literal"
   },
   "ontology_presence": "present",
@@ -1574,16 +1819,16 @@
 },
 {
   "id": "present_prop_05_unanswerable",
-  "atomic_input": "What is the email of Amin Rezaei?",
+  "atomic_input": "What is Amin Rezaeis' email?",
   "question_type": "property",
   "answer_form": "value",
   "entity": {
     "value": "Amin Rezaei",
     "type": "individual"
   },
-  "relation": "hasEmail",
+  "relation": "have property",
   "object": {
-    "value": "what",
+    "value": "email",
     "type": "literal"
   },
   "ontology_presence": "present",
@@ -1599,8 +1844,8 @@
       "question_type": "property",
       "answer_form": "value",
       "entity": "Amin Rezaei",
-      "relation": "hasEmail",
-      "object": "what"
+      "relation": "have property",
+      "object": "email"
     },
     "resolve_entity": "Amin Rezaei",
     "fetch_relevant_info": "present",
@@ -1617,9 +1862,9 @@
     "value": "Bispebjerg Hospital",
     "type": "individual"
   },
-  "relation": "hasIntervention",
+  "relation": "have property",
   "object": {
-    "value": "what",
+    "value": null,
     "type": "literal"
   },
   "ontology_presence": "present",
@@ -1637,8 +1882,8 @@
       "question_type": "property",
       "answer_form": "value",
       "entity": "Bispebjerg Hospital",
-      "relation": "hasIntervention",
-      "object": "what"
+      "relation": "have property",
+      "object": null
     },
     "resolve_entity": "Bispebjerg Hospital",
     "fetch_relevant_info": "present",
@@ -1655,9 +1900,9 @@
     "value": "Bispebjerg Hospital",
     "type": "individual"
   },
-  "relation": "hasDOI",
+  "relation": "have property",
   "object": {
-    "value": "what",
+    "value": "DOI",
     "type": "literal"
   },
   "ontology_presence": "present",
@@ -1673,8 +1918,8 @@
       "question_type": "property",
       "answer_form": "value",
       "entity": "Bispebjerg Hospital",
-      "relation": "hasDOI",
-      "object": "what"
+      "relation": "have property",
+      "object": "DOI"
     },
     "resolve_entity": "Bispebjerg Hospital",
     "fetch_relevant_info": "present",
@@ -1684,17 +1929,17 @@
 },
 {
   "id": "present_mem_01_answerable",
-  "atomic_input": "Who are the members of the class TeamMember?",
+  "atomic_input": "Who are the members of TeamMember?",
   "question_type": "membership",
   "answer_form": "list",
   "entity": {
     "value": "TeamMember",
     "type": "class"
   },
-  "relation": "has member",
+  "relation": "have member",
   "object": {
-    "value": "null",
-    "type": "null"
+    "value": null,
+    "type": null
   },
   "ontology_presence": "present",
   "gold_mapped_answer": {
@@ -1726,8 +1971,8 @@
       "question_type": "membership",
       "answer_form": "list",
       "entity": "TeamMember",
-      "relation": "has member",
-      "object": "null"
+      "relation": "have member",
+      "object": null
     },
     "resolve_entity": "TeamMember",
     "fetch_relevant_info": "present",
@@ -1737,17 +1982,17 @@
 },
 {
   "id": "present_mem_01_unanswerable",
-  "atomic_input": "Which individuals belong to the class Logo?",
+  "atomic_input": "Who are the members of Logo?",
   "question_type": "membership",
   "answer_form": "list",
   "entity": {
     "value": "Logo",
     "type": "class"
   },
-  "relation": "has member",
+  "relation": "have member",
   "object": {
-    "value": "null",
-    "type": "null"
+    "value": null,
+    "type": null
   },
   "ontology_presence": "present",
   "gold_mapped_answer": {
@@ -1762,8 +2007,8 @@
       "question_type": "membership",
       "answer_form": "list",
       "entity": "Logo",
-      "relation": "has member",
-      "object": "null"
+      "relation": "have member",
+      "object": null
     },
     "resolve_entity": "Logo",
     "fetch_relevant_info": "present",
@@ -1773,17 +2018,17 @@
 },
 {
   "id": "present_mem_02_answerable",
-  "atomic_input": "Which individuals are members of the class Study?",
+  "atomic_input": "Who are members of Study?",
   "question_type": "membership",
   "answer_form": "list",
   "entity": {
     "value": "Study",
     "type": "class"
   },
-  "relation": "has member",
+  "relation": "have member",
   "object": {
-    "value": "null",
-    "type": "null"
+    "value": null,
+    "type": null
   },
   "ontology_presence": "present",
   "gold_mapped_answer": {
@@ -1827,8 +2072,8 @@
       "question_type": "membership",
       "answer_form": "list",
       "entity": "Study",
-      "relation": "has member",
-      "object": "null"
+      "relation": "have member",
+      "object": null
     },
     "resolve_entity": "Study",
     "fetch_relevant_info": "present",
@@ -1838,17 +2083,17 @@
 },
 {
   "id": "present_mem_02_unanswerable",
-  "atomic_input": "Which individuals are members of the class FileSize?",
+  "atomic_input": "Who are members of FileSize?",
   "question_type": "membership",
   "answer_form": "list",
   "entity": {
     "value": "FileSize",
     "type": "class"
   },
-  "relation": "has member",
+  "relation": "have member",
   "object": {
-    "value": "null",
-    "type": "null"
+    "value": null,
+    "type": null
   },
   "ontology_presence": "present",
   "gold_mapped_answer": {
@@ -1863,7 +2108,7 @@
       "question_type": "membership",
       "answer_form": "list",
       "entity": "FileSize",
-      "relation": "has member",
+      "relation": "have member",
       "object": "what"
     },
     "resolve_entity": "FileSize",
@@ -1881,10 +2126,10 @@
     "value": "MobileApplication",
     "type": "class"
   },
-  "relation": "has member",
+  "relation": "have member",
   "object": {
-    "value": "null",
-    "type": "null"
+    "value": null,
+    "type": null
   },
   "ontology_presence": "present",
   "gold_mapped_answer": {
@@ -1907,8 +2152,8 @@
       "question_type": "membership",
       "answer_form": "list",
       "entity": "MobileApplication",
-      "relation": "has member",
-      "object": "null"
+      "relation": "have member",
+      "object": null
     },
     "resolve_entity": "MobileApplication",
     "fetch_relevant_info": "present",
@@ -1925,10 +2170,10 @@
     "value": "DataCollectionTool",
     "type": "class"
   },
-  "relation": "has member",
+  "relation": "have member",
   "object": {
-    "value": "null",
-    "type": "null"
+    "value": null,
+    "type": null
   },
   "ontology_presence": "present",
   "gold_mapped_answer": {
@@ -1943,8 +2188,8 @@
       "question_type": "membership",
       "answer_form": "list",
       "entity": "DataCollectionTool",
-      "relation": "has member",
-      "object": "null"
+      "relation": "have member",
+      "object": null
     },
     "resolve_entity": "DataCollectionTool",
     "fetch_relevant_info": "present",
@@ -1954,17 +2199,17 @@
 },
 {
   "id": "present_mem_04_answerable",
-  "atomic_input": "Who are the members of the class ActivityCategory?",
+  "atomic_input": "Who are members of ActivityCategory?",
   "question_type": "membership",
   "answer_form": "list",
   "entity": {
     "value": "ActivityCategory",
     "type": "class"
   },
-  "relation": "has member",
+  "relation": "have member",
   "object": {
-    "value": "null",
-    "type": "null"
+    "value": null,
+    "type": null
   },
   "ontology_presence": "present",
   "gold_mapped_answer": {
@@ -1992,8 +2237,8 @@
       "question_type": "membership",
       "answer_form": "list",
       "entity": "ActivityCategory",
-      "relation": "has member",
-      "object": "null"
+      "relation": "have member",
+      "object": null
     },
     "resolve_entity": "ActivityCategory",
     "fetch_relevant_info": "present",
@@ -2003,17 +2248,17 @@
 },
 {
   "id": "present_mem_04_unanswerable",
-  "atomic_input": "Who are the members of the class Cohort?",
+  "atomic_input": "Who are members of Cohort?",
   "question_type": "membership",
   "answer_form": "list",
   "entity": {
     "value": "Cohort",
     "type": "class"
   },
-  "relation": "has member",
+  "relation": "have member",
   "object": {
-    "value": "null",
-    "type": "null"
+    "value": null,
+    "type": null
   },
   "ontology_presence": "present",
   "gold_mapped_answer": {
@@ -2033,8 +2278,8 @@
       "question_type": "membership",
       "answer_form": "list",
       "entity": "Cohort",
-      "relation": "has member",
-      "object": "null"
+      "relation": "have member",
+      "object": null
     },
     "resolve_entity": "Cohort",
     "fetch_relevant_info": "present",
@@ -2044,17 +2289,17 @@
 },
 {
   "id": "present_mem_05_answerable",
-  "atomic_input": "Who are the members of HealthcareProfessional?",
+  "atomic_input": "Who are members of HealthcareProfessional?",
   "question_type": "membership",
   "answer_form": "list",
   "entity": {
     "value": "HealthcareProfessional",
     "type": "class"
   },
-  "relation": "has member",
+  "relation": "have member",
   "object": {
-    "value": "null",
-    "type": "null"
+    "value": null,
+    "type": null
   },
   "ontology_presence": "present",
   "gold_mapped_answer": {
@@ -2081,7 +2326,7 @@
       "question_type": "membership",
       "answer_form": "list",
       "entity": "HealthcareProfessional",
-      "relation": "has member",
+      "relation": "have member",
       "object": "what"
     },
     "resolve_entity": "HealthcareProfessional",
@@ -2092,17 +2337,17 @@
 },
 {
   "id": "present_mem_05_unanswerable",
-  "atomic_input": "Who are the members of the class Patch?",
+  "atomic_input": "Who are members of Patch?",
   "question_type": "membership",
   "answer_form": "list",
   "entity": {
     "value": "Patch",
     "type": "class"
   },
-  "relation": "has member",
+  "relation": "have member",
   "object": {
-    "value": "null",
-    "type": "null"
+    "value": null,
+    "type": null
   },
   "ontology_presence": "present",
   "gold_mapped_answer": {
@@ -2122,7 +2367,7 @@
       "question_type": "membership",
       "answer_form": "list",
       "entity": "Patch",
-      "relation": "has member",
+      "relation": "have member",
       "object": "what"
     },
     "resolve_entity": "Patch",
@@ -2133,17 +2378,17 @@
 },
 {
   "id": "present_mem_06_answerable",
-  "atomic_input": "Who are the members of the class MovementIntensityCategory?",
+  "atomic_input": "Who are members of MovementIntensityCategory?",
   "question_type": "membership",
   "answer_form": "list",
   "entity": {
     "value": "MovementIntensityCategory",
     "type": "class"
   },
-  "relation": "has member",
+  "relation": "have member",
   "object": {
-    "value": "null",
-    "type": "null"
+    "value": null,
+    "type": null
   },
   "ontology_presence": "present",
   "gold_mapped_answer": {
@@ -2165,7 +2410,7 @@
       "question_type": "membership",
       "answer_form": "list",
       "entity": "MovementIntensityCategory",
-      "relation": "has member",
+      "relation": "have member",
       "object": "what"
     },
     "resolve_entity": "MovementIntensityCategory",
@@ -2176,17 +2421,17 @@
 },
 {
   "id": "present_mem_06_unanswerable",
-  "atomic_input": "Who are the members of the class Algorithm?",
+  "atomic_input": "Who are members of Algorithm?",
   "question_type": "membership",
   "answer_form": "list",
   "entity": {
     "value": "Algorithm",
     "type": "class"
   },
-  "relation": "has member",
+  "relation": "have member",
   "object": {
-    "value": "null",
-    "type": "null"
+    "value": null,
+    "type": null
   },
   "ontology_presence": "present",
   "gold_mapped_answer": {
@@ -2206,8 +2451,8 @@
       "question_type": "membership",
       "answer_form": "list",
       "entity": "Algorithm",
-      "relation": "has member",
-      "object": "null"
+      "relation": "have member",
+      "object": null
     },
     "resolve_entity": "Algorithm",
     "fetch_relevant_info": "present",
@@ -2217,7 +2462,7 @@
 },
 {
   "id": "present_cmp_01_answerable",
-  "atomic_input": "Between Bulk Actions and Bulk Edit, What is the difference in chunk_id?",
+  "atomic_input": "What is the difference in chunk_id value between Bulk Actions and Bulk Edit?",
   "question_type": "comparative",
   "answer_form": "value",
   "entity": { "value": "Bulk Actions", "type": "individual" },
@@ -2244,6 +2489,36 @@
     "resolve_entity": "Bulk Actions",
     "fetch_relevant_info": "present",
     "generate_answer": "yes",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_cmp_01_unanswerable",
+  "atomic_input": "What is the difference in chunk_id value between Bulk Actions and Logo?",
+  "question_type": "comparative",
+  "answer_form": "value",
+  "entity": { "value": "Bulk Actions", "type": "individual" },
+  "relation": "compare",
+  "object": { "value": "Logo", "type": "class" },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+    },
+    "object_side": {
+    }
+  },
+  "expected_decision": "abstain",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "compare",
+      "answer_form": "value",
+      "entity": "Bulk Actions",
+      "relation": "compare",
+      "object": "Logo"
+    },
+    "resolve_entity": "Bulk Actions",
+    "fetch_relevant_info": "present",
+    "generate_answer": "no",
     "map_answer_to_context": "grounded"
   }
 },
@@ -2280,28 +2555,59 @@
   }
 },
 {
+  "id": "present_cmp_02_unanswerable",
+  "atomic_input": "How much larger is the chunk_id of Resting compared to Patch?",
+  "question_type": "comparative",
+  "answer_form": "value",
+  "entity": { "value": "Resting", "type": "individual" },
+  "relation": "compare",
+  "object": { "value": "Patch", "type": "class" },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+    },
+    "object_side": {
+    }
+  },
+  "expected_decision": "abstain",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "compare",
+      "answer_form": "value",
+      "entity": "Resting",
+      "relation": "has chunk_id difference",
+      "object": "Patch"
+    },
+    "resolve_entity": "Resting",
+    "fetch_relevant_info": "present",
+    "generate_answer": "no",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
   "id": "present_cmp_03_answerable",
-  "atomic_input": "What is the chunk_id difference between DEMOS-10 and DEMOS-25?",
-  "question_type": "compare",
+  "atomic_input": "How much larger is the chunk_id of DEMOS-10 compared to DEMOS-25?",
+  "question_type": "comparative",
   "answer_form": "value",
   "entity": { "value": "DEMOS-10", "type": "individual" },
-  "relation": "has chunk_id difference",
+  "relation": "compare",
   "object": { "value": "DEMOS-25", "type": "individual" },
   "ontology_presence": "present",
   "gold_mapped_answer": {
-    "value_side": {
-      "entity_chunk_id": 13,
-      "object_chunk_id": 13,
-      "difference": 0
+    "entity_side": {
+      "chunk_id": [13]
+    },
+    "object_side": {
+      "chunk_id": [13]
     }
   },
   "expected_decision": "answer",
   "stage_labels": {
     "input_to_graph": {
-      "question_type": "compare",
+      "question_type": "comparative",
       "answer_form": "value",
       "entity": "DEMOS-10",
-      "relation": "has chunk_id difference",
+      "relation": "compare",
       "object": "DEMOS-25"
     },
     "resolve_entity": "DEMOS-10",
@@ -2311,19 +2617,51 @@
   }
 },
 {
+  "id": "present_cmp_03_unanswerable",
+  "atomic_input": "How much larger is the chunk_id of DEMOS-10 compared to FileSize?",
+  "question_type": "comparative",
+  "answer_form": "value",
+  "entity": { "value": "DEMOS-10", "type": "individual" },
+  "relation": "compare",
+  "object": { "value": "FileSize", "type": "class" },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "chunk_id": [13]
+    },
+    "object_side": {
+    }
+  },
+  "expected_decision": "abstain",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "comparative",
+      "answer_form": "value",
+      "entity": "DEMOS-10",
+      "relation": "compare",
+      "object": "FileSize"
+    },
+    "resolve_entity": "DEMOS-10",
+    "fetch_relevant_info": "present",
+    "generate_answer": "no",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
   "id": "present_cmp_04_answerable",
-  "atomic_input": "Is the chunk_id of Bulk Actions greater than that of Bulk Edit?",
-  "question_type": "compare",
+  "atomic_input": "Is it true that the chunk_id of Bulk Actions is greater than the chunk_id of Bulk Edit?",
+  "question_type": "comparative",
   "answer_form": "assertion",
   "entity": { "value": "Bulk Actions", "type": "individual" },
-  "relation": "chunk_id greater than",
+  "relation": "compare",
   "object": { "value": "Bulk Edit", "type": "individual" },
   "ontology_presence": "present",
   "gold_mapped_answer": {
-    "assertion_side": {
-      "entity_chunk_id": 56,
-      "object_chunk_id": 56,
-      "result": false
+    "entity_side": {
+      "chunk_id": [56]
+    },
+    "object_side": {
+      "chunk_id": [56]
     }
   },
   "expected_decision": "answer",
@@ -2332,7 +2670,7 @@
       "question_type": "compare",
       "answer_form": "assertion",
       "entity": "Bulk Actions",
-      "relation": "chunk_id greater than",
+      "relation": "compare",
       "object": "Bulk Edit"
     },
     "resolve_entity": "Bulk Actions",
@@ -2342,19 +2680,51 @@
   }
 },
 {
+  "id": "present_cmp_04_unanswerable",
+  "atomic_input": "Is it true that the chunk_id of Bulk Actions is greater than the chunk_id of Logo?",
+  "question_type": "comparative",
+  "answer_form": "assertion",
+  "entity": { "value": "Bulk Actions", "type": "individual" },
+  "relation": "compare",
+  "object": { "value": "Logo", "type": "class" },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "chunk_id": [56]
+    },
+    "object_side": {
+    }
+  },
+  "expected_decision": "abstain",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "compare",
+      "answer_form": "assertion",
+      "entity": "Bulk Actions",
+      "relation": "compare",
+      "object": "Logo"
+    },
+    "resolve_entity": "Bulk Actions",
+    "fetch_relevant_info": "present",
+    "generate_answer": "no",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
   "id": "present_cmp_05_answerable",
-  "atomic_input": "Is the chunk_id of Resting smaller than that of High intensity activities?",
-  "question_type": "compare",
+  "atomic_input": "Does Resting have a smaller chunk_id than High intensity activities?",
+  "question_type": "comparative",
   "answer_form": "assertion",
   "entity": { "value": "Resting", "type": "individual" },
-  "relation": "chunk_id smaller than",
+  "relation": "compare",
   "object": { "value": "High intensity activities", "type": "individual" },
   "ontology_presence": "present",
   "gold_mapped_answer": {
-    "assertion_side": {
-      "entity_chunk_id": 47,
-      "object_chunk_id": 48,
-      "result": true
+    "entity_side": {
+      "chunk_id": [47]
+    },
+    "object_side": {
+      "chunk_id": [48]
     }
   },
   "expected_decision": "answer",
@@ -2363,7 +2733,7 @@
       "question_type": "compare",
       "answer_form": "assertion",
       "entity": "Resting",
-      "relation": "chunk_id smaller than",
+      "relation": "compare",
       "object": "High intensity activities"
     },
     "resolve_entity": "Resting",
@@ -2373,19 +2743,51 @@
   }
 },
 {
+  "id": "present_cmp_05_unanswerable",
+  "atomic_input": "Does Resting have a smaller chunk_id than Patch?",
+  "question_type": "comparative",
+  "answer_form": "assertion",
+  "entity": { "value": "Resting", "type": "individual" },
+  "relation": "compare",
+  "object": { "value": "Patch", "type": "class" },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "chunk_id": [47]
+    },
+    "object_side": {
+    }
+  },
+  "expected_decision": "abstain",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "comparative",
+      "answer_form": "assertion",
+      "entity": "Resting",
+      "relation": "compare",
+      "object": "Patch"
+    },
+    "resolve_entity": "Resting",
+    "fetch_relevant_info": "present",
+    "generate_answer": "no",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
   "id": "present_cmp_06_answerable",
-  "atomic_input": "Does DEMOS-10 have a higher chunk_id than DEMOS-25?",
-  "question_type": "compare",
+  "atomic_input": "Does 'DEMOS-10' have a higher chunk_id than 'DEMOS-25'?",
+  "question_type": "comparative",
   "answer_form": "assertion",
   "entity": { "value": "DEMOS-10", "type": "individual" },
-  "relation": "chunk_id greater than",
+  "relation": "compare",
   "object": { "value": "DEMOS-25", "type": "individual" },
   "ontology_presence": "present",
   "gold_mapped_answer": {
-    "assertion_side": {
-      "entity_chunk_id": 13,
-      "object_chunk_id": 13,
-      "result": false
+    "entity_side": {
+      "chunk_id": [13]
+    },
+    "object_side": {
+      "chunk_id": [13]
     }
   },
   "expected_decision": "answer",
@@ -2404,184 +2806,29 @@
   }
 },
 {
-  "id": "present_cmp_01_unanswerable",
-  "atomic_input": "What is the difference in chunk_id between Bulk Actions and Logo?",
-  "question_type": "compare",
-  "answer_form": "value",
-  "entity": { "value": "Bulk Actions", "type": "individual" },
-  "relation": "has chunk_id difference",
-  "object": { "value": "Logo", "type": "class" },
-  "ontology_presence": "present",
-  "gold_mapped_answer": {
-    "value_side": {
-      "entity_chunk_id": 56,
-      "object_chunk_id": null,
-      "difference": null
-    }
-  },
-  "expected_decision": "abstain",
-  "stage_labels": {
-    "input_to_graph": {
-      "question_type": "compare",
-      "answer_form": "value",
-      "entity": "Bulk Actions",
-      "relation": "has chunk_id difference",
-      "object": "Logo"
-    },
-    "resolve_entity": "Bulk Actions",
-    "fetch_relevant_info": "present",
-    "generate_answer": "no",
-    "map_answer_to_context": "grounded"
-  }
-},
-{
-  "id": "present_cmp_02_unanswerable",
-  "atomic_input": "How much larger is the chunk_id of Resting compared to Patch?",
-  "question_type": "compare",
-  "answer_form": "value",
-  "entity": { "value": "Resting", "type": "individual" },
-  "relation": "has chunk_id difference",
-  "object": { "value": "Patch", "type": "class" },
-  "ontology_presence": "present",
-  "gold_mapped_answer": {
-    "value_side": {
-      "entity_chunk_id": 47,
-      "object_chunk_id": null,
-      "difference": null
-    }
-  },
-  "expected_decision": "abstain",
-  "stage_labels": {
-    "input_to_graph": {
-      "question_type": "compare",
-      "answer_form": "value",
-      "entity": "Resting",
-      "relation": "has chunk_id difference",
-      "object": "Patch"
-    },
-    "resolve_entity": "Resting",
-    "fetch_relevant_info": "present",
-    "generate_answer": "no",
-    "map_answer_to_context": "grounded"
-  }
-},
-{
-  "id": "present_cmp_03_unanswerable",
-  "atomic_input": "What is the chunk_id difference between DEMOS-10 and FileSize?",
-  "question_type": "compare",
-  "answer_form": "value",
-  "entity": { "value": "DEMOS-10", "type": "individual" },
-  "relation": "has chunk_id difference",
-  "object": { "value": "FileSize", "type": "class" },
-  "ontology_presence": "present",
-  "gold_mapped_answer": {
-    "value_side": {
-      "entity_chunk_id": 13,
-      "object_chunk_id": null,
-      "difference": null
-    }
-  },
-  "expected_decision": "abstain",
-  "stage_labels": {
-    "input_to_graph": {
-      "question_type": "compare",
-      "answer_form": "value",
-      "entity": "DEMOS-10",
-      "relation": "has chunk_id difference",
-      "object": "FileSize"
-    },
-    "resolve_entity": "DEMOS-10",
-    "fetch_relevant_info": "present",
-    "generate_answer": "no",
-    "map_answer_to_context": "grounded"
-  }
-},
-{
-  "id": "present_cmp_04_unanswerable",
-  "atomic_input": "Is the chunk_id of Bulk Actions greater than that of Logo?",
-  "question_type": "compare",
-  "answer_form": "assertion",
-  "entity": { "value": "Bulk Actions", "type": "individual" },
-  "relation": "chunk_id greater than",
-  "object": { "value": "Logo", "type": "class" },
-  "ontology_presence": "present",
-  "gold_mapped_answer": {
-    "assertion_side": {
-      "entity_chunk_id": 56,
-      "object_chunk_id": null,
-      "result": null
-    }
-  },
-  "expected_decision": "abstain",
-  "stage_labels": {
-    "input_to_graph": {
-      "question_type": "compare",
-      "answer_form": "assertion",
-      "entity": "Bulk Actions",
-      "relation": "chunk_id greater than",
-      "object": "Logo"
-    },
-    "resolve_entity": "Bulk Actions",
-    "fetch_relevant_info": "present",
-    "generate_answer": "no",
-    "map_answer_to_context": "grounded"
-  }
-},
-{
-  "id": "present_cmp_05_unanswerable",
-  "atomic_input": "Is the chunk_id of Resting smaller than that of Patch?",
-  "question_type": "compare",
-  "answer_form": "assertion",
-  "entity": { "value": "Resting", "type": "individual" },
-  "relation": "chunk_id smaller than",
-  "object": { "value": "Patch", "type": "class" },
-  "ontology_presence": "present",
-  "gold_mapped_answer": {
-    "assertion_side": {
-      "entity_chunk_id": 47,
-      "object_chunk_id": null,
-      "result": null
-    }
-  },
-  "expected_decision": "abstain",
-  "stage_labels": {
-    "input_to_graph": {
-      "question_type": "compare",
-      "answer_form": "assertion",
-      "entity": "Resting",
-      "relation": "chunk_id smaller than",
-      "object": "Patch"
-    },
-    "resolve_entity": "Resting",
-    "fetch_relevant_info": "present",
-    "generate_answer": "no",
-    "map_answer_to_context": "grounded"
-  }
-},
-{
   "id": "present_cmp_06_unanswerable",
-  "atomic_input": "Does DEMOS-10 have a higher chunk_id than FileSize?",
-  "question_type": "compare",
+  "atomic_input": "Does DEMOS-10 have a higher chunk_id than Teammember?",
+  "question_type": "comparative",
   "answer_form": "assertion",
   "entity": { "value": "DEMOS-10", "type": "individual" },
-  "relation": "chunk_id greater than",
-  "object": { "value": "FileSize", "type": "class" },
+  "relation": "compare",
+  "object": { "value": "Teammember", "type": "class" },
   "ontology_presence": "present",
   "gold_mapped_answer": {
-    "assertion_side": {
-      "entity_chunk_id": 13,
-      "object_chunk_id": null,
-      "result": null
+    "entity_side": {
+      "chunk_id": [13]
+    },
+    "object_side": {
     }
   },
   "expected_decision": "abstain",
   "stage_labels": {
     "input_to_graph": {
-      "question_type": "compare",
+      "question_type": "comparative",
       "answer_form": "assertion",
       "entity": "DEMOS-10",
-      "relation": "chunk_id greater than",
-      "object": "FileSize"
+      "relation": "compare",
+      "object": "Teammember"
     },
     "resolve_entity": "DEMOS-10",
     "fetch_relevant_info": "present",
@@ -2589,3563 +2836,352 @@
     "map_answer_to_context": "grounded"
   }
 },
-  {
-    "id": "present_31",
-    "atomic_input": "Which has more components: support.sens.dk or SENS motion app?",
-    "question_type": "comparative",
-    "answer_form": "value",
-    "entity": {
-      "value": "support.sens.dk",
-      "type": "instance"
-    },
-    "relation": "compare",
-    "object": {
-      "value": "SENS motion app",
-      "type": "instance"
-    },
-    "ontology_presence": "present",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [
-          "hasPart"
-        ],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "answer",
-    "acceptable_labels": [
-      "support.sens.dk",
-      "support.sens.dk"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "comparative",
-        "answer_form": "entity",
-        "entity": "support.sens.dk",
-        "relation": "compare",
-        "object": "SENS motion app"
-      },
-      "resolve_entity": "support.sens.dk",
-      "fetch_relevant_info": "present",
-      "generate_answer": "support.sens.dk",
-      "map_answer_to_context": "grounded"
-    },
-    "gold_answer_agent": {
-      "reasoning": "support.sens.dk has more component-related entries than SENS motion app.",
-      "answer": "support.sens.dk"
-    }
-  },
-  {
-    "id": "present_32",
-    "atomic_input": "Which has more components: SENS motion activity sensor or version 3.9?",
-    "question_type": "comparative",
-    "answer_form": "value",
-    "entity": {
-      "value": "SENS motion activity sensor",
-      "type": "instance"
-    },
-    "relation": "compare",
-    "object": {
-      "value": "version 3.9",
-      "type": "instance"
-    },
-    "ontology_presence": "present",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [
-          "hasPart"
-        ],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "answer",
-    "acceptable_labels": [
-      "sens motion activity sensor",
-      "SENS motion activity sensor"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "comparative",
-        "answer_form": "entity",
-        "entity": "SENS motion activity sensor",
-        "relation": "compare",
-        "object": "version 3.9"
-      },
-      "resolve_entity": "SENS motion activity sensor",
-      "fetch_relevant_info": "present",
-      "generate_answer": "SENS motion activity sensor",
-      "map_answer_to_context": "grounded"
-    },
-    "gold_answer_agent": {
-      "reasoning": "SENS motion activity sensor has 10 hasPart values while version 3.9 has 2 hasPart values.",
-      "answer": "SENS motion activity sensor"
-    }
-  },
-  {
-    "id": "present_33",
-    "atomic_input": "Which has more components: pop-up modal or guide?",
-    "question_type": "comparative",
-    "answer_form": "value",
-    "entity": {
-      "value": "pop-up modal",
-      "type": "instance"
-    },
-    "relation": "compare",
-    "object": {
-      "value": "guide",
-      "type": "instance"
-    },
-    "ontology_presence": "present",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [
-          "hasPart"
-        ],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "answer",
-    "acceptable_labels": [
-      "guide",
-      "guide"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "comparative",
-        "answer_form": "entity",
-        "entity": "pop-up modal",
-        "relation": "compare",
-        "object": "guide"
-      },
-      "resolve_entity": "pop-up modal",
-      "fetch_relevant_info": "present",
-      "generate_answer": "guide",
-      "map_answer_to_context": "grounded"
-    },
-    "gold_answer_agent": {
-      "reasoning": "pop-up modal and guide each have 4 hasPart values in the ontology, so neither has more components.",
-      "answer": "They are equal."
-    }
-  },
-  {
-    "id": "present_34",
-    "atomic_input": "Which has more components: SENS motion web app or SENS motion app on Android?",
-    "question_type": "comparative",
-    "answer_form": "value",
-    "entity": {
-      "value": "SENS motion web app",
-      "type": "instance"
-    },
-    "relation": "compare",
-    "object": {
-      "value": "SENS motion app on Android",
-      "type": "instance"
-    },
-    "ontology_presence": "present",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [
-          "hasPart"
-        ],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "answer",
-    "acceptable_labels": [
-      "sens motion web app",
-      "SENS motion web app"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "comparative",
-        "answer_form": "entity",
-        "entity": "SENS motion web app",
-        "relation": "compare",
-        "object": "SENS motion app on Android"
-      },
-      "resolve_entity": "SENS motion web app",
-      "fetch_relevant_info": "present",
-      "generate_answer": "SENS motion web app",
-      "map_answer_to_context": "grounded"
-    },
-    "gold_answer_agent": {
-      "reasoning": "SENS motion app on Android has 1 hasPart value while SENS motion web app has 0 hasPart values.",
-      "answer": "SENS motion app on Android"
-    }
-  },
-  {
-    "id": "present_35",
-    "atomic_input": "How many more parts does support.sens.dk have compared to SENS motion app?",
-    "question_type": "comparative",
-    "answer_form": "value",
-    "entity": {
-      "value": "support.sens.dk",
-      "type": "instance"
-    },
-    "relation": "compare",
-    "object": {
-      "value": "SENS motion app",
-      "type": "instance"
-    },
-    "ontology_presence": "present",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [
-          "hasPart"
-        ],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "answer",
-    "acceptable_labels": [
-      "14",
-      "14"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "comparative",
-        "answer_form": "literal",
-        "entity": "support.sens.dk",
-        "relation": "compare",
-        "object": "SENS motion app"
-      },
-      "resolve_entity": "support.sens.dk",
-      "fetch_relevant_info": "present",
-      "generate_answer": "14",
-      "map_answer_to_context": "grounded"
-    },
-    "gold_answer_agent": {
-      "reasoning": "support.sens.dk has 14 component-related entries in the ontology.",
-      "answer": "14"
-    }
-  },
-  {
-    "id": "present_36",
-    "atomic_input": "How many more parts does SENS motion activity sensor have compared to version 3.9?",
-    "question_type": "comparative",
-    "answer_form": "value",
-    "entity": {
-      "value": "SENS motion activity sensor",
-      "type": "instance"
-    },
-    "relation": "compare",
-    "object": {
-      "value": "version 3.9",
-      "type": "instance"
-    },
-    "ontology_presence": "present",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "answer",
-    "acceptable_labels": [
-      "0",
-      "0"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "comparative",
-        "answer_form": "literal",
-        "entity": "SENS motion activity sensor",
-        "relation": "compare",
-        "object": "version 3.9"
-      },
-      "resolve_entity": "SENS motion activity sensor",
-      "fetch_relevant_info": "present",
-      "generate_answer": "0",
-      "map_answer_to_context": "grounded"
-    },
-    "gold_answer_agent": {
-      "reasoning": "SENS motion activity sensor and version 3.9 have the same number of parts/components in the ontology.",
-      "answer": "0"
-    }
-  },
-  {
-    "id": "present_37",
-    "atomic_input": "How many more parts does support.sens.dk have compared to SENS motion app on Android?",
-    "question_type": "comparative",
-    "answer_form": "value",
-    "entity": {
-      "value": "support.sens.dk",
-      "type": "instance"
-    },
-    "relation": "compare",
-    "object": {
-      "value": "SENS motion app on Android",
-      "type": "instance"
-    },
-    "ontology_presence": "present",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [
-          "hasPart"
-        ],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "answer",
-    "acceptable_labels": [
-      "14",
-      "14"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "comparative",
-        "answer_form": "literal",
-        "entity": "support.sens.dk",
-        "relation": "compare",
-        "object": "SENS motion app on Android"
-      },
-      "resolve_entity": "support.sens.dk",
-      "fetch_relevant_info": "present",
-      "generate_answer": "14",
-      "map_answer_to_context": "grounded"
-    },
-    "gold_answer_agent": {
-      "reasoning": "support.sens.dk has 14 component-related entries in the ontology.",
-      "answer": "14"
-    }
-  },
-  {
-    "id": "present_38",
-    "atomic_input": "How many more parts does guide have compared to pop-up modal?",
-    "question_type": "comparative",
-    "answer_form": "value",
-    "entity": {
-      "value": "guide",
-      "type": "instance"
-    },
-    "relation": "compare",
-    "object": {
-      "value": "pop-up modal",
-      "type": "instance"
-    },
-    "ontology_presence": "present",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [
-          "hasPart"
-        ],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "answer",
-    "acceptable_labels": [
-      "4",
-      "4"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "comparative",
-        "answer_form": "literal",
-        "entity": "guide",
-        "relation": "compare",
-        "object": "pop-up modal"
-      },
-      "resolve_entity": "guide",
-      "fetch_relevant_info": "present",
-      "generate_answer": "4",
-      "map_answer_to_context": "grounded"
-    },
-    "gold_answer_agent": {
-      "reasoning": "guide and pop-up modal each have 4 hasPart values in the ontology, so the difference is 0.",
-      "answer": "0"
-    }
-  },
-  {
-    "id": "present_39",
-    "atomic_input": "Which 14 parts is significant in this system?",
-    "question_type": "quantification",
-    "answer_form": "value",
-    "entity": {
-      "value": "14 parts",
-      "type": "instance"
-    },
-    "relation": "count",
-    "object": {
-      "value": "14 parts",
-      "type": "literal"
-    },
-    "ontology_presence": "present",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [
-          "hasPart"
-        ],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "answer",
-    "acceptable_labels": [
-      "support.sens.dk",
-      "support.sens.dk"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "quantification",
-        "answer_form": "entity",
-        "entity": "support.sens.dk",
-        "relation": "count",
-        "object": "14 parts"
-      },
-      "resolve_entity": "support.sens.dk",
-      "fetch_relevant_info": "present",
-      "generate_answer": "support.sens.dk",
-      "map_answer_to_context": "grounded"
-    },
-    "gold_answer_agent": {
-      "reasoning": "The ontology associates the 14-part count with support.sens.dk.",
-      "answer": "support.sens.dk"
-    }
-  },
-  {
-    "id": "present_40",
-    "atomic_input": "Which 10 parts is significant in this system?",
-    "question_type": "quantification",
-    "answer_form": "value",
-    "entity": {
-      "value": "10 parts",
-      "type": "instance"
-    },
-    "relation": "count",
-    "object": {
-      "value": "10 parts",
-      "type": "literal"
-    },
-    "ontology_presence": "present",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [
-          "measures"
-        ],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "answer",
-    "acceptable_labels": [
-      "sens motion activity sensor",
-      "SENS motion activity sensor"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "quantification",
-        "answer_form": "entity",
-        "entity": "SENS motion activity sensor",
-        "relation": "count",
-        "object": "10 parts"
-      },
-      "resolve_entity": "SENS motion activity sensor",
-      "fetch_relevant_info": "present",
-      "generate_answer": "SENS motion activity sensor",
-      "map_answer_to_context": "grounded"
-    },
-    "gold_answer_agent": {
-      "reasoning": "The ontology associates the 10-part count with SENS motion activity sensor.",
-      "answer": "SENS motion activity sensor"
-    }
-  },
-  {
-    "id": "present_41",
-    "atomic_input": "Which 4 direct subclasses is significant in this system?",
-    "question_type": "quantification",
-    "answer_form": "value",
-    "entity": {
-      "value": "4 direct subclasses",
-      "type": "class"
-    },
-    "relation": "count",
-    "object": {
-      "value": "4 direct subclasses",
-      "type": "literal"
-    },
-    "ontology_presence": "present",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [
-          "ActivityDescription",
-          "ActivityIntensity",
-          "ActivityType",
-          "TimeCategory"
-        ],
-        "superclasses": [
-          "ActivityCategory"
-        ],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "answer",
-    "acceptable_labels": [
-      "activitycategory",
-      "ActivityCategory"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "quantification",
-        "answer_form": "entity",
-        "entity": "ActivityCategory",
-        "relation": "count",
-        "object": "4 direct subclasses"
-      },
-      "resolve_entity": "ActivityCategory",
-      "fetch_relevant_info": "present",
-      "generate_answer": "ActivityCategory",
-      "map_answer_to_context": "grounded"
-    },
-    "gold_answer_agent": {
-      "reasoning": "ActivityCategory has four direct subclasses in the ontology.",
-      "answer": "ActivityCategory"
-    }
-  },
-  {
-    "id": "present_42",
-    "atomic_input": "Which 1 sameas link is significant in this system?",
-    "question_type": "quantification",
-    "answer_form": "value",
-    "entity": {
-      "value": "1 sameas link",
-      "type": "instance"
-    },
-    "relation": "count",
-    "object": {
-      "value": "1 sameas link",
-      "type": "literal"
-    },
-    "ontology_presence": "present",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "answer",
-    "acceptable_labels": [
-      "sens motion app on android",
-      "SENS motion app on Android"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "quantification",
-        "answer_form": "entity",
-        "entity": "SENS motion app on Android",
-        "relation": "count",
-        "object": "1 sameAs link"
-      },
-      "resolve_entity": "SENS motion app on Android",
-      "fetch_relevant_info": "present",
-      "generate_answer": "SENS motion app on Android",
-      "map_answer_to_context": "grounded"
-    },
-    "gold_answer_agent": {
-      "reasoning": "The ontology shows SENS motion app on Android has one owl:sameAs counterpart.",
-      "answer": "SENS motion app on Android"
-    }
-  },
-  {
-    "id": "present_43",
-    "atomic_input": "What are the important elements of Publication?",
-    "question_type": "quantification",
-    "answer_form": "list",
-    "entity": {
-      "value": "Publication",
-      "type": "class"
-    },
-    "relation": "count",
-    "object": {
-      "value": "important elements",
-      "type": "class-list"
-    },
-    "ontology_presence": "present",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [
-          "ArticleID",
-          "Author",
-          "ClinicalStudy",
-          "DOI",
-          "HospitalSetting",
-          "KeyFinding",
-          "KeyFindings",
-          "MonitoringSystem",
-          "PeerReviewedArticle",
-          "ResearchStudy"
-        ],
-        "superclasses": [
-          "Publication"
-        ],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "answer",
-    "acceptable_labels": [
-      "articleid",
-      "author",
-      "clinicalstudy",
-      "doi",
-      "hospitalsetting",
-      "keyfinding",
-      "keyfindings",
-      "monitoringsystem",
-      "peerreviewedarticle",
-      "researchstudy"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "quantification",
-        "answer_form": "list",
-        "entity": "Publication",
-        "relation": "count",
-        "object": "direct subclasses"
-      },
-      "resolve_entity": "Publication",
-      "fetch_relevant_info": "present",
-      "generate_answer": [
-        "HospitalSetting",
-        "ArticleID",
-        "MonitoringSystem",
-        "ResearchStudy",
-        "KeyFinding",
-        "DOI",
-        "KeyFindings",
-        "ClinicalStudy",
-        "Author",
-        "PeerReviewedArticle"
-      ],
-      "map_answer_to_context": "grounded"
-    },
-    "gold_answer_agent": {
-      "reasoning": "Publication has ten direct subclasses in the ontology.",
-      "answer": [
-        "ArticleID",
-        "Author",
-        "ClinicalStudy",
-        "DOI",
-        "HospitalSetting",
-        "KeyFinding",
-        "KeyFindings",
-        "MonitoringSystem",
-        "PeerReviewedArticle",
-        "ResearchStudy"
-      ]
-    }
-  },
-  {
-    "id": "present_44",
-    "atomic_input": "What are the important elements of SENS motion app on Android?",
-    "question_type": "quantification",
-    "answer_form": "list",
-    "entity": {
-      "value": "SENS motion app on Android",
-      "type": "instance"
-    },
-    "relation": "count",
-    "object": {
-      "value": "important elements",
-      "type": "list"
-    },
-    "ontology_presence": "present",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "answer",
-    "acceptable_labels": [],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "quantification",
-        "answer_form": "list",
-        "entity": "SENS motion app on Android",
-        "relation": "count",
-        "object": "sameAs targets"
-      },
-      "resolve_entity": "SENS motion app on Android",
-      "fetch_relevant_info": "present",
-      "generate_answer": [],
-      "map_answer_to_context": "grounded"
-    },
-    "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'SENS motion app on Android'.",
-      "answer": "I can't answer the question."
-    }
-  },
-  {
-    "id": "present_45",
-    "atomic_input": "What is the equivalent or related exists of SENS motion app on Android?",
-    "question_type": "existential",
-    "answer_form": "value",
-    "entity": {
-      "value": "SENS motion app on Android",
-      "type": "instance"
-    },
-    "relation": "exists",
-    "object": {
-      "value": null,
-      "type": null
-    },
-    "ontology_presence": "present",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [
-          "SENS motion app on iOS"
-        ],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "answer",
-    "acceptable_labels": [
-      "sens motion app on ios",
-      "SENS motion app on iOS"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "existential",
-        "answer_form": "entity",
-        "entity": "SENS motion app on Android",
-        "relation": "exists",
-        "object": "sameAs counterpart"
-      },
-      "resolve_entity": "SENS motion app on Android",
-      "fetch_relevant_info": "present",
-      "generate_answer": "SENS motion app on iOS",
-      "map_answer_to_context": "grounded"
-    },
-    "gold_answer_agent": {
-      "reasoning": "The ontology links SENS motion app on Android to SENS motion app on iOS with owl:sameAs.",
-      "answer": "SENS motion app on iOS"
-    }
-  },
-  {
-    "id": "present_46",
-    "atomic_input": "What is the equivalent or related exists of SENS motion web app?",
-    "question_type": "existential",
-    "answer_form": "value",
-    "entity": {
-      "value": "SENS motion web app",
-      "type": "instance"
-    },
-    "relation": "exists",
-    "object": {
-      "value": null,
-      "type": null
-    },
-    "ontology_presence": "present",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [
-          "SENS web app"
-        ],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "answer",
-    "acceptable_labels": [
-      "sens web app",
-      "SENS web app"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "existential",
-        "answer_form": "entity",
-        "entity": "SENS motion web app",
-        "relation": "exists",
-        "object": "sameAs counterpart"
-      },
-      "resolve_entity": "SENS motion web app",
-      "fetch_relevant_info": "present",
-      "generate_answer": "SENS web app",
-      "map_answer_to_context": "grounded"
-    },
-    "gold_answer_agent": {
-      "reasoning": "The ontology links SENS motion web app to SENS web app with owl:sameAs.",
-      "answer": "SENS web app"
-    }
-  },
-  {
-    "id": "present_47",
-    "atomic_input": "What is connected to support.sens.dk?",
-    "question_type": "existential",
-    "answer_form": "value",
-    "entity": {
-      "value": "support.sens.dk",
-      "type": "instance"
-    },
-    "relation": "exists",
-    "object": {
-      "value": null,
-      "type": null
-    },
-    "ontology_presence": "present",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [
-          "hasWebAppFeature"
-        ],
-        "property_values": {
-          "hasWebAppFeature": "ExportFunctionality"
-        }
-      }
-    },
-    "expected_decision": "answer",
-    "acceptable_labels": [
-      "exportfunctionality",
-      "ExportFunctionality"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "existential",
-        "answer_form": "entity",
-        "entity": "support.sens.dk",
-        "relation": "exists",
-        "object": "web app feature"
-      },
-      "resolve_entity": "support.sens.dk",
-      "fetch_relevant_info": "present",
-      "generate_answer": "ExportFunctionality",
-      "map_answer_to_context": "grounded"
-    },
-    "gold_answer_agent": {
-      "reasoning": "The ontology records hasWebAppFeature = ExportFunctionality for support.sens.dk.",
-      "answer": "ExportFunctionality"
-    }
-  },
-  {
-    "id": "present_48",
-    "atomic_input": "What is connected to version 3.9?",
-    "question_type": "existential",
-    "answer_form": "value",
-    "entity": {
-      "value": "version 3.9",
-      "type": "instance"
-    },
-    "relation": "exists",
-    "object": {
-      "value": null,
-      "type": null
-    },
-    "ontology_presence": "present",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [
-          "hasPart"
-        ],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "answer",
-    "acceptable_labels": [
-      "version 3.9",
-      "version 3.9"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "existential",
-        "answer_form": "entity",
-        "entity": "version 3.9",
-        "relation": "exists",
-        "object": "release number"
-      },
-      "resolve_entity": "version 3.9",
-      "fetch_relevant_info": "present",
-      "generate_answer": "version 3.9",
-      "map_answer_to_context": "grounded"
-    },
-    "gold_answer_agent": {
-      "reasoning": "The ontology links version 3.9 to component parts through hasPart assertions.",
-      "answer": "version 3.9"
-    }
-  },
-  {
-    "id": "present_49",
-    "atomic_input": "What components are associated with SENS motion app on Android?",
-    "question_type": "existential",
-    "answer_form": "list",
-    "entity": {
-      "value": "SENS motion app on Android",
-      "type": "instance"
-    },
-    "relation": "exists",
-    "object": {
-      "value": "components",
-      "type": "list"
-    },
-    "ontology_presence": "present",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "answer",
-    "acceptable_labels": [],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "existential",
-        "answer_form": "list",
-        "entity": "SENS motion app on Android",
-        "relation": "exists",
-        "object": "sameAs targets"
-      },
-      "resolve_entity": "SENS motion app on Android",
-      "fetch_relevant_info": "present",
-      "generate_answer": [],
-      "map_answer_to_context": "grounded"
-    },
-    "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'SENS motion app on Android'.",
-      "answer": "I can't answer the question."
-    }
-  },
-  {
-    "id": "present_50",
-    "atomic_input": "What components are associated with SENS motion activity sensor?",
-    "question_type": "existential",
-    "answer_form": "list",
-    "entity": {
-      "value": "SENS motion activity sensor",
-      "type": "instance"
-    },
-    "relation": "exists",
-    "object": {
-      "value": "components",
-      "type": "list"
-    },
-    "ontology_presence": "present",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "answer",
-    "acceptable_labels": [],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "existential",
-        "answer_form": "list",
-        "entity": "SENS motion activity sensor",
-        "relation": "exists",
-        "object": "parts"
-      },
-      "resolve_entity": "SENS motion activity sensor",
-      "fetch_relevant_info": "present",
-      "generate_answer": [],
-      "map_answer_to_context": "grounded"
-    },
-    "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'SENS motion activity sensor'.",
-      "answer": "I can't answer the question."
-    }
-  },
-  {
-    "id": "absent_01",
-    "atomic_input": "What is App?",
-    "question_type": "definition",
-    "answer_form": "value",
-    "entity": {
-      "value": "App",
-      "type": "class"
-    },
-    "relation": "be",
-    "object": {
-      "value": null,
-      "type": null
-    },
-    "ontology_presence": "absent",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "abstain",
-    "acceptable_labels": [
-      "i don't know",
-      "unknown",
-      "not in ontology",
-      "not found",
-      "can't answer the question",
-      "I can't answer the question"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "definition",
-        "answer_form": "entity",
-        "entity": "Imaginary App",
-        "relation": "be",
-        "object": null
-      },
-      "resolve_entity": null,
-      "fetch_relevant_info": "absent",
-      "generate_answer": "I can't answer the question",
-      "map_answer_to_context": "empty"
-    },
-    "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'Imaginary App'.",
-      "answer": "I can't answer the question."
-    }
-  },
-  {
-    "id": "absent_02",
-    "atomic_input": "What is WebApplication?",
-    "question_type": "definition",
-    "answer_form": "value",
-    "entity": {
-      "value": "WebApplication",
-      "type": "class"
-    },
-    "relation": "be",
-    "object": {
-      "value": null,
-      "type": null
-    },
-    "ontology_presence": "absent",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "abstain",
-    "acceptable_labels": [
-      "i don't know",
-      "unknown",
-      "not in ontology",
-      "not found",
-      "can't answer the question",
-      "I can't answer the question"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "definition",
-        "answer_form": "entity",
-        "entity": "Imaginary WebApplication",
-        "relation": "be",
-        "object": null
-      },
-      "resolve_entity": null,
-      "fetch_relevant_info": "absent",
-      "generate_answer": "I can't answer the question",
-      "map_answer_to_context": "empty"
-    },
-    "gold_answer_agent": {
-      "reasoning": "The entity has labels WebApplication, but no explicit type/superclass was found in the extracted mapping.",
-      "answer": "I can't answer the question."
-    }
-  },
-  {
-    "id": "absent_03",
-    "atomic_input": "What is SensorPatch?",
-    "question_type": "definition",
-    "answer_form": "value",
-    "entity": {
-      "value": "SensorPatch",
-      "type": "class"
-    },
-    "relation": "be",
-    "object": {
-      "value": null,
-      "type": null
-    },
-    "ontology_presence": "absent",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "abstain",
-    "acceptable_labels": [
-      "i don't know",
-      "unknown",
-      "not in ontology",
-      "not found",
-      "can't answer the question",
-      "I can't answer the question"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "definition",
-        "answer_form": "entity",
-        "entity": "Imaginary SensorPatch",
-        "relation": "be",
-        "object": null
-      },
-      "resolve_entity": null,
-      "fetch_relevant_info": "absent",
-      "generate_answer": "I can't answer the question",
-      "map_answer_to_context": "empty"
-    },
-    "gold_answer_agent": {
-      "reasoning": "The entity has labels SensorPatch, but no explicit type/superclass was found in the extracted mapping.",
-      "answer": "I can't answer the question."
-    }
-  },
-  {
-    "id": "absent_04",
-    "atomic_input": "What is SENS motion app?",
-    "question_type": "definition",
-    "answer_form": "value",
-    "entity": {
-      "value": "SENS motion app",
-      "type": "instance"
-    },
-    "relation": "be",
-    "object": {
-      "value": null,
-      "type": null
-    },
-    "ontology_presence": "absent",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "abstain",
-    "acceptable_labels": [
-      "i don't know",
-      "unknown",
-      "not in ontology",
-      "not found",
-      "can't answer the question",
-      "I can't answer the question"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "definition",
-        "answer_form": "entity",
-        "entity": "Imaginary SENS motion app",
-        "relation": "be",
-        "object": null
-      },
-      "resolve_entity": null,
-      "fetch_relevant_info": "absent",
-      "generate_answer": "I can't answer the question",
-      "map_answer_to_context": "empty"
-    },
-    "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'Imaginary SENS motion app'.",
-      "answer": "I can't answer the question."
-    }
-  },
-  {
-    "id": "absent_05",
-    "atomic_input": "What is SENS motion web app?",
-    "question_type": "definition",
-    "answer_form": "value",
-    "entity": {
-      "value": "SENS motion web app",
-      "type": "instance"
-    },
-    "relation": "be",
-    "object": {
-      "value": null,
-      "type": null
-    },
-    "ontology_presence": "absent",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "abstain",
-    "acceptable_labels": [
-      "i don't know",
-      "unknown",
-      "not in ontology",
-      "not found",
-      "can't answer the question",
-      "I can't answer the question"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "definition",
-        "answer_form": "entity",
-        "entity": "Imaginary SENS motion web app",
-        "relation": "be",
-        "object": null
-      },
-      "resolve_entity": null,
-      "fetch_relevant_info": "absent",
-      "generate_answer": "I can't answer the question",
-      "map_answer_to_context": "empty"
-    },
-    "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'Imaginary SENS motion web app'.",
-      "answer": "I can't answer the question."
-    }
-  },
-  {
-    "id": "absent_06",
-    "atomic_input": "What is version 3.9?",
-    "question_type": "definition",
-    "answer_form": "value",
-    "entity": {
-      "value": "version 3.9",
-      "type": "instance"
-    },
-    "relation": "be",
-    "object": {
-      "value": null,
-      "type": null
-    },
-    "ontology_presence": "absent",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "abstain",
-    "acceptable_labels": [
-      "i don't know",
-      "unknown",
-      "not in ontology",
-      "not found",
-      "can't answer the question",
-      "I can't answer the question"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "definition",
-        "answer_form": "entity",
-        "entity": "Imaginary version 3.9",
-        "relation": "be",
-        "object": null
-      },
-      "resolve_entity": null,
-      "fetch_relevant_info": "absent",
-      "generate_answer": "I can't answer the question",
-      "map_answer_to_context": "empty"
-    },
-    "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'Imaginary version 3.9'.",
-      "answer": "I can't answer the question."
-    }
-  },
-  {
-    "id": "absent_07",
-    "atomic_input": "Is App an InformationObject?",
-    "question_type": "taxonomic",
-    "answer_form": "assertion",
-    "entity": {
-      "value": "App",
-      "type": "class"
-    },
-    "relation": "be",
-    "object": {
-      "value": "InformationObject",
-      "type": "class"
-    },
-    "ontology_presence": "absent",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "abstain",
-    "acceptable_labels": [
-      "i don't know",
-      "unknown",
-      "not in ontology",
-      "not found",
-      "can't answer the question",
-      "I can't answer the question"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "taxonomic",
-        "answer_form": "boolean",
-        "entity": "Imaginary App",
-        "relation": "be",
-        "object": "Imaginary InformationObject"
-      },
-      "resolve_entity": null,
-      "fetch_relevant_info": "absent",
-      "generate_answer": "I can't answer the question",
-      "map_answer_to_context": "empty"
-    },
-    "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'Imaginary App'.",
-      "answer": "I can't answer the question."
-    }
-  },
-  {
-    "id": "absent_08",
-    "atomic_input": "Is WebApplication a SocialObject?",
-    "question_type": "taxonomic",
-    "answer_form": "assertion",
-    "entity": {
-      "value": "WebApplication",
-      "type": "class"
-    },
-    "relation": "be",
-    "object": {
-      "value": "SocialObject",
-      "type": "class"
-    },
-    "ontology_presence": "absent",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "abstain",
-    "acceptable_labels": [
-      "i don't know",
-      "unknown",
-      "not in ontology",
-      "not found",
-      "can't answer the question",
-      "I can't answer the question"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "taxonomic",
-        "answer_form": "boolean",
-        "entity": "Imaginary WebApplication",
-        "relation": "be",
-        "object": "Imaginary SocialObject"
-      },
-      "resolve_entity": null,
-      "fetch_relevant_info": "absent",
-      "generate_answer": "I can't answer the question",
-      "map_answer_to_context": "empty"
-    },
-    "gold_answer_agent": {
-      "reasoning": "The entity has labels WebApplication, but no explicit type/superclass was found in the extracted mapping.",
-      "answer": "I can't answer the question."
-    }
-  },
-  {
-    "id": "absent_09",
-    "atomic_input": "Is ActivityType an ActivityCategory?",
-    "question_type": "taxonomic",
-    "answer_form": "assertion",
-    "entity": {
-      "value": "ActivityType",
-      "type": "class"
-    },
-    "relation": "be",
-    "object": {
-      "value": "ActivityCategory",
-      "type": "class"
-    },
-    "ontology_presence": "absent",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "abstain",
-    "acceptable_labels": [
-      "i don't know",
-      "unknown",
-      "not in ontology",
-      "not found",
-      "can't answer the question",
-      "I can't answer the question"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "taxonomic",
-        "answer_form": "boolean",
-        "entity": "Imaginary ActivityType",
-        "relation": "be",
-        "object": "Imaginary ActivityCategory"
-      },
-      "resolve_entity": null,
-      "fetch_relevant_info": "absent",
-      "generate_answer": "I can't answer the question",
-      "map_answer_to_context": "empty"
-    },
-    "gold_answer_agent": {
-      "reasoning": "The entity has labels ActivityType, but no explicit type/superclass was found in the extracted mapping.",
-      "answer": "I can't answer the question."
-    }
-  },
-  {
-    "id": "absent_10",
-    "atomic_input": "Is SENS motion app a SmartphoneApp?",
-    "question_type": "taxonomic",
-    "answer_form": "assertion",
-    "entity": {
-      "value": "SENS motion app",
-      "type": "instance"
-    },
-    "relation": "be",
-    "object": {
-      "value": "SmartphoneApp",
-      "type": "class"
-    },
-    "ontology_presence": "absent",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "abstain",
-    "acceptable_labels": [
-      "i don't know",
-      "unknown",
-      "not in ontology",
-      "not found",
-      "can't answer the question",
-      "I can't answer the question"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "taxonomic",
-        "answer_form": "boolean",
-        "entity": "Imaginary SENS motion app",
-        "relation": "be",
-        "object": "Imaginary SmartphoneApp"
-      },
-      "resolve_entity": null,
-      "fetch_relevant_info": "absent",
-      "generate_answer": "I can't answer the question",
-      "map_answer_to_context": "empty"
-    },
-    "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'Imaginary SENS motion app'.",
-      "answer": "I can't answer the question."
-    }
-  },
-  {
-    "id": "absent_11",
-    "atomic_input": "Is support.sens.dk a WebApplication?",
-    "question_type": "taxonomic",
-    "answer_form": "assertion",
-    "entity": {
-      "value": "support.sens.dk",
-      "type": "instance"
-    },
-    "relation": "be",
-    "object": {
-      "value": "WebApplication",
-      "type": "class"
-    },
-    "ontology_presence": "absent",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "abstain",
-    "acceptable_labels": [
-      "i don't know",
-      "unknown",
-      "not in ontology",
-      "not found",
-      "can't answer the question",
-      "I can't answer the question"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "taxonomic",
-        "answer_form": "boolean",
-        "entity": "Imaginary support.sens.dk",
-        "relation": "be",
-        "object": "Imaginary WebApplication"
-      },
-      "resolve_entity": null,
-      "fetch_relevant_info": "absent",
-      "generate_answer": "I can't answer the question",
-      "map_answer_to_context": "empty"
-    },
-    "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'Imaginary support.sens.dk'.",
-      "answer": "I can't answer the question."
-    }
-  },
-  {
-    "id": "absent_12",
-    "atomic_input": "Is SENS motion activity sensor an ActivityDataSensor?",
-    "question_type": "taxonomic",
-    "answer_form": "assertion",
-    "entity": {
-      "value": "SENS motion activity sensor",
-      "type": "instance"
-    },
-    "relation": "be",
-    "object": {
-      "value": "ActivityDataSensor",
-      "type": "class"
-    },
-    "ontology_presence": "absent",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "abstain",
-    "acceptable_labels": [
-      "i don't know",
-      "unknown",
-      "not in ontology",
-      "not found",
-      "can't answer the question",
-      "I can't answer the question"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "taxonomic",
-        "answer_form": "boolean",
-        "entity": "Imaginary SENS motion activity sensor",
-        "relation": "be",
-        "object": "Imaginary ActivityDataSensor"
-      },
-      "resolve_entity": null,
-      "fetch_relevant_info": "absent",
-      "generate_answer": "I can't answer the question",
-      "map_answer_to_context": "empty"
-    },
-    "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'Imaginary SENS motion activity sensor'.",
-      "answer": "I can't answer the question."
-    }
-  },
-  {
-    "id": "absent_13",
-    "atomic_input": "Does WebApplication have capability?",
-    "question_type": "capability",
-    "answer_form": "assertion",
-    "entity": {
-      "value": "WebApplication",
-      "type": "class"
-    },
-    "relation": "capability",
-    "object": {
-      "value": "capability",
-      "type": "literal"
-    },
-    "ontology_presence": "absent",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "abstain",
-    "acceptable_labels": [
-      "i don't know",
-      "unknown",
-      "not in ontology",
-      "not found",
-      "can't answer the question",
-      "I can't answer the question"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "capability",
-        "answer_form": "boolean",
-        "entity": "Imaginary WebApplication",
-        "relation": "capability",
-        "object": "Imaginary browser-accessible"
-      },
-      "resolve_entity": null,
-      "fetch_relevant_info": "absent",
-      "generate_answer": "I can't answer the question",
-      "map_answer_to_context": "empty"
-    },
-    "gold_answer_agent": {
-      "reasoning": "The entity has labels WebApplication, but no explicit type/superclass was found in the extracted mapping.",
-      "answer": "I can't answer the question."
-    }
-  },
-  {
-    "id": "absent_14",
-    "atomic_input": "Does SensorPatch have capability?",
-    "question_type": "capability",
-    "answer_form": "assertion",
-    "entity": {
-      "value": "SensorPatch",
-      "type": "class"
-    },
-    "relation": "capability",
-    "object": {
-      "value": "capability",
-      "type": "literal"
-    },
-    "ontology_presence": "absent",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "abstain",
-    "acceptable_labels": [
-      "i don't know",
-      "unknown",
-      "not in ontology",
-      "not found",
-      "can't answer the question",
-      "I can't answer the question"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "capability",
-        "answer_form": "boolean",
-        "entity": "Imaginary SensorPatch",
-        "relation": "capability",
-        "object": "Imaginary wearable"
-      },
-      "resolve_entity": null,
-      "fetch_relevant_info": "absent",
-      "generate_answer": "I can't answer the question",
-      "map_answer_to_context": "empty"
-    },
-    "gold_answer_agent": {
-      "reasoning": "The entity has labels SensorPatch, but no explicit type/superclass was found in the extracted mapping.",
-      "answer": "I can't answer the question."
-    }
-  },
-  {
-    "id": "absent_15",
-    "atomic_input": "Does SENS motion app on Android have capability?",
-    "question_type": "capability",
-    "answer_form": "assertion",
-    "entity": {
-      "value": "SENS motion app on Android",
-      "type": "instance"
-    },
-    "relation": "capability",
-    "object": {
-      "value": "capability",
-      "type": "literal"
-    },
-    "ontology_presence": "absent",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "abstain",
-    "acceptable_labels": [
-      "i don't know",
-      "unknown",
-      "not in ontology",
-      "not found",
-      "can't answer the question",
-      "I can't answer the question"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "capability",
-        "answer_form": "boolean",
-        "entity": "Imaginary SENS motion app on Android",
-        "relation": "capability",
-        "object": "Imaginary nearby sensors"
-      },
-      "resolve_entity": null,
-      "fetch_relevant_info": "absent",
-      "generate_answer": "I can't answer the question",
-      "map_answer_to_context": "empty"
-    },
-    "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'Imaginary SENS motion app on Android'.",
-      "answer": "I can't answer the question."
-    }
-  },
-  {
-    "id": "absent_16",
-    "atomic_input": "Does version 3.9 have capability?",
-    "question_type": "capability",
-    "answer_form": "assertion",
-    "entity": {
-      "value": "version 3.9",
-      "type": "instance"
-    },
-    "relation": "capability",
-    "object": {
-      "value": "capability",
-      "type": "literal"
-    },
-    "ontology_presence": "absent",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "abstain",
-    "acceptable_labels": [
-      "i don't know",
-      "unknown",
-      "not in ontology",
-      "not found",
-      "can't answer the question",
-      "I can't answer the question"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "capability",
-        "answer_form": "boolean",
-        "entity": "Imaginary version 3.9",
-        "relation": "capability",
-        "object": "Imaginary usability enhancements"
-      },
-      "resolve_entity": null,
-      "fetch_relevant_info": "absent",
-      "generate_answer": "I can't answer the question",
-      "map_answer_to_context": "empty"
-    },
-    "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'Imaginary version 3.9'.",
-      "answer": "I can't answer the question."
-    }
-  },
-  {
-    "id": "absent_17",
-    "atomic_input": "What features does support.sens.dk provide?",
-    "question_type": "capability",
-    "answer_form": "value",
-    "entity": {
-      "value": "support.sens.dk",
-      "type": "instance"
-    },
-    "relation": "capability",
-    "object": {
-      "value": "features",
-      "type": "class"
-    },
-    "ontology_presence": "absent",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "abstain",
-    "acceptable_labels": [
-      "i don't know",
-      "unknown",
-      "not in ontology",
-      "not found",
-      "can't answer the question",
-      "I can't answer the question"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "capability",
-        "answer_form": "entity",
-        "entity": "Imaginary support.sens.dk",
-        "relation": "capability",
-        "object": "Imaginary ExportFunctionality"
-      },
-      "resolve_entity": null,
-      "fetch_relevant_info": "absent",
-      "generate_answer": "I can't answer the question",
-      "map_answer_to_context": "empty"
-    },
-    "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'Imaginary support.sens.dk'.",
-      "answer": "I can't answer the question."
-    }
-  },
-  {
-    "id": "absent_18",
-    "atomic_input": "What features does SENS motion app on Android provide?",
-    "question_type": "capability",
-    "answer_form": "value",
-    "entity": {
-      "value": "SENS motion app on Android",
-      "type": "instance"
-    },
-    "relation": "capability",
-    "object": {
-      "value": "features",
-      "type": "class"
-    },
-    "ontology_presence": "absent",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "abstain",
-    "acceptable_labels": [
-      "i don't know",
-      "unknown",
-      "not in ontology",
-      "not found",
-      "can't answer the question",
-      "I can't answer the question"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "capability",
-        "answer_form": "entity",
-        "entity": "Imaginary SENS motion app on Android",
-        "relation": "capability",
-        "object": "Imaginary SensorFavoriteList"
-      },
-      "resolve_entity": null,
-      "fetch_relevant_info": "absent",
-      "generate_answer": "I can't answer the question",
-      "map_answer_to_context": "empty"
-    },
-    "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'Imaginary SENS motion app on Android'.",
-      "answer": "I can't answer the question."
-    }
-  },
-  {
-    "id": "absent_19",
-    "atomic_input": "What is WebApplication?",
-    "question_type": "property",
-    "answer_form": "value",
-    "entity": {
-      "value": "WebApplication",
-      "type": "class"
-    },
-    "relation": "label",
-    "object": {
-      "value": null,
-      "type": "literal"
-    },
-    "ontology_presence": "absent",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "abstain",
-    "acceptable_labels": [
-      "i don't know",
-      "unknown",
-      "not in ontology",
-      "not found",
-      "can't answer the question",
-      "I can't answer the question"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "property",
-        "answer_form": "literal",
-        "entity": "Imaginary WebApplication",
-        "relation": "label",
-        "object": "Imaginary label"
-      },
-      "resolve_entity": null,
-      "fetch_relevant_info": "absent",
-      "generate_answer": "I can't answer the question",
-      "map_answer_to_context": "empty"
-    },
-    "gold_answer_agent": {
-      "reasoning": "The entity has labels WebApplication, but no explicit type/superclass was found in the extracted mapping.",
-      "answer": "I can't answer the question."
-    }
-  },
-  {
-    "id": "absent_20",
-    "atomic_input": "What is SensorPatch?",
-    "question_type": "property",
-    "answer_form": "value",
-    "entity": {
-      "value": "SensorPatch",
-      "type": "class"
-    },
-    "relation": "label",
-    "object": {
-      "value": null,
-      "type": "literal"
-    },
-    "ontology_presence": "absent",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "abstain",
-    "acceptable_labels": [
-      "i don't know",
-      "unknown",
-      "not in ontology",
-      "not found",
-      "can't answer the question",
-      "I can't answer the question"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "property",
-        "answer_form": "literal",
-        "entity": "Imaginary SensorPatch",
-        "relation": "label",
-        "object": "Imaginary label"
-      },
-      "resolve_entity": null,
-      "fetch_relevant_info": "absent",
-      "generate_answer": "I can't answer the question",
-      "map_answer_to_context": "empty"
-    },
-    "gold_answer_agent": {
-      "reasoning": "The entity has labels SensorPatch, but no explicit type/superclass was found in the extracted mapping.",
-      "answer": "I can't answer the question."
-    }
-  },
-  {
-    "id": "absent_21",
-    "atomic_input": "What can you tell me about ActivityType?",
-    "question_type": "property",
-    "answer_form": "value",
-    "entity": {
-      "value": "ActivityType",
-      "type": "class"
-    },
-    "relation": "comment",
-    "object": {
-      "value": null,
-      "type": "literal"
-    },
-    "ontology_presence": "absent",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "abstain",
-    "acceptable_labels": [
-      "i don't know",
-      "unknown",
-      "not in ontology",
-      "not found",
-      "can't answer the question",
-      "I can't answer the question"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "property",
-        "answer_form": "literal",
-        "entity": "Imaginary ActivityType",
-        "relation": "comment",
-        "object": "Imaginary comment"
-      },
-      "resolve_entity": null,
-      "fetch_relevant_info": "absent",
-      "generate_answer": "I can't answer the question",
-      "map_answer_to_context": "empty"
-    },
-    "gold_answer_agent": {
-      "reasoning": "The entity has labels ActivityType, but no explicit type/superclass was found in the extracted mapping.",
-      "answer": "I can't answer the question."
-    }
-  },
-  {
-    "id": "absent_22",
-    "atomic_input": "What is the URL for SENS motion web app?",
-    "question_type": "property",
-    "answer_form": "value",
-    "entity": {
-      "value": "SENS motion web app",
-      "type": "instance"
-    },
-    "relation": "hasAppUrl",
-    "object": {
-      "value": "URL",
-      "type": "literal"
-    },
-    "ontology_presence": "absent",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "abstain",
-    "acceptable_labels": [
-      "i don't know",
-      "unknown",
-      "not in ontology",
-      "not found",
-      "can't answer the question",
-      "I can't answer the question"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "property",
-        "answer_form": "literal",
-        "entity": "Imaginary SENS motion web app",
-        "relation": "hasAppUrl",
-        "object": "Imaginary hasAppUrl"
-      },
-      "resolve_entity": null,
-      "fetch_relevant_info": "absent",
-      "generate_answer": "I can't answer the question",
-      "map_answer_to_context": "empty"
-    },
-    "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'Imaginary SENS motion web app'.",
-      "answer": "I can't answer the question."
-    }
-  },
-  {
-    "id": "absent_23",
-    "atomic_input": "What is the URL for SENS motion web app?",
-    "question_type": "property",
-    "answer_form": "value",
-    "entity": {
-      "value": "SENS motion web app",
-      "type": "instance"
-    },
-    "relation": "hasLoginUrl",
-    "object": {
-      "value": "URL",
-      "type": "literal"
-    },
-    "ontology_presence": "absent",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "abstain",
-    "acceptable_labels": [
-      "i don't know",
-      "unknown",
-      "not in ontology",
-      "not found",
-      "can't answer the question",
-      "I can't answer the question"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "property",
-        "answer_form": "literal",
-        "entity": "Imaginary SENS motion web app",
-        "relation": "hasLoginUrl",
-        "object": "Imaginary hasLoginUrl"
-      },
-      "resolve_entity": null,
-      "fetch_relevant_info": "absent",
-      "generate_answer": "I can't answer the question",
-      "map_answer_to_context": "empty"
-    },
-    "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'Imaginary SENS motion web app'.",
-      "answer": "I can't answer the question."
-    }
-  },
-  {
-    "id": "absent_24",
-    "atomic_input": "What is the release number of version 3.9?",
-    "question_type": "property",
-    "answer_form": "value",
-    "entity": {
-      "value": "version 3.9",
-      "type": "instance"
-    },
-    "relation": "releaseNumber",
-    "object": {
-      "value": "release number",
-      "type": "literal"
-    },
-    "ontology_presence": "absent",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "abstain",
-    "acceptable_labels": [
-      "i don't know",
-      "unknown",
-      "not in ontology",
-      "not found",
-      "can't answer the question",
-      "I can't answer the question"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "property",
-        "answer_form": "literal",
-        "entity": "Imaginary version 3.9",
-        "relation": "releaseNumber",
-        "object": "Imaginary releaseNumber"
-      },
-      "resolve_entity": null,
-      "fetch_relevant_info": "absent",
-      "generate_answer": "I can't answer the question",
-      "map_answer_to_context": "empty"
-    },
-    "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'Imaginary version 3.9'.",
-      "answer": "I can't answer the question."
-    }
-  },
-  {
-    "id": "absent_25",
-    "atomic_input": "What are the main types or subtypes of ActivityCategory?",
-    "question_type": "membership",
-    "answer_form": "list",
-    "entity": {
-      "value": "ActivityCategory",
-      "type": "class"
-    },
-    "relation": "has member",
-    "object": {
-      "value": "subtypes",
-      "type": "class-list"
-    },
-    "ontology_presence": "absent",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "abstain",
-    "acceptable_labels": [
-      "i don't know",
-      "unknown",
-      "not in ontology",
-      "not found",
-      "can't answer the question",
-      "I can't answer the question"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "membership",
-        "answer_form": "list",
-        "entity": "Imaginary ActivityCategory",
-        "relation": "has member",
-        "object": null
-      },
-      "resolve_entity": null,
-      "fetch_relevant_info": "absent",
-      "generate_answer": "I can't answer the question",
-      "map_answer_to_context": "empty"
-    },
-    "gold_answer_agent": {
-      "reasoning": "The entity has labels ActivityCategory, but no explicit type/superclass was found in the extracted mapping.",
-      "answer": "I can't answer the question."
-    }
-  },
-  {
-    "id": "absent_26",
-    "atomic_input": "What are the main types or subtypes of WebApplication?",
-    "question_type": "membership",
-    "answer_form": "list",
-    "entity": {
-      "value": "WebApplication",
-      "type": "class"
-    },
-    "relation": "has member",
-    "object": {
-      "value": "subtypes",
-      "type": "class-list"
-    },
-    "ontology_presence": "absent",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "abstain",
-    "acceptable_labels": [
-      "i don't know",
-      "unknown",
-      "not in ontology",
-      "not found",
-      "can't answer the question",
-      "I can't answer the question"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "membership",
-        "answer_form": "list",
-        "entity": "Imaginary WebApplication",
-        "relation": "has member",
-        "object": null
-      },
-      "resolve_entity": null,
-      "fetch_relevant_info": "absent",
-      "generate_answer": "I can't answer the question",
-      "map_answer_to_context": "empty"
-    },
-    "gold_answer_agent": {
-      "reasoning": "The entity has labels WebApplication, but no explicit type/superclass was found in the extracted mapping.",
-      "answer": "I can't answer the question."
-    }
-  },
-  {
-    "id": "absent_27",
-    "atomic_input": "What are the main types or subtypes of Publication?",
-    "question_type": "membership",
-    "answer_form": "list",
-    "entity": {
-      "value": "Publication",
-      "type": "class"
-    },
-    "relation": "has member",
-    "object": {
-      "value": "subtypes",
-      "type": "class-list"
-    },
-    "ontology_presence": "absent",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "abstain",
-    "acceptable_labels": [
-      "i don't know",
-      "unknown",
-      "not in ontology",
-      "not found",
-      "can't answer the question",
-      "I can't answer the question"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "membership",
-        "answer_form": "list",
-        "entity": "Imaginary Publication",
-        "relation": "has member",
-        "object": null
-      },
-      "resolve_entity": null,
-      "fetch_relevant_info": "absent",
-      "generate_answer": "I can't answer the question",
-      "map_answer_to_context": "empty"
-    },
-    "gold_answer_agent": {
-      "reasoning": "The entity has labels Publication, but no explicit type/superclass was found in the extracted mapping.",
-      "answer": "I can't answer the question."
-    }
-  },
-  {
-    "id": "absent_28",
-    "atomic_input": "What parts or components make up support.sens.dk?",
-    "question_type": "membership",
-    "answer_form": "list",
-    "entity": {
-      "value": "support.sens.dk",
-      "type": "instance"
-    },
-    "relation": "has member",
-    "object": {
-      "value": "parts or components",
-      "type": "list"
-    },
-    "ontology_presence": "absent",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "abstain",
-    "acceptable_labels": [
-      "i don't know",
-      "unknown",
-      "not in ontology",
-      "not found",
-      "can't answer the question",
-      "I can't answer the question"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "membership",
-        "answer_form": "list",
-        "entity": "Imaginary support.sens.dk",
-        "relation": "has member",
-        "object": null
-      },
-      "resolve_entity": null,
-      "fetch_relevant_info": "absent",
-      "generate_answer": "I can't answer the question",
-      "map_answer_to_context": "empty"
-    },
-    "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'Imaginary support.sens.dk'.",
-      "answer": "I can't answer the question."
-    }
-  },
-  {
-    "id": "absent_29",
-    "atomic_input": "What parts or components make up SENS motion activity sensor?",
-    "question_type": "membership",
-    "answer_form": "list",
-    "entity": {
-      "value": "SENS motion activity sensor",
-      "type": "instance"
-    },
-    "relation": "has member",
-    "object": {
-      "value": "parts or components",
-      "type": "list"
-    },
-    "ontology_presence": "absent",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "abstain",
-    "acceptable_labels": [
-      "i don't know",
-      "unknown",
-      "not in ontology",
-      "not found",
-      "can't answer the question",
-      "I can't answer the question"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "membership",
-        "answer_form": "list",
-        "entity": "Imaginary SENS motion activity sensor",
-        "relation": "has member",
-        "object": null
-      },
-      "resolve_entity": null,
-      "fetch_relevant_info": "absent",
-      "generate_answer": "I can't answer the question",
-      "map_answer_to_context": "empty"
-    },
-    "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'Imaginary SENS motion activity sensor'.",
-      "answer": "I can't answer the question."
-    }
-  },
-  {
-    "id": "absent_30",
-    "atomic_input": "What parts or components make up pop-up modal?",
-    "question_type": "membership",
-    "answer_form": "list",
-    "entity": {
-      "value": "pop-up modal",
-      "type": "instance"
-    },
-    "relation": "has member",
-    "object": {
-      "value": "parts or components",
-      "type": "list"
-    },
-    "ontology_presence": "absent",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "abstain",
-    "acceptable_labels": [
-      "i don't know",
-      "unknown",
-      "not in ontology",
-      "not found",
-      "can't answer the question",
-      "I can't answer the question"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "membership",
-        "answer_form": "list",
-        "entity": "Imaginary pop-up modal",
-        "relation": "has member",
-        "object": null
-      },
-      "resolve_entity": null,
-      "fetch_relevant_info": "absent",
-      "generate_answer": "I can't answer the question",
-      "map_answer_to_context": "empty"
-    },
-    "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'Imaginary pop-up modal'.",
-      "answer": "I can't answer the question."
-    }
-  },
-  {
-    "id": "absent_31",
-    "atomic_input": "Which has more components: support.sens.dk or SENS motion app?",
-    "question_type": "comparative",
-    "answer_form": "value",
-    "entity": {
-      "value": "support.sens.dk",
-      "type": "instance"
-    },
-    "relation": "compare",
-    "object": {
-      "value": "SENS motion app",
-      "type": "instance"
-    },
-    "ontology_presence": "absent",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "abstain",
-    "acceptable_labels": [
-      "i don't know",
-      "unknown",
-      "not in ontology",
-      "not found",
-      "can't answer the question",
-      "I can't answer the question"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "comparative",
-        "answer_form": "entity",
-        "entity": "Imaginary support.sens.dk",
-        "relation": "compare",
-        "object": "Imaginary SENS motion app"
-      },
-      "resolve_entity": null,
-      "fetch_relevant_info": "absent",
-      "generate_answer": "I can't answer the question",
-      "map_answer_to_context": "empty"
-    },
-    "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'Imaginary support.sens.dk'.",
-      "answer": "I can't answer the question."
-    }
-  },
-  {
-    "id": "absent_32",
-    "atomic_input": "Which has more components: SENS motion activity sensor or version 3.9?",
-    "question_type": "comparative",
-    "answer_form": "value",
-    "entity": {
-      "value": "SENS motion activity sensor",
-      "type": "instance"
-    },
-    "relation": "compare",
-    "object": {
-      "value": "version 3.9",
-      "type": "instance"
-    },
-    "ontology_presence": "absent",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "abstain",
-    "acceptable_labels": [
-      "i don't know",
-      "unknown",
-      "not in ontology",
-      "not found",
-      "can't answer the question",
-      "I can't answer the question"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "comparative",
-        "answer_form": "entity",
-        "entity": "Imaginary SENS motion activity sensor",
-        "relation": "compare",
-        "object": "Imaginary version 3.9"
-      },
-      "resolve_entity": null,
-      "fetch_relevant_info": "absent",
-      "generate_answer": "I can't answer the question",
-      "map_answer_to_context": "empty"
-    },
-    "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'Imaginary SENS motion activity sensor'.",
-      "answer": "I can't answer the question."
-    }
-  },
-  {
-    "id": "absent_33",
-    "atomic_input": "Which has more components: pop-up modal or guide?",
-    "question_type": "comparative",
-    "answer_form": "value",
-    "entity": {
-      "value": "pop-up modal",
-      "type": "instance"
-    },
-    "relation": "compare",
-    "object": {
-      "value": "guide",
-      "type": "instance"
-    },
-    "ontology_presence": "absent",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "abstain",
-    "acceptable_labels": [
-      "i don't know",
-      "unknown",
-      "not in ontology",
-      "not found",
-      "can't answer the question",
-      "I can't answer the question"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "comparative",
-        "answer_form": "entity",
-        "entity": "Imaginary pop-up modal",
-        "relation": "compare",
-        "object": "Imaginary guide"
-      },
-      "resolve_entity": null,
-      "fetch_relevant_info": "absent",
-      "generate_answer": "I can't answer the question",
-      "map_answer_to_context": "empty"
-    },
-    "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'Imaginary pop-up modal'.",
-      "answer": "I can't answer the question."
-    }
-  },
-  {
-    "id": "absent_34",
-    "atomic_input": "Which has more components: SENS motion web app or SENS motion app on Android?",
-    "question_type": "comparative",
-    "answer_form": "value",
-    "entity": {
-      "value": "SENS motion web app",
-      "type": "instance"
-    },
-    "relation": "compare",
-    "object": {
-      "value": "SENS motion app on Android",
-      "type": "instance"
-    },
-    "ontology_presence": "absent",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "abstain",
-    "acceptable_labels": [
-      "i don't know",
-      "unknown",
-      "not in ontology",
-      "not found",
-      "can't answer the question",
-      "I can't answer the question"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "comparative",
-        "answer_form": "entity",
-        "entity": "Imaginary SENS motion web app",
-        "relation": "compare",
-        "object": "Imaginary SENS motion app on Android"
-      },
-      "resolve_entity": null,
-      "fetch_relevant_info": "absent",
-      "generate_answer": "I can't answer the question",
-      "map_answer_to_context": "empty"
-    },
-    "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'Imaginary SENS motion web app'.",
-      "answer": "I can't answer the question."
-    }
-  },
-  {
-    "id": "absent_35",
-    "atomic_input": "How many more parts does support.sens.dk have compared to SENS motion app?",
-    "question_type": "comparative",
-    "answer_form": "value",
-    "entity": {
-      "value": "support.sens.dk",
-      "type": "instance"
-    },
-    "relation": "compare",
-    "object": {
-      "value": "SENS motion app",
-      "type": "instance"
-    },
-    "ontology_presence": "absent",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "abstain",
-    "acceptable_labels": [
-      "i don't know",
-      "unknown",
-      "not in ontology",
-      "not found",
-      "can't answer the question",
-      "I can't answer the question"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "comparative",
-        "answer_form": "literal",
-        "entity": "Imaginary support.sens.dk",
-        "relation": "compare",
-        "object": "Imaginary SENS motion app"
-      },
-      "resolve_entity": null,
-      "fetch_relevant_info": "absent",
-      "generate_answer": "I can't answer the question",
-      "map_answer_to_context": "empty"
-    },
-    "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'Imaginary support.sens.dk'.",
-      "answer": "I can't answer the question."
-    }
-  },
-  {
-    "id": "absent_36",
-    "atomic_input": "How many more parts does SENS motion activity sensor have compared to version 3.9?",
-    "question_type": "comparative",
-    "answer_form": "value",
-    "entity": {
-      "value": "SENS motion activity sensor",
-      "type": "instance"
-    },
-    "relation": "compare",
-    "object": {
-      "value": "version 3.9",
-      "type": "instance"
-    },
-    "ontology_presence": "absent",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "abstain",
-    "acceptable_labels": [
-      "i don't know",
-      "unknown",
-      "not in ontology",
-      "not found",
-      "can't answer the question",
-      "I can't answer the question"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "comparative",
-        "answer_form": "literal",
-        "entity": "Imaginary SENS motion activity sensor",
-        "relation": "compare",
-        "object": "Imaginary version 3.9"
-      },
-      "resolve_entity": null,
-      "fetch_relevant_info": "absent",
-      "generate_answer": "I can't answer the question",
-      "map_answer_to_context": "empty"
-    },
-    "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'Imaginary SENS motion activity sensor'.",
-      "answer": "I can't answer the question."
-    }
-  },
-  {
-    "id": "absent_37",
-    "atomic_input": "How many more parts does support.sens.dk have compared to SENS motion app on Android?",
-    "question_type": "comparative",
-    "answer_form": "value",
-    "entity": {
-      "value": "support.sens.dk",
-      "type": "instance"
-    },
-    "relation": "compare",
-    "object": {
-      "value": "SENS motion app on Android",
-      "type": "instance"
-    },
-    "ontology_presence": "absent",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "abstain",
-    "acceptable_labels": [
-      "i don't know",
-      "unknown",
-      "not in ontology",
-      "not found",
-      "can't answer the question",
-      "I can't answer the question"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "comparative",
-        "answer_form": "literal",
-        "entity": "Imaginary support.sens.dk",
-        "relation": "compare",
-        "object": "Imaginary SENS motion app on Android"
-      },
-      "resolve_entity": null,
-      "fetch_relevant_info": "absent",
-      "generate_answer": "I can't answer the question",
-      "map_answer_to_context": "empty"
-    },
-    "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'Imaginary support.sens.dk'.",
-      "answer": "I can't answer the question."
-    }
-  },
-  {
-    "id": "absent_38",
-    "atomic_input": "How many more parts does guide have compared to pop-up modal?",
-    "question_type": "comparative",
-    "answer_form": "value",
-    "entity": {
-      "value": "guide",
-      "type": "instance"
-    },
-    "relation": "compare",
-    "object": {
-      "value": "pop-up modal",
-      "type": "instance"
-    },
-    "ontology_presence": "absent",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "abstain",
-    "acceptable_labels": [
-      "i don't know",
-      "unknown",
-      "not in ontology",
-      "not found",
-      "can't answer the question",
-      "I can't answer the question"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "comparative",
-        "answer_form": "literal",
-        "entity": "Imaginary guide",
-        "relation": "compare",
-        "object": "Imaginary pop-up modal"
-      },
-      "resolve_entity": null,
-      "fetch_relevant_info": "absent",
-      "generate_answer": "I can't answer the question",
-      "map_answer_to_context": "empty"
-    },
-    "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'Imaginary guide'.",
-      "answer": "I can't answer the question."
-    }
-  },
-  {
-    "id": "absent_39",
-    "atomic_input": "Which 14 parts is significant in this system?",
-    "question_type": "quantification",
-    "answer_form": "value",
-    "entity": {
-      "value": "14 parts",
-      "type": "instance"
-    },
-    "relation": "count",
-    "object": {
-      "value": "14 parts",
-      "type": "literal"
-    },
-    "ontology_presence": "absent",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "abstain",
-    "acceptable_labels": [
-      "i don't know",
-      "unknown",
-      "not in ontology",
-      "not found",
-      "can't answer the question",
-      "I can't answer the question"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "quantification",
-        "answer_form": "entity",
-        "entity": "Imaginary support.sens.dk",
-        "relation": "count",
-        "object": "Imaginary 14 parts"
-      },
-      "resolve_entity": null,
-      "fetch_relevant_info": "absent",
-      "generate_answer": "I can't answer the question",
-      "map_answer_to_context": "empty"
-    },
-    "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'Imaginary support.sens.dk'.",
-      "answer": "I can't answer the question."
-    }
-  },
-  {
-    "id": "absent_40",
-    "atomic_input": "Which 10 parts is significant in this system?",
-    "question_type": "quantification",
-    "answer_form": "value",
-    "entity": {
-      "value": "10 parts",
-      "type": "instance"
-    },
-    "relation": "count",
-    "object": {
-      "value": "10 parts",
-      "type": "literal"
-    },
-    "ontology_presence": "absent",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "abstain",
-    "acceptable_labels": [
-      "i don't know",
-      "unknown",
-      "not in ontology",
-      "not found",
-      "can't answer the question",
-      "I can't answer the question"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "quantification",
-        "answer_form": "entity",
-        "entity": "Imaginary SENS motion activity sensor",
-        "relation": "count",
-        "object": "Imaginary 10 parts"
-      },
-      "resolve_entity": null,
-      "fetch_relevant_info": "absent",
-      "generate_answer": "I can't answer the question",
-      "map_answer_to_context": "empty"
-    },
-    "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'Imaginary SENS motion activity sensor'.",
-      "answer": "I can't answer the question."
-    }
-  },
-  {
-    "id": "absent_41",
-    "atomic_input": "Which 4 direct subclasses is significant in this system?",
-    "question_type": "quantification",
-    "answer_form": "value",
-    "entity": {
-      "value": "4 direct subclasses",
-      "type": "class"
-    },
-    "relation": "count",
-    "object": {
-      "value": "4 direct subclasses",
-      "type": "literal"
-    },
-    "ontology_presence": "absent",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "abstain",
-    "acceptable_labels": [
-      "i don't know",
-      "unknown",
-      "not in ontology",
-      "not found",
-      "can't answer the question",
-      "I can't answer the question"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "quantification",
-        "answer_form": "entity",
-        "entity": "Imaginary ActivityCategory",
-        "relation": "count",
-        "object": "Imaginary 4 direct subclasses"
-      },
-      "resolve_entity": null,
-      "fetch_relevant_info": "absent",
-      "generate_answer": "I can't answer the question",
-      "map_answer_to_context": "empty"
-    },
-    "gold_answer_agent": {
-      "reasoning": "The entity has labels ActivityCategory, but no explicit type/superclass was found in the extracted mapping.",
-      "answer": "I can't answer the question."
-    }
-  },
-  {
-    "id": "absent_42",
-    "atomic_input": "Which 1 sameas link is significant in this system?",
-    "question_type": "quantification",
-    "answer_form": "value",
-    "entity": {
-      "value": "1 sameas link",
-      "type": "instance"
-    },
-    "relation": "count",
-    "object": {
-      "value": "1 sameas link",
-      "type": "literal"
-    },
-    "ontology_presence": "absent",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "abstain",
-    "acceptable_labels": [
-      "i don't know",
-      "unknown",
-      "not in ontology",
-      "not found",
-      "can't answer the question",
-      "I can't answer the question"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "quantification",
-        "answer_form": "entity",
-        "entity": "Imaginary SENS motion app on Android",
-        "relation": "count",
-        "object": "Imaginary 1 sameAs link"
-      },
-      "resolve_entity": null,
-      "fetch_relevant_info": "absent",
-      "generate_answer": "I can't answer the question",
-      "map_answer_to_context": "empty"
-    },
-    "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'Imaginary SENS motion app on Android'.",
-      "answer": "I can't answer the question."
-    }
-  },
-  {
-    "id": "absent_43",
-    "atomic_input": "What are the important elements of Publication?",
-    "question_type": "quantification",
-    "answer_form": "list",
-    "entity": {
-      "value": "Publication",
-      "type": "class"
-    },
-    "relation": "count",
-    "object": {
-      "value": "important elements",
-      "type": "class-list"
-    },
-    "ontology_presence": "absent",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "abstain",
-    "acceptable_labels": [
-      "i don't know",
-      "unknown",
-      "not in ontology",
-      "not found",
-      "can't answer the question",
-      "I can't answer the question"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "quantification",
-        "answer_form": "list",
-        "entity": "Imaginary Publication",
-        "relation": "count",
-        "object": null
-      },
-      "resolve_entity": null,
-      "fetch_relevant_info": "absent",
-      "generate_answer": "I can't answer the question",
-      "map_answer_to_context": "empty"
-    },
-    "gold_answer_agent": {
-      "reasoning": "The entity has labels Publication, but no explicit type/superclass was found in the extracted mapping.",
-      "answer": "I can't answer the question."
-    }
-  },
-  {
-    "id": "absent_44",
-    "atomic_input": "What are the important elements of SENS motion app on Android?",
-    "question_type": "quantification",
-    "answer_form": "list",
-    "entity": {
-      "value": "SENS motion app on Android",
-      "type": "instance"
-    },
-    "relation": "count",
-    "object": {
-      "value": "important elements",
-      "type": "list"
-    },
-    "ontology_presence": "absent",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "abstain",
-    "acceptable_labels": [
-      "i don't know",
-      "unknown",
-      "not in ontology",
-      "not found",
-      "can't answer the question",
-      "I can't answer the question"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "quantification",
-        "answer_form": "list",
-        "entity": "Imaginary SENS motion app on Android",
-        "relation": "count",
-        "object": null
-      },
-      "resolve_entity": null,
-      "fetch_relevant_info": "absent",
-      "generate_answer": "I can't answer the question",
-      "map_answer_to_context": "empty"
-    },
-    "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'Imaginary SENS motion app on Android'.",
-      "answer": "I can't answer the question."
-    }
-  },
-  {
-    "id": "absent_45",
-    "atomic_input": "What is the equivalent or related exists of SENS motion app on Android?",
-    "question_type": "existential",
-    "answer_form": "value",
-    "entity": {
-      "value": "SENS motion app on Android",
-      "type": "instance"
-    },
-    "relation": "exists",
-    "object": {
-      "value": null,
-      "type": null
-    },
-    "ontology_presence": "absent",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "abstain",
-    "acceptable_labels": [
-      "i don't know",
-      "unknown",
-      "not in ontology",
-      "not found",
-      "can't answer the question",
-      "I can't answer the question"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "existential",
-        "answer_form": "entity",
-        "entity": "Imaginary SENS motion app on Android",
-        "relation": "exists",
-        "object": "Imaginary sameAs counterpart"
-      },
-      "resolve_entity": null,
-      "fetch_relevant_info": "absent",
-      "generate_answer": "I can't answer the question",
-      "map_answer_to_context": "empty"
-    },
-    "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'Imaginary SENS motion app on Android'.",
-      "answer": "I can't answer the question."
-    }
-  },
-  {
-    "id": "absent_46",
-    "atomic_input": "What is the equivalent or related exists of SENS motion web app?",
-    "question_type": "existential",
-    "answer_form": "value",
-    "entity": {
-      "value": "SENS motion web app",
-      "type": "instance"
-    },
-    "relation": "exists",
-    "object": {
-      "value": null,
-      "type": null
-    },
-    "ontology_presence": "absent",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "abstain",
-    "acceptable_labels": [
-      "i don't know",
-      "unknown",
-      "not in ontology",
-      "not found",
-      "can't answer the question",
-      "I can't answer the question"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "existential",
-        "answer_form": "entity",
-        "entity": "Imaginary SENS motion web app",
-        "relation": "exists",
-        "object": "Imaginary sameAs counterpart"
-      },
-      "resolve_entity": null,
-      "fetch_relevant_info": "absent",
-      "generate_answer": "I can't answer the question",
-      "map_answer_to_context": "empty"
-    },
-    "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'Imaginary SENS motion web app'.",
-      "answer": "I can't answer the question."
-    }
-  },
-  {
-    "id": "absent_47",
-    "atomic_input": "What is connected to support.sens.dk?",
-    "question_type": "existential",
-    "answer_form": "value",
-    "entity": {
-      "value": "support.sens.dk",
-      "type": "instance"
-    },
-    "relation": "exists",
-    "object": {
-      "value": null,
-      "type": null
-    },
-    "ontology_presence": "absent",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "abstain",
-    "acceptable_labels": [
-      "i don't know",
-      "unknown",
-      "not in ontology",
-      "not found",
-      "can't answer the question",
-      "I can't answer the question"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "existential",
-        "answer_form": "entity",
-        "entity": "Imaginary support.sens.dk",
-        "relation": "exists",
-        "object": "Imaginary web app feature"
-      },
-      "resolve_entity": null,
-      "fetch_relevant_info": "absent",
-      "generate_answer": "I can't answer the question",
-      "map_answer_to_context": "empty"
-    },
-    "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'Imaginary support.sens.dk'.",
-      "answer": "I can't answer the question."
-    }
-  },
-  {
-    "id": "absent_48",
-    "atomic_input": "What is connected to version 3.9?",
-    "question_type": "existential",
-    "answer_form": "value",
-    "entity": {
-      "value": "version 3.9",
-      "type": "instance"
-    },
-    "relation": "exists",
-    "object": {
-      "value": null,
-      "type": null
-    },
-    "ontology_presence": "absent",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "abstain",
-    "acceptable_labels": [
-      "i don't know",
-      "unknown",
-      "not in ontology",
-      "not found",
-      "can't answer the question",
-      "I can't answer the question"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "existential",
-        "answer_form": "entity",
-        "entity": "Imaginary version 3.9",
-        "relation": "exists",
-        "object": "Imaginary release number"
-      },
-      "resolve_entity": null,
-      "fetch_relevant_info": "absent",
-      "generate_answer": "I can't answer the question",
-      "map_answer_to_context": "empty"
-    },
-    "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'Imaginary version 3.9'.",
-      "answer": "I can't answer the question."
-    }
-  },
-  {
-    "id": "absent_49",
-    "atomic_input": "What components are associated with SENS motion app on Android?",
-    "question_type": "existential",
-    "answer_form": "list",
-    "entity": {
-      "value": "SENS motion app on Android",
-      "type": "instance"
-    },
-    "relation": "exists",
-    "object": {
-      "value": "components",
-      "type": "list"
-    },
-    "ontology_presence": "absent",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "abstain",
-    "acceptable_labels": [
-      "i don't know",
-      "unknown",
-      "not in ontology",
-      "not found",
-      "can't answer the question",
-      "I can't answer the question"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "existential",
-        "answer_form": "list",
-        "entity": "Imaginary SENS motion app on Android",
-        "relation": "exists",
-        "object": null
-      },
-      "resolve_entity": null,
-      "fetch_relevant_info": "absent",
-      "generate_answer": "I can't answer the question",
-      "map_answer_to_context": "empty"
-    },
-    "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'Imaginary SENS motion app on Android'.",
-      "answer": "I can't answer the question."
-    }
-  },
-  {
-    "id": "absent_50",
-    "atomic_input": "What components are associated with SENS motion activity sensor?",
-    "question_type": "existential",
-    "answer_form": "list",
-    "entity": {
-      "value": "SENS motion activity sensor",
-      "type": "instance"
-    },
-    "relation": "exists",
-    "object": {
-      "value": "components",
-      "type": "list"
-    },
-    "ontology_presence": "absent",
-    "gold_mapped_answer": {
-      "entity_side": {
-        "types": [],
-        "superclasses": [],
-        "equivalent_classes": [],
-        "properties": [],
-        "property_values": {}
-      }
-    },
-    "expected_decision": "abstain",
-    "acceptable_labels": [
-      "i don't know",
-      "unknown",
-      "not in ontology",
-      "not found",
-      "can't answer the question",
-      "I can't answer the question"
-    ],
-    "stage_labels": {
-      "input_to_graph": {
-        "question_type": "existential",
-        "answer_form": "list",
-        "entity": "Imaginary SENS motion activity sensor",
-        "relation": "exists",
-        "object": null
-      },
-      "resolve_entity": null,
-      "fetch_relevant_info": "absent",
-      "generate_answer": "I can't answer the question",
-      "map_answer_to_context": "empty"
-    },
-    "gold_answer_agent": {
-      "reasoning": "No explicit supporting ontology facts were found for 'Imaginary SENS motion activity sensor'.",
-      "answer": "I can't answer the question."
-    }
+{
+  "id": "present_qty_01_answerable",
+  "atomic_input": "How many individuals are instances of the class Study?",
+  "question_type": "quantification",
+  "answer_form": "value",
+  "entity": { "value": "Study", "type": "class" },
+  "relation": "count",
+  "object": { "value": null, "type": null },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "types": ["Study"]
+    }
+  },
+  "expected_decision": "answer",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "quantification",
+      "answer_form": "value",
+      "entity": "Study",
+      "relation": "count",
+      "object": null
+    },
+    "resolve_entity": "Study",
+    "fetch_relevant_info": "present",
+    "generate_answer": "value",
+    "map_answer_to_context": "grounded"
   }
+},
+{
+  "id": "present_qty_02_answerable",
+  "atomic_input": "How many individuals are instances of the class ActivityCategory?",
+  "question_type": "quantification",
+  "answer_form": "value",
+  "entity": { "value": "ActivityCategory", "type": "class" },
+  "relation": "count",
+  "object": { "value": null, "type": null },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "types": ["ActivityCategory"]
+    }
+  },
+  "expected_decision": "answer",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "quantification",
+      "answer_form": "value",
+      "entity": "ActivityCategory",
+      "relation": "count",
+      "object": null
+    },
+    "resolve_entity": "ActivityCategory",
+    "fetch_relevant_info": "present",
+    "generate_answer": "value",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_qty_03_answerable",
+  "atomic_input": "How many individuals are instances of the class ActivityIntensityCategory?",
+  "question_type": "quantification",
+  "answer_form": "value",
+  "entity": { "value": "ActivityIntensityCategory", "type": "class" },
+  "relation": "count",
+  "object": { "value": null, "type": null },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "types": ["ActivityIntensityCategory"]
+    }
+  },
+  "expected_decision": "answer",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "quantification",
+      "answer_form": "value",
+      "entity": "ActivityIntensityCategory",
+      "relation": "count",
+      "object": null
+    },
+    "resolve_entity": "ActivityIntensityCategory",
+    "fetch_relevant_info": "present",
+    "generate_answer": "value",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_qty_04_answerable",
+  "atomic_input": "How many individuals are instances of the class MobileApplication?",
+  "question_type": "quantification",
+  "answer_form": "value",
+  "entity": { "value": "MobileApplication", "type": "class" },
+  "relation": "count",
+  "object": { "value": null, "type": null },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "types": ["MobileApplication"]
+    }
+  },
+  "expected_decision": "answer",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "quantification",
+      "answer_form": "value",
+      "entity": "MobileApplication",
+      "relation": "count",
+      "object": null
+    },
+    "resolve_entity": "MobileApplication",
+    "fetch_relevant_info": "present",
+    "generate_answer": "value",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_qty_05_answerable",
+  "atomic_input": "How many individuals are instances of the class TeamMember?",
+  "question_type": "quantification",
+  "answer_form": "value",
+  "entity": { "value": "TeamMember", "type": "class" },
+  "relation": "count",
+  "object": { "value": null, "type": null },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "types": ["TeamMember"]
+    }
+  },
+  "expected_decision": "answer",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "quantification",
+      "answer_form": "value",
+      "entity": "TeamMember",
+      "relation": "count",
+      "object": null
+    },
+    "resolve_entity": "TeamMember",
+    "fetch_relevant_info": "present",
+    "generate_answer": "value",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_qty_06_answerable",
+  "atomic_input": "How many chunk_id values does the SENS motion app have?",
+  "question_type": "quantification",
+  "answer_form": "value",
+  "entity": { "value": "SENS motion app", "type": "individual" },
+  "relation": "count",
+  "object": { "value": null, "type": null },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "chunk_id": [21, 22, 23, 60]
+    }
+  },
+  "expected_decision": "answer",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "quantification",
+      "answer_form": "value",
+      "entity": "SENS motion app",
+      "relation": "count",
+      "object": null
+    },
+    "resolve_entity": "SENS motion app",
+    "fetch_relevant_info": "present",
+    "generate_answer": "value",
+    "map_answer_to_context": "grounded"
+  }
+},
+{
+  "id": "present_qty_01_unanswerable",
+  "atomic_input": "How many individuals are instances of the class Algorithm?",
+  "question_type": "quantification",
+  "answer_form": "value",
+  "entity": { "value": "Algorithm", "type": "class" },
+  "relation": "count",
+  "object": { "value": null, "type": null },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "types": []
+    }
+  },
+  "expected_decision": "abstain",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "quantification",
+      "answer_form": "value",
+      "entity": "Algorithm",
+      "relation": "count",
+      "object": null
+    },
+    "resolve_entity": "Algorithm",
+    "fetch_relevant_info": "present",
+    "generate_answer": "abstain",
+    "map_answer_to_context": "ungrounded"
+  }
+},
+{
+  "id": "present_qty_02_unanswerable",
+  "atomic_input": "How many individuals are instances of the class Cohort?",
+  "question_type": "quantification",
+  "answer_form": "value",
+  "entity": { "value": "Cohort", "type": "class" },
+  "relation": "count",
+  "object": { "value": null, "type": null },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "types": []
+    }
+  },
+  "expected_decision": "abstain",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "quantification",
+      "answer_form": "value",
+      "entity": "Cohort",
+      "relation": "count",
+      "object": null
+    },
+    "resolve_entity": "Cohort",
+    "fetch_relevant_info": "present",
+    "generate_answer": "abstain",
+    "map_answer_to_context": "ungrounded"
+  }
+},
+{
+  "id": "present_qty_03_unanswerable",
+  "atomic_input": "How many individuals are instances of the class Patch?",
+  "question_type": "quantification",
+  "answer_form": "value",
+  "entity": { "value": "Patch", "type": "class" },
+  "relation": "count",
+  "object": { "value": null, "type": null },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "types": []
+    }
+  },
+  "expected_decision": "abstain",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "quantification",
+      "answer_form": "value",
+      "entity": "Patch",
+      "relation": "count",
+      "object": null
+    },
+    "resolve_entity": "Patch",
+    "fetch_relevant_info": "present",
+    "generate_answer": "abstain",
+    "map_answer_to_context": "ungrounded"
+  }
+},
+{
+  "id": "present_qty_04_unanswerable",
+  "atomic_input": "How many individuals are instances of the class FileSize?",
+  "question_type": "quantification",
+  "answer_form": "value",
+  "entity": { "value": "FileSize", "type": "class" },
+  "relation": "count",
+  "object": { "value": null, "type": null },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "types": []
+    }
+  },
+  "expected_decision": "abstain",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "quantification",
+      "answer_form": "value",
+      "entity": "FileSize",
+      "relation": "count",
+      "object": null
+    },
+    "resolve_entity": "FileSize",
+    "fetch_relevant_info": "present",
+    "generate_answer": "abstain",
+    "map_answer_to_context": "ungrounded"
+  }
+},
+{
+  "id": "present_qty_05_unanswerable",
+  "atomic_input": "How many chunk_id values does Logo have?",
+  "question_type": "quantification",
+  "answer_form": "value",
+  "entity": { "value": "Logo", "type": "class" },
+  "relation": "count",
+  "object": { "value": null, "type": null },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "chunk_id": []
+    }
+  },
+  "expected_decision": "abstain",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "quantification",
+      "answer_form": "value",
+      "entity": "Logo",
+      "relation": "count",
+      "object": null
+    },
+    "resolve_entity": "Logo",
+    "fetch_relevant_info": "present",
+    "generate_answer": "abstain",
+    "map_answer_to_context": "ungrounded"
+  }
+},
+{
+  "id": "present_qty_06_unanswerable",
+  "atomic_input": "How many chunk_id values does DataCollectionTool have?",
+  "question_type": "quantification",
+      "answer_form": "value",
+  "entity": { "value": "DataCollectionTool", "type": "class" },
+  "relation": "count",
+  "object": { "value": null, "type": null },
+  "ontology_presence": "present",
+  "gold_mapped_answer": {
+    "entity_side": {
+      "chunk_id": []
+    }
+  },
+  "expected_decision": "abstain",
+  "stage_labels": {
+    "input_to_graph": {
+      "question_type": "quantification",
+      "answer_form": "value",
+      "entity": "DataCollectionTool",
+      "relation": "count",
+      "object": null
+    },
+    "resolve_entity": "DataCollectionTool",
+    "fetch_relevant_info": "present",
+    "generate_answer": "abstain",
+    "map_answer_to_context": "ungrounded"
+  }
+}
 ]

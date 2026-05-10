@@ -15,9 +15,9 @@ class ResolveAnswerFormAgent(BaseOntologyAgent):
             if question_type == "definition":
                 return ["value"]
             elif question_type == "taxonomic":
-                return ["value", "assertion"]
+                return ["list", "assertion"]
             elif question_type == "property":
-                return ["value", "list"]
+                return ["value", "list", "assertion"]
             elif question_type == "membership":
                 return ["list"]
             elif question_type == "capability":
@@ -25,9 +25,9 @@ class ResolveAnswerFormAgent(BaseOntologyAgent):
             elif question_type == "comparative":
                 return ["assertion", "value"]
             elif question_type == "quantification":
-                return ["list", "value"]
-            elif question_type == "existential":
-                return ["assertion"]
+                return ["value"]
+            #elif question_type == "existential":
+            #    return ["assertion"]
             else:
                 return self.all_answer_forms_list
             
