@@ -1094,7 +1094,7 @@ def fetch_relevant_info(question_info: dict, ttl: dict, resolve_entity_agent: Re
     if resolved_object is not None:
         full_object_context = retrieve_full_entity_context(type="object", entity=resolved_object, graph=ttl["graph"])
     
-    print("full entity context:", full_entity_context)
+    #print("full entity context:", full_entity_context)
     #2b. filter the retrieved context based on the question type (e.g., for definition questions, we may only care about types, superclasses and annotations, while for capability questions we care more about properties and their semantics).
     entity_context_filtered = filter_context(question_info=question_info, full_context=full_entity_context)
     object_context_filtered = None

@@ -206,8 +206,6 @@ def map_answer_to_context(answer: str, context: Dict[str, Any]) -> Dict[str, Any
     superclasses = []
     for vals in context.get("superclasses", {}).values():
         superclasses.extend(vals)
-    #superclasses = [val for val in vals for vals in context.get("superclasses", {}).values()]
-    print(f"Superclasses candidates: {superclasses}")
     superclass_matches = match_candidates(answer, superclasses)
     superclass_matches += match_class_description_chunks(answer, superClasses_keywords)
     result["superclasses"] = sorted(set(superclass_matches))
@@ -234,9 +232,6 @@ def map_answer_to_context(answer: str, context: Dict[str, Any]) -> Dict[str, Any
     property_values = []  # list of (property_name, value_string)
 
     for t, pdata in context.get("properties_by_type", {}).items():
-        print("T: ", t)
-        print("- pdata: ", pdata)
-        print("--------------------------------)-------------------------------")
 
         # Outgoing object properties
         for item in pdata.get("outgoing_object_properties", []):

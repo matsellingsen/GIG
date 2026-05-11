@@ -163,6 +163,8 @@
         -- input-to-graph-tests (7/10 DONE)
             -- Cascade vs. direct failure is NOT accounted for in the interpretation script yet.
         -- E2E-source-tests (pending)
+            -- dataset is automatically generated, needs to be revised 
+                -- chunk_id needs to be added. It is currently added incocnsistently and wrong.
 
         -- Large End-to-End using real ttl with questions based on source
             -- 50% answerable
