@@ -27,35 +27,69 @@ def compute_metrics(results):
         domain_tier_dict[domain][tier].append(result)
 
     
-    # 2. Compute metrics for each domain seperated by tier ("canonical", "paraphrased", "adversarial")
+    # 2. Compute metrics for each domain separated by tier ("canonical", "paraphrased", "adversarial")
+    #    and include an 'overall' summary for each domain.
+    domain_tier_metrics = {}
 
-    domain_tier_metrics = defaultdict(lambda: defaultdict(list))
     for domain, tiers in domain_tier_dict.items():
+        domain_tier_metrics[domain] = {}
+        
+        # Calculate stats per tier
         for tier, tier_results in tiers.items():
+            tier_stats = {}
             for result in tier_results:
-                checks = result["checks"]
+                for check in result.get("checks", []):
+                    check_name = check["name"]
+                    if not check_name.startswith("has_"): 
+                        if check_name not in tier_stats:
+                            tier_stats[check_name] = {"passed": 0, "total": 0}
+                        
+                        tier_stats[check_name]["total"] += 1
+                        if check.get("passed"):
+                            tier_stats[check_name]["passed"] += 1
+                
+            # Compute percentages for this tier
+            for check_name, counts in tier_stats.items():
+                pct = (counts["passed"] / counts["total"] * 100) if counts["total"] > 0 else 0.0
+                counts["pct"] = round(pct, 2)
+                
+            domain_tier_metrics[domain][tier] = tier_stats
+            
+        # Calculate 'overall' stats across all 3 tiers for this domain
+        overall_stats = {}
+        for tier_stats in domain_tier_metrics[domain].values():
+            for check_name, counts in tier_stats.items():
+                if check_name not in overall_stats:
+                    overall_stats[check_name] = {"passed": 0, "total": 0}
+                overall_stats[check_name]["passed"] += counts["passed"]
+                overall_stats[check_name]["total"] += counts["total"]
+                
+        # Compute percentages for overall domain stats
+        for check_name, counts in overall_stats.items():
+            pct = (counts["passed"] / counts["total"] * 100) if counts["total"] > 0 else 0.0
+            counts["pct"] = round(pct, 2)
+            
+        domain_tier_metrics[domain]["overall"] = overall_stats
 
-            # Compute pass rate for each check
-            check_pass_rates = {}
-            for check in checks:
-                check_name = check["name"]
-                passed = check["passed"]
-                if check_name not in check_pass_rates:
-                    check_pass_rates[check_name] = {"passed": 0, "total": 0}
-                check_pass_rates[check_name]["total"] += 1
-                if passed:
-                    check_pass_rates[check_name]["passed"] += 1
-            for check_name, counts in check_pass_rates.items():
-                pass_rate = counts["passed"] / counts["total"] if counts["total"] > 0 else 0.0
-                domain_tier_metrics[domain][tier].append({
-                    "check_name": check_name,
-                    "pass_rate": pass_rate,
-                    "passed": counts["passed"],
-                    "total": counts["total"]
-                })
+    # 3. Compute aggregate metrics across all domains and tiers
+    aggregate_stats = {}
+    for domain, tiers in domain_tier_metrics.items():
+        for tier, stats in tiers.items():
+            if tier == "overall":
+                continue # Skip overall to avoid double-counting
+            for check_name, counts in stats.items():
+                if check_name not in aggregate_stats:
+                    aggregate_stats[check_name] = {"passed": 0, "total": 0}
+                aggregate_stats[check_name]["passed"] += counts["passed"]
+                aggregate_stats[check_name]["total"] += counts["total"]
+
+    # Compute percentages for aggregate stats
+    for check_name, counts in aggregate_stats.items():
+        pct = (counts["passed"] / counts["total"] * 100) if counts["total"] > 0 else 0.0
+        counts["pct"] = round(pct, 2)
+    domain_tier_metrics["aggregate"] = aggregate_stats
 
     return domain_tier_metrics
-
 
 def main():
     results = load_results()

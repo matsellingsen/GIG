@@ -155,7 +155,14 @@
                 -- relation (potentially make fully deterministic)
                 -- object (conditionally extract or choose deterministically) (DONE)
         -- Create unresolvable test-suite
-        -- revise input-to-graph test-suite
+        -- revise input-to-graph test-suite (DONE)
+        
+        TEST INTERPRETATION SCRIPTS
+        -- E2E-grounded-tests (9/10 DONE)
+            -- Verify it.
+        -- input-to-graph-tests (7/10 DONE)
+            -- Cascade vs. direct failure is NOT accounted for in the interpretation script yet.
+        -- E2E-source-tests (pending)
 
         -- Large End-to-End using real ttl with questions based on source
             -- 50% answerable
