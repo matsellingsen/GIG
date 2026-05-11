@@ -1,0 +1,4100 @@
+{
+  "biology": {
+    "canonical": [
+      {
+        "name": "biology_definition_value",
+        "atomic_input": "What is a Cell",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+          "type": "Class",
+          "value": "Cell"
+        },
+        "relation": "be",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "biology_taxonomic_assertion",
+        "atomic_input": "Is a Mammal a type of Animal",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Class",
+          "value": "Mammal"
+        },
+        "relation": "be subtype of",
+        "object": {
+          "type": "Class",
+          "value": "Animal"
+        }
+      },
+      {
+        "name": "biology_taxonomic_list",
+        "atomic_input": "What is an Animal a subtype of",
+        "question_type": "taxonomic",
+        "answer_form": "list",
+        "entity": {
+          "type": "Class",
+          "value": "Animal"
+        },
+        "relation": "be subtype of",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "biology_property_value",
+        "atomic_input": "What is the color of LeafA",
+        "question_type": "property",
+        "answer_form": "value",
+        "entity": {
+          "type": "Individual",
+          "value": "LeafA"
+        },
+        "relation": "have property",
+        "object": {
+          "type": "Literal",
+          "value": "color"
+        }
+      },
+      {
+        "name": "biology_property_list",
+        "atomic_input": "What properties does LeafA have",
+        "question_type": "property",
+        "answer_form": "list",
+        "entity": {
+          "type": "Individual",
+          "value": "LeafA"
+        },
+        "relation": "have property",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "biology_property_assertion",
+        "atomic_input": "Does LeafA have the property of being green",
+        "question_type": "property",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Individual",
+          "value": "LeafA"
+        },
+        "relation": "have property",
+        "object": {
+          "type": "Literal",
+          "value": "green"
+        }
+      },
+      {
+        "name": "biology_membership_list",
+        "atomic_input": "What components are found in a PlantCell",
+        "question_type": "membership",
+        "answer_form": "list",
+        "entity": {
+          "type": "Class",
+          "value": "PlantCell"
+        },
+        "relation": "have member",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "biology_capability_assertion",
+        "atomic_input": "Can a Neuron detect signals",
+        "question_type": "capability",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Class",
+          "value": "Neuron"
+        },
+        "relation": "have capability",
+        "object": {
+          "type": "Class",
+          "value": "signals"
+        }
+      },
+      {
+        "name": "biology_capability_value",
+        "atomic_input": "What does a Ribosome produce",
+        "question_type": "capability",
+        "answer_form": "value",
+        "entity": {
+          "type": "Class",
+          "value": "Ribosome"
+        },
+        "relation": "have capability",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "biology_comparative_assertion",
+        "atomic_input": "Is CellA greater than CellB in size",
+        "question_type": "comparative",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Individual",
+          "value": "CellA"
+        },
+        "relation": "compare",
+        "object": {
+          "type": "Individual",
+          "value": "CellB"
+        }
+      },
+      {
+        "name": "biology_comparative_value",
+        "atomic_input": "Which is larger, CellA or CellB",
+        "question_type": "comparative",
+        "answer_form": "value",
+        "entity": {
+          "type": "Individual",
+          "value": "CellA"
+        },
+        "relation": "compare",
+        "object": {
+          "type": "Individual",
+          "value": "CellB"
+        }
+      },
+      {
+        "name": "biology_quantification_value",
+        "atomic_input": "How many chromosomes does a Human have",
+        "question_type": "quantification",
+        "answer_form": "value",
+        "entity": {
+          "type": "Class",
+          "value": "Human"
+        },
+        "relation": "count",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "biology_unknown_assertion",
+        "atomic_input": "Is the answer 42",
+        "question_type": "unknown",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Unknown",
+          "value": "answer"
+        },
+        "relation": "unknown",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "biology_unknown_value",
+        "atomic_input": "What happens",
+        "question_type": "unknown",
+        "answer_form": "value",
+        "entity": {
+          "type": "Unknown",
+          "value": "event"
+        },
+        "relation": "unknown",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "biology_unknown_list",
+        "atomic_input": "What are the things",
+        "question_type": "unknown",
+        "answer_form": "list",
+        "entity": {
+          "type": "Unknown",
+          "value": "things"
+        },
+        "relation": "unknown",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      }
+    ],
+    "paraphrased": [
+      {
+        "name": "biology_definition_value",
+        "atomic_input": "Describe what a Cell is.",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+          "type": "Class",
+          "value": "Cell"
+        },
+        "relation": "be",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "biology_taxonomic_assertion",
+        "atomic_input": "Would you classify a Mammal as an Animal",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Class",
+          "value": "Mammal"
+        },
+        "relation": "be subtype of",
+        "object": {
+          "type": "Class",
+          "value": "Animal"
+        }
+      },
+      {
+        "name": "biology_taxonomic_list",
+        "atomic_input": "List the superclasses of Animal.",
+        "question_type": "taxonomic",
+        "answer_form": "list",
+        "entity": {
+          "type": "Class",
+          "value": "Animal"
+        },
+        "relation": "be subtype of",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "biology_property_value",
+        "atomic_input": "What property does LeafA have regarding its color",
+        "question_type": "property",
+        "answer_form": "value",
+        "entity": {
+          "type": "Individual",
+          "value": "LeafA"
+        },
+        "relation": "have property",
+        "object": {
+          "type": "Literal",
+          "value": "color"
+        }
+      },
+      {
+        "name": "biology_property_list",
+        "atomic_input": "List the attributes describing LeafA.",
+        "question_type": "property",
+        "answer_form": "list",
+        "entity": {
+          "type": "Individual",
+          "value": "LeafA"
+        },
+        "relation": "have property",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "biology_property_assertion",
+        "atomic_input": "Is green a property of LeafA",
+        "question_type": "property",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Individual",
+          "value": "LeafA"
+        },
+        "relation": "have property",
+        "object": {
+          "type": "Literal",
+          "value": "green"
+        }
+      },
+      {
+        "name": "biology_membership_list",
+        "atomic_input": "Which structures are included in a PlantCell",
+        "question_type": "membership",
+        "answer_form": "list",
+        "entity": {
+          "type": "Class",
+          "value": "PlantCell"
+        },
+        "relation": "have member",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "biology_capability_assertion",
+        "atomic_input": "Does a Neuron use signals",
+        "question_type": "capability",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Class",
+          "value": "Neuron"
+        },
+        "relation": "have capability",
+        "object": {
+          "type": "Class",
+          "value": "signals"
+        }
+      },
+      {
+        "name": "biology_capability_value",
+        "atomic_input": "What is produced by a Ribosome",
+        "question_type": "capability",
+        "answer_form": "value",
+        "entity": {
+          "type": "Class",
+          "value": "Ribosome"
+        },
+        "relation": "have capability",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "biology_comparative_assertion",
+        "atomic_input": "Would you say CellA is larger than CellB",
+        "question_type": "comparative",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Individual",
+          "value": "CellA"
+        },
+        "relation": "compare",
+        "object": {
+          "type": "Individual",
+          "value": "CellB"
+        }
+      },
+      {
+        "name": "biology_comparative_value",
+        "atomic_input": "Between CellA and CellB, which has a greater size",
+        "question_type": "comparative",
+        "answer_form": "value",
+        "entity": {
+          "type": "Individual",
+          "value": "CellA"
+        },
+        "relation": "compare",
+        "object": {
+          "type": "Individual",
+          "value": "CellB"
+        }
+      },
+      {
+        "name": "biology_quantification_value",
+        "atomic_input": "What is the count of chromosomes in a Human",
+        "question_type": "quantification",
+        "answer_form": "value",
+        "entity": {
+          "type": "Class",
+          "value": "Human"
+        },
+        "relation": "count",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "biology_unknown_assertion",
+        "atomic_input": "Would you say it is 42",
+        "question_type": "unknown",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Unknown",
+          "value": "answer"
+        },
+        "relation": "unknown",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "biology_unknown_value",
+        "atomic_input": "Describe what occurs.",
+        "question_type": "unknown",
+        "answer_form": "value",
+        "entity": {
+          "type": "Unknown",
+          "value": "event"
+        },
+        "relation": "unknown",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "biology_unknown_list",
+        "atomic_input": "List the things.",
+        "question_type": "unknown",
+        "answer_form": "list",
+        "entity": {
+          "type": "Unknown",
+          "value": "things"
+        },
+        "relation": "unknown",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      }
+    ],
+    "adversarial": [
+      {
+        "name": "biology_definition_value",
+        "atomic_input": "So what exactly is a Cell supposed to be",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+          "type": "Class",
+          "value": "Cell"
+        },
+        "relation": "be",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "biology_taxonomic_assertion",
+        "atomic_input": "Isn't it true that a Mammal isn't really an Animal",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Class",
+          "value": "Mammal"
+        },
+        "relation": "be subtype of",
+        "object": {
+          "type": "Class",
+          "value": "Animal"
+        }
+      },
+      {
+        "name": "biology_taxonomic_list",
+        "atomic_input": "Name every single category that Animal is a subtype of.",
+        "question_type": "taxonomic",
+        "answer_form": "list",
+        "entity": {
+          "type": "Class",
+          "value": "Animal"
+        },
+        "relation": "be subtype of",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "biology_property_value",
+        "atomic_input": "What color is LeafA actually supposed to have",
+        "question_type": "property",
+        "answer_form": "value",
+        "entity": {
+          "type": "Individual",
+          "value": "LeafA"
+        },
+        "relation": "have property",
+        "object": {
+          "type": "Literal",
+          "value": "color"
+        }
+      },
+      {
+        "name": "biology_property_list",
+        "atomic_input": "Tell me every property LeafA supposedly possesses.",
+        "question_type": "property",
+        "answer_form": "list",
+        "entity": {
+          "type": "Individual",
+          "value": "LeafA"
+        },
+        "relation": "have property",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "biology_property_assertion",
+        "atomic_input": "Does LeafA actually even have the property green",
+        "question_type": "property",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Individual",
+          "value": "LeafA"
+        },
+        "relation": "have property",
+        "object": {
+          "type": "Literal",
+          "value": "green"
+        }
+      },
+      {
+        "name": "biology_membership_list",
+        "atomic_input": "Name all the things a PlantCell supposedly contains.",
+        "question_type": "membership",
+        "answer_form": "list",
+        "entity": {
+          "type": "Class",
+          "value": "PlantCell"
+        },
+        "relation": "have member",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "biology_capability_assertion",
+        "atomic_input": "Can a Neuron supposedly process anything meaningful like signals",
+        "question_type": "capability",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Class",
+          "value": "Neuron"
+        },
+        "relation": "have capability",
+        "object": {
+          "type": "Class",
+          "value": "signals"
+        }
+      },
+      {
+        "name": "biology_capability_value",
+        "atomic_input": "What exactly does a Ribosome even produce then",
+        "question_type": "capability",
+        "answer_form": "value",
+        "entity": {
+          "type": "Class",
+          "value": "Ribosome"
+        },
+        "relation": "have capability",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "biology_comparative_assertion",
+        "atomic_input": "Is CellA really even bigger than CellB",
+        "question_type": "comparative",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Individual",
+          "value": "CellA"
+        },
+        "relation": "compare",
+        "object": {
+          "type": "Individual",
+          "value": "CellB"
+        }
+      },
+      {
+        "name": "biology_comparative_value",
+        "atomic_input": "Who is really larger, CellA or CellB",
+        "question_type": "comparative",
+        "answer_form": "value",
+        "entity": {
+          "type": "Individual",
+          "value": "CellA"
+        },
+        "relation": "compare",
+        "object": {
+          "type": "Individual",
+          "value": "CellB"
+        }
+      },
+      {
+        "name": "biology_quantification_value",
+        "atomic_input": "Exactly how many chromosomes is a Human supposed to have",
+        "question_type": "quantification",
+        "answer_form": "value",
+        "entity": {
+          "type": "Class",
+          "value": "Human"
+        },
+        "relation": "count",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "biology_unknown_assertion",
+        "atomic_input": "Is it even remotely close to 42",
+        "question_type": "unknown",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Unknown",
+          "value": "answer"
+        },
+        "relation": "unknown",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "biology_unknown_value",
+        "atomic_input": "What exactly is supposed to happen",
+        "question_type": "unknown",
+        "answer_form": "value",
+        "entity": {
+          "type": "Unknown",
+          "value": "event"
+        },
+        "relation": "unknown",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "biology_unknown_list",
+        "atomic_input": "Name all the random things.",
+        "question_type": "unknown",
+        "answer_form": "list",
+        "entity": {
+          "type": "Unknown",
+          "value": "things"
+        },
+        "relation": "unknown",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      }
+    ]
+  },
+  "geography": {
+    "canonical": [
+      {
+        "name": "geography_definition_value",
+        "atomic_input": "What is a Mountain",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+          "type": "Class",
+          "value": "Mountain"
+        },
+        "relation": "be",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "geography_taxonomic_assertion",
+        "atomic_input": "Is a River a type of Waterbody",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Class",
+          "value": "River"
+        },
+        "relation": "be subtype of",
+        "object": {
+          "type": "Class",
+          "value": "Waterbody"
+        }
+      },
+      {
+        "name": "geography_taxonomic_list",
+        "atomic_input": "What is an Waterbody a subtype of",
+        "question_type": "taxonomic",
+        "answer_form": "list",
+        "entity": {
+          "type": "Class",
+          "value": "Waterbody"
+        },
+        "relation": "be subtype of",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "geography_property_value",
+        "atomic_input": "What is the color of PeakA",
+        "question_type": "property",
+        "answer_form": "value",
+        "entity": {
+          "type": "Individual",
+          "value": "PeakA"
+        },
+        "relation": "have property",
+        "object": {
+          "type": "Literal",
+          "value": "color"
+        }
+      },
+      {
+        "name": "geography_property_list",
+        "atomic_input": "What properties does PeakA have",
+        "question_type": "property",
+        "answer_form": "list",
+        "entity": {
+          "type": "Individual",
+          "value": "PeakA"
+        },
+        "relation": "have property",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "geography_property_assertion",
+        "atomic_input": "Does PeakA have the property of being green",
+        "question_type": "property",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Individual",
+          "value": "PeakA"
+        },
+        "relation": "have property",
+        "object": {
+          "type": "Literal",
+          "value": "green"
+        }
+      },
+      {
+        "name": "geography_membership_list",
+        "atomic_input": "What components are found in a PlantMountain",
+        "question_type": "membership",
+        "answer_form": "list",
+        "entity": {
+          "type": "Class",
+          "value": "PlantMountain"
+        },
+        "relation": "have member",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "geography_capability_assertion",
+        "atomic_input": "Can a Satellite detect storms",
+        "question_type": "capability",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Class",
+          "value": "Satellite"
+        },
+        "relation": "have capability",
+        "object": {
+          "type": "Class",
+          "value": "storms"
+        }
+      },
+      {
+        "name": "geography_capability_value",
+        "atomic_input": "What does a Volcano produce",
+        "question_type": "capability",
+        "answer_form": "value",
+        "entity": {
+          "type": "Class",
+          "value": "Volcano"
+        },
+        "relation": "have capability",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "geography_comparative_assertion",
+        "atomic_input": "Is MountainA greater than MountainB in size",
+        "question_type": "comparative",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Individual",
+          "value": "MountainA"
+        },
+        "relation": "compare",
+        "object": {
+          "type": "Individual",
+          "value": "MountainB"
+        }
+      },
+      {
+        "name": "geography_comparative_value",
+        "atomic_input": "Which is larger, MountainA or MountainB",
+        "question_type": "comparative",
+        "answer_form": "value",
+        "entity": {
+          "type": "Individual",
+          "value": "MountainA"
+        },
+        "relation": "compare",
+        "object": {
+          "type": "Individual",
+          "value": "MountainB"
+        }
+      },
+      {
+        "name": "geography_quantification_value",
+        "atomic_input": "How many oceans does a Planet have",
+        "question_type": "quantification",
+        "answer_form": "value",
+        "entity": {
+          "type": "Class",
+          "value": "Planet"
+        },
+        "relation": "count",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "geography_unknown_assertion",
+        "atomic_input": "Is the answer 42",
+        "question_type": "unknown",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Unknown",
+          "value": "answer"
+        },
+        "relation": "unknown",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "geography_unknown_value",
+        "atomic_input": "What happens",
+        "question_type": "unknown",
+        "answer_form": "value",
+        "entity": {
+          "type": "Unknown",
+          "value": "event"
+        },
+        "relation": "unknown",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "geography_unknown_list",
+        "atomic_input": "What are the things",
+        "question_type": "unknown",
+        "answer_form": "list",
+        "entity": {
+          "type": "Unknown",
+          "value": "things"
+        },
+        "relation": "unknown",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      }
+    ],
+    "paraphrased": [
+      {
+        "name": "geography_definition_value",
+        "atomic_input": "Describe what a Mountain is.",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+          "type": "Class",
+          "value": "Mountain"
+        },
+        "relation": "be",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "geography_taxonomic_assertion",
+        "atomic_input": "Would you classify a River as an Waterbody",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Class",
+          "value": "River"
+        },
+        "relation": "be subtype of",
+        "object": {
+          "type": "Class",
+          "value": "Waterbody"
+        }
+      },
+      {
+        "name": "geography_taxonomic_list",
+        "atomic_input": "List the superclasses of Waterbody.",
+        "question_type": "taxonomic",
+        "answer_form": "list",
+        "entity": {
+          "type": "Class",
+          "value": "Waterbody"
+        },
+        "relation": "be subtype of",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "geography_property_value",
+        "atomic_input": "What property does PeakA have regarding its color",
+        "question_type": "property",
+        "answer_form": "value",
+        "entity": {
+          "type": "Individual",
+          "value": "PeakA"
+        },
+        "relation": "have property",
+        "object": {
+          "type": "Literal",
+          "value": "color"
+        }
+      },
+      {
+        "name": "geography_property_list",
+        "atomic_input": "List the attributes describing PeakA.",
+        "question_type": "property",
+        "answer_form": "list",
+        "entity": {
+          "type": "Individual",
+          "value": "PeakA"
+        },
+        "relation": "have property",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "geography_property_assertion",
+        "atomic_input": "Is green a property of PeakA",
+        "question_type": "property",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Individual",
+          "value": "PeakA"
+        },
+        "relation": "have property",
+        "object": {
+          "type": "Literal",
+          "value": "green"
+        }
+      },
+      {
+        "name": "geography_membership_list",
+        "atomic_input": "Which structures are included in a PlantMountain",
+        "question_type": "membership",
+        "answer_form": "list",
+        "entity": {
+          "type": "Class",
+          "value": "PlantMountain"
+        },
+        "relation": "have member",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "geography_capability_assertion",
+        "atomic_input": "Does a Satellite use storms",
+        "question_type": "capability",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Class",
+          "value": "Satellite"
+        },
+        "relation": "have capability",
+        "object": {
+          "type": "Class",
+          "value": "storms"
+        }
+      },
+      {
+        "name": "geography_capability_value",
+        "atomic_input": "What is produced by a Volcano",
+        "question_type": "capability",
+        "answer_form": "value",
+        "entity": {
+          "type": "Class",
+          "value": "Volcano"
+        },
+        "relation": "have capability",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "geography_comparative_assertion",
+        "atomic_input": "Would you say MountainA is larger than MountainB",
+        "question_type": "comparative",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Individual",
+          "value": "MountainA"
+        },
+        "relation": "compare",
+        "object": {
+          "type": "Individual",
+          "value": "MountainB"
+        }
+      },
+      {
+        "name": "geography_comparative_value",
+        "atomic_input": "Between MountainA and MountainB, which has a greater size",
+        "question_type": "comparative",
+        "answer_form": "value",
+        "entity": {
+          "type": "Individual",
+          "value": "MountainA"
+        },
+        "relation": "compare",
+        "object": {
+          "type": "Individual",
+          "value": "MountainB"
+        }
+      },
+      {
+        "name": "geography_quantification_value",
+        "atomic_input": "What is the count of oceans in a Planet",
+        "question_type": "quantification",
+        "answer_form": "value",
+        "entity": {
+          "type": "Class",
+          "value": "Planet"
+        },
+        "relation": "count",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "geography_unknown_assertion",
+        "atomic_input": "Would you say it is 42",
+        "question_type": "unknown",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Unknown",
+          "value": "answer"
+        },
+        "relation": "unknown",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "geography_unknown_value",
+        "atomic_input": "Describe what occurs.",
+        "question_type": "unknown",
+        "answer_form": "value",
+        "entity": {
+          "type": "Unknown",
+          "value": "event"
+        },
+        "relation": "unknown",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "geography_unknown_list",
+        "atomic_input": "List the things.",
+        "question_type": "unknown",
+        "answer_form": "list",
+        "entity": {
+          "type": "Unknown",
+          "value": "things"
+        },
+        "relation": "unknown",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      }
+    ],
+    "adversarial": [
+      {
+        "name": "geography_definition_value",
+        "atomic_input": "So what exactly is a Mountain supposed to be",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+          "type": "Class",
+          "value": "Mountain"
+        },
+        "relation": "be",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "geography_taxonomic_assertion",
+        "atomic_input": "Isn't it true that a River isn't really an Waterbody",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Class",
+          "value": "River"
+        },
+        "relation": "be subtype of",
+        "object": {
+          "type": "Class",
+          "value": "Waterbody"
+        }
+      },
+      {
+        "name": "geography_taxonomic_list",
+        "atomic_input": "Name every single category that Waterbody is a subtype of.",
+        "question_type": "taxonomic",
+        "answer_form": "list",
+        "entity": {
+          "type": "Class",
+          "value": "Waterbody"
+        },
+        "relation": "be subtype of",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "geography_property_value",
+        "atomic_input": "What color is PeakA actually supposed to have",
+        "question_type": "property",
+        "answer_form": "value",
+        "entity": {
+          "type": "Individual",
+          "value": "PeakA"
+        },
+        "relation": "have property",
+        "object": {
+          "type": "Literal",
+          "value": "color"
+        }
+      },
+      {
+        "name": "geography_property_list",
+        "atomic_input": "Tell me every property PeakA supposedly possesses.",
+        "question_type": "property",
+        "answer_form": "list",
+        "entity": {
+          "type": "Individual",
+          "value": "PeakA"
+        },
+        "relation": "have property",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "geography_property_assertion",
+        "atomic_input": "Does PeakA actually even have the property green",
+        "question_type": "property",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Individual",
+          "value": "PeakA"
+        },
+        "relation": "have property",
+        "object": {
+          "type": "Literal",
+          "value": "green"
+        }
+      },
+      {
+        "name": "geography_membership_list",
+        "atomic_input": "Name all the things a PlantMountain supposedly contains.",
+        "question_type": "membership",
+        "answer_form": "list",
+        "entity": {
+          "type": "Class",
+          "value": "PlantMountain"
+        },
+        "relation": "have member",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "geography_capability_assertion",
+        "atomic_input": "Can a Satellite supposedly process anything meaningful like storms",
+        "question_type": "capability",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Class",
+          "value": "Satellite"
+        },
+        "relation": "have capability",
+        "object": {
+          "type": "Class",
+          "value": "storms"
+        }
+      },
+      {
+        "name": "geography_capability_value",
+        "atomic_input": "What exactly does a Volcano even produce then",
+        "question_type": "capability",
+        "answer_form": "value",
+        "entity": {
+          "type": "Class",
+          "value": "Volcano"
+        },
+        "relation": "have capability",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "geography_comparative_assertion",
+        "atomic_input": "Is MountainA really even bigger than MountainB",
+        "question_type": "comparative",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Individual",
+          "value": "MountainA"
+        },
+        "relation": "compare",
+        "object": {
+          "type": "Individual",
+          "value": "MountainB"
+        }
+      },
+      {
+        "name": "geography_comparative_value",
+        "atomic_input": "Who is really larger, MountainA or MountainB",
+        "question_type": "comparative",
+        "answer_form": "value",
+        "entity": {
+          "type": "Individual",
+          "value": "MountainA"
+        },
+        "relation": "compare",
+        "object": {
+          "type": "Individual",
+          "value": "MountainB"
+        }
+      },
+      {
+        "name": "geography_quantification_value",
+        "atomic_input": "Exactly how many oceans is a Planet supposed to have",
+        "question_type": "quantification",
+        "answer_form": "value",
+        "entity": {
+          "type": "Class",
+          "value": "Planet"
+        },
+        "relation": "count",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "geography_unknown_assertion",
+        "atomic_input": "Is it even remotely close to 42",
+        "question_type": "unknown",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Unknown",
+          "value": "answer"
+        },
+        "relation": "unknown",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "geography_unknown_value",
+        "atomic_input": "What exactly is supposed to happen",
+        "question_type": "unknown",
+        "answer_form": "value",
+        "entity": {
+          "type": "Unknown",
+          "value": "event"
+        },
+        "relation": "unknown",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "geography_unknown_list",
+        "atomic_input": "Name all the random things.",
+        "question_type": "unknown",
+        "answer_form": "list",
+        "entity": {
+          "type": "Unknown",
+          "value": "things"
+        },
+        "relation": "unknown",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      }
+    ]
+  },
+  "technology": {
+    "canonical": [
+      {
+        "name": "technology_definition_value",
+        "atomic_input": "What is a Processor",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+          "type": "Class",
+          "value": "Processor"
+        },
+        "relation": "be",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "technology_taxonomic_assertion",
+        "atomic_input": "Is a Laptop a type of Computer",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Class",
+          "value": "Laptop"
+        },
+        "relation": "be subtype of",
+        "object": {
+          "type": "Class",
+          "value": "Computer"
+        }
+      },
+      {
+        "name": "technology_taxonomic_list",
+        "atomic_input": "What is an Computer a subtype of",
+        "question_type": "taxonomic",
+        "answer_form": "list",
+        "entity": {
+          "type": "Class",
+          "value": "Computer"
+        },
+        "relation": "be subtype of",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "technology_property_value",
+        "atomic_input": "What is the color of DeviceA",
+        "question_type": "property",
+        "answer_form": "value",
+        "entity": {
+          "type": "Individual",
+          "value": "DeviceA"
+        },
+        "relation": "have property",
+        "object": {
+          "type": "Literal",
+          "value": "color"
+        }
+      },
+      {
+        "name": "technology_property_list",
+        "atomic_input": "What properties does DeviceA have",
+        "question_type": "property",
+        "answer_form": "list",
+        "entity": {
+          "type": "Individual",
+          "value": "DeviceA"
+        },
+        "relation": "have property",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "technology_property_assertion",
+        "atomic_input": "Does DeviceA have the property of being green",
+        "question_type": "property",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Individual",
+          "value": "DeviceA"
+        },
+        "relation": "have property",
+        "object": {
+          "type": "Literal",
+          "value": "green"
+        }
+      },
+      {
+        "name": "technology_membership_list",
+        "atomic_input": "What components are found in a PlantProcessor",
+        "question_type": "membership",
+        "answer_form": "list",
+        "entity": {
+          "type": "Class",
+          "value": "PlantProcessor"
+        },
+        "relation": "have member",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "technology_capability_assertion",
+        "atomic_input": "Can a Sensor detect temperature",
+        "question_type": "capability",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Class",
+          "value": "Sensor"
+        },
+        "relation": "have capability",
+        "object": {
+          "type": "Class",
+          "value": "temperature"
+        }
+      },
+      {
+        "name": "technology_capability_value",
+        "atomic_input": "What does a Compiler produce",
+        "question_type": "capability",
+        "answer_form": "value",
+        "entity": {
+          "type": "Class",
+          "value": "Compiler"
+        },
+        "relation": "have capability",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "technology_comparative_assertion",
+        "atomic_input": "Is ProcessorA greater than ProcessorB in size",
+        "question_type": "comparative",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Individual",
+          "value": "ProcessorA"
+        },
+        "relation": "compare",
+        "object": {
+          "type": "Individual",
+          "value": "ProcessorB"
+        }
+      },
+      {
+        "name": "technology_comparative_value",
+        "atomic_input": "Which is larger, ProcessorA or ProcessorB",
+        "question_type": "comparative",
+        "answer_form": "value",
+        "entity": {
+          "type": "Individual",
+          "value": "ProcessorA"
+        },
+        "relation": "compare",
+        "object": {
+          "type": "Individual",
+          "value": "ProcessorB"
+        }
+      },
+      {
+        "name": "technology_quantification_value",
+        "atomic_input": "How many nodes does a Network have",
+        "question_type": "quantification",
+        "answer_form": "value",
+        "entity": {
+          "type": "Class",
+          "value": "Network"
+        },
+        "relation": "count",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "technology_unknown_assertion",
+        "atomic_input": "Is the answer 42",
+        "question_type": "unknown",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Unknown",
+          "value": "answer"
+        },
+        "relation": "unknown",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "technology_unknown_value",
+        "atomic_input": "What happens",
+        "question_type": "unknown",
+        "answer_form": "value",
+        "entity": {
+          "type": "Unknown",
+          "value": "event"
+        },
+        "relation": "unknown",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "technology_unknown_list",
+        "atomic_input": "What are the things",
+        "question_type": "unknown",
+        "answer_form": "list",
+        "entity": {
+          "type": "Unknown",
+          "value": "things"
+        },
+        "relation": "unknown",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      }
+    ],
+    "paraphrased": [
+      {
+        "name": "technology_definition_value",
+        "atomic_input": "Describe what a Processor is.",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+          "type": "Class",
+          "value": "Processor"
+        },
+        "relation": "be",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "technology_taxonomic_assertion",
+        "atomic_input": "Would you classify a Laptop as an Computer",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Class",
+          "value": "Laptop"
+        },
+        "relation": "be subtype of",
+        "object": {
+          "type": "Class",
+          "value": "Computer"
+        }
+      },
+      {
+        "name": "technology_taxonomic_list",
+        "atomic_input": "List the superclasses of Computer.",
+        "question_type": "taxonomic",
+        "answer_form": "list",
+        "entity": {
+          "type": "Class",
+          "value": "Computer"
+        },
+        "relation": "be subtype of",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "technology_property_value",
+        "atomic_input": "What property does DeviceA have regarding its color",
+        "question_type": "property",
+        "answer_form": "value",
+        "entity": {
+          "type": "Individual",
+          "value": "DeviceA"
+        },
+        "relation": "have property",
+        "object": {
+          "type": "Literal",
+          "value": "color"
+        }
+      },
+      {
+        "name": "technology_property_list",
+        "atomic_input": "List the attributes describing DeviceA.",
+        "question_type": "property",
+        "answer_form": "list",
+        "entity": {
+          "type": "Individual",
+          "value": "DeviceA"
+        },
+        "relation": "have property",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "technology_property_assertion",
+        "atomic_input": "Is green a property of DeviceA",
+        "question_type": "property",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Individual",
+          "value": "DeviceA"
+        },
+        "relation": "have property",
+        "object": {
+          "type": "Literal",
+          "value": "green"
+        }
+      },
+      {
+        "name": "technology_membership_list",
+        "atomic_input": "Which structures are included in a PlantProcessor",
+        "question_type": "membership",
+        "answer_form": "list",
+        "entity": {
+          "type": "Class",
+          "value": "PlantProcessor"
+        },
+        "relation": "have member",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "technology_capability_assertion",
+        "atomic_input": "Does a Sensor use temperature",
+        "question_type": "capability",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Class",
+          "value": "Sensor"
+        },
+        "relation": "have capability",
+        "object": {
+          "type": "Class",
+          "value": "temperature"
+        }
+      },
+      {
+        "name": "technology_capability_value",
+        "atomic_input": "What is produced by a Compiler",
+        "question_type": "capability",
+        "answer_form": "value",
+        "entity": {
+          "type": "Class",
+          "value": "Compiler"
+        },
+        "relation": "have capability",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "technology_comparative_assertion",
+        "atomic_input": "Would you say ProcessorA is larger than ProcessorB",
+        "question_type": "comparative",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Individual",
+          "value": "ProcessorA"
+        },
+        "relation": "compare",
+        "object": {
+          "type": "Individual",
+          "value": "ProcessorB"
+        }
+      },
+      {
+        "name": "technology_comparative_value",
+        "atomic_input": "Between ProcessorA and ProcessorB, which has a greater size",
+        "question_type": "comparative",
+        "answer_form": "value",
+        "entity": {
+          "type": "Individual",
+          "value": "ProcessorA"
+        },
+        "relation": "compare",
+        "object": {
+          "type": "Individual",
+          "value": "ProcessorB"
+        }
+      },
+      {
+        "name": "technology_quantification_value",
+        "atomic_input": "What is the count of nodes in a Network",
+        "question_type": "quantification",
+        "answer_form": "value",
+        "entity": {
+          "type": "Class",
+          "value": "Network"
+        },
+        "relation": "count",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "technology_unknown_assertion",
+        "atomic_input": "Would you say it is 42",
+        "question_type": "unknown",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Unknown",
+          "value": "answer"
+        },
+        "relation": "unknown",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "technology_unknown_value",
+        "atomic_input": "Describe what occurs.",
+        "question_type": "unknown",
+        "answer_form": "value",
+        "entity": {
+          "type": "Unknown",
+          "value": "event"
+        },
+        "relation": "unknown",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "technology_unknown_list",
+        "atomic_input": "List the things.",
+        "question_type": "unknown",
+        "answer_form": "list",
+        "entity": {
+          "type": "Unknown",
+          "value": "things"
+        },
+        "relation": "unknown",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      }
+    ],
+    "adversarial": [
+      {
+        "name": "technology_definition_value",
+        "atomic_input": "So what exactly is a Processor supposed to be",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+          "type": "Class",
+          "value": "Processor"
+        },
+        "relation": "be",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "technology_taxonomic_assertion",
+        "atomic_input": "Isn't it true that a Laptop isn't really an Computer",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Class",
+          "value": "Laptop"
+        },
+        "relation": "be subtype of",
+        "object": {
+          "type": "Class",
+          "value": "Computer"
+        }
+      },
+      {
+        "name": "technology_taxonomic_list",
+        "atomic_input": "Name every single category that Computer is a subtype of.",
+        "question_type": "taxonomic",
+        "answer_form": "list",
+        "entity": {
+          "type": "Class",
+          "value": "Computer"
+        },
+        "relation": "be subtype of",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "technology_property_value",
+        "atomic_input": "What color is DeviceA actually supposed to have",
+        "question_type": "property",
+        "answer_form": "value",
+        "entity": {
+          "type": "Individual",
+          "value": "DeviceA"
+        },
+        "relation": "have property",
+        "object": {
+          "type": "Literal",
+          "value": "color"
+        }
+      },
+      {
+        "name": "technology_property_list",
+        "atomic_input": "Tell me every property DeviceA supposedly possesses.",
+        "question_type": "property",
+        "answer_form": "list",
+        "entity": {
+          "type": "Individual",
+          "value": "DeviceA"
+        },
+        "relation": "have property",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "technology_property_assertion",
+        "atomic_input": "Does DeviceA actually even have the property green",
+        "question_type": "property",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Individual",
+          "value": "DeviceA"
+        },
+        "relation": "have property",
+        "object": {
+          "type": "Literal",
+          "value": "green"
+        }
+      },
+      {
+        "name": "technology_membership_list",
+        "atomic_input": "Name all the things a PlantProcessor supposedly contains.",
+        "question_type": "membership",
+        "answer_form": "list",
+        "entity": {
+          "type": "Class",
+          "value": "PlantProcessor"
+        },
+        "relation": "have member",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "technology_capability_assertion",
+        "atomic_input": "Can a Sensor supposedly process anything meaningful like temperature",
+        "question_type": "capability",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Class",
+          "value": "Sensor"
+        },
+        "relation": "have capability",
+        "object": {
+          "type": "Class",
+          "value": "temperature"
+        }
+      },
+      {
+        "name": "technology_capability_value",
+        "atomic_input": "What exactly does a Compiler even produce then",
+        "question_type": "capability",
+        "answer_form": "value",
+        "entity": {
+          "type": "Class",
+          "value": "Compiler"
+        },
+        "relation": "have capability",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "technology_comparative_assertion",
+        "atomic_input": "Is ProcessorA really even bigger than ProcessorB",
+        "question_type": "comparative",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Individual",
+          "value": "ProcessorA"
+        },
+        "relation": "compare",
+        "object": {
+          "type": "Individual",
+          "value": "ProcessorB"
+        }
+      },
+      {
+        "name": "technology_comparative_value",
+        "atomic_input": "Who is really larger, ProcessorA or ProcessorB",
+        "question_type": "comparative",
+        "answer_form": "value",
+        "entity": {
+          "type": "Individual",
+          "value": "ProcessorA"
+        },
+        "relation": "compare",
+        "object": {
+          "type": "Individual",
+          "value": "ProcessorB"
+        }
+      },
+      {
+        "name": "technology_quantification_value",
+        "atomic_input": "Exactly how many nodes is a Network supposed to have",
+        "question_type": "quantification",
+        "answer_form": "value",
+        "entity": {
+          "type": "Class",
+          "value": "Network"
+        },
+        "relation": "count",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "technology_unknown_assertion",
+        "atomic_input": "Is it even remotely close to 42",
+        "question_type": "unknown",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Unknown",
+          "value": "answer"
+        },
+        "relation": "unknown",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "technology_unknown_value",
+        "atomic_input": "What exactly is supposed to happen",
+        "question_type": "unknown",
+        "answer_form": "value",
+        "entity": {
+          "type": "Unknown",
+          "value": "event"
+        },
+        "relation": "unknown",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "technology_unknown_list",
+        "atomic_input": "Name all the random things.",
+        "question_type": "unknown",
+        "answer_form": "list",
+        "entity": {
+          "type": "Unknown",
+          "value": "things"
+        },
+        "relation": "unknown",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      }
+    ]
+  },
+  "people": {
+    "canonical": [
+      {
+        "name": "people_definition_value",
+        "atomic_input": "What is a Person",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+          "type": "Class",
+          "value": "Person"
+        },
+        "relation": "be",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "people_taxonomic_assertion",
+        "atomic_input": "Is a Teacher a type of Profession",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Class",
+          "value": "Teacher"
+        },
+        "relation": "be subtype of",
+        "object": {
+          "type": "Class",
+          "value": "Profession"
+        }
+      },
+      {
+        "name": "people_taxonomic_list",
+        "atomic_input": "What is an Profession a subtype of",
+        "question_type": "taxonomic",
+        "answer_form": "list",
+        "entity": {
+          "type": "Class",
+          "value": "Profession"
+        },
+        "relation": "be subtype of",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "people_property_value",
+        "atomic_input": "What is the color of Alice",
+        "question_type": "property",
+        "answer_form": "value",
+        "entity": {
+          "type": "Individual",
+          "value": "Alice"
+        },
+        "relation": "have property",
+        "object": {
+          "type": "Literal",
+          "value": "color"
+        }
+      },
+      {
+        "name": "people_property_list",
+        "atomic_input": "What properties does Alice have",
+        "question_type": "property",
+        "answer_form": "list",
+        "entity": {
+          "type": "Individual",
+          "value": "Alice"
+        },
+        "relation": "have property",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "people_property_assertion",
+        "atomic_input": "Does Alice have the property of being green",
+        "question_type": "property",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Individual",
+          "value": "Alice"
+        },
+        "relation": "have property",
+        "object": {
+          "type": "Literal",
+          "value": "green"
+        }
+      },
+      {
+        "name": "people_membership_list",
+        "atomic_input": "What components are found in a PlantPerson",
+        "question_type": "membership",
+        "answer_form": "list",
+        "entity": {
+          "type": "Class",
+          "value": "PlantPerson"
+        },
+        "relation": "have member",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "people_capability_assertion",
+        "atomic_input": "Can a Doctor detect symptoms",
+        "question_type": "capability",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Class",
+          "value": "Doctor"
+        },
+        "relation": "have capability",
+        "object": {
+          "type": "Class",
+          "value": "symptoms"
+        }
+      },
+      {
+        "name": "people_capability_value",
+        "atomic_input": "What does a Chef produce",
+        "question_type": "capability",
+        "answer_form": "value",
+        "entity": {
+          "type": "Class",
+          "value": "Chef"
+        },
+        "relation": "have capability",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "people_comparative_assertion",
+        "atomic_input": "Is PersonA greater than PersonB in size",
+        "question_type": "comparative",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Individual",
+          "value": "PersonA"
+        },
+        "relation": "compare",
+        "object": {
+          "type": "Individual",
+          "value": "PersonB"
+        }
+      },
+      {
+        "name": "people_comparative_value",
+        "atomic_input": "Which is larger, PersonA or PersonB",
+        "question_type": "comparative",
+        "answer_form": "value",
+        "entity": {
+          "type": "Individual",
+          "value": "PersonA"
+        },
+        "relation": "compare",
+        "object": {
+          "type": "Individual",
+          "value": "PersonB"
+        }
+      },
+      {
+        "name": "people_quantification_value",
+        "atomic_input": "How many members does a Team have",
+        "question_type": "quantification",
+        "answer_form": "value",
+        "entity": {
+          "type": "Class",
+          "value": "Team"
+        },
+        "relation": "count",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "people_unknown_assertion",
+        "atomic_input": "Is the answer 42",
+        "question_type": "unknown",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Unknown",
+          "value": "answer"
+        },
+        "relation": "unknown",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "people_unknown_value",
+        "atomic_input": "What happens",
+        "question_type": "unknown",
+        "answer_form": "value",
+        "entity": {
+          "type": "Unknown",
+          "value": "event"
+        },
+        "relation": "unknown",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "people_unknown_list",
+        "atomic_input": "What are the things",
+        "question_type": "unknown",
+        "answer_form": "list",
+        "entity": {
+          "type": "Unknown",
+          "value": "things"
+        },
+        "relation": "unknown",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      }
+    ],
+    "paraphrased": [
+      {
+        "name": "people_definition_value",
+        "atomic_input": "Describe what a Person is.",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+          "type": "Class",
+          "value": "Person"
+        },
+        "relation": "be",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "people_taxonomic_assertion",
+        "atomic_input": "Would you classify a Teacher as an Profession",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Class",
+          "value": "Teacher"
+        },
+        "relation": "be subtype of",
+        "object": {
+          "type": "Class",
+          "value": "Profession"
+        }
+      },
+      {
+        "name": "people_taxonomic_list",
+        "atomic_input": "List the superclasses of Profession.",
+        "question_type": "taxonomic",
+        "answer_form": "list",
+        "entity": {
+          "type": "Class",
+          "value": "Profession"
+        },
+        "relation": "be subtype of",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "people_property_value",
+        "atomic_input": "What property does Alice have regarding its color",
+        "question_type": "property",
+        "answer_form": "value",
+        "entity": {
+          "type": "Individual",
+          "value": "Alice"
+        },
+        "relation": "have property",
+        "object": {
+          "type": "Literal",
+          "value": "color"
+        }
+      },
+      {
+        "name": "people_property_list",
+        "atomic_input": "List the attributes describing Alice.",
+        "question_type": "property",
+        "answer_form": "list",
+        "entity": {
+          "type": "Individual",
+          "value": "Alice"
+        },
+        "relation": "have property",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "people_property_assertion",
+        "atomic_input": "Is green a property of Alice",
+        "question_type": "property",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Individual",
+          "value": "Alice"
+        },
+        "relation": "have property",
+        "object": {
+          "type": "Literal",
+          "value": "green"
+        }
+      },
+      {
+        "name": "people_membership_list",
+        "atomic_input": "Which structures are included in a PlantPerson",
+        "question_type": "membership",
+        "answer_form": "list",
+        "entity": {
+          "type": "Class",
+          "value": "PlantPerson"
+        },
+        "relation": "have member",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "people_capability_assertion",
+        "atomic_input": "Does a Doctor use symptoms",
+        "question_type": "capability",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Class",
+          "value": "Doctor"
+        },
+        "relation": "have capability",
+        "object": {
+          "type": "Class",
+          "value": "symptoms"
+        }
+      },
+      {
+        "name": "people_capability_value",
+        "atomic_input": "What is produced by a Chef",
+        "question_type": "capability",
+        "answer_form": "value",
+        "entity": {
+          "type": "Class",
+          "value": "Chef"
+        },
+        "relation": "have capability",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "people_comparative_assertion",
+        "atomic_input": "Would you say PersonA is larger than PersonB",
+        "question_type": "comparative",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Individual",
+          "value": "PersonA"
+        },
+        "relation": "compare",
+        "object": {
+          "type": "Individual",
+          "value": "PersonB"
+        }
+      },
+      {
+        "name": "people_comparative_value",
+        "atomic_input": "Between PersonA and PersonB, which has a greater size",
+        "question_type": "comparative",
+        "answer_form": "value",
+        "entity": {
+          "type": "Individual",
+          "value": "PersonA"
+        },
+        "relation": "compare",
+        "object": {
+          "type": "Individual",
+          "value": "PersonB"
+        }
+      },
+      {
+        "name": "people_quantification_value",
+        "atomic_input": "What is the count of members in a Team",
+        "question_type": "quantification",
+        "answer_form": "value",
+        "entity": {
+          "type": "Class",
+          "value": "Team"
+        },
+        "relation": "count",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "people_unknown_assertion",
+        "atomic_input": "Would you say it is 42",
+        "question_type": "unknown",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Unknown",
+          "value": "answer"
+        },
+        "relation": "unknown",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "people_unknown_value",
+        "atomic_input": "Describe what occurs.",
+        "question_type": "unknown",
+        "answer_form": "value",
+        "entity": {
+          "type": "Unknown",
+          "value": "event"
+        },
+        "relation": "unknown",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "people_unknown_list",
+        "atomic_input": "List the things.",
+        "question_type": "unknown",
+        "answer_form": "list",
+        "entity": {
+          "type": "Unknown",
+          "value": "things"
+        },
+        "relation": "unknown",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      }
+    ],
+    "adversarial": [
+      {
+        "name": "people_definition_value",
+        "atomic_input": "So what exactly is a Person supposed to be",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+          "type": "Class",
+          "value": "Person"
+        },
+        "relation": "be",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "people_taxonomic_assertion",
+        "atomic_input": "Isn't it true that a Teacher isn't really an Profession",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Class",
+          "value": "Teacher"
+        },
+        "relation": "be subtype of",
+        "object": {
+          "type": "Class",
+          "value": "Profession"
+        }
+      },
+      {
+        "name": "people_taxonomic_list",
+        "atomic_input": "Name every single category that Profession is a subtype of.",
+        "question_type": "taxonomic",
+        "answer_form": "list",
+        "entity": {
+          "type": "Class",
+          "value": "Profession"
+        },
+        "relation": "be subtype of",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "people_property_value",
+        "atomic_input": "What color is Alice actually supposed to have",
+        "question_type": "property",
+        "answer_form": "value",
+        "entity": {
+          "type": "Individual",
+          "value": "Alice"
+        },
+        "relation": "have property",
+        "object": {
+          "type": "Literal",
+          "value": "color"
+        }
+      },
+      {
+        "name": "people_property_list",
+        "atomic_input": "Tell me every property Alice supposedly possesses.",
+        "question_type": "property",
+        "answer_form": "list",
+        "entity": {
+          "type": "Individual",
+          "value": "Alice"
+        },
+        "relation": "have property",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "people_property_assertion",
+        "atomic_input": "Does Alice actually even have the property green",
+        "question_type": "property",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Individual",
+          "value": "Alice"
+        },
+        "relation": "have property",
+        "object": {
+          "type": "Literal",
+          "value": "green"
+        }
+      },
+      {
+        "name": "people_membership_list",
+        "atomic_input": "Name all the things a PlantPerson supposedly contains.",
+        "question_type": "membership",
+        "answer_form": "list",
+        "entity": {
+          "type": "Class",
+          "value": "PlantPerson"
+        },
+        "relation": "have member",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "people_capability_assertion",
+        "atomic_input": "Can a Doctor supposedly process anything meaningful like symptoms",
+        "question_type": "capability",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Class",
+          "value": "Doctor"
+        },
+        "relation": "have capability",
+        "object": {
+          "type": "Class",
+          "value": "symptoms"
+        }
+      },
+      {
+        "name": "people_capability_value",
+        "atomic_input": "What exactly does a Chef even produce then",
+        "question_type": "capability",
+        "answer_form": "value",
+        "entity": {
+          "type": "Class",
+          "value": "Chef"
+        },
+        "relation": "have capability",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "people_comparative_assertion",
+        "atomic_input": "Is PersonA really even bigger than PersonB",
+        "question_type": "comparative",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Individual",
+          "value": "PersonA"
+        },
+        "relation": "compare",
+        "object": {
+          "type": "Individual",
+          "value": "PersonB"
+        }
+      },
+      {
+        "name": "people_comparative_value",
+        "atomic_input": "Who is really larger, PersonA or PersonB",
+        "question_type": "comparative",
+        "answer_form": "value",
+        "entity": {
+          "type": "Individual",
+          "value": "PersonA"
+        },
+        "relation": "compare",
+        "object": {
+          "type": "Individual",
+          "value": "PersonB"
+        }
+      },
+      {
+        "name": "people_quantification_value",
+        "atomic_input": "Exactly how many members is a Team supposed to have",
+        "question_type": "quantification",
+        "answer_form": "value",
+        "entity": {
+          "type": "Class",
+          "value": "Team"
+        },
+        "relation": "count",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "people_unknown_assertion",
+        "atomic_input": "Is it even remotely close to 42",
+        "question_type": "unknown",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Unknown",
+          "value": "answer"
+        },
+        "relation": "unknown",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "people_unknown_value",
+        "atomic_input": "What exactly is supposed to happen",
+        "question_type": "unknown",
+        "answer_form": "value",
+        "entity": {
+          "type": "Unknown",
+          "value": "event"
+        },
+        "relation": "unknown",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "people_unknown_list",
+        "atomic_input": "Name all the random things.",
+        "question_type": "unknown",
+        "answer_form": "list",
+        "entity": {
+          "type": "Unknown",
+          "value": "things"
+        },
+        "relation": "unknown",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      }
+    ]
+  },
+  "abstract": {
+    "canonical": [
+      {
+        "name": "abstract_definition_value",
+        "atomic_input": "What is a Concept",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+          "type": "Class",
+          "value": "Concept"
+        },
+        "relation": "be",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "abstract_taxonomic_assertion",
+        "atomic_input": "Is a Honesty a type of Virtue",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Class",
+          "value": "Honesty"
+        },
+        "relation": "be subtype of",
+        "object": {
+          "type": "Class",
+          "value": "Virtue"
+        }
+      },
+      {
+        "name": "abstract_taxonomic_list",
+        "atomic_input": "What is an Virtue a subtype of",
+        "question_type": "taxonomic",
+        "answer_form": "list",
+        "entity": {
+          "type": "Class",
+          "value": "Virtue"
+        },
+        "relation": "be subtype of",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "abstract_property_value",
+        "atomic_input": "What is the color of IdeaA",
+        "question_type": "property",
+        "answer_form": "value",
+        "entity": {
+          "type": "Individual",
+          "value": "IdeaA"
+        },
+        "relation": "have property",
+        "object": {
+          "type": "Literal",
+          "value": "color"
+        }
+      },
+      {
+        "name": "abstract_property_list",
+        "atomic_input": "What properties does IdeaA have",
+        "question_type": "property",
+        "answer_form": "list",
+        "entity": {
+          "type": "Individual",
+          "value": "IdeaA"
+        },
+        "relation": "have property",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "abstract_property_assertion",
+        "atomic_input": "Does IdeaA have the property of being green",
+        "question_type": "property",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Individual",
+          "value": "IdeaA"
+        },
+        "relation": "have property",
+        "object": {
+          "type": "Literal",
+          "value": "green"
+        }
+      },
+      {
+        "name": "abstract_membership_list",
+        "atomic_input": "What components are found in a PlantConcept",
+        "question_type": "membership",
+        "answer_form": "list",
+        "entity": {
+          "type": "Class",
+          "value": "PlantConcept"
+        },
+        "relation": "have member",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "abstract_capability_assertion",
+        "atomic_input": "Can a Algorithm detect patterns",
+        "question_type": "capability",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Class",
+          "value": "Algorithm"
+        },
+        "relation": "have capability",
+        "object": {
+          "type": "Class",
+          "value": "patterns"
+        }
+      },
+      {
+        "name": "abstract_capability_value",
+        "atomic_input": "What does a Model produce",
+        "question_type": "capability",
+        "answer_form": "value",
+        "entity": {
+          "type": "Class",
+          "value": "Model"
+        },
+        "relation": "have capability",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "abstract_comparative_assertion",
+        "atomic_input": "Is ConceptA greater than ConceptB in size",
+        "question_type": "comparative",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Individual",
+          "value": "ConceptA"
+        },
+        "relation": "compare",
+        "object": {
+          "type": "Individual",
+          "value": "ConceptB"
+        }
+      },
+      {
+        "name": "abstract_comparative_value",
+        "atomic_input": "Which is larger, ConceptA or ConceptB",
+        "question_type": "comparative",
+        "answer_form": "value",
+        "entity": {
+          "type": "Individual",
+          "value": "ConceptA"
+        },
+        "relation": "compare",
+        "object": {
+          "type": "Individual",
+          "value": "ConceptB"
+        }
+      },
+      {
+        "name": "abstract_quantification_value",
+        "atomic_input": "How many principles does a Paradigm have",
+        "question_type": "quantification",
+        "answer_form": "value",
+        "entity": {
+          "type": "Class",
+          "value": "Paradigm"
+        },
+        "relation": "count",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "abstract_unknown_assertion",
+        "atomic_input": "Is the answer 42",
+        "question_type": "unknown",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Unknown",
+          "value": "answer"
+        },
+        "relation": "unknown",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "abstract_unknown_value",
+        "atomic_input": "What happens",
+        "question_type": "unknown",
+        "answer_form": "value",
+        "entity": {
+          "type": "Unknown",
+          "value": "event"
+        },
+        "relation": "unknown",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "abstract_unknown_list",
+        "atomic_input": "What are the things",
+        "question_type": "unknown",
+        "answer_form": "list",
+        "entity": {
+          "type": "Unknown",
+          "value": "things"
+        },
+        "relation": "unknown",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      }
+    ],
+    "paraphrased": [
+      {
+        "name": "abstract_definition_value",
+        "atomic_input": "Describe what a Concept is.",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+          "type": "Class",
+          "value": "Concept"
+        },
+        "relation": "be",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "abstract_taxonomic_assertion",
+        "atomic_input": "Would you classify a Honesty as an Virtue",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Class",
+          "value": "Honesty"
+        },
+        "relation": "be subtype of",
+        "object": {
+          "type": "Class",
+          "value": "Virtue"
+        }
+      },
+      {
+        "name": "abstract_taxonomic_list",
+        "atomic_input": "List the superclasses of Virtue.",
+        "question_type": "taxonomic",
+        "answer_form": "list",
+        "entity": {
+          "type": "Class",
+          "value": "Virtue"
+        },
+        "relation": "be subtype of",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "abstract_property_value",
+        "atomic_input": "What property does IdeaA have regarding its color",
+        "question_type": "property",
+        "answer_form": "value",
+        "entity": {
+          "type": "Individual",
+          "value": "IdeaA"
+        },
+        "relation": "have property",
+        "object": {
+          "type": "Literal",
+          "value": "color"
+        }
+      },
+      {
+        "name": "abstract_property_list",
+        "atomic_input": "List the attributes describing IdeaA.",
+        "question_type": "property",
+        "answer_form": "list",
+        "entity": {
+          "type": "Individual",
+          "value": "IdeaA"
+        },
+        "relation": "have property",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "abstract_property_assertion",
+        "atomic_input": "Is green a property of IdeaA",
+        "question_type": "property",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Individual",
+          "value": "IdeaA"
+        },
+        "relation": "have property",
+        "object": {
+          "type": "Literal",
+          "value": "green"
+        }
+      },
+      {
+        "name": "abstract_membership_list",
+        "atomic_input": "Which structures are included in a PlantConcept",
+        "question_type": "membership",
+        "answer_form": "list",
+        "entity": {
+          "type": "Class",
+          "value": "PlantConcept"
+        },
+        "relation": "have member",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "abstract_capability_assertion",
+        "atomic_input": "Does a Algorithm use patterns",
+        "question_type": "capability",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Class",
+          "value": "Algorithm"
+        },
+        "relation": "have capability",
+        "object": {
+          "type": "Class",
+          "value": "patterns"
+        }
+      },
+      {
+        "name": "abstract_capability_value",
+        "atomic_input": "What is produced by a Model",
+        "question_type": "capability",
+        "answer_form": "value",
+        "entity": {
+          "type": "Class",
+          "value": "Model"
+        },
+        "relation": "have capability",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "abstract_comparative_assertion",
+        "atomic_input": "Would you say ConceptA is larger than ConceptB",
+        "question_type": "comparative",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Individual",
+          "value": "ConceptA"
+        },
+        "relation": "compare",
+        "object": {
+          "type": "Individual",
+          "value": "ConceptB"
+        }
+      },
+      {
+        "name": "abstract_comparative_value",
+        "atomic_input": "Between ConceptA and ConceptB, which has a greater size",
+        "question_type": "comparative",
+        "answer_form": "value",
+        "entity": {
+          "type": "Individual",
+          "value": "ConceptA"
+        },
+        "relation": "compare",
+        "object": {
+          "type": "Individual",
+          "value": "ConceptB"
+        }
+      },
+      {
+        "name": "abstract_quantification_value",
+        "atomic_input": "What is the count of principles in a Paradigm",
+        "question_type": "quantification",
+        "answer_form": "value",
+        "entity": {
+          "type": "Class",
+          "value": "Paradigm"
+        },
+        "relation": "count",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "abstract_unknown_assertion",
+        "atomic_input": "Would you say it is 42",
+        "question_type": "unknown",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Unknown",
+          "value": "answer"
+        },
+        "relation": "unknown",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "abstract_unknown_value",
+        "atomic_input": "Describe what occurs.",
+        "question_type": "unknown",
+        "answer_form": "value",
+        "entity": {
+          "type": "Unknown",
+          "value": "event"
+        },
+        "relation": "unknown",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "abstract_unknown_list",
+        "atomic_input": "List the things.",
+        "question_type": "unknown",
+        "answer_form": "list",
+        "entity": {
+          "type": "Unknown",
+          "value": "things"
+        },
+        "relation": "unknown",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      }
+    ],
+    "adversarial": [
+      {
+        "name": "abstract_definition_value",
+        "atomic_input": "So what exactly is a Concept supposed to be",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+          "type": "Class",
+          "value": "Concept"
+        },
+        "relation": "be",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "abstract_taxonomic_assertion",
+        "atomic_input": "Isn't it true that a Honesty isn't really an Virtue",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Class",
+          "value": "Honesty"
+        },
+        "relation": "be subtype of",
+        "object": {
+          "type": "Class",
+          "value": "Virtue"
+        }
+      },
+      {
+        "name": "abstract_taxonomic_list",
+        "atomic_input": "Name every single category that Virtue is a subtype of.",
+        "question_type": "taxonomic",
+        "answer_form": "list",
+        "entity": {
+          "type": "Class",
+          "value": "Virtue"
+        },
+        "relation": "be subtype of",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "abstract_property_value",
+        "atomic_input": "What color is IdeaA actually supposed to have",
+        "question_type": "property",
+        "answer_form": "value",
+        "entity": {
+          "type": "Individual",
+          "value": "IdeaA"
+        },
+        "relation": "have property",
+        "object": {
+          "type": "Literal",
+          "value": "color"
+        }
+      },
+      {
+        "name": "abstract_property_list",
+        "atomic_input": "Tell me every property IdeaA supposedly possesses.",
+        "question_type": "property",
+        "answer_form": "list",
+        "entity": {
+          "type": "Individual",
+          "value": "IdeaA"
+        },
+        "relation": "have property",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "abstract_property_assertion",
+        "atomic_input": "Does IdeaA actually even have the property green",
+        "question_type": "property",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Individual",
+          "value": "IdeaA"
+        },
+        "relation": "have property",
+        "object": {
+          "type": "Literal",
+          "value": "green"
+        }
+      },
+      {
+        "name": "abstract_membership_list",
+        "atomic_input": "Name all the things a PlantConcept supposedly contains.",
+        "question_type": "membership",
+        "answer_form": "list",
+        "entity": {
+          "type": "Class",
+          "value": "PlantConcept"
+        },
+        "relation": "have member",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "abstract_capability_assertion",
+        "atomic_input": "Can a Algorithm supposedly process anything meaningful like patterns",
+        "question_type": "capability",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Class",
+          "value": "Algorithm"
+        },
+        "relation": "have capability",
+        "object": {
+          "type": "Class",
+          "value": "patterns"
+        }
+      },
+      {
+        "name": "abstract_capability_value",
+        "atomic_input": "What exactly does a Model even produce then",
+        "question_type": "capability",
+        "answer_form": "value",
+        "entity": {
+          "type": "Class",
+          "value": "Model"
+        },
+        "relation": "have capability",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "abstract_comparative_assertion",
+        "atomic_input": "Is ConceptA really even bigger than ConceptB",
+        "question_type": "comparative",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Individual",
+          "value": "ConceptA"
+        },
+        "relation": "compare",
+        "object": {
+          "type": "Individual",
+          "value": "ConceptB"
+        }
+      },
+      {
+        "name": "abstract_comparative_value",
+        "atomic_input": "Who is really larger, ConceptA or ConceptB",
+        "question_type": "comparative",
+        "answer_form": "value",
+        "entity": {
+          "type": "Individual",
+          "value": "ConceptA"
+        },
+        "relation": "compare",
+        "object": {
+          "type": "Individual",
+          "value": "ConceptB"
+        }
+      },
+      {
+        "name": "abstract_quantification_value",
+        "atomic_input": "Exactly how many principles is a Paradigm supposed to have",
+        "question_type": "quantification",
+        "answer_form": "value",
+        "entity": {
+          "type": "Class",
+          "value": "Paradigm"
+        },
+        "relation": "count",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "abstract_unknown_assertion",
+        "atomic_input": "Is it even remotely close to 42",
+        "question_type": "unknown",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Unknown",
+          "value": "answer"
+        },
+        "relation": "unknown",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "abstract_unknown_value",
+        "atomic_input": "What exactly is supposed to happen",
+        "question_type": "unknown",
+        "answer_form": "value",
+        "entity": {
+          "type": "Unknown",
+          "value": "event"
+        },
+        "relation": "unknown",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "abstract_unknown_list",
+        "atomic_input": "Name all the random things.",
+        "question_type": "unknown",
+        "answer_form": "list",
+        "entity": {
+          "type": "Unknown",
+          "value": "things"
+        },
+        "relation": "unknown",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      }
+    ]
+  },
+  "everyday": {
+    "canonical": [
+      {
+        "name": "everyday_definition_value",
+        "atomic_input": "What is a Chair",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+          "type": "Class",
+          "value": "Chair"
+        },
+        "relation": "be",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "everyday_taxonomic_assertion",
+        "atomic_input": "Is a Mug a type of Container",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Class",
+          "value": "Mug"
+        },
+        "relation": "be subtype of",
+        "object": {
+          "type": "Class",
+          "value": "Container"
+        }
+      },
+      {
+        "name": "everyday_taxonomic_list",
+        "atomic_input": "What is an Container a subtype of",
+        "question_type": "taxonomic",
+        "answer_form": "list",
+        "entity": {
+          "type": "Class",
+          "value": "Container"
+        },
+        "relation": "be subtype of",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "everyday_property_value",
+        "atomic_input": "What is the color of ObjectA",
+        "question_type": "property",
+        "answer_form": "value",
+        "entity": {
+          "type": "Individual",
+          "value": "ObjectA"
+        },
+        "relation": "have property",
+        "object": {
+          "type": "Literal",
+          "value": "color"
+        }
+      },
+      {
+        "name": "everyday_property_list",
+        "atomic_input": "What properties does ObjectA have",
+        "question_type": "property",
+        "answer_form": "list",
+        "entity": {
+          "type": "Individual",
+          "value": "ObjectA"
+        },
+        "relation": "have property",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "everyday_property_assertion",
+        "atomic_input": "Does ObjectA have the property of being green",
+        "question_type": "property",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Individual",
+          "value": "ObjectA"
+        },
+        "relation": "have property",
+        "object": {
+          "type": "Literal",
+          "value": "green"
+        }
+      },
+      {
+        "name": "everyday_membership_list",
+        "atomic_input": "What components are found in a PlantChair",
+        "question_type": "membership",
+        "answer_form": "list",
+        "entity": {
+          "type": "Class",
+          "value": "PlantChair"
+        },
+        "relation": "have member",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "everyday_capability_assertion",
+        "atomic_input": "Can a Thermometer detect heat",
+        "question_type": "capability",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Class",
+          "value": "Thermometer"
+        },
+        "relation": "have capability",
+        "object": {
+          "type": "Class",
+          "value": "heat"
+        }
+      },
+      {
+        "name": "everyday_capability_value",
+        "atomic_input": "What does a CoffeeMachine produce",
+        "question_type": "capability",
+        "answer_form": "value",
+        "entity": {
+          "type": "Class",
+          "value": "CoffeeMachine"
+        },
+        "relation": "have capability",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "everyday_comparative_assertion",
+        "atomic_input": "Is ChairA greater than ChairB in size",
+        "question_type": "comparative",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Individual",
+          "value": "ChairA"
+        },
+        "relation": "compare",
+        "object": {
+          "type": "Individual",
+          "value": "ChairB"
+        }
+      },
+      {
+        "name": "everyday_comparative_value",
+        "atomic_input": "Which is larger, ChairA or ChairB",
+        "question_type": "comparative",
+        "answer_form": "value",
+        "entity": {
+          "type": "Individual",
+          "value": "ChairA"
+        },
+        "relation": "compare",
+        "object": {
+          "type": "Individual",
+          "value": "ChairB"
+        }
+      },
+      {
+        "name": "everyday_quantification_value",
+        "atomic_input": "How many items does a Drawer have",
+        "question_type": "quantification",
+        "answer_form": "value",
+        "entity": {
+          "type": "Class",
+          "value": "Drawer"
+        },
+        "relation": "count",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "everyday_unknown_assertion",
+        "atomic_input": "Is the answer 42",
+        "question_type": "unknown",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Unknown",
+          "value": "answer"
+        },
+        "relation": "unknown",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "everyday_unknown_value",
+        "atomic_input": "What happens",
+        "question_type": "unknown",
+        "answer_form": "value",
+        "entity": {
+          "type": "Unknown",
+          "value": "event"
+        },
+        "relation": "unknown",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "everyday_unknown_list",
+        "atomic_input": "What are the things",
+        "question_type": "unknown",
+        "answer_form": "list",
+        "entity": {
+          "type": "Unknown",
+          "value": "things"
+        },
+        "relation": "unknown",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      }
+    ],
+    "paraphrased": [
+      {
+        "name": "everyday_definition_value",
+        "atomic_input": "Describe what a Chair is.",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+          "type": "Class",
+          "value": "Chair"
+        },
+        "relation": "be",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "everyday_taxonomic_assertion",
+        "atomic_input": "Would you classify a Mug as an Container",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Class",
+          "value": "Mug"
+        },
+        "relation": "be subtype of",
+        "object": {
+          "type": "Class",
+          "value": "Container"
+        }
+      },
+      {
+        "name": "everyday_taxonomic_list",
+        "atomic_input": "List the superclasses of Container.",
+        "question_type": "taxonomic",
+        "answer_form": "list",
+        "entity": {
+          "type": "Class",
+          "value": "Container"
+        },
+        "relation": "be subtype of",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "everyday_property_value",
+        "atomic_input": "What property does ObjectA have regarding its color",
+        "question_type": "property",
+        "answer_form": "value",
+        "entity": {
+          "type": "Individual",
+          "value": "ObjectA"
+        },
+        "relation": "have property",
+        "object": {
+          "type": "Literal",
+          "value": "color"
+        }
+      },
+      {
+        "name": "everyday_property_list",
+        "atomic_input": "List the attributes describing ObjectA.",
+        "question_type": "property",
+        "answer_form": "list",
+        "entity": {
+          "type": "Individual",
+          "value": "ObjectA"
+        },
+        "relation": "have property",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "everyday_property_assertion",
+        "atomic_input": "Is green a property of ObjectA",
+        "question_type": "property",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Individual",
+          "value": "ObjectA"
+        },
+        "relation": "have property",
+        "object": {
+          "type": "Literal",
+          "value": "green"
+        }
+      },
+      {
+        "name": "everyday_membership_list",
+        "atomic_input": "Which structures are included in a PlantChair",
+        "question_type": "membership",
+        "answer_form": "list",
+        "entity": {
+          "type": "Class",
+          "value": "PlantChair"
+        },
+        "relation": "have member",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "everyday_capability_assertion",
+        "atomic_input": "Does a Thermometer use heat",
+        "question_type": "capability",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Class",
+          "value": "Thermometer"
+        },
+        "relation": "have capability",
+        "object": {
+          "type": "Class",
+          "value": "heat"
+        }
+      },
+      {
+        "name": "everyday_capability_value",
+        "atomic_input": "What is produced by a CoffeeMachine",
+        "question_type": "capability",
+        "answer_form": "value",
+        "entity": {
+          "type": "Class",
+          "value": "CoffeeMachine"
+        },
+        "relation": "have capability",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "everyday_comparative_assertion",
+        "atomic_input": "Would you say ChairA is larger than ChairB",
+        "question_type": "comparative",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Individual",
+          "value": "ChairA"
+        },
+        "relation": "compare",
+        "object": {
+          "type": "Individual",
+          "value": "ChairB"
+        }
+      },
+      {
+        "name": "everyday_comparative_value",
+        "atomic_input": "Between ChairA and ChairB, which has a greater size",
+        "question_type": "comparative",
+        "answer_form": "value",
+        "entity": {
+          "type": "Individual",
+          "value": "ChairA"
+        },
+        "relation": "compare",
+        "object": {
+          "type": "Individual",
+          "value": "ChairB"
+        }
+      },
+      {
+        "name": "everyday_quantification_value",
+        "atomic_input": "What is the count of items in a Drawer",
+        "question_type": "quantification",
+        "answer_form": "value",
+        "entity": {
+          "type": "Class",
+          "value": "Drawer"
+        },
+        "relation": "count",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "everyday_unknown_assertion",
+        "atomic_input": "Would you say it is 42",
+        "question_type": "unknown",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Unknown",
+          "value": "answer"
+        },
+        "relation": "unknown",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "everyday_unknown_value",
+        "atomic_input": "Describe what occurs.",
+        "question_type": "unknown",
+        "answer_form": "value",
+        "entity": {
+          "type": "Unknown",
+          "value": "event"
+        },
+        "relation": "unknown",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "everyday_unknown_list",
+        "atomic_input": "List the things.",
+        "question_type": "unknown",
+        "answer_form": "list",
+        "entity": {
+          "type": "Unknown",
+          "value": "things"
+        },
+        "relation": "unknown",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      }
+    ],
+    "adversarial": [
+      {
+        "name": "everyday_definition_value",
+        "atomic_input": "So what exactly is a Chair supposed to be",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+          "type": "Class",
+          "value": "Chair"
+        },
+        "relation": "be",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "everyday_taxonomic_assertion",
+        "atomic_input": "Isn't it true that a Mug isn't really an Container",
+        "question_type": "taxonomic",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Class",
+          "value": "Mug"
+        },
+        "relation": "be subtype of",
+        "object": {
+          "type": "Class",
+          "value": "Container"
+        }
+      },
+      {
+        "name": "everyday_taxonomic_list",
+        "atomic_input": "Name every single category that Container is a subtype of.",
+        "question_type": "taxonomic",
+        "answer_form": "list",
+        "entity": {
+          "type": "Class",
+          "value": "Container"
+        },
+        "relation": "be subtype of",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "everyday_property_value",
+        "atomic_input": "What color is ObjectA actually supposed to have",
+        "question_type": "property",
+        "answer_form": "value",
+        "entity": {
+          "type": "Individual",
+          "value": "ObjectA"
+        },
+        "relation": "have property",
+        "object": {
+          "type": "Literal",
+          "value": "color"
+        }
+      },
+      {
+        "name": "everyday_property_list",
+        "atomic_input": "Tell me every property ObjectA supposedly possesses.",
+        "question_type": "property",
+        "answer_form": "list",
+        "entity": {
+          "type": "Individual",
+          "value": "ObjectA"
+        },
+        "relation": "have property",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "everyday_property_assertion",
+        "atomic_input": "Does ObjectA actually even have the property green",
+        "question_type": "property",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Individual",
+          "value": "ObjectA"
+        },
+        "relation": "have property",
+        "object": {
+          "type": "Literal",
+          "value": "green"
+        }
+      },
+      {
+        "name": "everyday_membership_list",
+        "atomic_input": "Name all the things a PlantChair supposedly contains.",
+        "question_type": "membership",
+        "answer_form": "list",
+        "entity": {
+          "type": "Class",
+          "value": "PlantChair"
+        },
+        "relation": "have member",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "everyday_capability_assertion",
+        "atomic_input": "Can a Thermometer supposedly process anything meaningful like heat",
+        "question_type": "capability",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Class",
+          "value": "Thermometer"
+        },
+        "relation": "have capability",
+        "object": {
+          "type": "Class",
+          "value": "heat"
+        }
+      },
+      {
+        "name": "everyday_capability_value",
+        "atomic_input": "What exactly does a CoffeeMachine even produce then",
+        "question_type": "capability",
+        "answer_form": "value",
+        "entity": {
+          "type": "Class",
+          "value": "CoffeeMachine"
+        },
+        "relation": "have capability",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "everyday_comparative_assertion",
+        "atomic_input": "Is ChairA really even bigger than ChairB",
+        "question_type": "comparative",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Individual",
+          "value": "ChairA"
+        },
+        "relation": "compare",
+        "object": {
+          "type": "Individual",
+          "value": "ChairB"
+        }
+      },
+      {
+        "name": "everyday_comparative_value",
+        "atomic_input": "Who is really larger, ChairA or ChairB",
+        "question_type": "comparative",
+        "answer_form": "value",
+        "entity": {
+          "type": "Individual",
+          "value": "ChairA"
+        },
+        "relation": "compare",
+        "object": {
+          "type": "Individual",
+          "value": "ChairB"
+        }
+      },
+      {
+        "name": "everyday_quantification_value",
+        "atomic_input": "Exactly how many items is a Drawer supposed to have",
+        "question_type": "quantification",
+        "answer_form": "value",
+        "entity": {
+          "type": "Class",
+          "value": "Drawer"
+        },
+        "relation": "count",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "everyday_unknown_assertion",
+        "atomic_input": "Is it even remotely close to 42",
+        "question_type": "unknown",
+        "answer_form": "assertion",
+        "entity": {
+          "type": "Unknown",
+          "value": "answer"
+        },
+        "relation": "unknown",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "everyday_unknown_value",
+        "atomic_input": "What exactly is supposed to happen",
+        "question_type": "unknown",
+        "answer_form": "value",
+        "entity": {
+          "type": "Unknown",
+          "value": "event"
+        },
+        "relation": "unknown",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      },
+      {
+        "name": "everyday_unknown_list",
+        "atomic_input": "Name all the random things.",
+        "question_type": "unknown",
+        "answer_form": "list",
+        "entity": {
+          "type": "Unknown",
+          "value": "things"
+        },
+        "relation": "unknown",
+        "object": {
+          "value": null,
+          "type": null
+        }
+      }
+    ]
+  }
+}

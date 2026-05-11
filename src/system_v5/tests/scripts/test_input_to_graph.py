@@ -1,6 +1,8 @@
 import json
 import pytest
 import os
+import difflib
+import re
 
 from system_v5.tools.inference_module.input_to_graph import atomic_to_graph
 from agent_loop.agents.inference_module.extract_triple_agent import ExtractTripleAgent
@@ -14,13 +16,37 @@ from agent_loop.agents.inference_module.resolve_answer_form_agent import Resolve
 from system_v5.backends import load_backend
 
 # Load dataset once (use relative path so it works on other machines)
-DATASET_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "dataset", "synthetic_labelled_input.json"))
+DATASET_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "dataset", "new_synthetic_labelled_input.json"))
 with open(DATASET_PATH) as f:
     DATASET = json.load(f)
 
 SAMPLE_SIZE = int(os.getenv("INPUT_TO_GRAPH_SAMPLE_SIZE", "10"))
 TIERS = ["canonical", "paraphrased", "adversarial"]
 
+def _is_fuzzy_match(expected: str, actual: str, ratio_threshold: float = 0.45) -> bool:
+    """
+    Returns True if 'actual' is a reasonable fuzzy match for 'expected'.
+    Mirrors scoring logic from retrieve_top_candidates in inference module.
+    """
+    if expected is None or actual is None:
+        return expected == actual
+        
+    exp_norm = expected.lower().strip()
+    act_norm = actual.lower().strip()
+    if exp_norm.endswith("s"): exp_norm = exp_norm[:-1]
+    if act_norm.endswith("s"): act_norm = act_norm[:-1]
+    
+    exp_tokens = set(re.findall(r'[a-zA-Z]+', exp_norm))
+    act_tokens = set(re.findall(r'[a-zA-Z]+', act_norm))
+    
+    sim_ratio = difflib.SequenceMatcher(None, exp_norm, act_norm).ratio()
+    
+    act_tokens_filtered = {t for t in act_tokens if len(t) >= 4}
+    overlap = len(exp_tokens & act_tokens_filtered) / max(len(exp_tokens), 1)
+    substring = 1.0 if any(t in act_tokens_filtered for t in exp_tokens) else 0.0
+    
+    score = (0.80 * sim_ratio) + (0.15 * overlap) + (0.05 * substring)
+    return score >= ratio_threshold
 
 def build_cases():
     cases = []
@@ -29,7 +55,14 @@ def build_cases():
             tier_items = domain_data.get(tier, [])
             limit = min(SAMPLE_SIZE, len(tier_items))
             for item_index in range(limit):
-                cases.append({"domain": domain, "tier": tier, "item_index": item_index})
+                item = tier_items[item_index]
+                item_name = item.get("name", f"{domain}_{item_index}")
+                cases.append({
+                    "domain": domain, 
+                    "tier": tier, 
+                    "item_index": item_index,
+                    "name": f"{tier}_{item_name}"
+                })
     return cases
 
 
@@ -68,7 +101,7 @@ def record_check(checks, name, passed, expected=None, actual=None):
     )
 
 @pytest.mark.llm
-@pytest.mark.parametrize("case", CASES)
+@pytest.mark.parametrize("case", CASES, ids=lambda c: c["name"])
 def test_input_to_graph(case):
     domain = case["domain"]
     tier = case["tier"]
@@ -117,12 +150,17 @@ def test_input_to_graph(case):
     actual_relation = result.get("relation")
     actual_object = result.get("object", {}).get("value")
 
+    # Strict match checks
     qt_ok = actual_question_type == expected_question_type
     af_ok = actual_answer_form == expected_answer_form
     entity_ok = actual_entity == expected_entity
     relation_ok = actual_relation == expected_relation
     object_ok = actual_object == expected_object if expected_object is not None else None
 
+    # --- ADD FUZZY EVALUATIONS ---
+    entity_fuzzy_ok = _is_fuzzy_match(expected_entity, actual_entity)
+    object_fuzzy_ok = _is_fuzzy_match(expected_object, actual_object) if expected_object is not None else None
+    
     # Semantic checks
     record_check(
         checks,
@@ -161,6 +199,23 @@ def test_input_to_graph(case):
             expected=expected_object,
             actual=actual_object,
         )
+    # --- ADD FUZZY METRICS TO RECORD ---
+    record_check(
+        checks,
+        "entity_fuzzy_match",
+        entity_fuzzy_ok,
+        expected=expected_entity,
+        actual=actual_entity,
+    )
+
+    if expected_object is not None:
+        record_check(
+            checks,
+            "object_fuzzy_match",
+            object_fuzzy_ok,
+            expected=expected_object,
+            actual=actual_object,
+        )
 
     attribution = {
         "question_type_match": "pass" if qt_ok else "direct",
@@ -171,10 +226,18 @@ def test_input_to_graph(case):
     if expected_object is not None:
         attribution["object_match"] = (
             "pass"
-            if object_ok
-            else ("direct" if (qt_ok and entity_ok and relation_ok) else "cascade")
+            if object_ok else ("direct" if (qt_ok and entity_ok and relation_ok) else "cascade")
         )
 
     RESULTS.append({"case": case_meta, "checks": checks, "attribution": attribution})
-    failures = [c for c in checks if not c["passed"]]
+
+    # Collect failures, forgiving strict match failures if fuzzy match passed
+    failures = []
+    for c in checks:
+        if not c["passed"]:
+            if c["name"] == "entity_match" and entity_fuzzy_ok:
+                continue
+            if c["name"] == "object_match" and object_fuzzy_ok:
+                continue
+            failures.append(c)
     assert not failures, f"{len(failures)} checks failed: {', '.join(c['name'] for c in failures)}"

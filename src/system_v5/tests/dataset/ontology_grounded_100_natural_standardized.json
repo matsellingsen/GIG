@@ -44,7 +44,7 @@
   },
   {
     "id": "present_def_02",
-    "atomic_input": "What is a WebApplication?",
+    "atomic_input": "What is WebApplication?",
     "question_type": "definition",
     "answer_form": "value",
     "entity": {
@@ -89,7 +89,7 @@
   },
   {
     "id": "present_def_03",
-    "atomic_input": "What is a SensorPatch?",
+    "atomic_input": "What is SensorPatch?",
     "question_type": "definition",
     "answer_form": "value",
     "entity": {
@@ -136,7 +136,7 @@
   },
   {
     "id": "present_def_04",
-    "atomic_input": "What is the SENS motion app?",
+    "atomic_input": "What is SENS motion app?",
     "question_type": "definition",
     "answer_form": "value",
     "entity": {
@@ -180,7 +180,7 @@
   },
   {
     "id": "present_def_05",
-    "atomic_input": "What is the SENS motion web app?",
+    "atomic_input": "What is SENS motion web app?",
     "question_type": "definition",
     "answer_form": "value",
     "entity": {
@@ -222,7 +222,7 @@
   },
   {
     "id": "present_def_06",
-    "atomic_input": "What is the definition of version 3.9?",
+    "atomic_input": "What is version 3.9?",
     "question_type": "definition",
     "answer_form": "value",
     "entity": {
@@ -263,7 +263,7 @@
   },
  {
   "id": "present_def_07",
-  "atomic_input": "What is an ActivityIntensityCategory?",
+  "atomic_input": "What is ActivityIntensityCategory?",
   "question_type": "definition",
   "answer_form": "value",
   "entity": {
@@ -304,7 +304,7 @@
 },
 {
   "id": "present_def_08",
-  "atomic_input": "What is a MovementType?",
+  "atomic_input": "What is MovementType?",
   "question_type": "definition",
   "answer_form": "value",
   "entity": {
@@ -345,7 +345,7 @@
 },
 {
   "id": "present_def_09",
-  "atomic_input": "What is the definition of SensorStatus?",
+  "atomic_input": "What is SensorStatus?",
   "question_type": "definition",
   "answer_form": "value",
   "entity": {
@@ -469,7 +469,7 @@
 
 {
   "id": "present_def_12",
-  "atomic_input": "Who is Mats Ellingsen?",
+  "atomic_input": "What is Mats Ellingsen?",
   "question_type": "definition",
   "answer_form": "value",
   "entity": {
@@ -509,7 +509,7 @@
   }
 },
   {
-    "id": "present_07_answerable",
+    "id": "present_tax_01_answerable",
     "atomic_input": "Is App a type of InformationObject?",
     "question_type": "taxonomic",
     "answer_form": "assertion",
@@ -552,7 +552,7 @@
   },
   
    {
-    "id": "present_07_unanswerable",
+    "id": "present_tax_01_unanswerable",
     "atomic_input": "Is App a type of Webpage?",
     "question_type": "taxonomic",
     "answer_form": "assertion",
@@ -593,7 +593,7 @@
     }
   },
   {
-    "id": "present_08_answerable",
+    "id": "present_tax_02_answerable",
     "atomic_input": "Is WebApplication a type of InformationObject?",
     "question_type": "taxonomic",
     "answer_form": "assertion",
@@ -635,7 +635,7 @@
     }
   },
   {
-    "id": "present_08_unanswerable",
+    "id": "present_tax_02_unanswerable",
     "atomic_input": "Is WebApplication a type of SocialObject?",
     "question_type": "taxonomic",
     "answer_form": "assertion",
@@ -675,8 +675,8 @@
     }
   },
   {
-    "id": "present_09_answerable",
-    "atomic_input": "Is ActivityType an ActivityCategory?",
+    "id": "present_tax_03_answerable",
+    "atomic_input": "Is ActivityType a type of ActivityCategory?",
     "question_type": "taxonomic",
     "answer_form": "assertion",
     "entity": {
@@ -717,8 +717,8 @@
     }
   },
   {
-    "id": "present_09_unanswerable",
-    "atomic_input": "Is ActivityType a SoftwareApplication?",
+    "id": "present_tax_03_unanswerable",
+    "atomic_input": "Is ActivityType a type of SoftwareApplication?",
     "question_type": "taxonomic",
     "answer_form": "assertion",
     "entity": {
@@ -758,7 +758,7 @@
     }
   },
   {
-    "id": "present_10_answerable",
+    "id": "present_tax_04_answerable",
     "atomic_input": "Is SENS motion app a type of SmartphoneApp?",
     "question_type": "taxonomic",
     "answer_form": "assertion",
@@ -800,7 +800,7 @@
     }
   },
   {
-    "id": "present_10_unanswerable",
+    "id": "present_tax_04_unanswerable",
     "atomic_input": "Is SENS motion app a type of Sensor?",
     "question_type": "taxonomic",
     "answer_form": "assertion",
@@ -840,7 +840,7 @@
     }
   },
   {
-    "id": "present_11_answerable",
+    "id": "present_tax_05_answerable",
     "atomic_input": "Is support.sens.dk a type of WebApplication?",
     "question_type": "taxonomic",
     "answer_form": "assertion",
@@ -882,8 +882,8 @@
     }
   },
    {
-    "id": "present_11_unanswerable",
-    "atomic_input": "Is support.sens.dk a MonitorSystem?",
+    "id": "present_tax_05_unanswerable",
+    "atomic_input": "Is support.sens.dk a type of MonitorSystem?",
     "question_type": "taxonomic",
     "answer_form": "assertion",
     "entity": {
@@ -922,7 +922,7 @@
     }
   },
   {
-    "id": "present_12_answerable",
+    "id": "present_tax_06_answerable",
     "atomic_input": "Is SENS motion activity sensor a type of ActivityDataSensor?",
     "question_type": "taxonomic",
     "answer_form": "assertion",
@@ -964,7 +964,7 @@
     }
   },
   {
-    "id": "present_12_unanswerable",
+    "id": "present_tax_06_unanswerable",
     "atomic_input": "Is SENS motion activity sensor a type of ActivityEvent?",
     "question_type": "taxonomic",
     "answer_form": "assertion",
@@ -1325,7 +1325,7 @@
 },
 {
   "id": "present_cap_05_answerable",
-  "atomic_input": "Is Participant Table Enhancements able to expand rows?",
+  "atomic_input": "Does Participant Table Enhancements have the capability to expand rows?",
   "question_type": "capability",
   "answer_form": "assertion",
   "entity": {
@@ -1366,7 +1366,7 @@
 },
 {
   "id": "present_cap_05_unanswerable",
-  "atomic_input": "Is Participant Table Enhancements able to compress rows?",
+  "atomic_input": "Does Participant Table Enhancements have the capability to compress rows?",
   "question_type": "capability",
   "answer_form": "assertion",
   "entity": {
@@ -1405,7 +1405,7 @@
 },
 {
   "id": "present_cap_06_answerable",
-  "atomic_input": "Does Project Management Improvements include project creation?",
+  "atomic_input": "Does Project Management Improvements have the capability to include project creation?",
   "question_type": "capability",
   "answer_form": "assertion",
   "entity": {
@@ -1446,7 +1446,7 @@
 },
 {
   "id": "present_cap_06_unanswerable",
-  "atomic_input": "Does Project Management Improvements authenticate users?",
+  "atomic_input": "Does Project Management Improvements have the capability to authenticate users?",
   "question_type": "capability",
   "answer_form": "assertion",
   "entity": {
@@ -1597,7 +1597,7 @@
 },
 {
   "id": "present_prop_02_unanswerable",
-  "atomic_input": "What values does Bispebjerg Hospital have for the participant property?",
+  "atomic_input": "What values does Bispebjerg Hospital have for the property hasParticipant?",
   "question_type": "property",
   "answer_form": "list",
   "entity": {
@@ -1633,7 +1633,7 @@
 },
 {
   "id": "present_prop_03_answerable",
-  "atomic_input": "Does Anja Lykke Madsen have a hasParticipant property?",
+  "atomic_input": "Does Anja Lykke Madsen have the property hasParticipant?",
   "question_type": "property",
   "answer_form": "assertion",
   "entity": {
@@ -1671,7 +1671,7 @@
 },
 {
   "id": "present_prop_03_unanswerable",
-  "atomic_input": "Does Anja Lykke Madsen have an Outcome property?",
+  "atomic_input": "Does Anja Lykke Madsen have the property hasOutcome?",
   "question_type": "property",
   "answer_form": "assertion",
   "entity": {
@@ -1707,7 +1707,7 @@
 },
 {
   "id": "present_prop_04_answerable",
-  "atomic_input": "Does Bispebjerg Hospital have a location property?",
+  "atomic_input": "Does Bispebjerg Hospital have the property hasLocation?",
   "question_type": "property",
   "answer_form": "assertion",
   "entity": {
@@ -1745,7 +1745,7 @@
 },
 {
   "id": "present_prop_04_unanswerable",
-  "atomic_input": "Does Bispebjerg Hospital have a DOI property?",
+  "atomic_input": "Does Bispebjerg Hospital have the property hasDOI?",
   "question_type": "property",
   "answer_form": "assertion",
   "entity": {
@@ -1781,7 +1781,7 @@
 },
 {
   "id": "present_prop_05_answerable",
-  "atomic_input": "What is Amin Rezaeis' role?",
+  "atomic_input": "What values does Amin Rezaei have for the property hasRole?",
   "question_type": "property",
   "answer_form": "value",
   "entity": {
@@ -1819,7 +1819,7 @@
 },
 {
   "id": "present_prop_05_unanswerable",
-  "atomic_input": "What is Amin Rezaeis' email?",
+  "atomic_input": "What values does Amin Rezaei have for the property hasEmail?",
   "question_type": "property",
   "answer_form": "value",
   "entity": {
@@ -1855,7 +1855,7 @@
 },
 {
   "id": "present_prop_06_answerable",
-  "atomic_input": "What intervention does Bispebjerg Hospital have as a property?",
+  "atomic_input": "What values does Bispebjerg Hospital have for the property hasIntervention?",
   "question_type": "property",
   "answer_form": "value",
   "entity": {
@@ -1893,7 +1893,7 @@
 },
 {
   "id": "present_prop_06_unanswerable",
-  "atomic_input": "What DOI does Bispebjerg Hospital have?",
+  "atomic_input": "What values does Bispebjerg Hospital have for the property hasDOI?",
   "question_type": "property",
   "answer_form": "value",
   "entity": {
@@ -2018,7 +2018,7 @@
 },
 {
   "id": "present_mem_02_answerable",
-  "atomic_input": "Who are members of Study?",
+  "atomic_input": "Who are the members of Study?",
   "question_type": "membership",
   "answer_form": "list",
   "entity": {
@@ -2083,7 +2083,7 @@
 },
 {
   "id": "present_mem_02_unanswerable",
-  "atomic_input": "Who are members of FileSize?",
+  "atomic_input": "Who are the members of FileSize?",
   "question_type": "membership",
   "answer_form": "list",
   "entity": {
@@ -2119,7 +2119,7 @@
 },
 {
   "id": "present_mem_03_answerable",
-  "atomic_input": "Which individuals belong to the class MobileApplication?",
+  "atomic_input": "Who are the members of MobileApplication?",
   "question_type": "membership",
   "answer_form": "list",
   "entity": {
@@ -2163,7 +2163,7 @@
 },
 {
   "id": "present_mem_03_unanswerable",
-  "atomic_input": "Which individuals belong to the class DataCollectionTool?",
+  "atomic_input": "Who are the members of DataCollectionTool?",
   "question_type": "membership",
   "answer_form": "list",
   "entity": {
@@ -2199,7 +2199,7 @@
 },
 {
   "id": "present_mem_04_answerable",
-  "atomic_input": "Who are members of ActivityCategory?",
+  "atomic_input": "Who are the members of ActivityCategory?",
   "question_type": "membership",
   "answer_form": "list",
   "entity": {
@@ -2248,7 +2248,7 @@
 },
 {
   "id": "present_mem_04_unanswerable",
-  "atomic_input": "Who are members of Cohort?",
+  "atomic_input": "Who are the members of Cohort?",
   "question_type": "membership",
   "answer_form": "list",
   "entity": {
@@ -2289,7 +2289,7 @@
 },
 {
   "id": "present_mem_05_answerable",
-  "atomic_input": "Who are members of HealthcareProfessional?",
+  "atomic_input": "Who are the members of HealthcareProfessional?",
   "question_type": "membership",
   "answer_form": "list",
   "entity": {
@@ -2337,7 +2337,7 @@
 },
 {
   "id": "present_mem_05_unanswerable",
-  "atomic_input": "Who are members of Patch?",
+  "atomic_input": "Who are the members of Patch?",
   "question_type": "membership",
   "answer_form": "list",
   "entity": {
@@ -2378,7 +2378,7 @@
 },
 {
   "id": "present_mem_06_answerable",
-  "atomic_input": "Who are members of MovementIntensityCategory?",
+  "atomic_input": "Who are the members of MovementIntensityCategory?",
   "question_type": "membership",
   "answer_form": "list",
   "entity": {
@@ -2421,7 +2421,7 @@
 },
 {
   "id": "present_mem_06_unanswerable",
-  "atomic_input": "Who are members of Algorithm?",
+  "atomic_input": "Who are the members of Algorithm?",
   "question_type": "membership",
   "answer_form": "list",
   "entity": {
@@ -2720,7 +2720,7 @@
 },
 {
   "id": "present_cmp_05_answerable",
-  "atomic_input": "Does Resting have a smaller chunk_id than High intensity activities?",
+  "atomic_input": "Is it true that the chunk_id of Resting is smaller than the chunk_id of High intensity activities?",
   "question_type": "comparative",
   "answer_form": "assertion",
   "entity": { "value": "Resting", "type": "individual" },
@@ -2753,7 +2753,7 @@
 },
 {
   "id": "present_cmp_05_unanswerable",
-  "atomic_input": "Does Resting have a smaller chunk_id than Patch?",
+  "atomic_input": "Is it true that the chunk_id of Resting is smaller than the chunk_id of Patch?",
   "question_type": "comparative",
   "answer_form": "assertion",
   "entity": { "value": "Resting", "type": "individual" },
@@ -2785,7 +2785,7 @@
 },
 {
   "id": "present_cmp_06_answerable",
-  "atomic_input": "Does 'DEMOS-10' have a higher chunk_id than 'DEMOS-25'?",
+  "atomic_input": "Is it true that the chunk_id of DEMOS-10 is greater than the chunk_id of DEMOS-25?",
   "question_type": "comparative",
   "answer_form": "assertion",
   "entity": { "value": "DEMOS-10", "type": "individual" },
@@ -2818,7 +2818,7 @@
 },
 {
   "id": "present_cmp_06_unanswerable",
-  "atomic_input": "Does DEMOS-10 have a higher chunk_id than Teammember?",
+  "atomic_input": "Is it true that the chunk_id of DEMOS-10 is greater than the chunk_id of Teammember?",
   "question_type": "comparative",
   "answer_form": "assertion",
   "entity": { "value": "DEMOS-10", "type": "individual" },

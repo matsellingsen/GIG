@@ -1,0 +1,453 @@
+[
+  {
+    "case": {
+      "id": "present_cmp_05_answerable"
+    },
+    "checks": [
+      {
+        "name": "answer_non_empty",
+        "passed": true,
+        "expected": "non-empty",
+        "actual": "Resting has a smaller chunk_id than High intensity activities."
+      },
+      {
+        "name": "correct_entity_resolution",
+        "passed": true,
+        "expected": "Resting",
+        "actual": "Resting"
+      },
+      {
+        "name": "correct_object_resolution",
+        "passed": true,
+        "expected": "High intensity activities",
+        "actual": "High intensity activities"
+      },
+      {
+        "name": "answer_not_abstain",
+        "passed": true,
+        "expected": "answer that does not explicitly abstain",
+        "actual": "Resting has a smaller chunk_id than High intensity activities."
+      },
+      {
+        "name": "grounding_preferred",
+        "passed": true,
+        "expected": {
+          "entity_side": {
+            "chunk_id": [
+              47
+            ]
+          },
+          "object_side": {
+            "chunk_id": [
+              48
+            ]
+          }
+        },
+        "actual": {
+          "superclasses": [],
+          "members": [],
+          "annotations": [],
+          "equivalent_classes": [],
+          "chunk_id": [
+            "47"
+          ],
+          "property_values": {},
+          "types": [],
+          "properties": []
+        }
+      },
+      {
+        "name": "correct_question_type",
+        "passed": true,
+        "expected": "comparative",
+        "actual": "comparative"
+      },
+      {
+        "name": "correct_answer_form",
+        "passed": false,
+        "expected": "assertion",
+        "actual": "value"
+      },
+      {
+        "name": "correct_extracted_entity",
+        "passed": true,
+        "expected": "Resting",
+        "actual": "Resting"
+      },
+      {
+        "name": "correct_relation_extraction",
+        "passed": true,
+        "expected": "compare",
+        "actual": "compare"
+      },
+      {
+        "name": "correct_object_extraction",
+        "passed": true,
+        "expected": "High intensity activities",
+        "actual": "High intensity activities"
+      },
+      {
+        "name": "grounding_nonempty",
+        "passed": true,
+        "expected": "any non-empty grounding",
+        "actual": {
+          "superclasses": [],
+          "members": [],
+          "annotations": [],
+          "equivalent_classes": [],
+          "chunk_id": [
+            "47"
+          ],
+          "property_values": {},
+          "types": [],
+          "properties": []
+        }
+      },
+      {
+        "name": "grounding_incorrect",
+        "passed": true,
+        "expected": "non-empty grounding",
+        "actual": {
+          "superclasses": [],
+          "members": [],
+          "annotations": [],
+          "equivalent_classes": [],
+          "chunk_id": [
+            "47"
+          ],
+          "property_values": {},
+          "types": [],
+          "properties": []
+        }
+      }
+    ],
+    "question_info": {
+      "atomic_question": "Does Resting have a smaller chunk_id than High intensity activities?",
+      "question_type": "comparative",
+      "answer_form": "value",
+      "entity": {
+        "value": "Resting",
+        "type": null
+      },
+      "relation": "compare",
+      "object": {
+        "value": "High intensity activities",
+        "type": null
+      }
+    },
+    "fetched": {
+      "question_info": {
+        "atomic_question": "Does Resting have a smaller chunk_id than High intensity activities?",
+        "question_type": "comparative",
+        "answer_form": "value",
+        "entity": {
+          "value": "Resting",
+          "type": null
+        },
+        "relation": "compare",
+        "object": {
+          "value": "High intensity activities",
+          "type": null
+        }
+      },
+      "resolved_entity": {
+        "uri": "http://example.org/sensInnovationAps_ontology#Resting",
+        "label": "Resting",
+        "score": 1.0,
+        "labels": [
+          "Resting"
+        ],
+        "entity_type": "NamedIndividual",
+        "types": [
+          "MovementIntensityCategory",
+          "Quality"
+        ],
+        "superclasses": [],
+        "object_properties": {},
+        "data_properties": {},
+        "annotations": {}
+      },
+      "entity_context": {
+        "scope_note": "All information in this object is directly related to the resolved entity of the atomic question.",
+        "label": "Resting",
+        "types": [
+          "MovementIntensityCategory",
+          "NamedIndividual"
+        ],
+        "superclasses": {
+          "MovementIntensityCategory": [
+            "Quality"
+          ],
+          "NamedIndividual": []
+        },
+        "equivalent_classes": [],
+        "properties_by_type": {
+          "MovementIntensityCategory": {
+            "outgoing_object_properties": [],
+            "outgoing_data_properties": [
+              {
+                "property": "isSedentary",
+                "value": "true",
+                "datatype": "boolean"
+              }
+            ],
+            "incoming_object_properties": [],
+            "incoming_data_properties": []
+          },
+          "NamedIndividual": {
+            "outgoing_object_properties": [],
+            "outgoing_data_properties": [],
+            "incoming_object_properties": [],
+            "incoming_data_properties": []
+          }
+        },
+        "chunk_id": [
+          "47"
+        ]
+      },
+      "resolved_object": {
+        "uri": "http://example.org/sensInnovationAps_ontology#High%20intensity%20activities",
+        "label": "High intensity activities",
+        "score": 1.0,
+        "labels": [
+          "High intensity activities"
+        ],
+        "entity_type": "NamedIndividual",
+        "types": [
+          "ActivityIntensityCategory",
+          "Event"
+        ],
+        "superclasses": [],
+        "object_properties": {},
+        "data_properties": {},
+        "annotations": {}
+      },
+      "object_context": {
+        "scope_note": "All information in this object is directly related to the resolved object of the atomic question.",
+        "label": "High intensity activities",
+        "types": [
+          "ActivityIntensityCategory",
+          "NamedIndividual"
+        ],
+        "superclasses": {
+          "ActivityIntensityCategory": [
+            "Event"
+          ],
+          "NamedIndividual": []
+        },
+        "equivalent_classes": [],
+        "properties_by_type": {
+          "ActivityIntensityCategory": {
+            "outgoing_object_properties": [],
+            "outgoing_data_properties": [],
+            "incoming_object_properties": [],
+            "incoming_data_properties": []
+          },
+          "NamedIndividual": {
+            "outgoing_object_properties": [],
+            "outgoing_data_properties": [],
+            "incoming_object_properties": [],
+            "incoming_data_properties": []
+          }
+        },
+        "chunk_id": [
+          "48"
+        ]
+      }
+    },
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "comparative",
+        "answer_form": "value",
+        "entity": "Resting",
+        "relation": "compare",
+        "object": "High intensity activities"
+      },
+      "fetch_relevant_info": {
+        "resolved_entity": {
+          "uri": "http://example.org/sensInnovationAps_ontology#Resting",
+          "label": "Resting",
+          "score": 1.0,
+          "labels": [
+            "Resting"
+          ],
+          "entity_type": "NamedIndividual",
+          "types": [
+            "MovementIntensityCategory",
+            "Quality"
+          ],
+          "superclasses": [],
+          "object_properties": {},
+          "data_properties": {},
+          "annotations": {}
+        },
+        "resolved_object": {
+          "uri": "http://example.org/sensInnovationAps_ontology#High%20intensity%20activities",
+          "label": "High intensity activities",
+          "score": 1.0,
+          "labels": [
+            "High intensity activities"
+          ],
+          "entity_type": "NamedIndividual",
+          "types": [
+            "ActivityIntensityCategory",
+            "Event"
+          ],
+          "superclasses": [],
+          "object_properties": {},
+          "data_properties": {},
+          "annotations": {}
+        },
+        "status": "present"
+      },
+      "generate_answer": {
+        "answer": "Resting has a smaller chunk_id than High intensity activities.",
+        "reasoning": "The 'chunk_id' property for 'Resting' is '47', and for 'High intensity activities' it is '48'. Since '47' is less than '48', 'Resting' has a smaller 'chunk_id' than 'High intensity activities'."
+      },
+      "map_answer_to_context": {
+        "entity_answer": null,
+        "reasoning_answer": null,
+        "merged_entity_answer": {
+          "superclasses": [],
+          "members": [],
+          "annotations": [],
+          "equivalent_classes": [],
+          "chunk_id": [
+            "47"
+          ],
+          "property_values": {},
+          "types": [],
+          "properties": []
+        }
+      }
+    },
+    "generated_question_stage": {
+      "question_type": "comparative",
+      "answer_form": "value",
+      "entity": "Resting",
+      "entity_type": null,
+      "relation": "compare",
+      "object": "High intensity activities",
+      "object_type": null
+    },
+    "entity_context": {
+      "scope_note": "All information in this object is directly related to the resolved entity of the atomic question.",
+      "label": "Resting",
+      "types": [
+        "MovementIntensityCategory",
+        "NamedIndividual"
+      ],
+      "superclasses": {
+        "MovementIntensityCategory": [
+          "Quality"
+        ],
+        "NamedIndividual": []
+      },
+      "equivalent_classes": [],
+      "properties_by_type": {
+        "MovementIntensityCategory": {
+          "outgoing_object_properties": [],
+          "outgoing_data_properties": [
+            {
+              "property": "isSedentary",
+              "value": "true",
+              "datatype": "boolean"
+            }
+          ],
+          "incoming_object_properties": [],
+          "incoming_data_properties": []
+        },
+        "NamedIndividual": {
+          "outgoing_object_properties": [],
+          "outgoing_data_properties": [],
+          "incoming_object_properties": [],
+          "incoming_data_properties": []
+        }
+      },
+      "chunk_id": [
+        "47"
+      ]
+    },
+    "object_context": {
+      "scope_note": "All information in this object is directly related to the resolved object of the atomic question.",
+      "label": "High intensity activities",
+      "types": [
+        "ActivityIntensityCategory",
+        "NamedIndividual"
+      ],
+      "superclasses": {
+        "ActivityIntensityCategory": [
+          "Event"
+        ],
+        "NamedIndividual": []
+      },
+      "equivalent_classes": [],
+      "properties_by_type": {
+        "ActivityIntensityCategory": {
+          "outgoing_object_properties": [],
+          "outgoing_data_properties": [],
+          "incoming_object_properties": [],
+          "incoming_data_properties": []
+        },
+        "NamedIndividual": {
+          "outgoing_object_properties": [],
+          "outgoing_data_properties": [],
+          "incoming_object_properties": [],
+          "incoming_data_properties": []
+        }
+      },
+      "chunk_id": [
+        "48"
+      ]
+    },
+    "answer": "Resting has a smaller chunk_id than High intensity activities.",
+    "reasoning": "The 'chunk_id' property for 'Resting' is '47', and for 'High intensity activities' it is '48'. Since '47' is less than '48', 'Resting' has a smaller 'chunk_id' than 'High intensity activities'.",
+    "gold_answer_agent": {},
+    "mapped_reasoning_answer": {
+      "types": [],
+      "superclasses": [],
+      "equivalent_classes": [],
+      "properties": [],
+      "property_values": {},
+      "annotations": [],
+      "members": [],
+      "chunk_id": [
+        "47"
+      ]
+    },
+    "mapped_entity_answer": {
+      "types": [],
+      "superclasses": [],
+      "equivalent_classes": [],
+      "properties": [],
+      "property_values": {},
+      "annotations": [],
+      "members": [],
+      "chunk_id": []
+    },
+    "mapped_entity_merged": {
+      "superclasses": [],
+      "members": [],
+      "annotations": [],
+      "equivalent_classes": [],
+      "chunk_id": [
+        "47"
+      ],
+      "property_values": {},
+      "types": [],
+      "properties": []
+    },
+    "mapped_object_merged": {
+      "superclasses": [],
+      "members": [],
+      "annotations": [],
+      "equivalent_classes": [],
+      "chunk_id": [
+        "48"
+      ],
+      "property_values": {},
+      "types": [],
+      "properties": []
+    }
+  }
+]

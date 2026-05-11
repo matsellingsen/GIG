@@ -19,7 +19,7 @@ class ExtractQuestionTypeAgent(BaseOntologyAgent):
                 }
             },
             {
-                "input": "What is a Device?",
+                "input": "What is Device?",
                 "output": {
                     "reasoning": "The question seeks a general description of the entity.",
                     "question_type": "definition"
@@ -184,9 +184,6 @@ class ExtractQuestionTypeAgent(BaseOntologyAgent):
         user_msg = f"""
                 ### Goal
                 Classify the Atomic Input into exactly one of the allowed question types.
-
-                ### Allowed Question Types and Examples
-                {allowed_question_types_n_examples}
 
                 ### Atomic Input
                 {chunk_text}

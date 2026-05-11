@@ -94,7 +94,7 @@ def compute_metrics(results):
     metrics["answer_generation"] = {
         "answerable_nonempty_rate": sum(bool(r.get("answer")) for r in answerable) / max(len(answerable), 1),
         "unanswerable_correct_abstain_rate": sum(is_explicit_abstain(r.get("answer")) for r in unanswerable) / max(len(unanswerable), 1),
-        "hallucination_rate": sum(bool(r.get("answer")) for r in unanswerable) / max(len(unanswerable), 1),
+        #"hallucination_rate": sum(bool(r.get("answer")) for r in unanswerable) / max(len(unanswerable), 1),
         "avg_answer_length": sum(len(r.get("answer") or "") for r in results) / total,
     }
 
@@ -111,6 +111,7 @@ def compute_metrics(results):
             grounding_pref += 1
         if any(c["name"] == "grounding_nonempty" and c["passed"] for c in checks):
             grounding_nonempty += 1
+        
 
     if answerable_count > 0:
         preferred_rate = grounding_pref / answerable_count

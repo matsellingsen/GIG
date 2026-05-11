@@ -22,10 +22,10 @@ from agent_loop.agents.inference_module.generate_answer_agent import GenerateAns
 
 
 DATASET_PATH = os.path.abspath(
-    os.path.join(os.path.dirname(__file__), "..", "dataset", "ontology_grounded_100_natural.json")
+    os.path.join(os.path.dirname(__file__), "..", "dataset", "ontology_grounded_100_natural_standardized.json")
 )
 REPORT_PATH = os.path.abspath(
-    os.path.join(os.path.dirname(__file__), "..", "reports", "ontology_grounded_100_results.json")
+    os.path.join(os.path.dirname(__file__), "..", "reports", "ontology_grounded_standardized_results.json")
 )
 
 with open(DATASET_PATH, encoding="utf-8") as f:
@@ -93,21 +93,21 @@ def mapping_covers_expected(type, actual_mapping, expected_mapping):
     expected_mapping = expected_mapping or {}
     expected_entity_side = expected_mapping.get(type, {})
 
-    expected_types = set(expected_entity_side.get("types", []))
-    expected_superclasses = set(expected_entity_side.get("superclasses", []))
-    expected_equivalent_classes = set(expected_entity_side.get("equivalent_classes", []))
-    expected_properties = set(expected_entity_side.get("properties", []))
-    expected_members = set(expected_entity_side.get("members", []))
-    expected_annotations = set(expected_entity_side.get("annotations", []))
-    expected_chunk_id = set(expected_entity_side.get("chunk_id", []))   
+    expected_types = set(str(x) for x in expected_entity_side.get("types", []))
+    expected_superclasses = set(str(x) for x in expected_entity_side.get("superclasses", []))
+    expected_equivalent_classes = set(str(x) for x in expected_entity_side.get("equivalent_classes", []))
+    expected_properties = set(str(x) for x in expected_entity_side.get("properties", []))
+    expected_members = set(str(x) for x in expected_entity_side.get("members", []))
+    expected_annotations = set(str(x) for x in expected_entity_side.get("annotations", []))
+    expected_chunk_id = set(str(x) for x in expected_entity_side.get("chunk_id", []))   
 
-    actual_types = set(actual_mapping.get("types", []))
-    actual_superclasses = set(actual_mapping.get("superclasses", []))
-    actual_equivalent_classes = set(actual_mapping.get("equivalent_classes", []))
-    actual_properties = set(actual_mapping.get("properties", []))
-    actual_members = set(actual_mapping.get("members", []))
-    actual_annotations = set(actual_mapping.get("annotations", []))
-    actual_chunk_id = set(actual_mapping.get("chunk_id", []))
+    actual_types = set(str(x) for x in actual_mapping.get("types", []))
+    actual_superclasses = set(str(x) for x in actual_mapping.get("superclasses", []))
+    actual_equivalent_classes = set(str(x) for x in actual_mapping.get("equivalent_classes", []))
+    actual_properties = set(str(x) for x in actual_mapping.get("properties", []))
+    actual_members = set(str(x) for x in actual_mapping.get("members", []))
+    actual_annotations = set(str(x) for x in actual_mapping.get("annotations", []))
+    actual_chunk_id = set(str(x) for x in actual_mapping.get("chunk_id", []))
 
     return (
         expected_superclasses.issubset(actual_superclasses)
@@ -187,7 +187,7 @@ def test_ontology_grounded_100(case, ttl_fixture, agents):
             checks,
             "entity_resolution",
             case["expected_decision"] == "abstain",
-            expected=case["expected_decision"],
+            expected=case.get("stage_labels", {}).get("resolve_entity"),
             actual="noPrimaryEntityFound",
         )
         RESULTS.append(
@@ -212,7 +212,7 @@ def test_ontology_grounded_100(case, ttl_fixture, agents):
             checks,
             "object_resolution",
             case["expected_decision"] == "abstain",
-            expected=case["expected_decision"],
+            expected=case.get("stage_labels", {}).get("resolve_object"),
             actual="noComparativeObjectFound",
         )
         RESULTS.append(
@@ -271,19 +271,21 @@ def test_ontology_grounded_100(case, ttl_fixture, agents):
     expected_relation = case.get("relation")
     expected_extracted_object = case.get("object").get("value")
     expected_decision = case["expected_decision"]
+    expected_resolve_entity = case.get("stage_labels", {}).get("resolve_entity")
+    expected_resolve_object = case.get("stage_labels", {}).get("resolve_object")
     gold_answer_agent = case.get("gold_answer_agent") or {}
     gold_reasoning = gold_answer_agent.get("reasoning")
     gold_mapped_answer = case.get("gold_mapped_answer")
 
     # Preferred grounding: gold mapping is subset of actual mapping
-    if expected_question_type == "comparative":
+    if expected_question_type == "comparative" and object_context: # for comparative questions with objects, we check that either the entity side or the object side mapping covers the expected answer, since the system could ground the answer to either side in a comparative question
         mapping_ok_entity = mapping_covers_expected("entity_side", mapped_entity_merged, gold_mapped_answer)
-        mapping_ok_object = mapping_covers_expected("object_side", mapped_object_merged, gold_mapped_answer) if object_context else True
+        mapping_ok_object = mapping_covers_expected("object_side", mapped_object_merged, gold_mapped_answer) 
         preferred_ok = mapping_ok_entity and mapping_ok_object
     else: # any other question type should only have entity grounding, so we check that the entity side mapping covers the expected answer
         preferred_ok = mapping_covers_expected("entity_side", mapped_entity_merged, gold_mapped_answer)
 
-    # Acceptable grounding: any ontology grounding at all (indicates that the answer is grounded in some way, but the question understanding or mapping was not fully correct, which is still a better outcome than no grounding at all)
+    # non-empty grounding: any ontology grounding at all (indicates that the answer is grounded in some way, but the question understanding or mapping was not fully correct, which is still a better outcome than no grounding at all)
     grounded_nonempty = any(bool(v) for v in mapped_entity_merged.values())
 
     # Incorrect grounding: no grounding
@@ -295,6 +297,11 @@ def test_ontology_grounded_100(case, ttl_fixture, agents):
     actual_extracted_entity = question_info.get("entity", {}).get("value")
     actual_relation = question_info.get("relation")
     actual_extracted_object = question_info.get("object", {}).get("value")
+    actual_resolved_entity = fetched.get("resolved_entity").get("label") if isinstance(fetched, dict) else None
+    actual_resolved_object = fetched.get("resolved_object") if isinstance(fetched, dict) else None
+    if actual_resolved_object is not None and isinstance(actual_resolved_object, dict):
+        actual_resolved_object = actual_resolved_object.get("label")
+
     if actual_extracted_object == "null":
         actual_extracted_object = None
 
@@ -306,6 +313,20 @@ def test_ontology_grounded_100(case, ttl_fixture, agents):
             passed=bool(answer_text),
             expected="non-empty",
             actual=answer_text,
+        )
+        record_check(
+            checks=checks,
+            name="correct_entity_resolution",
+            passed=actual_resolved_entity == expected_resolve_entity,
+            expected=expected_resolve_entity,
+            actual=actual_resolved_entity,
+        )
+        record_check(
+            checks=checks,
+            name="correct_object_resolution",
+            passed=actual_resolved_object == expected_resolve_object,
+            expected=expected_resolve_object,
+            actual=actual_resolved_object,
         )
         record_check( 
             checks=checks,
@@ -442,6 +463,7 @@ def test_ontology_grounded_100(case, ttl_fixture, agents):
             "mapped_entity_answer": mapped_entity_answer,
             "mapped_reasoning_answer": mapped_entity_reasoning,
             "mapped_entity_merged": mapped_entity_merged,
+            "mapped_object_merged": mapped_object_merged if object_context else None,
         }
         )
 
@@ -468,6 +490,7 @@ def test_ontology_grounded_100(case, ttl_fixture, agents):
             "mapped_reasoning_answer": mapped_entity_reasoning,
             "mapped_entity_answer": mapped_entity_answer,
             "mapped_entity_merged": mapped_entity_merged,
+            "mapped_object_merged": mapped_object_merged if object_context else None,
         }
     )
 

@@ -6,18 +6,17 @@ Given a single-sentence atomic question, classify it into exactly one allowed qu
 
 ### Terminology
 **Question Type**: The semantic category describing the fundamental intent of a question.
-**Definition**: Asks for the identity or nature of an entity.
-**Taxonomic**: Asks about class membership or category.
-**Capability**: Asks what an entity does, can do, or what processes it participates in.
-**Property**: Asks for a specific attribute, role, state, label, or literal value of an entity.
-**Membership**: Asks which items, parts, or members belong to or are contained in something.
+**Definition**: Asks for the identity, essence, fundamental nature, or characterization of an entity or concept.
+**Taxonomic**: Asks whether an entity is an instance of or subtype of a class or type.
+**Capability**: Asks what an entity does, can do, or what processes it supports.
+**Property**: Asks for a specific, named attribute, characteristic, role, state, status, or quality of an entity.
+**Membership**: Asks which items, parts, or members belong to an entity.
 **Comparative**: Asks to compare two entities along some dimension or property.
-**Quantification**: Asks about counts, quantities, or amounts.
+**Quantification**: Asks about counts, quantities, or amounts of a single entity.
 **Unknown**: Used when the question is ambiguous, malformed, or lacks a clear semantic target.
 
 ### Guidelines
 - Provide short reasoning before the final classification.
 - Use the definitions above to determine the best-fitting question type.
 - If multiple types seem plausible, choose the one that reflects the *primary intent* of the question.
-
 - Always return exactly one question type.

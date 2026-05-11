@@ -216,7 +216,7 @@
       {
         "atomic_input": "What tasks does a Ribosome perform",
         "question_type": "capability",
-        "answer_form": "list",
+        "answer_form": "assertion",
         "entity": {
           "value": "Ribosome",
           "type": "Class"
@@ -258,15 +258,15 @@
       {
         "atomic_input": "Which group is ChloroplastA a member of",
         "question_type": "membership",
-        "answer_form": "value",
+        "answer_form": "list",
         "entity": {
           "value": "ChloroplastA",
           "type": "Individual"
         },
         "relation": "have member",
         "object": {
-          "value": "group",
-          "type": "Class"
+          "value": null,
+          "type": null
         }
       },
       {
@@ -358,7 +358,7 @@
       {
         "atomic_input": "What does a Ribosome even use then",
         "question_type": "capability",
-        "answer_form": "list",
+        "answer_form": "assertion",
         "entity": {
           "value": "Ribosome",
           "type": "Class"
@@ -400,15 +400,15 @@
       {
         "atomic_input": "Which group is ChloroplastA actually part of",
         "question_type": "membership",
-        "answer_form": "value",
+        "answer_form": "list",
         "entity": {
           "value": "ChloroplastA",
           "type": "Individual"
         },
         "relation": "have member",
         "object": {
-          "value": "group",
-          "type": "Class"
+          "value": null,
+          "type": null
         }
       },
       {
@@ -644,7 +644,7 @@
       {
         "atomic_input": "What tasks does a Volcano perform",
         "question_type": "capability",
-        "answer_form": "list",
+        "answer_form": "assertion",
         "entity": {
           "value": "Volcano",
           "type": "Class"
@@ -686,15 +686,15 @@
       {
         "atomic_input": "Which group is IslandA a member of",
         "question_type": "membership",
-        "answer_form": "value",
+        "answer_form": "list",
         "entity": {
           "value": "IslandA",
           "type": "Individual"
         },
         "relation": "have member",
         "object": {
-          "value": "Archipelago",
-          "type": "Class"
+          "value": null,
+          "type": null
         }
       },
       {
@@ -786,7 +786,7 @@
       {
         "atomic_input": "What does a Volcano even use then",
         "question_type": "capability",
-        "answer_form": "list",
+        "answer_form": "assertion",
         "entity": {
           "value": "Volcano",
           "type": "Class"
@@ -828,15 +828,15 @@
       {
         "atomic_input": "Which group is IslandA actually part of",
         "question_type": "membership",
-        "answer_form": "value",
+        "answer_form": "list",
         "entity": {
           "value": "IslandA",
           "type": "Individual"
         },
         "relation": "have member",
         "object": {
-          "value": "Archipelago",
-          "type": "Class"
+          "value": null,
+          "type": null
         }
       },
       {
@@ -1072,7 +1072,7 @@
       {
         "atomic_input": "What tasks does a Compiler perform",
         "question_type": "capability",
-        "answer_form": "list",
+        "answer_form": "assertion",
         "entity": {
           "value": "Compiler",
           "type": "Class"
@@ -1114,15 +1114,15 @@
       {
         "atomic_input": "Which group is ModuleA a member of",
         "question_type": "membership",
-        "answer_form": "value",
+        "answer_form": "list",
         "entity": {
           "value": "ModuleA",
           "type": "Individual"
         },
         "relation": "have member",
         "object": {
-          "value": "group",
-          "type": "Class"
+          "value": null,
+          "type": null
         }
       },
       {
@@ -1256,15 +1256,15 @@
       {
         "atomic_input": "Which group is ModuleA actually part of",
         "question_type": "membership",
-        "answer_form": "value",
+        "answer_form": "list",
         "entity": {
           "value": "ModuleA",
           "type": "Individual"
         },
         "relation": "have member",
         "object": {
-          "value": "group",
-          "type": "Class"
+          "value": null,
+          "type": null
         }
       },
       {
@@ -1500,7 +1500,7 @@
       {
         "atomic_input": "What tasks does a Chef perform",
         "question_type": "capability",
-        "answer_form": "list",
+        "answer_form": "assertion",
         "entity": {
           "value": "Chef",
           "type": "Class"
@@ -1542,15 +1542,15 @@
       {
         "atomic_input": "Which group is PersonB a member of",
         "question_type": "membership",
-        "answer_form": "value",
+        "answer_form": "list",
         "entity": {
           "value": "PersonB",
           "type": "Individual"
         },
         "relation": "have member",
         "object": {
-          "value": "group",
-          "type": "Class"
+          "value": null,
+          "type": null
         }
       },
       {
@@ -1642,7 +1642,7 @@
       {
         "atomic_input": "What does a Chef even use then",
         "question_type": "capability",
-        "answer_form": "list",
+        "answer_form": "assertion",
         "entity": {
           "value": "Chef",
           "type": "Class"
@@ -1684,15 +1684,15 @@
       {
         "atomic_input": "Which group is PersonB actually part of",
         "question_type": "membership",
-        "answer_form": "value",
+        "answer_form": "list",
         "entity": {
           "value": "PersonB",
           "type": "Individual"
         },
         "relation": "have member",
         "object": {
-          "value": "group",
-          "type": "Class"
+          "value": null,
+          "type": null
         }
       },
       {
@@ -1928,7 +1928,7 @@
       {
         "atomic_input": "What tasks does a Model perform",
         "question_type": "capability",
-        "answer_form": "list",
+        "answer_form": "assertion",
         "entity": {
           "value": "Model",
           "type": "Class"
@@ -1970,15 +1970,15 @@
       {
         "atomic_input": "Which group is ConceptB a member of",
         "question_type": "membership",
-        "answer_form": "value",
+        "answer_form": "list",
         "entity": {
           "value": "ConceptB",
           "type": "Individual"
         },
         "relation": "have member",
         "object": {
-          "value": "Category",
-          "type": "Class"
+          "value": null,
+          "type": null
         }
       },
       {
@@ -2070,7 +2070,7 @@
       {
         "atomic_input": "What does a Model even use then",
         "question_type": "capability",
-        "answer_form": "list",
+        "answer_form": "assertion",
         "entity": {
           "value": "Model",
           "type": "Class"
@@ -2112,15 +2112,15 @@
       {
         "atomic_input": "Which group is ConceptB actually part of",
         "question_type": "membership",
-        "answer_form": "value",
+        "answer_form": "list",
         "entity": {
           "value": "ConceptB",
           "type": "Individual"
         },
         "relation": "have member",
         "object": {
-          "value": "Category",
-          "type": "Class"
+          "value": null,
+          "type": null
         }
       },
       {
@@ -2356,7 +2356,7 @@
       {
         "atomic_input": "What tasks does a CoffeeMachine perform",
         "question_type": "capability",
-        "answer_form": "list",
+        "answer_form": "assertion",
         "entity": {
           "value": "CoffeeMachine",
           "type": "Class"
@@ -2398,15 +2398,15 @@
       {
         "atomic_input": "Which group is ObjectB a member of",
         "question_type": "membership",
-        "answer_form": "value",
+        "answer_form": "list",
         "entity": {
           "value": "ObjectB",
           "type": "Individual"
         },
         "relation": "have member",
         "object": {
-          "value": "StorageItem",
-          "type": "Class"
+          "value": null,
+          "type": null
         }
       },
       {
@@ -2498,7 +2498,7 @@
       {
         "atomic_input": "What does a CoffeeMachine even use then",
         "question_type": "capability",
-        "answer_form": "list",
+        "answer_form": "assertion",
         "entity": {
           "value": "CoffeeMachine",
           "type": "Class"
@@ -2540,15 +2540,15 @@
       {
         "atomic_input": "Which group is ObjectB actually part of",
         "question_type": "membership",
-        "answer_form": "value",
+        "answer_form": "list",
         "entity": {
           "value": "ObjectB",
           "type": "Individual"
         },
         "relation": "have member",
         "object": {
-          "value": "StorageItem",
-          "type": "Class"
+          "value": null,
+          "type": null
         }
       },
       {

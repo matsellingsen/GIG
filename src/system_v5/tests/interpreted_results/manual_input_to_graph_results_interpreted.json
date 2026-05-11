@@ -1,0 +1,1454 @@
+{
+  "biology": {
+    "canonical": [
+      {
+        "check_name": "atomic_to_graph_exception",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_question_type",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_answer_form",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_entity",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_relation",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_object",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "question_type_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "answer_form_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "entity_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "relation_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "object_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "entity_fuzzy_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "object_fuzzy_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      }
+    ],
+    "paraphrased": [
+      {
+        "check_name": "atomic_to_graph_exception",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_question_type",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_answer_form",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_entity",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_relation",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_object",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "question_type_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "answer_form_match",
+        "pass_rate": 0.0,
+        "passed": 0,
+        "total": 1
+      },
+      {
+        "check_name": "entity_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "relation_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "object_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "entity_fuzzy_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "object_fuzzy_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      }
+    ],
+    "adversarial": [
+      {
+        "check_name": "atomic_to_graph_exception",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_question_type",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_answer_form",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_entity",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_relation",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_object",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "question_type_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "answer_form_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "entity_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "relation_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "object_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "entity_fuzzy_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "object_fuzzy_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      }
+    ]
+  },
+  "geography": {
+    "canonical": [
+      {
+        "check_name": "atomic_to_graph_exception",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_question_type",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_answer_form",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_entity",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_relation",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_object",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "question_type_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "answer_form_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "entity_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "relation_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "object_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "entity_fuzzy_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "object_fuzzy_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      }
+    ],
+    "paraphrased": [
+      {
+        "check_name": "atomic_to_graph_exception",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_question_type",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_answer_form",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_entity",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_relation",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_object",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "question_type_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "answer_form_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "entity_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "relation_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "object_match",
+        "pass_rate": 0.0,
+        "passed": 0,
+        "total": 1
+      },
+      {
+        "check_name": "entity_fuzzy_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "object_fuzzy_match",
+        "pass_rate": 0.0,
+        "passed": 0,
+        "total": 1
+      }
+    ],
+    "adversarial": [
+      {
+        "check_name": "atomic_to_graph_exception",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_question_type",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_answer_form",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_entity",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_relation",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_object",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "question_type_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "answer_form_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "entity_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "relation_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "object_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "entity_fuzzy_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "object_fuzzy_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      }
+    ]
+  },
+  "technology": {
+    "canonical": [
+      {
+        "check_name": "atomic_to_graph_exception",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_question_type",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_answer_form",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_entity",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_relation",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_object",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "question_type_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "answer_form_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "entity_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "relation_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "object_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "entity_fuzzy_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "object_fuzzy_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      }
+    ],
+    "paraphrased": [
+      {
+        "check_name": "atomic_to_graph_exception",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_question_type",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_answer_form",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_entity",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_relation",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_object",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "question_type_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "answer_form_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "entity_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "relation_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "object_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "entity_fuzzy_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "object_fuzzy_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      }
+    ],
+    "adversarial": [
+      {
+        "check_name": "atomic_to_graph_exception",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_question_type",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_answer_form",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_entity",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_relation",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_object",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "question_type_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "answer_form_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "entity_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "relation_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "object_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "entity_fuzzy_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "object_fuzzy_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      }
+    ]
+  },
+  "people": {
+    "canonical": [
+      {
+        "check_name": "atomic_to_graph_exception",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_question_type",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_answer_form",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_entity",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_relation",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_object",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "question_type_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "answer_form_match",
+        "pass_rate": 0.0,
+        "passed": 0,
+        "total": 1
+      },
+      {
+        "check_name": "entity_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "relation_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "object_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "entity_fuzzy_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "object_fuzzy_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      }
+    ],
+    "paraphrased": [
+      {
+        "check_name": "atomic_to_graph_exception",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_question_type",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_answer_form",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_entity",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_relation",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_object",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "question_type_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "answer_form_match",
+        "pass_rate": 0.0,
+        "passed": 0,
+        "total": 1
+      },
+      {
+        "check_name": "entity_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "relation_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "object_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "entity_fuzzy_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "object_fuzzy_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      }
+    ],
+    "adversarial": [
+      {
+        "check_name": "atomic_to_graph_exception",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_question_type",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_answer_form",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_entity",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_relation",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_object",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "question_type_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "answer_form_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "entity_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "relation_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "object_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "entity_fuzzy_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "object_fuzzy_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      }
+    ]
+  },
+  "abstract": {
+    "canonical": [
+      {
+        "check_name": "atomic_to_graph_exception",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_question_type",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_answer_form",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_entity",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_relation",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_object",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "question_type_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "answer_form_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "entity_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "relation_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "object_match",
+        "pass_rate": 0.0,
+        "passed": 0,
+        "total": 1
+      },
+      {
+        "check_name": "entity_fuzzy_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "object_fuzzy_match",
+        "pass_rate": 0.0,
+        "passed": 0,
+        "total": 1
+      }
+    ],
+    "paraphrased": [
+      {
+        "check_name": "atomic_to_graph_exception",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_question_type",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_answer_form",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_entity",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_relation",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_object",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "question_type_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "answer_form_match",
+        "pass_rate": 0.0,
+        "passed": 0,
+        "total": 1
+      },
+      {
+        "check_name": "entity_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "relation_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "object_match",
+        "pass_rate": 0.0,
+        "passed": 0,
+        "total": 1
+      },
+      {
+        "check_name": "entity_fuzzy_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "object_fuzzy_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      }
+    ],
+    "adversarial": [
+      {
+        "check_name": "atomic_to_graph_exception",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_question_type",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_answer_form",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_entity",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_relation",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_object",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "question_type_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "answer_form_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "entity_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "relation_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "object_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "entity_fuzzy_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "object_fuzzy_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      }
+    ]
+  },
+  "everyday": {
+    "canonical": [
+      {
+        "check_name": "atomic_to_graph_exception",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_question_type",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_answer_form",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_entity",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_relation",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_object",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "question_type_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "answer_form_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "entity_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "relation_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "object_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "entity_fuzzy_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "object_fuzzy_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      }
+    ],
+    "paraphrased": [
+      {
+        "check_name": "atomic_to_graph_exception",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_question_type",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_answer_form",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_entity",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_relation",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_object",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "question_type_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "answer_form_match",
+        "pass_rate": 0.0,
+        "passed": 0,
+        "total": 1
+      },
+      {
+        "check_name": "entity_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "relation_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "object_match",
+        "pass_rate": 0.0,
+        "passed": 0,
+        "total": 1
+      },
+      {
+        "check_name": "entity_fuzzy_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "object_fuzzy_match",
+        "pass_rate": 0.0,
+        "passed": 0,
+        "total": 1
+      }
+    ],
+    "adversarial": [
+      {
+        "check_name": "atomic_to_graph_exception",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_question_type",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_answer_form",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_entity",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_relation",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "has_object",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "question_type_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "answer_form_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "entity_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "relation_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "object_match",
+        "pass_rate": 0.0,
+        "passed": 0,
+        "total": 1
+      },
+      {
+        "check_name": "entity_fuzzy_match",
+        "pass_rate": 1.0,
+        "passed": 1,
+        "total": 1
+      },
+      {
+        "check_name": "object_fuzzy_match",
+        "pass_rate": 0.0,
+        "passed": 0,
+        "total": 1
+      }
+    ]
+  }
+}
