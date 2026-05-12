@@ -127,6 +127,7 @@
         -- I believe full end-to-end baselines might be to big to do
         -- It could be better to test sub-components robustness and reliability, 
         -- and the whole inference pipeline by itself and prove/argue for answer completeness, grounding etc..
+    
     - TESTING
         -- Component-test the input_to_graph() agents (1/2 DONE) <-- Failures must be handled
             -- Create labelled dataset containing 6 domains, and evenly distributed across labels.
@@ -164,7 +165,10 @@
             -- Cascade vs. direct failure is NOT accounted for in the interpretation script yet.
         -- E2E-source-tests (pending)
             -- dataset is automatically generated, needs to be revised 
-                -- chunk_id needs to be added. It is currently added incocnsistently and wrong.
+                -- chunk_id needs to be added. It is currently added incocnsistently and wrong. (DONE)
+                -- Manually go through each question-type qeustion:
+                    -- progress: 1/7 question-types have been gone through and validated
+                
 
         -- Large End-to-End using real ttl with questions based on source
             -- 50% answerable

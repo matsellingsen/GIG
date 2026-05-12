@@ -83,16 +83,19 @@ def _calculate_grounding_overlap(gold_grounding: dict, predicted_grounding: dict
 
     return len(gold_tokens & predicted_tokens) > 0
 
-def _check_entity_resolved(result: dict) -> bool:
+def _check_entity_resolved(type: str, result: dict) -> bool:
     """Check if entity was successfully resolved to an ontology node."""
     fetched = result.get("fetched", {})
     
     # Check for error strings
     if isinstance(fetched, str):
-        return fetched not in ["noPrimaryEntityFound", "noComparativeObjectFound"]
+        if type == "entity":
+            return fetched != "noPrimaryEntityFound"
+        elif type == "object":
+            return fetched != "noComparativeObjectFound"
     
     # Check if resolved_entity exists and is valid
-    resolved_entity = fetched.get("resolved_entity")
+    resolved_entity = fetched.get(f"resolved_{type}")
     return resolved_entity is not None and resolved_entity != ""
 
 def _category_metrics(cat, cat_results):
@@ -113,7 +116,7 @@ def _category_metrics(cat, cat_results):
         "correct_object_resolution": 0, # Grounding overlap indicates correct node
         "preferred_grounding_match": 0,  # Direct check if preferred grounding matches expected
         "acceptable_grounding": 0, # Acceptable if it matches expected or shares tokens with expected
-        "unacceptable_grounding": 0, # Unacceptable if it doesn't match expected and shares no tokens
+        "unacceptable_grounding": 0, # Unacceptable if it doesn't match expected and shares no tokens and resolved entity is not correct
         "no_mapping_performed": 0, # Unresolved entity/object skipped mapping
     }
     
@@ -167,8 +170,8 @@ def _category_metrics(cat, cat_results):
             answerable_metrics["correct_object"] += 1
         
         # check if entity is resolved
-        is_resolved = _check_entity_resolved(ans_case)
-        if is_resolved:
+        is_resolved_entity = _check_entity_resolved("entity", ans_case)
+        if is_resolved_entity:
             answerable_metrics["entity_resolved"] += 1
         else:
             answerable_metrics["no_mapping_performed"] += 1
@@ -184,7 +187,7 @@ def _category_metrics(cat, cat_results):
         # ------------------------------------------------
             
         # Check if resolved to correct node via grounding overlap
-        gold_grounding = _extract_gold_grounding(ans_case)
+        #gold_grounding = _extract_gold_grounding(ans_case)
         predicted_entity_grounding = ans_case.get("mapped_entity_merged", {})
         predicted_object_grounding = ans_case.get("mapped_object_merged", {})
 
@@ -196,7 +199,7 @@ def _category_metrics(cat, cat_results):
         if cat == "comparative":
             print(f"Case {ans_case['case']['id']}")
             # add object resolution checks
-            is_resolved_object = _check_entity_resolved(ans_case) #reuse entity resolution check since it checks for both 
+            is_resolved_object = _check_entity_resolved("object", ans_case) #reuse entity resolution check since it checks for both 
             if is_resolved_object:
                 answerable_metrics["object_resolved"] += 1
             else:
@@ -217,8 +220,9 @@ def _category_metrics(cat, cat_results):
             entity_ok = _is_predicted_subset_of_context(predicted_entity_grounding, pred_entity_ctx)
             object_ok = _is_predicted_subset_of_context(predicted_object_grounding, pred_object_ctx)
 
-            acceptable_grounding = entity_ok and object_ok 
-            unacceptable_grounding = not (preferred_grounding or acceptable_grounding)
+            predicted_subset_ok = (entity_ok and correct_resolved_entity) and (object_ok and correct_resolved_object)
+            acceptable_grounding = preferred_grounding or predicted_subset_ok
+            unacceptable_grounding = not acceptable_grounding
 
             if acceptable_grounding:
                 answerable_metrics["acceptable_grounding"] += 1
@@ -233,8 +237,9 @@ def _category_metrics(cat, cat_results):
                 answerable_metrics["preferred_grounding_match"] += 1
 
             # Add grounding checks for entity only (since non-comparative questions typically only have entity grounding)            
-            acceptable_grounding = _is_predicted_subset_of_context(predicted_entity_grounding, pred_entity_ctx)
-            unacceptable_grounding = not (preferred_grounding or acceptable_grounding)
+            entity_ok = _is_predicted_subset_of_context(predicted_entity_grounding, pred_entity_ctx)
+            acceptable_grounding = preferred_grounding or (entity_ok and correct_resolved_entity)
+            unacceptable_grounding = not acceptable_grounding
             if acceptable_grounding:
                 answerable_metrics["acceptable_grounding"] += 1
             if unacceptable_grounding:
@@ -242,7 +247,7 @@ def _category_metrics(cat, cat_results):
                 answerable_metrics["unacceptable_grounding"] += 1
             
 
-    # Process unanswerable cases (each unanswerable case contributes once)
+    # 3. For unanswerable cases the main question is "Does the system correctly abstain?" and "If not, does it ground to the correct entity or a related entity in the ontology, or does it fail to ground at all?"
     for unans_case in unanswerable:
         checks = unans_case.get("checks", [])
 
@@ -262,27 +267,25 @@ def _category_metrics(cat, cat_results):
        # abstain correctness
 
         # resolution and grounding
-        is_resolved = _check_entity_resolved(unans_case)
-        if is_resolved:
+        is_resolved_entity = _check_entity_resolved("entity", unans_case)
+        if is_resolved_entity:
             unanswerable_metrics["entity_resolved"] += 1
 
-        if any(c.get("name") == "correct_entity_resolution" and c.get("passed") for c in checks):
+        correct_resolved_entity = any(c.get("name") == "correct_entity_resolution" and c.get("passed") for c in checks)
+        if correct_resolved_entity:
             unanswerable_metrics["correct_entity_resolution"] += 1
 
-        # comparative may have object resolution
-        if any(c.get("name") == "correct_object_resolution" and c.get("passed") for c in checks):
-            unanswerable_metrics["correct_object_resolution"] += 1
-
+        
         # abstain correctness
         abstain_ok = any(c.get("name") == "abstain_expected" and c.get("passed") for c in checks)
         if abstain_ok:
             print(f"Case {unans_case['case']['id']} correctly abstained.")
             unanswerable_metrics["correctly_abstained"] += 1
             unanswerable_metrics["no_mapping_performed"] += 1
+            continue # if system correctly abstains, we don't need to evaluate grounding since it shouldn't have made a statement about the entity/ontology.
             #break # if system correctly abstains, we don't need to evaluate grounding since it shouldn't have made a statement about the entity/ontology.
         
-        if not abstain_ok and is_resolved:
-
+        if not abstain_ok and is_resolved_entity:
 
             # preferred grounding
             preferred = any(c.get("name") == "grounding_preferred" and c.get("passed") for c in checks)
@@ -299,24 +302,34 @@ def _category_metrics(cat, cat_results):
             cat = _category_from_case_id(unans_case.get("case", {}).get("id", ""))
             acceptable = False
             if cat == "comparative":
-                is_object_resolved = _check_entity_resolved(unans_case)
+                is_object_resolved = _check_entity_resolved("object", unans_case)
                 if is_object_resolved:
                     unanswerable_metrics["object_resolved"] += 1
+                    # comparative may have object resolution
+                    correct_resolved_object = any(c.get("name") == "correct_object_resolution" and c.get("passed") for c in checks)
+                    if correct_resolved_object:
+                        unanswerable_metrics["correct_object_resolution"] += 1
+
                     entity_ok = _is_predicted_subset_of_context(predicted_entity_grounding, pred_entity_ctx)
                     object_ok = _is_predicted_subset_of_context(predicted_object_grounding, pred_object_ctx)
-                    acceptable = entity_ok and object_ok
+                    # Unanswerable cases often don't output 'correct_entity_resolution' or 'correct_object_resolution' checks.
+                    # As long as subsets match the fetched contexts, the grounding itself is acceptable.
+                    predicted_subset_ok = entity_ok and object_ok
+                    acceptable = preferred or predicted_subset_ok
                 else:
                     print(f"Case {unans_case['case']['id']} failed object resolution, skipping grounding checks for this case.")
                     unanswerable_metrics["no_mapping_performed"] += 1
                     continue
             else:
-                acceptable = _is_predicted_subset_of_context(predicted_entity_grounding, pred_entity_ctx)
+                entity_ok = _is_predicted_subset_of_context(predicted_entity_grounding, pred_entity_ctx)
+                acceptable = preferred or entity_ok
 
             if acceptable:
                 unanswerable_metrics["acceptable_grounding"] += 1
             else:
+                print(f"Case {unans_case['case']['id']} has unacceptable grounding.")
                 unanswerable_metrics["unacceptable_grounding"] += 1
-        elif not abstain_ok and not is_resolved:
+        elif not abstain_ok and not is_resolved_entity:
             unanswerable_metrics["no_mapping_performed"] += 1
 
     return {
@@ -351,7 +364,7 @@ def compute_metrics(results):
     # also compute overall metrics across all categories
     overall_metrics = {"answerable": defaultdict(int), "unanswerable": defaultdict(int)}
     for cat, cat_metrics in category_metrics.items():
-        print(f"Metrics for category {cat}: {cat_metrics}")
+        #print(f"Metrics for category {cat}: {cat_metrics}")
         answerable_metrics = cat_metrics["answerable"]
         unanswerable_metrics = cat_metrics["unanswerable"] if cat != "definition" else {} # definition doesn't have unanswerable cases
         for metric, value in answerable_metrics.items():

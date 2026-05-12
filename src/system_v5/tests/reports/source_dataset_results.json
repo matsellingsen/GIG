@@ -1,0 +1,152 @@
+[
+  {
+    "case": {
+      "id": "q07",
+      "question_type": "definition",
+      "answer_form": "value",
+      "question": "What is SENS Motion\u00ae - Connect?",
+      "gold_answer": "SENS Motion\u00ae - Connect is an OEM Platform for medical sensors.",
+      "source": "privacy-policy/_index.en::c0000",
+      "expected_entity": "SENS Motion\u00ae - Connect",
+      "expected_object": null
+    },
+    "question_info": {
+      "atomic_question": "What is SENS Motion\u00ae - Connect?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "SENS Motion\u00ae - Connect",
+        "type": null
+      },
+      "relation": "be",
+      "object": {
+        "value": "null",
+        "type": null
+      }
+    },
+    "fetched": {
+      "question_info": {
+        "atomic_question": "What is SENS Motion\u00ae - Connect?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+          "value": "SENS Motion\u00ae - Connect",
+          "type": null
+        },
+        "relation": "be",
+        "object": {
+          "value": "null",
+          "type": null
+        }
+      },
+      "resolved_entity": {
+        "uri": "http://example.org/sensInnovationAps_ontology#SENS%20motion%C2%AE%20%E2%80%93%20Connect",
+        "label": "SENS motion\u00ae \u2013 Connect",
+        "score": 0.9636363636363637,
+        "labels": [
+          "SENS motion\u00ae \u2013 Connect"
+        ],
+        "entity_type": "NamedIndividual",
+        "types": [
+          "OEMPlatform",
+          "PhysicalObject",
+          "ResearchProject",
+          "SocialObject"
+        ],
+        "superclasses": [],
+        "object_properties": {},
+        "data_properties": {},
+        "annotations": {}
+      },
+      "entity_context": {
+        "scope_note": "All information in this object is directly related to the resolved entity of the atomic question.",
+        "label": "SENS motion\u00ae \u2013 Connect",
+        "types": [
+          "OEMPlatform",
+          "NamedIndividual"
+        ],
+        "superclasses": {
+          "OEMPlatform": [
+            "PhysicalObject",
+            "ResearchProject",
+            "SocialObject"
+          ],
+          "NamedIndividual": []
+        },
+        "equivalent_classes": [],
+        "annotations": {},
+        "class_descriptions": {
+          "OEMPlatform": {
+            "description": "A platform that allows for the development and integration of wireless, battery-powered medical sensors into various systems or devices."
+          },
+          "PhysicalObject": {
+            "description": "Any Object that has a proper space region. Examples include people, equipment, sensors, and buildings."
+          },
+          "ResearchProject": {
+            "description": "A coordinated effort to investigate and understand phenomena, typically involving the collection and analysis of data."
+          },
+          "SocialObject": {
+            "description": "Any Object that exists only within some social context, such as organizations, laws, plans, or projects."
+          },
+          "NamedIndividual": {
+            "description": null
+          }
+        }
+      },
+      "resolved_object": null,
+      "object_context": null
+    },
+    "generated_answer": "SENS Motion\u00ae - Connect is a platform that allows for the development and integration of wireless, battery-powered medical sensors into various systems or devices.",
+    "reasoning": "The atomic question asks for the definition of 'SENS Motion\u00ae - Connect', which is a specific entity within the provided ontology information.",
+    "checks": [
+      {
+        "name": "correct_question_type",
+        "passed": true,
+        "expected": "definition",
+        "actual": "definition"
+      },
+      {
+        "name": "correct_answer_form",
+        "passed": true,
+        "expected": "value",
+        "actual": "value"
+      },
+      {
+        "name": "correct_entity_extraction",
+        "passed": true,
+        "expected": "SENS Motion\u00ae - Connect",
+        "actual": "SENS Motion\u00ae - Connect"
+      },
+      {
+        "name": "correct_object_extraction",
+        "passed": true,
+        "expected": "null",
+        "actual": "null"
+      },
+      {
+        "name": "entity_resolved",
+        "passed": true,
+        "expected": true,
+        "actual": "SENS motion\u00ae \u2013 Connect"
+      },
+      {
+        "name": "fuzzy_answer_match",
+        "passed": true,
+        "expected": "SENS Motion\u00ae - Connect is an OEM Platform for medical sensors.",
+        "actual": "SENS Motion\u00ae - Connect is a platform that allows for the development and integration of wireless, battery-powered medical sensors into various systems or devices."
+      },
+      {
+        "name": "fuzzy_entity_match",
+        "passed": true,
+        "expected": "SENS Motion\u00ae - Connect",
+        "actual": "SENS Motion\u00ae - Connect"
+      },
+      {
+        "name": "fuzzy_object_match",
+        "passed": true,
+        "expected": "null",
+        "actual": "null"
+      }
+    ]
+  }
+]

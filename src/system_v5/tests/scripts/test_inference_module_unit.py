@@ -38,7 +38,7 @@ def test_retrieve_full_entity_context_merges_sameas(tiny_ttl):
     from rdflib import URIRef
 
     entity = {"uri": URIRef("http://example.org/sensInnovationAps_ontology#SENS_motion_v2")}
-    context = retrieve_full_entity_context(entity, tiny_ttl["graph"])
+    context = retrieve_full_entity_context(type="subject", entity=entity, graph=tiny_ttl["graph"])
 
     assert "1" in context.get("provenance", [])
     assert "2" in context.get("provenance", [])
