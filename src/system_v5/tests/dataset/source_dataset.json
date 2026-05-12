@@ -9,36 +9,36 @@
     "expected_entity": "SENS motion®",
     "expected_object": null
   },
-{
-  "id": "q02",
-  "question_type": "definition",
-  "answer_form": "value",
-  "question": "What is the SENS motion® activity sensor?",
-  "gold_answer": "It is a wireless activity sensor that automatically transfers data to a secure cloud.",
-  "source": "_index.en::c0000",
-  "expected_entity": "SENS motion® activity sensor",
-  "expected_object": null
-},
-{
-  "id": "q03",
-  "question_type": "definition",
-  "answer_form": "value",
-  "question": "What is SENS motion® – For Healthcare?",
-  "gold_answer": "SENS motion® – For Healthcare is a system that enables the use of the SENS motion® activity sensor in healthcare environments such as hospitals or care centres.",
-  "source": "_index.en::c0000",
-  "expected_entity": "SENS motion® – For Healthcare",
-  "expected_object": null
-},
-{
-  "id": "q04",
-  "question_type": "definition",
-  "answer_form": "value",
-  "question": "What is SENS motion® – For Research?",
-  "gold_answer": "SENS motion® – For Research is a platform that enables the use of the SENS motion® activity sensor for collecting activity or raw accelerometer data in research projects.",
-  "source": "_index.en::c0000",
-  "expected_entity": "SENS motion® – For Research",
-  "expected_object": null
-},
+  {
+    "id": "q02",
+    "question_type": "definition",
+    "answer_form": "value",
+    "question": "What is the SENS motion® activity sensor?",
+    "gold_answer": "It is a wireless activity sensor that automatically transfers data to a secure cloud.",
+    "source": "_index.en::c0000",
+    "expected_entity": "SENS motion® activity sensor",
+    "expected_object": null
+  },
+  {
+    "id": "q03",
+    "question_type": "definition",
+    "answer_form": "value",
+    "question": "What is SENS motion® – For Healthcare?",
+    "gold_answer": "SENS motion® – For Healthcare is a system that enables the use of the SENS motion® activity sensor in healthcare environments such as hospitals or care centres.",
+    "source": "_index.en::c0000",
+    "expected_entity": "SENS motion® – For Healthcare",
+    "expected_object": null
+  },
+  {
+    "id": "q04",
+    "question_type": "definition",
+    "answer_form": "value",
+    "question": "What is SENS motion® – For Research?",
+    "gold_answer": "SENS motion® – For Research is a platform that enables the use of the SENS motion® activity sensor for collecting activity or raw accelerometer data in research projects.",
+    "source": "_index.en::c0000",
+    "expected_entity": "SENS motion® – For Research",
+    "expected_object": null
+  },
   {
     "id": "q05",
     "question_type": "definition",
@@ -59,21 +59,21 @@
     "expected_entity": "SENS motion® Pilot Package",
     "expected_object": null
   },
-{
-  "id": "q07",
-  "question_type": "definition",
-  "answer_form": "value",
-  "question": "What is SENS Motion® - Connect?",
-  "gold_answer": "SENS Motion® - Connect is an OEM Platform for medical sensors.",
-  "source": "privacy-policy/_index.en::c0000",
-  "expected_entity": "SENS Motion® - Connect",
-  "expected_object": null
-},
+  {
+    "id": "q07",
+    "question_type": "definition",
+    "answer_form": "value",
+    "question": "What is SENS Motion® - Connect?",
+    "gold_answer": "SENS Motion® - Connect is an OEM Platform for medical sensors.",
+    "source": "privacy-policy/_index.en::c0000",
+    "expected_entity": "SENS Motion® - Connect",
+    "expected_object": null
+  },
   {
     "id": "q08",
     "question_type": "taxonomic",
     "answer_form": "assertion",
-    "question": "Is SENS motion® a certified medical device?",
+    "question": "Is SENS motion® a type of certified medical device?",
     "gold_answer": "yes, SENS motion® is a certified medical device.",
     "source": "healthcare/_index.en::c0000",
     "expected_entity": "SENS motion®",
@@ -83,7 +83,7 @@
     "id": "q09",
     "question_type": "taxonomic",
     "answer_form": "assertion",
-    "question": "Is SENS Innovation ApS a developer of medical sensor products?",
+    "question": "Is SENS Innovation ApS a type of developer of medical sensor products?",
     "gold_answer": "yes, SENS Innovation ApS is a developer of medical sensor products.",
     "source": "about/_index.en::c0000",
     "expected_entity": "SENS Innovation ApS",
@@ -93,49 +93,49 @@
     "id": "q10",
     "question_type": "taxonomic",
     "answer_form": "assertion",
-    "question": "Is the SENS motion® activity sensor part of the SENS motion® – For Healthcare solution?",
-    "gold_answer": "yes, the SENS motion® activity sensor is part of the SENS motion® – For Healthcare solution.",
+    "question": "Is the SENS motion® activity sensor a type of discrete wearable activity sensor?",
+    "gold_answer": "yes, the SENS motion® activity sensor is a type of discrete wearable activity sensor.",
     "source": "_index.en::c0000",
     "expected_entity": "SENS motion® activity sensor",
-    "expected_object": "SENS motion® – For Healthcare solution"
+    "expected_object": "discrete wearable activity sensor"
   },
   {
     "id": "q11",
     "question_type": "taxonomic",
     "answer_form": "assertion",
-    "question": "Is the smartphone app included in the SENS motion® – For Research package?",
-    "gold_answer": "yes, the smartphone app is included in the SENS motion® – For Research package.",
+    "question": "Is SENS motion® a type of monitoring system?",
+    "gold_answer": "yes, SENS motion® is a type of monitoring system.",
     "source": "_index.en::c0000",
-    "expected_entity": "smartphone app",
-    "expected_object": "SENS motion® – For Research package"
+    "expected_entity": "SENS motion®",
+    "expected_object": "monitoring system"
   },
   {
     "id": "q12",
     "question_type": "taxonomic",
     "answer_form": "assertion",
-    "question": "Is SENS Innovation ApS the data controller for all projects?",
+    "question": "Is SENS Innovation ApS a type of data controller?",
     "gold_answer": "I can't answer the question",
     "expected_entity": "SENS Innovation ApS",
-    "expected_object": "data controller for all projects"
+    "expected_object": "data controller"
   },
   {
     "id": "q13",
     "question_type": "taxonomic",
     "answer_form": "assertion",
-    "question": "Is the Bispebjerg Hospital study part of SENS Innovation’s own clinical trials?",
+    "question": "Is step count a type of analyzed activity?",
     "gold_answer": "I can't answer the question",
-    "expected_entity": "Bispebjerg Hospital study",
-    "expected_object": "SENS Innovation’s own clinical trials"
+    "expected_entity": "step count",
+    "expected_object": "analyzed activity"
   },
   {
     "id": "q14",
     "question_type": "taxonomic",
     "answer_form": "assertion",
-    "question": "Is the motivational app a component of SENS motion® – For Healthcare?",
-    "gold_answer": "yes, the motivational app is a component of SENS motion® – For Healthcare.",
+    "question": "Is temperature a type of raw sensor data?",
+    "gold_answer": "yes, temperature is a type of raw sensor data.",
     "source": "healthcare/_index.en::c0000",
-    "expected_entity": "motivational app",
-    "expected_object": "SENS motion® – For Healthcare"
+    "expected_entity": "temperature",
+    "expected_object": "raw sensor data"
   },
   {
     "id": "q15",
@@ -145,32 +145,32 @@
     "gold_answer": "Rest time, Standing time, Walking time, Running & High Intensity Movement time, Cycling time, Steps, Intensity, Sleep time and quality",
     "source": "_index.en::c0000",
     "expected_entity": "SENS motion®",
-    "expected_object": "physical activity"
+    "expected_object": "null"
   },
   {
     "id": "q16",
     "question_type": "capability",
-    "answer_form": "list",
-    "question": "What can the bedside tablet display to patients?",
-    "gold_answer": "Goals, progress, real-time activity information",
+    "answer_form": "assertion",
+    "question": "Can the bedside tablet display anything?",
+    "gold_answer": "Yes, it can display Goals, progress, real-time activity information",
     "source": "healthcare/_index.en::c0001",
     "expected_entity": "bedside tablet",
-    "expected_object": "patients"
+    "expected_object": "display anything"
   },
   {
     "id": "q17",
     "question_type": "capability",
-    "answer_form": "list",
-    "question": "What can healthcare professionals use SENS motion® data for?",
-    "gold_answer": "Providing a data-based overview, improving dialogue, supporting treatment decisions",
+    "answer_form": "value",
+    "question": "What does the motivational app increase?",
+    "gold_answer": "The motivational app increases the patients motivation to be more active.",
     "source": "healthcare/_index.en::c0000",
-    "expected_entity": "healthcare professionals",
-    "expected_object": "SENS motion® data"
+    "expected_entity": "motivational app",
+    "expected_object": "null"
   },
   {
     "id": "q18",
     "question_type": "capability",
-    "answer_form": "list",
+    "answer_form": "value",
     "question": "What can the SENS motion® smartphone app do?",
     "gold_answer": "Automatically transfer data to the secure cloud",
     "source": "_index.en::c0000",
@@ -191,10 +191,10 @@
     "id": "q20",
     "question_type": "capability",
     "answer_form": "assertion",
-    "question": "Can SENS motion® measure heart rate?",
-    "gold_answer": "I can't answer the question",
-    "expected_entity": "SENS motion®",
-    "expected_object": "heart rate"
+    "question": "Can the SENS Motion app for smartphone and tablet assign a favorite sensor?",
+    "gold_answer": "Yes, the SENS Motion app for smartphone and tablet can assign a favorite sensor.",
+    "expected_entity": "SENS Motion app",
+    "expected_object": "assign a favorite sensor"
   },
   {
     "id": "q21",
@@ -202,49 +202,39 @@
     "answer_form": "assertion",
     "question": "Can the SENS motion® system motivate patients to be more active?",
     "gold_answer": "yes",
-    "source": "healthcare/_index.en::c0000)",
+    "source": "healthcare/_index.en::c0000",
     "expected_entity": "SENS motion® system",
-    "expected_object": "patients"
+    "expected_object": "motivate patients to be more active"
   },
   {
     "id": "q22",
     "question_type": "property",
     "answer_form": "value",
-    "question": "How many patients can participate in the SENS motion® Pilot Package?",
-    "gold_answer": "Up to 120 patients",
-    "source": "healthcare/_index.en::c0000)",
-    "expected_entity": "SENS motion® Pilot Package",
-    "expected_object": "patients"
+    "question": "How long is the Pilot Package period?",
+    "gold_answer": "The pilot package period is 3 months.",
+    "source": "healthcare/_index.en::c0000",
+    "expected_entity": "Pilot Package",
+    "expected_object": "period length"
   },
   {
     "id": "q23",
     "question_type": "property",
     "answer_form": "value",
-    "question": "How long is the Pilot Package period?",
-    "gold_answer": "3 months",
-    "source": "healthcare/_index.en::c0000)",
-    "expected_entity": "Pilot Package",
-    "expected_object": null
+    "question": "How much does the Pilot Package cost?",
+    "gold_answer": "19.995 DKK",
+    "source": "healthcare/_index.en::c0000",
+    "expected_entity": "SENS motion® Pilot Package",
+    "expected_object": "cost"
   },
   {
     "id": "q24",
     "question_type": "property",
     "answer_form": "value",
-    "question": "What is the price of the SENS motion® Pilot Package?",
-    "gold_answer": "19.995 DKK",
-    "source": "healthcare/_index.en::c0000)",
-    "expected_entity": "SENS motion® Pilot Package",
-    "expected_object": null
-  },
-  {
-    "id": "q25",
-    "question_type": "property",
-    "answer_form": "value",
-    "question": "What is the CVR number of SENS Innovation ApS?",
-    "gold_answer": "DK36024860",
-    "source": "privacy-policy/_index.en::c0001)",
-    "expected_entity": "SENS Innovation ApS",
-    "expected_object": "CVR number"
+    "question": "What is the max amount of participants in the Pilot Package?",
+    "gold_answer": "Up to 120 patients",
+    "source": "healthcare/_index.en::c0000",
+    "expected_entity": "Pilot Package",
+    "expected_object": "max amount of participants"
   },
   {
     "id": "q26",
@@ -252,59 +242,59 @@
     "answer_form": "value",
     "question": "What is the address of SENS Innovation ApS?",
     "gold_answer": "Nannasgade 28, 2200 Copenhagen N, Denmark",
-    "source": "privacy-policy/_index.en::c0001)",
+    "source": "privacy-policy/_index.en::c0001",
     "expected_entity": "SENS Innovation ApS",
     "expected_object": "address"
   },
   {
     "id": "q27",
     "question_type": "property",
-    "answer_form": "value",
-    "question": "What retention period applies to aggregated website statistics?",
+    "answer_form": "list",
+    "question": "What does SENS motion® – For Research consist of?",
     "gold_answer": "Up to 24 months",
-    "source": "privacy-policy/_index.en::c0002)",
-    "expected_entity": "aggregated website statistics",
-    "expected_object": "retention period"
+    "source": "privacy-policy/_index.en::c0002",
+    "expected_entity": "SENS motion® – For Research",
+    "expected_object": "null"
   },
   {
     "id": "q28",
     "question_type": "property",
     "answer_form": "value",
-    "question": "How many elderly patients are hospitalised each year according to the clinical evidence section?",
-    "gold_answer": "More than 600,000 elderly patients above age 65",
-    "source": "healthcare/_index.en::c0002)",
-    "expected_entity": "elderly patients",
-    "expected_object": "clinical evidence section"
+    "question": "What is Kasper L. Lykkegaards email?",
+    "gold_answer": "kasper@sens.dk",
+    "source": "about/_index.en::c0000",
+    "expected_entity": "Kasper L. Lykkegaard",
+    "expected_object": "email"
   },
   {
     "id": "q29",
     "question_type": "membership",
     "answer_form": "list",
-    "question": "Which team members are part of SENS Innovation ApS?",
+    "question": "Who are the Teammembers?",
     "gold_answer": "Kasper L. Lykkegaard, Morten Kjærgaard, Ida Marie Pierrel-Boas, Christian Lindharth, Miriam Cabrita, Karen Shakespeare, Amin Rezaei, August Blicher Friis, Renata Oliveira, Huong Nguyen, Mathias Elmegaard Nielsen, Mats Ellingsen, Lea Møller Storm",
-    "source": "about/_index.en::c0000)",
-    "expected_entity": "SENS Innovation ApS",
-    "expected_object": "team members"
+    "source": "about/_index.en::c0000",
+    "expected_entity": "Teammembers",
+    "expected_object": "null"
   },
   {
     "id": "q30",
     "question_type": "membership",
-    "answer_form": "assertion",
-    "question": "Is Kasper L. Lykkegaard a founder of SENS Innovation ApS?",
-    "gold_answer": "yes",
-    "source": "about/_index.en::c0000)",
-    "expected_entity": "Kasper L. Lykkegaard",
-    "expected_object": "SENS Innovation ApS"
+    "answer_form": "list",
+    "question": "What does the support articles include?",
+    "gold_answer": "SENS motionApp for Smartphone, SENS motionApp Sensor and Patch, SENS motionApp Web Application, and FAQ.",
+    "source": "support/_index.en::c0000",
+    "expected_entity": "support articles",
+    "expected_object": "guide for adding a favorite sensor"
   },
   {
     "id": "q31",
     "question_type": "membership",
     "answer_form": "assertion",
-    "question": "Is Morten Kjærgaard part of the SENS Innovation team?",
-    "gold_answer": "yes",
-    "source": "about/_index.en::c0000)",
-    "expected_entity": "Morten Kjærgaard",
-    "expected_object": "SENS Innovation team"
+    "question": "What publications does SENS Motion have from 2018?",
+    "gold_answer": "SENS Motion has one publication from 2018: \"Reliability and Construct Validity of the SENS Motion Activity Measurement System as a Tool to Detect Sedentary Behaviour in Patients with Knee Osteoarthritis\".",
+    "source": "about/_index.en::c0000",
+    "expected_entity": "SENS Motion",
+    "expected_object": "2018 publications"
   },
   {
     "id": "q32",
@@ -312,7 +302,7 @@
     "answer_form": "assertion",
     "question": "Is SENS motion® included in the list of services covered by the Privacy Policy?",
     "gold_answer": "yes",
-    "source": "privacy-policy/_index.en::c0001)",
+    "source": "privacy-policy/_index.en::c0001",
     "expected_entity": "SENS motion®",
     "expected_object": "Privacy Policy"
   },
@@ -322,7 +312,7 @@
     "answer_form": "assertion",
     "question": "Is DEMOS‑10 one of the services operated by SENS Innovation ApS?",
     "gold_answer": "yes",
-    "source": "privacy-policy/_index.en::c0001)",
+    "source": "privacy-policy/_index.en::c0001",
     "expected_entity": "DEMOS‑10",
     "expected_object": "SENS Innovation ApS"
   },
@@ -332,7 +322,7 @@
     "answer_form": "assertion",
     "question": "Is Lifetrack part of the services listed under the Privacy Policy?",
     "gold_answer": "yes",
-    "source": "privacy-policy/_index.en::c0001)",
+    "source": "privacy-policy/_index.en::c0001",
     "expected_entity": "Lifetrack",
     "expected_object": "Privacy Policy"
   },
@@ -342,19 +332,19 @@
     "answer_form": "assertion",
     "question": "Is the motivational app included in the SENS motion® – For Healthcare package?",
     "gold_answer": "yes",
-    "source": "healthcare/_index.en::c0000)",
-    "expected_entity": "motivational app",
-    "expected_object": "SENS motion® – For Healthcare package"
+    "source": "healthcare/_index.en::c0000",
+    "expected_entity": "SENS motion® – For Healthcare package",
+    "expected_object": "motivational app"
   },
   {
     "id": "q36",
     "question_type": "comparative",
-    "answer_form": "value",
-    "question": "How does SENS motion® compare to other activity monitors in detecting walking speeds?",
-    "gold_answer": "It accurately detects walking speeds among hospitalized patients.",
-    "source": "news/2022-validation-activity-monitors/index.en::c0000)",
-    "expected_entity": "SENS motion®",
-    "expected_object": "other activity monitors"
+    "answer_form": "assertion",
+    "question": "Does Patch B cost more than Patch C?",
+    "gold_answer": "No",
+    "source": "news/2022-validation-activity-monitors/index.en::c0000",
+    "expected_entity": "Patch B",
+    "expected_object": "Patch C"
   },
   {
     "id": "q37",
@@ -362,7 +352,7 @@
     "answer_form": "value",
     "question": "How does SENS motion® perform in measuring gait patterns compared to reference accelerometers?",
     "gold_answer": "It shows accurate measurement of linear accelerations during overground walking.",
-    "source": "news/2022-criterion-validity-elderly/index.en::c0000)",
+    "source": "news/2022-criterion-validity-elderly/index.en::c0000",
     "expected_entity": "SENS motion®",
     "expected_object": "reference accelerometers"
   },
@@ -372,7 +362,7 @@
     "answer_form": "value",
     "question": "How does physical inactivity affect elderly patients compared to younger patients?",
     "gold_answer": "Elderly patients have reduced ability to recover after periods of physical inactivity.",
-    "source": "healthcare/_index.en::c0002)",
+    "source": "healthcare/_index.en::c0002",
     "expected_entity": "elderly patients",
     "expected_object": "younger patients"
   },
@@ -382,7 +372,7 @@
     "answer_form": "value",
     "question": "How does the SENS motion® motivational app differ from the bedside tablet?",
     "gold_answer": "I can't answer the question",
-    "source": "healthcare/_index.en::c0000)",
+    "source": "healthcare/_index.en::c0000",
     "expected_entity": "SENS motion® motivational app",
     "expected_object": "bedside tablet"
   },
@@ -392,7 +382,7 @@
     "answer_form": "value",
     "question": "How does the SENS motion® – For Healthcare package differ from the SENS motion® – For Research package?",
     "gold_answer": "The Healthcare package includes a patient app and optional monitor display, while the Research package includes a smartphone app and web-application for managing sensors.",
-    "source": "healthcare/_index.en::c0000)",
+    "source": "healthcare/_index.en::c0000",
     "expected_entity": "SENS motion® – For Healthcare package",
     "expected_object": "SENS motion® – For Research package"
   },
@@ -402,7 +392,7 @@
     "answer_form": "value",
     "question": "How does the SENS motion® system compare to traditional patient monitoring methods?",
     "gold_answer": "I can't answer the question",
-    "source": "healthcare/_index.en::c0000)",
+    "source": "healthcare/_index.en::c0000",
     "expected_entity": "SENS motion® system",
     "expected_object": "traditional patient monitoring methods"
   },
@@ -412,7 +402,7 @@
     "answer_form": "value",
     "question": "How does the Pilot Package differ from standard SENS motion® deployments?",
     "gold_answer": "It is a 3-month introductory offer for up to 120 patients.",
-    "source": "healthcare/_index.en::c0000)",
+    "source": "healthcare/_index.en::c0000",
     "expected_entity": "Pilot Package",
     "expected_object": "standard SENS motion® deployments"
   },
@@ -422,7 +412,7 @@
     "answer_form": "value",
     "question": "How many minutes per day did Bispebjerg Hospital increase out‑of‑bed time using SENS motion®?",
     "gold_answer": "51 minutes per day",
-    "source": "healthcare/_index.en::c0002)",
+    "source": "healthcare/_index.en::c0002",
     "expected_entity": "Bispebjerg Hospital",
     "expected_object": "out‑of‑bed time"
   },
@@ -432,7 +422,7 @@
     "answer_form": "value",
     "question": "How many hours per day are elderly hospitalised patients typically inactive?",
     "gold_answer": "18–20 hours per day",
-    "source": "healthcare/_index.en::c0002)",
+    "source": "healthcare/_index.en::c0002",
     "expected_entity": "elderly hospitalised patients",
     "expected_object": "inactive"
   },
@@ -442,7 +432,7 @@
     "answer_form": "value",
     "question": "How many steps per day reduce readmission risk by approximately 10%?",
     "gold_answer": "100 steps per day",
-    "source": "healthcare/_index.en::c0002)",
+    "source": "healthcare/_index.en::c0002",
     "expected_entity": "steps",
     "expected_object": "readmission risk"
   },
@@ -452,7 +442,7 @@
     "answer_form": "value",
     "question": "How many elderly patients above age 65 are hospitalised each year?",
     "gold_answer": "More than 600,000",
-    "source": "healthcare/_index.en::c0002)",
+    "source": "healthcare/_index.en::c0002",
     "expected_entity": "elderly patients above age 65",
     "expected_object": "hospitalised"
   },
@@ -462,7 +452,7 @@
     "answer_form": "value",
     "question": "How many days of inactivity cause reductions in physical fitness?",
     "gold_answer": "I can't answer the question",
-    "source": "healthcare/_index.en::c0002)",
+    "source": "healthcare/_index.en::c0002",
     "expected_entity": "inactivity",
     "expected_object": "physical fitness"
   },
@@ -479,10 +469,10 @@
     "id": "q49",
     "question_type": "quantification",
     "answer_form": "value",
-    "question": "How many months does the Pilot Package last?",
-    "gold_answer": "3 months",
-    "source": "healthcare/_index.en::c0000",
-    "expected_entity": "Pilot Package",
-    "expected_object": "months"
+    "question": "How many activity categories does SENS motion® measure?",
+    "gold_answer": "SENS Motion® measures 8 activity categories.",
+    "source": "privacy-policy/_index.en::c0001",
+    "expected_entity": "SENS Motion®",
+    "expected_object": "null"
   }
 ]

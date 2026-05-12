@@ -1,151 +1,220 @@
 [
   {
     "case": {
-      "id": "q07",
-      "question_type": "definition",
-      "answer_form": "value",
-      "question": "What is SENS Motion\u00ae - Connect?",
-      "gold_answer": "SENS Motion\u00ae - Connect is an OEM Platform for medical sensors.",
-      "source": "privacy-policy/_index.en::c0000",
-      "expected_entity": "SENS Motion\u00ae - Connect",
-      "expected_object": null
+      "id": "q36",
+      "question_type": "comparative",
+      "answer_form": "Assertion",
+      "question": "Does Patch B cost more than Patch C?",
+      "gold_answer": "It accurately detects walking speeds among hospitalized patients.",
+      "source": "news/2022-validation-activity-monitors/index.en::c0000",
+      "expected_entity": "SENS motion\u00ae",
+      "expected_object": "other activity monitors"
     },
     "question_info": {
-      "atomic_question": "What is SENS Motion\u00ae - Connect?",
-      "question_type": "definition",
-      "answer_form": "value",
+      "atomic_question": "Does Patch B cost more than Patch C?",
+      "question_type": "comparative",
+      "answer_form": "assertion",
       "entity": {
-        "value": "SENS Motion\u00ae - Connect",
+        "value": "Patch B",
         "type": null
       },
-      "relation": "be",
+      "relation": "compare",
       "object": {
-        "value": "null",
+        "value": "Patch C",
         "type": null
       }
     },
     "fetched": {
       "question_info": {
-        "atomic_question": "What is SENS Motion\u00ae - Connect?",
-        "question_type": "definition",
-        "answer_form": "value",
+        "atomic_question": "Does Patch B cost more than Patch C?",
+        "question_type": "comparative",
+        "answer_form": "assertion",
         "entity": {
-          "value": "SENS Motion\u00ae - Connect",
+          "value": "Patch B",
           "type": null
         },
-        "relation": "be",
+        "relation": "compare",
         "object": {
-          "value": "null",
+          "value": "Patch C",
           "type": null
         }
       },
       "resolved_entity": {
-        "uri": "http://example.org/sensInnovationAps_ontology#SENS%20motion%C2%AE%20%E2%80%93%20Connect",
-        "label": "SENS motion\u00ae \u2013 Connect",
-        "score": 0.9636363636363637,
+        "uri": "http://example.org/sensInnovationAps_ontology#Patch",
+        "label": "Patch",
+        "score": 0.7916666666666667,
         "labels": [
-          "SENS motion\u00ae \u2013 Connect"
+          "Patch"
         ],
-        "entity_type": "NamedIndividual",
-        "types": [
-          "OEMPlatform",
-          "PhysicalObject",
-          "ResearchProject",
-          "SocialObject"
+        "entity_type": "Class",
+        "types": [],
+        "superclasses": [
+          "PhysicalObject"
         ],
-        "superclasses": [],
         "object_properties": {},
         "data_properties": {},
         "annotations": {}
       },
       "entity_context": {
         "scope_note": "All information in this object is directly related to the resolved entity of the atomic question.",
-        "label": "SENS motion\u00ae \u2013 Connect",
+        "label": "Patch",
         "types": [
-          "OEMPlatform",
+          "Class"
+        ],
+        "superclasses": {
+          "Class": [],
+          "Patch": [
+            "PhysicalObject"
+          ]
+        },
+        "equivalent_classes": [],
+        "properties_by_type": {
+          "Class": {
+            "outgoing_object_properties": [],
+            "outgoing_data_properties": [],
+            "incoming_object_properties": [],
+            "incoming_data_properties": []
+          }
+        },
+        "chunk_id": []
+      },
+      "resolved_object": {
+        "uri": "http://example.org/sensInnovationAps_ontology#sensor%20patch",
+        "label": "sensor patch",
+        "score": 0.5460526315789473,
+        "labels": [
+          "sensor patch"
+        ],
+        "entity_type": "NamedIndividual",
+        "types": [
+          "Attachment",
+          "PhysicalObject",
+          "SensorAttachment",
+          "SensorAttachmentInstructions"
+        ],
+        "superclasses": [],
+        "object_properties": {},
+        "data_properties": {},
+        "annotations": {}
+      },
+      "object_context": {
+        "scope_note": "All information in this object is directly related to the resolved object of the atomic question.",
+        "label": "sensor patch",
+        "types": [
+          "SensorAttachment",
+          "SensorAttachmentInstructions",
           "NamedIndividual"
         ],
         "superclasses": {
-          "OEMPlatform": [
+          "SensorAttachment": [
             "PhysicalObject",
-            "ResearchProject",
-            "SocialObject"
+            "Attachment"
+          ],
+          "SensorAttachmentInstructions": [
+            "InformationObject"
           ],
           "NamedIndividual": []
         },
         "equivalent_classes": [],
-        "annotations": {},
-        "class_descriptions": {
-          "OEMPlatform": {
-            "description": "A platform that allows for the development and integration of wireless, battery-powered medical sensors into various systems or devices."
+        "properties_by_type": {
+          "SensorAttachment": {
+            "outgoing_object_properties": [],
+            "outgoing_data_properties": [],
+            "incoming_object_properties": [],
+            "incoming_data_properties": []
           },
-          "PhysicalObject": {
-            "description": "Any Object that has a proper space region. Examples include people, equipment, sensors, and buildings."
-          },
-          "ResearchProject": {
-            "description": "A coordinated effort to investigate and understand phenomena, typically involving the collection and analysis of data."
-          },
-          "SocialObject": {
-            "description": "Any Object that exists only within some social context, such as organizations, laws, plans, or projects."
+          "SensorAttachmentInstructions": {
+            "outgoing_object_properties": [],
+            "outgoing_data_properties": [],
+            "incoming_object_properties": [],
+            "incoming_data_properties": []
           },
           "NamedIndividual": {
-            "description": null
+            "outgoing_object_properties": [],
+            "outgoing_data_properties": [],
+            "incoming_object_properties": [],
+            "incoming_data_properties": []
           }
-        }
-      },
-      "resolved_object": null,
-      "object_context": null
+        },
+        "chunk_id": [
+          "34"
+        ]
+      }
     },
-    "generated_answer": "SENS Motion\u00ae - Connect is a platform that allows for the development and integration of wireless, battery-powered medical sensors into various systems or devices.",
-    "reasoning": "The atomic question asks for the definition of 'SENS Motion\u00ae - Connect', which is a specific entity within the provided ontology information.",
+    "generated_answer": "I can't answer the question.",
+    "reasoning": "The ontology information provided does not contain any data related to the costs of 'Patch B' or 'Patch C', nor does it establish a basis for comparison between the two. Without such information, it is not possible to determine if 'Patch B' costs more than 'Patch C'.",
     "checks": [
       {
         "name": "correct_question_type",
         "passed": true,
-        "expected": "definition",
-        "actual": "definition"
+        "expected": "comparative",
+        "actual": "comparative"
       },
       {
         "name": "correct_answer_form",
-        "passed": true,
-        "expected": "value",
-        "actual": "value"
+        "passed": false,
+        "expected": "Assertion",
+        "actual": "assertion"
       },
       {
         "name": "correct_entity_extraction",
-        "passed": true,
-        "expected": "SENS Motion\u00ae - Connect",
-        "actual": "SENS Motion\u00ae - Connect"
+        "passed": false,
+        "expected": "SENS motion\u00ae",
+        "actual": "Patch B"
       },
       {
         "name": "correct_object_extraction",
-        "passed": true,
-        "expected": "null",
-        "actual": "null"
+        "passed": false,
+        "expected": "other activity monitors",
+        "actual": "Patch C"
       },
       {
         "name": "entity_resolved",
         "passed": true,
         "expected": true,
-        "actual": "SENS motion\u00ae \u2013 Connect"
+        "actual": "Patch"
+      },
+      {
+        "name": "object_resolved",
+        "passed": true,
+        "expected": true,
+        "actual": {
+          "uri": "http://example.org/sensInnovationAps_ontology#sensor%20patch",
+          "label": "sensor patch",
+          "score": 0.5460526315789473,
+          "labels": [
+            "sensor patch"
+          ],
+          "entity_type": "NamedIndividual",
+          "types": [
+            "Attachment",
+            "PhysicalObject",
+            "SensorAttachment",
+            "SensorAttachmentInstructions"
+          ],
+          "superclasses": [],
+          "object_properties": {},
+          "data_properties": {},
+          "annotations": {}
+        }
       },
       {
         "name": "fuzzy_answer_match",
-        "passed": true,
-        "expected": "SENS Motion\u00ae - Connect is an OEM Platform for medical sensors.",
-        "actual": "SENS Motion\u00ae - Connect is a platform that allows for the development and integration of wireless, battery-powered medical sensors into various systems or devices."
+        "passed": false,
+        "expected": "It accurately detects walking speeds among hospitalized patients.",
+        "actual": "I can't answer the question."
       },
       {
         "name": "fuzzy_entity_match",
-        "passed": true,
-        "expected": "SENS Motion\u00ae - Connect",
-        "actual": "SENS Motion\u00ae - Connect"
+        "passed": false,
+        "expected": "SENS motion\u00ae",
+        "actual": "Patch B"
       },
       {
         "name": "fuzzy_object_match",
-        "passed": true,
-        "expected": "null",
-        "actual": "null"
+        "passed": false,
+        "expected": "other activity monitors",
+        "actual": "Patch C"
       }
     ]
   }

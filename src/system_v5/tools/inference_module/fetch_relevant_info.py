@@ -735,6 +735,7 @@ def filter_context(question_info, full_context):
     if qtype == "taxonomic":
         filtered_context["superclasses"] = full_context["superclasses"]
         filtered_context["equivalent_classes"] = full_context["equivalent_classes"]
+        filtered_context["class_descriptions"] = full_context["class_descriptions"]
         return filtered_context
 
     # 3. Capability questions
