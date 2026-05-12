@@ -30,4 +30,3 @@ for, using only the provided ontology information.
 - Retrieve values that strictly can be inferred from the provided ontology information.
 - Return the answer by formulating it as a natural sentence that includes the evidence you used to arrive at the answer.
 - If the atomic question is not possible to answer based on the provided ontology information, answer that you cant answer the question.
-

@@ -251,7 +251,7 @@
     "question_type": "property",
     "answer_form": "list",
     "question": "What does SENS motion® – For Research consist of?",
-    "gold_answer": "Up to 24 months",
+    "gold_answer": "The SENS Motion Activity sensor, a smartphone app for automatically transferring data to the source cloud, and a web-application for managing sensors, viewing data and exporting data.",
     "source": "privacy-policy/_index.en::c0002",
     "expected_entity": "SENS motion® – For Research",
     "expected_object": "null"
@@ -340,20 +340,20 @@
     "id": "q36",
     "question_type": "comparative",
     "answer_form": "assertion",
-    "question": "Does Patch B cost more than Patch C?",
+    "question": "Does the Low Activity Patch cost more than the High Activity Patch?",
     "gold_answer": "No",
     "source": "news/2022-validation-activity-monitors/index.en::c0000",
-    "expected_entity": "Patch B",
-    "expected_object": "Patch C"
+    "expected_entity": "The Low Activity Patch",
+    "expected_object": "the High Activity Patch"
   },
   {
     "id": "q37",
     "question_type": "comparative",
     "answer_form": "value",
-    "question": "How does SENS motion® perform in measuring gait patterns compared to reference accelerometers?",
+    "question": "How does the SENS Motion activity sensor compare to reference accelerometers?",
     "gold_answer": "It shows accurate measurement of linear accelerations during overground walking.",
     "source": "news/2022-criterion-validity-elderly/index.en::c0000",
-    "expected_entity": "SENS motion®",
+    "expected_entity": "SENS Motion activity sensor",
     "expected_object": "reference accelerometers"
   },
   {
@@ -410,60 +410,60 @@
     "id": "q43",
     "question_type": "quantification",
     "answer_form": "value",
-    "question": "How many minutes per day did Bispebjerg Hospital increase out‑of‑bed time using SENS motion®?",
-    "gold_answer": "51 minutes per day",
+    "question": "How many steps are there in the Change of Patch Guide?",
+    "gold_answer": "There are 9 steps in the Change of Patch Guide.",
     "source": "healthcare/_index.en::c0002",
-    "expected_entity": "Bispebjerg Hospital",
-    "expected_object": "out‑of‑bed time"
+    "expected_entity": "Change of Patch Guide",
+    "expected_object": "null"
   },
   {
     "id": "q44",
     "question_type": "quantification",
     "answer_form": "value",
-    "question": "How many hours per day are elderly hospitalised patients typically inactive?",
-    "gold_answer": "18–20 hours per day",
+    "question": "How many axes does the SENS Activity sensor accelerometer have?",
+    "gold_answer": "The accelerometer has 3 axes.",
     "source": "healthcare/_index.en::c0002",
-    "expected_entity": "elderly hospitalised patients",
-    "expected_object": "inactive"
+    "expected_entity": "SENS Motion activity sensor accelerometer",
+    "expected_object": "null"
   },
   {
     "id": "q45",
     "question_type": "quantification",
     "answer_form": "value",
-    "question": "How many steps per day reduce readmission risk by approximately 10%?",
-    "gold_answer": "100 steps per day",
+    "question": "How many steps are there to make a CSV readable in Excel?",
+    "gold_answer": "There are 8 steps to make a CSV readable in Excel.",
     "source": "healthcare/_index.en::c0002",
-    "expected_entity": "steps",
-    "expected_object": "readmission risk"
+    "expected_entity": "make a CSV readable in Excel",
+    "expected_object": "null"
   },
   {
     "id": "q46",
     "question_type": "quantification",
     "answer_form": "value",
-    "question": "How many elderly patients above age 65 are hospitalised each year?",
+    "question": "How many support articles are there under general questions?",
     "gold_answer": "More than 600,000",
     "source": "healthcare/_index.en::c0002",
-    "expected_entity": "elderly patients above age 65",
-    "expected_object": "hospitalised"
+    "expected_entity": "general questions support articles",
+    "expected_object": "null"
   },
   {
     "id": "q47",
     "question_type": "quantification",
     "answer_form": "value",
-    "question": "How many days of inactivity cause reductions in physical fitness?",
+    "question": "How many steps are there to turn a sensor off?",
     "gold_answer": "I can't answer the question",
     "source": "healthcare/_index.en::c0002",
-    "expected_entity": "inactivity",
-    "expected_object": "physical fitness"
+    "expected_entity": "turn a sensor off",
+    "expected_object": "null"
   },
   {
     "id": "q48",
     "question_type": "quantification",
     "answer_form": "value",
-    "question": "How many SENS motion® sensors can be managed through the web‑application?",
-    "gold_answer": "I can't answer the question",
-    "expected_entity": "SENS motion® sensors",
-    "expected_object": "web‑application"
+    "question": "How many Teammembers are there?",
+    "gold_answer": "There are 13 Teammembers.",
+    "expected_entity": "Teammembers",
+    "expected_object": "null"
   },
   {
     "id": "q49",
