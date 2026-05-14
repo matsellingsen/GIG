@@ -5,6 +5,7 @@ import difflib
 import re
 
 from system_v5.backends import load_backend
+from system_v5.tools.inference_module.map_answer_to_context import map_answer_to_context, merge_mappings
 from system_v5.tools.ttl_handling.load_ttl import load_ttl
 from system_v5.tools.ttl_handling.resolve_ttl_path import resolve_ttl_path
 from system_v5.tools.inference_module.input_to_graph import atomic_to_graph
@@ -24,7 +25,7 @@ DATASET_PATH = os.path.abspath(
 )
 
 REPORT_PATH = os.path.abspath(
-    os.path.join(os.path.dirname(__file__), "..", "reports", "source_dataset_results.json")
+    os.path.join(os.path.dirname(__file__), "..", "reports", "GIG_source_dataset_results.json")
 )
 
 with open(DATASET_PATH, encoding="utf-8") as f:
@@ -132,8 +133,18 @@ def test_source_dataset(case, ttl_fixture, agents):
         generate_answer_agent=agents["generate_answer"],
     )
 
+
     answer_text = answer.get("answer", "") if isinstance(answer, dict) else ""
     reasoning_text = answer.get("reasoning", "") if isinstance(answer, dict) else ""
+
+    mapped_entity_answer = map_answer_to_context(answer=answer_text, context=entity_context)
+    mapped_entity_reasoning = map_answer_to_context(answer=reasoning_text, context=entity_context)
+    mapped_entity_merged = merge_mappings(mapped_entity_reasoning, mapped_entity_answer)
+    
+    if object_context: # to be used in future cases with comparative objects
+        mapped_object_answer = map_answer_to_context(answer=answer_text, context=object_context)
+        mapped_object_reasoning = map_answer_to_context(answer=reasoning_text, context=object_context)
+        mapped_object_merged = merge_mappings(mapped_object_reasoning, mapped_object_answer)
 
     # Set up expected / actual comparisons
     expected_qt = case.get("question_type")
@@ -178,6 +189,8 @@ def test_source_dataset(case, ttl_fixture, agents):
         "fetched": fetched,
         "generated_answer": answer_text,
         "reasoning": reasoning_text,
+        "merged_entity_mapping": mapped_entity_merged,
+        "merged_object_mapping": mapped_object_merged if object_context else None,
         "checks": checks
     })
 

@@ -3,80 +3,80 @@
     "id": "q01",
     "question_type": "definition",
     "answer_form": "value",
-    "question": "What is SENS motion®?",
+    "question": "What is SENS motion?",
     "gold_answer": "SENS motion is an integrated system for collecting physical activity data from groups of people.",
     "source": "_index.en::c0000",
-    "expected_entity": "SENS motion®",
+    "expected_entity": "SENS motion",
     "expected_object": null
   },
   {
     "id": "q02",
     "question_type": "definition",
     "answer_form": "value",
-    "question": "What is the SENS motion® activity sensor?",
+    "question": "What is the SENS motion activity sensor?",
     "gold_answer": "It is a wireless activity sensor that automatically transfers data to a secure cloud.",
     "source": "_index.en::c0000",
-    "expected_entity": "SENS motion® activity sensor",
+    "expected_entity": "SENS motion activity sensor",
     "expected_object": null
   },
   {
     "id": "q03",
     "question_type": "definition",
     "answer_form": "value",
-    "question": "What is SENS motion® – For Healthcare?",
-    "gold_answer": "SENS motion® – For Healthcare is a system that enables the use of the SENS motion® activity sensor in healthcare environments such as hospitals or care centres.",
+    "question": "What is SENS motion – For Healthcare?",
+    "gold_answer": "SENS motion – For Healthcare is a system that enables the use of the SENS motion activity sensor in healthcare environments such as hospitals or care centres.",
     "source": "_index.en::c0000",
-    "expected_entity": "SENS motion® – For Healthcare",
+    "expected_entity": "SENS motion – For Healthcare",
     "expected_object": null
   },
   {
     "id": "q04",
     "question_type": "definition",
     "answer_form": "value",
-    "question": "What is SENS motion® – For Research?",
-    "gold_answer": "SENS motion® – For Research is a platform that enables the use of the SENS motion® activity sensor for collecting activity or raw accelerometer data in research projects.",
+    "question": "What is SENS motion – For Research?",
+    "gold_answer": "SENS motion – For Research is a platform that enables the use of the SENS motion activity sensor for collecting activity or raw accelerometer data in research projects.",
     "source": "_index.en::c0000",
-    "expected_entity": "SENS motion® – For Research",
+    "expected_entity": "SENS motion – For Research",
     "expected_object": null
   },
   {
     "id": "q05",
     "question_type": "definition",
     "answer_form": "value",
-    "question": "What is the vision of SENS Innovation ApS?",
-    "gold_answer": "To revolutionize the way physical activity can be used as an integrated and measurable part of treatment and prevention of diseases.",
+    "question": "Who is Mats Ellingsen?",
+    "gold_answer": "Mats Ellingsen is a Student Assistant at SENS Innovation ApS.",
     "source": "about/_index.en::c0000",
-    "expected_entity": "SENS Innovation ApS",
+    "expected_entity": "Mats Ellingsen",
     "expected_object": null
   },
   {
     "id": "q06",
     "question_type": "definition",
     "answer_form": "value",
-    "question": "What is the SENS motion® Pilot Package?",
+    "question": "What is the SENS motion Pilot Package?",
     "gold_answer": "An introductory offer allowing use of SENS motion in a clinical ward for 3 months with up to 120 patients.",
     "source": "healthcare/_index.en::c0000",
-    "expected_entity": "SENS motion® Pilot Package",
+    "expected_entity": "SENS motion Pilot Package",
     "expected_object": null
   },
   {
     "id": "q07",
     "question_type": "definition",
     "answer_form": "value",
-    "question": "What is SENS Motion® - Connect?",
-    "gold_answer": "SENS Motion® - Connect is an OEM Platform for medical sensors.",
+    "question": "What is SENS Motion - Connect?",
+    "gold_answer": "SENS Motion - Connect is an OEM Platform for medical sensors.",
     "source": "privacy-policy/_index.en::c0000",
-    "expected_entity": "SENS Motion® - Connect",
+    "expected_entity": "SENS Motion - Connect",
     "expected_object": null
   },
   {
     "id": "q08",
     "question_type": "taxonomic",
     "answer_form": "assertion",
-    "question": "Is SENS motion® a type of certified medical device?",
-    "gold_answer": "yes, SENS motion® is a certified medical device.",
+    "question": "Is SENS motion a type of certified medical device?",
+    "gold_answer": "yes, SENS motion is a certified medical device.",
     "source": "healthcare/_index.en::c0000",
-    "expected_entity": "SENS motion®",
+    "expected_entity": "SENS motion",
     "expected_object": "certified medical device"
   },
   {
@@ -93,20 +93,20 @@
     "id": "q10",
     "question_type": "taxonomic",
     "answer_form": "assertion",
-    "question": "Is the SENS motion® activity sensor a type of discrete wearable activity sensor?",
-    "gold_answer": "yes, the SENS motion® activity sensor is a type of discrete wearable activity sensor.",
+    "question": "Is the SENS motion activity sensor a type of discrete wearable activity sensor?",
+    "gold_answer": "yes, the SENS motion activity sensor is a type of discrete wearable activity sensor.",
     "source": "_index.en::c0000",
-    "expected_entity": "SENS motion® activity sensor",
+    "expected_entity": "SENS motion activity sensor",
     "expected_object": "discrete wearable activity sensor"
   },
   {
     "id": "q11",
     "question_type": "taxonomic",
     "answer_form": "assertion",
-    "question": "Is SENS motion® a type of monitoring system?",
-    "gold_answer": "yes, SENS motion® is a type of monitoring system.",
+    "question": "Is SENS motion a type of monitoring system?",
+    "gold_answer": "yes, SENS motion is a type of monitoring system.",
     "source": "_index.en::c0000",
-    "expected_entity": "SENS motion®",
+    "expected_entity": "SENS motion",
     "expected_object": "monitoring system"
   },
   {
@@ -141,10 +141,10 @@
     "id": "q15",
     "question_type": "capability",
     "answer_form": "list",
-    "question": "Which types of physical activity does SENS motion® measure?",
+    "question": "Which types of physical activity does SENS motion measure?",
     "gold_answer": "Rest time, Standing time, Walking time, Running & High Intensity Movement time, Cycling time, Steps, Intensity, Sleep time and quality",
     "source": "_index.en::c0000",
-    "expected_entity": "SENS motion®",
+    "expected_entity": "SENS motion",
     "expected_object": "null"
   },
   {
@@ -171,20 +171,20 @@
     "id": "q18",
     "question_type": "capability",
     "answer_form": "value",
-    "question": "What can the SENS motion® smartphone app do?",
+    "question": "What can the SENS motion smartphone app do?",
     "gold_answer": "Automatically transfer data to the secure cloud",
     "source": "_index.en::c0000",
-    "expected_entity": "SENS motion® smartphone app",
+    "expected_entity": "SENS motion smartphone app",
     "expected_object": null
   },
   {
     "id": "q19",
     "question_type": "capability",
     "answer_form": "list",
-    "question": "What can the SENS motion® web‑application be used for?",
+    "question": "What can the SENS motion web‑application be used for?",
     "gold_answer": "Managing sensors, viewing data, exporting data",
     "source": "_index.en::c0000",
-    "expected_entity": "SENS motion® web‑application",
+    "expected_entity": "SENS motion web‑application",
     "expected_object": null
   },
   {
@@ -200,10 +200,10 @@
     "id": "q21",
     "question_type": "capability",
     "answer_form": "assertion",
-    "question": "Can the SENS motion® system motivate patients to be more active?",
+    "question": "Can the SENS motion system motivate patients to be more active?",
     "gold_answer": "yes",
     "source": "healthcare/_index.en::c0000",
-    "expected_entity": "SENS motion® system",
+    "expected_entity": "SENS motion system",
     "expected_object": "motivate patients to be more active"
   },
   {
@@ -223,7 +223,7 @@
     "question": "How much does the Pilot Package cost?",
     "gold_answer": "19.995 DKK",
     "source": "healthcare/_index.en::c0000",
-    "expected_entity": "SENS motion® Pilot Package",
+    "expected_entity": "SENS motion Pilot Package",
     "expected_object": "cost"
   },
   {
@@ -250,10 +250,10 @@
     "id": "q27",
     "question_type": "property",
     "answer_form": "list",
-    "question": "What does SENS motion® – For Research consist of?",
+    "question": "What does SENS motion – For Research consist of?",
     "gold_answer": "The SENS Motion Activity sensor, a smartphone app for automatically transferring data to the source cloud, and a web-application for managing sensors, viewing data and exporting data.",
     "source": "privacy-policy/_index.en::c0002",
-    "expected_entity": "SENS motion® – For Research",
+    "expected_entity": "SENS motion – For Research",
     "expected_object": "null"
   },
   {
@@ -300,10 +300,10 @@
     "id": "q32",
     "question_type": "membership",
     "answer_form": "assertion",
-    "question": "Is SENS motion® included in the list of services covered by the Privacy Policy?",
+    "question": "Is SENS motion included in the list of services covered by the Privacy Policy?",
     "gold_answer": "yes",
     "source": "privacy-policy/_index.en::c0001",
-    "expected_entity": "SENS motion®",
+    "expected_entity": "SENS motion",
     "expected_object": "Privacy Policy"
   },
   {
@@ -330,10 +330,10 @@
     "id": "q35",
     "question_type": "membership",
     "answer_form": "assertion",
-    "question": "Is the motivational app included in the SENS motion® – For Healthcare package?",
+    "question": "Is the motivational app included in the SENS motion – For Healthcare package?",
     "gold_answer": "yes",
     "source": "healthcare/_index.en::c0000",
-    "expected_entity": "SENS motion® – For Healthcare package",
+    "expected_entity": "SENS motion – For Healthcare package",
     "expected_object": "motivational app"
   },
   {
@@ -370,41 +370,41 @@
     "id": "q39",
     "question_type": "comparative",
     "answer_form": "value",
-    "question": "How does the SENS motion® motivational app differ from the bedside tablet?",
+    "question": "How does the SENS motion motivational app differ from the bedside tablet?",
     "gold_answer": "I can't answer the question",
     "source": "healthcare/_index.en::c0000",
-    "expected_entity": "SENS motion® motivational app",
+    "expected_entity": "SENS motion motivational app",
     "expected_object": "bedside tablet"
   },
   {
     "id": "q40",
     "question_type": "comparative",
     "answer_form": "value",
-    "question": "How does the SENS motion® – For Healthcare package differ from the SENS motion® – For Research package?",
+    "question": "How does the SENS motion – For Healthcare package differ from the SENS motion – For Research package?",
     "gold_answer": "The Healthcare package includes a patient app and optional monitor display, while the Research package includes a smartphone app and web-application for managing sensors.",
     "source": "healthcare/_index.en::c0000",
-    "expected_entity": "SENS motion® – For Healthcare package",
-    "expected_object": "SENS motion® – For Research package"
+    "expected_entity": "SENS motion – For Healthcare package",
+    "expected_object": "SENS motion – For Research package"
   },
   {
     "id": "q41",
     "question_type": "comparative",
     "answer_form": "value",
-    "question": "How does the SENS motion® system compare to traditional patient monitoring methods?",
+    "question": "How does the SENS motion system compare to traditional patient monitoring methods?",
     "gold_answer": "I can't answer the question",
     "source": "healthcare/_index.en::c0000",
-    "expected_entity": "SENS motion® system",
+    "expected_entity": "SENS motion system",
     "expected_object": "traditional patient monitoring methods"
   },
   {
     "id": "q42",
     "question_type": "comparative",
     "answer_form": "value",
-    "question": "How does the Pilot Package differ from standard SENS motion® deployments?",
+    "question": "How does the Pilot Package differ from standard SENS motion deployments?",
     "gold_answer": "It is a 3-month introductory offer for up to 120 patients.",
     "source": "healthcare/_index.en::c0000",
     "expected_entity": "Pilot Package",
-    "expected_object": "standard SENS motion® deployments"
+    "expected_object": "standard SENS motion deployments"
   },
   {
     "id": "q43",
@@ -441,19 +441,19 @@
     "question_type": "quantification",
     "answer_form": "value",
     "question": "How many support articles are there under general questions?",
-    "gold_answer": "More than 600,000",
-    "source": "healthcare/_index.en::c0002",
-    "expected_entity": "general questions support articles",
+    "gold_answer": "There are 3 support articles under general questions.",
+    "source": "support/_index.en::c0000",
+    "expected_entity": "general questions",
     "expected_object": "null"
   },
   {
     "id": "q47",
     "question_type": "quantification",
     "answer_form": "value",
-    "question": "How many steps are there to turn a sensor off?",
-    "gold_answer": "I can't answer the question",
-    "source": "healthcare/_index.en::c0002",
-    "expected_entity": "turn a sensor off",
+    "question": "How many steps are there to add a participant?",
+    "gold_answer": "There are 5 steps to add a participant.",
+    "source": "support/_index.en::c0000", 
+    "expected_entity": "add a participant",
     "expected_object": "null"
   },
   {
@@ -469,10 +469,10 @@
     "id": "q49",
     "question_type": "quantification",
     "answer_form": "value",
-    "question": "How many activity categories does SENS motion® measure?",
-    "gold_answer": "SENS Motion® measures 8 activity categories.",
+    "question": "How many activity categories does SENS motion measure?",
+    "gold_answer": "SENS Motion measures 8 activity categories.",
     "source": "privacy-policy/_index.en::c0001",
-    "expected_entity": "SENS Motion®",
+    "expected_entity": "SENS Motion",
     "expected_object": "null"
   }
 ]

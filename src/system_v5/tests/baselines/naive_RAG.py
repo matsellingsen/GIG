@@ -108,5 +108,6 @@ class NaiveRAG:
 if __name__ == "__main__":
     rag = NaiveRAG()
     question = input("Enter your question: ")
-    result = rag.run(question).get("answer", "")
+    result = rag.run(question)
+    answer_text = result["answer"]
     print(json.dumps(result, indent=2))

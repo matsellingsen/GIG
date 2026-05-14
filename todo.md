@@ -167,7 +167,7 @@
             -- dataset is automatically generated, needs to be revised 
                 -- chunk_id needs to be added. It is currently added incocnsistently and wrong. (DONE)
                 -- Manually go through each question-type qeustion:
-                    -- progress: 1/7 question-types have been gone through and validated
+                    -- progress: 7/7 question-types have been gone through and validated
                 
 
         -- Large End-to-End using real ttl with questions based on source
