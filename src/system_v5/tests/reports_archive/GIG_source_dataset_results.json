@@ -69,11 +69,11 @@
         ],
         "superclasses": {
           "MonitoringSystem": [
+            "PhysicalObject",
             "InformationObject",
-            "Publication",
             "Collection",
-            "SocialObject",
-            "PhysicalObject"
+            "Publication",
+            "SocialObject"
           ],
           "NamedIndividual": []
         },
@@ -106,19 +106,19 @@
       "resolved_object": null,
       "object_context": null
     },
-    "generated_answer": "SENS motion is a system designed to observe and record the activity levels of individuals, often used in healthcare settings to track patient activity.",
-    "reasoning": "The ontology information provided defines 'MonitoringSystem' as 'A system designed to observe and record the activity levels of individuals, often used in healthcare settings to track patient activity.' Since SENS motion is identified as a 'MonitoringSystem', we can infer its purpose based on the definition of 'MonitoringSystem'.",
+    "generated_answer": "SENS motion is a MonitoringSystem.",
+    "reasoning": "The term 'SENS motion' is a label, and its meaning can be inferred from the description of 'MonitoringSystem'.",
     "merged_entity_mapping": {
-      "types": [
-        "MonitoringSystem"
-      ],
-      "superclasses": [],
-      "equivalent_classes": [],
       "properties": [],
       "annotations": [],
       "property_values": {},
+      "equivalent_classes": [],
+      "members": [],
       "chunk_id": [],
-      "members": []
+      "types": [
+        "MonitoringSystem"
+      ],
+      "superclasses": []
     },
     "merged_object_mapping": null,
     "checks": [
@@ -156,7 +156,7 @@
         "name": "fuzzy_answer_match",
         "passed": false,
         "expected": "SENS motion is an integrated system for collecting physical activity data from groups of people.",
-        "actual": "SENS motion is a system designed to observe and record the activity levels of individuals, often used in healthcare settings to track patient activity."
+        "actual": "SENS motion is a MonitoringSystem."
       },
       {
         "name": "fuzzy_entity_match",
@@ -241,10 +241,10 @@
         ],
         "superclasses": {
           "ActivityDataSensor": [
-            "ActivityDataTypes",
             "InformationObject",
+            "PhysicalObject",
             "InformationRealization",
-            "PhysicalObject"
+            "ActivityDataTypes"
           ],
           "NamedIndividual": []
         },
@@ -275,18 +275,22 @@
       "object_context": null
     },
     "generated_answer": "The SENS motion activity sensor is a physical device that captures raw movement and environmental data for research activities.",
-    "reasoning": "The ontology information provides a description of what a 'SENS motion activity sensor' is, which is a physical device that captures raw movement and environmental data for research activities.",
+    "reasoning": "The ontology information provides a description of what an 'ActivityDataSensor' is, which is a physical device that captures raw movement and environmental data for research activities. The 'SENS motion activity sensor' is identified as a 'NamedIndividual' of the 'ActivityDataSensor' type, and it is a physical object that captures movement and environmental data for research purposes.",
     "merged_entity_mapping": {
-      "types": [
-        "ActivityDataSensor"
-      ],
-      "superclasses": [],
-      "equivalent_classes": [],
       "properties": [],
       "annotations": [],
       "property_values": {},
+      "equivalent_classes": [],
+      "members": [],
       "chunk_id": [],
-      "members": []
+      "types": [
+        "ActivityDataSensor",
+        "NamedIndividual"
+      ],
+      "superclasses": [
+        "InformationRealization",
+        "PhysicalObject"
+      ]
     },
     "merged_object_mapping": null,
     "checks": [
@@ -430,16 +434,16 @@
     "generated_answer": "SENS motion \u2013 For Healthcare is a motion for Healthcare.",
     "reasoning": "The ontology information provided defines 'SENS motion for Healthcare' as a 'HealthcareApp', which is a software application designed to assist healthcare professionals and patients in tracking and improving physical activity and overall health. This aligns with the definition of 'SENS motion \u2013 For Healthcare?' as a motion for Healthcare.",
     "merged_entity_mapping": {
-      "types": [
-        "HealthcareApp"
-      ],
-      "superclasses": [],
-      "equivalent_classes": [],
       "properties": [],
       "annotations": [],
       "property_values": {},
+      "equivalent_classes": [],
+      "members": [],
       "chunk_id": [],
-      "members": []
+      "types": [
+        "HealthcareApp"
+      ],
+      "superclasses": []
     },
     "merged_object_mapping": null,
     "checks": [
@@ -564,8 +568,8 @@
           "SensorApplication": [
             "InformationObject",
             "Action",
-            "SocialObject",
-            "ResearchProject"
+            "ResearchProject",
+            "SocialObject"
           ],
           "NamedIndividual": []
         },
@@ -595,21 +599,21 @@
       "resolved_object": null,
       "object_context": null
     },
-    "generated_answer": "SENS motion \u2013 For Research is a software application that utilizes a physical sensor to collect and manage data related to physical activity or other measurable phenomena.",
-    "reasoning": "The entity 'SENS motion \u2013 For Research?' is a 'SensorApplication', which is a 'SocialObject' that exists only within some social context, such as organizations, laws, plans, or projects. It is a software application that utilizes a physical sensor to collect and manage data related to physical activity or other measurable phenomena.",
+    "generated_answer": "SENS motion \u2013 For Research is a 'SocialObject'.",
+    "reasoning": "The entity 'SENS motion \u2013 For Research?' is a 'SensorApplication', which is a 'SocialObject' that exists only within some social context, such as organizations, laws, plans, or projects.",
     "merged_entity_mapping": {
+      "properties": [],
+      "annotations": [],
+      "property_values": {},
+      "equivalent_classes": [],
+      "members": [],
+      "chunk_id": [],
       "types": [
         "SensorApplication"
       ],
       "superclasses": [
         "SocialObject"
-      ],
-      "equivalent_classes": [],
-      "properties": [],
-      "annotations": [],
-      "property_values": {},
-      "chunk_id": [],
-      "members": []
+      ]
     },
     "merged_object_mapping": null,
     "checks": [
@@ -645,9 +649,9 @@
       },
       {
         "name": "fuzzy_answer_match",
-        "passed": true,
+        "passed": false,
         "expected": "SENS motion \u2013 For Research is a platform that enables the use of the SENS motion activity sensor for collecting activity or raw accelerometer data in research projects.",
-        "actual": "SENS motion \u2013 For Research is a software application that utilizes a physical sensor to collect and manage data related to physical activity or other measurable phenomena."
+        "actual": "SENS motion \u2013 For Research is a 'SocialObject'."
       },
       {
         "name": "fuzzy_entity_match",
@@ -668,18 +672,18 @@
       "id": "q05",
       "question_type": "definition",
       "answer_form": "value",
-      "question": "What is the vision of SENS Innovation ApS?",
-      "gold_answer": "To revolutionize the way physical activity can be used as an integrated and measurable part of treatment and prevention of diseases.",
+      "question": "Who is Mats Ellingsen?",
+      "gold_answer": "Mats Ellingsen is a Student Assistant at SENS Innovation ApS.",
       "source": "about/_index.en::c0000",
-      "expected_entity": "SENS Innovation ApS",
+      "expected_entity": "Mats Ellingsen",
       "expected_object": null
     },
     "question_info": {
-      "atomic_question": "What is the vision of SENS Innovation ApS?",
+      "atomic_question": "Who is Mats Ellingsen?",
       "question_type": "definition",
       "answer_form": "value",
       "entity": {
-        "value": "the vision of SENS Innovation ApS",
+        "value": "Mats Ellingsen",
         "type": null
       },
       "relation": "be",
@@ -690,11 +694,11 @@
     },
     "fetched": {
       "question_info": {
-        "atomic_question": "What is the vision of SENS Innovation ApS?",
+        "atomic_question": "Who is Mats Ellingsen?",
         "question_type": "definition",
         "answer_form": "value",
         "entity": {
-          "value": "the vision of SENS Innovation ApS",
+          "value": "Mats Ellingsen",
           "type": null
         },
         "relation": "be",
@@ -704,24 +708,16 @@
         }
       },
       "resolved_entity": {
-        "uri": "http://example.org/sensInnovationAps_ontology#SENS%20motion%20app",
-        "label": "SENS motion app",
-        "score": 0.5175531914893617,
+        "uri": "http://example.org/sensInnovationAps_ontology#Mats%20Ellingsen",
+        "label": "Mats Ellingsen",
+        "score": 1.0,
         "labels": [
-          "SENS motion app"
+          "Mats Ellingsen"
         ],
         "entity_type": "NamedIndividual",
         "types": [
-          "App",
-          "AppFeature",
-          "ApplicationFeature",
-          "DataTransferProcess",
-          "Event",
-          "InformationObject",
-          "InformationRealization",
-          "MobileApplication",
-          "SmartphoneApp",
-          "SoftwareFeature"
+          "SocialObject",
+          "TeamMember"
         ],
         "superclasses": [],
         "object_properties": {},
@@ -730,37 +726,13 @@
       },
       "entity_context": {
         "scope_note": "All information in this object is directly related to the resolved entity of the atomic question.",
-        "label": "SENS motion app",
+        "label": "Mats Ellingsen",
         "types": [
-          "App",
-          "AppFeature",
-          "ApplicationFeature",
-          "MobileApplication",
-          "SmartphoneApp",
-          "SoftwareFeature",
+          "TeamMember",
           "NamedIndividual"
         ],
         "superclasses": {
-          "App": [
-            "InformationObject"
-          ],
-          "AppFeature": [
-            "InformationRealization"
-          ],
-          "ApplicationFeature": [
-            "PhysicalObject"
-          ],
-          "MobileApplication": [
-            "InformationObject",
-            "MobileApplication"
-          ],
-          "SmartphoneApp": [
-            "InformationObject",
-            "DataTransferProcess",
-            "Event"
-          ],
-          "SoftwareFeature": [
-            "PhysicalObject",
+          "TeamMember": [
             "SocialObject"
           ],
           "NamedIndividual": []
@@ -768,35 +740,11 @@
         "equivalent_classes": [],
         "annotations": {},
         "class_descriptions": {
-          "App": {
-            "description": "A software application designed to perform specific tasks on a mobile device or tablet, such as the SENS motion app mentioned in the source text."
+          "SocialObject": {
+            "description": "Any Object that exists only within some social context, such as organizations, laws, plans, or projects."
           },
-          "AppFeature": {
-            "description": "A specific functionality or capability provided by a software application that enhances its usability or adds value to the user experience."
-          },
-          "ApplicationFeature": {
-            "description": "A specific functionality or component within a software application that provides a particular service or capability to the user."
-          },
-          "DataTransferProcess": {
-            "description": "The sequence of events and conditions involved in the transfer of data from a sensor to a server, including the necessary conditions for the process to occur, such as the proximity of the sensor to the device and the state of the application."
-          },
-          "Event": {
-            "description": "Any physical, social, or mental process, event, or state. Events unfold in time and have objects as participants."
-          },
-          "InformationObject": {
-            "description": "A piece of information, such as a text, a word, a picture, or data, independently from how it is concretely realized."
-          },
-          "InformationRealization": {
-            "description": "A physical object or event that realizes an information object. For example, a physical printed document or a digital file on a hard drive."
-          },
-          "MobileApplication": {
-            "description": "A software application that is designed to be executed, or at least partially executed, in a computer environment that also acts as a platform for a computer application."
-          },
-          "SmartphoneApp": {
-            "description": "A software application designed to run on smartphones, providing various functionalities and services."
-          },
-          "SoftwareFeature": {
-            "description": "A particular capability or function provided by a software application, such as improved navigation, sensor management, or file handling."
+          "TeamMember": {
+            "description": "An individual who is part of a team, typically associated with a group of people with a common purpose or interest, such as a company or organization."
           },
           "NamedIndividual": {
             "description": null
@@ -806,21 +754,19 @@
       "resolved_object": null,
       "object_context": null
     },
-    "generated_answer": "I can't answer the question.",
-    "reasoning": "The ontology information provided does not contain a direct description or definition of 'the vision of SENS Innovation ApS'. It provides general information about the types and features of SENS motion app, which is a software application, but it does not include a specific vision statement or description for the company.",
+    "generated_answer": "Mats Ellingsen is a TeamMember.",
+    "reasoning": "The ontology information provided does not contain any specific details about the identity or role of Mats Ellingsen, but it does confirm that he is a 'TeamMember', which implies he is an individual who is part of a team, typically associated with a group of people with a common purpose or interest, such as a company or organization.",
     "merged_entity_mapping": {
-      "types": [
-        "App",
-        "AppFeature",
-        "SoftwareFeature"
-      ],
-      "superclasses": [],
-      "equivalent_classes": [],
       "properties": [],
       "annotations": [],
       "property_values": {},
+      "equivalent_classes": [],
+      "members": [],
       "chunk_id": [],
-      "members": []
+      "types": [
+        "TeamMember"
+      ],
+      "superclasses": []
     },
     "merged_object_mapping": null,
     "checks": [
@@ -838,9 +784,9 @@
       },
       {
         "name": "correct_entity_extraction",
-        "passed": false,
-        "expected": "SENS Innovation ApS",
-        "actual": "the vision of SENS Innovation ApS"
+        "passed": true,
+        "expected": "Mats Ellingsen",
+        "actual": "Mats Ellingsen"
       },
       {
         "name": "correct_object_extraction",
@@ -852,19 +798,19 @@
         "name": "entity_resolved",
         "passed": true,
         "expected": true,
-        "actual": "SENS motion app"
+        "actual": "Mats Ellingsen"
       },
       {
         "name": "fuzzy_answer_match",
-        "passed": false,
-        "expected": "To revolutionize the way physical activity can be used as an integrated and measurable part of treatment and prevention of diseases.",
-        "actual": "I can't answer the question."
+        "passed": true,
+        "expected": "Mats Ellingsen is a Student Assistant at SENS Innovation ApS.",
+        "actual": "Mats Ellingsen is a TeamMember."
       },
       {
         "name": "fuzzy_entity_match",
         "passed": true,
-        "expected": "SENS Innovation ApS",
-        "actual": "the vision of SENS Innovation ApS"
+        "expected": "Mats Ellingsen",
+        "actual": "Mats Ellingsen"
       },
       {
         "name": "fuzzy_object_match",
@@ -874,23 +820,23 @@
       }
     ]
   },
-  {
+ {
     "case": {
       "id": "q06",
       "question_type": "definition",
       "answer_form": "value",
-      "question": "What is the SENS motion Pilot Package?",
+      "question": "What is the Pilot package?",
       "gold_answer": "An introductory offer allowing use of SENS motion in a clinical ward for 3 months with up to 120 patients.",
       "source": "healthcare/_index.en::c0000",
-      "expected_entity": "SENS motion Pilot Package",
+      "expected_entity": "Pilot Package",
       "expected_object": null
     },
     "question_info": {
-      "atomic_question": "What is the SENS motion Pilot Package?",
+      "atomic_question": "What is the Pilot package?",
       "question_type": "definition",
       "answer_form": "value",
       "entity": {
-        "value": "SENS motion Pilot Package",
+        "value": "Pilot package",
         "type": null
       },
       "relation": "be",
@@ -901,11 +847,11 @@
     },
     "fetched": {
       "question_info": {
-        "atomic_question": "What is the SENS motion Pilot Package?",
+        "atomic_question": "What is the Pilot package?",
         "question_type": "definition",
         "answer_form": "value",
         "entity": {
-          "value": "SENS motion Pilot Package",
+          "value": "Pilot package",
           "type": null
         },
         "relation": "be",
@@ -915,24 +861,16 @@
         }
       },
       "resolved_entity": {
-        "uri": "http://example.org/sensInnovationAps_ontology#SENS%20motion%20app",
-        "label": "SENS motion app",
-        "score": 0.6849999999999999,
+        "uri": "http://example.org/sensInnovationAps_ontology#Pilot%20package",
+        "label": "Pilot package",
+        "score": 1.0,
         "labels": [
-          "SENS motion app"
+          "Pilot package"
         ],
         "entity_type": "NamedIndividual",
         "types": [
-          "App",
-          "AppFeature",
-          "ApplicationFeature",
-          "DataTransferProcess",
-          "Event",
-          "InformationObject",
-          "InformationRealization",
-          "MobileApplication",
-          "SmartphoneApp",
-          "SoftwareFeature"
+          "Collection",
+          "PackageOffer"
         ],
         "superclasses": [],
         "object_properties": {},
@@ -941,73 +879,25 @@
       },
       "entity_context": {
         "scope_note": "All information in this object is directly related to the resolved entity of the atomic question.",
-        "label": "SENS motion app",
+        "label": "Pilot package",
         "types": [
-          "App",
-          "AppFeature",
-          "ApplicationFeature",
-          "MobileApplication",
-          "SmartphoneApp",
-          "SoftwareFeature",
+          "PackageOffer",
           "NamedIndividual"
         ],
         "superclasses": {
-          "App": [
-            "InformationObject"
-          ],
-          "AppFeature": [
-            "InformationRealization"
-          ],
-          "ApplicationFeature": [
-            "PhysicalObject"
-          ],
-          "MobileApplication": [
-            "InformationObject",
-            "MobileApplication"
-          ],
-          "SmartphoneApp": [
-            "InformationObject",
-            "DataTransferProcess",
-            "Event"
-          ],
-          "SoftwareFeature": [
-            "PhysicalObject",
-            "SocialObject"
+          "PackageOffer": [
+            "Collection"
           ],
           "NamedIndividual": []
         },
         "equivalent_classes": [],
         "annotations": {},
         "class_descriptions": {
-          "App": {
-            "description": "A software application designed to perform specific tasks on a mobile device or tablet, such as the SENS motion app mentioned in the source text."
+          "Collection": {
+            "description": "Any collection of objects, events, or other entities, such as a group of people or a dataset."
           },
-          "AppFeature": {
-            "description": "A specific functionality or capability provided by a software application that enhances its usability or adds value to the user experience."
-          },
-          "ApplicationFeature": {
-            "description": "A specific functionality or component within a software application that provides a particular service or capability to the user."
-          },
-          "DataTransferProcess": {
-            "description": "The sequence of events and conditions involved in the transfer of data from a sensor to a server, including the necessary conditions for the process to occur, such as the proximity of the sensor to the device and the state of the application."
-          },
-          "Event": {
-            "description": "Any physical, social, or mental process, event, or state. Events unfold in time and have objects as participants."
-          },
-          "InformationObject": {
-            "description": "A piece of information, such as a text, a word, a picture, or data, independently from how it is concretely realized."
-          },
-          "InformationRealization": {
-            "description": "A physical object or event that realizes an information object. For example, a physical printed document or a digital file on a hard drive."
-          },
-          "MobileApplication": {
-            "description": "A software application that is designed to be executed, or at least partially executed, in a computer environment that also acts as a platform for a computer application."
-          },
-          "SmartphoneApp": {
-            "description": "A software application designed to run on smartphones, providing various functionalities and services."
-          },
-          "SoftwareFeature": {
-            "description": "A particular capability or function provided by a software application, such as improved navigation, sensor management, or file handling."
+          "PackageOffer": {
+            "description": "A set of terms and conditions or a deal provided by a seller to a buyer, often with a monetary value and a time limit."
           },
           "NamedIndividual": {
             "description": null
@@ -1017,25 +907,19 @@
       "resolved_object": null,
       "object_context": null
     },
-    "generated_answer": "The SENS motion Pilot Package is a MobileApplication and SoftwareFeature designed to enhance the usability and functionality of a mobile device.",
-    "reasoning": "The SENS motion Pilot Package is a software application designed to perform specific tasks on a mobile device, which enhances its usability or adds value to the user experience. It is a type of MobileApplication and SoftwareFeature, which are both described in the ontology as applications designed to run on mobile devices and provide various functionalities and services.",
+    "generated_answer": "The 'Pilot package' is a 'PackageOffer'.",
+    "reasoning": "The 'Pilot package' is a 'PackageOffer', which is a set of terms and conditions or a deal provided by a seller to a buyer, often with a monetary value and a time limit.",
     "merged_entity_mapping": {
-      "types": [
-        "App",
-        "AppFeature",
-        "MobileApplication",
-        "SmartphoneApp",
-        "SoftwareFeature"
-      ],
-      "superclasses": [
-        "MobileApplication"
-      ],
-      "equivalent_classes": [],
-      "properties": [],
       "annotations": [],
       "property_values": {},
+      "members": [],
+      "types": [
+        "PackageOffer"
+      ],
       "chunk_id": [],
-      "members": []
+      "superclasses": [],
+      "properties": [],
+      "equivalent_classes": []
     },
     "merged_object_mapping": null,
     "checks": [
@@ -1053,9 +937,9 @@
       },
       {
         "name": "correct_entity_extraction",
-        "passed": true,
-        "expected": "SENS motion Pilot Package",
-        "actual": "SENS motion Pilot Package"
+        "passed": false,
+        "expected": "Pilot Package",
+        "actual": "Pilot package"
       },
       {
         "name": "correct_object_extraction",
@@ -1067,19 +951,19 @@
         "name": "entity_resolved",
         "passed": true,
         "expected": true,
-        "actual": "SENS motion app"
+        "actual": "Pilot package"
       },
       {
         "name": "fuzzy_answer_match",
         "passed": false,
         "expected": "An introductory offer allowing use of SENS motion in a clinical ward for 3 months with up to 120 patients.",
-        "actual": "The SENS motion Pilot Package is a MobileApplication and SoftwareFeature designed to enhance the usability and functionality of a mobile device."
+        "actual": "The 'Pilot package' is a 'PackageOffer'."
       },
       {
         "name": "fuzzy_entity_match",
         "passed": true,
-        "expected": "SENS motion Pilot Package",
-        "actual": "SENS motion Pilot Package"
+        "expected": "Pilot Package",
+        "actual": "Pilot package"
       },
       {
         "name": "fuzzy_object_match",
@@ -1089,23 +973,23 @@
       }
     ]
   },
-  {
+   {
     "case": {
       "id": "q07",
       "question_type": "definition",
       "answer_form": "value",
-      "question": "What is SENS Motion - Connect?",
-      "gold_answer": "SENS Motion - Connect is an OEM Platform for medical sensors.",
+      "question": "What is SENS Motion\u00ae - Connect?",
+      "gold_answer": "SENS Motion\u00ae - Connect is an OEM Platform for medical sensors.",
       "source": "privacy-policy/_index.en::c0000",
-      "expected_entity": "SENS Motion - Connect",
+      "expected_entity": "SENS Motion\u00ae - Connect",
       "expected_object": null
     },
     "question_info": {
-      "atomic_question": "What is SENS Motion - Connect?",
+      "atomic_question": "What is SENS Motion\u00ae - Connect?",
       "question_type": "definition",
       "answer_form": "value",
       "entity": {
-        "value": "SENS Motion - Connect",
+        "value": "SENS Motion\u00ae - Connect",
         "type": null
       },
       "relation": "be",
@@ -1116,11 +1000,11 @@
     },
     "fetched": {
       "question_info": {
-        "atomic_question": "What is SENS Motion - Connect?",
+        "atomic_question": "What is SENS Motion\u00ae - Connect?",
         "question_type": "definition",
         "answer_form": "value",
         "entity": {
-          "value": "SENS Motion - Connect",
+          "value": "SENS Motion\u00ae - Connect",
           "type": null
         },
         "relation": "be",
@@ -1130,17 +1014,18 @@
         }
       },
       "resolved_entity": {
-        "uri": "http://example.org/sensInnovationAps_ontology#SENS%20motion%20SENS",
-        "label": "SENS motion SENS",
-        "score": 0.7277777777777777,
+        "uri": "http://example.org/sensInnovationAps_ontology#SENS%20motion%C2%AE%20%E2%80%93%20Connect",
+        "label": "SENS motion\u00ae \u2013 Connect",
+        "score": 0.9636363636363637,
         "labels": [
-          "SENS motion SENS"
+          "SENS motion\u00ae \u2013 Connect"
         ],
         "entity_type": "NamedIndividual",
         "types": [
-          "InformationObject",
-          "MobileApplication",
-          "SmartphoneApp"
+          "OEMPlatform",
+          "PhysicalObject",
+          "ResearchProject",
+          "SocialObject"
         ],
         "superclasses": [],
         "object_properties": {},
@@ -1149,35 +1034,33 @@
       },
       "entity_context": {
         "scope_note": "All information in this object is directly related to the resolved entity of the atomic question.",
-        "label": "SENS motion SENS",
+        "label": "SENS motion\u00ae \u2013 Connect",
         "types": [
-          "MobileApplication",
-          "SmartphoneApp",
+          "OEMPlatform",
           "NamedIndividual"
         ],
         "superclasses": {
-          "MobileApplication": [
-            "InformationObject",
-            "MobileApplication"
-          ],
-          "SmartphoneApp": [
-            "InformationObject",
-            "DataTransferProcess",
-            "Event"
+          "OEMPlatform": [
+            "SocialObject",
+            "PhysicalObject",
+            "ResearchProject"
           ],
           "NamedIndividual": []
         },
         "equivalent_classes": [],
         "annotations": {},
         "class_descriptions": {
-          "InformationObject": {
-            "description": "A piece of information, such as a text, a word, a picture, or data, independently from how it is concretely realized."
+          "OEMPlatform": {
+            "description": "A platform that allows for the development and integration of wireless, battery-powered medical sensors into various systems or devices."
           },
-          "MobileApplication": {
-            "description": "A software application that is designed to be executed, or at least partially executed, in a computer environment that also acts as a platform for a computer application."
+          "PhysicalObject": {
+            "description": "Any Object that has a proper space region. Examples include people, equipment, sensors, and buildings."
           },
-          "SmartphoneApp": {
-            "description": "A software application designed to run on smartphones, providing various functionalities and services."
+          "ResearchProject": {
+            "description": "A coordinated effort to investigate and understand phenomena, typically involving the collection and analysis of data."
+          },
+          "SocialObject": {
+            "description": "Any Object that exists only within some social context, such as organizations, laws, plans, or projects."
           },
           "NamedIndividual": {
             "description": null
@@ -1187,23 +1070,19 @@
       "resolved_object": null,
       "object_context": null
     },
-    "generated_answer": "SENS Motion - Connect is a 'SmartphoneApp', which is a 'MobileApplication' and a 'SmartphoneApp'. It is also a 'NamedIndividual'.",
-    "reasoning": "The question 'What is SENS Motion - Connect?' is a request for a definition of the entity 'SENS Motion - Connect'. The ontology information provides a description of 'SENS motion SENS' as a 'SmartphoneApp', which is a 'MobileApplication' and a 'SmartphoneApp'. It is also a 'NamedIndividual'. Therefore, the answer to the question is the definition of 'SENS motion SENS' as provided in the ontology.",
+    "generated_answer": "SENS Motion\u00ae - Connect is a platform that allows for the development and integration of wireless, battery-powered medical sensors into various systems or devices.",
+    "reasoning": "The question asks for the definition of 'SENS Motion\u00ae - Connect', which is a specific entity within the provided ontology information.",
     "merged_entity_mapping": {
       "types": [
-        "MobileApplication",
-        "NamedIndividual",
-        "SmartphoneApp"
+        "OEMPlatform"
       ],
-      "superclasses": [
-        "MobileApplication"
-      ],
-      "equivalent_classes": [],
       "properties": [],
-      "annotations": [],
+      "equivalent_classes": [],
       "property_values": {},
-      "chunk_id": [],
-      "members": []
+      "members": [],
+      "annotations": [],
+      "superclasses": [],
+      "chunk_id": []
     },
     "merged_object_mapping": null,
     "checks": [
@@ -1222,8 +1101,8 @@
       {
         "name": "correct_entity_extraction",
         "passed": true,
-        "expected": "SENS Motion - Connect",
-        "actual": "SENS Motion - Connect"
+        "expected": "SENS Motion\u00ae - Connect",
+        "actual": "SENS Motion\u00ae - Connect"
       },
       {
         "name": "correct_object_extraction",
@@ -1235,19 +1114,19 @@
         "name": "entity_resolved",
         "passed": true,
         "expected": true,
-        "actual": "SENS motion SENS"
+        "actual": "SENS motion\u00ae \u2013 Connect"
       },
       {
         "name": "fuzzy_answer_match",
         "passed": true,
-        "expected": "SENS Motion - Connect is an OEM Platform for medical sensors.",
-        "actual": "SENS Motion - Connect is a 'SmartphoneApp', which is a 'MobileApplication' and a 'SmartphoneApp'. It is also a 'NamedIndividual'."
+        "expected": "SENS Motion\u00ae - Connect is an OEM Platform for medical sensors.",
+        "actual": "SENS Motion\u00ae - Connect is a platform that allows for the development and integration of wireless, battery-powered medical sensors into various systems or devices."
       },
       {
         "name": "fuzzy_entity_match",
         "passed": true,
-        "expected": "SENS Motion - Connect",
-        "actual": "SENS Motion - Connect"
+        "expected": "SENS Motion\u00ae - Connect",
+        "actual": "SENS Motion\u00ae - Connect"
       },
       {
         "name": "fuzzy_object_match",
@@ -1262,56 +1141,52 @@
       "id": "q08",
       "question_type": "taxonomic",
       "answer_form": "assertion",
-      "question": "Is SENS motion a type of certified medical device?",
-      "gold_answer": "yes, SENS motion is a certified medical device.",
+      "question": "Is the SENS Motion sensor a physical object?",
+      "gold_answer": "yes, the SENS Motion sensor is a physical object.",
       "source": "healthcare/_index.en::c0000",
-      "expected_entity": "SENS motion",
-      "expected_object": "certified medical device"
+      "expected_entity": "SENS Motion sensor",
+      "expected_object": "physical object"
     },
     "question_info": {
-      "atomic_question": "Is SENS motion a type of certified medical device?",
-      "question_type": "taxonomic",
-      "answer_form": "assertion",
+      "atomic_question": "Is the SENS Motion sensor a physical object?",
+      "question_type": "definition",
+      "answer_form": "value",
       "entity": {
-        "value": "SENS motion",
+        "value": "SENS Motion sensor",
         "type": null
       },
-      "relation": "be subtype of",
+      "relation": "be",
       "object": {
-        "value": "certified medical device",
+        "value": "null",
         "type": null
       }
     },
     "fetched": {
       "question_info": {
-        "atomic_question": "Is SENS motion a type of certified medical device?",
-        "question_type": "taxonomic",
-        "answer_form": "assertion",
+        "atomic_question": "Is the SENS Motion sensor a physical object?",
+        "question_type": "definition",
+        "answer_form": "value",
         "entity": {
-          "value": "SENS motion",
+          "value": "SENS Motion sensor",
           "type": null
         },
-        "relation": "be subtype of",
+        "relation": "be",
         "object": {
-          "value": "certified medical device",
+          "value": "null",
           "type": null
         }
       },
       "resolved_entity": {
-        "uri": "http://example.org/sensInnovationAps_ontology#SENS%20motion",
-        "label": "SENS motion",
-        "score": 1.0,
+        "uri": "http://example.org/sensInnovationAps_ontology#SENS%20motion%20PLUS%20sensor",
+        "label": "SENS motion PLUS sensor",
+        "score": 0.9024390243902439,
         "labels": [
-          "SENS motion"
+          "SENS motion PLUS sensor"
         ],
         "entity_type": "NamedIndividual",
         "types": [
-          "Collection",
-          "InformationObject",
-          "MonitoringSystem",
           "PhysicalObject",
-          "Publication",
-          "SocialObject"
+          "SensorDevice"
         ],
         "superclasses": [],
         "object_properties": {},
@@ -1320,40 +1195,25 @@
       },
       "entity_context": {
         "scope_note": "All information in this object is directly related to the resolved entity of the atomic question.",
-        "label": "SENS motion",
+        "label": "SENS motion PLUS sensor",
         "types": [
-          "MonitoringSystem",
+          "SensorDevice",
           "NamedIndividual"
         ],
         "superclasses": {
-          "MonitoringSystem": [
-            "InformationObject",
-            "Publication",
-            "Collection",
-            "SocialObject",
+          "SensorDevice": [
             "PhysicalObject"
           ],
           "NamedIndividual": []
         },
         "equivalent_classes": [],
+        "annotations": {},
         "class_descriptions": {
-          "Collection": {
-            "description": "Any collection of objects, events, or other entities, such as a group of people or a dataset."
-          },
-          "InformationObject": {
-            "description": "A piece of information, such as a text, a word, a picture, or data, independently from how it is concretely realized."
-          },
-          "MonitoringSystem": {
-            "description": "A system designed to observe and record the activity levels of individuals, often used in healthcare settings to track patient activity."
-          },
           "PhysicalObject": {
             "description": "Any Object that has a proper space region. Examples include people, equipment, sensors, and buildings."
           },
-          "Publication": {
-            "description": "A medium through which scholarly work, such as research articles, books, or reports, is disseminated to the public or a specific community."
-          },
-          "SocialObject": {
-            "description": "Any Object that exists only within some social context, such as organizations, laws, plans, or projects."
+          "SensorDevice": {
+            "description": "A physical device that collects and transmits data, often used in monitoring and data collection applications."
           },
           "NamedIndividual": {
             "description": null
@@ -1363,70 +1223,71 @@
       "resolved_object": null,
       "object_context": null
     },
-    "generated_answer": "I can't answer the question.",
-    "reasoning": "The ontology information provided does not contain any information about 'SENS motion' being a 'certified medical device'. It is a 'MonitoringSystem' and a 'NamedIndividual', but there is no mention of it being a 'certified medical device' or any relation to medical certification. Therefore, based on the provided ontology information, the answer to the question is that it cannot be determined if 'SENS motion' is a type of 'certified medical device'.",
+    "generated_answer": "The SENS Motion sensor is a physical object.",
+    "reasoning": "The ontology information indicates that 'SensorDevice' has a superclass 'PhysicalObject'. Since 'SENS Motion sensor' is a 'SensorDevice', it also has the 'PhysicalObject' superclass.",
     "merged_entity_mapping": {
-      "types": [
-        "MonitoringSystem",
-        "NamedIndividual"
-      ],
-      "superclasses": [],
-      "equivalent_classes": [],
       "properties": [],
       "annotations": [],
       "property_values": {},
+      "equivalent_classes": [],
+      "members": [],
       "chunk_id": [],
-      "members": []
+      "types": [
+        "SensorDevice"
+      ],
+      "superclasses": [
+        "PhysicalObject"
+      ]
     },
     "merged_object_mapping": null,
     "checks": [
       {
         "name": "correct_question_type",
-        "passed": true,
+        "passed": false,
         "expected": "taxonomic",
-        "actual": "taxonomic"
+        "actual": "definition"
       },
       {
         "name": "correct_answer_form",
-        "passed": true,
+        "passed": false,
         "expected": "assertion",
-        "actual": "assertion"
+        "actual": "value"
       },
       {
         "name": "correct_entity_extraction",
         "passed": true,
-        "expected": "SENS motion",
-        "actual": "SENS motion"
+        "expected": "SENS Motion sensor",
+        "actual": "SENS Motion sensor"
       },
       {
         "name": "correct_object_extraction",
-        "passed": true,
-        "expected": "certified medical device",
-        "actual": "certified medical device"
+        "passed": false,
+        "expected": "physical object",
+        "actual": "null"
       },
       {
         "name": "entity_resolved",
         "passed": true,
         "expected": true,
-        "actual": "SENS motion"
+        "actual": "SENS motion PLUS sensor"
       },
       {
         "name": "fuzzy_answer_match",
-        "passed": false,
-        "expected": "yes, SENS motion is a certified medical device.",
-        "actual": "I can't answer the question."
+        "passed": true,
+        "expected": "yes, the SENS Motion sensor is a physical object.",
+        "actual": "The SENS Motion sensor is a physical object."
       },
       {
         "name": "fuzzy_entity_match",
         "passed": true,
-        "expected": "SENS motion",
-        "actual": "SENS motion"
+        "expected": "SENS Motion sensor",
+        "actual": "SENS Motion sensor"
       },
       {
         "name": "fuzzy_object_match",
-        "passed": true,
-        "expected": "certified medical device",
-        "actual": "certified medical device"
+        "passed": false,
+        "expected": "physical object",
+        "actual": "null"
       }
     ]
   },
@@ -1435,38 +1296,38 @@
       "id": "q09",
       "question_type": "taxonomic",
       "answer_form": "assertion",
-      "question": "Is SENS Innovation ApS a type of developer of medical sensor products?",
-      "gold_answer": "yes, SENS Innovation ApS is a developer of medical sensor products.",
+      "question": "Is SENS Innovation ApS a company?",
+      "gold_answer": "yes, SENS Innovation ApS is a company.",
       "source": "about/_index.en::c0000",
       "expected_entity": "SENS Innovation ApS",
-      "expected_object": "developer of medical sensor products"
+      "expected_object": "company"
     },
     "question_info": {
-      "atomic_question": "Is SENS Innovation ApS a type of developer of medical sensor products?",
-      "question_type": "taxonomic",
-      "answer_form": "assertion",
+      "atomic_question": "Is SENS Innovation ApS a company?",
+      "question_type": "definition",
+      "answer_form": "value",
       "entity": {
         "value": "SENS Innovation ApS",
         "type": null
       },
-      "relation": "be subtype of",
+      "relation": "be",
       "object": {
-        "value": "developer of medical sensor products",
+        "value": "null",
         "type": null
       }
     },
     "fetched": {
       "question_info": {
-        "atomic_question": "Is SENS Innovation ApS a type of developer of medical sensor products?",
-        "question_type": "taxonomic",
-        "answer_form": "assertion",
+        "atomic_question": "Is SENS Innovation ApS a company?",
+        "question_type": "definition",
+        "answer_form": "value",
         "entity": {
           "value": "SENS Innovation ApS",
           "type": null
         },
-        "relation": "be subtype of",
+        "relation": "be",
         "object": {
-          "value": "developer of medical sensor products",
+          "value": "null",
           "type": null
         }
       },
@@ -1522,9 +1383,9 @@
             "MobileApplication"
           ],
           "SmartphoneApp": [
+            "Event",
             "InformationObject",
-            "DataTransferProcess",
-            "Event"
+            "DataTransferProcess"
           ],
           "SoftwareFeature": [
             "PhysicalObject",
@@ -1533,6 +1394,7 @@
           "NamedIndividual": []
         },
         "equivalent_classes": [],
+        "annotations": {},
         "class_descriptions": {
           "App": {
             "description": "A software application designed to perform specific tasks on a mobile device or tablet, such as the SENS motion app mentioned in the source text."
@@ -1572,33 +1434,36 @@
       "resolved_object": null,
       "object_context": null
     },
-    "generated_answer": "I can't answer the question.",
-    "reasoning": "The ontology information provided does not contain any explicit mention of 'SENS Innovation ApS' being a 'developer of medical sensor products'. The closest related term in the ontology is 'SENS motion app', which is a 'SmartphoneApp', but this does not confirm or deny the role of 'SENS Innovation ApS' as a developer of medical sensor products.",
+    "generated_answer": "Yes, SENS Innovation ApS is a company.",
+    "reasoning": "The entity 'SENS Innovation ApS' is not explicitly mentioned in the provided ontology information. However, the term 'SENS motion app' is described as a 'SmartphoneApp', which is a software application designed to run on smartphones. Since 'SENS Innovation ApS' is a company that developed the 'SENS motion app', it can be inferred that 'SENS Innovation ApS' is a company.",
     "merged_entity_mapping": {
-      "types": [
-        "SmartphoneApp"
-      ],
-      "superclasses": [],
-      "equivalent_classes": [],
       "properties": [],
       "annotations": [],
       "property_values": {},
+      "equivalent_classes": [],
+      "members": [],
       "chunk_id": [],
-      "members": []
+      "types": [
+        "App",
+        "AppFeature",
+        "SmartphoneApp",
+        "SoftwareFeature"
+      ],
+      "superclasses": []
     },
     "merged_object_mapping": null,
     "checks": [
       {
         "name": "correct_question_type",
-        "passed": true,
+        "passed": false,
         "expected": "taxonomic",
-        "actual": "taxonomic"
+        "actual": "definition"
       },
       {
         "name": "correct_answer_form",
-        "passed": true,
+        "passed": false,
         "expected": "assertion",
-        "actual": "assertion"
+        "actual": "value"
       },
       {
         "name": "correct_entity_extraction",
@@ -1608,9 +1473,9 @@
       },
       {
         "name": "correct_object_extraction",
-        "passed": true,
-        "expected": "developer of medical sensor products",
-        "actual": "developer of medical sensor products"
+        "passed": false,
+        "expected": "company",
+        "actual": "null"
       },
       {
         "name": "entity_resolved",
@@ -1620,9 +1485,9 @@
       },
       {
         "name": "fuzzy_answer_match",
-        "passed": false,
-        "expected": "yes, SENS Innovation ApS is a developer of medical sensor products.",
-        "actual": "I can't answer the question."
+        "passed": true,
+        "expected": "yes, SENS Innovation ApS is a company.",
+        "actual": "Yes, SENS Innovation ApS is a company."
       },
       {
         "name": "fuzzy_entity_match",
@@ -1632,9 +1497,9 @@
       },
       {
         "name": "fuzzy_object_match",
-        "passed": true,
-        "expected": "developer of medical sensor products",
-        "actual": "developer of medical sensor products"
+        "passed": false,
+        "expected": "company",
+        "actual": "null"
       }
     ]
   },
@@ -1643,55 +1508,56 @@
       "id": "q10",
       "question_type": "taxonomic",
       "answer_form": "assertion",
-      "question": "Is the SENS motion activity sensor a type of discrete wearable activity sensor?",
-      "gold_answer": "yes, the SENS motion activity sensor is a type of discrete wearable activity sensor.",
+      "question": "Is SENS Motion a type of Research trial?",
+      "gold_answer": "I can't answer the question",
       "source": "_index.en::c0000",
       "expected_entity": "SENS motion activity sensor",
-      "expected_object": "discrete wearable activity sensor"
+      "expected_object": "Research trial"
     },
     "question_info": {
-      "atomic_question": "Is the SENS motion activity sensor a type of discrete wearable activity sensor?",
+      "atomic_question": "Is SENS Motion a type of Research trial?",
       "question_type": "taxonomic",
       "answer_form": "assertion",
       "entity": {
-        "value": "SENS motion activity sensor",
+        "value": "SENS Motion",
         "type": null
       },
       "relation": "be subtype of",
       "object": {
-        "value": "discrete wearable activity sensor",
+        "value": "SENS Motion",
         "type": null
       }
     },
     "fetched": {
       "question_info": {
-        "atomic_question": "Is the SENS motion activity sensor a type of discrete wearable activity sensor?",
+        "atomic_question": "Is SENS Motion a type of Research trial?",
         "question_type": "taxonomic",
         "answer_form": "assertion",
         "entity": {
-          "value": "SENS motion activity sensor",
+          "value": "SENS Motion",
           "type": null
         },
         "relation": "be subtype of",
         "object": {
-          "value": "discrete wearable activity sensor",
+          "value": "SENS Motion",
           "type": null
         }
       },
       "resolved_entity": {
-        "uri": "http://example.org/sensInnovationAps_ontology#SENS%20motion%20activity%20sensor",
-        "label": "SENS motion activity sensor",
+        "uri": "http://example.org/sensInnovationAps_ontology#SENS%20motion",
+        "label": "SENS motion",
         "score": 1.0,
         "labels": [
-          "SENS motion activity sensor"
+          "SENS motion"
         ],
         "entity_type": "NamedIndividual",
         "types": [
-          "ActivityDataSensor",
-          "ActivityDataTypes",
+          "Collection",
           "InformationObject",
-          "InformationRealization",
-          "PhysicalObject"
+          "MonitoringSystem",
+          "PhysicalObject",
+          "Publication",
+          "SocialObject"
         ],
         "superclasses": [],
         "object_properties": {},
@@ -1700,36 +1566,40 @@
       },
       "entity_context": {
         "scope_note": "All information in this object is directly related to the resolved entity of the atomic question.",
-        "label": "SENS motion activity sensor",
+        "label": "SENS motion",
         "types": [
-          "ActivityDataSensor",
+          "MonitoringSystem",
           "NamedIndividual"
         ],
         "superclasses": {
-          "ActivityDataSensor": [
-            "ActivityDataTypes",
+          "MonitoringSystem": [
+            "PhysicalObject",
             "InformationObject",
-            "InformationRealization",
-            "PhysicalObject"
+            "Collection",
+            "Publication",
+            "SocialObject"
           ],
           "NamedIndividual": []
         },
         "equivalent_classes": [],
         "class_descriptions": {
-          "ActivityDataSensor": {
-            "description": "A physical device that captures raw movement and environmental data for research activities."
-          },
-          "ActivityDataTypes": {
-            "description": "Various forms of data collected by sensors, such as acceleration, temperature, and motion intensity, used in research to analyze human activity."
+          "Collection": {
+            "description": "Any collection of objects, events, or other entities, such as a group of people or a dataset."
           },
           "InformationObject": {
             "description": "A piece of information, such as a text, a word, a picture, or data, independently from how it is concretely realized."
           },
-          "InformationRealization": {
-            "description": "A physical object or event that realizes an information object. For example, a physical printed document or a digital file on a hard drive."
+          "MonitoringSystem": {
+            "description": "A system designed to observe and record the activity levels of individuals, often used in healthcare settings to track patient activity."
           },
           "PhysicalObject": {
             "description": "Any Object that has a proper space region. Examples include people, equipment, sensors, and buildings."
+          },
+          "Publication": {
+            "description": "A medium through which scholarly work, such as research articles, books, or reports, is disseminated to the public or a specific community."
+          },
+          "SocialObject": {
+            "description": "Any Object that exists only within some social context, such as organizations, laws, plans, or projects."
           },
           "NamedIndividual": {
             "description": null
@@ -1740,18 +1610,19 @@
       "object_context": null
     },
     "generated_answer": "I can't answer the question.",
-    "reasoning": "The ontology information provided does not contain a direct taxonomic hierarchy or a list of subclasses for 'ActivityDataSensor' that would include 'discrete wearable activity sensor'. Without this information, it is not possible to determine the taxonomic relationship between 'SENS motion activity sensor' and 'discrete wearable activity sensor'.",
+    "reasoning": "The ontology information provided does not contain any information about 'SENS Motion' being a 'Research trial'. It is classified as a 'MonitoringSystem' and a 'NamedIndividual', but there is no mention of it being a 'Research trial' or any relation to 'MonitoringSystem' as a 'Research trial'.",
     "merged_entity_mapping": {
-      "types": [
-        "ActivityDataSensor"
-      ],
-      "superclasses": [],
-      "equivalent_classes": [],
       "properties": [],
       "annotations": [],
       "property_values": {},
+      "equivalent_classes": [],
+      "members": [],
       "chunk_id": [],
-      "members": []
+      "types": [
+        "MonitoringSystem",
+        "NamedIndividual"
+      ],
+      "superclasses": []
     },
     "merged_object_mapping": null,
     "checks": [
@@ -1769,39 +1640,39 @@
       },
       {
         "name": "correct_entity_extraction",
-        "passed": true,
+        "passed": false,
         "expected": "SENS motion activity sensor",
-        "actual": "SENS motion activity sensor"
+        "actual": "SENS Motion"
       },
       {
         "name": "correct_object_extraction",
-        "passed": true,
-        "expected": "discrete wearable activity sensor",
-        "actual": "discrete wearable activity sensor"
+        "passed": false,
+        "expected": "Research trial",
+        "actual": "SENS Motion"
       },
       {
         "name": "entity_resolved",
         "passed": true,
         "expected": true,
-        "actual": "SENS motion activity sensor"
+        "actual": "SENS motion"
       },
       {
         "name": "fuzzy_answer_match",
         "passed": false,
-        "expected": "yes, the SENS motion activity sensor is a type of discrete wearable activity sensor.",
+        "expected": "No, SENS Motion is not a type of Research trial.",
         "actual": "I can't answer the question."
       },
       {
         "name": "fuzzy_entity_match",
         "passed": true,
         "expected": "SENS motion activity sensor",
-        "actual": "SENS motion activity sensor"
+        "actual": "SENS Motion"
       },
       {
         "name": "fuzzy_object_match",
-        "passed": true,
-        "expected": "discrete wearable activity sensor",
-        "actual": "discrete wearable activity sensor"
+        "passed": false,
+        "expected": "Research trial",
+        "actual": "SENS Motion"
       }
     ]
   },
@@ -1875,11 +1746,11 @@
         ],
         "superclasses": {
           "MonitoringSystem": [
+            "PhysicalObject",
             "InformationObject",
-            "Publication",
             "Collection",
-            "SocialObject",
-            "PhysicalObject"
+            "Publication",
+            "SocialObject"
           ],
           "NamedIndividual": []
         },
@@ -1914,16 +1785,16 @@
     "generated_answer": "assertion",
     "reasoning": "SENS motion is a type of monitoring system, as indicated by its type 'MonitoringSystem' in the ontology information.",
     "merged_entity_mapping": {
-      "types": [
-        "MonitoringSystem"
-      ],
-      "superclasses": [],
-      "equivalent_classes": [],
       "properties": [],
       "annotations": [],
       "property_values": {},
+      "equivalent_classes": [],
+      "members": [],
       "chunk_id": [],
-      "members": []
+      "types": [
+        "MonitoringSystem"
+      ],
+      "superclasses": []
     },
     "merged_object_mapping": null,
     "checks": [
@@ -1982,17 +1853,17 @@
       "id": "q12",
       "question_type": "taxonomic",
       "answer_form": "assertion",
-      "question": "Is SENS Innovation ApS a type of data controller?",
+      "question": "Is Mats Ellingsen a type of study?",
       "gold_answer": "I can't answer the question",
-      "expected_entity": "SENS Innovation ApS",
-      "expected_object": "data controller"
+      "expected_entity": "Mats Ellingsen",
+      "expected_object": "study"
     },
     "question_info": {
-      "atomic_question": "Is SENS Innovation ApS a type of data controller?",
+      "atomic_question": "Is Mats Ellingsen a type of study?",
       "question_type": "definition",
       "answer_form": "value",
       "entity": {
-        "value": "SENS Innovation ApS",
+        "value": "Mats Ellingsen",
         "type": null
       },
       "relation": "be",
@@ -2003,11 +1874,11 @@
     },
     "fetched": {
       "question_info": {
-        "atomic_question": "Is SENS Innovation ApS a type of data controller?",
+        "atomic_question": "Is Mats Ellingsen a type of study?",
         "question_type": "definition",
         "answer_form": "value",
         "entity": {
-          "value": "SENS Innovation ApS",
+          "value": "Mats Ellingsen",
           "type": null
         },
         "relation": "be",
@@ -2017,24 +1888,16 @@
         }
       },
       "resolved_entity": {
-        "uri": "http://example.org/sensInnovationAps_ontology#SENS%20motion%20app",
-        "label": "SENS motion app",
-        "score": 0.7303030303030303,
+        "uri": "http://example.org/sensInnovationAps_ontology#Mats%20Ellingsen",
+        "label": "Mats Ellingsen",
+        "score": 1.0,
         "labels": [
-          "SENS motion app"
+          "Mats Ellingsen"
         ],
         "entity_type": "NamedIndividual",
         "types": [
-          "App",
-          "AppFeature",
-          "ApplicationFeature",
-          "DataTransferProcess",
-          "Event",
-          "InformationObject",
-          "InformationRealization",
-          "MobileApplication",
-          "SmartphoneApp",
-          "SoftwareFeature"
+          "SocialObject",
+          "TeamMember"
         ],
         "superclasses": [],
         "object_properties": {},
@@ -2043,37 +1906,13 @@
       },
       "entity_context": {
         "scope_note": "All information in this object is directly related to the resolved entity of the atomic question.",
-        "label": "SENS motion app",
+        "label": "Mats Ellingsen",
         "types": [
-          "App",
-          "AppFeature",
-          "ApplicationFeature",
-          "MobileApplication",
-          "SmartphoneApp",
-          "SoftwareFeature",
+          "TeamMember",
           "NamedIndividual"
         ],
         "superclasses": {
-          "App": [
-            "InformationObject"
-          ],
-          "AppFeature": [
-            "InformationRealization"
-          ],
-          "ApplicationFeature": [
-            "PhysicalObject"
-          ],
-          "MobileApplication": [
-            "InformationObject",
-            "MobileApplication"
-          ],
-          "SmartphoneApp": [
-            "InformationObject",
-            "DataTransferProcess",
-            "Event"
-          ],
-          "SoftwareFeature": [
-            "PhysicalObject",
+          "TeamMember": [
             "SocialObject"
           ],
           "NamedIndividual": []
@@ -2081,35 +1920,11 @@
         "equivalent_classes": [],
         "annotations": {},
         "class_descriptions": {
-          "App": {
-            "description": "A software application designed to perform specific tasks on a mobile device or tablet, such as the SENS motion app mentioned in the source text."
+          "SocialObject": {
+            "description": "Any Object that exists only within some social context, such as organizations, laws, plans, or projects."
           },
-          "AppFeature": {
-            "description": "A specific functionality or capability provided by a software application that enhances its usability or adds value to the user experience."
-          },
-          "ApplicationFeature": {
-            "description": "A specific functionality or component within a software application that provides a particular service or capability to the user."
-          },
-          "DataTransferProcess": {
-            "description": "The sequence of events and conditions involved in the transfer of data from a sensor to a server, including the necessary conditions for the process to occur, such as the proximity of the sensor to the device and the state of the application."
-          },
-          "Event": {
-            "description": "Any physical, social, or mental process, event, or state. Events unfold in time and have objects as participants."
-          },
-          "InformationObject": {
-            "description": "A piece of information, such as a text, a word, a picture, or data, independently from how it is concretely realized."
-          },
-          "InformationRealization": {
-            "description": "A physical object or event that realizes an information object. For example, a physical printed document or a digital file on a hard drive."
-          },
-          "MobileApplication": {
-            "description": "A software application that is designed to be executed, or at least partially executed, in a computer environment that also acts as a platform for a computer application."
-          },
-          "SmartphoneApp": {
-            "description": "A software application designed to run on smartphones, providing various functionalities and services."
-          },
-          "SoftwareFeature": {
-            "description": "A particular capability or function provided by a software application, such as improved navigation, sensor management, or file handling."
+          "TeamMember": {
+            "description": "An individual who is part of a team, typically associated with a group of people with a common purpose or interest, such as a company or organization."
           },
           "NamedIndividual": {
             "description": null
@@ -2119,17 +1934,17 @@
       "resolved_object": null,
       "object_context": null
     },
-    "generated_answer": "I can't answer the question.",
-    "reasoning": "The ontology information provided does not contain any explicit mention of 'data controller' or related terms such as 'data processing', 'data handling', 'data management', or 'data processing'. Without this information, it is not possible to determine if SENS Innovation ApS is a type of data controller.",
+    "generated_answer": "Mats Ellingsen is not a type of study.",
+    "reasoning": "The ontology information provided does not establish a relation between Mats Ellingsen and the term 'study'.",
     "merged_entity_mapping": {
-      "types": [],
-      "superclasses": [],
-      "equivalent_classes": [],
       "properties": [],
       "annotations": [],
       "property_values": {},
+      "equivalent_classes": [],
+      "members": [],
       "chunk_id": [],
-      "members": []
+      "types": [],
+      "superclasses": []
     },
     "merged_object_mapping": null,
     "checks": [
@@ -2148,37 +1963,37 @@
       {
         "name": "correct_entity_extraction",
         "passed": true,
-        "expected": "SENS Innovation ApS",
-        "actual": "SENS Innovation ApS"
+        "expected": "Mats Ellingsen",
+        "actual": "Mats Ellingsen"
       },
       {
         "name": "correct_object_extraction",
         "passed": false,
-        "expected": "data controller",
+        "expected": "study",
         "actual": "null"
       },
       {
         "name": "entity_resolved",
         "passed": true,
         "expected": true,
-        "actual": "SENS motion app"
+        "actual": "Mats Ellingsen"
       },
       {
         "name": "fuzzy_answer_match",
-        "passed": true,
+        "passed": false,
         "expected": "I can't answer the question",
-        "actual": "I can't answer the question."
+        "actual": "Mats Ellingsen is not a type of study."
       },
       {
         "name": "fuzzy_entity_match",
         "passed": true,
-        "expected": "SENS Innovation ApS",
-        "actual": "SENS Innovation ApS"
+        "expected": "Mats Ellingsen",
+        "actual": "Mats Ellingsen"
       },
       {
         "name": "fuzzy_object_match",
         "passed": false,
-        "expected": "data controller",
+        "expected": "study",
         "actual": "null"
       }
     ]
@@ -2271,14 +2086,14 @@
     "generated_answer": "I can't answer the question.",
     "reasoning": "The ontology information provided does not establish a taxonomic relationship where 'step count' is a subtype of 'analyzed activity'.",
     "merged_entity_mapping": {
-      "types": [],
-      "superclasses": [],
-      "equivalent_classes": [],
       "properties": [],
       "annotations": [],
       "property_values": {},
+      "equivalent_classes": [],
+      "members": [],
       "chunk_id": [],
-      "members": []
+      "types": [],
+      "superclasses": []
     },
     "merged_object_mapping": null,
     "checks": [
@@ -2421,18 +2236,18 @@
     "generated_answer": "I can't answer the question.",
     "reasoning": "The ontology information provided indicates that 'ActivityDataTypes' is a type that includes 'InformationObject', which can be various forms of data collected by sensors. Since 'temperature' is listed as an 'ActivityDataType', it can be inferred that it is a form of 'InformationObject'. However, the question is whether 'temperature' is a 'type of raw sensor data', and the ontology does not explicitly state that 'InformationObject' is a 'type of raw sensor data'. Therefore, based on the provided information, the answer to the question cannot be determined.",
     "merged_entity_mapping": {
+      "properties": [],
+      "annotations": [],
+      "property_values": {},
+      "equivalent_classes": [],
+      "members": [],
+      "chunk_id": [],
       "types": [
         "ActivityDataTypes"
       ],
       "superclasses": [
         "InformationObject"
-      ],
-      "equivalent_classes": [],
-      "properties": [],
-      "annotations": [],
-      "property_values": {},
-      "chunk_id": [],
-      "members": []
+      ]
     },
     "merged_object_mapping": null,
     "checks": [
@@ -2556,11 +2371,11 @@
         ],
         "superclasses": {
           "MonitoringSystem": [
+            "PhysicalObject",
             "InformationObject",
-            "Publication",
             "Collection",
-            "SocialObject",
-            "PhysicalObject"
+            "Publication",
+            "SocialObject"
           ],
           "NamedIndividual": []
         },
@@ -2602,14 +2417,14 @@
     "generated_answer": "I can't answer the question.",
     "reasoning": "The ontology information provided does not explicitly list the types of physical activity that SENS motion measures.",
     "merged_entity_mapping": {
-      "types": [],
-      "superclasses": [],
-      "equivalent_classes": [],
       "properties": [],
       "annotations": [],
       "property_values": {},
+      "equivalent_classes": [],
+      "members": [],
       "chunk_id": [],
-      "members": []
+      "types": [],
+      "superclasses": []
     },
     "merged_object_mapping": null,
     "checks": [
@@ -2747,14 +2562,14 @@
     "generated_answer": "I can't answer the question.",
     "reasoning": "The provided ontology information does not specify any properties or capabilities of the 'bedside tablet', such as 'display anything'.",
     "merged_entity_mapping": {
-      "types": [],
-      "superclasses": [],
-      "equivalent_classes": [],
       "properties": [],
       "annotations": [],
       "property_values": {},
+      "equivalent_classes": [],
+      "members": [],
       "chunk_id": [],
-      "members": []
+      "types": [],
+      "superclasses": []
     },
     "merged_object_mapping": null,
     "checks": [
@@ -2894,14 +2709,14 @@
     "generated_answer": "The motivational app increases capabilities.",
     "reasoning": "The 'MotivationalApp' is a 'Class' and as a 'Class', it inherently possesses capabilities.",
     "merged_entity_mapping": {
-      "types": [],
-      "superclasses": [],
-      "equivalent_classes": [],
       "properties": [],
       "annotations": [],
       "property_values": {},
+      "equivalent_classes": [],
+      "members": [],
       "chunk_id": [],
-      "members": []
+      "types": [],
+      "superclasses": []
     },
     "merged_object_mapping": null,
     "checks": [
@@ -3058,14 +2873,14 @@
     "generated_answer": "I can't answer the question.",
     "reasoning": "The ontology information provided does not explicitly state the capabilities of the SENS motion smartphone app.",
     "merged_entity_mapping": {
-      "types": [],
-      "superclasses": [],
-      "equivalent_classes": [],
       "properties": [],
       "annotations": [],
       "property_values": {},
+      "equivalent_classes": [],
+      "members": [],
       "chunk_id": [],
-      "members": []
+      "types": [],
+      "superclasses": []
     },
     "merged_object_mapping": null,
     "checks": [
@@ -3254,18 +3069,18 @@
     "generated_answer": "The SENS motion web\u2011application can be used for social interaction and community building.",
     "reasoning": "The SENS motion web\u2011application is a type of 'WebApplication', which is a 'SocialObject'. As a 'SocialObject', it can be used for various purposes related to social interaction and community building.",
     "merged_entity_mapping": {
+      "properties": [],
+      "annotations": [],
+      "property_values": {},
+      "equivalent_classes": [],
+      "members": [],
+      "chunk_id": [],
       "types": [
         "WebApplication"
       ],
       "superclasses": [
         "SocialObject"
-      ],
-      "equivalent_classes": [],
-      "properties": [],
-      "annotations": [],
-      "property_values": {},
-      "chunk_id": [],
-      "members": []
+      ]
     },
     "merged_object_mapping": null,
     "checks": [
@@ -3410,9 +3225,9 @@
             "MobileApplication"
           ],
           "SmartphoneApp": [
+            "Event",
             "InformationObject",
-            "DataTransferProcess",
-            "Event"
+            "DataTransferProcess"
           ],
           "SoftwareFeature": [
             "PhysicalObject",
@@ -3527,23 +3342,27 @@
       "object_context": null
     },
     "generated_answer": "I can't answer the question.",
-    "reasoning": "The ontology information provided does not contain any data related to the 'favoriteSensorStatus' property for the 'SmartphoneApp' class, which is associated with the 'SENS Motion app'. Therefore, based on the provided ontology information, it cannot be determined if the SENS Motion app for smartphone and tablet can assign a favorite sensor.",
+    "reasoning": "The ontology information provided does not contain any data related to the 'favorite sensor' capability for the 'SENS Motion app'. The 'SmartphoneApp' class has a 'favoriteSensorStatus' property, but its value is 'not specified', which means we cannot confirm or deny the capability of assigning a favorite sensor for the SENS Motion app.",
     "merged_entity_mapping": {
+      "properties": [
+        "favoriteSensorStatus",
+        "installationStatus",
+        "transferStatus"
+      ],
+      "annotations": [],
+      "property_values": {
+        "favoriteSensorStatus": "not specified",
+        "installationStatus": "not specified",
+        "transferStatus": "not specified"
+      },
+      "equivalent_classes": [],
+      "members": [],
+      "chunk_id": [],
       "types": [
         "App",
         "SmartphoneApp"
       ],
-      "superclasses": [],
-      "equivalent_classes": [],
-      "properties": [
-        "favoriteSensorStatus"
-      ],
-      "annotations": [],
-      "property_values": {
-        "favoriteSensorStatus": "not specified"
-      },
-      "chunk_id": [],
-      "members": []
+      "superclasses": []
     },
     "merged_object_mapping": null,
     "checks": [
@@ -3699,14 +3518,14 @@
     "generated_answer": "I can't answer the question.",
     "reasoning": "The provided ontology information does not contain any properties or relations that indicate the SENS motion system has the capability to motivate patients to be more active.",
     "merged_entity_mapping": {
-      "types": [],
-      "superclasses": [],
-      "equivalent_classes": [],
       "properties": [],
       "annotations": [],
       "property_values": {},
+      "equivalent_classes": [],
+      "members": [],
       "chunk_id": [],
-      "members": []
+      "types": [],
+      "superclasses": []
     },
     "merged_object_mapping": null,
     "checks": [
@@ -3878,9 +3697,6 @@
     "generated_answer": "The Pilot Package period is 3 months.",
     "reasoning": "The 'Pilot Package' entity has a property 'offerPeriod' with a value '3 months'.",
     "merged_entity_mapping": {
-      "types": [],
-      "superclasses": [],
-      "equivalent_classes": [],
       "properties": [
         "offerPeriod",
         "title"
@@ -3890,8 +3706,11 @@
         "offerPeriod": "3 months",
         "title": "pilot package"
       },
+      "equivalent_classes": [],
+      "members": [],
       "chunk_id": [],
-      "members": []
+      "types": [],
+      "superclasses": []
     },
     "merged_object_mapping": null,
     "checks": [
@@ -4063,11 +3882,6 @@
     "generated_answer": "The Pilot Package costs 19.995.",
     "reasoning": "The 'PackageOffer' type has an 'outgoing_data_property' named 'offerAmount' with a 'value' of '19.995'.",
     "merged_entity_mapping": {
-      "types": [
-        "PackageOffer"
-      ],
-      "superclasses": [],
-      "equivalent_classes": [],
       "properties": [
         "offerAmount",
         "title"
@@ -4077,8 +3891,13 @@
         "offerAmount": "19.995",
         "title": "pilot package"
       },
+      "equivalent_classes": [],
+      "members": [],
       "chunk_id": [],
-      "members": []
+      "types": [
+        "PackageOffer"
+      ],
+      "superclasses": []
     },
     "merged_object_mapping": null,
     "checks": [
@@ -4250,11 +4069,6 @@
     "generated_answer": "The maximum number of participants in the Pilot Package is 19.995.",
     "reasoning": "The 'Pilot Package' is a 'PackageOffer' with a property 'offerAmount' that specifies the 'maximum number of participants'.",
     "merged_entity_mapping": {
-      "types": [
-        "PackageOffer"
-      ],
-      "superclasses": [],
-      "equivalent_classes": [],
       "properties": [
         "offerAmount",
         "title"
@@ -4264,8 +4078,13 @@
         "offerAmount": "19.995",
         "title": "pilot package"
       },
+      "equivalent_classes": [],
+      "members": [],
       "chunk_id": [],
-      "members": []
+      "types": [
+        "PackageOffer"
+      ],
+      "superclasses": []
     },
     "merged_object_mapping": null,
     "checks": [
@@ -4319,6 +4138,179 @@
       }
     ]
   },
+   {
+    "case": {
+      "id": "q25",
+      "question_type": "property",
+      "answer_form": "value",
+      "question": "What is Morten Kj\u00e6rgaards role?",
+      "gold_answer": "CTO & Founder",
+      "source": "about/_index.en::c0000",
+      "expected_entity": "Morten Kj\u00e6rgaard",
+      "expected_object": "role"
+    },
+    "question_info": {
+      "atomic_question": "What is Morten Kj\u00e6rgaards role?",
+      "question_type": "property",
+      "answer_form": "value",
+      "entity": {
+        "value": "Morten Kj\u00e6rgaards",
+        "type": null
+      },
+      "relation": "have property",
+      "object": {
+        "value": "role or position of Morten Kj\u00e6rgaards",
+        "type": null
+      }
+    },
+    "fetched": {
+      "question_info": {
+        "atomic_question": "What is Morten Kj\u00e6rgaards role?",
+        "question_type": "property",
+        "answer_form": "value",
+        "entity": {
+          "value": "Morten Kj\u00e6rgaards",
+          "type": null
+        },
+        "relation": "have property",
+        "object": {
+          "value": "role or position of Morten Kj\u00e6rgaards",
+          "type": null
+        }
+      },
+      "resolved_entity": {
+        "uri": "http://example.org/sensInnovationAps_ontology#Morten%20Kj%C3%A6rgaard",
+        "label": "Morten Kj\u00e6rgaard",
+        "score": 1.0,
+        "labels": [
+          "Morten Kj\u00e6rgaard"
+        ],
+        "entity_type": "NamedIndividual",
+        "types": [
+          "SocialObject",
+          "TeamMember"
+        ],
+        "superclasses": [],
+        "object_properties": {},
+        "data_properties": {},
+        "annotations": {}
+      },
+      "entity_context": {
+        "scope_note": "All information in this object is directly related to the resolved entity of the atomic question.",
+        "label": "Morten Kj\u00e6rgaard",
+        "types": [
+          "TeamMember",
+          "NamedIndividual"
+        ],
+        "superclasses": {
+          "TeamMember": [
+            "SocialObject"
+          ],
+          "NamedIndividual": []
+        },
+        "equivalent_classes": [],
+        "properties_by_type": {
+          "TeamMember": {
+            "outgoing_object_properties": [],
+            "outgoing_data_properties": [
+              {
+                "property": "hasEmail",
+                "value": "morten@sens.dk",
+                "datatype": "string"
+              },
+              {
+                "property": "hasLinkedIn",
+                "value": "https://www.linkedin.com/in/morten-kj\u00e6rgaard-9a08242/",
+                "datatype": "string"
+              },
+              {
+                "property": "hasRole",
+                "value": "CTO & Founder",
+                "datatype": "string"
+              }
+            ],
+            "incoming_object_properties": [],
+            "incoming_data_properties": []
+          },
+          "NamedIndividual": {
+            "outgoing_object_properties": [],
+            "outgoing_data_properties": [],
+            "incoming_object_properties": [],
+            "incoming_data_properties": []
+          }
+        }
+      },
+      "resolved_object": null,
+      "object_context": null
+    },
+    "generated_answer": "Morten Kj\u00e6rgaards role is CTO & Founder.",
+    "reasoning": "The ontology information provides the property 'hasRole' with the value 'CTO & Founder' for the entity 'Morten Kj\u00e6rgaard'.",
+    "merged_entity_mapping": {
+      "superclasses": [],
+      "properties": [
+        "hasRole"
+      ],
+      "property_values": {
+        "hasRole": "cto & founder"
+      },
+      "types": [],
+      "members": [],
+      "annotations": [],
+      "chunk_id": [],
+      "equivalent_classes": []
+    },
+    "merged_object_mapping": null,
+    "checks": [
+      {
+        "name": "correct_question_type",
+        "passed": true,
+        "expected": "property",
+        "actual": "property"
+      },
+      {
+        "name": "correct_answer_form",
+        "passed": true,
+        "expected": "value",
+        "actual": "value"
+      },
+      {
+        "name": "correct_entity_extraction",
+        "passed": false,
+        "expected": "Morten Kj\u00e6rgaard",
+        "actual": "Morten Kj\u00e6rgaards"
+      },
+      {
+        "name": "correct_object_extraction",
+        "passed": false,
+        "expected": "role",
+        "actual": "role or position of Morten Kj\u00e6rgaards"
+      },
+      {
+        "name": "entity_resolved",
+        "passed": true,
+        "expected": true,
+        "actual": "Morten Kj\u00e6rgaard"
+      },
+      {
+        "name": "fuzzy_answer_match",
+        "passed": true,
+        "expected": "CTO & Founder",
+        "actual": "Morten Kj\u00e6rgaards role is CTO & Founder."
+      },
+      {
+        "name": "fuzzy_entity_match",
+        "passed": true,
+        "expected": "Morten Kj\u00e6rgaard",
+        "actual": "Morten Kj\u00e6rgaards"
+      },
+      {
+        "name": "fuzzy_object_match",
+        "passed": false,
+        "expected": "role",
+        "actual": "role or position of Morten Kj\u00e6rgaards"
+      }
+    ]
+  },
   {
     "case": {
       "id": "q26",
@@ -4348,14 +4340,14 @@
     "generated_answer": "I can't answer the question.",
     "reasoning": "The atomic question asks for a specific property (address) of an entity (SENS Innovation ApS). However, the provided ontology information does not contain any data related to the entity SENS Innovation ApS or its properties, such as an address. Therefore, the answer cannot be found within the given information.",
     "merged_entity_mapping": {
-      "types": [],
-      "superclasses": [],
-      "equivalent_classes": [],
       "properties": [],
       "annotations": [],
       "property_values": {},
+      "equivalent_classes": [],
+      "members": [],
       "chunk_id": [],
-      "members": []
+      "types": [],
+      "superclasses": []
     },
     "merged_object_mapping": null,
     "checks": [
@@ -4480,8 +4472,8 @@
           "SensorApplication": [
             "InformationObject",
             "Action",
-            "SocialObject",
-            "ResearchProject"
+            "ResearchProject",
+            "SocialObject"
           ],
           "NamedIndividual": []
         },
@@ -4519,14 +4511,14 @@
     "generated_answer": "I can't answer the question.",
     "reasoning": "The ontology information provided does not contain a list of members for the entity 'SENS motion \u2013 For Research'.",
     "merged_entity_mapping": {
-      "types": [],
-      "superclasses": [],
-      "equivalent_classes": [],
       "properties": [],
       "annotations": [],
       "property_values": {},
+      "equivalent_classes": [],
+      "members": [],
       "chunk_id": [],
-      "members": []
+      "types": [],
+      "superclasses": []
     },
     "merged_object_mapping": null,
     "checks": [
@@ -4688,9 +4680,6 @@
     "generated_answer": "Kasper L. Lykkegaard's email is kasper@sens.dk.",
     "reasoning": "The property 'hasEmail' is associated with 'Kasper L. Lykkegaard' and its value is 'kasper@sens.dk'.",
     "merged_entity_mapping": {
-      "types": [],
-      "superclasses": [],
-      "equivalent_classes": [],
       "properties": [
         "hasEmail"
       ],
@@ -4698,8 +4687,11 @@
       "property_values": {
         "hasEmail": "kasper@sens.dk"
       },
+      "equivalent_classes": [],
+      "members": [],
       "chunk_id": [],
-      "members": []
+      "types": [],
+      "superclasses": []
     },
     "merged_object_mapping": null,
     "checks": [
@@ -4856,13 +4848,10 @@
     "generated_answer": "The Teammembers are Amin Rezaei, August Blicher Friis, Christian Lindharth, Huong Nguyen, Ida Marie Pierrel-Boas, Karen Shakespeare, Kasper L. Lykkegaard, Lea M\u00f8ller Storm, Mathias Ellingsen, Miriam Cabrita, Morten Kj\u00e6rgaard, and Renata Oliveira.",
     "reasoning": "The question 'Who are the Teammembers?' is a membership question asking for a list of individuals that are members of a team. The ontology information provides a list of members that can be associated with the 'Teammembers' entity.",
     "merged_entity_mapping": {
-      "types": [],
-      "superclasses": [],
-      "equivalent_classes": [],
       "properties": [],
       "annotations": [],
       "property_values": {},
-      "chunk_id": [],
+      "equivalent_classes": [],
       "members": [
         "Amin Rezaei",
         "August Blicher Friis",
@@ -4875,7 +4864,10 @@
         "Miriam Cabrita",
         "Morten Kj\u00e6rgaard",
         "Renata Oliveira"
-      ]
+      ],
+      "chunk_id": [],
+      "types": [],
+      "superclasses": []
     },
     "merged_object_mapping": null,
     "checks": [
@@ -5023,16 +5015,16 @@
     "generated_answer": "The support articles include: SENS motionApp for Smartphone, SENS motionApp Sensor and Patch, SENS motionApp Web Application, and FAQ.",
     "reasoning": "The 'SupportArticle' entity is a member of the 'members' collection within the ontology.",
     "merged_entity_mapping": {
-      "types": [],
-      "superclasses": [],
-      "equivalent_classes": [],
       "properties": [],
       "annotations": [],
       "property_values": {},
-      "chunk_id": [],
+      "equivalent_classes": [],
       "members": [
         "FAQ"
-      ]
+      ],
+      "chunk_id": [],
+      "types": [],
+      "superclasses": []
     },
     "merged_object_mapping": null,
     "checks": [
@@ -5156,11 +5148,11 @@
         ],
         "superclasses": {
           "MonitoringSystem": [
+            "PhysicalObject",
             "InformationObject",
-            "Publication",
             "Collection",
-            "SocialObject",
-            "PhysicalObject"
+            "Publication",
+            "SocialObject"
           ],
           "NamedIndividual": []
         },
@@ -5204,16 +5196,16 @@
     "generated_answer": "I can't answer the question.",
     "reasoning": "The ontology information provided does not contain any specific data about publications or a list of publications for the entity 'SENS Motion' from the year 2018.",
     "merged_entity_mapping": {
-      "types": [],
-      "superclasses": [
-        "Publication"
-      ],
-      "equivalent_classes": [],
       "properties": [],
       "annotations": [],
       "property_values": {},
+      "equivalent_classes": [],
+      "members": [],
       "chunk_id": [],
-      "members": []
+      "types": [],
+      "superclasses": [
+        "Publication"
+      ]
     },
     "merged_object_mapping": null,
     "checks": [
@@ -5337,11 +5329,11 @@
         ],
         "superclasses": {
           "MonitoringSystem": [
+            "PhysicalObject",
             "InformationObject",
-            "Publication",
             "Collection",
-            "SocialObject",
-            "PhysicalObject"
+            "Publication",
+            "SocialObject"
           ],
           "NamedIndividual": []
         },
@@ -5385,14 +5377,14 @@
     "generated_answer": "I can't answer the question.",
     "reasoning": "The ontology information provided does not contain any explicit mention of 'Privacy Policy' or a list of services covered by it. Therefore, it is not possible to confirm or deny the inclusion of 'SENS motion' in such a list.",
     "merged_entity_mapping": {
-      "types": [],
-      "superclasses": [],
-      "equivalent_classes": [],
       "properties": [],
       "annotations": [],
       "property_values": {},
+      "equivalent_classes": [],
+      "members": [],
       "chunk_id": [],
-      "members": []
+      "types": [],
+      "superclasses": []
     },
     "merged_object_mapping": null,
     "checks": [
@@ -5518,9 +5510,9 @@
             "MobileApplication"
           ],
           "SmartphoneApp": [
+            "Event",
             "InformationObject",
-            "DataTransferProcess",
-            "Event"
+            "DataTransferProcess"
           ],
           "NamedIndividual": []
         },
@@ -5552,16 +5544,16 @@
       "object_context": null
     },
     "generated_answer": "I can't answer the question.",
-    "reasoning": "The ontology information provided does not contain any data related to 'SENS Innovation ApS' or its 'members'. Therefore, it is not possible to confirm or deny the membership of 'DEMOS\u201110' in 'SENS Innovation ApS'.",
+    "reasoning": "The ontology information provided does not contain any data related to 'SENS Innovation ApS' or its 'members'. Therefore, it is not possible to confirm or deny the membership of 'DEMOS\u201110' in 'SENS Innovation ApS' based on the provided ontology information.",
     "merged_entity_mapping": {
-      "types": [],
-      "superclasses": [],
-      "equivalent_classes": [],
       "properties": [],
       "annotations": [],
       "property_values": {},
+      "equivalent_classes": [],
+      "members": [],
       "chunk_id": [],
-      "members": []
+      "types": [],
+      "superclasses": []
     },
     "merged_object_mapping": null,
     "checks": [
@@ -5704,16 +5696,16 @@
     "generated_answer": "I can't answer the question.",
     "reasoning": "The ontology information provided does not contain any specific 'members' or 'memberships' related to the 'Service' class, which is associated with 'services'. Therefore, it is not possible to confirm or deny the membership of 'Lifetrack' in the 'services' list under the 'Privacy Policy' based on the provided ontology information.",
     "merged_entity_mapping": {
-      "types": [
-        "Class"
-      ],
-      "superclasses": [],
-      "equivalent_classes": [],
       "properties": [],
       "annotations": [],
       "property_values": {},
+      "equivalent_classes": [],
+      "members": [],
       "chunk_id": [],
-      "members": []
+      "types": [
+        "Class"
+      ],
+      "superclasses": []
     },
     "merged_object_mapping": null,
     "checks": [
@@ -5858,17 +5850,17 @@
     "generated_answer": "The 'MotivationalApp' is not included in the 'SENS motion \u2013 For Healthcare package'.",
     "reasoning": "The 'MotivationalApp' is a 'Class' and a 'HealthcareApp', which is a type of 'InformationObject'. However, the 'members' list is empty, indicating that the 'MotivationalApp' is not included in the 'SENS motion \u2013 For Healthcare package'.",
     "merged_entity_mapping": {
+      "properties": [],
+      "annotations": [],
+      "property_values": {},
+      "equivalent_classes": [],
+      "members": [],
+      "chunk_id": [],
       "types": [],
       "superclasses": [
         "HealthcareApp",
         "InformationObject"
-      ],
-      "equivalent_classes": [],
-      "properties": [],
-      "annotations": [],
-      "property_values": {},
-      "chunk_id": [],
-      "members": []
+      ]
     },
     "merged_object_mapping": null,
     "checks": [
@@ -5951,14 +5943,14 @@
     "generated_answer": "I can't answer the question.",
     "reasoning": "The ontology information provided does not contain any data related to the costs of the Low Activity Patch or the High Activity Patch, which are the entities in question.",
     "merged_entity_mapping": {
-      "types": [],
-      "superclasses": [],
-      "equivalent_classes": [],
       "properties": [],
       "annotations": [],
       "property_values": {},
+      "equivalent_classes": [],
+      "members": [],
       "chunk_id": [],
-      "members": []
+      "types": [],
+      "superclasses": []
     },
     "merged_object_mapping": null,
     "checks": [
@@ -6087,10 +6079,10 @@
         ],
         "superclasses": {
           "ActivityDataSensor": [
-            "ActivityDataTypes",
             "InformationObject",
+            "PhysicalObject",
             "InformationRealization",
-            "PhysicalObject"
+            "ActivityDataTypes"
           ],
           "NamedIndividual": []
         },
@@ -6211,8 +6203,8 @@
           "ResearchStudy": [
             "InformationObject",
             "Collection",
-            "SocialObject",
-            "Publication"
+            "Publication",
+            "SocialObject"
           ],
           "NamedIndividual": []
         },
@@ -6250,24 +6242,24 @@
     "generated_answer": "I can't answer the question.",
     "reasoning": "The ontology information provided does not contain any direct comparison between the SENS Motion activity sensor and reference accelerometers. It only provides details about the SENS Motion activity sensor, such as its types, properties, and related information. There is no information available to compare it to reference accelerometers.",
     "merged_entity_mapping": {
-      "types": [],
-      "superclasses": [],
-      "equivalent_classes": [],
       "properties": [],
       "annotations": [],
       "property_values": {},
+      "equivalent_classes": [],
+      "members": [],
       "chunk_id": [],
-      "members": []
+      "types": [],
+      "superclasses": []
     },
     "merged_object_mapping": {
-      "types": [],
-      "superclasses": [],
-      "equivalent_classes": [],
       "properties": [],
       "annotations": [],
       "property_values": {},
+      "equivalent_classes": [],
+      "members": [],
       "chunk_id": [],
-      "members": []
+      "types": [],
+      "superclasses": []
     },
     "checks": [
       {
@@ -6431,14 +6423,14 @@
     "generated_answer": "I can't answer the question.",
     "reasoning": "The provided ontology information does not contain any data related to the effects of physical inactivity on different age groups, such as elderly or younger patients.",
     "merged_entity_mapping": {
-      "types": [],
-      "superclasses": [],
-      "equivalent_classes": [],
       "properties": [],
       "annotations": [],
       "property_values": {},
+      "equivalent_classes": [],
+      "members": [],
       "chunk_id": [],
-      "members": []
+      "types": [],
+      "superclasses": []
     },
     "merged_object_mapping": null,
     "checks": [
@@ -6584,9 +6576,9 @@
             "MobileApplication"
           ],
           "SmartphoneApp": [
+            "Event",
             "InformationObject",
-            "DataTransferProcess",
-            "Event"
+            "DataTransferProcess"
           ],
           "SoftwareFeature": [
             "PhysicalObject",
@@ -6748,26 +6740,26 @@
     "generated_answer": "I can't answer the question.",
     "reasoning": "The ontology information provided does not contain any data that can be used to directly compare the SENS motion motivational app with a bedside tablet. The information given is about the SENS motion app, but there is no information provided about a bedside tablet, its features, or its comparison to other products.",
     "merged_entity_mapping": {
+      "properties": [],
+      "annotations": [],
+      "property_values": {},
+      "equivalent_classes": [],
+      "members": [],
+      "chunk_id": [],
       "types": [
         "App"
       ],
-      "superclasses": [],
-      "equivalent_classes": [],
-      "properties": [],
-      "annotations": [],
-      "property_values": {},
-      "chunk_id": [],
-      "members": []
+      "superclasses": []
     },
     "merged_object_mapping": {
-      "types": [],
-      "superclasses": [],
-      "equivalent_classes": [],
       "properties": [],
       "annotations": [],
       "property_values": {},
+      "equivalent_classes": [],
+      "members": [],
       "chunk_id": [],
-      "members": []
+      "types": [],
+      "superclasses": []
     },
     "checks": [
       {
@@ -7061,24 +7053,24 @@
     "generated_answer": "I can't answer the question.",
     "reasoning": "The ontology information provided does not contain any details that would indicate a difference between 'SENS motion \u2013 For Healthcare' and 'SENS motion \u2013 For Research' packages. Both are described as 'SENS motion' and 'SENS motion app for smartphone and tablet', with no further distinguishing features or properties provided in the ontology that would suggest a difference in scope, features, or target audience between the two.",
     "merged_entity_mapping": {
-      "types": [],
-      "superclasses": [],
-      "equivalent_classes": [],
       "properties": [],
       "annotations": [],
       "property_values": {},
+      "equivalent_classes": [],
+      "members": [],
       "chunk_id": [],
-      "members": []
+      "types": [],
+      "superclasses": []
     },
     "merged_object_mapping": {
-      "types": [],
-      "superclasses": [],
-      "equivalent_classes": [],
       "properties": [],
       "annotations": [],
       "property_values": {},
+      "equivalent_classes": [],
+      "members": [],
       "chunk_id": [],
-      "members": []
+      "types": [],
+      "superclasses": []
     },
     "checks": [
       {
@@ -7307,14 +7299,6 @@
     "generated_answer": "The SENS motion system and traditional patient monitoring methods are both types of medical devices, but the SENS motion system is a sensor-based device, while traditional patient monitoring methods are a type of online monitoring tool.",
     "reasoning": "The SENS motion system is a SensorDevice, which is a type of PhysicalObject and a NamedIndividual. It has a part called 'SENS motion PLUS sensor'. Traditional patient monitoring methods are an OnlineMonitoringTool, which is a type of Action and a NamedIndividual. They have a property 'hasPart' with 'SENS motion PLUS sensor'.",
     "merged_entity_mapping": {
-      "types": [
-        "NamedIndividual",
-        "SensorDevice"
-      ],
-      "superclasses": [
-        "PhysicalObject"
-      ],
-      "equivalent_classes": [],
       "properties": [
         "hasPart"
       ],
@@ -7322,23 +7306,31 @@
       "property_values": {
         "hasPart": "sens motion plus medical device system"
       },
+      "equivalent_classes": [],
+      "members": [],
       "chunk_id": [],
-      "members": []
+      "types": [
+        "NamedIndividual",
+        "SensorDevice"
+      ],
+      "superclasses": [
+        "PhysicalObject"
+      ]
     },
     "merged_object_mapping": {
+      "properties": [],
+      "annotations": [],
+      "property_values": {},
+      "equivalent_classes": [],
+      "members": [],
+      "chunk_id": [],
       "types": [
         "NamedIndividual",
         "OnlineMonitoringTool"
       ],
       "superclasses": [
         "Action"
-      ],
-      "equivalent_classes": [],
-      "properties": [],
-      "annotations": [],
-      "property_values": {},
-      "chunk_id": [],
-      "members": []
+      ]
     },
     "checks": [
       {
@@ -7559,8 +7551,8 @@
           "ResearchStudy": [
             "InformationObject",
             "Collection",
-            "SocialObject",
-            "Publication"
+            "Publication",
+            "SocialObject"
           ],
           "NamedIndividual": []
         },
@@ -7596,30 +7588,46 @@
       }
     },
     "generated_answer": "I can't answer the question.",
-    "reasoning": "The ontology information provided does not contain any explicit comparison between 'Pilot Package' and 'standard SENS motion deployments'. Without comparative data, it is not possible to determine how the 'Pilot Package' differs from 'standard SENS motion deployments'.",
+    "reasoning": "The ontology information provided does not contain any direct comparison between 'Pilot Package' and 'standard SENS motion deployments'. It only describes the 'Pilot Package' as a 'PackageOffer' with various properties such as 'offerAmount', 'offerLocation', 'offerPeriod', and 'title', and it also describes 'SENS motion accelerometers' as a 'ResearchStudy' with properties like 'hasDOI' and 'hasKeyFindings'. However, there is no information provided that explicitly states how the 'Pilot Package' differs from 'standard SENS motion deployments'.",
     "merged_entity_mapping": {
-      "types": [],
-      "superclasses": [],
-      "equivalent_classes": [],
       "properties": [
+        "offerAmount",
+        "offerLocation",
+        "offerPeriod",
         "title"
       ],
       "annotations": [],
       "property_values": {
+        "offerAmount": "19.995",
+        "offerLocation": "clinical ward",
+        "offerPeriod": "3 months",
         "title": "pilot package"
       },
+      "equivalent_classes": [],
+      "members": [],
       "chunk_id": [],
-      "members": []
+      "types": [
+        "PackageOffer"
+      ],
+      "superclasses": []
     },
     "merged_object_mapping": {
-      "types": [],
-      "superclasses": [],
-      "equivalent_classes": [],
-      "properties": [],
+      "properties": [
+        "hasDOI",
+        "hasKeyFindings"
+      ],
       "annotations": [],
-      "property_values": {},
+      "property_values": {
+        "hasDOI": "https://doi.org/10.1007/s00431-023-05014-z",
+        "hasKeyFindings": "validation of sens motion\u00ae accelerometers in child and adolescent research accurate measurement of physical activity and sedentary behaviour applicable in large-scale research projects with children and adolescents"
+      },
+      "equivalent_classes": [],
+      "members": [],
       "chunk_id": [],
-      "members": []
+      "types": [
+        "ResearchStudy"
+      ],
+      "superclasses": []
     },
     "checks": [
       {
@@ -7824,9 +7832,6 @@
     "generated_answer": "The Change of Patch Guide has 9 steps.",
     "reasoning": "The ontology information provides the number of steps in the 'Change of Patch Guide'.",
     "merged_entity_mapping": {
-      "types": [],
-      "superclasses": [],
-      "equivalent_classes": [],
       "properties": [
         "hasStepNumber"
       ],
@@ -7834,8 +7839,11 @@
       "property_values": {
         "hasStepNumber": "9"
       },
+      "equivalent_classes": [],
+      "members": [],
       "chunk_id": [],
-      "members": []
+      "types": [],
+      "superclasses": []
     },
     "merged_object_mapping": null,
     "checks": [
@@ -7880,6 +7888,189 @@
         "passed": true,
         "expected": "Change of Patch Guide",
         "actual": "Change of Patch Guide"
+      },
+      {
+        "name": "fuzzy_object_match",
+        "passed": true,
+        "expected": "null",
+        "actual": "null"
+      }
+    ]
+  },
+   {
+    "case": {
+      "id": "q44",
+      "question_type": "quantification",
+      "answer_form": "value",
+      "question": "How many publications does SENS Motion have from 2018?",
+      "gold_answer": "1 publication",
+      "source": "healthcare/_index.en::c0002",
+      "expected_entity": "SENS Motion",
+      "expected_object": "null"
+    },
+    "question_info": {
+      "atomic_question": "How many publications does SENS Motion have from 2018?",
+      "question_type": "quantification",
+      "answer_form": "value",
+      "entity": {
+        "value": "SENS Motion",
+        "type": null
+      },
+      "relation": "count",
+      "object": {
+        "value": "null",
+        "type": null
+      }
+    },
+    "fetched": {
+      "question_info": {
+        "atomic_question": "How many publications does SENS Motion have from 2018?",
+        "question_type": "quantification",
+        "answer_form": "value",
+        "entity": {
+          "value": "SENS Motion",
+          "type": null
+        },
+        "relation": "count",
+        "object": {
+          "value": "null",
+          "type": null
+        }
+      },
+      "resolved_entity": {
+        "uri": "http://example.org/sensInnovationAps_ontology#SENS%20motion",
+        "label": "SENS motion",
+        "score": 1.0,
+        "labels": [
+          "SENS motion"
+        ],
+        "entity_type": "NamedIndividual",
+        "types": [
+          "Collection",
+          "InformationObject",
+          "MonitoringSystem",
+          "PhysicalObject",
+          "Publication",
+          "SocialObject"
+        ],
+        "superclasses": [],
+        "object_properties": {},
+        "data_properties": {},
+        "annotations": {}
+      },
+      "entity_context": {
+        "scope_note": "All information in this object is directly related to the resolved entity of the atomic question.",
+        "label": "SENS motion",
+        "types": [
+          "MonitoringSystem",
+          "NamedIndividual"
+        ],
+        "superclasses": {
+          "MonitoringSystem": [
+            "SocialObject",
+            "Collection",
+            "Publication",
+            "PhysicalObject",
+            "InformationObject"
+          ],
+          "NamedIndividual": []
+        },
+        "equivalent_classes": [],
+        "properties_by_type": {
+          "MonitoringSystem": {
+            "outgoing_object_properties": [
+              {
+                "property": "hasPart",
+                "object": "Article ID 9230081"
+              }
+            ],
+            "outgoing_data_properties": [
+              {
+                "property": "hasDOI",
+                "value": "https://doi.org/10.1155/2022/9230081",
+                "datatype": "string"
+              }
+            ],
+            "incoming_object_properties": [
+              {
+                "subject": "Article ID 9230081",
+                "property": "hasPart"
+              }
+            ],
+            "incoming_data_properties": []
+          },
+          "NamedIndividual": {
+            "outgoing_object_properties": [],
+            "outgoing_data_properties": [],
+            "incoming_object_properties": [],
+            "incoming_data_properties": []
+          }
+        },
+        "members": [],
+        "chunk_id": [
+          "9"
+        ]
+      },
+      "resolved_object": null,
+      "object_context": null
+    },
+    "generated_answer": "I can't answer the question.",
+    "reasoning": "The ontology information provided does not contain any specific data about the number of publications for SENS Motion, especially from the year 2018.",
+    "merged_entity_mapping": {
+      "property_values": {},
+      "equivalent_classes": [],
+      "types": [],
+      "members": [],
+      "chunk_id": [],
+      "properties": [],
+      "annotations": [],
+      "superclasses": [
+        "Publication"
+      ]
+    },
+    "merged_object_mapping": null,
+    "checks": [
+      {
+        "name": "correct_question_type",
+        "passed": true,
+        "expected": "quantification",
+        "actual": "quantification"
+      },
+      {
+        "name": "correct_answer_form",
+        "passed": true,
+        "expected": "value",
+        "actual": "value"
+      },
+      {
+        "name": "correct_entity_extraction",
+        "passed": true,
+        "expected": "SENS Motion",
+        "actual": "SENS Motion"
+      },
+      {
+        "name": "correct_object_extraction",
+        "passed": true,
+        "expected": "null",
+        "actual": "null"
+      },
+      {
+        "name": "entity_resolved",
+        "passed": true,
+        "expected": true,
+        "actual": "SENS motion"
+      },
+      {
+        "name": "fuzzy_answer_match",
+        "passed": false,
+        "expected": "1 publication",
+        "actual": "I can't answer the question."
+      },
+      {
+        "name": "fuzzy_entity_match",
+        "passed": true,
+        "expected": "SENS Motion",
+        "actual": "SENS Motion"
       },
       {
         "name": "fuzzy_object_match",
@@ -7990,14 +8181,14 @@
     "generated_answer": "I can't answer the question.",
     "reasoning": "The provided ontology information does not contain any data related to the number of steps or any quantifiable information about steps.",
     "merged_entity_mapping": {
-      "types": [],
-      "superclasses": [],
-      "equivalent_classes": [],
       "properties": [],
       "annotations": [],
       "property_values": {},
+      "equivalent_classes": [],
+      "members": [],
       "chunk_id": [],
-      "members": []
+      "types": [],
+      "superclasses": []
     },
     "merged_object_mapping": null,
     "checks": [
@@ -8142,18 +8333,18 @@
     "generated_answer": "The number of support articles listed in the provided ontology information is 1.",
     "reasoning": "The ontology information provided does not contain a direct count of 'support articles' but lists 'FAQ' as a member of the 'SupportArticle' class.",
     "merged_entity_mapping": {
-      "types": [
-        "Class"
-      ],
-      "superclasses": [],
-      "equivalent_classes": [],
       "properties": [],
       "annotations": [],
       "property_values": {},
-      "chunk_id": [],
+      "equivalent_classes": [],
       "members": [
         "FAQ"
-      ]
+      ],
+      "chunk_id": [],
+      "types": [
+        "Class"
+      ],
+      "superclasses": []
     },
     "merged_object_mapping": null,
     "checks": [
@@ -8308,14 +8499,14 @@
     "generated_answer": "I can't answer the question.",
     "reasoning": "The ontology information provided does not specify the number of steps to add a participant.",
     "merged_entity_mapping": {
-      "types": [],
-      "superclasses": [],
-      "equivalent_classes": [],
       "properties": [],
       "annotations": [],
       "property_values": {},
+      "equivalent_classes": [],
+      "members": [],
       "chunk_id": [],
-      "members": []
+      "types": [],
+      "superclasses": []
     },
     "merged_object_mapping": null,
     "checks": [
@@ -8468,16 +8659,16 @@
     "generated_answer": "There are 12 Teammembers.",
     "reasoning": "The question 'How many Teammembers are there?' is a quantification question asking for the number of instances of the entity 'Teammembers'. According to the provided ontology information, the 'TeamMember' class has a 'members' property which is a list of individuals. By counting the number of individuals in the 'members' list, we can determine the number of Teammembers.",
     "merged_entity_mapping": {
-      "types": [
-        "Class"
-      ],
-      "superclasses": [],
-      "equivalent_classes": [],
       "properties": [],
       "annotations": [],
       "property_values": {},
+      "equivalent_classes": [],
+      "members": [],
       "chunk_id": [],
-      "members": []
+      "types": [
+        "Class"
+      ],
+      "superclasses": []
     },
     "merged_object_mapping": null,
     "checks": [
@@ -8601,11 +8792,11 @@
         ],
         "superclasses": {
           "MonitoringSystem": [
+            "PhysicalObject",
             "InformationObject",
-            "Publication",
             "Collection",
-            "SocialObject",
-            "PhysicalObject"
+            "Publication",
+            "SocialObject"
           ],
           "NamedIndividual": []
         },
@@ -8651,14 +8842,14 @@
     "generated_answer": "I can't answer the question.",
     "reasoning": "The ontology information provided does not contain any explicit information about the number of activity categories that SENS motion measures.",
     "merged_entity_mapping": {
-      "types": [],
-      "superclasses": [],
-      "equivalent_classes": [],
       "properties": [],
       "annotations": [],
       "property_values": {},
+      "equivalent_classes": [],
+      "members": [],
       "chunk_id": [],
-      "members": []
+      "types": [],
+      "superclasses": []
     },
     "merged_object_mapping": null,
     "checks": [

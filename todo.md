@@ -163,11 +163,16 @@
             -- Verify it.
         -- input-to-graph-tests (7/10 DONE)
             -- Cascade vs. direct failure is NOT accounted for in the interpretation script yet.
-        -- E2E-source-tests (pending)
-            -- dataset is automatically generated, needs to be revised 
+        -- E2E-source-tests (9/10 DONE)
+            -- dataset is automatically generated, needs to be revised (DONE)
                 -- chunk_id needs to be added. It is currently added incocnsistently and wrong. (DONE)
-                -- Manually go through each question-type qeustion:
+                -- Manually go through each question-type qeustion: (DONE)
                     -- progress: 7/7 question-types have been gone through and validated
+        - Implement RAG Baseline (DONE)
+        - Manually evaluate RAG & GIG on E2E-source-tests
+            - Define metrics (9/10 DONE)
+            - Create manual-evaluation-script (9/10 DONE)
+            - Manually evaluate ((2/10 DONE))
                 
 
         -- Large End-to-End using real ttl with questions based on source
@@ -179,6 +184,7 @@
             -- generate_answer
             -- map_answer
             -- Validate_answer
+
         -- end-to-end inference-module testing
 
 

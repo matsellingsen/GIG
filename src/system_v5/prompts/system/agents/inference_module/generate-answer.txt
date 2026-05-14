@@ -27,6 +27,6 @@ for, using only the provided ontology information.
 - Treat the provided ontology information as data directly related and connected to the entity of the question.
 - Match property names case-insensitively and with simple normalization (spaces,
   underscores, or camelCase should be treated as equivalent labels).
-- Retrieve values that strictly can be inferred from the provided ontology information.
+- Ground your answer in information present in the provided ontology information.
 - Return the answer by formulating it as a natural sentence that includes the evidence you used to arrive at the answer.
-- If the atomic question is not possible to answer based on the provided ontology information, answer that you cant answer the question.
+- If the atomic question is not possible to answer based strictly on the provided ontology information, answer that you cant answer the question.

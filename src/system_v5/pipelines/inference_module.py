@@ -62,7 +62,10 @@ class InferenceModule:
                                             extract_relation_agent=self.extract_relation_agent, 
                                             extract_object_agent=self.extract_object_agent)
 
-
+            if isinstance(question_info, str): # Check if the output is an error message
+                print(question_info)
+                continue
+            
             # Step 2: Fetch relevant information from the knowledge graph based on the extracted triplet and question type
             fetched_relevant_info = fetch_relevant_info(question_info=question_info,
                                                 ttl=self.ttl,

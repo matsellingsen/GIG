@@ -53,51 +53,51 @@
     "id": "q06",
     "question_type": "definition",
     "answer_form": "value",
-    "question": "What is the SENS motion Pilot Package?",
+    "question": "What is the Pilot package?",
     "gold_answer": "An introductory offer allowing use of SENS motion in a clinical ward for 3 months with up to 120 patients.",
     "source": "healthcare/_index.en::c0000",
-    "expected_entity": "SENS motion Pilot Package",
+    "expected_entity": "Pilot Package",
     "expected_object": null
   },
   {
     "id": "q07",
     "question_type": "definition",
     "answer_form": "value",
-    "question": "What is SENS Motion - Connect?",
-    "gold_answer": "SENS Motion - Connect is an OEM Platform for medical sensors.",
+    "question": "What is SENS Motion® - Connect?",
+    "gold_answer": "SENS Motion® - Connect is an OEM Platform for medical sensors.",
     "source": "privacy-policy/_index.en::c0000",
-    "expected_entity": "SENS Motion - Connect",
+    "expected_entity": "SENS Motion® - Connect",
     "expected_object": null
   },
   {
     "id": "q08",
     "question_type": "taxonomic",
     "answer_form": "assertion",
-    "question": "Is SENS motion a type of certified medical device?",
-    "gold_answer": "yes, SENS motion is a certified medical device.",
+    "question": "Is the SENS Motion sensor a physical object?",
+    "gold_answer": "yes, the SENS Motion sensor is a physical object.",
     "source": "healthcare/_index.en::c0000",
-    "expected_entity": "SENS motion",
-    "expected_object": "certified medical device"
+    "expected_entity": "SENS Motion sensor",
+    "expected_object": "physical object"
   },
   {
     "id": "q09",
     "question_type": "taxonomic",
     "answer_form": "assertion",
-    "question": "Is SENS Innovation ApS a type of developer of medical sensor products?",
-    "gold_answer": "yes, SENS Innovation ApS is a developer of medical sensor products.",
+    "question": "Is SENS Innovation ApS a company?",
+    "gold_answer": "yes, SENS Innovation ApS is a company.",
     "source": "about/_index.en::c0000",
     "expected_entity": "SENS Innovation ApS",
-    "expected_object": "developer of medical sensor products"
+    "expected_object": "company"
   },
   {
     "id": "q10",
     "question_type": "taxonomic",
     "answer_form": "assertion",
-    "question": "Is the SENS motion activity sensor a type of discrete wearable activity sensor?",
-    "gold_answer": "yes, the SENS motion activity sensor is a type of discrete wearable activity sensor.",
+    "question": "Is SENS Motion a type of Research trial?",
+    "gold_answer": "I can't answer the question",
     "source": "_index.en::c0000",
-    "expected_entity": "SENS motion activity sensor",
-    "expected_object": "discrete wearable activity sensor"
+    "expected_entity": "SENS Motion",
+    "expected_object": "Research trial"
   },
   {
     "id": "q11",
@@ -113,10 +113,10 @@
     "id": "q12",
     "question_type": "taxonomic",
     "answer_form": "assertion",
-    "question": "Is SENS Innovation ApS a type of data controller?",
+    "question": "Is Mats Ellingsen a type of study?",
     "gold_answer": "I can't answer the question",
-    "expected_entity": "SENS Innovation ApS",
-    "expected_object": "data controller"
+    "expected_entity": "Mats Ellingsen",
+    "expected_object": "study"
   },
   {
     "id": "q13",
@@ -235,6 +235,16 @@
     "source": "healthcare/_index.en::c0000",
     "expected_entity": "Pilot Package",
     "expected_object": "max amount of participants"
+  },
+  {
+    "id": "q25",
+    "question_type": "property",
+    "answer_form": "value",
+    "question": "What is Morten Kjærgaards role?",
+    "gold_answer": "CTO & Founder",
+    "source": "about/_index.en::c0000",
+    "expected_entity": "Morten Kjærgaard",
+    "expected_object": "role"
   },
   {
     "id": "q26",
@@ -420,10 +430,10 @@
     "id": "q44",
     "question_type": "quantification",
     "answer_form": "value",
-    "question": "How many axes does the SENS Activity sensor accelerometer have?",
-    "gold_answer": "The accelerometer has 3 axes.",
+    "question": "How many publications does SENS Motion have from 2018?",
+    "gold_answer": "1 publication",
     "source": "healthcare/_index.en::c0002",
-    "expected_entity": "SENS Motion activity sensor accelerometer",
+    "expected_entity": "SENS Motion",
     "expected_object": "null"
   },
   {

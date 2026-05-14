@@ -34,7 +34,7 @@ def atomic_to_graph(atomic_input: str, extract_question_type_agent: ExtractQuest
     question_type, _ = extract_question_type_agent.run(atomic_input)
     print(f"Extracted question type: {question_type}")
     if not question_type: # Handle empty or None question type
-        question_type = {"question_type": "unknown"}
+        return "Couldn't understand the question. PLease rephrase and try again."
     answer_form, _ = extract_answer_form_agent.run(atomic_input, question_type=question_type)
     print(f"Extracted answer form: {answer_form}")
     entity, _ = extract_entity_agent.run(atomic_input, question_classification=question_type)

@@ -18,10 +18,10 @@ REPORT_PATH = os.path.abspath(
 )
 CLASS_OPTIONS = [
     "Correct (Ground Truth)",
-    "Correct (Context)",
-    "Acceptable",
+    "Incomplete",
     "Unprecise",
-    "Incorrect",
+    "Incorrect (false information)",
+    "Incorrect (vague information)",
     "Incorrect Abstain",
     "Correct Abstain",
 ]
@@ -142,7 +142,8 @@ def _format_mapping(mapping):
 
     return "\n".join(lines)
 
-def load_RAG_data(path):
+@st.cache_data
+def load_RAG_data(path, file_mtime=None):
     """
     Load RAG results from a JSON file and normalize them into the format
     expected by the Streamlit evaluation tool.
@@ -187,7 +188,8 @@ def load_RAG_data(path):
 
     return normalized
 
-def load_GIG_data(path):
+@st.cache_data
+def load_GIG_data(path, file_mtime=None):
     """
     Load GIG results from a JSON file and normalize them into the format
     expected by the Streamlit evaluation tool.
@@ -282,7 +284,49 @@ def merge_datasets(gig_data, rag_data):
 
     return merged
 
-questions = merge_datasets(load_GIG_data(GIG_DATA), load_RAG_data(RAG_DATA))
+@st.cache_data
+def load_already_evaluated(path, file_mtime=None):
+    """
+    Load already evaluated question IDs from the report file to avoid duplicates.
+    Cache key includes file_mtime so cache invalidates when file is updated.
+    """
+    if not os.path.exists(path):
+        return set()
+
+    evaluated_ids = []
+    with open(path, "r", encoding="utf-8") as f:
+        for line in f:
+            if not line.strip():
+                continue
+            record = json.loads(line)
+            evaluated_ids.append((record.get("question_id"), record.get("system")))
+
+    return evaluated_ids
+
+@st.cache_data
+def load_merged_questions(gig_path, rag_path, gig_mtime=None, rag_mtime=None):
+    """
+    Load and merge datasets. Cache key includes file mtimes so cache invalidates
+    when input files are updated.
+    """
+    return merge_datasets(
+        load_GIG_data(gig_path, file_mtime=gig_mtime),
+        load_RAG_data(rag_path, file_mtime=rag_mtime),
+    )
+
+# Get file modification times for cache invalidation
+def _get_file_mtime(path):
+    if os.path.exists(path):
+        return os.path.getmtime(path)
+    return 0
+
+evaluated_ids_x_systemType = load_already_evaluated(REPORT_PATH, file_mtime=_get_file_mtime(REPORT_PATH))
+questions = load_merged_questions(
+    GIG_DATA,
+    RAG_DATA,
+    gig_mtime=_get_file_mtime(GIG_DATA),
+    rag_mtime=_get_file_mtime(RAG_DATA),
+)
 # ---------------------------------------------------------
 # STATE MANAGEMENT
 # ---------------------------------------------------------
@@ -312,11 +356,32 @@ if st.session_state.index >= len(questions):
 
 q = questions[st.session_state.index]
 
+
 # Randomize system order per question
 if st.session_state.index not in st.session_state.system_order:
     st.session_state.system_order[st.session_state.index] = random.choice(["systemA", "systemB"])
 
 current_system = st.session_state.system_order[st.session_state.index]
+
+# Determine which systems still need evaluation
+needs_A = (q["id"], "systemA") not in evaluated_ids_x_systemType
+needs_B = (q["id"], "systemB") not in evaluated_ids_x_systemType
+
+# Decide which system to show
+if needs_A and needs_B:
+    # Randomize only when both are available
+    current_system = st.session_state.system_order.get(
+        st.session_state.index,
+        random.choice(["systemA", "systemB"])
+    )
+elif needs_A:
+    current_system = "systemA"
+elif needs_B:
+    current_system = "systemB"
+else:
+    # Both done → skip
+    st.session_state.index += 1
+    st.rerun()
 
 st.header(f"Question {st.session_state.index + 1}/{len(questions)}")
 st.write(q["question"])
@@ -327,6 +392,9 @@ st.write(q["question"])
 
 if current_system == "systemA":
     st.subheader("System Output")
+
+    st.markdown("### Gold Answer")
+    st.text_area("", value=q["gold_answer"])
 
     st.markdown("### Final Answer")
     st.text_area("", value=q["systemA"]["answer"])
@@ -346,9 +414,6 @@ if current_system == "systemA":
     st.markdown("### Mapped Object Answer")
     st.code(q["systemA"]["mapped_answer_object"])
 
-    
-
-    
 
     chosen = st.radio("Classification", CLASS_OPTIONS, key=f"classA_{st.session_state.index}")
 
@@ -367,7 +432,10 @@ if current_system == "systemA":
             "mapped_answer_object": q["systemA"]["mapped_answer_object"],
 
         })
-        st.session_state.index += 1
+        # Do not advance question index here. Rerun so the remaining system
+        # (if any) for the same question can be shown. The script will
+        # re-evaluate which system still needs annotation and advance only
+        # when both systems are completed.
         st.rerun()
 
 # ---------------------------------------------------------
@@ -376,6 +444,9 @@ if current_system == "systemA":
 
 else:
     st.subheader("System Output")
+
+    st.markdown("### Gold Answer")
+    st.text_area("", value=q["gold_answer"])
 
     st.markdown("### Final Answer")
     st.text_area("", value=q["systemB"]["answer"], height=200)
@@ -396,5 +467,7 @@ else:
             "answer": q["systemB"]["answer"],
             "context": q["systemB"]["context"],
         })
-        st.session_state.index += 1
+        # Same behaviour as for systemA: don't advance index here. Let the
+        # top-level logic determine whether to show the other system or
+        # advance to the next question after both systems are evaluated.
         st.rerun()
