@@ -28,6 +28,13 @@
 
 
 ### System overview
+#### Repository Structure
+- High-level folder hierarchy of the system
+- Purpose of each top-level directory
+- How construction, inference, and backend components are organized
+- How JSON schemas, prompts, and ontology files are stored
+- How tests and evaluation scripts are structured
+
 #### High-Level pipeline overview
 - Illustration of the full system pipeline
 - Explanation of the two major subsystems:
@@ -43,6 +50,35 @@
 - Ontology is built once and reused
 - Inference module never modifies the ontology
 - Guarantees reproducibility and stability
+
+### Backend configurations
+#### Execution environment
+- Description of the runtime environment
+- Local execution setup
+- Dependency management and isolation
+
+#### Deterministic Decoding Settings
+- Temperature and sampling configuration
+- Constraints for reproducible outputs
+- Handling of non-deterministic model behavior
+
+#### JSON Schema Validation
+- Centralized schema definitions
+- Validation of agent outputs
+- Error handling for malformed JSON
+
+#### Runtime Output and Debug Visibility
+- Intermediate outputs from each agent are printed during execution
+- These prints provide step-by-step visibility into the inference process
+- Used primarily for debugging and verifying deterministic behavior
+- No formal logging subsystem is implemented
+
+#### Model Choice
+- Selected model and justification
+- Trade-offs of small vs large models
+- Domain-agnostic suitability
+- Interaction with strict schemas and constrained decoding
+
 
 ### Ontology construction & cleanup module 
 #### Overview
@@ -70,8 +106,6 @@
 
 #### Pipeline go-through
 - Walk through of how the components/agents process the data sequentially
-
-#### 
 
 ### Component details
 #### Agents

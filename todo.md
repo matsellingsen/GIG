@@ -173,7 +173,7 @@
             - Define metrics (9/10 DONE)
             - Create manual-evaluation-script (9/10 DONE)
             - Manually evaluate ((2/10 DONE))
-                
+        - Write System Architecture section
 
 
 TODO: 
