@@ -33,7 +33,6 @@
 - Purpose of each top-level directory
 - How construction, inference, and backend components are organized
 - How JSON schemas, prompts, and ontology files are stored
-- How tests and evaluation scripts are structured
 
 #### High-Level pipeline overview
 - Illustration of the full system pipeline

@@ -11,17 +11,15 @@ from tools.inference_module.input_to_graph import atomic_to_graph
 from tools.inference_module.fetch_relevant_info import fetch_relevant_info
 from tools.inference_module.generate_answer import generate_answer
 from tools.inference_module.map_answer_to_context import map_answer_to_context, merge_mappings
-from tools.inference_module.validate_answer import validate_answer
 
 # Import agents used in the pipeline
 from agent_loop.agents.inference_module.extract_question_type_agent import ExtractQuestionTypeAgent
-from agent_loop.agents.inference_module.resolve_answer_form_agent import ResolveAnswerFormAgent
+from system_v5.agent_loop.agents.inference_module.resolve_answer_form_agent import ResolveAnswerFormAgent
 from agent_loop.agents.inference_module.extract_entity_agent import ExtractEntityAgent
 from agent_loop.agents.inference_module.extract_relation_agent import ExtractRelationAgent
 from agent_loop.agents.inference_module.extract_object_agent import ExtractObjectAgent
 from agent_loop.agents.inference_module.resolve_entity_agent import ResolveEntityAgent
 from agent_loop.agents.inference_module.generate_answer_agent import GenerateAnswerAgent
-from agent_loop.agents.inference_module.validate_answer_agent import ValidateAnswerAgent    
 
 class InferenceModule:
     def __init__(self):
@@ -37,7 +35,6 @@ class InferenceModule:
         self.extract_object_agent = ExtractObjectAgent(backend=self.backend)
         self.resolve_entity_agent = ResolveEntityAgent(backend=self.backend)
         self.generate_answer_agent = GenerateAnswerAgent(backend=self.backend)
-        self.validate_answer_agent = ValidateAnswerAgent(backend=self.backend)
 
         # load ttl for fetching relevant info (this can be moved to a different part of the code if needed, but for simplicity we load it here)
         resolved_ttl_path = resolve_ttl_path(ttl_path=None)
@@ -110,19 +107,7 @@ class InferenceModule:
             print(f"merged entity mapping: {mapped_entity_merged}")
             if object_context is not None:
                 print(f"merged object mapping: {mapped_object_merged}")
-
-            # Step 5: Validate the generated answer based on the question, the extracted triplet, and the retrieved relevant information
-            #validation_result = validate_answer(answer=answer,
-            #                                  question_info=question_info,
-            #                                  entity_context=entity_context,
-            #                                  object_context=object_context,
-            #                                  mapped_entity_answer=mapped_entity_answer,
-            #                                  mapped_object_answer=mapped_object_answer,
-            #                                  validate_answer_agent=self.validate_answer_agent)
-            #if validation_result:
-            #    print(f"Final answer: {answer_text}")
-            #else:
-            #    print("The generated answer did not pass final validation.")
+                
 
 def main():
     inference_module = InferenceModule()
