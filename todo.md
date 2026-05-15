@@ -175,18 +175,6 @@
             - Manually evaluate ((2/10 DONE))
                 
 
-        -- Large End-to-End using real ttl with questions based on source
-            -- 50% answerable
-            -- 50% unanswerable
-        (Only testing semantic/non-deterministic parts)
-        (using real data from the extracted ontology)
-            -- Fetch_relevant_info (doing)
-            -- generate_answer
-            -- map_answer
-            -- Validate_answer
-
-        -- end-to-end inference-module testing
-
 
 TODO: 
 1. Revise the inference agents. A lot can be made deterministic. (partly done)

@@ -4,12 +4,16 @@
     - (2) Context‑faithful reasoning for RAG‑based answers.
        - I.e. answer assertions that are not explicitly supported by the ground truth is deemed wrong.
 
+
 ## Terminology
 ### Precise 
 - The answer expresses the correct meaning using accurate, specific, and semantically appropriate wording, without introducing semantic drift.
 
-- Complete: Answer contains all essential information to answer the question.
-- Ground truth: the source
+### Complete
+- Answer contains all essential information to answer the question.
+
+### Ground truth
+- the source
 
 
 ## metrics
@@ -33,7 +37,6 @@
 
 ### Incorrect (vague information)
 - Not strictly incorrect, but extremely vague and not informational
-
 
 ### Incorrect Abstain 
 - Abstains when answer is answerable based on ground truth
