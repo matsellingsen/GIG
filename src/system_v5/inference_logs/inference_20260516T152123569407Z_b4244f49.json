@@ -1,0 +1,173 @@
+{
+  "input": "What is a sensor?",
+  "resolved_question_type": {
+    "reasoning": "The question is inquiring about the definition, nature, or essence of a 'sensor', which aligns with the 'Definition' question type that seeks the identity or characterization of an entity or concept.",
+    "question_type": "definition"
+  },
+  "resolved_answer_form": {
+    "reasoning": "Deterministically classified answer form based on question type.",
+    "answer_form": "value"
+  },
+  "extracted_entity": {
+    "reasoning": "The question is asking for the definition of the term 'sensor', which is the subject of the inquiry.",
+    "primary_entity": "sensor"
+  },
+  "extracted_relation": {
+    "relation": "be"
+  },
+  "extracted_object": {
+    "reasoning": "Deterministic output",
+    "object": "null"
+  },
+  "resolve_entity_candidates": [
+    {
+      "type": "entity",
+      "entity": "sensor",
+      "candidates": [
+        {
+          "label": "sensor",
+          "score": 1.0,
+          "uri": "http://example.org/sensInnovationAps_ontology#sensor"
+        },
+        {
+          "label": "Sensor",
+          "score": 1.0,
+          "uri": "http://example.org/sensInnovationAps_ontology#Sensor"
+        },
+        {
+          "label": "sensor label",
+          "score": 0.7333333333333334,
+          "uri": "http://example.org/sensInnovationAps_ontology#sensor%20label"
+        }
+      ]
+    }
+  ],
+  "resolved_entity": {
+    "uri": "http://example.org/sensInnovationAps_ontology#sensor",
+    "label": "sensor",
+    "score": 1.0,
+    "labels": [
+      "sensor"
+    ],
+    "entity_type": "NamedIndividual",
+    "types": [
+      "Action",
+      "ActivityOverview",
+      "Attachment",
+      "InformationObject",
+      "InformationRealization",
+      "OnlineVisualizationTool",
+      "ParticipantID",
+      "PhysicalObject",
+      "SensorAttachment",
+      "SensorAttachmentInstructions",
+      "SensorID",
+      "SensorPatch",
+      "SensorPatchRemovalGuide",
+      "SocialObject",
+      "UserInterface",
+      "WebApp",
+      "WebApplication"
+    ],
+    "superclasses": [],
+    "object_properties": {},
+    "data_properties": {},
+    "annotations": {}
+  },
+  "full_entity_equivalents": [
+    {
+      "uri": "http://example.org/sensInnovationAps_ontology#sensor",
+      "equivalent_uris": [
+        "http://example.org/sensInnovationAps_ontology#sensor"
+      ]
+    }
+  ],
+  "full_entity_context_summary": [
+    {
+      "uri": "http://example.org/sensInnovationAps_ontology#sensor",
+      "label": "sensor",
+      "num_types": 8,
+      "num_superclasses_groups": 8,
+      "num_equivalent_classes": 0,
+      "num_properties_types": 8,
+      "num_chunk_ids": 5,
+      "num_members": 0
+    }
+  ],
+  "filtered_context": [
+    {
+      "question_type": "definition",
+      "entity_context_keys": [
+        "scope_note",
+        "label",
+        "types",
+        "superclasses",
+        "equivalent_classes",
+        "annotations",
+        "class_descriptions"
+      ],
+      "object_context_keys": null
+    }
+  ],
+  "normalized_context_summary": [
+    {
+      "entity_context_summary": {
+        "label": "sensor",
+        "num_properties": 0
+      },
+      "object_context_summary": null
+    }
+  ],
+  "generated_answer": {
+    "reasoning": "The ontology information defines 'sensor' as a 'PhysicalObject', which is a piece of information that has a proper space region. This aligns with the atomic question's request for a definition of 'sensor'.",
+    "answer": "A sensor is a piece of information that has a proper space region."
+  },
+  "map_answer_to_context": [
+    {
+      "answer": "The ontology information defines 'sensor' as a 'PhysicalObject', which is a piece of information that has a proper space region. This aligns with the atomic question's request for a definition of 'sensor'.",
+      "types": [],
+      "superclasses": [
+        "InformationObject",
+        "PhysicalObject"
+      ],
+      "equivalent_classes": [],
+      "properties": [],
+      "property_values": {},
+      "annotations": [],
+      "members": [],
+      "chunk_id": []
+    },
+    {
+      "answer": "A sensor is a piece of information that has a proper space region.",
+      "types": [
+        "SensorID"
+      ],
+      "superclasses": [
+        "InformationObject",
+        "PhysicalObject"
+      ],
+      "equivalent_classes": [],
+      "properties": [],
+      "property_values": {},
+      "annotations": [],
+      "members": [],
+      "chunk_id": []
+    }
+  ],
+  "mapped_entity_merged": {
+    "members": [],
+    "superclasses": [
+      "InformationObject",
+      "PhysicalObject"
+    ],
+    "properties": [],
+    "annotations": [],
+    "chunk_id": [],
+    "equivalent_classes": [],
+    "property_values": {},
+    "types": [
+      "SensorID"
+    ]
+  },
+  "mapped_object_merged": null
+}

@@ -6,15 +6,31 @@ import argparse
 from backends import load_backend
 from tools.inference_module.fetch_relevant_info import main as fetch_info_main
 from tools.inference_module.map_answer_to_context import map_answer_to_context
-from tools.inference_module.validate_answer import validate_answer
 from agent_loop.agents.inference_module.generate_answer_agent import GenerateAnswerAgent
-from agent_loop.agents.inference_module.filter_evidence_agent import FilterEvidenceAgent
-from agent_loop.agents.inference_module.map_to_context_agent import MapToContextAgent
 
-def generate_answer(question_info, entity_context, object_context, generate_answer_agent: GenerateAnswerAgent) -> dict:
+
+def generate_answer(question_info, entity_context, object_context, generate_answer_agent: GenerateAnswerAgent, inference_log: dict = None):
+    """Generate answer from question and context. Returns dict on success, error string on failure."""
     answer, _ = generate_answer_agent.run(question_info=question_info, entity_context=entity_context, object_context=object_context)
     print(f"Generated answer: {answer}")
     print("================================")
+
+    # Log generated answer
+    if inference_log is not None:
+        inference_log["generated_answer"] = answer
+        
+    # Validate answer
+    if not answer:
+        error_msg = "Failed to generate an answer from the question and context."
+        if inference_log is not None:
+            inference_log["error"] = error_msg
+        return error_msg   
+    if not isinstance(answer, dict):
+        error_msg = "Generated answer does not have expected structure."
+        if inference_log is not None:
+            inference_log["error"] = error_msg
+        return error_msg
+    
     return answer
 
 
@@ -23,11 +39,8 @@ def main():
     backend = load_backend(name="phi-npu-openvino")
     
     global generate_answer_agent
-    global filter_evidence_agent
-    global map_to_context_agent
     generate_answer_agent = GenerateAnswerAgent(backend=backend)
-    filter_evidence_agent = FilterEvidenceAgent(backend=backend)
-    map_to_context_agent = MapToContextAgent(backend=backend)
+
 
     # Fetch relevant info for dummy questions (this simulates the full pipeline up to this point)
     relevant_infos = fetch_info_main() # Runs script on dummy questions and retrieves relevant info for each question.
@@ -70,6 +83,8 @@ def main():
         #print(f"Mapped answer: {mapped_answer}")
         #print("================================")
 
+        """ NOT IN USE"""
+        """
         # 3. Validate answer with validation agent (not implemented yet)
         validation_result = validate_answer(answer=answer, 
                                             question_info=question_info, 
@@ -77,7 +92,7 @@ def main():
                                             object_context=object_context,
                                             mapped_entity_answer=mapped_entity_answer,
                                             mapped_object_answer=mapped_object_answer)
-
+        """
 
 
 if __name__ == "__main__":

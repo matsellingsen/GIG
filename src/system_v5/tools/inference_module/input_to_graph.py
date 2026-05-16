@@ -5,8 +5,6 @@ sys.path.append("C:\\Users\\matse\\gig\\src\\system_v5") # Adjust this path to p
 import argparse
 import re
 
-from agent_loop.agents.inference_module.extract_triple_agent import ExtractTripleAgent
-from agent_loop.agents.inference_module.extract_subject_agent import ExtractSubjectAgent
 from agent_loop.agents.inference_module.extract_entity_agent import ExtractEntityAgent
 from agent_loop.agents.inference_module.extract_relation_agent import ExtractRelationAgent
 from agent_loop.agents.inference_module.extract_question_type_agent import ExtractQuestionTypeAgent
@@ -19,31 +17,57 @@ from tools.ttl_handling.load_ttl import load_ttl
 from tools.inference_module.fetch_relevant_info import fetch_relevant_info
 
 
-def atomic_to_graph(atomic_input: str, extract_question_type_agent: ExtractQuestionTypeAgent, extract_answer_form_agent: ResolveAnswerFormAgent, extract_entity_agent: ExtractEntityAgent, extract_relation_agent: ExtractRelationAgent, extract_object_agent: ExtractObjectAgent) -> dict:
+def atomic_to_graph(atomic_input: str, extract_question_type_agent: ExtractQuestionTypeAgent, extract_answer_form_agent: ResolveAnswerFormAgent, extract_entity_agent: ExtractEntityAgent, extract_relation_agent: ExtractRelationAgent, extract_object_agent: ExtractObjectAgent, inference_log: dict=None):
     """
     Converts an ATOMIC input string into a triplet + question-type & answer-form.
+    Returns dict on success, error string on failure.
     
     Args:
         atomic_input (str): The input in ATOMIC format, e.g., "PersonX goes to the store" or "PersonX wants to buy something."
         
     Returns:
         dict: a dictionary containing the subject, predicate, object, question-type and answer-form.
+        str: error message if any step fails.
     """
     
     # 1. Extract question type, answer form, entity, relation, and object candidates from the atomic input using the respective agents.
     question_type, _ = extract_question_type_agent.run(atomic_input)
+    if inference_log:
+        inference_log["resolved_question_type"] = question_type
     print(f"Extracted question type: {question_type}")
+
     if not question_type: # Handle empty or None question type
-        return "Couldn't understand the question. PLease rephrase and try again."
+        return "Failed to extract a question type from the input."
+    
     answer_form, _ = extract_answer_form_agent.run(atomic_input, question_type=question_type)
+    if inference_log:
+        inference_log["resolved_answer_form"] = answer_form
     print(f"Extracted answer form: {answer_form}")
+    if not answer_form: # Handle empty or None answer form
+        return "Failed to extract an answer form from the input."
+    
     entity, _ = extract_entity_agent.run(atomic_input, question_classification=question_type)
+    if inference_log:
+        inference_log["extracted_entity"] = entity
     print(f"Extracted entity: {entity}")
+    if not entity: # Handle empty or None entity
+        return "Failed to extract an entity from the input."
+    
     relation, _ = extract_relation_agent.run(atomic_input, entity_candidate=entity, question_classification=question_type)
+    if inference_log:
+        inference_log["extracted_relation"] = relation
     print(f"Extracted relation: {relation}")
+    if not relation: # Handle empty or None relation
+        return "Failed to extract a relation from the input."
+    
     obj, _ = extract_object_agent.run(atomic_input, entity_candidate=entity, relation_candidate=relation, question_classification=question_type, answer_form=answer_form)
+    if inference_log:
+        inference_log["extracted_object"] = obj
     print(f"Extracted object: {obj}")
+    if not obj: # Handle empty or None object
+        return "Failed to extract an object from the input."
     print("================================")
+
     #2. Structure the extracted information as a dict with the 5 extracted components + the atomic question.
     result = {
         "atomic_question": atomic_input,

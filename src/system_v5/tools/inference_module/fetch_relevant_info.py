@@ -132,9 +132,10 @@ def canonical_relation_to_base_axiom(rel: str) -> str:
 
 from rdflib import RDF, RDFS, OWL
 
-def resolve_entity(type: str, question_info: dict, graph, resolve_entity_agent: ResolveEntityAgent):
+def resolve_entity(type: str, question_info: dict, graph, resolve_entity_agent: ResolveEntityAgent, inference_log: dict = None):
     """
     Resolve an entity name to a URI in the TTL graph.
+    Returns resolved entity dict on success, error string on failure.
     Performs exact match on label and URI fragment, then fuzzy match.
     """
     if type == "entity":
@@ -142,19 +143,30 @@ def resolve_entity(type: str, question_info: dict, graph, resolve_entity_agent: 
     elif type == "object":
         entity = question_info.get("object", {}).get("value")
     else:
-        raise ValueError("Invalid entity type. Must be 'entity' or 'object'.")
+        error_msg = "Invalid entity type in resolve_entity. Must be 'entity' or 'object'."
+        return error_msg
     if not entity:
-        print("No entity provided in question info.")
-        return None
+        error_msg = f"No {type} provided in question info."
+        return error_msg
     
     print("PRIMARY ENTITY TO RESOLVE:", entity)
     #1. Fetch candidates
     top_candidates = retrieve_top_candidates(type, graph, entity, top_n=3)
+    # Log top candidates
+    if inference_log is not None:
+        inference_log.setdefault("resolve_entity_candidates", []).append({
+            "type": type,
+            "entity": entity,
+            "candidates": [
+                {"label": str(c.get("label")), "score": float(c.get("score")), "uri": str(c.get("uri")) if c.get("uri") is not None else None}
+                for c in top_candidates
+            ]
+        })
 
     #2. resolve candidates with rules or ResolveEntityAgent
     if not top_candidates: # no candidates found above threshold
-        print("No candidates found in TTL for entity:", entity)
-        return None
+        error_msg = f"No candidates found in TTL for {type}: {entity}"
+        return error_msg
     if len(top_candidates) == 1 or top_candidates[0]["score"] == 1.0: # exact match found (score 1.0) or only 1 candidate. Agent is redundant.
         print("High confidence candidate found, selecting without agent:", top_candidates[0]["label"])
         return top_candidates[0]
@@ -164,6 +176,15 @@ def resolve_entity(type: str, question_info: dict, graph, resolve_entity_agent: 
     print("Selected candidate after resolution:", selected_candidate)
     selected_candidate_label = selected_candidate.get("selected_label") if isinstance(selected_candidate, dict) else selected_candidate
     final_candidate = next((c for c in top_candidates if c["label"] == selected_candidate_label), None)
+
+    # Log selected candidate and final resolved candidate
+    if inference_log is not None:
+        inference_log.setdefault("resolve_entity_selection", []).append({
+            "type": type,
+            "entity": entity,
+            "selected_candidate": selected_candidate_label,
+            "final_candidate": {"label": str(final_candidate.get("label")), "score": float(final_candidate.get("score")), "uri": str(final_candidate.get("uri"))} if final_candidate is not None else None
+        })
 
     return final_candidate
 
@@ -176,7 +197,7 @@ def normalize(text: str) -> str:
 def tokenize(text: str):
     return re.findall(r"[a-zA-Z]+", text.lower())
 
-def retrieve_top_candidates(type: str, graph, entity: str, top_n: int = 10):
+def retrieve_top_candidates(type: str, graph, entity: str, top_n: int = 10, inference_log: dict = None):
     """
     Retrieve top ontology candidates (classes + individuals) for an entity string.
     Deduplicates by URI, aggregates labels, and enriches each candidate with:
@@ -304,12 +325,20 @@ def retrieve_top_candidates(type: str, graph, entity: str, top_n: int = 10):
 
     enriched_candidates.sort(key=lambda x: x["score"], reverse=True)
 
+    # optional logging summary
+    if inference_log is not None:
+        inference_log.setdefault("retrieve_top_candidates_summary", []).append({
+            "entity": entity,
+            "candidates_considered": len(enriched_candidates),
+            "candidates_returned": len([cand for cand in enriched_candidates if cand["score"] >= 0.5])
+        })
+
     # drop candidates with a score less than 0.5
     filtered_candidates = [cand for cand in enriched_candidates if cand["score"] >= 0.5]
     return filtered_candidates[:top_n]
 
 
-def retrieve_axioms_for_entity(entity: dict, graph):
+def retrieve_axioms_for_entity(entity: dict, graph, inference_log: dict = None):
     """
     Retrieve all axioms involving the resolved entity.
     Returns a dict with keys:
@@ -359,11 +388,21 @@ def retrieve_axioms_for_entity(entity: dict, graph):
         if p in [RDFS.label, RDFS.comment]:
             results["annotations"].append((p, entity_uri, o))
 
+    # Log counts for diagnostics
+    if inference_log is not None:
+        inference_log.setdefault("retrieve_axioms_for_entity", []).append({
+            "uri": str(entity_uri),
+            "class_axioms": len(results["class_axioms"]),
+            "object_property_assertions": len(results["object_property_assertions"]),
+            "data_property_assertions": len(results["data_property_assertions"]),
+            "annotations": len(results["annotations"])
+        })
+
     return results
 from rdflib import RDF, RDFS, OWL, Literal
 from rdflib.namespace import XSD
 
-def retrieve_full_entity_context(type: str, entity: dict, graph):
+def retrieve_full_entity_context(type: str, entity: dict, graph, inference_log: dict = None):
     """
     Retrieve ALL relevant OWL information about an entity, including SAME-AS MERGING:
     - direct types
@@ -402,7 +441,13 @@ def retrieve_full_entity_context(type: str, entity: dict, graph):
             if eq not in equivalent_uris:
                 equivalent_uris.add(eq)
                 queue.append(eq)
-    print(f"Equivalent URIs for entity {entity_uri}: {[str(uri) for uri in equivalent_uris]}")
+    if inference_log is not None:
+        inference_log.setdefault("full_entity_equivalents", []).append({
+            "uri": str(entity_uri),
+            "equivalent_uris": [str(uri) for uri in equivalent_uris]
+        })
+    else:
+        print(f"Equivalent URIs for entity {entity_uri}: {[str(uri) for uri in equivalent_uris]}")
 
     # Helper to get readable labels
     def get_label(x):
@@ -597,7 +642,7 @@ def retrieve_full_entity_context(type: str, entity: dict, graph):
     # ---------------------------------------------------------
     # Return merged context
     # ---------------------------------------------------------
-    return {
+    merged = {
         "scope_note": scope_note,
         "uri": str(entity_uri),
         "label": get_label(URIRef(entity_uri)),
@@ -611,6 +656,21 @@ def retrieve_full_entity_context(type: str, entity: dict, graph):
         "chunk_id": chunk_id,
         "members": instances
     }
+
+    # Log a compact summary to the inference log for debugging
+    if inference_log is not None:
+        inference_log.setdefault("full_entity_context_summary", []).append({
+            "uri": str(entity_uri),
+            "label": merged.get("label"),
+            "num_types": len(merged.get("types", [])),
+            "num_superclasses_groups": len(merged.get("superclasses", {})),
+            "num_equivalent_classes": len(merged.get("equivalent_classes", [])),
+            "num_properties_types": len(merged.get("properties_by_type", {})),
+            "num_chunk_ids": len(merged.get("chunk_id", [])),
+            "num_members": len(merged.get("members", []))
+        })
+
+    return merged
 
 
 def filter_axioms(retrieved, base_axiom, owl_axiom_type):
@@ -843,225 +903,10 @@ def normalize_and_clean_context_for_llm(relevant_info):
 
     return normalized_and_cleaned
 
-
-def flatten_entity_context(full_context: dict) -> dict:
-    """
-    Flatten the structured entity context into a lossless list of facts.
-    This avoids ambiguous nesting while preserving source paths for mapping.
-    """
-    facts = []
-
-    entity_label = full_context.get("label") or full_context.get("uri")
-
-    def add_fact(
-        kind,
-        subject,
-        predicate,
-        obj,
-        object_type,
-        direction,
-        via_type,
-        datatype,
-        details,
-        source_path,
-    ):
-        facts.append(
-            {
-                "kind": kind,
-                "subject": subject,
-                "predicate": predicate,
-                "object": obj,
-                "object_type": object_type,
-                "direction": direction,
-                "via_type": via_type,
-                "datatype": datatype,
-                "details": details,
-                "source_path": source_path,
-            }
-        )
-
-    # Types
-    for idx, t in enumerate(full_context.get("types", [])):
-        add_fact(
-            kind="type",
-            subject=entity_label,
-            predicate="rdf:type",
-            obj=t,
-            object_type="class",
-            direction=None,
-            via_type=None,
-            datatype=None,
-            details=None,
-            source_path=f"types.{idx}",
-        )
-
-    # Superclasses by direct type
-    for dt, supers in full_context.get("superclasses", {}).items():
-        for idx, sup in enumerate(supers):
-            add_fact(
-                kind="superclass",
-                subject=dt,
-                predicate="rdfs:subClassOf",
-                obj=sup,
-                object_type="class",
-                direction=None,
-                via_type=dt,
-                datatype=None,
-                details=None,
-                source_path=f"superclasses.{dt}.{idx}",
-            )
-
-    # Equivalent classes
-    for idx, eq in enumerate(full_context.get("equivalent_classes", [])):
-        add_fact(
-            kind="equivalent_class",
-            subject=entity_label,
-            predicate="owl:equivalentClass",
-            obj=eq,
-            object_type="class",
-            direction=None,
-            via_type=None,
-            datatype=None,
-            details=None,
-            source_path=f"equivalent_classes.{idx}",
-        )
-
-    # Properties grouped by type
-    for dt, pdata in full_context.get("properties_by_type", {}).items():
-        for idx, item in enumerate(pdata.get("outgoing_object_properties", [])):
-            add_fact(
-                kind="object_property",
-                subject=entity_label,
-                predicate=item.get("property"),
-                obj=item.get("object"),
-                object_type="entity",
-                direction="outgoing",
-                via_type=dt,
-                datatype=None,
-                details=None,
-                source_path=f"properties_by_type.{dt}.outgoing_object_properties.{idx}",
-            )
-
-        for idx, item in enumerate(pdata.get("outgoing_data_properties", [])):
-            add_fact(
-                kind="data_property",
-                subject=entity_label,
-                predicate=item.get("property"),
-                obj=item.get("value"),
-                object_type="literal",
-                direction="outgoing",
-                via_type=dt,
-                datatype=item.get("datatype"),
-                details=None,
-                source_path=f"properties_by_type.{dt}.outgoing_data_properties.{idx}",
-            )
-
-        for idx, item in enumerate(pdata.get("incoming_object_properties", [])):
-            add_fact(
-                kind="object_property",
-                subject=item.get("subject"),
-                predicate=item.get("property"),
-                obj=entity_label,
-                object_type="entity",
-                direction="incoming",
-                via_type=dt,
-                datatype=None,
-                details=None,
-                source_path=f"properties_by_type.{dt}.incoming_object_properties.{idx}",
-            )
-
-        for idx, item in enumerate(pdata.get("incoming_data_properties", [])):
-            add_fact(
-                kind="data_property",
-                subject=item.get("subject"),
-                predicate=item.get("property"),
-                obj=entity_label,
-                object_type="entity",
-                direction="incoming",
-                via_type=dt,
-                datatype=None,
-                details=None,
-                source_path=f"properties_by_type.{dt}.incoming_data_properties.{idx}",
-            )
-
-    # Annotations
-    for prop, val in full_context.get("annotations", {}).items():
-        add_fact(
-            kind="annotation",
-            subject=entity_label,
-            predicate=prop,
-            obj=val,
-            object_type="literal",
-            direction=None,
-            via_type=None,
-            datatype=None,
-            details=None,
-            source_path=f"annotations.{prop}",
-        )
-
-    # Class descriptions
-    for cls, desc in full_context.get("class_descriptions", {}).items():
-        add_fact(
-            kind="class_description",
-            subject=cls,
-            predicate="rdfs:comment",
-            obj=desc.get("description"),
-            object_type="literal",
-            direction=None,
-            via_type=None,
-            datatype=None,
-            details=None,
-            source_path=f"class_descriptions.{cls}.description",
-        )
-
-    # Object property descriptions
-    for prop, details in full_context.get("object_property_descriptions", {}).items():
-        add_fact(
-            kind="object_property_description",
-            subject=prop,
-            predicate="description",
-            obj=None,
-            object_type=None,
-            direction=None,
-            via_type=None,
-            datatype=None,
-            details={
-                "description": details.get("description"),
-                "domain": details.get("domain"),
-                "range": details.get("range"),
-            },
-            source_path=f"object_property_descriptions.{prop}",
-        )
-
-    # Provenance
-    for idx, cid in enumerate(full_context.get("provenance", [])):
-        add_fact(
-            kind="provenance",
-            subject=entity_label,
-            predicate="chunk_id",
-            obj=cid,
-            object_type="literal",
-            direction=None,
-            via_type=None,
-            datatype=None,
-            details=None,
-            source_path=f"provenance.{idx}",
-        )
-
-    return {
-        "entity": {
-            "uri": full_context.get("uri"),
-            "label": full_context.get("label"),
-            "types": full_context.get("types", []),
-            "equivalent_classes": full_context.get("equivalent_classes", []),
-            "provenance": full_context.get("provenance", []),
-        },
-        "facts": facts,
-    }
-
-def fetch_relevant_info(question_info: dict, ttl: dict, resolve_entity_agent: ResolveEntityAgent):
+def fetch_relevant_info(question_info: dict, ttl: dict, resolve_entity_agent: ResolveEntityAgent, inference_log: dict = None):
     """
     Fetch relevant information from the TTL based on the extracted question information.
+    Returns dict on success, error string on failure.
     
     Args:
         question_info (dict): A dictionary containing the extracted question information, including:
@@ -1074,39 +919,85 @@ def fetch_relevant_info(question_info: dict, ttl: dict, resolve_entity_agent: Re
     question_type = question_info.get("question_type")
 
     #1. Resolve the primary entity and object to URIs in the TTL graph
-    resolved_entity = resolve_entity(type="entity", question_info=question_info, graph=ttl["graph"], resolve_entity_agent=resolve_entity_agent)
+    resolved_entity = resolve_entity(type="entity", question_info=question_info, graph=ttl["graph"], resolve_entity_agent=resolve_entity_agent, inference_log=inference_log)
+    if isinstance(resolved_entity, str): # Check if the output is an error message
+        return resolved_entity
+    if inference_log:
+        inference_log["resolved_entity"] = resolved_entity
+    print("resolved entity:", resolved_entity)
     
     # conditionally resolve object if its ontology context is also needed to answer the question.
     resolved_object = None
     if question_type == "comparative":
-        resolved_object = resolve_entity(type="object", question_info=question_info, graph=ttl["graph"], resolve_entity_agent=resolve_entity_agent)
-        if resolved_object is None: # Return early if we cannot resolve the comparative object, as we won't be able to answer the question without it.
-            print("Could not resolve comparative object to a URI in the TTL.")
-            return "noComparativeObjectFound"
-        
-    print("resolved entity:", resolved_entity)
-    if resolved_entity is None: # return early if primary entity cannot be resolved, as we won't be able to retrieve any relevant info without it. 
-        print("Could not resolve primary entity to a URI in the TTL.")
-        return "noPrimaryEntityFound"
-     
+        resolved_object = resolve_entity(type="object", question_info=question_info, graph=ttl["graph"], resolve_entity_agent=resolve_entity_agent, inference_log=inference_log)
+        if isinstance(resolved_object, str): # Check if the output is an error message
+            return resolved_object
+        if inference_log:
+            inference_log["resolved_object"] = resolved_object
+          
     # 2. Retrieve full context for the resolved entity and conditionally for the resolved object (if comparative question).
-    full_entity_context = retrieve_full_entity_context(type="subject", entity=resolved_entity, graph=ttl["graph"])
+    full_entity_context = retrieve_full_entity_context(type="subject", entity=resolved_entity, graph=ttl["graph"], inference_log=inference_log)
+    if not full_entity_context or not isinstance(full_entity_context, dict):
+        error_msg = "Failed to retrieve full context for primary entity."
+        if inference_log is not None:
+            inference_log["error"] = error_msg
+        return error_msg
+    
     full_object_context = None
     if resolved_object is not None:
-        full_object_context = retrieve_full_entity_context(type="object", entity=resolved_object, graph=ttl["graph"])
+        full_object_context = retrieve_full_entity_context(type="object", entity=resolved_object, graph=ttl["graph"], inference_log=inference_log)
+        if not full_object_context or not isinstance(full_object_context, dict):
+            error_msg = "Failed to retrieve full context for comparative object."
+            if inference_log is not None:
+                inference_log["error"] = error_msg
+            return error_msg
     
-    #print("full entity context:", full_entity_context)
     #2b. filter the retrieved context based on the question type (e.g., for definition questions, we may only care about types, superclasses and annotations, while for capability questions we care more about properties and their semantics).
     entity_context_filtered = filter_context(question_info=question_info, full_context=full_entity_context)
+    if not entity_context_filtered or not isinstance(entity_context_filtered, dict):
+        error_msg = "Failed to filter entity context based on question type."
+        if inference_log is not None:
+            inference_log["error"] = error_msg
+        return error_msg
+    
     object_context_filtered = None
     if full_object_context is not None:
         object_context_filtered = filter_context(question_info=question_info, full_context=full_object_context)
+        if not object_context_filtered or not isinstance(object_context_filtered, dict):
+            error_msg = "Failed to filter object context based on question type."
+            if inference_log is not None:
+                inference_log["error"] = error_msg
+            return error_msg
+
+    if inference_log is not None:
+        inference_log.setdefault("filtered_context", []).append({
+            "question_type": question_type,
+            "entity_context_keys": list(entity_context_filtered.keys()) if isinstance(entity_context_filtered, dict) else None,
+            "object_context_keys": list(object_context_filtered.keys()) if isinstance(object_context_filtered, dict) else None
+        })
 
     # 3. Normalize the context(s) to be LLM-friendly (no URIs, only human-readable labels and comments).
     entity_context_normalized = normalize_and_clean_context_for_llm(entity_context_filtered)
+    if not entity_context_normalized or not isinstance(entity_context_normalized, dict):
+        error_msg = "Failed to normalize entity context for LLM consumption."
+        if inference_log is not None:
+            inference_log["error"] = error_msg
+        return error_msg
+    
     object_context_normalized = None
     if full_object_context is not None:
         object_context_normalized = normalize_and_clean_context_for_llm(object_context_filtered)
+        if not object_context_normalized or not isinstance(object_context_normalized, dict):
+            error_msg = "Failed to normalize object context for LLM consumption."
+            if inference_log is not None:
+                inference_log["error"] = error_msg
+            return error_msg
+
+    if inference_log is not None:
+        inference_log.setdefault("normalized_context_summary", []).append({
+            "entity_context_summary": {"label": entity_context_normalized.get("label") if isinstance(entity_context_normalized, dict) else None, "num_properties": len(entity_context_normalized.get("outgoing_object_properties", [])) if isinstance(entity_context_normalized, dict) else None},
+            "object_context_summary": {"label": object_context_normalized.get("label") if isinstance(object_context_normalized, dict) else None, "num_properties": len(object_context_normalized.get("outgoing_object_properties", [])) if isinstance(object_context_normalized, dict) else None} if object_context_normalized is not None else None
+        })
 
     # 4. group together all information and return it.
     final_output = {

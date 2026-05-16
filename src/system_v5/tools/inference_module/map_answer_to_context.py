@@ -183,7 +183,21 @@ def match_class_description_chunks(answer: str, chunk_map: Dict[str, List[str]])
 # Main deterministic mapping function
 # ---------------------------------------------------------
 
-def map_answer_to_context(answer: str, context: Dict[str, Any]) -> Dict[str, Any]:
+def map_answer_to_context(answer: str, context: Dict[str, Any], inference_log: Dict[str, Any] = None):
+    """Map answer to context. Returns dict on success, error string on failure."""
+    # Validate inputs
+    if not answer or not isinstance(answer, str):
+        error_msg = "Invalid answer provided to map_answer_to_context: answer must be a non-empty string."
+        if inference_log is not None:
+            inference_log["error"] = error_msg
+        return error_msg
+    
+    if not context or not isinstance(context, dict):
+        error_msg = "Invalid context provided to map_answer_to_context: context must be a non-empty dict."
+        if inference_log is not None:
+            inference_log["error"] = error_msg
+        return error_msg
+    
     result = {}
 
     # Precompute super-class description keywords
@@ -325,4 +339,18 @@ def map_answer_to_context(answer: str, context: Dict[str, Any]) -> Dict[str, Any
 
     #result["object_property_descriptions"] = obj_prop_matches
 
-    return result
+    # Log mapping summary for diagnostics
+    if inference_log is not None:
+        inference_log.setdefault("map_answer_to_context", []).append({
+            "answer": answer,
+            "types": result.get("types"),
+            "superclasses": result.get("superclasses"),
+            "equivalent_classes": result.get("equivalent_classes"),
+            "properties": result.get("properties"),
+            "property_values": result.get("property_values"),
+            "annotations": result.get("annotations"),
+            "members": result.get("members"),
+            "chunk_id": result.get("chunk_id")
+        })
+
+    return result  # Return dict (success) or error string (failure)

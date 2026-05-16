@@ -40,6 +40,7 @@
   - Ontology Construction Module (offline)
   - Inference Module (online)
 
+### System Guarantees and Architectural Constraints
 #### Data Flow and I/O Contracts
 - Definition of strict input/output schemas between agents
 - Explanation of deterministic behavior enforcement
@@ -52,9 +53,11 @@
 
 ### Backend configurations
 #### Execution environment
-- Description of the runtime environment
-- Local execution setup
-- Dependency management and isolation
+- Python-based runtime environment used for all components
+- Local execution setup to ensure reproducibility and eliminate external API variability
+- Lightweight hardware requirements enabled by the use of a small local model
+- Dependency isolation through a dedicated virtual environment with pinned package versions
+- Sequential and stateless agent execution model, where each agent runs independently and communicates exclusively through JSON input/output
 
 #### Deterministic Decoding Settings
 - Temperature and sampling configuration

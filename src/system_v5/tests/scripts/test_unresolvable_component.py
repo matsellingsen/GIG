@@ -9,7 +9,7 @@ from system_v5.tools.inference_module.input_to_graph import atomic_to_graph
 from system_v5.tools.inference_module.fetch_relevant_info import fetch_relevant_info
 
 from agent_loop.agents.inference_module.extract_question_type_agent import ExtractQuestionTypeAgent
-from agent_loop.agents.inference_module.resolve_answer_form_agent import ResolveAnswerFormAgent
+from system_v5.agent_loop.agents.inference_module.resolve_answer_form_agent import ResolveAnswerFormAgent
 from agent_loop.agents.inference_module.extract_entity_agent import ExtractEntityAgent
 from agent_loop.agents.inference_module.extract_relation_agent import ExtractRelationAgent
 from agent_loop.agents.inference_module.extract_object_agent import ExtractObjectAgent
