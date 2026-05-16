@@ -64,17 +64,6 @@
 - Constraints for reproducible outputs
 - Handling of non-deterministic model behavior
 
-#### JSON Schema Validation
-- Centralized schema definitions
-- Validation of agent outputs
-- Error handling for malformed JSON
-
-#### Runtime Output and Debug Visibility
-- Intermediate outputs from each agent are printed during execution
-- These prints provide step-by-step visibility into the inference process
-- Used primarily for debugging and verifying deterministic behavior
-- No formal logging subsystem is implemented
-
 #### Model Choice
 - Selected model and justification
 - Trade-offs of small vs large models
