@@ -169,11 +169,13 @@
                 -- Manually go through each question-type qeustion: (DONE)
                     -- progress: 7/7 question-types have been gone through and validated
         - Implement RAG Baseline (DONE)
-        - Manually evaluate RAG & GIG on E2E-source-tests
-            - Define metrics (9/10 DONE)
-            - Create manual-evaluation-script (9/10 DONE)
-            - Manually evaluate ((2/10 DONE))
-        - Write System Architecture section
+        - Manually evaluate RAG & GIG on E2E-source-tests (DONE)
+            - Define metrics (10/10 DONE)
+            - Create manual-evaluation-script (10/10 DONE)
+            - Manually evaluate ((10/10 DONE))
+            - Create interpretation script (DONE)
+        - Write System Architecture section (3/10 done)
+
 
 
 TODO: 
