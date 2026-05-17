@@ -1,0 +1,152 @@
+{
+  "input": "How many support articles are there under FAQ?",
+  "resolved_question_type": {
+    "reasoning": "The question is asking for a specific number of items, which are support articles, within a collection, which aligns with the 'Quantification' question type as it is inquiring about the count of a single entity (support articles).",
+    "question_type": "quantification"
+  },
+  "resolved_answer_form": {
+    "reasoning": "Deterministically classified answer form based on question type.",
+    "answer_form": "value"
+  },
+  "extracted_entity": {
+    "reasoning": "The question is asking for the number of support articles, which are the members of the 'FAQ'.",
+    "primary_entity": "FAQ"
+  },
+  "extracted_relation": {
+    "relation": "count"
+  },
+  "extracted_object": {
+    "reasoning": "Deterministic output",
+    "object": "null"
+  },
+  "resolve_entity_candidates": [
+    {
+      "type": "entity",
+      "entity": "FAQ",
+      "candidates": [
+        {
+          "label": "FAQ",
+          "score": 1.0,
+          "uri": "http://example.org/sensInnovationAps_ontology#FAQ"
+        }
+      ]
+    }
+  ],
+  "resolved_entity": {
+    "uri": "http://example.org/sensInnovationAps_ontology#FAQ",
+    "label": "FAQ",
+    "score": 1.0,
+    "labels": [
+      "FAQ"
+    ],
+    "entity_type": "Class",
+    "types": [
+      "InformationObject",
+      "SupportArticle"
+    ],
+    "superclasses": [
+      "Collection",
+      "DownloadLink",
+      "InformationObject"
+    ],
+    "object_properties": {},
+    "data_properties": {},
+    "annotations": {}
+  },
+  "full_entity_equivalents": [
+    {
+      "uri": "http://example.org/sensInnovationAps_ontology#FAQ",
+      "equivalent_uris": [
+        "http://example.org/sensInnovationAps_ontology#FAQ"
+      ]
+    }
+  ],
+  "full_entity_context_summary": [
+    {
+      "uri": "http://example.org/sensInnovationAps_ontology#FAQ",
+      "label": "FAQ",
+      "num_types": 3,
+      "num_superclasses_groups": 4,
+      "num_equivalent_classes": 0,
+      "num_properties_types": 3,
+      "num_chunk_ids": 1,
+      "num_members": 0
+    }
+  ],
+  "filtered_context": [
+    {
+      "question_type": "quantification",
+      "entity_context_keys": [
+        "scope_note",
+        "label",
+        "types",
+        "superclasses",
+        "equivalent_classes",
+        "properties_by_type",
+        "members",
+        "chunk_id"
+      ],
+      "object_context_keys": null
+    }
+  ],
+  "normalized_context_summary": [
+    {
+      "entity_context_summary": {
+        "label": "FAQ",
+        "num_properties": 0
+      },
+      "object_context_summary": null
+    }
+  ],
+  "generated_answer": {
+    "reasoning": "The provided ontology information does not contain a direct count of support articles under FAQ, nor does it list them as a property or a member of the 'FAQ' entity.",
+    "answer": "I can't answer the question."
+  },
+  "map_answer_to_context": [
+    {
+      "answer": "The provided ontology information does not contain a direct count of support articles under FAQ, nor does it list them as a property or a member of the 'FAQ' entity.",
+      "types": [
+        "SupportArticle"
+      ],
+      "superclasses": [],
+      "equivalent_classes": [],
+      "properties": [
+        "hasTitle"
+      ],
+      "property_values": {
+        "hasTitle": "faq"
+      },
+      "annotations": [],
+      "members": [],
+      "chunk_id": []
+    },
+    {
+      "answer": "I can't answer the question.",
+      "types": [],
+      "superclasses": [],
+      "equivalent_classes": [],
+      "properties": [],
+      "property_values": {},
+      "annotations": [],
+      "members": [],
+      "chunk_id": []
+    }
+  ],
+  "mapped_entity_merged": {
+    "annotations": [],
+    "types": [
+      "SupportArticle"
+    ],
+    "property_values": {
+      "hasTitle": "faq"
+    },
+    "equivalent_classes": [],
+    "superclasses": [],
+    "chunk_id": [],
+    "members": [],
+    "properties": [
+      "hasTitle"
+    ]
+  },
+  "mapped_object_merged": null
+}

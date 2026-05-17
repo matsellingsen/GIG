@@ -450,10 +450,10 @@
     "id": "q46",
     "question_type": "quantification",
     "answer_form": "value",
-    "question": "How many support articles are there under general questions?",
-    "gold_answer": "There are 3 support articles under general questions.",
+    "question": "How many support articles are there under FAQ?",
+    "gold_answer": "There are 3 support articles under FAQ.",
     "source": "support/_index.en::c0000",
-    "expected_entity": "general questions",
+    "expected_entity": "FAQ",
     "expected_object": "null"
   },
   {

@@ -1,27 +1,27 @@
 [
   {
     "case": {
-      "id": "q07",
-      "question_type": "definition",
+      "id": "q46",
+      "question_type": "quantification",
       "answer_form": "value",
-      "question": "What is SENS Motion\u00ae - Connect?",
-      "gold_answer": "SENS Motion\u00ae - Connect is an OEM Platform for medical sensors.",
-      "source": "privacy-policy/_index.en::c0000",
-      "expected_entity": "SENS Motion\u00ae - Connect",
-      "expected_object": null
+      "question": "How many support articles are there under FAQ?",
+      "gold_answer": "There are 3 support articles under FAQ.",
+      "source": "support/_index.en::c0000",
+      "expected_entity": "FAQ",
+      "expected_object": "null"
     },
-    "generated_answer": "SENS Motion\u00ae - Connect is a web application that provides a platform for researchers to collect, manage, and analyze physical activity data from multiple participants simultaneously. It is part of the SENS motion sensor and patch system, which is designed to measure physical activity in research projects. The web application allows research staff to access the activity profiles of participants, download data for further processing and analysis, and utilize the data in large-scale research projects. The user manual for the SENS motion for Research provides information on what the system is, how to get started, and how to use the various features of the system. The documentation and support for the SENS motion\u00ae web application can be found at the provided link.",
+    "generated_answer": "There is one support article under FAQ.",
     "contexts": [
-      "Lead: Information about the SENS motion\u00ae sensor and patch system\n\nThis section contains support articles and documentation for the SENS motion\u00ae sensor and patch system",
-      "Lead: [](/support/web-application/sens-motion-webapp-39-release-notes)\n\n## Background\n\nHere you will find the user manual for Research. The Research manual is used for research projects where SENS is part of the project's outcome\n\nIt is recommended to read through the user manual before starting the project\n\n## About SENS motion for Research\n\nSENS motion for Research is designed to measure physical activity in research participants. Data can be collected on many participants at a time and can be used to advantage in large-scale projects. Research staff can access the activity profiles of participants and have the possibility to download data for data processing and analysis\n\nYou can watch a short video about SENS motion for Research here\n\n## Contents of the user manual\n\nThe user manual for Research provides information about\n\n**What is SENS Motion?**\n**What is the SENS Motion system?**\n**How do I get started?**\nSensor and sensor patch\nDownload and install the SENS motion app for smartphone\nUsing the online visualisation tool\n**FAQ**\n**Technical data**\n**General information**\n\nImage: SENS motion logo (source: /img/sens-motion-logo-black.png)\n\n## Download user manual\n\n[Download the SENS motion for Research user manual (PDF)](/files/PI-001-08-D01-DA-[v3.5]-brugermanual-SENS-motion-for-research.pdf)",
-      "Lead: Documentation and support for the SENS motion\u00ae web application"
+      "# Support Articles\n\nLead: Find help and documentation for SENS motion\u00ae products\n\ntitle: SENS motion\u00ae App for Smartphone\ntitle: Web Application\ntitle: Sensor and Patch\ntitle: FAQ",
+      "Lead: Frequently asked questions about SENS motion\u00ae\n\nThis section contains frequently asked questions and answers about SENS motion\u00ae",
+      "to know More countries are now available for selection throughout the application for participant profiles that require phone number for login features How to use it When selecting a country in any form or profile, you'll see the expanded list of available countries Summary Version 3.9 brings significant improvements across navigation, sensor monitoring, file management, and security. The reorganised main sections make it easier to find what you need, breadcrumbs improve navigation efficiency, and enhanced sensor information helps you stay on top of battery and memory status. The improved file export workflow and expandable participant tables make daily operations smoother and more efficient ActiMotus 2.1 algorithm support enables multi-sensor measurements, while custom questionnaires and diary integration provide more comprehensive data collection options. Security enhancements with stricter password policies and improved two-factor authentication help protect your data, and the streamlined UI creates a more polished user experience throughout the application We hope these improvements make your work with the SENS platform more productive. As always, we welcome your feedback and suggestions for future releases"
     ],
     "checks": [
       {
         "name": "answer_fuzzy_match",
-        "passed": false,
-        "expected": "SENS Motion\u00ae - Connect is an OEM Platform for medical sensors.",
-        "actual": "SENS Motion\u00ae - Connect is a web application that provides a platform for researchers to collect, manage, and analyze physical activity data from multiple participants simultaneously. It is part of the SENS motion sensor and patch system, which is designed to measure physical activity in research projects. The web application allows research staff to access the activity profiles of participants, download data for further processing and analysis, and utilize the data in large-scale research projects. The user manual for the SENS motion for Research provides information on what the system is, how to get started, and how to use the various features of the system. The documentation and support for the SENS motion\u00ae web application can be found at the provided link."
+        "passed": true,
+        "expected": "There are 3 support articles under FAQ.",
+        "actual": "There is one support article under FAQ."
       }
     ]
   }

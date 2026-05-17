@@ -1171,13 +1171,13 @@
       "id": "q46",
       "question_type": "quantification",
       "answer_form": "value",
-      "question": "How many support articles are there under general questions?",
-      "gold_answer": "There are 3 support articles under general questions.",
+      "question": "How many support articles are there under FAQ?",
+      "gold_answer": "There are 3 support articles under FAQ.",
       "source": "support/_index.en::c0000",
-      "expected_entity": "general questions",
+      "expected_entity": "FAQ",
       "expected_object": "null"
     },
-    "generated_answer": "The provided context does not specify the exact number of support articles under general questions. It mentions various support articles with titles such as \"SENS motion\u00ae App for Smartphone,\" \"Web Application,\" \"Sensor and Patch,\" and \"FAQ,\" but it does not provide a count. To determine the number of support articles, one would need to review the full list of articles or sections related to support on the SENS motion\u00ae platform.",
+    "generated_answer": "There is one support article under FAQ.",
     "contexts": [
       "# Support Articles\n\nLead: Find help and documentation for SENS motion\u00ae products\n\ntitle: SENS motion\u00ae App for Smartphone\ntitle: Web Application\ntitle: Sensor and Patch\ntitle: FAQ",
       "Lead: Frequently asked questions about SENS motion\u00ae\n\nThis section contains frequently asked questions and answers about SENS motion\u00ae",
@@ -1186,9 +1186,9 @@
     "checks": [
       {
         "name": "answer_fuzzy_match",
-        "passed": false,
-        "expected": "There are 3 support articles under general questions.",
-        "actual": "The provided context does not specify the exact number of support articles under general questions. It mentions various support articles with titles such as \"SENS motion\u00ae App for Smartphone,\" \"Web Application,\" \"Sensor and Patch,\" and \"FAQ,\" but it does not provide a count. To determine the number of support articles, one would need to review the full list of articles or sections related to support on the SENS motion\u00ae platform."
+        "passed": true,
+        "expected": "There are 3 support articles under FAQ.",
+        "actual": "There is one support article under FAQ."
       }
     ]
   },

@@ -8247,18 +8247,18 @@
       "id": "q46",
       "question_type": "quantification",
       "answer_form": "value",
-      "question": "How many support articles are there under general questions?",
-      "gold_answer": "There are 3 support articles under general questions.",
+      "question": "How many support articles are there under FAQ?",
+      "gold_answer": "There are 3 support articles under FAQ.",
       "source": "support/_index.en::c0000",
-      "expected_entity": "general questions",
+      "expected_entity": "FAQ",
       "expected_object": "null"
     },
     "question_info": {
-      "atomic_question": "How many support articles are there under general questions?",
+      "atomic_question": "How many support articles are there under FAQ?",
       "question_type": "quantification",
       "answer_form": "value",
       "entity": {
-        "value": "support articles",
+        "value": "FAQ",
         "type": null
       },
       "relation": "count",
@@ -8269,11 +8269,11 @@
     },
     "fetched": {
       "question_info": {
-        "atomic_question": "How many support articles are there under general questions?",
+        "atomic_question": "How many support articles are there under FAQ?",
         "question_type": "quantification",
         "answer_form": "value",
         "entity": {
-          "value": "support articles",
+          "value": "FAQ",
           "type": null
         },
         "relation": "count",
@@ -8283,15 +8283,20 @@
         }
       },
       "resolved_entity": {
-        "uri": "http://example.org/sensInnovationAps_ontology#SupportArticle",
-        "label": "SupportArticle",
-        "score": 0.7724137931034483,
+        "uri": "http://example.org/sensInnovationAps_ontology#FAQ",
+        "label": "FAQ",
+        "score": 1.0,
         "labels": [
-          "SupportArticle"
+          "FAQ"
         ],
         "entity_type": "Class",
-        "types": [],
+        "types": [
+          "InformationObject",
+          "SupportArticle"
+        ],
         "superclasses": [
+          "Collection",
+          "DownloadLink",
           "InformationObject"
         ],
         "object_properties": {},
@@ -8300,50 +8305,75 @@
       },
       "entity_context": {
         "scope_note": "All information in this object is directly related to the resolved entity of the atomic question.",
-        "label": "SupportArticle",
+        "label": "FAQ",
         "types": [
-          "Class"
+          "SupportArticle",
+          "Class",
+          "NamedIndividual"
         ],
         "superclasses": {
-          "Class": [],
           "SupportArticle": [
+            "InformationObject"
+          ],
+          "Class": [],
+          "NamedIndividual": [],
+          "FAQ": [
+            "Collection",
+            "DownloadLink",
             "InformationObject"
           ]
         },
         "equivalent_classes": [],
         "properties_by_type": {
+          "SupportArticle": {
+            "outgoing_object_properties": [],
+            "outgoing_data_properties": [
+              {
+                "property": "hasTitle",
+                "value": "FAQ",
+                "datatype": "string"
+              }
+            ],
+            "incoming_object_properties": [],
+            "incoming_data_properties": []
+          },
           "Class": {
+            "outgoing_object_properties": [],
+            "outgoing_data_properties": [],
+            "incoming_object_properties": [],
+            "incoming_data_properties": []
+          },
+          "NamedIndividual": {
             "outgoing_object_properties": [],
             "outgoing_data_properties": [],
             "incoming_object_properties": [],
             "incoming_data_properties": []
           }
         },
-        "members": [
-          "SENS motion\u00ae App for Smartphone",
-          "SENS motion\u00ae Sensor and Patch",
-          "SENS motion\u00ae Web Application",
-          "FAQ"
-        ],
-        "chunk_id": []
+        "members": [],
+        "chunk_id": [
+          "19"
+        ]
       },
       "resolved_object": null,
       "object_context": null
     },
-    "generated_answer": "The number of support articles listed in the provided ontology information is 1.",
-    "reasoning": "The ontology information provided does not contain a direct count of 'support articles' but lists 'FAQ' as a member of the 'SupportArticle' class.",
+    "generated_answer": "I can't answer the question.",
+    "reasoning": "The provided ontology information does not contain a direct count of support articles under FAQ, nor does it list them as a property or a member of the 'FAQ' entity.",
     "merged_entity_mapping": {
-      "properties": [],
-      "annotations": [],
-      "property_values": {},
-      "equivalent_classes": [],
-      "members": [
-        "FAQ"
+      "property_values": {
+        "hasTitle": "faq"
+      },
+      "properties": [
+        "hasTitle"
       ],
       "chunk_id": [],
+      "members": [],
+      "equivalent_classes": [],
       "types": [
-        "Class"
+        "SupportArticle"
       ],
+      "annotations": [],
       "superclasses": []
     },
     "merged_object_mapping": null,
@@ -8362,9 +8392,9 @@
       },
       {
         "name": "correct_entity_extraction",
-        "passed": false,
-        "expected": "general questions",
-        "actual": "support articles"
+        "passed": true,
+        "expected": "FAQ",
+        "actual": "FAQ"
       },
       {
         "name": "correct_object_extraction",
@@ -8376,19 +8406,19 @@
         "name": "entity_resolved",
         "passed": true,
         "expected": true,
-        "actual": "SupportArticle"
+        "actual": "FAQ"
       },
       {
         "name": "fuzzy_answer_match",
-        "passed": true,
-        "expected": "There are 3 support articles under general questions.",
-        "actual": "The number of support articles listed in the provided ontology information is 1."
+        "passed": false,
+        "expected": "There are 3 support articles under FAQ.",
+        "actual": "I can't answer the question."
       },
       {
         "name": "fuzzy_entity_match",
-        "passed": false,
-        "expected": "general questions",
-        "actual": "support articles"
+        "passed": true,
+        "expected": "FAQ",
+        "actual": "FAQ"
       },
       {
         "name": "fuzzy_object_match",

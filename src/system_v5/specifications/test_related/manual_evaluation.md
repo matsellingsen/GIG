@@ -30,7 +30,7 @@
 
 ### Unprecise 
 - consistent with the ground truth
-- Answers the question unprecisely 
+- Answers the question unprecisely  
 
 ### Incorrect (false information)
 - States false information that is not consistent with the ground truth
