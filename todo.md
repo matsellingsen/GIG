@@ -173,8 +173,9 @@
             - Define metrics (10/10 DONE)
             - Create manual-evaluation-script (10/10 DONE)
             - Manually evaluate ((10/10 DONE))
-            - Create interpretation script (DONE)
-        - Write System Architecture section (3/10 done)
+            - Create interpretation script ( 8/10)
+                -- OBS: Overall metrics should add up to 49 which they dont do now.
+        - Write System Architecture section (4/10 done)
 
 
 

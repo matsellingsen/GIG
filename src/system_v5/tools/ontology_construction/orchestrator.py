@@ -14,12 +14,6 @@ logger = logging.getLogger(__name__)
 
 class Orchestrator:
     """
-    Orchestrator for the 4-step ontology extraction pipeline (V5).
-    Delegates task execution to specialized agents:
-    1.  local_classes      = ClassExtractionAgent.run(...)
-    2a. local_hierarchies  = HierarchicalAxiomExtractionAgent.run(...)
-    2b. local_relations    = LinearAxiomExtractionAgent.run(...)
-    3.  local_inst         = InstanceExtractionAgent.run(...)
     """
 
     def __init__(self, backend):

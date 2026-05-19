@@ -89,8 +89,6 @@ def main():
     global triple_extraction_agent
     global extract_subject_agent
     global extract_answer_form_agent
-    triple_extraction_agent = ExtractTripleAgent(backend=backend)
-    extract_subject_agent = ExtractSubjectAgent(backend=backend)
     extract_answer_form_agent = ResolveAnswerFormAgent(backend=backend)
     extract_entity_agent = ExtractEntityAgent(backend=backend)
     extract_relation_agent = ExtractRelationAgent(backend=backend)
