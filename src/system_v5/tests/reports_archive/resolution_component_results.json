@@ -1,0 +1,4632 @@
+[
+  {
+    "case": {
+      "id": "unresolvable_1",
+      "atomic_input": "What is a Lumeron?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Lumeron",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "checks": [
+      {
+        "name": "resolution_failure",
+        "passed": true,
+        "expected": "string error message",
+        "actual": "str"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is a Lumeron?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Lumeron",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": "No candidates found in TTL for entity: Lumeron",
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "Lumeron",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": null,
+        "status": "failed"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "unresolvable_2",
+      "atomic_input": "What is a Trivax?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Trivax",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "checks": [
+      {
+        "name": "resolution_failure",
+        "passed": true,
+        "expected": "string error message",
+        "actual": "str"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is a Trivax?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Trivax",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": "No candidates found in TTL for entity: Trivax",
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "Trivax",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": null,
+        "status": "failed"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "unresolvable_3",
+      "atomic_input": "What is a Norellian Object?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Norellian Object",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "checks": [
+      {
+        "name": "resolution_failure",
+        "passed": false,
+        "expected": "string error message",
+        "actual": "dict"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is a Norellian Object?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Norellian Object",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": {
+      "uri": "http://example.org/sensInnovationAps_ontology#Object",
+      "label": "Object",
+      "score": 0.5613636363636364,
+      "labels": [
+        "Object"
+      ],
+      "entity_type": "Class",
+      "types": [],
+      "superclasses": [],
+      "object_properties": {},
+      "data_properties": {},
+      "annotations": {}
+    },
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "Norellian Object",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": {
+          "uri": "http://example.org/sensInnovationAps_ontology#Object",
+          "label": "Object",
+          "score": 0.5613636363636364,
+          "labels": [
+            "Object"
+          ],
+          "entity_type": "Class",
+          "types": [],
+          "superclasses": [],
+          "object_properties": {},
+          "data_properties": {},
+          "annotations": {}
+        },
+        "status": "present"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "unresolvable_4",
+      "atomic_input": "What is a Veltrix Unit?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Veltrix Unit",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "checks": [
+      {
+        "name": "resolution_failure",
+        "passed": true,
+        "expected": "string error message",
+        "actual": "str"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is a Veltrix Unit?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Veltrix Unit",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": "No candidates found in TTL for entity: Veltrix Unit",
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "Veltrix Unit",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": null,
+        "status": "failed"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "unresolvable_5",
+      "atomic_input": "What is a Sernite Structure?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Sernite Structure",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "checks": [
+      {
+        "name": "resolution_failure",
+        "passed": false,
+        "expected": "string error message",
+        "actual": "dict"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is a Sernite Structure?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Sernite Structure",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": {
+      "uri": "http://example.org/sensInnovationAps_ontology#SecurityFeature",
+      "label": "SecurityFeature",
+      "score": 0.5,
+      "labels": [
+        "SecurityFeature"
+      ],
+      "entity_type": "Class",
+      "types": [],
+      "superclasses": [
+        "ApplicationFeature",
+        "PhysicalObject"
+      ],
+      "object_properties": {},
+      "data_properties": {},
+      "annotations": {}
+    },
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "Sernite Structure",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": {
+          "uri": "http://example.org/sensInnovationAps_ontology#SecurityFeature",
+          "label": "SecurityFeature",
+          "score": 0.5,
+          "labels": [
+            "SecurityFeature"
+          ],
+          "entity_type": "Class",
+          "types": [],
+          "superclasses": [
+            "ApplicationFeature",
+            "PhysicalObject"
+          ],
+          "object_properties": {},
+          "data_properties": {},
+          "annotations": {}
+        },
+        "status": "present"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "unresolvable_6",
+      "atomic_input": "What is a Dravonic Form?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Dravonic Form",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "checks": [
+      {
+        "name": "resolution_failure",
+        "passed": true,
+        "expected": "string error message",
+        "actual": "str"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is a Dravonic Form?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Dravonic Form",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": "No candidates found in TTL for entity: Dravonic Form",
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "Dravonic Form",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": null,
+        "status": "failed"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "unresolvable_7",
+      "atomic_input": "What is a Kelvar Entity?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Kelvar Entity",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "checks": [
+      {
+        "name": "resolution_failure",
+        "passed": false,
+        "expected": "string error message",
+        "actual": "dict"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is a Kelvar Entity?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Kelvar Entity",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": {
+      "uri": "http://example.org/sensInnovationAps_ontology#Entity",
+      "label": "Entity",
+      "score": 0.6302631578947369,
+      "labels": [
+        "Entity"
+      ],
+      "entity_type": "Class",
+      "types": [],
+      "superclasses": [],
+      "object_properties": {},
+      "data_properties": {},
+      "annotations": {}
+    },
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "Kelvar Entity",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": {
+          "uri": "http://example.org/sensInnovationAps_ontology#Entity",
+          "label": "Entity",
+          "score": 0.6302631578947369,
+          "labels": [
+            "Entity"
+          ],
+          "entity_type": "Class",
+          "types": [],
+          "superclasses": [],
+          "object_properties": {},
+          "data_properties": {},
+          "annotations": {}
+        },
+        "status": "present"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "unresolvable_8",
+      "atomic_input": "What is a Miroth Component?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Miroth Component",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "checks": [
+      {
+        "name": "resolution_failure",
+        "passed": true,
+        "expected": "string error message",
+        "actual": "str"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is a Miroth Component?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Miroth Component",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": "No candidates found in TTL for entity: Miroth Component",
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "Miroth Component",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": null,
+        "status": "failed"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "unresolvable_9",
+      "atomic_input": "What is a Plenoric System?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Plenoric System",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "checks": [
+      {
+        "name": "resolution_failure",
+        "passed": false,
+        "expected": "string error message",
+        "actual": "dict"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is a Plenoric System?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Plenoric System",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": {
+      "uri": "http://example.org/sensInnovationAps_ontology#System",
+      "label": "System",
+      "score": 0.5821428571428571,
+      "labels": [
+        "System"
+      ],
+      "entity_type": "Class",
+      "types": [],
+      "superclasses": [
+        "PhysicalObject",
+        "Study"
+      ],
+      "object_properties": {},
+      "data_properties": {},
+      "annotations": {}
+    },
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "Plenoric System",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": {
+          "uri": "http://example.org/sensInnovationAps_ontology#System",
+          "label": "System",
+          "score": 0.5821428571428571,
+          "labels": [
+            "System"
+          ],
+          "entity_type": "Class",
+          "types": [],
+          "superclasses": [
+            "PhysicalObject",
+            "Study"
+          ],
+          "object_properties": {},
+          "data_properties": {},
+          "annotations": {}
+        },
+        "status": "present"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "unresolvable_10",
+      "atomic_input": "What is a Teralin Module?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Teralin Module",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "checks": [
+      {
+        "name": "resolution_failure",
+        "passed": true,
+        "expected": "string error message",
+        "actual": "str"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is a Teralin Module?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Teralin Module",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": "No candidates found in TTL for entity: Teralin Module",
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "Teralin Module",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": null,
+        "status": "failed"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "unresolvable_11",
+      "atomic_input": "What is a Vexorian Element?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Vexorian Element",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "checks": [
+      {
+        "name": "resolution_failure",
+        "passed": false,
+        "expected": "string error message",
+        "actual": "dict"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is a Vexorian Element?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Vexorian Element",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": {
+      "uri": "http://example.org/sensInnovationAps_ontology#SensorManagement",
+      "label": "SensorManagement",
+      "score": 0.5,
+      "labels": [
+        "SensorManagement"
+      ],
+      "entity_type": "Class",
+      "types": [],
+      "superclasses": [
+        "Action",
+        "SensorWarning"
+      ],
+      "object_properties": {},
+      "data_properties": {},
+      "annotations": {}
+    },
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "Vexorian Element",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": {
+          "uri": "http://example.org/sensInnovationAps_ontology#SensorManagement",
+          "label": "SensorManagement",
+          "score": 0.5,
+          "labels": [
+            "SensorManagement"
+          ],
+          "entity_type": "Class",
+          "types": [],
+          "superclasses": [
+            "Action",
+            "SensorWarning"
+          ],
+          "object_properties": {},
+          "data_properties": {},
+          "annotations": {}
+        },
+        "status": "present"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "unresolvable_12",
+      "atomic_input": "What is a Quarnic Device?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Quarnic Device",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "checks": [
+      {
+        "name": "resolution_failure",
+        "passed": true,
+        "expected": "string error message",
+        "actual": "str"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is a Quarnic Device?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Quarnic Device",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": "No candidates found in TTL for entity: Quarnic Device",
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "Quarnic Device",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": null,
+        "status": "failed"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "unresolvable_13",
+      "atomic_input": "What is a Solyrian Construct?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Solyrian Construct",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "checks": [
+      {
+        "name": "resolution_failure",
+        "passed": true,
+        "expected": "string error message",
+        "actual": "str"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is a Solyrian Construct?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Solyrian Construct",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": "No candidates found in TTL for entity: Solyrian Construct",
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "Solyrian Construct",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": null,
+        "status": "failed"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "unresolvable_14",
+      "atomic_input": "What is a Brellite Form?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Brellite Form",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "checks": [
+      {
+        "name": "resolution_failure",
+        "passed": true,
+        "expected": "string error message",
+        "actual": "str"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is a Brellite Form?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Brellite Form",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": "No candidates found in TTL for entity: Brellite Form",
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "Brellite Form",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": null,
+        "status": "failed"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "unresolvable_15",
+      "atomic_input": "What is a Nivorian Shape?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Nivorian Shape",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "checks": [
+      {
+        "name": "resolution_failure",
+        "passed": true,
+        "expected": "string error message",
+        "actual": "str"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is a Nivorian Shape?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Nivorian Shape",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": "No candidates found in TTL for entity: Nivorian Shape",
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "Nivorian Shape",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": null,
+        "status": "failed"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "unresolvable_16",
+      "atomic_input": "What is a Corvax Pattern?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Corvax Pattern",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "checks": [
+      {
+        "name": "resolution_failure",
+        "passed": true,
+        "expected": "string error message",
+        "actual": "str"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is a Corvax Pattern?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Corvax Pattern",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": "No candidates found in TTL for entity: Corvax Pattern",
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "Corvax Pattern",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": null,
+        "status": "failed"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "unresolvable_17",
+      "atomic_input": "What is a Jorilan Artifact?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Jorilan Artifact",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "checks": [
+      {
+        "name": "resolution_failure",
+        "passed": true,
+        "expected": "string error message",
+        "actual": "str"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is a Jorilan Artifact?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Jorilan Artifact",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": "No candidates found in TTL for entity: Jorilan Artifact",
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "Jorilan Artifact",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": null,
+        "status": "failed"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "unresolvable_18",
+      "atomic_input": "What is a Valtoric Entity?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Valtoric Entity",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "checks": [
+      {
+        "name": "resolution_failure",
+        "passed": false,
+        "expected": "string error message",
+        "actual": "dict"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is a Valtoric Entity?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Valtoric Entity",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": {
+      "uri": "http://example.org/sensInnovationAps_ontology#Entity",
+      "label": "Entity",
+      "score": 0.5821428571428571,
+      "labels": [
+        "Entity"
+      ],
+      "entity_type": "Class",
+      "types": [],
+      "superclasses": [],
+      "object_properties": {},
+      "data_properties": {},
+      "annotations": {}
+    },
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "Valtoric Entity",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": {
+          "uri": "http://example.org/sensInnovationAps_ontology#Entity",
+          "label": "Entity",
+          "score": 0.5821428571428571,
+          "labels": [
+            "Entity"
+          ],
+          "entity_type": "Class",
+          "types": [],
+          "superclasses": [],
+          "object_properties": {},
+          "data_properties": {},
+          "annotations": {}
+        },
+        "status": "present"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "unresolvable_19",
+      "atomic_input": "What is an Orlian Construct?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Orlian Construct",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "checks": [
+      {
+        "name": "resolution_failure",
+        "passed": true,
+        "expected": "string error message",
+        "actual": "str"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is an Orlian Construct?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Orlian Construct",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": "No candidates found in TTL for entity: Orlian Construct",
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "Orlian Construct",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": null,
+        "status": "failed"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "unresolvable_20",
+      "atomic_input": "What is a Trevonic Unit?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Trevonic Unit",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "checks": [
+      {
+        "name": "resolution_failure",
+        "passed": true,
+        "expected": "string error message",
+        "actual": "str"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is a Trevonic Unit?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Trevonic Unit",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": "No candidates found in TTL for entity: Trevonic Unit",
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "Trevonic Unit",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": null,
+        "status": "failed"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "unresolvable_21",
+      "atomic_input": "What is a Melorian Object?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Melorian Object",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "checks": [
+      {
+        "name": "resolution_failure",
+        "passed": false,
+        "expected": "string error message",
+        "actual": "dict"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is a Melorian Object?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Melorian Object",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": {
+      "uri": "http://example.org/sensInnovationAps_ontology#Object",
+      "label": "Object",
+      "score": 0.5821428571428571,
+      "labels": [
+        "Object"
+      ],
+      "entity_type": "Class",
+      "types": [],
+      "superclasses": [],
+      "object_properties": {},
+      "data_properties": {},
+      "annotations": {}
+    },
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "Melorian Object",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": {
+          "uri": "http://example.org/sensInnovationAps_ontology#Object",
+          "label": "Object",
+          "score": 0.5821428571428571,
+          "labels": [
+            "Object"
+          ],
+          "entity_type": "Class",
+          "types": [],
+          "superclasses": [],
+          "object_properties": {},
+          "data_properties": {},
+          "annotations": {}
+        },
+        "status": "present"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "unresolvable_22",
+      "atomic_input": "What is a Drimex Structure?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Drimex Structure",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "checks": [
+      {
+        "name": "resolution_failure",
+        "passed": true,
+        "expected": "string error message",
+        "actual": "str"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is a Drimex Structure?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Drimex Structure",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": "No candidates found in TTL for entity: Drimex Structure",
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "Drimex Structure",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": null,
+        "status": "failed"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "unresolvable_23",
+      "atomic_input": "What is an Ulvian Module?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Ulvian Module",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "checks": [
+      {
+        "name": "resolution_failure",
+        "passed": true,
+        "expected": "string error message",
+        "actual": "str"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is an Ulvian Module?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Ulvian Module",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": "No candidates found in TTL for entity: Ulvian Module",
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "Ulvian Module",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": null,
+        "status": "failed"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "unresolvable_24",
+      "atomic_input": "What is a Zorlic Form?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Zorlic Form",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "checks": [
+      {
+        "name": "resolution_failure",
+        "passed": true,
+        "expected": "string error message",
+        "actual": "str"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is a Zorlic Form?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Zorlic Form",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": "No candidates found in TTL for entity: Zorlic Form",
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "Zorlic Form",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": null,
+        "status": "failed"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "unresolvable_25",
+      "atomic_input": "What is a Fenorian Device?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Fenorian Device",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "checks": [
+      {
+        "name": "resolution_failure",
+        "passed": false,
+        "expected": "string error message",
+        "actual": "dict"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is a Fenorian Device?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Fenorian Device",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": {
+      "uri": "http://example.org/sensInnovationAps_ontology#SensorDevice",
+      "label": "SensorDevice",
+      "score": 0.5925925925925926,
+      "labels": [
+        "SensorDevice"
+      ],
+      "entity_type": "Class",
+      "types": [],
+      "superclasses": [
+        "PhysicalObject"
+      ],
+      "object_properties": {},
+      "data_properties": {},
+      "annotations": {}
+    },
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "Fenorian Device",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": {
+          "uri": "http://example.org/sensInnovationAps_ontology#SensorDevice",
+          "label": "SensorDevice",
+          "score": 0.5925925925925926,
+          "labels": [
+            "SensorDevice"
+          ],
+          "entity_type": "Class",
+          "types": [],
+          "superclasses": [
+            "PhysicalObject"
+          ],
+          "object_properties": {},
+          "data_properties": {},
+          "annotations": {}
+        },
+        "status": "present"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "unresolvable_26",
+      "atomic_input": "What is a Kylothic Element?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Kylothic Element",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "checks": [
+      {
+        "name": "resolution_failure",
+        "passed": true,
+        "expected": "string error message",
+        "actual": "str"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is a Kylothic Element?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Kylothic Element",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": "No candidates found in TTL for entity: Kylothic Element",
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "Kylothic Element",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": null,
+        "status": "failed"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "unresolvable_27",
+      "atomic_input": "What is a Brevonite Object?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Brevonite Object",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "checks": [
+      {
+        "name": "resolution_failure",
+        "passed": false,
+        "expected": "string error message",
+        "actual": "dict"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is a Brevonite Object?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Brevonite Object",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": {
+      "uri": "http://example.org/sensInnovationAps_ontology#Object",
+      "label": "Object",
+      "score": 0.5613636363636364,
+      "labels": [
+        "Object"
+      ],
+      "entity_type": "Class",
+      "types": [],
+      "superclasses": [],
+      "object_properties": {},
+      "data_properties": {},
+      "annotations": {}
+    },
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "Brevonite Object",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": {
+          "uri": "http://example.org/sensInnovationAps_ontology#Object",
+          "label": "Object",
+          "score": 0.5613636363636364,
+          "labels": [
+            "Object"
+          ],
+          "entity_type": "Class",
+          "types": [],
+          "superclasses": [],
+          "object_properties": {},
+          "data_properties": {},
+          "annotations": {}
+        },
+        "status": "present"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "unresolvable_28",
+      "atomic_input": "What is a Lorvian Construct?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Lorvian Construct",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "checks": [
+      {
+        "name": "resolution_failure",
+        "passed": true,
+        "expected": "string error message",
+        "actual": "str"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is a Lorvian Construct?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Lorvian Construct",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": "No candidates found in TTL for entity: Lorvian Construct",
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "Lorvian Construct",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": null,
+        "status": "failed"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "unresolvable_29",
+      "atomic_input": "What is a Krylonic Frame?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Krylonic Frame",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "checks": [
+      {
+        "name": "resolution_failure",
+        "passed": true,
+        "expected": "string error message",
+        "actual": "str"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is a Krylonic Frame?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Krylonic Frame",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": "No candidates found in TTL for entity: Krylonic Frame",
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "Krylonic Frame",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": null,
+        "status": "failed"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "unresolvable_30",
+      "atomic_input": "What is a Velorian Matrix?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Velorian Matrix",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "checks": [
+      {
+        "name": "resolution_failure",
+        "passed": true,
+        "expected": "string error message",
+        "actual": "str"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is a Velorian Matrix?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Velorian Matrix",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": "No candidates found in TTL for entity: Velorian Matrix",
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "Velorian Matrix",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": null,
+        "status": "failed"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "algorithm_def_1",
+      "atomic_input": "What is Algorithm?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Algorithm",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      },
+      "gold_resolve": "Algorithm"
+    },
+    "checks": [
+      {
+        "name": "resolution_success",
+        "passed": true,
+        "expected": "dict with resolved info",
+        "actual": "dict"
+      },
+      {
+        "name": "correct_resolved_entity",
+        "passed": true,
+        "expected": "Algorithm",
+        "actual": "Algorithm"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is Algorithm?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Algorithm",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": {
+      "uri": "http://example.org/sensInnovationAps_ontology#Algorithm",
+      "label": "Algorithm",
+      "score": 1.0,
+      "labels": [
+        "Algorithm"
+      ],
+      "entity_type": "Class",
+      "types": [],
+      "superclasses": [
+        "PhysicalObject",
+        "Study"
+      ],
+      "object_properties": {},
+      "data_properties": {},
+      "annotations": {}
+    },
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "Algorithm",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": {
+          "uri": "http://example.org/sensInnovationAps_ontology#Algorithm",
+          "label": "Algorithm",
+          "score": 1.0,
+          "labels": [
+            "Algorithm"
+          ],
+          "entity_type": "Class",
+          "types": [],
+          "superclasses": [
+            "PhysicalObject",
+            "Study"
+          ],
+          "object_properties": {},
+          "data_properties": {},
+          "annotations": {}
+        },
+        "status": "present"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "algorithm_def_2",
+      "atomic_input": "What is algorithm?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "algorithm",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      },
+      "gold_resolve": "Algorithm"
+    },
+    "checks": [
+      {
+        "name": "resolution_success",
+        "passed": true,
+        "expected": "dict with resolved info",
+        "actual": "dict"
+      },
+      {
+        "name": "correct_resolved_entity",
+        "passed": true,
+        "expected": "Algorithm",
+        "actual": "Algorithm"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is algorithm?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "algorithm",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": {
+      "uri": "http://example.org/sensInnovationAps_ontology#Algorithm",
+      "label": "Algorithm",
+      "score": 1.0,
+      "labels": [
+        "Algorithm"
+      ],
+      "entity_type": "Class",
+      "types": [],
+      "superclasses": [
+        "PhysicalObject",
+        "Study"
+      ],
+      "object_properties": {},
+      "data_properties": {},
+      "annotations": {}
+    },
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "algorithm",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": {
+          "uri": "http://example.org/sensInnovationAps_ontology#Algorithm",
+          "label": "Algorithm",
+          "score": 1.0,
+          "labels": [
+            "Algorithm"
+          ],
+          "entity_type": "Class",
+          "types": [],
+          "superclasses": [
+            "PhysicalObject",
+            "Study"
+          ],
+          "object_properties": {},
+          "data_properties": {},
+          "annotations": {}
+        },
+        "status": "present"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "algorithm_def_3",
+      "atomic_input": "What is Algoritm?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Algoritm",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      },
+      "gold_resolve": "Algorithm"
+    },
+    "checks": [
+      {
+        "name": "resolution_success",
+        "passed": true,
+        "expected": "dict with resolved info",
+        "actual": "dict"
+      },
+      {
+        "name": "correct_resolved_entity",
+        "passed": true,
+        "expected": "Algorithm",
+        "actual": "Algorithm"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is Algoritm?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Algoritm",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": {
+      "uri": "http://example.org/sensInnovationAps_ontology#Algorithm",
+      "label": "Algorithm",
+      "score": 0.7529411764705882,
+      "labels": [
+        "Algorithm"
+      ],
+      "entity_type": "Class",
+      "types": [],
+      "superclasses": [
+        "PhysicalObject",
+        "Study"
+      ],
+      "object_properties": {},
+      "data_properties": {},
+      "annotations": {}
+    },
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "Algoritm",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": {
+          "uri": "http://example.org/sensInnovationAps_ontology#Algorithm",
+          "label": "Algorithm",
+          "score": 0.7529411764705882,
+          "labels": [
+            "Algorithm"
+          ],
+          "entity_type": "Class",
+          "types": [],
+          "superclasses": [
+            "PhysicalObject",
+            "Study"
+          ],
+          "object_properties": {},
+          "data_properties": {},
+          "annotations": {}
+        },
+        "status": "present"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "cohort_def_1",
+      "atomic_input": "What is Cohort?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Cohort",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      },
+      "gold_resolve": "Cohort"
+    },
+    "checks": [
+      {
+        "name": "resolution_success",
+        "passed": true,
+        "expected": "dict with resolved info",
+        "actual": "dict"
+      },
+      {
+        "name": "correct_resolved_entity",
+        "passed": true,
+        "expected": "Cohort",
+        "actual": "Cohort"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is Cohort?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Cohort",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": {
+      "uri": "http://example.org/sensInnovationAps_ontology#Cohort",
+      "label": "Cohort",
+      "score": 1.0,
+      "labels": [
+        "Cohort"
+      ],
+      "entity_type": "Class",
+      "types": [],
+      "superclasses": [
+        "SocialObject",
+        "Study"
+      ],
+      "object_properties": {},
+      "data_properties": {},
+      "annotations": {}
+    },
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "Cohort",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": {
+          "uri": "http://example.org/sensInnovationAps_ontology#Cohort",
+          "label": "Cohort",
+          "score": 1.0,
+          "labels": [
+            "Cohort"
+          ],
+          "entity_type": "Class",
+          "types": [],
+          "superclasses": [
+            "SocialObject",
+            "Study"
+          ],
+          "object_properties": {},
+          "data_properties": {},
+          "annotations": {}
+        },
+        "status": "present"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "cohort_def_2",
+      "atomic_input": "What is cohort?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "cohort",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      },
+      "gold_resolve": "Cohort"
+    },
+    "checks": [
+      {
+        "name": "resolution_success",
+        "passed": true,
+        "expected": "dict with resolved info",
+        "actual": "dict"
+      },
+      {
+        "name": "correct_resolved_entity",
+        "passed": true,
+        "expected": "Cohort",
+        "actual": "Cohort"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is cohort?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "cohort",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": {
+      "uri": "http://example.org/sensInnovationAps_ontology#Cohort",
+      "label": "Cohort",
+      "score": 1.0,
+      "labels": [
+        "Cohort"
+      ],
+      "entity_type": "Class",
+      "types": [],
+      "superclasses": [
+        "SocialObject",
+        "Study"
+      ],
+      "object_properties": {},
+      "data_properties": {},
+      "annotations": {}
+    },
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "cohort",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": {
+          "uri": "http://example.org/sensInnovationAps_ontology#Cohort",
+          "label": "Cohort",
+          "score": 1.0,
+          "labels": [
+            "Cohort"
+          ],
+          "entity_type": "Class",
+          "types": [],
+          "superclasses": [
+            "SocialObject",
+            "Study"
+          ],
+          "object_properties": {},
+          "data_properties": {},
+          "annotations": {}
+        },
+        "status": "present"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "cohort_def_3",
+      "atomic_input": "What is Cohrot?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Cohrot",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      },
+      "gold_resolve": "Cohort"
+    },
+    "checks": [
+      {
+        "name": "resolution_success",
+        "passed": true,
+        "expected": "dict with resolved info",
+        "actual": "dict"
+      },
+      {
+        "name": "correct_resolved_entity",
+        "passed": true,
+        "expected": "Cohort",
+        "actual": "Cohort"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is Cohrot?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Cohrot",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": {
+      "uri": "http://example.org/sensInnovationAps_ontology#Cohort",
+      "label": "Cohort",
+      "score": 0.6666666666666667,
+      "labels": [
+        "Cohort"
+      ],
+      "entity_type": "Class",
+      "types": [],
+      "superclasses": [
+        "SocialObject",
+        "Study"
+      ],
+      "object_properties": {},
+      "data_properties": {},
+      "annotations": {}
+    },
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "Cohrot",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": {
+          "uri": "http://example.org/sensInnovationAps_ontology#Cohort",
+          "label": "Cohort",
+          "score": 0.6666666666666667,
+          "labels": [
+            "Cohort"
+          ],
+          "entity_type": "Class",
+          "types": [],
+          "superclasses": [
+            "SocialObject",
+            "Study"
+          ],
+          "object_properties": {},
+          "data_properties": {},
+          "annotations": {}
+        },
+        "status": "present"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "filesize_def_1",
+      "atomic_input": "What is a FileSize?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "FileSize",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      },
+      "gold_resolve": "FileSize"
+    },
+    "checks": [
+      {
+        "name": "resolution_success",
+        "passed": true,
+        "expected": "dict with resolved info",
+        "actual": "dict"
+      },
+      {
+        "name": "correct_resolved_entity",
+        "passed": true,
+        "expected": "FileSize",
+        "actual": "FileSize"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is a FileSize?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "FileSize",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": {
+      "uri": "http://example.org/sensInnovationAps_ontology#FileSize",
+      "label": "FileSize",
+      "score": 1.0,
+      "labels": [
+        "FileSize"
+      ],
+      "entity_type": "Class",
+      "types": [],
+      "superclasses": [
+        "InformationObject",
+        "PhysicalObject"
+      ],
+      "object_properties": {},
+      "data_properties": {},
+      "annotations": {}
+    },
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "FileSize",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": {
+          "uri": "http://example.org/sensInnovationAps_ontology#FileSize",
+          "label": "FileSize",
+          "score": 1.0,
+          "labels": [
+            "FileSize"
+          ],
+          "entity_type": "Class",
+          "types": [],
+          "superclasses": [
+            "InformationObject",
+            "PhysicalObject"
+          ],
+          "object_properties": {},
+          "data_properties": {},
+          "annotations": {}
+        },
+        "status": "present"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "filesize_def_2",
+      "atomic_input": "What is a File Size?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "File Size",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      },
+      "gold_resolve": "FileSize"
+    },
+    "checks": [
+      {
+        "name": "resolution_success",
+        "passed": true,
+        "expected": "dict with resolved info",
+        "actual": "dict"
+      },
+      {
+        "name": "correct_resolved_entity",
+        "passed": true,
+        "expected": "FileSize",
+        "actual": "FileSize"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is a File Size?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "File Size",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": {
+      "uri": "http://example.org/sensInnovationAps_ontology#FileSize",
+      "label": "FileSize",
+      "score": 0.7529411764705882,
+      "labels": [
+        "FileSize"
+      ],
+      "entity_type": "Class",
+      "types": [],
+      "superclasses": [
+        "InformationObject",
+        "PhysicalObject"
+      ],
+      "object_properties": {},
+      "data_properties": {},
+      "annotations": {}
+    },
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "File Size",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": {
+          "uri": "http://example.org/sensInnovationAps_ontology#FileSize",
+          "label": "FileSize",
+          "score": 0.7529411764705882,
+          "labels": [
+            "FileSize"
+          ],
+          "entity_type": "Class",
+          "types": [],
+          "superclasses": [
+            "InformationObject",
+            "PhysicalObject"
+          ],
+          "object_properties": {},
+          "data_properties": {},
+          "annotations": {}
+        },
+        "status": "present"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "filesize_def_3",
+      "atomic_input": "What is a FielSize?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "FielSize",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      },
+      "gold_resolve": "FileSize"
+    },
+    "checks": [
+      {
+        "name": "resolution_success",
+        "passed": true,
+        "expected": "dict with resolved info",
+        "actual": "dict"
+      },
+      {
+        "name": "correct_resolved_entity",
+        "passed": true,
+        "expected": "FileSize",
+        "actual": "FileSize"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is a FielSize?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "FielSize",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": {
+      "uri": "http://example.org/sensInnovationAps_ontology#FileSize",
+      "label": "FileSize",
+      "score": 0.7,
+      "labels": [
+        "FileSize"
+      ],
+      "entity_type": "Class",
+      "types": [],
+      "superclasses": [
+        "InformationObject",
+        "PhysicalObject"
+      ],
+      "object_properties": {},
+      "data_properties": {},
+      "annotations": {}
+    },
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "FielSize",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": {
+          "uri": "http://example.org/sensInnovationAps_ontology#FileSize",
+          "label": "FileSize",
+          "score": 0.7,
+          "labels": [
+            "FileSize"
+          ],
+          "entity_type": "Class",
+          "types": [],
+          "superclasses": [
+            "InformationObject",
+            "PhysicalObject"
+          ],
+          "object_properties": {},
+          "data_properties": {},
+          "annotations": {}
+        },
+        "status": "present"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "datacollectiontool_def_1",
+      "atomic_input": "What is DataCollectionTool?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "DataCollectionTool",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      },
+      "gold_resolve": "DataCollectionTool"
+    },
+    "checks": [
+      {
+        "name": "resolution_success",
+        "passed": true,
+        "expected": "dict with resolved info",
+        "actual": "dict"
+      },
+      {
+        "name": "correct_resolved_entity",
+        "passed": true,
+        "expected": "DataCollectionTool",
+        "actual": "DataCollectionTool"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is DataCollectionTool?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "DataCollectionTool",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": {
+      "uri": "http://example.org/sensInnovationAps_ontology#DataCollectionTool",
+      "label": "DataCollectionTool",
+      "score": 1.0,
+      "labels": [
+        "DataCollectionTool"
+      ],
+      "entity_type": "Class",
+      "types": [],
+      "superclasses": [
+        "ApplicationFeature",
+        "PhysicalObject"
+      ],
+      "object_properties": {},
+      "data_properties": {},
+      "annotations": {}
+    },
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "DataCollectionTool",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": {
+          "uri": "http://example.org/sensInnovationAps_ontology#DataCollectionTool",
+          "label": "DataCollectionTool",
+          "score": 1.0,
+          "labels": [
+            "DataCollectionTool"
+          ],
+          "entity_type": "Class",
+          "types": [],
+          "superclasses": [
+            "ApplicationFeature",
+            "PhysicalObject"
+          ],
+          "object_properties": {},
+          "data_properties": {},
+          "annotations": {}
+        },
+        "status": "present"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "datacollectiontool_def_2",
+      "atomic_input": "What is Data Collection Tool?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Data Collection Tool",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      },
+      "gold_resolve": "DataCollectionTool"
+    },
+    "checks": [
+      {
+        "name": "resolution_success",
+        "passed": true,
+        "expected": "dict with resolved info",
+        "actual": "dict"
+      },
+      {
+        "name": "correct_resolved_entity",
+        "passed": true,
+        "expected": "DataCollectionTool",
+        "actual": "DataCollectionTool"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is Data Collection Tool?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Data Collection Tool",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": {
+      "uri": "http://example.org/sensInnovationAps_ontology#DataCollectionTool",
+      "label": "DataCollectionTool",
+      "score": 0.7578947368421052,
+      "labels": [
+        "DataCollectionTool"
+      ],
+      "entity_type": "Class",
+      "types": [],
+      "superclasses": [
+        "ApplicationFeature",
+        "PhysicalObject"
+      ],
+      "object_properties": {},
+      "data_properties": {},
+      "annotations": {}
+    },
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "Data Collection Tool",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": {
+          "uri": "http://example.org/sensInnovationAps_ontology#DataCollectionTool",
+          "label": "DataCollectionTool",
+          "score": 0.7578947368421052,
+          "labels": [
+            "DataCollectionTool"
+          ],
+          "entity_type": "Class",
+          "types": [],
+          "superclasses": [
+            "ApplicationFeature",
+            "PhysicalObject"
+          ],
+          "object_properties": {},
+          "data_properties": {},
+          "annotations": {}
+        },
+        "status": "present"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "datacollectiontool_def_3",
+      "atomic_input": "What is DataColletionTool?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "DataColletionTool",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      },
+      "gold_resolve": "DataCollectionTool"
+    },
+    "checks": [
+      {
+        "name": "resolution_success",
+        "passed": true,
+        "expected": "dict with resolved info",
+        "actual": "dict"
+      },
+      {
+        "name": "correct_resolved_entity",
+        "passed": true,
+        "expected": "DataCollectionTool",
+        "actual": "DataCollectionTool"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is DataColletionTool?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "DataColletionTool",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": {
+      "uri": "http://example.org/sensInnovationAps_ontology#DataCollectionTool",
+      "label": "DataCollectionTool",
+      "score": 0.7771428571428571,
+      "labels": [
+        "DataCollectionTool"
+      ],
+      "entity_type": "Class",
+      "types": [],
+      "superclasses": [
+        "ApplicationFeature",
+        "PhysicalObject"
+      ],
+      "object_properties": {},
+      "data_properties": {},
+      "annotations": {}
+    },
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "DataColletionTool",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": {
+          "uri": "http://example.org/sensInnovationAps_ontology#DataCollectionTool",
+          "label": "DataCollectionTool",
+          "score": 0.7771428571428571,
+          "labels": [
+            "DataCollectionTool"
+          ],
+          "entity_type": "Class",
+          "types": [],
+          "superclasses": [
+            "ApplicationFeature",
+            "PhysicalObject"
+          ],
+          "object_properties": {},
+          "data_properties": {},
+          "annotations": {}
+        },
+        "status": "present"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "datatransfercompletioncondition_def_1",
+      "atomic_input": "What is DataTransferCompletionCondition?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "DataTransferCompletionCondition",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      },
+      "gold_resolve": "DataTransferCompletionCondition"
+    },
+    "checks": [
+      {
+        "name": "resolution_success",
+        "passed": true,
+        "expected": "dict with resolved info",
+        "actual": "dict"
+      },
+      {
+        "name": "correct_resolved_entity",
+        "passed": true,
+        "expected": "DataTransferCompletionCondition",
+        "actual": "DataTransferCompletionCondition"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is DataTransferCompletionCondition?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "DataTransferCompletionCondition",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": {
+      "uri": "http://example.org/sensInnovationAps_ontology#DataTransferCompletionCondition",
+      "label": "DataTransferCompletionCondition",
+      "score": 1.0,
+      "labels": [
+        "DataTransferCompletionCondition"
+      ],
+      "entity_type": "Class",
+      "types": [],
+      "superclasses": [
+        "Quality"
+      ],
+      "object_properties": {},
+      "data_properties": {},
+      "annotations": {}
+    },
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "DataTransferCompletionCondition",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": {
+          "uri": "http://example.org/sensInnovationAps_ontology#DataTransferCompletionCondition",
+          "label": "DataTransferCompletionCondition",
+          "score": 1.0,
+          "labels": [
+            "DataTransferCompletionCondition"
+          ],
+          "entity_type": "Class",
+          "types": [],
+          "superclasses": [
+            "Quality"
+          ],
+          "object_properties": {},
+          "data_properties": {},
+          "annotations": {}
+        },
+        "status": "present"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "datatransfercompletioncondition_def_2",
+      "atomic_input": "What is Data Transfer Completion Condition?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Data Transfer Completion Condition",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      },
+      "gold_resolve": "DataTransferCompletionCondition"
+    },
+    "checks": [
+      {
+        "name": "resolution_success",
+        "passed": true,
+        "expected": "dict with resolved info",
+        "actual": "dict"
+      },
+      {
+        "name": "correct_resolved_entity",
+        "passed": true,
+        "expected": "DataTransferCompletionCondition",
+        "actual": "DataTransferCompletionCondition"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is Data Transfer Completion Condition?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Data Transfer Completion Condition",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": {
+      "uri": "http://example.org/sensInnovationAps_ontology#DataTransferCompletionCondition",
+      "label": "DataTransferCompletionCondition",
+      "score": 0.7630769230769231,
+      "labels": [
+        "DataTransferCompletionCondition"
+      ],
+      "entity_type": "Class",
+      "types": [],
+      "superclasses": [
+        "Quality"
+      ],
+      "object_properties": {},
+      "data_properties": {},
+      "annotations": {}
+    },
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "Data Transfer Completion Condition",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": {
+          "uri": "http://example.org/sensInnovationAps_ontology#DataTransferCompletionCondition",
+          "label": "DataTransferCompletionCondition",
+          "score": 0.7630769230769231,
+          "labels": [
+            "DataTransferCompletionCondition"
+          ],
+          "entity_type": "Class",
+          "types": [],
+          "superclasses": [
+            "Quality"
+          ],
+          "object_properties": {},
+          "data_properties": {},
+          "annotations": {}
+        },
+        "status": "present"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "datatransfercompletioncondition_def_3",
+      "atomic_input": "What is DataTransferCompletinCondition?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "DataTransferCompletinCondition",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      },
+      "gold_resolve": "DataTransferCompletionCondition"
+    },
+    "checks": [
+      {
+        "name": "resolution_success",
+        "passed": true,
+        "expected": "dict with resolved info",
+        "actual": "dict"
+      },
+      {
+        "name": "correct_resolved_entity",
+        "passed": true,
+        "expected": "DataTransferCompletionCondition",
+        "actual": "DataTransferCompletionCondition"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is DataTransferCompletinCondition?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "DataTransferCompletinCondition",
+        "type": "Class"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": {
+      "uri": "http://example.org/sensInnovationAps_ontology#DataTransferCompletionCondition",
+      "label": "DataTransferCompletionCondition",
+      "score": 0.7868852459016393,
+      "labels": [
+        "DataTransferCompletionCondition"
+      ],
+      "entity_type": "Class",
+      "types": [],
+      "superclasses": [
+        "Quality"
+      ],
+      "object_properties": {},
+      "data_properties": {},
+      "annotations": {}
+    },
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "DataTransferCompletinCondition",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": {
+          "uri": "http://example.org/sensInnovationAps_ontology#DataTransferCompletionCondition",
+          "label": "DataTransferCompletionCondition",
+          "score": 0.7868852459016393,
+          "labels": [
+            "DataTransferCompletionCondition"
+          ],
+          "entity_type": "Class",
+          "types": [],
+          "superclasses": [
+            "Quality"
+          ],
+          "object_properties": {},
+          "data_properties": {},
+          "annotations": {}
+        },
+        "status": "present"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "resting_def_1",
+      "atomic_input": "What is Resting?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Resting",
+        "type": "Instance"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      },
+      "gold_resolve": "Resting"
+    },
+    "checks": [
+      {
+        "name": "resolution_success",
+        "passed": true,
+        "expected": "dict with resolved info",
+        "actual": "dict"
+      },
+      {
+        "name": "correct_resolved_entity",
+        "passed": true,
+        "expected": "Resting",
+        "actual": "Resting"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is Resting?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Resting",
+        "type": "Instance"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": {
+      "uri": "http://example.org/sensInnovationAps_ontology#Resting",
+      "label": "Resting",
+      "score": 1.0,
+      "labels": [
+        "Resting"
+      ],
+      "entity_type": "NamedIndividual",
+      "types": [
+        "MovementIntensityCategory",
+        "Quality"
+      ],
+      "superclasses": [],
+      "object_properties": {},
+      "data_properties": {},
+      "annotations": {}
+    },
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "Resting",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": {
+          "uri": "http://example.org/sensInnovationAps_ontology#Resting",
+          "label": "Resting",
+          "score": 1.0,
+          "labels": [
+            "Resting"
+          ],
+          "entity_type": "NamedIndividual",
+          "types": [
+            "MovementIntensityCategory",
+            "Quality"
+          ],
+          "superclasses": [],
+          "object_properties": {},
+          "data_properties": {},
+          "annotations": {}
+        },
+        "status": "present"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "resting_def_2",
+      "atomic_input": "What is resting?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "resting",
+        "type": "Instance"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      },
+      "gold_resolve": "Resting"
+    },
+    "checks": [
+      {
+        "name": "resolution_success",
+        "passed": true,
+        "expected": "dict with resolved info",
+        "actual": "dict"
+      },
+      {
+        "name": "correct_resolved_entity",
+        "passed": true,
+        "expected": "Resting",
+        "actual": "Resting"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is resting?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "resting",
+        "type": "Instance"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": {
+      "uri": "http://example.org/sensInnovationAps_ontology#Resting",
+      "label": "Resting",
+      "score": 1.0,
+      "labels": [
+        "Resting"
+      ],
+      "entity_type": "NamedIndividual",
+      "types": [
+        "MovementIntensityCategory",
+        "Quality"
+      ],
+      "superclasses": [],
+      "object_properties": {},
+      "data_properties": {},
+      "annotations": {}
+    },
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "resting",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": {
+          "uri": "http://example.org/sensInnovationAps_ontology#Resting",
+          "label": "Resting",
+          "score": 1.0,
+          "labels": [
+            "Resting"
+          ],
+          "entity_type": "NamedIndividual",
+          "types": [
+            "MovementIntensityCategory",
+            "Quality"
+          ],
+          "superclasses": [],
+          "object_properties": {},
+          "data_properties": {},
+          "annotations": {}
+        },
+        "status": "present"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "resting_def_3",
+      "atomic_input": "What is Restnig?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Restnig",
+        "type": "Instance"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      },
+      "gold_resolve": "Resting"
+    },
+    "checks": [
+      {
+        "name": "resolution_success",
+        "passed": true,
+        "expected": "dict with resolved info",
+        "actual": "dict"
+      },
+      {
+        "name": "correct_resolved_entity",
+        "passed": true,
+        "expected": "Resting",
+        "actual": "Resting"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is Restnig?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Restnig",
+        "type": "Instance"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": {
+      "uri": "http://example.org/sensInnovationAps_ontology#Resting",
+      "label": "Resting",
+      "score": 0.6857142857142857,
+      "labels": [
+        "Resting"
+      ],
+      "entity_type": "NamedIndividual",
+      "types": [
+        "MovementIntensityCategory",
+        "Quality"
+      ],
+      "superclasses": [],
+      "object_properties": {},
+      "data_properties": {},
+      "annotations": {}
+    },
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "Restnig",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": {
+          "uri": "http://example.org/sensInnovationAps_ontology#Resting",
+          "label": "Resting",
+          "score": 0.6857142857142857,
+          "labels": [
+            "Resting"
+          ],
+          "entity_type": "NamedIndividual",
+          "types": [
+            "MovementIntensityCategory",
+            "Quality"
+          ],
+          "superclasses": [],
+          "object_properties": {},
+          "data_properties": {},
+          "annotations": {}
+        },
+        "status": "present"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "bulkactions_def_1",
+      "atomic_input": "What is Bulk Actions?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Bulk Actions",
+        "type": "Instance"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      },
+      "gold_resolve": "Bulk Actions"
+    },
+    "checks": [
+      {
+        "name": "resolution_success",
+        "passed": true,
+        "expected": "dict with resolved info",
+        "actual": "dict"
+      },
+      {
+        "name": "correct_resolved_entity",
+        "passed": true,
+        "expected": "Bulk Actions",
+        "actual": "Bulk Actions"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is Bulk Actions?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Bulk Actions",
+        "type": "Instance"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": {
+      "uri": "http://example.org/sensInnovationAps_ontology#Bulk%20Actions",
+      "label": "Bulk Actions",
+      "score": 1.0,
+      "labels": [
+        "Bulk Actions"
+      ],
+      "entity_type": "NamedIndividual",
+      "types": [
+        "Action",
+        "BulkAction",
+        "PhysicalObject",
+        "SensorManagement",
+        "SensorWarning",
+        "SocialObject",
+        "UserInterface"
+      ],
+      "superclasses": [],
+      "object_properties": {},
+      "data_properties": {},
+      "annotations": {}
+    },
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "Bulk Actions",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": {
+          "uri": "http://example.org/sensInnovationAps_ontology#Bulk%20Actions",
+          "label": "Bulk Actions",
+          "score": 1.0,
+          "labels": [
+            "Bulk Actions"
+          ],
+          "entity_type": "NamedIndividual",
+          "types": [
+            "Action",
+            "BulkAction",
+            "PhysicalObject",
+            "SensorManagement",
+            "SensorWarning",
+            "SocialObject",
+            "UserInterface"
+          ],
+          "superclasses": [],
+          "object_properties": {},
+          "data_properties": {},
+          "annotations": {}
+        },
+        "status": "present"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "bulkactions_def_2",
+      "atomic_input": "What is bulk actions?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "bulk actions",
+        "type": "Instance"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      },
+      "gold_resolve": "Bulk Actions"
+    },
+    "checks": [
+      {
+        "name": "resolution_success",
+        "passed": true,
+        "expected": "dict with resolved info",
+        "actual": "dict"
+      },
+      {
+        "name": "correct_resolved_entity",
+        "passed": true,
+        "expected": "Bulk Actions",
+        "actual": "Bulk Actions"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is bulk actions?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "bulk actions",
+        "type": "Instance"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": {
+      "uri": "http://example.org/sensInnovationAps_ontology#Bulk%20Actions",
+      "label": "Bulk Actions",
+      "score": 1.0,
+      "labels": [
+        "Bulk Actions"
+      ],
+      "entity_type": "NamedIndividual",
+      "types": [
+        "Action",
+        "BulkAction",
+        "PhysicalObject",
+        "SensorManagement",
+        "SensorWarning",
+        "SocialObject",
+        "UserInterface"
+      ],
+      "superclasses": [],
+      "object_properties": {},
+      "data_properties": {},
+      "annotations": {}
+    },
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "bulk actions",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": {
+          "uri": "http://example.org/sensInnovationAps_ontology#Bulk%20Actions",
+          "label": "Bulk Actions",
+          "score": 1.0,
+          "labels": [
+            "Bulk Actions"
+          ],
+          "entity_type": "NamedIndividual",
+          "types": [
+            "Action",
+            "BulkAction",
+            "PhysicalObject",
+            "SensorManagement",
+            "SensorWarning",
+            "SocialObject",
+            "UserInterface"
+          ],
+          "superclasses": [],
+          "object_properties": {},
+          "data_properties": {},
+          "annotations": {}
+        },
+        "status": "present"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "bulkactions_def_3",
+      "atomic_input": "What is Bulk Actoins?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Bulk Actoins",
+        "type": "Instance"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      },
+      "gold_resolve": "Bulk Actions"
+    },
+    "checks": [
+      {
+        "name": "resolution_success",
+        "passed": true,
+        "expected": "dict with resolved info",
+        "actual": "dict"
+      },
+      {
+        "name": "correct_resolved_entity",
+        "passed": true,
+        "expected": "Bulk Actions",
+        "actual": "Bulk Actions"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is Bulk Actoins?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Bulk Actoins",
+        "type": "Instance"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": {
+      "uri": "http://example.org/sensInnovationAps_ontology#Bulk%20Actions",
+      "label": "Bulk Actions",
+      "score": 0.8522727272727273,
+      "labels": [
+        "Bulk Actions"
+      ],
+      "entity_type": "NamedIndividual",
+      "types": [
+        "Action",
+        "BulkAction",
+        "PhysicalObject",
+        "SensorManagement",
+        "SensorWarning",
+        "SocialObject",
+        "UserInterface"
+      ],
+      "superclasses": [],
+      "object_properties": {},
+      "data_properties": {},
+      "annotations": {}
+    },
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "Bulk Actoins",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": {
+          "uri": "http://example.org/sensInnovationAps_ontology#Bulk%20Actions",
+          "label": "Bulk Actions",
+          "score": 0.8522727272727273,
+          "labels": [
+            "Bulk Actions"
+          ],
+          "entity_type": "NamedIndividual",
+          "types": [
+            "Action",
+            "BulkAction",
+            "PhysicalObject",
+            "SensorManagement",
+            "SensorWarning",
+            "SocialObject",
+            "UserInterface"
+          ],
+          "superclasses": [],
+          "object_properties": {},
+          "data_properties": {},
+          "annotations": {}
+        },
+        "status": "present"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "highintensityrunning_def_1",
+      "atomic_input": "What is High Intensity/Running?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "High Intensity/Running",
+        "type": "Instance"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      },
+      "gold_resolve": "High Intensity/Running"
+    },
+    "checks": [
+      {
+        "name": "resolution_success",
+        "passed": true,
+        "expected": "dict with resolved info",
+        "actual": "dict"
+      },
+      {
+        "name": "correct_resolved_entity",
+        "passed": true,
+        "expected": "High Intensity/Running",
+        "actual": "High Intensity/Running"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is High Intensity/Running?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "High Intensity/Running",
+        "type": "Instance"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": {
+      "uri": "http://example.org/sensInnovationAps_ontology#High%20Intensity%2FRunning",
+      "label": "High Intensity/Running",
+      "score": 1.0,
+      "labels": [
+        "High Intensity/Running"
+      ],
+      "entity_type": "NamedIndividual",
+      "types": [
+        "Event",
+        "MovementType"
+      ],
+      "superclasses": [],
+      "object_properties": {},
+      "data_properties": {},
+      "annotations": {}
+    },
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "High Intensity/Running",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": {
+          "uri": "http://example.org/sensInnovationAps_ontology#High%20Intensity%2FRunning",
+          "label": "High Intensity/Running",
+          "score": 1.0,
+          "labels": [
+            "High Intensity/Running"
+          ],
+          "entity_type": "NamedIndividual",
+          "types": [
+            "Event",
+            "MovementType"
+          ],
+          "superclasses": [],
+          "object_properties": {},
+          "data_properties": {},
+          "annotations": {}
+        },
+        "status": "present"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "highintensityrunning_def_2",
+      "atomic_input": "What is High intensity/running?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "High intensity/running",
+        "type": "Instance"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      },
+      "gold_resolve": "High Intensity/Running"
+    },
+    "checks": [
+      {
+        "name": "resolution_success",
+        "passed": true,
+        "expected": "dict with resolved info",
+        "actual": "dict"
+      },
+      {
+        "name": "correct_resolved_entity",
+        "passed": true,
+        "expected": "High Intensity/Running",
+        "actual": "High Intensity/Running"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is High intensity/running?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "High intensity/running",
+        "type": "Instance"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": {
+      "uri": "http://example.org/sensInnovationAps_ontology#High%20Intensity%2FRunning",
+      "label": "High Intensity/Running",
+      "score": 1.0,
+      "labels": [
+        "High Intensity/Running"
+      ],
+      "entity_type": "NamedIndividual",
+      "types": [
+        "Event",
+        "MovementType"
+      ],
+      "superclasses": [],
+      "object_properties": {},
+      "data_properties": {},
+      "annotations": {}
+    },
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "High intensity/running",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": {
+          "uri": "http://example.org/sensInnovationAps_ontology#High%20Intensity%2FRunning",
+          "label": "High Intensity/Running",
+          "score": 1.0,
+          "labels": [
+            "High Intensity/Running"
+          ],
+          "entity_type": "NamedIndividual",
+          "types": [
+            "Event",
+            "MovementType"
+          ],
+          "superclasses": [],
+          "object_properties": {},
+          "data_properties": {},
+          "annotations": {}
+        },
+        "status": "present"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "highintensityrunning_def_3",
+      "atomic_input": "What is High Intensity/Runnnig?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "High Intensity/Runnnig",
+        "type": "Instance"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      },
+      "gold_resolve": "High Intensity/Running"
+    },
+    "checks": [
+      {
+        "name": "resolution_success",
+        "passed": true,
+        "expected": "dict with resolved info",
+        "actual": "dict"
+      },
+      {
+        "name": "correct_resolved_entity",
+        "passed": true,
+        "expected": "High Intensity/Running",
+        "actual": "High Intensity/Running"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is High Intensity/Runnnig?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "High Intensity/Runnnig",
+        "type": "Instance"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": {
+      "uri": "http://example.org/sensInnovationAps_ontology#High%20Intensity%2FRunning",
+      "label": "High Intensity/Running",
+      "score": 0.9136363636363637,
+      "labels": [
+        "High Intensity/Running"
+      ],
+      "entity_type": "NamedIndividual",
+      "types": [
+        "Event",
+        "MovementType"
+      ],
+      "superclasses": [],
+      "object_properties": {},
+      "data_properties": {},
+      "annotations": {}
+    },
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "High Intensity/Runnnig",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": {
+          "uri": "http://example.org/sensInnovationAps_ontology#High%20Intensity%2FRunning",
+          "label": "High Intensity/Running",
+          "score": 0.9136363636363637,
+          "labels": [
+            "High Intensity/Running"
+          ],
+          "entity_type": "NamedIndividual",
+          "types": [
+            "Event",
+            "MovementType"
+          ],
+          "superclasses": [],
+          "object_properties": {},
+          "data_properties": {},
+          "annotations": {}
+        },
+        "status": "present"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "artno_def_1",
+      "atomic_input": "What is Art. No. 136-100-C?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Art. No. 136-100-C",
+        "type": "Instance"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      },
+      "gold_resolve": "Art. No. 136-100-C"
+    },
+    "checks": [
+      {
+        "name": "resolution_success",
+        "passed": true,
+        "expected": "dict with resolved info",
+        "actual": "dict"
+      },
+      {
+        "name": "correct_resolved_entity",
+        "passed": true,
+        "expected": "Art. No. 136-100-C",
+        "actual": "Art. No. 136-100-C"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is Art. No. 136-100-C?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Art. No. 136-100-C",
+        "type": "Instance"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": {
+      "uri": "http://example.org/sensInnovationAps_ontology#Art.%20No.%20136-100-C",
+      "label": "Art. No. 136-100-C",
+      "score": 1.0,
+      "labels": [
+        "Art. No. 136-100-C"
+      ],
+      "entity_type": "NamedIndividual",
+      "types": [
+        "InformationRealization",
+        "PatchType"
+      ],
+      "superclasses": [],
+      "object_properties": {},
+      "data_properties": {},
+      "annotations": {}
+    },
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "Art. No. 136-100-C",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": {
+          "uri": "http://example.org/sensInnovationAps_ontology#Art.%20No.%20136-100-C",
+          "label": "Art. No. 136-100-C",
+          "score": 1.0,
+          "labels": [
+            "Art. No. 136-100-C"
+          ],
+          "entity_type": "NamedIndividual",
+          "types": [
+            "InformationRealization",
+            "PatchType"
+          ],
+          "superclasses": [],
+          "object_properties": {},
+          "data_properties": {},
+          "annotations": {}
+        },
+        "status": "present"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "artno_def_2",
+      "atomic_input": "What is art. no. 136-100-c?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "art. no. 136-100-c",
+        "type": "Instance"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      },
+      "gold_resolve": "Art. No. 136-100-C"
+    },
+    "checks": [
+      {
+        "name": "resolution_success",
+        "passed": true,
+        "expected": "dict with resolved info",
+        "actual": "dict"
+      },
+      {
+        "name": "correct_resolved_entity",
+        "passed": true,
+        "expected": "Art. No. 136-100-C",
+        "actual": "Art. No. 136-100-C"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is art. no. 136-100-c?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "art. no. 136-100-c",
+        "type": "Instance"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": {
+      "uri": "http://example.org/sensInnovationAps_ontology#Art.%20No.%20136-100-C",
+      "label": "Art. No. 136-100-C",
+      "score": 1.0,
+      "labels": [
+        "Art. No. 136-100-C"
+      ],
+      "entity_type": "NamedIndividual",
+      "types": [
+        "InformationRealization",
+        "PatchType"
+      ],
+      "superclasses": [],
+      "object_properties": {},
+      "data_properties": {},
+      "annotations": {}
+    },
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "art. no. 136-100-c",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": {
+          "uri": "http://example.org/sensInnovationAps_ontology#Art.%20No.%20136-100-C",
+          "label": "Art. No. 136-100-C",
+          "score": 1.0,
+          "labels": [
+            "Art. No. 136-100-C"
+          ],
+          "entity_type": "NamedIndividual",
+          "types": [
+            "InformationRealization",
+            "PatchType"
+          ],
+          "superclasses": [],
+          "object_properties": {},
+          "data_properties": {},
+          "annotations": {}
+        },
+        "status": "present"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "artno_def_3",
+      "atomic_input": "What is Art. No. 136-100C?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Art. No. 136-100C",
+        "type": "Instance"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      },
+      "gold_resolve": "Art. No. 136-100-C"
+    },
+    "checks": [
+      {
+        "name": "resolution_success",
+        "passed": true,
+        "expected": "dict with resolved info",
+        "actual": "dict"
+      },
+      {
+        "name": "correct_resolved_entity",
+        "passed": true,
+        "expected": "Art. No. 136-100-C",
+        "actual": "Art. No. 136-100-C"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is Art. No. 136-100C?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Art. No. 136-100C",
+        "type": "Instance"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": {
+      "uri": "http://example.org/sensInnovationAps_ontology#Art.%20No.%20136-100-C",
+      "label": "Art. No. 136-100-C",
+      "score": 0.7771428571428571,
+      "labels": [
+        "Art. No. 136-100-C"
+      ],
+      "entity_type": "NamedIndividual",
+      "types": [
+        "InformationRealization",
+        "PatchType"
+      ],
+      "superclasses": [],
+      "object_properties": {},
+      "data_properties": {},
+      "annotations": {}
+    },
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "Art. No. 136-100C",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": {
+          "uri": "http://example.org/sensInnovationAps_ontology#Art.%20No.%20136-100-C",
+          "label": "Art. No. 136-100-C",
+          "score": 0.7771428571428571,
+          "labels": [
+            "Art. No. 136-100-C"
+          ],
+          "entity_type": "NamedIndividual",
+          "types": [
+            "InformationRealization",
+            "PatchType"
+          ],
+          "superclasses": [],
+          "object_properties": {},
+          "data_properties": {},
+          "annotations": {}
+        },
+        "status": "present"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "matsellingsen_def_1",
+      "atomic_input": "What is Mats Ellingsen?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Mats Ellingsen",
+        "type": "Instance"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      },
+      "gold_resolve": "Mats Ellingsen"
+    },
+    "checks": [
+      {
+        "name": "resolution_success",
+        "passed": true,
+        "expected": "dict with resolved info",
+        "actual": "dict"
+      },
+      {
+        "name": "correct_resolved_entity",
+        "passed": true,
+        "expected": "Mats Ellingsen",
+        "actual": "Mats Ellingsen"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is Mats Ellingsen?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Mats Ellingsen",
+        "type": "Instance"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": {
+      "uri": "http://example.org/sensInnovationAps_ontology#Mats%20Ellingsen",
+      "label": "Mats Ellingsen",
+      "score": 1.0,
+      "labels": [
+        "Mats Ellingsen"
+      ],
+      "entity_type": "NamedIndividual",
+      "types": [
+        "SocialObject",
+        "TeamMember"
+      ],
+      "superclasses": [],
+      "object_properties": {},
+      "data_properties": {},
+      "annotations": {}
+    },
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "Mats Ellingsen",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": {
+          "uri": "http://example.org/sensInnovationAps_ontology#Mats%20Ellingsen",
+          "label": "Mats Ellingsen",
+          "score": 1.0,
+          "labels": [
+            "Mats Ellingsen"
+          ],
+          "entity_type": "NamedIndividual",
+          "types": [
+            "SocialObject",
+            "TeamMember"
+          ],
+          "superclasses": [],
+          "object_properties": {},
+          "data_properties": {},
+          "annotations": {}
+        },
+        "status": "present"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "matsellingsen_def_2",
+      "atomic_input": "What is mats ellingsen?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "mats ellingsen",
+        "type": "Instance"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      },
+      "gold_resolve": "Mats Ellingsen"
+    },
+    "checks": [
+      {
+        "name": "resolution_success",
+        "passed": true,
+        "expected": "dict with resolved info",
+        "actual": "dict"
+      },
+      {
+        "name": "correct_resolved_entity",
+        "passed": true,
+        "expected": "Mats Ellingsen",
+        "actual": "Mats Ellingsen"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is mats ellingsen?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "mats ellingsen",
+        "type": "Instance"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": {
+      "uri": "http://example.org/sensInnovationAps_ontology#Mats%20Ellingsen",
+      "label": "Mats Ellingsen",
+      "score": 1.0,
+      "labels": [
+        "Mats Ellingsen"
+      ],
+      "entity_type": "NamedIndividual",
+      "types": [
+        "SocialObject",
+        "TeamMember"
+      ],
+      "superclasses": [],
+      "object_properties": {},
+      "data_properties": {},
+      "annotations": {}
+    },
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "mats ellingsen",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": {
+          "uri": "http://example.org/sensInnovationAps_ontology#Mats%20Ellingsen",
+          "label": "Mats Ellingsen",
+          "score": 1.0,
+          "labels": [
+            "Mats Ellingsen"
+          ],
+          "entity_type": "NamedIndividual",
+          "types": [
+            "SocialObject",
+            "TeamMember"
+          ],
+          "superclasses": [],
+          "object_properties": {},
+          "data_properties": {},
+          "annotations": {}
+        },
+        "status": "present"
+      }
+    }
+  },
+  {
+    "case": {
+      "id": "matsellingsen_def_3",
+      "atomic_input": "What is Mats Elligsen?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Mats Elligsen",
+        "type": "Instance"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      },
+      "gold_resolve": "Mats Ellingsen"
+    },
+    "checks": [
+      {
+        "name": "resolution_success",
+        "passed": true,
+        "expected": "dict with resolved info",
+        "actual": "dict"
+      },
+      {
+        "name": "correct_resolved_entity",
+        "passed": true,
+        "expected": "Mats Ellingsen",
+        "actual": "Mats Ellingsen"
+      }
+    ],
+    "question_info": {
+      "atomic_question": "What is Mats Elligsen?",
+      "question_type": "definition",
+      "answer_form": "value",
+      "entity": {
+        "value": "Mats Elligsen",
+        "type": "Instance"
+      },
+      "relation": "be",
+      "object": {
+        "value": null,
+        "type": null
+      }
+    },
+    "fetched": {
+      "uri": "http://example.org/sensInnovationAps_ontology#Mats%20Ellingsen",
+      "label": "Mats Ellingsen",
+      "score": 0.8953703703703704,
+      "labels": [
+        "Mats Ellingsen"
+      ],
+      "entity_type": "NamedIndividual",
+      "types": [
+        "SocialObject",
+        "TeamMember"
+      ],
+      "superclasses": [],
+      "object_properties": {},
+      "data_properties": {},
+      "annotations": {}
+    },
+    "stage_log": {
+      "input_to_graph": {
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": "Mats Elligsen",
+        "relation": "be",
+        "object": null
+      },
+      "resolve_entity": {
+        "resolved_info": {
+          "uri": "http://example.org/sensInnovationAps_ontology#Mats%20Ellingsen",
+          "label": "Mats Ellingsen",
+          "score": 0.8953703703703704,
+          "labels": [
+            "Mats Ellingsen"
+          ],
+          "entity_type": "NamedIndividual",
+          "types": [
+            "SocialObject",
+            "TeamMember"
+          ],
+          "superclasses": [],
+          "object_properties": {},
+          "data_properties": {},
+          "annotations": {}
+        },
+        "status": "present"
+      }
+    }
+  }
+]

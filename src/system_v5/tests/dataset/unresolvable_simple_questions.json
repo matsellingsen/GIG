@@ -1,227 +1,932 @@
 [
     {
-      "atomic_input": "What is a Lumeron?",
-      "question_type": "definition",
-      "answer_form": "value",
-      "entity": { "value": "Lumeron", "type": "Class" },
-      "relation": "be",
-      "object": { "value": null, "type": null }
+        "id": "unresolvable_1",
+        "atomic_input": "What is a Lumeron?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "Lumeron",
+            "type": "Class"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        }
     },
     {
-      "atomic_input": "What is a Trivax?",
-      "question_type": "definition",
-      "answer_form": "value",
-      "entity": { "value": "Trivax", "type": "Class" },
-      "relation": "be",
-      "object": { "value": null, "type": null }
+        "id": "unresolvable_2",
+        "atomic_input": "What is a Trivax?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "Trivax",
+            "type": "Class"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        }
     },
     {
-      "atomic_input": "What is a Norellian Object?",
-      "question_type": "definition",
-      "answer_form": "value",
-      "entity": { "value": "Norellian Object", "type": "Class" },
-      "relation": "be",
-      "object": { "value": null, "type": null }
+        "id": "unresolvable_3",
+        "atomic_input": "What is a Norellian Object?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "Norellian Object",
+            "type": "Class"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        }
     },
     {
-      "atomic_input": "What is a Veltrix Unit?",
-      "question_type": "definition",
-      "answer_form": "value",
-      "entity": { "value": "Veltrix Unit", "type": "Class" },
-      "relation": "be",
-      "object": { "value": null, "type": null }
+        "id": "unresolvable_4",
+        "atomic_input": "What is a Veltrix Unit?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "Veltrix Unit",
+            "type": "Class"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        }
     },
     {
-      "atomic_input": "What is a Sernite Structure?",
-      "question_type": "definition",
-      "answer_form": "value",
-      "entity": { "value": "Sernite Structure", "type": "Class" },
-      "relation": "be",
-      "object": { "value": null, "type": null }
+        "id": "unresolvable_5",
+        "atomic_input": "What is a Sernite Structure?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "Sernite Structure",
+            "type": "Class"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        }
     },
     {
-      "atomic_input": "What is a Dravonic Form?",
-      "question_type": "definition",
-      "answer_form": "value",
-      "entity": { "value": "Dravonic Form", "type": "Class" },
-      "relation": "be",
-      "object": { "value": null, "type": null }
+        "id": "unresolvable_6",
+        "atomic_input": "What is a Dravonic Form?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "Dravonic Form",
+            "type": "Class"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        }
     },
     {
-      "atomic_input": "What is a Kelvar Entity?",
-      "question_type": "definition",
-      "answer_form": "value",
-      "entity": { "value": "Kelvar Entity", "type": "Class" },
-      "relation": "be",
-      "object": { "value": null, "type": null }
+        "id": "unresolvable_7",
+        "atomic_input": "What is a Kelvar Entity?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "Kelvar Entity",
+            "type": "Class"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        }
     },
     {
-      "atomic_input": "What is a Miroth Component?",
-      "question_type": "definition",
-      "answer_form": "value",
-      "entity": { "value": "Miroth Component", "type": "Class" },
-      "relation": "be",
-      "object": { "value": null, "type": null }
+        "id": "unresolvable_8",
+        "atomic_input": "What is a Miroth Component?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "Miroth Component",
+            "type": "Class"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        }
     },
     {
-      "atomic_input": "What is a Plenoric System?",
-      "question_type": "definition",
-      "answer_form": "value",
-      "entity": { "value": "Plenoric System", "type": "Class" },
-      "relation": "be",
-      "object": { "value": null, "type": null }
+        "id": "unresolvable_9",
+        "atomic_input": "What is a Plenoric System?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "Plenoric System",
+            "type": "Class"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        }
     },
     {
-      "atomic_input": "What is a Teralin Module?",
-      "question_type": "definition",
-      "answer_form": "value",
-      "entity": { "value": "Teralin Module", "type": "Class" },
-      "relation": "be",
-      "object": { "value": null, "type": null }
+        "id": "unresolvable_10",
+        "atomic_input": "What is a Teralin Module?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "Teralin Module",
+            "type": "Class"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        }
     },
     {
-      "atomic_input": "What is a Vexorian Element?",
-      "question_type": "definition",
-      "answer_form": "value",
-      "entity": { "value": "Vexorian Element", "type": "Class" },
-      "relation": "be",
-      "object": { "value": null, "type": null }
+        "id": "unresolvable_11",
+        "atomic_input": "What is a Vexorian Element?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "Vexorian Element",
+            "type": "Class"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        }
     },
     {
-      "atomic_input": "What is a Quarnic Device?",
-      "question_type": "definition",
-      "answer_form": "value",
-      "entity": { "value": "Quarnic Device", "type": "Class" },
-      "relation": "be",
-      "object": { "value": null, "type": null }
-    },
-
-    {
-      "atomic_input": "What is a Solyrian Construct?",
-      "question_type": "definition",
-      "answer_form": "value",
-      "entity": { "value": "Solyrian Construct", "type": "Class" },
-      "relation": "be",
-      "object": { "value": null, "type": null }
+        "id": "unresolvable_12",
+        "atomic_input": "What is a Quarnic Device?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "Quarnic Device",
+            "type": "Class"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        }
     },
     {
-      "atomic_input": "What is a Brellite Form?",
-      "question_type": "definition",
-      "answer_form": "value",
-      "entity": { "value": "Brellite Form", "type": "Class" },
-      "relation": "be",
-      "object": { "value": null, "type": null }
+        "id": "unresolvable_13",
+        "atomic_input": "What is a Solyrian Construct?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "Solyrian Construct",
+            "type": "Class"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        }
     },
     {
-      "atomic_input": "What is a Nivorian Shape?",
-      "question_type": "definition",
-      "answer_form": "value",
-      "entity": { "value": "Nivorian Shape", "type": "Class" },
-      "relation": "be",
-      "object": { "value": null, "type": null }
+        "id": "unresolvable_14",
+        "atomic_input": "What is a Brellite Form?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "Brellite Form",
+            "type": "Class"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        }
     },
     {
-      "atomic_input": "What is a Corvax Pattern?",
-      "question_type": "definition",
-      "answer_form": "value",
-      "entity": { "value": "Corvax Pattern", "type": "Class" },
-      "relation": "be",
-      "object": { "value": null, "type": null }
+        "id": "unresolvable_15",
+        "atomic_input": "What is a Nivorian Shape?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "Nivorian Shape",
+            "type": "Class"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        }
     },
     {
-      "atomic_input": "What is a Jorilan Artifact?",
-      "question_type": "definition",
-      "answer_form": "value",
-      "entity": { "value": "Jorilan Artifact", "type": "Class" },
-      "relation": "be",
-      "object": { "value": null, "type": null }
+        "id": "unresolvable_16",
+        "atomic_input": "What is a Corvax Pattern?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "Corvax Pattern",
+            "type": "Class"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        }
     },
     {
-      "atomic_input": "What is a Valtoric Entity?",
-      "question_type": "definition",
-      "answer_form": "value",
-      "entity": { "value": "Valtoric Entity", "type": "Class" },
-      "relation": "be",
-      "object": { "value": null, "type": null }
+        "id": "unresolvable_17",
+        "atomic_input": "What is a Jorilan Artifact?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "Jorilan Artifact",
+            "type": "Class"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        }
     },
     {
-      "atomic_input": "What is an Orlian Construct?",
-      "question_type": "definition",
-      "answer_form": "value",
-      "entity": { "value": "Orlian Construct", "type": "Class" },
-      "relation": "be",
-      "object": { "value": null, "type": null }
+        "id": "unresolvable_18",
+        "atomic_input": "What is a Valtoric Entity?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "Valtoric Entity",
+            "type": "Class"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        }
     },
     {
-      "atomic_input": "What is a Trevonic Unit?",
-      "question_type": "definition",
-      "answer_form": "value",
-      "entity": { "value": "Trevonic Unit", "type": "Class" },
-      "relation": "be",
-      "object": { "value": null, "type": null }
+        "id": "unresolvable_19",
+        "atomic_input": "What is an Orlian Construct?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "Orlian Construct",
+            "type": "Class"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        }
     },
     {
-      "atomic_input": "What is a Melorian Object?",
-      "question_type": "definition",
-      "answer_form": "value",
-      "entity": { "value": "Melorian Object", "type": "Class" },
-      "relation": "be",
-      "object": { "value": null, "type": null }
+        "id": "unresolvable_20",
+        "atomic_input": "What is a Trevonic Unit?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "Trevonic Unit",
+            "type": "Class"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        }
     },
     {
-      "atomic_input": "What is a Drimex Structure?",
-      "question_type": "definition",
-      "answer_form": "value",
-      "entity": { "value": "Drimex Structure", "type": "Class" },
-      "relation": "be",
-      "object": { "value": null, "type": null }
+        "id": "unresolvable_21",
+        "atomic_input": "What is a Melorian Object?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "Melorian Object",
+            "type": "Class"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        }
     },
     {
-      "atomic_input": "What is an Ulvian Module?",
-      "question_type": "definition",
-      "answer_form": "value",
-      "entity": { "value": "Ulvian Module", "type": "Class" },
-      "relation": "be",
-      "object": { "value": null, "type": null }
+        "id": "unresolvable_22",
+        "atomic_input": "What is a Drimex Structure?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "Drimex Structure",
+            "type": "Class"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        }
     },
     {
-      "atomic_input": "What is a Zorlic Form?",
-      "question_type": "definition",
-      "answer_form": "value",
-      "entity": { "value": "Zorlic Form", "type": "Class" },
-      "relation": "be",
-      "object": { "value": null, "type": null }
+        "id": "unresolvable_23",
+        "atomic_input": "What is an Ulvian Module?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "Ulvian Module",
+            "type": "Class"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        }
     },
     {
-      "atomic_input": "What is a Fenorian Device?",
-      "question_type": "definition",
-      "answer_form": "value",
-      "entity": { "value": "Fenorian Device", "type": "Class" },
-      "relation": "be",
-      "object": { "value": null, "type": null }
+        "id": "unresolvable_24",
+        "atomic_input": "What is a Zorlic Form?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "Zorlic Form",
+            "type": "Class"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        }
     },
     {
-      "atomic_input": "What is a Kylothic Element?",
-      "question_type": "definition",
-      "answer_form": "value",
-      "entity": { "value": "Kylothic Element", "type": "Class" },
-      "relation": "be",
-      "object": { "value": null, "type": null }
+        "id": "unresolvable_25",
+        "atomic_input": "What is a Fenorian Device?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "Fenorian Device",
+            "type": "Class"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        }
     },
     {
-      "atomic_input": "What is a Brevonite Object?",
-      "question_type": "definition",
-      "answer_form": "value",
-      "entity": { "value": "Brevonite Object", "type": "Class" },
-      "relation": "be",
-      "object": { "value": null, "type": null }
+        "id": "unresolvable_26",
+        "atomic_input": "What is a Kylothic Element?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "Kylothic Element",
+            "type": "Class"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        }
     },
     {
-      "atomic_input": "What is a Lorvian Construct?",
-      "question_type": "definition",
-      "answer_form": "value",
-      "entity": { "value": "Lorvian Construct", "type": "Class" },
-      "relation": "be",
-      "object": { "value": null, "type": null }
+        "id": "unresolvable_27",
+        "atomic_input": "What is a Brevonite Object?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "Brevonite Object",
+            "type": "Class"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        }
+    },
+    {
+        "id": "unresolvable_28",
+        "atomic_input": "What is a Lorvian Construct?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "Lorvian Construct",
+            "type": "Class"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        }
+    },
+    {
+        "id": "unresolvable_29",
+        "atomic_input": "What is a Krylonic Frame?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "Krylonic Frame",
+            "type": "Class"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        }
+    },
+    {
+        "id": "unresolvable_30",
+        "atomic_input": "What is a Velorian Matrix?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "Velorian Matrix",
+            "type": "Class"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        }
+    },
+    {
+        "id": "algorithm_def_1",
+        "atomic_input": "What is Algorithm?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "Algorithm",
+            "type": "Class"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        },
+        "gold_resolve": "Algorithm"
+    },
+    {
+        "id": "algorithm_def_2",
+        "atomic_input": "What is algorithm?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "algorithm",
+            "type": "Class"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        },
+        "gold_resolve": "Algorithm"
+    },
+    {
+        "id": "algorithm_def_3",
+        "atomic_input": "What is Algoritm?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "Algoritm",
+            "type": "Class"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        },
+        "gold_resolve": "Algorithm"
+    },
+    {
+        "id": "cohort_def_1",
+        "atomic_input": "What is Cohort?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "Cohort",
+            "type": "Class"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        },
+        "gold_resolve": "Cohort"
+    },
+    {
+        "id": "cohort_def_2",
+        "atomic_input": "What is cohort?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "cohort",
+            "type": "Class"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        },
+        "gold_resolve": "Cohort"
+    },
+    {
+        "id": "cohort_def_3",
+        "atomic_input": "What is Cohrot?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "Cohrot",
+            "type": "Class"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        },
+        "gold_resolve": "Cohort"
+    },
+    {
+        "id": "filesize_def_1",
+        "atomic_input": "What is a FileSize?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "FileSize",
+            "type": "Class"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        },
+        "gold_resolve": "FileSize"
+    },
+    {
+        "id": "filesize_def_2",
+        "atomic_input": "What is a File Size?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "File Size",
+            "type": "Class"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        },
+        "gold_resolve": "FileSize"
+    },
+    {
+        "id": "filesize_def_3",
+        "atomic_input": "What is a FielSize?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "FielSize",
+            "type": "Class"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        },
+        "gold_resolve": "FileSize"
+    },
+    {
+        "id": "datacollectiontool_def_1",
+        "atomic_input": "What is DataCollectionTool?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "DataCollectionTool",
+            "type": "Class"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        },
+        "gold_resolve": "DataCollectionTool"
+    },
+    {
+        "id": "datacollectiontool_def_2",
+        "atomic_input": "What is Data Collection Tool?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "Data Collection Tool",
+            "type": "Class"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        },
+        "gold_resolve": "DataCollectionTool"
+    },
+    {
+        "id": "datacollectiontool_def_3",
+        "atomic_input": "What is DataColletionTool?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "DataColletionTool",
+            "type": "Class"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        },
+        "gold_resolve": "DataCollectionTool"
+    },
+    {
+        "id": "datatransfercompletioncondition_def_1",
+        "atomic_input": "What is DataTransferCompletionCondition?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "DataTransferCompletionCondition",
+            "type": "Class"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        },
+        "gold_resolve": "DataTransferCompletionCondition"
+    },
+    {
+        "id": "datatransfercompletioncondition_def_2",
+        "atomic_input": "What is Data Transfer Completion Condition?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "Data Transfer Completion Condition",
+            "type": "Class"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        },
+        "gold_resolve": "DataTransferCompletionCondition"
+    },
+    {
+        "id": "datatransfercompletioncondition_def_3",
+        "atomic_input": "What is DataTransferCompletinCondition?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "DataTransferCompletinCondition",
+            "type": "Class"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        },
+        "gold_resolve": "DataTransferCompletionCondition"
+    },
+    {
+        "id": "resting_def_1",
+        "atomic_input": "What is Resting?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "Resting",
+            "type": "Instance"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        },
+        "gold_resolve": "Resting"
+    },
+    {
+        "id": "resting_def_2",
+        "atomic_input": "What is resting?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "resting",
+            "type": "Instance"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        },
+        "gold_resolve": "Resting"
+    },
+    {
+        "id": "resting_def_3",
+        "atomic_input": "What is Restnig?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "Restnig",
+            "type": "Instance"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        },
+        "gold_resolve": "Resting"
+    },
+    {
+        "id": "bulkactions_def_1",
+        "atomic_input": "What is Bulk Actions?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "Bulk Actions",
+            "type": "Instance"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        },
+        "gold_resolve": "Bulk Actions"
+    },
+    {
+        "id": "bulkactions_def_2",
+        "atomic_input": "What is bulk actions?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "bulk actions",
+            "type": "Instance"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        },
+        "gold_resolve": "Bulk Actions"
+    },
+    {
+        "id": "bulkactions_def_3",
+        "atomic_input": "What is Bulk Actoins?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "Bulk Actoins",
+            "type": "Instance"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        },
+        "gold_resolve": "Bulk Actions"
+    },
+    {
+        "id": "highintensityrunning_def_1",
+        "atomic_input": "What is High Intensity/Running?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "High Intensity/Running",
+            "type": "Instance"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        },
+        "gold_resolve": "High Intensity/Running"
+    },
+    {
+        "id": "highintensityrunning_def_2",
+        "atomic_input": "What is High intensity/running?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "High intensity/running",
+            "type": "Instance"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        },
+        "gold_resolve": "High Intensity/Running"
+    },
+    {
+        "id": "highintensityrunning_def_3",
+        "atomic_input": "What is High Intensity/Runnnig?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "High Intensity/Runnnig",
+            "type": "Instance"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        },
+        "gold_resolve": "High Intensity/Running"
+    },
+    {
+        "id": "artno_def_1",
+        "atomic_input": "What is Art. No. 136-100-C?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "Art. No. 136-100-C",
+            "type": "Instance"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        },
+        "gold_resolve": "Art. No. 136-100-C"
+    },
+    {
+        "id": "artno_def_2",
+        "atomic_input": "What is art. no. 136-100-c?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "art. no. 136-100-c",
+            "type": "Instance"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        },
+        "gold_resolve": "Art. No. 136-100-C"
+    },
+    {
+        "id": "artno_def_3",
+        "atomic_input": "What is Art. No. 136-100C?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "Art. No. 136-100C",
+            "type": "Instance"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        },
+        "gold_resolve": "Art. No. 136-100-C"
+    },
+    {
+        "id": "matsellingsen_def_1",
+        "atomic_input": "What is Mats Ellingsen?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "Mats Ellingsen",
+            "type": "Instance"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        },
+        "gold_resolve": "Mats Ellingsen"
+    },
+    {
+        "id": "matsellingsen_def_2",
+        "atomic_input": "What is mats ellingsen?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "mats ellingsen",
+            "type": "Instance"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        },
+        "gold_resolve": "Mats Ellingsen"
+    },
+    {
+        "id": "matsellingsen_def_3",
+        "atomic_input": "What is Mats Elligsen?",
+        "question_type": "definition",
+        "answer_form": "value",
+        "entity": {
+            "value": "Mats Elligsen",
+            "type": "Instance"
+        },
+        "relation": "be",
+        "object": {
+            "value": null,
+            "type": null
+        },
+        "gold_resolve": "Mats Ellingsen"
     }
 ]

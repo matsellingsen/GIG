@@ -10,7 +10,7 @@ from agent_loop.agents.inference_module.extract_entity_agent import ExtractEntit
 from agent_loop.agents.inference_module.extract_relation_agent import ExtractRelationAgent
 from agent_loop.agents.inference_module.extract_question_type_agent import ExtractQuestionTypeAgent
 from agent_loop.agents.inference_module.extract_object_agent import ExtractObjectAgent
-from system_v5.agent_loop.agents.inference_module.resolve_answer_form_agent import ResolveAnswerFormAgent
+from agent_loop.agents.inference_module.resolve_answer_form_agent import ResolveAnswerFormAgent
 
 from system_v5.backends import load_backend
 
@@ -19,7 +19,7 @@ DATASET_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "da
 with open(DATASET_PATH) as f:
     DATASET = json.load(f)
 
-SAMPLE_SIZE = int(os.getenv("INPUT_TO_GRAPH_SAMPLE_SIZE", "10"))
+SAMPLE_SIZE = int(os.getenv("INPUT_TO_GRAPH_SAMPLE_SIZE", "1000"))
 TIERS = ["canonical", "paraphrased", "adversarial"]
 
 def _is_fuzzy_match(expected: str, actual: str, ratio_threshold: float = 0.45) -> bool:
@@ -49,6 +49,23 @@ def _is_fuzzy_match(expected: str, actual: str, ratio_threshold: float = 0.45) -
 
 def build_cases():
     cases = []
+    
+    # If there's a missing input tracker, run only those to save time/APIs
+    missing_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..", "..", "missing_input_to_graph.json"))
+    print(f"Looking for missing_path at: {missing_path}") # Debug print
+    if os.path.exists(missing_path):
+        print(f"Found missing config overrides! Running partial test suite.")
+        with open(missing_path, "r", encoding="utf-8") as f:
+            missing_items = json.load(f)
+        for m in missing_items:
+            cases.append({
+                "domain": m["domain"], 
+                "tier": m["tier"], 
+                "item_index": m["item_index"],
+                "name": f"{m['tier']}_{m.get('name')}"
+            })
+        return cases
+
     for domain, domain_data in DATASET.items():
         for tier in TIERS:
             tier_items = domain_data.get(tier, [])
@@ -122,6 +139,7 @@ def test_input_to_graph(case):
         "atomic_input": atomic_input,
     }
 
+    inference_log = {"input": atomic_input} # Initialize inference log for this test case
     try:
         result = atomic_to_graph(
             atomic_input,
@@ -130,8 +148,30 @@ def test_input_to_graph(case):
             extract_entity_agent=extract_entity_agent,
             extract_relation_agent=extract_relation_agent,
             extract_object_agent=extract_object_agent,
+            inference_log=inference_log,
         )
-        record_check(checks, "atomic_to_graph_exception", True, expected="no exception", actual="no exception")
+        if isinstance(result, str):
+            q_type = inference_log.get("resolved_question_type")
+            q_type = q_type if isinstance(q_type, dict) else {}
+            a_form = inference_log.get("resolved_answer_form")
+            a_form = a_form if isinstance(a_form, dict) else {}
+            ent = inference_log.get("extracted_entity")
+            ent = ent if isinstance(ent, dict) else {}
+            rel = inference_log.get("extracted_relation")
+            rel = rel if isinstance(rel, dict) else {}
+            obj = inference_log.get("extracted_object")
+            obj = obj if isinstance(obj, dict) else {}
+
+            result = {
+                "question_type": q_type.get("question_type", "pass"),
+                "answer_form": a_form.get("answer_form", "pass"),
+                "entity": {"value": ent.get("primary_entity", "pass"), "type": ent.get("entity_type", "pass")},
+                "relation": rel.get("relation", "pass"),
+                "object": {"value": obj.get("object", "pass"), "type": obj.get("object_type", "pass")}
+            }
+            record_check(checks, "atomic_to_graph_exception", False, expected="no exception", actual="returned error string")
+        else:
+            record_check(checks, "atomic_to_graph_exception", True, expected="no exception", actual="no exception")
     except Exception as exc:
         result = {}
         record_check(checks, "atomic_to_graph_exception", False, expected="no exception", actual=str(exc))

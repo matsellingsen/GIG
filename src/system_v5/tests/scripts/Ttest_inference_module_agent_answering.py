@@ -8,7 +8,6 @@ sys.path.append("C:\\Users\\matse\\gig\\src\\system_v5") # Adjust this path to p
 
 from agent_loop.agents.inference_module.resolve_entity_agent import ResolveEntityAgent
 from agent_loop.agents.inference_module.generate_answer_agent import GenerateAnswerAgent
-from agent_loop.agents.inference_module.validate_answer_agent import ValidateAnswerAgent
 from backends import load_backend
 from tools.inference_module.fetch_relevant_info import flatten_entity_context
 

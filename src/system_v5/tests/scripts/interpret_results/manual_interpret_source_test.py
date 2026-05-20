@@ -62,8 +62,8 @@ def compute_metrics(results):
             unprecise = sum(1 for r in qtype_results if r.get("classification") == "Unprecise")
             incorrect_false = sum(1 for r in qtype_results if r.get("classification") == "Incorrect (false information)")
             incorrect_vague = sum(1 for r in qtype_results if r.get("classification") == "Incorrect (vague information)")
-            incorrect_abstain = sum(1 for r in qtype_results if r.get("classification") == "Incorrect abstain")
-            correct_abstain = sum(1 for r in qtype_results if r.get("classification") == "Correct abstain")
+            incorrect_abstain = sum(1 for r in qtype_results if r.get("classification") == "Incorrect Abstain")
+            correct_abstain = sum(1 for r in qtype_results if r.get("classification") == "Correct Abstain")
 
             metrics[system][qtype] = {
                 "total": total,
