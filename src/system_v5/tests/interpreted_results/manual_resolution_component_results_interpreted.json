@@ -1,0 +1,59 @@
+{
+  "unresolvable": {
+    "resolution_failure": {
+      "passed": 21,
+      "total": 30,
+      "pct": 70.0
+    }
+  },
+  "resolvable": {
+    "canonical": {
+      "resolution_success": {
+        "passed": 10,
+        "total": 10,
+        "pct": 100.0
+      },
+      "correct_resolved_entity": {
+        "passed": 10,
+        "total": 10,
+        "pct": 100.0
+      }
+    },
+    "paraphrased": {
+      "resolution_success": {
+        "passed": 10,
+        "total": 10,
+        "pct": 100.0
+      },
+      "correct_resolved_entity": {
+        "passed": 10,
+        "total": 10,
+        "pct": 100.0
+      }
+    },
+    "typo": {
+      "resolution_success": {
+        "passed": 10,
+        "total": 10,
+        "pct": 100.0
+      },
+      "correct_resolved_entity": {
+        "passed": 10,
+        "total": 10,
+        "pct": 100.0
+      }
+    },
+    "overall": {
+      "resolution_success": {
+        "passed": 30,
+        "total": 30,
+        "pct": 100.0
+      },
+      "correct_resolved_entity": {
+        "passed": 30,
+        "total": 30,
+        "pct": 100.0
+      }
+    }
+  }
+}

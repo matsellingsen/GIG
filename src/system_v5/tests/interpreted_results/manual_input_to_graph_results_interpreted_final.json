@@ -1149,43 +1149,43 @@
   },
   "aggregate": {
     "atomic_to_graph_exception": {
-      "passed": 518,
-      "total": 540,
+      "passed": 259,
+      "total": 270,
       "pct": 95.93
     },
     "question_type_match": {
-      "passed": 418,
-      "total": 540,
+      "passed": 209,
+      "total": 270,
       "pct": 77.41
     },
     "answer_form_match": {
-      "passed": 440,
-      "total": 540,
+      "passed": 220,
+      "total": 270,
       "pct": 81.48
     },
     "entity_match": {
-      "passed": 442,
-      "total": 540,
+      "passed": 221,
+      "total": 270,
       "pct": 81.85
     },
     "relation_match": {
-      "passed": 418,
-      "total": 540,
+      "passed": 209,
+      "total": 270,
       "pct": 77.41
     },
     "entity_fuzzy_match": {
-      "passed": 460,
-      "total": 540,
+      "passed": 230,
+      "total": 270,
       "pct": 85.19
     },
     "object_match": {
-      "passed": 130,
-      "total": 216,
+      "passed": 65,
+      "total": 108,
       "pct": 60.19
     },
     "object_fuzzy_match": {
-      "passed": 166,
-      "total": 216,
+      "passed": 83,
+      "total": 108,
       "pct": 76.85
     }
   }

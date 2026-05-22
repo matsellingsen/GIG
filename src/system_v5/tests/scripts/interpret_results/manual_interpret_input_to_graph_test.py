@@ -99,6 +99,8 @@ def compute_metrics(results):
     # Compute aggregate metrics across all domains and tiers
     aggregate_stats = {}
     for domain, tiers in domain_tier_metrics.items():
+        if domain == "aggregate_by_tier":
+            continue
         for tier, stats in tiers.items():
             if tier == "overall":
                 continue # Skip overall to avoid double-counting
