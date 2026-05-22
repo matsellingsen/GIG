@@ -1019,45 +1019,173 @@
       }
     }
   },
+  "aggregate_by_tier": {
+    "canonical": {
+      "atomic_to_graph_exception": {
+        "passed": 88,
+        "total": 90,
+        "pct": 97.78
+      },
+      "question_type_match": {
+        "passed": 70,
+        "total": 90,
+        "pct": 77.78
+      },
+      "answer_form_match": {
+        "passed": 70,
+        "total": 90,
+        "pct": 77.78
+      },
+      "entity_match": {
+        "passed": 77,
+        "total": 90,
+        "pct": 85.56
+      },
+      "relation_match": {
+        "passed": 70,
+        "total": 90,
+        "pct": 77.78
+      },
+      "entity_fuzzy_match": {
+        "passed": 78,
+        "total": 90,
+        "pct": 86.67
+      },
+      "object_match": {
+        "passed": 20,
+        "total": 36,
+        "pct": 55.56
+      },
+      "object_fuzzy_match": {
+        "passed": 32,
+        "total": 36,
+        "pct": 88.89
+      }
+    },
+    "paraphrased": {
+      "atomic_to_graph_exception": {
+        "passed": 86,
+        "total": 90,
+        "pct": 95.56
+      },
+      "question_type_match": {
+        "passed": 71,
+        "total": 90,
+        "pct": 78.89
+      },
+      "answer_form_match": {
+        "passed": 70,
+        "total": 90,
+        "pct": 77.78
+      },
+      "entity_match": {
+        "passed": 74,
+        "total": 90,
+        "pct": 82.22
+      },
+      "relation_match": {
+        "passed": 71,
+        "total": 90,
+        "pct": 78.89
+      },
+      "entity_fuzzy_match": {
+        "passed": 75,
+        "total": 90,
+        "pct": 83.33
+      },
+      "object_match": {
+        "passed": 24,
+        "total": 36,
+        "pct": 66.67
+      },
+      "object_fuzzy_match": {
+        "passed": 27,
+        "total": 36,
+        "pct": 75.0
+      }
+    },
+    "adversarial": {
+      "atomic_to_graph_exception": {
+        "passed": 85,
+        "total": 90,
+        "pct": 94.44
+      },
+      "question_type_match": {
+        "passed": 68,
+        "total": 90,
+        "pct": 75.56
+      },
+      "answer_form_match": {
+        "passed": 80,
+        "total": 90,
+        "pct": 88.89
+      },
+      "entity_match": {
+        "passed": 70,
+        "total": 90,
+        "pct": 77.78
+      },
+      "relation_match": {
+        "passed": 68,
+        "total": 90,
+        "pct": 75.56
+      },
+      "entity_fuzzy_match": {
+        "passed": 77,
+        "total": 90,
+        "pct": 85.56
+      },
+      "object_match": {
+        "passed": 21,
+        "total": 36,
+        "pct": 58.33
+      },
+      "object_fuzzy_match": {
+        "passed": 24,
+        "total": 36,
+        "pct": 66.67
+      }
+    }
+  },
   "aggregate": {
     "atomic_to_graph_exception": {
-      "passed": 259,
-      "total": 270,
+      "passed": 518,
+      "total": 540,
       "pct": 95.93
     },
     "question_type_match": {
-      "passed": 209,
-      "total": 270,
+      "passed": 418,
+      "total": 540,
       "pct": 77.41
     },
     "answer_form_match": {
-      "passed": 220,
-      "total": 270,
+      "passed": 440,
+      "total": 540,
       "pct": 81.48
     },
     "entity_match": {
-      "passed": 221,
-      "total": 270,
+      "passed": 442,
+      "total": 540,
       "pct": 81.85
     },
     "relation_match": {
-      "passed": 209,
-      "total": 270,
+      "passed": 418,
+      "total": 540,
       "pct": 77.41
     },
     "entity_fuzzy_match": {
-      "passed": 230,
-      "total": 270,
+      "passed": 460,
+      "total": 540,
       "pct": 85.19
     },
     "object_match": {
-      "passed": 65,
-      "total": 108,
+      "passed": 130,
+      "total": 216,
       "pct": 60.19
     },
     "object_fuzzy_match": {
-      "passed": 83,
-      "total": 108,
+      "passed": 166,
+      "total": 216,
       "pct": 76.85
     }
   }

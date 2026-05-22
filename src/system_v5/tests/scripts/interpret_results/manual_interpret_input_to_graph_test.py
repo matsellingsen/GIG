@@ -71,7 +71,32 @@ def compute_metrics(results):
             
         domain_tier_metrics[domain]["overall"] = overall_stats
 
-    # 3. Compute aggregate metrics across all domains and tiers
+    
+
+    # Compute aggregate metrics separated by tier
+    aggregate_by_tier = {
+        "canonical": defaultdict(lambda: {"passed": 0, "total": 0}),
+        "paraphrased": defaultdict(lambda: {"passed": 0, "total": 0}),
+        "adversarial": defaultdict(lambda: {"passed": 0, "total": 0}),
+    }
+
+    for domain, tiers in domain_tier_metrics.items():
+        for tier in ["canonical", "paraphrased", "adversarial"]:
+            if tier not in tiers:
+                continue
+            for check_name, counts in tiers[tier].items():
+                aggregate_by_tier[tier][check_name]["passed"] += counts["passed"]
+                aggregate_by_tier[tier][check_name]["total"] += counts["total"]
+
+    # Compute percentages for each tier
+    for tier, stats in aggregate_by_tier.items():
+        for check_name, counts in stats.items():
+            pct = (counts["passed"] / counts["total"] * 100) if counts["total"] > 0 else 0.0
+            counts["pct"] = round(pct, 2)
+
+    domain_tier_metrics["aggregate_by_tier"] = aggregate_by_tier
+
+    # Compute aggregate metrics across all domains and tiers
     aggregate_stats = {}
     for domain, tiers in domain_tier_metrics.items():
         for tier, stats in tiers.items():
@@ -88,7 +113,7 @@ def compute_metrics(results):
         pct = (counts["passed"] / counts["total"] * 100) if counts["total"] > 0 else 0.0
         counts["pct"] = round(pct, 2)
     domain_tier_metrics["aggregate"] = aggregate_stats
-
+    
     return domain_tier_metrics
 
 def main():
