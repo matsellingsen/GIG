@@ -2860,7 +2860,7 @@
         "name": "answer_non_empty",
         "passed": true,
         "expected": "non-empty",
-        "actual": "The value of 'SensorStatus' is 'Class'."
+        "actual": "A SensorStatus is the current operational state of a sensor, which can be 'on', 'off', 'ready for use', or 'in use'."
       },
       {
         "name": "correct_entity_resolution",
@@ -2878,11 +2878,11 @@
         "name": "answer_not_abstain",
         "passed": true,
         "expected": "answer that does not explicitly abstain",
-        "actual": "The value of 'SensorStatus' is 'Class'."
+        "actual": "A SensorStatus is the current operational state of a sensor, which can be 'on', 'off', 'ready for use', or 'in use'."
       },
       {
         "name": "grounding_preferred",
-        "passed": false,
+        "passed": true,
         "expected": {
           "entity_side": {
             "types": [],
@@ -2896,21 +2896,23 @@
           }
         },
         "actual": {
-          "types": ["Class"],
-          "equivalent_classes": [],
-          "superclasses": [],
-          "members": [],
           "chunk_id": [],
+          "members": [],
+          "property_values": {},
+          "types": [],
+          "annotations": [
+            "SensorStatus"
+          ],
           "properties": [],
-          "annotations": [],
-          "property_values": {}
+          "equivalent_classes": [],
+          "superclasses": []
         }
       },
       {
         "name": "correct_question_type",
-        "passed": false,
+        "passed": true,
         "expected": "definition",
-        "actual": "property"
+        "actual": "definition"
       },
       {
         "name": "correct_answer_form",
@@ -2926,73 +2928,77 @@
       },
       {
         "name": "correct_relation_extraction",
-        "passed": false,
+        "passed": true,
         "expected": "be",
-        "actual": "have property"
+        "actual": "be"
       },
       {
         "name": "correct_object_extraction",
-        "passed": false,
+        "passed": true,
         "expected": null,
-        "actual": "SensorStatus"
+        "actual": null
       },
       {
         "name": "grounding_nonempty",
-        "passed": false,
+        "passed": true,
         "expected": "any non-empty grounding",
         "actual": {
-          "types": [],
-          "equivalent_classes": [],
-          "superclasses": [],
-          "members": [],
           "chunk_id": [],
+          "members": [],
+          "property_values": {},
+          "types": [],
+          "annotations": [
+            "SensorStatus"
+          ],
           "properties": [],
-          "annotations": [],
-          "property_values": {}
+          "equivalent_classes": [],
+          "superclasses": []
         }
       },
       {
         "name": "grounding_incorrect",
-        "passed": false,
+        "passed": true,
         "expected": "non-empty grounding",
         "actual": {
-          "types": [],
-          "equivalent_classes": [],
-          "superclasses": [],
-          "members": [],
           "chunk_id": [],
+          "members": [],
+          "property_values": {},
+          "types": [],
+          "annotations": [
+            "SensorStatus"
+          ],
           "properties": [],
-          "annotations": [],
-          "property_values": {}
+          "equivalent_classes": [],
+          "superclasses": []
         }
       }
     ],
     "question_info": {
-      "atomic_question": "What is SensorStatus?",
-      "question_type": "property",
+      "atomic_question": "What is a SensorStatus?",
+      "question_type": "definition",
       "answer_form": "value",
       "entity": {
         "value": "SensorStatus",
         "type": null
       },
-      "relation": "have property",
+      "relation": "be",
       "object": {
-        "value": "SensorStatus",
+        "value": "null",
         "type": null
       }
     },
     "fetched": {
       "question_info": {
-        "atomic_question": "What is SensorStatus?",
-        "question_type": "property",
+        "atomic_question": "What is a SensorStatus?",
+        "question_type": "definition",
         "answer_form": "value",
         "entity": {
           "value": "SensorStatus",
           "type": null
         },
-        "relation": "have property",
+        "relation": "be",
         "object": {
-          "value": "SensorStatus",
+          "value": "null",
           "type": null
         }
       },
@@ -3029,12 +3035,13 @@
           ]
         },
         "equivalent_classes": [],
-        "properties_by_type": {
+        "annotations": {
+          "label": "SensorStatus",
+          "comment": "The current operational state of a sensor, which can be 'on', 'off', 'ready for use', or 'in use'."
+        },
+        "class_descriptions": {
           "Class": {
-            "outgoing_object_properties": [],
-            "outgoing_data_properties": [],
-            "incoming_object_properties": [],
-            "incoming_data_properties": []
+            "description": null
           }
         }
       },
@@ -3043,11 +3050,11 @@
     },
     "stage_log": {
       "input_to_graph": {
-        "question_type": "property",
+        "question_type": "definition",
         "answer_form": "value",
         "entity": "SensorStatus",
-        "relation": "have property",
-        "object": "SensorStatus"
+        "relation": "be",
+        "object": "null"
       },
       "fetch_relevant_info": {
         "resolved_entity": {
@@ -3072,31 +3079,33 @@
         "status": "present"
       },
       "generate_answer": {
-        "answer": "The value of 'SensorStatus' is 'Class'.",
-        "reasoning": "The atomic question asks for the value of 'SensorStatus', which is a property of an entity. The ontology information provided includes a 'scope_note' and a 'label' that directly relate to 'SensorStatus', confirming its existence as a 'Class'. The 'label' is given as 'SensorStatus', and the 'scope_note' reaffirms that all information is directly related to the resolved entity of the atomic question. Therefore, the value of 'SensorStatus' can be inferred as a 'Class' with no further details provided in the 'scope_note' or 'label'."
+        "answer": "A SensorStatus is the current operational state of a sensor, which can be 'on', 'off', 'ready for use', or 'in use'.",
+        "reasoning": "The ontology information provides a label for the entity 'SensorStatus' and describes it as 'The current operational state of a sensor, which can be 'on', 'off', 'ready for use', or 'in use'.'"
       },
       "map_answer_to_context": {
         "entity_answer": null,
         "reasoning_answer": null,
         "merged_entity_answer": {
-          "types": [],
-          "equivalent_classes": [],
-          "superclasses": [],
-          "members": [],
           "chunk_id": [],
+          "members": [],
+          "property_values": {},
+          "types": [],
+          "annotations": [
+            "SensorStatus"
+          ],
           "properties": [],
-          "annotations": [],
-          "property_values": {}
+          "equivalent_classes": [],
+          "superclasses": []
         }
       }
     },
     "generated_question_stage": {
-      "question_type": "property",
+      "question_type": "definition",
       "answer_form": "value",
       "entity": "SensorStatus",
       "entity_type": null,
-      "relation": "have property",
-      "object": "SensorStatus",
+      "relation": "be",
+      "object": "null",
       "object_type": null
     },
     "entity_context": {
@@ -3114,18 +3123,19 @@
         ]
       },
       "equivalent_classes": [],
-      "properties_by_type": {
+      "annotations": {
+        "label": "SensorStatus",
+        "comment": "The current operational state of a sensor, which can be 'on', 'off', 'ready for use', or 'in use'."
+      },
+      "class_descriptions": {
         "Class": {
-          "outgoing_object_properties": [],
-          "outgoing_data_properties": [],
-          "incoming_object_properties": [],
-          "incoming_data_properties": []
+          "description": null
         }
       }
     },
     "object_context": null,
-    "answer": "The value of 'SensorStatus' is 'Class'.",
-    "reasoning": "The atomic question asks for the value of 'SensorStatus', which is a property of an entity. The ontology information provided includes a 'scope_note' and a 'label' that directly relate to 'SensorStatus', confirming its existence as a 'Class'. The 'label' is given as 'SensorStatus', and the 'scope_note' reaffirms that all information is directly related to the resolved entity of the atomic question. Therefore, the value of 'SensorStatus' can be inferred as a 'Class' with no further details provided in the 'scope_note' or 'label'.",
+    "answer": "A SensorStatus is the current operational state of a sensor, which can be 'on', 'off', 'ready for use', or 'in use'.",
+    "reasoning": "The ontology information provides a label for the entity 'SensorStatus' and describes it as 'The current operational state of a sensor, which can be 'on', 'off', 'ready for use', or 'in use'.'",
     "gold_answer_agent": {},
     "mapped_reasoning_answer": {
       "types": [],
@@ -3133,7 +3143,9 @@
       "equivalent_classes": [],
       "properties": [],
       "property_values": {},
-      "annotations": [],
+      "annotations": [
+        "SensorStatus"
+      ],
       "members": [],
       "chunk_id": []
     },
@@ -3143,19 +3155,23 @@
       "equivalent_classes": [],
       "properties": [],
       "property_values": {},
-      "annotations": [],
+      "annotations": [
+        "SensorStatus"
+      ],
       "members": [],
       "chunk_id": []
     },
     "mapped_entity_merged": {
-      "types": [],
-      "equivalent_classes": [],
-      "superclasses": [],
-      "members": [],
       "chunk_id": [],
+      "members": [],
+      "property_values": {},
+      "types": [],
+      "annotations": [
+        "SensorStatus"
+      ],
       "properties": [],
-      "annotations": [],
-      "property_values": {}
+      "equivalent_classes": [],
+      "superclasses": []
     },
     "mapped_object_merged": null
   },

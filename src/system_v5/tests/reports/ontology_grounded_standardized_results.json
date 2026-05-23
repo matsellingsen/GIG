@@ -1,66 +1,66 @@
 [
   {
     "case": {
-      "id": "present_cmp_02_answerable"
+      "id": "present_def_09"
     },
     "checks": [
       {
         "name": "answer_non_empty",
         "passed": true,
         "expected": "non-empty",
-        "actual": "The 'chunk_id' of 'Resting' is 1 larger than the 'chunk_id' of 'High intensity activities'."
+        "actual": "A SensorStatus is the current operational state of a sensor, which can be 'on', 'off', 'ready for use', or 'in use'."
       },
       {
         "name": "correct_entity_resolution",
         "passed": true,
-        "expected": "Resting",
-        "actual": "Resting"
+        "expected": "SensorStatus",
+        "actual": "SensorStatus"
       },
       {
         "name": "correct_object_resolution",
         "passed": true,
-        "expected": "High intensity activities",
-        "actual": "High intensity activities"
+        "expected": null,
+        "actual": null
       },
       {
         "name": "answer_not_abstain",
         "passed": true,
         "expected": "answer that does not explicitly abstain",
-        "actual": "The 'chunk_id' of 'Resting' is 1 larger than the 'chunk_id' of 'High intensity activities'."
+        "actual": "A SensorStatus is the current operational state of a sensor, which can be 'on', 'off', 'ready for use', or 'in use'."
       },
       {
         "name": "grounding_preferred",
         "passed": true,
         "expected": {
           "entity_side": {
-            "chunk_id": [
-              47
-            ]
-          },
-          "object_side": {
-            "chunk_id": [
-              48
-            ]
+            "types": [],
+            "superclasses": [],
+            "annotations": [
+              "SensorStatus"
+            ],
+            "equivalent_classes": [],
+            "properties": [],
+            "property_values": {}
           }
         },
         "actual": {
-          "types": [],
-          "property_values": {},
-          "annotations": [],
-          "equivalent_classes": [],
+          "chunk_id": [],
           "members": [],
-          "superclasses": [],
-          "chunk_id": [
-            "47"
+          "property_values": {},
+          "types": [],
+          "annotations": [
+            "SensorStatus"
           ],
-          "properties": []
+          "properties": [],
+          "equivalent_classes": [],
+          "superclasses": []
         }
       },
       {
         "name": "correct_question_type",
         "passed": true,
-        "expected": "comparative",
-        "actual": "comparative"
+        "expected": "definition",
+        "actual": "definition"
       },
       {
         "name": "correct_answer_form",
@@ -70,37 +70,37 @@
       },
       {
         "name": "correct_extracted_entity",
-        "passed": false,
-        "expected": "Resting",
-        "actual": "chunk_id of Resting"
+        "passed": true,
+        "expected": "SensorStatus",
+        "actual": "SensorStatus"
       },
       {
         "name": "correct_relation_extraction",
         "passed": true,
-        "expected": "compare",
-        "actual": "compare"
+        "expected": "be",
+        "actual": "be"
       },
       {
         "name": "correct_object_extraction",
         "passed": true,
-        "expected": "High intensity activities",
-        "actual": "High intensity activities"
+        "expected": null,
+        "actual": null
       },
       {
         "name": "grounding_nonempty",
         "passed": true,
         "expected": "any non-empty grounding",
         "actual": {
-          "types": [],
-          "property_values": {},
-          "annotations": [],
-          "equivalent_classes": [],
+          "chunk_id": [],
           "members": [],
-          "superclasses": [],
-          "chunk_id": [
-            "47"
+          "property_values": {},
+          "types": [],
+          "annotations": [
+            "SensorStatus"
           ],
-          "properties": []
+          "properties": [],
+          "equivalent_classes": [],
+          "superclasses": []
         }
       },
       {
@@ -108,300 +108,182 @@
         "passed": true,
         "expected": "non-empty grounding",
         "actual": {
-          "types": [],
-          "property_values": {},
-          "annotations": [],
-          "equivalent_classes": [],
+          "chunk_id": [],
           "members": [],
-          "superclasses": [],
-          "chunk_id": [
-            "47"
+          "property_values": {},
+          "types": [],
+          "annotations": [
+            "SensorStatus"
           ],
-          "properties": []
+          "properties": [],
+          "equivalent_classes": [],
+          "superclasses": []
         }
       }
     ],
     "question_info": {
-      "atomic_question": "How much larger is the chunk_id of Resting compared to High intensity activities?",
-      "question_type": "comparative",
+      "atomic_question": "What is a SensorStatus?",
+      "question_type": "definition",
       "answer_form": "value",
       "entity": {
-        "value": "chunk_id of Resting",
+        "value": "SensorStatus",
         "type": null
       },
-      "relation": "compare",
+      "relation": "be",
       "object": {
-        "value": "High intensity activities",
+        "value": "null",
         "type": null
       }
     },
     "fetched": {
       "question_info": {
-        "atomic_question": "How much larger is the chunk_id of Resting compared to High intensity activities?",
-        "question_type": "comparative",
+        "atomic_question": "What is a SensorStatus?",
+        "question_type": "definition",
         "answer_form": "value",
         "entity": {
-          "value": "chunk_id of Resting",
+          "value": "SensorStatus",
           "type": null
         },
-        "relation": "compare",
+        "relation": "be",
         "object": {
-          "value": "High intensity activities",
+          "value": "null",
           "type": null
         }
       },
       "resolved_entity": {
-        "uri": "http://example.org/sensInnovationAps_ontology#Resting",
-        "label": "Resting",
-        "score": 0.5182692307692307,
+        "uri": "http://example.org/sensInnovationAps_ontology#SensorStatus",
+        "label": "SensorStatus",
+        "score": 1.0,
         "labels": [
-          "Resting"
+          "SensorStatus"
         ],
-        "entity_type": "NamedIndividual",
-        "types": [
-          "MovementIntensityCategory",
-          "Quality"
+        "entity_type": "Class",
+        "types": [],
+        "superclasses": [
+          "InformationObject",
+          "Quality",
+          "SensorID"
         ],
-        "superclasses": [],
         "object_properties": {},
         "data_properties": {},
         "annotations": {}
       },
       "entity_context": {
         "scope_note": "All information in this object is directly related to the resolved entity of the atomic question.",
-        "label": "Resting",
+        "label": "SensorStatus",
         "types": [
-          "MovementIntensityCategory",
-          "NamedIndividual"
+          "Class"
         ],
         "superclasses": {
-          "MovementIntensityCategory": [
-            "Quality"
-          ],
-          "NamedIndividual": []
+          "Class": [],
+          "SensorStatus": [
+            "InformationObject",
+            "Quality",
+            "SensorID"
+          ]
         },
         "equivalent_classes": [],
-        "properties_by_type": {
-          "MovementIntensityCategory": {
-            "outgoing_object_properties": [],
-            "outgoing_data_properties": [
-              {
-                "property": "isSedentary",
-                "value": "true",
-                "datatype": "boolean"
-              }
-            ],
-            "incoming_object_properties": [],
-            "incoming_data_properties": []
-          },
-          "NamedIndividual": {
-            "outgoing_object_properties": [],
-            "outgoing_data_properties": [],
-            "incoming_object_properties": [],
-            "incoming_data_properties": []
+        "annotations": {
+          "label": "SensorStatus",
+          "comment": "The current operational state of a sensor, which can be 'on', 'off', 'ready for use', or 'in use'."
+        },
+        "class_descriptions": {
+          "Class": {
+            "description": null
           }
-        },
-        "chunk_id": [
-          "47"
-        ]
+        }
       },
-      "resolved_object": {
-        "uri": "http://example.org/sensInnovationAps_ontology#High%20intensity%20activities",
-        "label": "High intensity activities",
-        "score": 1.0,
-        "labels": [
-          "High intensity activities"
-        ],
-        "entity_type": "NamedIndividual",
-        "types": [
-          "ActivityIntensityCategory",
-          "Event"
-        ],
-        "superclasses": [],
-        "object_properties": {},
-        "data_properties": {},
-        "annotations": {}
-      },
-      "object_context": {
-        "scope_note": "All information in this object is directly related to the resolved object of the atomic question.",
-        "label": "High intensity activities",
-        "types": [
-          "ActivityIntensityCategory",
-          "NamedIndividual"
-        ],
-        "superclasses": {
-          "ActivityIntensityCategory": [
-            "Event"
-          ],
-          "NamedIndividual": []
-        },
-        "equivalent_classes": [],
-        "properties_by_type": {
-          "ActivityIntensityCategory": {
-            "outgoing_object_properties": [],
-            "outgoing_data_properties": [],
-            "incoming_object_properties": [],
-            "incoming_data_properties": []
-          },
-          "NamedIndividual": {
-            "outgoing_object_properties": [],
-            "outgoing_data_properties": [],
-            "incoming_object_properties": [],
-            "incoming_data_properties": []
-          }
-        },
-        "chunk_id": [
-          "48"
-        ]
-      }
+      "resolved_object": null,
+      "object_context": null
     },
     "stage_log": {
       "input_to_graph": {
-        "question_type": "comparative",
+        "question_type": "definition",
         "answer_form": "value",
-        "entity": "chunk_id of Resting",
-        "relation": "compare",
-        "object": "High intensity activities"
+        "entity": "SensorStatus",
+        "relation": "be",
+        "object": "null"
       },
       "fetch_relevant_info": {
         "resolved_entity": {
-          "uri": "http://example.org/sensInnovationAps_ontology#Resting",
-          "label": "Resting",
-          "score": 0.5182692307692307,
-          "labels": [
-            "Resting"
-          ],
-          "entity_type": "NamedIndividual",
-          "types": [
-            "MovementIntensityCategory",
-            "Quality"
-          ],
-          "superclasses": [],
-          "object_properties": {},
-          "data_properties": {},
-          "annotations": {}
-        },
-        "resolved_object": {
-          "uri": "http://example.org/sensInnovationAps_ontology#High%20intensity%20activities",
-          "label": "High intensity activities",
+          "uri": "http://example.org/sensInnovationAps_ontology#SensorStatus",
+          "label": "SensorStatus",
           "score": 1.0,
           "labels": [
-            "High intensity activities"
+            "SensorStatus"
           ],
-          "entity_type": "NamedIndividual",
-          "types": [
-            "ActivityIntensityCategory",
-            "Event"
+          "entity_type": "Class",
+          "types": [],
+          "superclasses": [
+            "InformationObject",
+            "Quality",
+            "SensorID"
           ],
-          "superclasses": [],
           "object_properties": {},
           "data_properties": {},
           "annotations": {}
         },
+        "resolved_object": null,
         "status": "present"
       },
       "generate_answer": {
-        "answer": "The 'chunk_id' of 'Resting' is 1 larger than the 'chunk_id' of 'High intensity activities'.",
-        "reasoning": "The 'chunk_id' property for 'Resting' is '47', and for 'High intensity activities', it is '48'. To find out how much larger the 'chunk_id' of 'Resting' is compared to 'High intensity activities', we subtract the 'chunk_id' of 'High intensity activities' from the 'chunk_id' of 'Resting'."
+        "answer": "A SensorStatus is the current operational state of a sensor, which can be 'on', 'off', 'ready for use', or 'in use'.",
+        "reasoning": "The ontology information provides a label for the entity 'SensorStatus' and describes it as 'The current operational state of a sensor, which can be 'on', 'off', 'ready for use', or 'in use'.'"
       },
       "map_answer_to_context": {
         "entity_answer": null,
         "reasoning_answer": null,
         "merged_entity_answer": {
-          "types": [],
-          "property_values": {},
-          "annotations": [],
-          "equivalent_classes": [],
+          "chunk_id": [],
           "members": [],
-          "superclasses": [],
-          "chunk_id": [
-            "47"
+          "property_values": {},
+          "types": [],
+          "annotations": [
+            "SensorStatus"
           ],
-          "properties": []
+          "properties": [],
+          "equivalent_classes": [],
+          "superclasses": []
         }
       }
     },
     "generated_question_stage": {
-      "question_type": "comparative",
+      "question_type": "definition",
       "answer_form": "value",
-      "entity": "chunk_id of Resting",
+      "entity": "SensorStatus",
       "entity_type": null,
-      "relation": "compare",
-      "object": "High intensity activities",
+      "relation": "be",
+      "object": "null",
       "object_type": null
     },
     "entity_context": {
       "scope_note": "All information in this object is directly related to the resolved entity of the atomic question.",
-      "label": "Resting",
+      "label": "SensorStatus",
       "types": [
-        "MovementIntensityCategory",
-        "NamedIndividual"
+        "Class"
       ],
       "superclasses": {
-        "MovementIntensityCategory": [
-          "Quality"
-        ],
-        "NamedIndividual": []
+        "Class": [],
+        "SensorStatus": [
+          "InformationObject",
+          "Quality",
+          "SensorID"
+        ]
       },
       "equivalent_classes": [],
-      "properties_by_type": {
-        "MovementIntensityCategory": {
-          "outgoing_object_properties": [],
-          "outgoing_data_properties": [
-            {
-              "property": "isSedentary",
-              "value": "true",
-              "datatype": "boolean"
-            }
-          ],
-          "incoming_object_properties": [],
-          "incoming_data_properties": []
-        },
-        "NamedIndividual": {
-          "outgoing_object_properties": [],
-          "outgoing_data_properties": [],
-          "incoming_object_properties": [],
-          "incoming_data_properties": []
+      "annotations": {
+        "label": "SensorStatus",
+        "comment": "The current operational state of a sensor, which can be 'on', 'off', 'ready for use', or 'in use'."
+      },
+      "class_descriptions": {
+        "Class": {
+          "description": null
         }
-      },
-      "chunk_id": [
-        "47"
-      ]
+      }
     },
-    "object_context": {
-      "scope_note": "All information in this object is directly related to the resolved object of the atomic question.",
-      "label": "High intensity activities",
-      "types": [
-        "ActivityIntensityCategory",
-        "NamedIndividual"
-      ],
-      "superclasses": {
-        "ActivityIntensityCategory": [
-          "Event"
-        ],
-        "NamedIndividual": []
-      },
-      "equivalent_classes": [],
-      "properties_by_type": {
-        "ActivityIntensityCategory": {
-          "outgoing_object_properties": [],
-          "outgoing_data_properties": [],
-          "incoming_object_properties": [],
-          "incoming_data_properties": []
-        },
-        "NamedIndividual": {
-          "outgoing_object_properties": [],
-          "outgoing_data_properties": [],
-          "incoming_object_properties": [],
-          "incoming_data_properties": []
-        }
-      },
-      "chunk_id": [
-        "48"
-      ]
-    },
-    "answer": "The 'chunk_id' of 'Resting' is 1 larger than the 'chunk_id' of 'High intensity activities'.",
-    "reasoning": "The 'chunk_id' property for 'Resting' is '47', and for 'High intensity activities', it is '48'. To find out how much larger the 'chunk_id' of 'Resting' is compared to 'High intensity activities', we subtract the 'chunk_id' of 'High intensity activities' from the 'chunk_id' of 'Resting'.",
+    "object_context": null,
+    "answer": "A SensorStatus is the current operational state of a sensor, which can be 'on', 'off', 'ready for use', or 'in use'.",
+    "reasoning": "The ontology information provides a label for the entity 'SensorStatus' and describes it as 'The current operational state of a sensor, which can be 'on', 'off', 'ready for use', or 'in use'.'",
     "gold_answer_agent": {},
     "mapped_reasoning_answer": {
       "types": [],
@@ -409,11 +291,11 @@
       "equivalent_classes": [],
       "properties": [],
       "property_values": {},
-      "annotations": [],
+      "annotations": [
+        "SensorStatus"
+      ],
       "members": [],
-      "chunk_id": [
-        "47"
-      ]
+      "chunk_id": []
     },
     "mapped_entity_answer": {
       "types": [],
@@ -421,33 +303,24 @@
       "equivalent_classes": [],
       "properties": [],
       "property_values": {},
-      "annotations": [],
+      "annotations": [
+        "SensorStatus"
+      ],
       "members": [],
       "chunk_id": []
     },
     "mapped_entity_merged": {
-      "types": [],
-      "property_values": {},
-      "annotations": [],
-      "equivalent_classes": [],
+      "chunk_id": [],
       "members": [],
-      "superclasses": [],
-      "chunk_id": [
-        "47"
+      "property_values": {},
+      "types": [],
+      "annotations": [
+        "SensorStatus"
       ],
-      "properties": []
+      "properties": [],
+      "equivalent_classes": [],
+      "superclasses": []
     },
-    "mapped_object_merged": {
-      "types": [],
-      "property_values": {},
-      "annotations": [],
-      "equivalent_classes": [],
-      "members": [],
-      "superclasses": [],
-      "chunk_id": [
-        "48"
-      ],
-      "properties": []
-    }
+    "mapped_object_merged": null
   }
 ]

@@ -345,7 +345,7 @@
 },
 {
   "id": "present_def_09",
-  "atomic_input": "What is SensorStatus?",
+  "atomic_input": "What is a SensorStatus?",
   "question_type": "definition",
   "answer_form": "value",
   "entity": {

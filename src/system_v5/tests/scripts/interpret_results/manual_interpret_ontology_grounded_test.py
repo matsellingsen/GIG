@@ -105,6 +105,7 @@ def _category_metrics(cat, cat_results):
     unanswerable = [r for r in cat_results if "_unanswerable" in r["case"]["id"]]
     answerable_metrics = {
         "total": len(answerable),
+        "object_expected": len(answerable) if cat == "comparative" else 0,
         "correct_question_type": 0,
         "correct_answer_form": 0,
         "correct_entity": 0,
@@ -122,6 +123,7 @@ def _category_metrics(cat, cat_results):
     
     unanswerable_metrics = {
         "total": len(unanswerable),
+        "object_expected": len(unanswerable) if cat == "comparative" else 0,
         "correctly_abstained": 0,
         "correct_question_type": 0,
         "correct_answer_form": 0,
@@ -372,14 +374,56 @@ def compute_metrics(results):
         for metric, value in unanswerable_metrics.items():
             overall_metrics["unanswerable"][metric] += value
 
-    # add overall percentage metrics
-    for ans_unans in ["answerable", "unanswerable"]:
-        total = overall_metrics[ans_unans]["total"]
-        for metric, value in list(overall_metrics[ans_unans].items()):
-            if metric != "total" and not metric.endswith("_pct"):
-                overall_metrics[ans_unans][metric + "_pct"] = round((value / total * 100), 3) if total > 0 else 0.0
-   
-    category_metrics["overall"] = overall_metrics
+    # Convert counts to percentages with smart bases
+    def to_pct(stats):
+        if not stats: return {}
+        total = stats.get("total", 0)
+        if total == 0: return {k: 0.0 for k in stats if k not in ["total", "object_expected"]} | {"total": 0}
+        
+        res = {"total": total}
+        for k, v in stats.items():
+            if k in ["total", "object_expected"]: continue
+            base = total
+            if k == "correct_object_resolution":
+                base = stats.get("object_resolved", 0)
+            elif k == "correct_entity_resolution":
+                base = stats.get("entity_resolved", 0)
+            elif k == "object_resolved":
+                base = stats.get("object_expected", 0)
+            
+            res[k] = round((v / base * 100), 2) if base > 0 else 0.0
+        return res
+
+    def to_fraction(stats):
+        if not stats: return {}
+        total = stats.get("total", 0)
+        if total == 0: return {k: "0/0" for k in stats if k not in ["total", "object_expected"]} | {"total": 0}
+        
+        res = {"total": total}
+        for k, v in stats.items():
+            if k in ["total", "object_expected"]: continue
+            base = total
+            if k == "correct_object_resolution":
+                base = stats.get("object_resolved", 0)
+            elif k == "correct_entity_resolution":
+                base = stats.get("entity_resolved", 0)
+            elif k == "object_resolved":
+                base = stats.get("object_expected", 0)
+            
+            res[k] = f"{v}/{base}"
+        return res
+
+    for cat in category_metrics:
+        if "answerable" in category_metrics[cat]:
+            category_metrics[cat]["answerable"] = to_fraction(category_metrics[cat]["answerable"])
+        if "unanswerable" in category_metrics[cat]:
+            category_metrics[cat]["unanswerable"] = to_fraction(category_metrics[cat]["unanswerable"])
+
+    overall_pct = {
+        "answerable": to_pct(overall_metrics["answerable"]),
+        "unanswerable": to_pct(overall_metrics["unanswerable"])
+    }
+    category_metrics["overall"] = overall_pct
 
     return category_metrics
 
