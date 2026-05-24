@@ -169,7 +169,23 @@ class InferenceModule:
             except Exception as e:
                 print(f"Warning: failed to write inference mapped log: {e}")
                 
-
+            # ALL STEPS COMPLETED SUCCESSFULLY, RETURN FINAL ANSWER
+            print("================================")
+            print(f"Final answer: {answer_text}")
+            print(f"mapping of final answer to entity context: {mapped_answer_entity_answer}")
+            if object_context is not None:
+                print(f"mapping of final answer to object context: {mapped_answer_object_answer}")
+            print("================================")
+            
+            # (If we were to use the script in a non-interactive way, we would return the final answer and the mapping info as a dict, but since we're using it interactively we just print the results and don't return anything. The return statement is left here as a comment to illustrate what would be returned in a non-interactive use case.)
+            return 
+            """ 
+                "answer": answer_text,
+                "mapped_answer_entity": mapped_answer_entity_answer,
+                "mapped_answer_object": mapped_answer_object_answer,
+                "inference_log": inference_log
+            }
+            """
 def main():
     inference_module = InferenceModule()
     inference_module.run()
