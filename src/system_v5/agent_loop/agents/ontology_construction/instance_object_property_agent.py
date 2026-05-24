@@ -3,7 +3,7 @@ from tools.load_prompt import load_prompt
 
 class InstanceObjectPropertyAgent(BaseOntologyAgent):
     def __init__(self, backend):
-        system_prompt = load_prompt(r"c:\Users\matse\gig\src\system_v5\prompts\system\agents\instance-object-property.txt")
+        system_prompt = load_prompt(r"c:\\Users\\matse\\gig\\src\\system_v5\\prompts\\system\\agents\\ontology_construction\\instance-object-property.txt")
         super().__init__(backend=backend, system_prompt=system_prompt)
 
     def run(self, chunk_text: str, declared_individuals: list, object_axioms: list) -> tuple:

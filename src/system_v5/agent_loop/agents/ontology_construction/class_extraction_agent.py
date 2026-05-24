@@ -22,7 +22,7 @@ class ClassExtractionAgent(BaseOntologyAgent):
         }
         
         # 2. Load Prompt
-        system_prompt = load_prompt("C:\\Users\\matse\\gig\\src\\system_v5\\prompts\\system\\agents\\class-extraction.txt")
+        system_prompt = load_prompt("c:\\Users\\matse\\gig\\src\\system_v5\\prompts\\system\\agents\\ontology_construction\\class-extraction.txt")
         
         # 3. Initialize Base
         super().__init__(backend=backend,
