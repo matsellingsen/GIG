@@ -183,6 +183,18 @@ TODO:
 1. Revise the inference agents. A lot can be made deterministic. (partly done)
 2. Extract relevant instances or classes from the ontology.
 
+FINAL TODO:
+- Formulate research question
+- Revise discussion
+- contemplate if conclusion is needed
+- Go through whole paper and refine manually
+- fix start-page
+- Write/generate 1/2 - 1 page summary 
+- Make sure all formal requirements are met. (format, style, pagenumber etc.)
+- contemplate if more needs to be done
+- DELIVER
+- buy weed
+
 
 
 
