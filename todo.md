@@ -189,6 +189,7 @@ FINAL TODO:
 - contemplate if conclusion is needed
 - Go through whole paper and refine manually
 - fix start-page
+- fix appendix
 - Write/generate 1/2 - 1 page summary 
 - Make sure all formal requirements are met. (format, style, pagenumber etc.)
 - contemplate if more needs to be done

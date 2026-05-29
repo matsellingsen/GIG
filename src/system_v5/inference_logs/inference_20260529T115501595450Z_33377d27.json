@@ -1,0 +1,325 @@
+{
+  "input": "What role does Morten Kjærgaard have?",
+  "resolved_question_type": {
+    "reasoning": "The question is asking for the specific, named attribute, characteristic, role, or quality of an entity, which in this case is the role of a person named Morten Kjærgaard. This aligns with the 'Property' question type as it seeks to identify a particular aspect of Morten Kjærgaard's identity or position.",
+    "question_type": "property"
+  },
+  "resolved_answer_form": {
+    "reasoning": "The question 'What role does Morten Kjærgaard have?' is asking for a specific position or title that Morten Kjærgaard holds, which is a single piece of information. This fits the 'value' answer form as it requests a single attribute or property value.",
+    "answer_form": "value"
+  },
+  "extracted_entity": {
+    "reasoning": "The question is asking about the role of a specific person, which is a property of that person.",
+    "primary_entity": "Morten Kjærgaard"
+  },
+  "extracted_relation": {
+    "relation": "have property"
+  },
+  "extracted_object": {
+    "reasoning": "The question is asking for a specific aspect of Morten Kjærgaard's identity or position, which is a characteristic or role that he holds. This aligns with the 'Property' question type as it seeks to identify a particular aspect of Morten Kjærgaard's identity or position. The Object in this case is the role or position that Morten Kjærgaard holds, which is the target of the relation 'have'.",
+    "object": "role or position"
+  },
+  "resolve_entity_candidates": [
+    {
+      "type": "entity",
+      "entity": "Morten Kjærgaard",
+      "candidates": [
+        {
+          "label": "Morten Kjærgaard",
+          "score": 1.0,
+          "uri": "http://example.org/sensInnovationAps_ontology#Morten%20Kj%C3%A6rgaard"
+        },
+        {
+          "label": "Kirsten Nørgaard",
+          "score": 0.6500000000000001,
+          "uri": "http://example.org/sensInnovationAps_ontology#Kirsten%20N%C3%B8rgaard"
+        }
+      ]
+    }
+  ],
+  "resolved_entity": {
+    "uri": "http://example.org/sensInnovationAps_ontology#Morten%20Kj%C3%A6rgaard",
+    "label": "Morten Kjærgaard",
+    "score": 1.0,
+    "labels": [
+      "Morten Kjærgaard"
+    ],
+    "entity_type": "NamedIndividual",
+    "types": [
+      "SocialObject",
+      "TeamMember"
+    ],
+    "superclasses": [],
+    "object_properties": {},
+    "data_properties": {},
+    "annotations": {}
+  },
+  "full_entity_equivalents": [
+    {
+      "uri": "http://example.org/sensInnovationAps_ontology#Morten%20Kj%C3%A6rgaard",
+      "equivalent_uris": [
+        "http://example.org/sensInnovationAps_ontology#Morten%20Kj%C3%A6rgaard"
+      ]
+    }
+  ],
+  "full_entity_context_summary": [
+    {
+      "uri": "http://example.org/sensInnovationAps_ontology#Morten%20Kj%C3%A6rgaard",
+      "label": "Morten%20Kj%C3%A6rgaard",
+      "num_types": 2,
+      "num_superclasses_groups": 2,
+      "num_equivalent_classes": 0,
+      "num_properties_types": 2,
+      "num_chunk_ids": 1,
+      "num_members": 0
+    }
+  ],
+  "full_context": [
+    {
+      "question_type": "property",
+      "entity_context": {
+        "scope_note": "All information in this object is directly related to the resolved entity of the atomic question.",
+        "uri": "http://example.org/sensInnovationAps_ontology#Morten%20Kj%C3%A6rgaard",
+        "label": "Morten%20Kj%C3%A6rgaard",
+        "types": [
+          "http://example.org/sensInnovationAps_ontology#TeamMember",
+          "http://www.w3.org/2002/07/owl#NamedIndividual"
+        ],
+        "superclasses": {
+          "http://example.org/sensInnovationAps_ontology#TeamMember": [
+            "http://example.org/sensInnovationAps_ontology#SocialObject"
+          ],
+          "http://www.w3.org/2002/07/owl#NamedIndividual": []
+        },
+        "equivalent_classes": [],
+        "properties_by_type": {
+          "http://example.org/sensInnovationAps_ontology#TeamMember": {
+            "outgoing_object_properties": [],
+            "outgoing_data_properties": [
+              {
+                "property": "http://example.org/sensInnovationAps_ontology#hasEmail",
+                "value": "morten@sens.dk",
+                "datatype": "http://www.w3.org/2001/XMLSchema#string"
+              },
+              {
+                "property": "http://example.org/sensInnovationAps_ontology#hasLinkedIn",
+                "value": "https://www.linkedin.com/in/morten-kj%C3%A6rgaard-9a08242/",
+                "datatype": "http://www.w3.org/2001/XMLSchema#string"
+              },
+              {
+                "property": "http://example.org/sensInnovationAps_ontology#hasRole",
+                "value": "CTO & Founder",
+                "datatype": "http://www.w3.org/2001/XMLSchema#string"
+              }
+            ],
+            "incoming_object_properties": [],
+            "incoming_data_properties": []
+          },
+          "http://www.w3.org/2002/07/owl#NamedIndividual": {
+            "outgoing_object_properties": [],
+            "outgoing_data_properties": [],
+            "incoming_object_properties": [],
+            "incoming_data_properties": []
+          }
+        },
+        "annotations": {},
+        "class_descriptions": {
+          "http://example.org/sensInnovationAps_ontology#SocialObject": {
+            "description": "Any Object that exists only within some social context, such as organizations, laws, plans, or projects."
+          },
+          "http://example.org/sensInnovationAps_ontology#TeamMember": {
+            "description": "An individual who is part of a team, typically associated with a group of people with a common purpose or interest, such as a company or organization."
+          },
+          "http://www.w3.org/2002/07/owl#NamedIndividual": {
+            "description": null
+          }
+        },
+        "object_property_descriptions": {
+          "http://example.org/sensInnovationAps_ontology#hasRole": {
+            "description": "Relates an object to the function or role it performs. (e.g., A person hasRole 'Manager').",
+            "domain": [
+              "http://example.org/sensInnovationAps_ontology#DataController",
+              "http://example.org/sensInnovationAps_ontology#HealthcareDevice",
+              "http://example.org/sensInnovationAps_ontology#HealthcareFacility",
+              "http://example.org/sensInnovationAps_ontology#Object",
+              "http://example.org/sensInnovationAps_ontology#PickUpLocation",
+              "http://example.org/sensInnovationAps_ontology#PilotPackage",
+              "http://example.org/sensInnovationAps_ontology#Study",
+              "http://example.org/sensInnovationAps_ontology#TeamMember"
+            ],
+            "range": [
+              "http://example.org/sensInnovationAps_ontology#HealthcareProfessionalRole",
+              "http://example.org/sensInnovationAps_ontology#PickUpLocation",
+              "http://example.org/sensInnovationAps_ontology#PilotPackage",
+              "http://example.org/sensInnovationAps_ontology#Role",
+              "http://example.org/sensInnovationAps_ontology#Study",
+              "http://example.org/sensInnovationAps_ontology#TeamMember",
+              "http://www.w3.org/2001/XMLSchema#string"
+            ]
+          }
+        },
+        "chunk_id": [
+          "1"
+        ],
+        "members": []
+      },
+      "object_context": null
+    }
+  ],
+  "filtered_context": [
+    {
+      "question_type": "property",
+      "entity_context": {
+        "scope_note": "All information in this object is directly related to the resolved entity of the atomic question.",
+        "label": "Morten%20Kj%C3%A6rgaard",
+        "types": [
+          "http://example.org/sensInnovationAps_ontology#TeamMember",
+          "http://www.w3.org/2002/07/owl#NamedIndividual"
+        ],
+        "superclasses": {
+          "http://example.org/sensInnovationAps_ontology#TeamMember": [
+            "http://example.org/sensInnovationAps_ontology#SocialObject"
+          ],
+          "http://www.w3.org/2002/07/owl#NamedIndividual": []
+        },
+        "equivalent_classes": [],
+        "properties_by_type": {
+          "http://example.org/sensInnovationAps_ontology#TeamMember": {
+            "outgoing_object_properties": [],
+            "outgoing_data_properties": [
+              {
+                "property": "http://example.org/sensInnovationAps_ontology#hasEmail",
+                "value": "morten@sens.dk",
+                "datatype": "http://www.w3.org/2001/XMLSchema#string"
+              },
+              {
+                "property": "http://example.org/sensInnovationAps_ontology#hasLinkedIn",
+                "value": "https://www.linkedin.com/in/morten-kj%C3%A6rgaard-9a08242/",
+                "datatype": "http://www.w3.org/2001/XMLSchema#string"
+              },
+              {
+                "property": "http://example.org/sensInnovationAps_ontology#hasRole",
+                "value": "CTO & Founder",
+                "datatype": "http://www.w3.org/2001/XMLSchema#string"
+              }
+            ],
+            "incoming_object_properties": [],
+            "incoming_data_properties": []
+          },
+          "http://www.w3.org/2002/07/owl#NamedIndividual": {
+            "outgoing_object_properties": [],
+            "outgoing_data_properties": [],
+            "incoming_object_properties": [],
+            "incoming_data_properties": []
+          }
+        }
+      },
+      "object_context": null
+    }
+  ],
+  "normalized_context": [
+    {
+      "entity_context": {
+        "scope_note": "All information in this object is directly related to the resolved entity of the atomic question.",
+        "label": "Morten Kjærgaard",
+        "types": [
+          "TeamMember",
+          "NamedIndividual"
+        ],
+        "superclasses": {
+          "TeamMember": [
+            "SocialObject"
+          ],
+          "NamedIndividual": []
+        },
+        "equivalent_classes": [],
+        "properties_by_type": {
+          "TeamMember": {
+            "outgoing_object_properties": [],
+            "outgoing_data_properties": [
+              {
+                "property": "hasEmail",
+                "value": "morten@sens.dk",
+                "datatype": "string"
+              },
+              {
+                "property": "hasLinkedIn",
+                "value": "https://www.linkedin.com/in/morten-kjærgaard-9a08242/",
+                "datatype": "string"
+              },
+              {
+                "property": "hasRole",
+                "value": "CTO & Founder",
+                "datatype": "string"
+              }
+            ],
+            "incoming_object_properties": [],
+            "incoming_data_properties": []
+          },
+          "NamedIndividual": {
+            "outgoing_object_properties": [],
+            "outgoing_data_properties": [],
+            "incoming_object_properties": [],
+            "incoming_data_properties": []
+          }
+        }
+      },
+      "object_context": null
+    }
+  ],
+  "generated_answer": {
+    "reasoning": "The ontology information provides the property 'hasRole' associated with the 'TeamMember' type, which Morten Kjærgaard is an instance of, and the value of this property is 'CTO & Founder'.",
+    "answer": "Morten Kjærgaard has the role of CTO & Founder."
+  },
+  "map_answer_to_context": [
+    {
+      "answer": "The ontology information provides the property 'hasRole' associated with the 'TeamMember' type, which Morten Kjærgaard is an instance of, and the value of this property is 'CTO & Founder'.",
+      "types": [
+        "TeamMember"
+      ],
+      "superclasses": [],
+      "equivalent_classes": [],
+      "properties": [
+        "hasRole"
+      ],
+      "property_values": {
+        "hasRole": "cto & founder"
+      },
+      "annotations": [],
+      "members": [],
+      "chunk_id": []
+    },
+    {
+      "answer": "Morten Kjærgaard has the role of CTO & Founder.",
+      "types": [],
+      "superclasses": [],
+      "equivalent_classes": [],
+      "properties": [
+        "hasRole"
+      ],
+      "property_values": {
+        "hasRole": "cto & founder"
+      },
+      "annotations": [],
+      "members": [],
+      "chunk_id": []
+    }
+  ],
+  "mapped_entity_merged": {
+    "property_values": {
+      "hasRole": "cto & founder"
+    },
+    "equivalent_classes": [],
+    "chunk_id": [],
+    "superclasses": [],
+    "properties": [
+      "hasRole"
+    ],
+    "annotations": [],
+    "members": [],
+    "types": [
+      "TeamMember"
+    ]
+  },
+  "mapped_object_merged": null
+}

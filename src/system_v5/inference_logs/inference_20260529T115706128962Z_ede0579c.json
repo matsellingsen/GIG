@@ -1,0 +1,686 @@
+{
+  "input": "What is a sensor?",
+  "resolved_question_type": {
+    "reasoning": "The question is inquiring about the definition, nature, or essence of a 'sensor', which aligns with the 'Definition' question type that seeks the identity or characterization of an entity or concept.",
+    "question_type": "definition"
+  },
+  "resolved_answer_form": {
+    "reasoning": "Deterministically classified answer form based on question type.",
+    "answer_form": "value"
+  },
+  "extracted_entity": {
+    "reasoning": "The question is asking for the definition of the term 'sensor', which is the subject of the inquiry.",
+    "primary_entity": "sensor"
+  },
+  "extracted_relation": {
+    "relation": "be"
+  },
+  "extracted_object": {
+    "reasoning": "Deterministic output",
+    "object": "null"
+  },
+  "resolve_entity_candidates": [
+    {
+      "type": "entity",
+      "entity": "sensor",
+      "candidates": [
+        {
+          "label": "sensor",
+          "score": 1.0,
+          "uri": "http://example.org/sensInnovationAps_ontology#sensor"
+        },
+        {
+          "label": "Sensor",
+          "score": 1.0,
+          "uri": "http://example.org/sensInnovationAps_ontology#Sensor"
+        },
+        {
+          "label": "sensor label",
+          "score": 0.7333333333333334,
+          "uri": "http://example.org/sensInnovationAps_ontology#sensor%20label"
+        }
+      ]
+    }
+  ],
+  "resolved_entity": {
+    "uri": "http://example.org/sensInnovationAps_ontology#sensor",
+    "label": "sensor",
+    "score": 1.0,
+    "labels": [
+      "sensor"
+    ],
+    "entity_type": "NamedIndividual",
+    "types": [
+      "Action",
+      "ActivityOverview",
+      "Attachment",
+      "InformationObject",
+      "InformationRealization",
+      "OnlineVisualizationTool",
+      "ParticipantID",
+      "PhysicalObject",
+      "SensorAttachment",
+      "SensorAttachmentInstructions",
+      "SensorID",
+      "SensorPatch",
+      "SensorPatchRemovalGuide",
+      "SocialObject",
+      "UserInterface",
+      "WebApp",
+      "WebApplication"
+    ],
+    "superclasses": [],
+    "object_properties": {},
+    "data_properties": {},
+    "annotations": {}
+  },
+  "full_entity_equivalents": [
+    {
+      "uri": "http://example.org/sensInnovationAps_ontology#sensor",
+      "equivalent_uris": [
+        "http://example.org/sensInnovationAps_ontology#sensor"
+      ]
+    }
+  ],
+  "full_entity_context_summary": [
+    {
+      "uri": "http://example.org/sensInnovationAps_ontology#sensor",
+      "label": "sensor",
+      "num_types": 8,
+      "num_superclasses_groups": 8,
+      "num_equivalent_classes": 0,
+      "num_properties_types": 8,
+      "num_chunk_ids": 5,
+      "num_members": 0
+    }
+  ],
+  "full_context": [
+    {
+      "question_type": "definition",
+      "entity_context": {
+        "scope_note": "All information in this object is directly related to the resolved entity of the atomic question.",
+        "uri": "http://example.org/sensInnovationAps_ontology#sensor",
+        "label": "sensor",
+        "types": [
+          "http://example.org/sensInnovationAps_ontology#ActivityOverview",
+          "http://example.org/sensInnovationAps_ontology#SensorAttachment",
+          "http://example.org/sensInnovationAps_ontology#SensorAttachmentInstructions",
+          "http://example.org/sensInnovationAps_ontology#SensorID",
+          "http://example.org/sensInnovationAps_ontology#SensorPatch",
+          "http://example.org/sensInnovationAps_ontology#SensorPatchRemovalGuide",
+          "http://example.org/sensInnovationAps_ontology#WebApp",
+          "http://www.w3.org/2002/07/owl#NamedIndividual"
+        ],
+        "superclasses": {
+          "http://example.org/sensInnovationAps_ontology#ActivityOverview": [
+            "http://example.org/sensInnovationAps_ontology#InformationObject",
+            "http://example.org/sensInnovationAps_ontology#OnlineVisualizationTool",
+            "http://example.org/sensInnovationAps_ontology#InformationRealization"
+          ],
+          "http://example.org/sensInnovationAps_ontology#SensorAttachment": [
+            "http://example.org/sensInnovationAps_ontology#PhysicalObject",
+            "http://example.org/sensInnovationAps_ontology#Attachment"
+          ],
+          "http://example.org/sensInnovationAps_ontology#SensorAttachmentInstructions": [
+            "http://example.org/sensInnovationAps_ontology#InformationObject"
+          ],
+          "http://example.org/sensInnovationAps_ontology#SensorID": [
+            "http://example.org/sensInnovationAps_ontology#SocialObject",
+            "http://example.org/sensInnovationAps_ontology#InformationObject",
+            "http://example.org/sensInnovationAps_ontology#UserInterface",
+            "http://example.org/sensInnovationAps_ontology#InformationRealization",
+            "http://example.org/sensInnovationAps_ontology#PhysicalObject",
+            "http://example.org/sensInnovationAps_ontology#ParticipantID",
+            "http://example.org/sensInnovationAps_ontology#WebApplication"
+          ],
+          "http://example.org/sensInnovationAps_ontology#SensorPatch": [
+            "http://example.org/sensInnovationAps_ontology#PhysicalObject"
+          ],
+          "http://example.org/sensInnovationAps_ontology#SensorPatchRemovalGuide": [
+            "http://example.org/sensInnovationAps_ontology#Action",
+            "http://example.org/sensInnovationAps_ontology#SensorPatchRemovalGuide"
+          ],
+          "http://example.org/sensInnovationAps_ontology#WebApp": [
+            "http://example.org/sensInnovationAps_ontology#SocialObject"
+          ],
+          "http://www.w3.org/2002/07/owl#NamedIndividual": []
+        },
+        "equivalent_classes": [],
+        "properties_by_type": {
+          "http://example.org/sensInnovationAps_ontology#ActivityOverview": {
+            "outgoing_object_properties": [],
+            "outgoing_data_properties": [],
+            "incoming_object_properties": [],
+            "incoming_data_properties": []
+          },
+          "http://example.org/sensInnovationAps_ontology#SensorAttachment": {
+            "outgoing_object_properties": [],
+            "outgoing_data_properties": [],
+            "incoming_object_properties": [],
+            "incoming_data_properties": []
+          },
+          "http://example.org/sensInnovationAps_ontology#SensorAttachmentInstructions": {
+            "outgoing_object_properties": [],
+            "outgoing_data_properties": [],
+            "incoming_object_properties": [],
+            "incoming_data_properties": []
+          },
+          "http://example.org/sensInnovationAps_ontology#SensorID": {
+            "outgoing_object_properties": [],
+            "outgoing_data_properties": [],
+            "incoming_object_properties": [
+              {
+                "subject": "http://example.org/sensInnovationAps_ontology#SENS%20motion%C2%AE",
+                "property": "http://example.org/sensInnovationAps_ontology#hasPart"
+              }
+            ],
+            "incoming_data_properties": []
+          },
+          "http://example.org/sensInnovationAps_ontology#SensorPatch": {
+            "outgoing_object_properties": [
+              {
+                "property": "http://example.org/sensInnovationAps_ontology#hasParticipant",
+                "object": "http://example.org/sensInnovationAps_ontology#activity%20dashboard"
+              }
+            ],
+            "outgoing_data_properties": [],
+            "incoming_object_properties": [
+              {
+                "subject": "http://example.org/sensInnovationAps_ontology#SENS%20motion%C2%AE",
+                "property": "http://example.org/sensInnovationAps_ontology#hasPart"
+              },
+              {
+                "subject": "http://example.org/sensInnovationAps_ontology#activity%20dashboard",
+                "property": "http://example.org/sensInnovationAps_ontology#hasParticipant"
+              }
+            ],
+            "incoming_data_properties": []
+          },
+          "http://example.org/sensInnovationAps_ontology#SensorPatchRemovalGuide": {
+            "outgoing_object_properties": [],
+            "outgoing_data_properties": [],
+            "incoming_object_properties": [
+              {
+                "subject": "http://example.org/sensInnovationAps_ontology#SENS%20motion%C2%AE",
+                "property": "http://example.org/sensInnovationAps_ontology#hasPart"
+              }
+            ],
+            "incoming_data_properties": []
+          },
+          "http://example.org/sensInnovationAps_ontology#WebApp": {
+            "outgoing_object_properties": [],
+            "outgoing_data_properties": [],
+            "incoming_object_properties": [
+              {
+                "subject": "http://example.org/sensInnovationAps_ontology#SENS%20motion%C2%AE",
+                "property": "http://example.org/sensInnovationAps_ontology#hasPart"
+              }
+            ],
+            "incoming_data_properties": []
+          },
+          "http://www.w3.org/2002/07/owl#NamedIndividual": {
+            "outgoing_object_properties": [],
+            "outgoing_data_properties": [],
+            "incoming_object_properties": [],
+            "incoming_data_properties": []
+          }
+        },
+        "annotations": {},
+        "class_descriptions": {
+          "http://example.org/sensInnovationAps_ontology#Action": {
+            "description": "An Event with at least one agent that participates in it, and that executes a task."
+          },
+          "http://example.org/sensInnovationAps_ontology#ActivityOverview": {
+            "description": "A feature within an application that provides users with information about their physical activity, such as steps taken and active time."
+          },
+          "http://example.org/sensInnovationAps_ontology#Attachment": {
+            "description": "An object that is fastened or connected to another object, often to add functionality or to complete a set."
+          },
+          "http://example.org/sensInnovationAps_ontology#InformationObject": {
+            "description": "A piece of information, such as a text, a word, a picture, or data, independently from how it is concretely realized."
+          },
+          "http://example.org/sensInnovationAps_ontology#InformationRealization": {
+            "description": "A physical object or event that realizes an information object. For example, a physical printed document or a digital file on a hard drive."
+          },
+          "http://example.org/sensInnovationAps_ontology#OnlineVisualizationTool": {
+            "description": "A digital tool that allows users to view and interact with data or information over the internet, in this context, for visualizing patient activity."
+          },
+          "http://example.org/sensInnovationAps_ontology#ParticipantID": {
+            "description": "A unique identifier for a participant, which can be used to select and manage the participant within the web application."
+          },
+          "http://example.org/sensInnovationAps_ontology#PhysicalObject": {
+            "description": "Any Object that has a proper space region. Examples include people, equipment, sensors, and buildings."
+          },
+          "http://example.org/sensInnovationAps_ontology#SensorAttachment": {
+            "description": "The act or process of attaching a sensor to a device or surface, ensuring it is properly connected and functional."
+          },
+          "http://example.org/sensInnovationAps_ontology#SensorAttachmentInstructions": {
+            "description": "Guidelines or steps provided to assist users in correctly attaching a sensor to a device or surface."
+          },
+          "http://example.org/sensInnovationAps_ontology#SensorID": {
+            "description": "A unique identifier for a sensor, which can be used to select and manage the sensor within the web application."
+          },
+          "http://example.org/sensInnovationAps_ontology#SensorPatch": {
+            "description": "A wearable device, often a small piece of clothing or adhesive, that is used to monitor various health-related metrics."
+          },
+          "http://example.org/sensInnovationAps_ontology#SensorPatchRemovalGuide": {
+            "description": "A guide that specifically focuses on the process of removing a sensor patch from a sensor device, including any special techniques or precautions."
+          },
+          "http://example.org/sensInnovationAps_ontology#SocialObject": {
+            "description": "Any Object that exists only within some social context, such as organizations, laws, plans, or projects."
+          },
+          "http://example.org/sensInnovationAps_ontology#UserInterface": {
+            "description": "The part of the software application that directly interacts with the user, often consisting of menus, buttons, and other elements that allow the user to perform actions or make selections."
+          },
+          "http://example.org/sensInnovationAps_ontology#WebApp": {
+            "description": "An application that operates over the web, providing services or resources through a network, typically accessed via a web browser."
+          },
+          "http://example.org/sensInnovationAps_ontology#WebApplication": {
+            "description": "A software application that is designed to be used over the internet, typically accessed through a web browser."
+          },
+          "http://www.w3.org/2002/07/owl#NamedIndividual": {
+            "description": null
+          }
+        },
+        "object_property_descriptions": {
+          "http://example.org/sensInnovationAps_ontology#hasParticipant": {
+            "description": "The inverse of participatesIn. Relates an event to the objects involved in it. (e.g., A meeting hasParticipant a person).",
+            "domain": [
+              "http://example.org/sensInnovationAps_ontology#ActivityDashboard",
+              "http://example.org/sensInnovationAps_ontology#ClinicalStudy",
+              "http://example.org/sensInnovationAps_ontology#CommunicationChannel",
+              "http://example.org/sensInnovationAps_ontology#Event",
+              "http://example.org/sensInnovationAps_ontology#MotivationalTool",
+              "http://example.org/sensInnovationAps_ontology#PickUpLocation",
+              "http://example.org/sensInnovationAps_ontology#PilotPackage",
+              "http://example.org/sensInnovationAps_ontology#Protocol",
+              "http://example.org/sensInnovationAps_ontology#RandomizedControlledTrial",
+              "http://example.org/sensInnovationAps_ontology#RehabilitationProgram",
+              "http://example.org/sensInnovationAps_ontology#ResearchStudy",
+              "http://example.org/sensInnovationAps_ontology#SensorPatch",
+              "http://example.org/sensInnovationAps_ontology#Study",
+              "http://example.org/sensInnovationAps_ontology#VirtualTour"
+            ],
+            "range": [
+              "http://example.org/sensInnovationAps_ontology#ActivityDashboard",
+              "http://example.org/sensInnovationAps_ontology#ActivityOverview",
+              "http://example.org/sensInnovationAps_ontology#Author",
+              "http://example.org/sensInnovationAps_ontology#CommunicationChannel",
+              "http://example.org/sensInnovationAps_ontology#CrossSectionalStudy",
+              "http://example.org/sensInnovationAps_ontology#CustomerSupportContact",
+              "http://example.org/sensInnovationAps_ontology#MedicalDevice",
+              "http://example.org/sensInnovationAps_ontology#MotivationalFeedback",
+              "http://example.org/sensInnovationAps_ontology#MotivationalTool",
+              "http://example.org/sensInnovationAps_ontology#Object",
+              "http://example.org/sensInnovationAps_ontology#PilotPackage",
+              "http://example.org/sensInnovationAps_ontology#Protocol",
+              "http://example.org/sensInnovationAps_ontology#SensorPatch",
+              "http://example.org/sensInnovationAps_ontology#Study"
+            ]
+          },
+          "http://example.org/sensInnovationAps_ontology#isPartOf": {
+            "description": "The inverse of hasPart. Relates a component to the whole. (e.g., An engine isPart of a car).",
+            "domain": [
+              "http://example.org/sensInnovationAps_ontology#CodeExample",
+              "http://example.org/sensInnovationAps_ontology#CrossSectionalStudy",
+              "http://example.org/sensInnovationAps_ontology#Entity",
+              "http://example.org/sensInnovationAps_ontology#ExportFunctionality",
+              "http://example.org/sensInnovationAps_ontology#HealthDataAnalysis",
+              "http://example.org/sensInnovationAps_ontology#HealthDataIntegration",
+              "http://example.org/sensInnovationAps_ontology#HealthDataManagement",
+              "http://example.org/sensInnovationAps_ontology#HealthDataPrivacy",
+              "http://example.org/sensInnovationAps_ontology#HealthDataSecurity",
+              "http://example.org/sensInnovationAps_ontology#HealthDataSharing",
+              "http://example.org/sensInnovationAps_ontology#HealthDataStandardization",
+              "http://example.org/sensInnovationAps_ontology#HealthDataVisualization",
+              "http://example.org/sensInnovationAps_ontology#MachineLearningClassifier",
+              "http://example.org/sensInnovationAps_ontology#MedicalDevice",
+              "http://example.org/sensInnovationAps_ontology#MotivationalFeedback",
+              "http://example.org/sensInnovationAps_ontology#MovementDuration",
+              "http://example.org/sensInnovationAps_ontology#MovementFrequency",
+              "http://example.org/sensInnovationAps_ontology#MovementIntensity",
+              "http://example.org/sensInnovationAps_ontology#MovementPattern",
+              "http://example.org/sensInnovationAps_ontology#MovementSymmetry",
+              "http://example.org/sensInnovationAps_ontology#MovementThreshold",
+              "http://example.org/sensInnovationAps_ontology#MovementType",
+              "http://example.org/sensInnovationAps_ontology#PreventiveHealth",
+              "http://example.org/sensInnovationAps_ontology#QualityOfLifeAssessment",
+              "http://example.org/sensInnovationAps_ontology#ResilienceAssessment",
+              "http://example.org/sensInnovationAps_ontology#Sensor",
+              "http://example.org/sensInnovationAps_ontology#SensorRangeRequirement",
+              "http://example.org/sensInnovationAps_ontology#SleepStage",
+              "http://example.org/sensInnovationAps_ontology#TutorialStep"
+            ],
+            "range": [
+              "http://example.org/sensInnovationAps_ontology#DataTransferProcess",
+              "http://example.org/sensInnovationAps_ontology#DataTransferStatusIndicator",
+              "http://example.org/sensInnovationAps_ontology#Entity",
+              "http://example.org/sensInnovationAps_ontology#HealthCareEvent",
+              "http://example.org/sensInnovationAps_ontology#HealthDataAnalysis",
+              "http://example.org/sensInnovationAps_ontology#HealthDataIntegration",
+              "http://example.org/sensInnovationAps_ontology#HealthDataManagement",
+              "http://example.org/sensInnovationAps_ontology#HealthDataPrivacy",
+              "http://example.org/sensInnovationAps_ontology#HealthDataSecurity",
+              "http://example.org/sensInnovationAps_ontology#HealthDataSharing",
+              "http://example.org/sensInnovationAps_ontology#HealthDataStandardization",
+              "http://example.org/sensInnovationAps_ontology#HealthDataVisualization",
+              "http://example.org/sensInnovationAps_ontology#HealthStudy",
+              "http://example.org/sensInnovationAps_ontology#MachineLearningClassifier",
+              "http://example.org/sensInnovationAps_ontology#MovementDuration",
+              "http://example.org/sensInnovationAps_ontology#MovementFrequency",
+              "http://example.org/sensInnovationAps_ontology#MovementIntensity",
+              "http://example.org/sensInnovationAps_ontology#MovementPattern",
+              "http://example.org/sensInnovationAps_ontology#MovementSymmetry",
+              "http://example.org/sensInnovationAps_ontology#MovementType",
+              "http://example.org/sensInnovationAps_ontology#RandomizedControlledTrial",
+              "http://example.org/sensInnovationAps_ontology#RehabilitationProgram",
+              "http://example.org/sensInnovationAps_ontology#RiskAssessment",
+              "http://example.org/sensInnovationAps_ontology#SleepCycle",
+              "http://example.org/sensInnovationAps_ontology#TutorialStepCodeSnippet",
+              "http://example.org/sensInnovationAps_ontology#WearableTechnology",
+              "http://example.org/sensInnovationAps_ontology#WebApplication",
+              "http://www.w3.org/2001/XMLSchema#string"
+            ]
+          }
+        },
+        "chunk_id": [
+          "5",
+          "31",
+          "34",
+          "35",
+          "41"
+        ],
+        "members": []
+      },
+      "object_context": null
+    }
+  ],
+  "filtered_context": [
+    {
+      "question_type": "definition",
+      "entity_context": {
+        "scope_note": "All information in this object is directly related to the resolved entity of the atomic question.",
+        "label": "sensor",
+        "types": [
+          "http://example.org/sensInnovationAps_ontology#ActivityOverview",
+          "http://example.org/sensInnovationAps_ontology#SensorAttachment",
+          "http://example.org/sensInnovationAps_ontology#SensorAttachmentInstructions",
+          "http://example.org/sensInnovationAps_ontology#SensorID",
+          "http://example.org/sensInnovationAps_ontology#SensorPatch",
+          "http://example.org/sensInnovationAps_ontology#SensorPatchRemovalGuide",
+          "http://example.org/sensInnovationAps_ontology#WebApp",
+          "http://www.w3.org/2002/07/owl#NamedIndividual"
+        ],
+        "superclasses": {
+          "http://example.org/sensInnovationAps_ontology#ActivityOverview": [
+            "http://example.org/sensInnovationAps_ontology#InformationObject",
+            "http://example.org/sensInnovationAps_ontology#OnlineVisualizationTool",
+            "http://example.org/sensInnovationAps_ontology#InformationRealization"
+          ],
+          "http://example.org/sensInnovationAps_ontology#SensorAttachment": [
+            "http://example.org/sensInnovationAps_ontology#PhysicalObject",
+            "http://example.org/sensInnovationAps_ontology#Attachment"
+          ],
+          "http://example.org/sensInnovationAps_ontology#SensorAttachmentInstructions": [
+            "http://example.org/sensInnovationAps_ontology#InformationObject"
+          ],
+          "http://example.org/sensInnovationAps_ontology#SensorID": [
+            "http://example.org/sensInnovationAps_ontology#SocialObject",
+            "http://example.org/sensInnovationAps_ontology#InformationObject",
+            "http://example.org/sensInnovationAps_ontology#UserInterface",
+            "http://example.org/sensInnovationAps_ontology#InformationRealization",
+            "http://example.org/sensInnovationAps_ontology#PhysicalObject",
+            "http://example.org/sensInnovationAps_ontology#ParticipantID",
+            "http://example.org/sensInnovationAps_ontology#WebApplication"
+          ],
+          "http://example.org/sensInnovationAps_ontology#SensorPatch": [
+            "http://example.org/sensInnovationAps_ontology#PhysicalObject"
+          ],
+          "http://example.org/sensInnovationAps_ontology#SensorPatchRemovalGuide": [
+            "http://example.org/sensInnovationAps_ontology#Action",
+            "http://example.org/sensInnovationAps_ontology#SensorPatchRemovalGuide"
+          ],
+          "http://example.org/sensInnovationAps_ontology#WebApp": [
+            "http://example.org/sensInnovationAps_ontology#SocialObject"
+          ],
+          "http://www.w3.org/2002/07/owl#NamedIndividual": []
+        },
+        "equivalent_classes": [],
+        "annotations": {},
+        "class_descriptions": {
+          "http://example.org/sensInnovationAps_ontology#Action": {
+            "description": "An Event with at least one agent that participates in it, and that executes a task."
+          },
+          "http://example.org/sensInnovationAps_ontology#ActivityOverview": {
+            "description": "A feature within an application that provides users with information about their physical activity, such as steps taken and active time."
+          },
+          "http://example.org/sensInnovationAps_ontology#Attachment": {
+            "description": "An object that is fastened or connected to another object, often to add functionality or to complete a set."
+          },
+          "http://example.org/sensInnovationAps_ontology#InformationObject": {
+            "description": "A piece of information, such as a text, a word, a picture, or data, independently from how it is concretely realized."
+          },
+          "http://example.org/sensInnovationAps_ontology#InformationRealization": {
+            "description": "A physical object or event that realizes an information object. For example, a physical printed document or a digital file on a hard drive."
+          },
+          "http://example.org/sensInnovationAps_ontology#OnlineVisualizationTool": {
+            "description": "A digital tool that allows users to view and interact with data or information over the internet, in this context, for visualizing patient activity."
+          },
+          "http://example.org/sensInnovationAps_ontology#ParticipantID": {
+            "description": "A unique identifier for a participant, which can be used to select and manage the participant within the web application."
+          },
+          "http://example.org/sensInnovationAps_ontology#PhysicalObject": {
+            "description": "Any Object that has a proper space region. Examples include people, equipment, sensors, and buildings."
+          },
+          "http://example.org/sensInnovationAps_ontology#SensorAttachment": {
+            "description": "The act or process of attaching a sensor to a device or surface, ensuring it is properly connected and functional."
+          },
+          "http://example.org/sensInnovationAps_ontology#SensorAttachmentInstructions": {
+            "description": "Guidelines or steps provided to assist users in correctly attaching a sensor to a device or surface."
+          },
+          "http://example.org/sensInnovationAps_ontology#SensorID": {
+            "description": "A unique identifier for a sensor, which can be used to select and manage the sensor within the web application."
+          },
+          "http://example.org/sensInnovationAps_ontology#SensorPatch": {
+            "description": "A wearable device, often a small piece of clothing or adhesive, that is used to monitor various health-related metrics."
+          },
+          "http://example.org/sensInnovationAps_ontology#SensorPatchRemovalGuide": {
+            "description": "A guide that specifically focuses on the process of removing a sensor patch from a sensor device, including any special techniques or precautions."
+          },
+          "http://example.org/sensInnovationAps_ontology#SocialObject": {
+            "description": "Any Object that exists only within some social context, such as organizations, laws, plans, or projects."
+          },
+          "http://example.org/sensInnovationAps_ontology#UserInterface": {
+            "description": "The part of the software application that directly interacts with the user, often consisting of menus, buttons, and other elements that allow the user to perform actions or make selections."
+          },
+          "http://example.org/sensInnovationAps_ontology#WebApp": {
+            "description": "An application that operates over the web, providing services or resources through a network, typically accessed via a web browser."
+          },
+          "http://example.org/sensInnovationAps_ontology#WebApplication": {
+            "description": "A software application that is designed to be used over the internet, typically accessed through a web browser."
+          },
+          "http://www.w3.org/2002/07/owl#NamedIndividual": {
+            "description": null
+          }
+        }
+      },
+      "object_context": null
+    }
+  ],
+  "normalized_context": [
+    {
+      "entity_context": {
+        "scope_note": "All information in this object is directly related to the resolved entity of the atomic question.",
+        "label": "sensor",
+        "types": [
+          "ActivityOverview",
+          "SensorAttachment",
+          "SensorAttachmentInstructions",
+          "SensorID",
+          "SensorPatch",
+          "SensorPatchRemovalGuide",
+          "WebApp",
+          "NamedIndividual"
+        ],
+        "superclasses": {
+          "ActivityOverview": [
+            "InformationObject",
+            "OnlineVisualizationTool",
+            "InformationRealization"
+          ],
+          "SensorAttachment": [
+            "PhysicalObject",
+            "Attachment"
+          ],
+          "SensorAttachmentInstructions": [
+            "InformationObject"
+          ],
+          "SensorID": [
+            "SocialObject",
+            "InformationObject",
+            "UserInterface",
+            "InformationRealization",
+            "PhysicalObject",
+            "ParticipantID",
+            "WebApplication"
+          ],
+          "SensorPatch": [
+            "PhysicalObject"
+          ],
+          "SensorPatchRemovalGuide": [
+            "Action",
+            "SensorPatchRemovalGuide"
+          ],
+          "WebApp": [
+            "SocialObject"
+          ],
+          "NamedIndividual": []
+        },
+        "equivalent_classes": [],
+        "annotations": {},
+        "class_descriptions": {
+          "Action": {
+            "description": "An Event with at least one agent that participates in it, and that executes a task."
+          },
+          "ActivityOverview": {
+            "description": "A feature within an application that provides users with information about their physical activity, such as steps taken and active time."
+          },
+          "Attachment": {
+            "description": "An object that is fastened or connected to another object, often to add functionality or to complete a set."
+          },
+          "InformationObject": {
+            "description": "A piece of information, such as a text, a word, a picture, or data, independently from how it is concretely realized."
+          },
+          "InformationRealization": {
+            "description": "A physical object or event that realizes an information object. For example, a physical printed document or a digital file on a hard drive."
+          },
+          "OnlineVisualizationTool": {
+            "description": "A digital tool that allows users to view and interact with data or information over the internet, in this context, for visualizing patient activity."
+          },
+          "ParticipantID": {
+            "description": "A unique identifier for a participant, which can be used to select and manage the participant within the web application."
+          },
+          "PhysicalObject": {
+            "description": "Any Object that has a proper space region. Examples include people, equipment, sensors, and buildings."
+          },
+          "SensorAttachment": {
+            "description": "The act or process of attaching a sensor to a device or surface, ensuring it is properly connected and functional."
+          },
+          "SensorAttachmentInstructions": {
+            "description": "Guidelines or steps provided to assist users in correctly attaching a sensor to a device or surface."
+          },
+          "SensorID": {
+            "description": "A unique identifier for a sensor, which can be used to select and manage the sensor within the web application."
+          },
+          "SensorPatch": {
+            "description": "A wearable device, often a small piece of clothing or adhesive, that is used to monitor various health-related metrics."
+          },
+          "SensorPatchRemovalGuide": {
+            "description": "A guide that specifically focuses on the process of removing a sensor patch from a sensor device, including any special techniques or precautions."
+          },
+          "SocialObject": {
+            "description": "Any Object that exists only within some social context, such as organizations, laws, plans, or projects."
+          },
+          "UserInterface": {
+            "description": "The part of the software application that directly interacts with the user, often consisting of menus, buttons, and other elements that allow the user to perform actions or make selections."
+          },
+          "WebApp": {
+            "description": "An application that operates over the web, providing services or resources through a network, typically accessed via a web browser."
+          },
+          "WebApplication": {
+            "description": "A software application that is designed to be used over the internet, typically accessed through a web browser."
+          },
+          "NamedIndividual": {
+            "description": null
+          }
+        }
+      },
+      "object_context": null
+    }
+  ],
+  "generated_answer": {
+    "reasoning": "The ontology information defines 'sensor' as a 'PhysicalObject' and provides various types and contexts in which a sensor can exist, such as 'SensorID', 'SensorPatch', and 'SensorPatchRemovalGuide'. It also mentions 'SensorAttachment' as an 'Attachment', which implies that a sensor can be attached to something. However, the atomic question asks for a general definition of a 'sensor', not a specific context or type of sensor.",
+    "answer": "A sensor is a PhysicalObject that can be an Attachment, such as a SensorID, SensorPatch, or part of a SensorPatchRemovalGuide."
+  },
+  "map_answer_to_context": [
+    {
+      "answer": "The ontology information defines 'sensor' as a 'PhysicalObject' and provides various types and contexts in which a sensor can exist, such as 'SensorID', 'SensorPatch', and 'SensorPatchRemovalGuide'. It also mentions 'SensorAttachment' as an 'Attachment', which implies that a sensor can be attached to something. However, the atomic question asks for a general definition of a 'sensor', not a specific context or type of sensor.",
+      "types": [
+        "SensorAttachment",
+        "SensorID",
+        "SensorPatch",
+        "SensorPatchRemovalGuide"
+      ],
+      "superclasses": [
+        "Attachment",
+        "PhysicalObject",
+        "SensorPatchRemovalGuide"
+      ],
+      "equivalent_classes": [],
+      "properties": [],
+      "property_values": {},
+      "annotations": [],
+      "members": [],
+      "chunk_id": []
+    },
+    {
+      "answer": "A sensor is a PhysicalObject that can be an Attachment, such as a SensorID, SensorPatch, or part of a SensorPatchRemovalGuide.",
+      "types": [
+        "SensorID",
+        "SensorPatch",
+        "SensorPatchRemovalGuide"
+      ],
+      "superclasses": [
+        "Attachment",
+        "PhysicalObject",
+        "SensorPatchRemovalGuide"
+      ],
+      "equivalent_classes": [],
+      "properties": [],
+      "property_values": {},
+      "annotations": [],
+      "members": [],
+      "chunk_id": []
+    }
+  ],
+  "mapped_entity_merged": {
+    "types": [
+      "SensorAttachment",
+      "SensorID",
+      "SensorPatch",
+      "SensorPatchRemovalGuide"
+    ],
+    "property_values": {},
+    "members": [],
+    "properties": [],
+    "equivalent_classes": [],
+    "chunk_id": [],
+    "annotations": [],
+    "superclasses": [
+      "Attachment",
+      "PhysicalObject",
+      "SensorPatchRemovalGuide"
+    ]
+  },
+  "mapped_object_merged": null
+}

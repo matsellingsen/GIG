@@ -952,6 +952,12 @@ def fetch_relevant_info(question_info: dict, ttl: dict, resolve_entity_agent: Re
                 inference_log["error"] = error_msg
             return error_msg
     
+    if inference_log is not None:
+        inference_log.setdefault("full_context", []).append({
+            "question_type": question_type,
+            "entity_context": full_entity_context if isinstance(full_entity_context, dict) else None,
+            "object_context": full_object_context if isinstance(full_object_context, dict) else None
+        })
     #2b. filter the retrieved context based on the question type (e.g., for definition questions, we may only care about types, superclasses and annotations, while for capability questions we care more about properties and their semantics).
     entity_context_filtered = filter_context(question_info=question_info, full_context=full_entity_context)
     if not entity_context_filtered or not isinstance(entity_context_filtered, dict):
@@ -972,8 +978,8 @@ def fetch_relevant_info(question_info: dict, ttl: dict, resolve_entity_agent: Re
     if inference_log is not None:
         inference_log.setdefault("filtered_context", []).append({
             "question_type": question_type,
-            "entity_context_keys": list(entity_context_filtered.keys()) if isinstance(entity_context_filtered, dict) else None,
-            "object_context_keys": list(object_context_filtered.keys()) if isinstance(object_context_filtered, dict) else None
+            "entity_context": entity_context_filtered if isinstance(entity_context_filtered, dict) else None,
+            "object_context": object_context_filtered if isinstance(object_context_filtered, dict) else None
         })
 
     # 3. Normalize the context(s) to be LLM-friendly (no URIs, only human-readable labels and comments).
@@ -994,9 +1000,9 @@ def fetch_relevant_info(question_info: dict, ttl: dict, resolve_entity_agent: Re
             return error_msg
 
     if inference_log is not None:
-        inference_log.setdefault("normalized_context_summary", []).append({
-            "entity_context_summary": {"label": entity_context_normalized.get("label") if isinstance(entity_context_normalized, dict) else None, "num_properties": len(entity_context_normalized.get("outgoing_object_properties", [])) if isinstance(entity_context_normalized, dict) else None},
-            "object_context_summary": {"label": object_context_normalized.get("label") if isinstance(object_context_normalized, dict) else None, "num_properties": len(object_context_normalized.get("outgoing_object_properties", [])) if isinstance(object_context_normalized, dict) else None} if object_context_normalized is not None else None
+        inference_log.setdefault("normalized_context", []).append({
+            "entity_context": entity_context_normalized if isinstance(entity_context_normalized, dict) else None,
+            "object_context": object_context_normalized if isinstance(object_context_normalized, dict) else None
         })
 
     # 4. group together all information and return it.
