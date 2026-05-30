@@ -184,14 +184,16 @@ TODO:
 2. Extract relevant instances or classes from the ontology.
 
 FINAL TODO:
-- Formulate research question
-- Revise discussion
-- contemplate if conclusion is needed
-- Go through whole paper and refine manually
-- fix start-page
-- fix appendix
-- Write/generate 1/2 - 1 page summary 
-- Make sure all formal requirements are met. (format, style, pagenumber etc.)
+- Formulate research question (DONE)
+- Revise discussion (DONE)
+- contemplate if conclusion is needed (DONE)
+- Write abstract (DONE)
+- fix start-page (DONE)
+- fix appendix (1/2 DONE)
+- Make sure all formal requirements are met. (format, style, pagenumber etc.) (8/10 DONE)
+- Go through whole paper and refine manually (8/10 DONE)
+    - Make sure all placeholders are gone and all sections transition smoothly
+- Revise and expand Conclusion to state more cool stuff possible to do from this work, and not only restate what has been done.
 - contemplate if more needs to be done
 - DELIVER
 - buy weed
