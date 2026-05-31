@@ -7,7 +7,7 @@ RESULTS_PATH = os.path.abspath(
 )
 
 OUTPUT_PATH = os.path.abspath(
-    os.path.join(os.path.dirname(__file__), "..", "..", "interpreted_results", "manual_resolution_component_results_interpreted.json")
+    os.path.join(os.path.dirname(__file__), "..", "..", "interpreted_results", "resolution_component_results_interpreted.json")
 )
 
 def load_results():

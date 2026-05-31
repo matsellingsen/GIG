@@ -22,7 +22,7 @@ from agent_loop.agents.inference_module.generate_answer_agent import GenerateAns
 
 
 DATASET_PATH = os.path.abspath(
-    os.path.join(os.path.dirname(__file__), "..", "dataset", "ontology_grounded_100_natural_standardized.json")
+    os.path.join(os.path.dirname(__file__), "..", "dataset", "ontology_grounded_evaluationDataset.json")
 )
 REPORT_PATH = os.path.abspath(
     os.path.join(os.path.dirname(__file__), "..", "reports", "ontology_grounded_standardized_results.json")

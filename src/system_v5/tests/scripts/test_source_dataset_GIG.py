@@ -21,7 +21,7 @@ from agent_loop.agents.inference_module.resolve_entity_agent import ResolveEntit
 from agent_loop.agents.inference_module.generate_answer_agent import GenerateAnswerAgent
 
 DATASET_PATH = os.path.abspath(
-    os.path.join(os.path.dirname(__file__), "..", "dataset", "source_dataset.json")
+    os.path.join(os.path.dirname(__file__), "..", "dataset", "source_grounded_evaluationDataset.json")
 )
 
 REPORT_PATH = os.path.abspath(

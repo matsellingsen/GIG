@@ -38,7 +38,8 @@ def atomic_to_graph(atomic_input: str, extract_question_type_agent: ExtractQuest
 
     if not question_type: # Handle empty or None question type
         return "Failed to extract a question type from the input."
-    
+    elif question_type.get("question_type") == "unknown":
+        return "Extracted question type is 'unknown'. I did not understand the question type. Therefore, bye."
     answer_form, _ = extract_answer_form_agent.run(atomic_input, question_type=question_type)
     if inference_log:
         inference_log["resolved_answer_form"] = answer_form

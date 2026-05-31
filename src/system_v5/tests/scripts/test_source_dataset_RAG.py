@@ -8,7 +8,7 @@ from system_v5.backends import load_backend
 from system_v5.tests.baselines.naive_RAG import NaiveRAG
 
 DATASET_PATH = os.path.abspath(
-    os.path.join(os.path.dirname(__file__), "..", "dataset", "source_dataset.json")
+    os.path.join(os.path.dirname(__file__), "..", "dataset", "source_grounded_evaluationDataset.json")
 )
 
 REPORT_PATH = os.path.abspath(

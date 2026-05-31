@@ -44,6 +44,22 @@ class InferenceModule:
         resolved_ttl_path = resolve_ttl_path(ttl_path=None)
         self.ttl = load_ttl(file_path=resolved_ttl_path)
 
+    def save_inference_log(self, inference_log: dict):
+        # Persist a copy of the full inference_log into src/system_v5/inference_logs/
+            try:
+                base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+                logs_dir = os.path.join(base_dir, "inference_logs")
+                os.makedirs(logs_dir, exist_ok=True)
+                ts = datetime.utcnow().strftime("%Y%m%dT%H%M%S%fZ")
+                unique = uuid.uuid4().hex[:8]
+                fname = f"inference_{ts}_{unique}.json"
+                full_path = os.path.join(logs_dir, fname)
+                with open(full_path, "w", encoding="utf-8") as fh:
+                    json.dump(inference_log, fh, ensure_ascii=False, indent=2)
+                print(f"Saved mapped inference log to: {full_path}")
+            except Exception as e:
+                print(f"Warning: failed to write inference mapped log: {e}")
+
     def run(self) -> dict:
         while True:
 
@@ -73,6 +89,7 @@ class InferenceModule:
             if isinstance(question_info, str): # Check if the output is an error message
                 inference_log["error"] = question_info
                 print(question_info)
+                self.save_inference_log(inference_log)
                 return
             
             # Step 2: Fetch relevant information from the knowledge graph based on the extracted triplet and question type
@@ -85,6 +102,7 @@ class InferenceModule:
             if isinstance(fetched_relevant_info, str): # Check if the output is an error message
                 inference_log["error"] = fetched_relevant_info
                 print(fetched_relevant_info)
+                self.save_inference_log(inference_log)
                 return
 
             entity_context = fetched_relevant_info.get("entity_context") #unpack the relevant info from the full context
@@ -100,6 +118,7 @@ class InferenceModule:
             if isinstance(answer, str): # Check if the output is an error message
                 inference_log["error"] = answer
                 print(answer)
+                self.save_inference_log(inference_log)
                 return
         
             # Step 4: Map the generated answer back to the ontology context
@@ -115,12 +134,14 @@ class InferenceModule:
             if isinstance(mapped_reasoning_entity_answer, str): # Check if the output is an error message
                 inference_log["error"] = mapped_reasoning_entity_answer
                 print(mapped_reasoning_entity_answer)
+                self.save_inference_log(inference_log)
                 return
             
             mapped_answer_entity_answer = map_answer_to_context(answer=answer_text, context=entity_context, inference_log=inference_log)
             if isinstance(mapped_answer_entity_answer, str): # Check if the output is an error message
                 inference_log["error"] = mapped_answer_entity_answer
                 print(mapped_answer_entity_answer)
+                self.save_inference_log(inference_log)
                 return
             
             mapped_entity_merged = merge_mappings(mapped_reasoning_entity_answer, mapped_answer_entity_answer)
@@ -134,12 +155,14 @@ class InferenceModule:
                 if isinstance(mapped_reasoning_object_answer, str): # Check if the output is an error message
                     inference_log["error"] = mapped_reasoning_object_answer
                     print(mapped_reasoning_object_answer)
+                    self.save_inference_log(inference_log)
                     return
                 
                 mapped_answer_object_answer = map_answer_to_context(answer=answer_text, context=object_context, inference_log=inference_log)
                 if isinstance(mapped_answer_object_answer, str): # Check if the output is an error message
                     inference_log["error"] = mapped_answer_object_answer
                     print(mapped_answer_object_answer)
+                    self.save_inference_log(inference_log)
                     return
                 
                 mapped_object_merged = merge_mappings(mapped_reasoning_object_answer, mapped_answer_object_answer)
@@ -154,21 +177,9 @@ class InferenceModule:
             except Exception:
                 pass
 
-            # Persist a copy of the full inference_log into src/system_v5/inference_logs/
-            try:
-                base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-                logs_dir = os.path.join(base_dir, "inference_logs")
-                os.makedirs(logs_dir, exist_ok=True)
-                ts = datetime.utcnow().strftime("%Y%m%dT%H%M%S%fZ")
-                unique = uuid.uuid4().hex[:8]
-                fname = f"inference_{ts}_{unique}.json"
-                full_path = os.path.join(logs_dir, fname)
-                with open(full_path, "w", encoding="utf-8") as fh:
-                    json.dump(inference_log, fh, ensure_ascii=False, indent=2)
-                print(f"Saved mapped inference log to: {full_path}")
-            except Exception as e:
-                print(f"Warning: failed to write inference mapped log: {e}")
-                
+            # save the inference log
+            self.save_inference_log(inference_log)
+            
             # ALL STEPS COMPLETED SUCCESSFULLY, RETURN FINAL ANSWER
             print("================================")
             print(f"Final answer: {answer_text}")

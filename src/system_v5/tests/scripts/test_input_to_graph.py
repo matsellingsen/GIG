@@ -15,7 +15,7 @@ from agent_loop.agents.inference_module.resolve_answer_form_agent import Resolve
 from system_v5.backends import load_backend
 
 # Load dataset once (use relative path so it works on other machines)
-DATASET_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "dataset", "new_synthetic_labelled_input.json"))
+DATASET_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "dataset", "input_to_graph_evaluationDataset.json"))
 with open(DATASET_PATH) as f:
     DATASET = json.load(f)
 
@@ -50,6 +50,7 @@ def _is_fuzzy_match(expected: str, actual: str, ratio_threshold: float = 0.45) -
 def build_cases():
     cases = []
     
+    """
     # If there's a missing input tracker, run only those to save time/APIs
     missing_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..", "..", "missing_input_to_graph.json"))
     print(f"Looking for missing_path at: {missing_path}") # Debug print
@@ -65,7 +66,7 @@ def build_cases():
                 "name": f"{m['tier']}_{m.get('name')}"
             })
         return cases
-
+    """
     for domain, domain_data in DATASET.items():
         for tier in TIERS:
             tier_items = domain_data.get(tier, [])

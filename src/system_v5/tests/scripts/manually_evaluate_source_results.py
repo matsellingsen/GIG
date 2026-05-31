@@ -1,3 +1,5 @@
+"""Script to manually evaluate and compare the outputs of the ontology-grounded system (System A) and the RAG system (System B) on the source-grounded evaluation dataset."""
+
 import streamlit as st
 import json
 import random

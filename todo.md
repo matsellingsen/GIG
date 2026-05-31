@@ -1,3 +1,5 @@
+Hello there! Welcome to my very messy history of todos throughout this project!
+
 ## week 12
 - preprocess source data ( 9/10 DONE)
     -- clean
@@ -189,14 +191,16 @@ FINAL TODO:
 - contemplate if conclusion is needed (DONE)
 - Write abstract (DONE)
 - fix start-page (DONE)
-- fix appendix (1/2 DONE)
-- Make sure all formal requirements are met. (format, style, pagenumber etc.) (8/10 DONE)
-- Go through whole paper and refine manually (8/10 DONE)
+- fix appendix (DONE)
+- Make sure all formal requirements are met. (format, style, pagenumber etc.) (DONE)
+- Go through whole paper and refine manually (DONE)
     - Make sure all placeholders are gone and all sections transition smoothly
-- Revise and expand Conclusion to state more cool stuff possible to do from this work, and not only restate what has been done.
+- Revise and expand Conclusion to state more cool stuff possible to do from this work, and not only restate what has been done. (DONE)
+- add github link at the start (DONE)
+- Make sure abbreviations are stated only once and used consistently throughout.
+- Make sure terms are used consistently. e.g. GIG system vs. GIG pipeline etc..
 - contemplate if more needs to be done
 - DELIVER
-- buy weed
 
 
 

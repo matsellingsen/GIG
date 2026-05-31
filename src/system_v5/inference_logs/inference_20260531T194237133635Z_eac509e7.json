@@ -1,0 +1,8 @@
+{
+  "input": "Hello there",
+  "resolved_question_type": {
+    "reasoning": "The input 'Hello there' is a greeting or a common phrase used to initiate conversation. It does not explicitly ask a question or seek information, and thus does not fit any of the defined question types related to seeking information, identity, essence, or characteristics of an entity or concept. It is a social cue rather than a question seeking a response based on the provided definitions.",
+    "question_type": "unknown"
+  },
+  "error": "Extracted question type is 'unknown'. I did not understand the question type. Therefore, bye."
+}

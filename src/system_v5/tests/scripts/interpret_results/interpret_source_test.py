@@ -9,7 +9,7 @@ RESULTS_PATH = os.path.abspath(
 )
 
 OUTPUT_PATH = os.path.abspath(
-    os.path.join(os.path.dirname(__file__), "..", "..", "interpreted_results", "manual_source_results_complete_interpreted.json")
+    os.path.join(os.path.dirname(__file__), "..", "..", "interpreted_results", "source_grounded_results_interpreted.json")
 )
 
 
@@ -141,7 +141,7 @@ def generate_bar_chart(metrics):
     ax.bar_label(rects1, padding=3, fmt='%.1f')
     ax.bar_label(rects2, padding=3, fmt='%.1f')
     
-    img_path = os.path.join(os.path.dirname(OUTPUT_PATH), "manual_source_results_barchart.png")
+    img_path = os.path.join(os.path.dirname(OUTPUT_PATH), "source_grounded_results_barchart.png")
     fig.tight_layout()
     plt.savefig(img_path)
     plt.close()

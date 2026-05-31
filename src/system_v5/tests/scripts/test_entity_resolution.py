@@ -11,7 +11,7 @@ from agent_loop.agents.inference_module.resolve_entity_agent import ResolveEntit
 
 
 UNRESOLVABLE_PATH = os.path.abspath(
-    os.path.join(os.path.dirname(__file__), "..", "dataset", "unresolvable_simple_questions.json")
+    os.path.join(os.path.dirname(__file__), "..", "dataset", "entity_resolution_evaluationDataset.json")
 )
 REPORT_PATH = os.path.abspath(
     os.path.join(os.path.dirname(__file__), "..", "reports", "resolution_component_results.json")

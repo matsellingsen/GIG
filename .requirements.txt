@@ -1,14 +1,28 @@
 # Core numeric/runtime
 numpy
+scipy
+sympy
 
 # HF model download + tokenizer/model loading
 huggingface_hub
 transformers
+sentence-transformers
 
-# OpenVINO conversion + quantization toolchain
+# OpenVINO conversion + quantization toolchain & execution
 openvino
+openvino-genai
 optimum-intel
 nncf
 
 # ONNX Runtime (OpenVINO execution provider build)
 onnxruntime-openvino
+
+# Knowledge Base / Graph / Retrieval
+rdflib
+scikit-learn
+faiss-cpu
+
+# Utilities and Evaluation Interfaces
+matplotlib
+pytest
+streamlit

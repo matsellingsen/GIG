@@ -9,7 +9,7 @@ RESULTS_PATH = os.path.abspath(
 )
 
 OUTPUT_PATH = os.path.abspath(
-    os.path.join(os.path.dirname(__file__), "..", "..", "interpreted_results", "manual_ontology_grounded_results_complete_interpreted.json")
+    os.path.join(os.path.dirname(__file__), "..", "..", "interpreted_results", "ontology_grounded_results_interpreted.json")
 )
 
 

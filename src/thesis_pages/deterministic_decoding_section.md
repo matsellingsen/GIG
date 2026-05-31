@@ -1,5 +1,0 @@
-#### Deterministic Decoding Settings
-
-Determinism is enforced through the generation configuration applied by the OpenVINO NPU backend. Sampling is fully disabled by setting do_sample = False, which forces greedy decoding and ensures that the model always selects the highest‑probability token. To eliminate any backend default variability, all decoding parameters are specified explicitly: the temperature is fixed at 0.0, while top_p = 1.0 and top_k = 0 disable nucleus and top‑k sampling, respectively. When supported by the runtime, a fixed seed (seed = 42) is also applied to guard against latent sources of randomness in the generation stack and to keep outputs repeatable for identical prompts.
-
-The generation configuration is constructed on a per‑request basis and passed directly into the inference call, ensuring that these deterministic settings are consistently applied across all agents and all stages of the pipeline. Together, these controls guarantee that the decoding process is fully deterministic, which is essential for the reproducibility and stability of the multi‑agent system.
