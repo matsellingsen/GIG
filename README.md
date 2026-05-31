@@ -79,6 +79,11 @@ The workflow is divided into two primary subsystems located in the `src/system_v
 
 This phase transforms the raw source text chunks located in `content/` into a persistent, clean, and resolved OWL ontology (Turtle format).
 
+*   **Step 0: Configure source text**
+    ```bash
+    If you want to test the system on any other source text, make sure to first clean and chunk it and store it under content/. You may resue the script in tools/preprocessing, or use a custom one.
+    ```
+
 *   **Step 1: Extract concepts and assert rules**
     ```bash
     python src/system_v5/pipelines/ontology_construction.py
